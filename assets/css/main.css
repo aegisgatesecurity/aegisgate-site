@@ -829,25 +829,6 @@ tr:hover {
     color: var(--text-primary);
 }
 
-.cta-card-content ul {
-    margin: 0;
-    padding-left: 1.25rem;
-}
-
-.cta-card-content li {
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-    color: var(--text-secondary);
-}
-
-.cta-card-content li:last-child {
-    margin-bottom: 0;
-}
-
-.cta-card-content li strong {
-    color: var(--text-primary);
-}
-
 .cta-card-content code {
     font-size: 0.85em;
     background: var(--code-bg);
@@ -883,10 +864,16 @@ tr:hover {
 
 /* ============================================
    TL;DR list — emphasised bullets after intro paragraph
+   ============================================
+   IMPORTANT: Bullets are hidden via list-style:none to give a cleaner,
+   more "marketing prose" look. The list semantics (ul/li) are preserved
+   for accessibility (screen readers still announce it as a list) and
+   for any future styling that might want to use list markers.
    ============================================ */
 .tldr-list {
+    list-style: none;   /* Hide the bullet dot */
     margin: 1.5rem 0 2rem 0;
-    padding-left: 1.5rem;
+    padding-left: 0;    /* Remove the default indent since there are no bullets to offset */
 }
 
 .tldr-list li {
@@ -894,6 +881,22 @@ tr:hover {
     line-height: 1.55;
     color: var(--text-secondary);
     font-size: 1rem;
+    /* Visual alignment: use a small left border or padding to maintain
+       a "list-like" feel without the actual bullet */
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+/* Optional visual marker: a small dot replaced with a left-border
+   treatment, OR a custom symbol. Comment out this block if you want
+   completely plain text with no visual indicator. */
+.tldr-list li::before {
+    content: "→";       /* Arrow indicator instead of bullet */
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
 }
 
 .tldr-list li:last-child {
@@ -901,6 +904,48 @@ tr:hover {
 }
 
 .tldr-list li strong {
+    color: var(--text-primary);
+}
+
+/* ============================================
+   CTA card lists — hide bullets for cleaner card layout
+   ============================================ */
+/*
+   The CTA cards (.cta-card-content) contain <ul> lists that need the
+   bullet dots hidden. Same reasoning as .tldr-list: cleaner visual,
+   but list semantics preserved for accessibility.
+
+   Cards are wider than the TL;DR list, so we use a different visual
+   marker (em-dash) for the bullets to maintain a "list feel" without
+   the actual disc marker.
+*/
+.cta-card-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.cta-card-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.cta-card-content li::before {
+    content: "—";       /* Em-dash indicator instead of bullet */
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.cta-card-content li:last-child {
+    margin-bottom: 0;
+}
+
+.cta-card-content li strong {
     color: var(--text-primary);
 }
 
