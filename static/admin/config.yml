@@ -99,7 +99,10 @@ collections:
     view_groups:
       - label: "Year"
         field: date
-        pattern: "\d{4}"
+        # In YAML, backslash-d in a double-quoted string is invalid (YAML only
+        # recognizes \\, \", \n, \t, etc., not \d). Use a single-quoted string
+        # or escape the backslash. We use a single-quoted YAML string here.
+        pattern: '\d{4}'
     # Field definitions for the editor form
     fields:
       - {label: "Title", name: "title", widget: "string"}

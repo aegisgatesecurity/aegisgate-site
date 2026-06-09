@@ -84,8 +84,12 @@
     #   - https://*.github.com is required for Sveltia's GitHub backend
     #   - https://unpkg.com is required for Sveltia's CDN-hosted bundle
     #   - blob: is required for Sveltia's dynamic web worker imports
+    #   - https://fonts.googleapis.com and https://fonts.gstatic.com are
+    #     required for Sveltia's Material Symbols Outlined font (used for
+    #     icons in the Sveltia UI). Without these, the CSP blocks the
+    #     stylesheet and Sveltia's icon font doesn't load.
     [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://js.stripe.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://js.stripe.com; img-src 'self' data: https: https://*.stripe.com https://avatars.githubusercontent.com; font-src 'self' data: https://js.stripe.com; connect-src 'self' https://api.stripe.com https://m.stripe.network https://api.netlify.com https://*.netlify.app https://*.github.com https://unpkg.com; frame-src 'self' https://checkout.stripe.com https://js.stripe.com; worker-src 'self' blob:; frame-ancestors 'none';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://js.stripe.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://js.stripe.com https://fonts.googleapis.com; style-src-elem 'self' 'unsafe-inline' https://js.stripe.com https://fonts.googleapis.com; img-src 'self' data: https: https://*.stripe.com https://avatars.githubusercontent.com; font-src 'self' data: https://js.stripe.com https://fonts.gstatic.com; connect-src 'self' https://api.stripe.com https://m.stripe.network https://api.netlify.com https://*.netlify.app https://*.github.com https://unpkg.com; frame-src 'self' https://checkout.stripe.com https://js.stripe.com; worker-src 'self' blob:; frame-ancestors 'none';"
     # frame-ancestors replaces X-Frame-Options (modern equivalent) and is recognized by all current browsers.
 
     # 2. X-Content-Type-Options
