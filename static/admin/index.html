@@ -43,14 +43,103 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        .sveltia-error {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fee;
+            border: 1px solid #fcc;
+            border-left: 4px solid #c00;
+            border-radius: 6px;
+            padding: 16px 20px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 13px;
+            color: #600;
+            z-index: 10000;
+            display: none;
+        }
+        .sveltia-error.show { display: block; }
+        .sveltia-error strong { color: #c00; }
+        .sveltia-error pre {
+            margin: 8px 0 0 0;
+            padding: 8px;
+            background: #fdd;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 <body>
-    <div class="sveltia-loader">
+    <div class="sveltia-error" id="sveltia-error">
+        <strong>Sveltia CMS failed to load.</strong>
+        <span id="sveltia-error-message"></span>
+        <pre id="sveltia-error-details"></pre>
+        <p style="margin-top:12px;font-size:12px;color:#666;">
+            Open the browser console (F12) for more details. If you see a CSP error,
+            the Content-Security-Policy in netlify.toml may be blocking the Sveltia
+            CDN. The fix is to allow https://unpkg.com in script-src.
+        </p>
+    </div>
+
+    <div class="sveltia-loader" id="sveltia-loader">
         <div class="spinner"></div>
         <h1>AegisGate Content Manager</h1>
         <p>Loading Sveltia CMS...</p>
     </div>
+
+    <script>
+        // ============================================
+        // Error reporter — shows errors visibly on page
+        // ============================================
+        // Sveltia is loaded as an ES module, so any errors (CORS, network,
+        // CSP, parse errors) would normally only show in the browser console.
+        // This error reporter captures errors and shows them on the page
+        // so the user can see what's wrong.
+        window.__sveltiaErrors = [];
+        function reportError(title, message, details) {
+            var errEl = document.getElementById('sveltia-error');
+            var msgEl = document.getElementById('sveltia-error-message');
+            var detEl = document.getElementById('sveltia-error-details');
+            if (errEl && msgEl && detEl) {
+                errEl.classList.add('show');
+                msgEl.textContent = ' ' + (message || '');
+                detEl.textContent = details || '';
+            }
+            window.__sveltiaErrors.push({title: title, message: message, details: details});
+            console.error('[Sveltia Debug]', title, message, details || '');
+        }
+        window.addEventListener('error', function(event) {
+            reportError(
+                'JavaScript error',
+                event.message,
+                'File: ' + (event.filename || 'unknown') + '\n' +
+                'Line: ' + (event.lineno || '?') + ':' + (event.colno || '?') + '\n' +
+                'Error: ' + (event.error ? event.error.stack : 'unknown')
+            );
+        });
+        window.addEventListener('unhandledrejection', function(event) {
+            reportError(
+                'Unhandled promise rejection',
+                String(event.reason),
+                event.reason && event.reason.stack ? event.reason.stack : ''
+            );
+        });
+
+        // Detect CSP violations specifically
+        document.addEventListener('securitypolicyviolation', function(event) {
+            reportError(
+                'Content Security Policy violation',
+                'A CSP rule blocked a resource from loading.',
+                'Blocked URI: ' + event.blockedURI + '\n' +
+                'Violated directive: ' + event.violatedDirective + '\n' +
+                'Original policy: ' + event.originalPolicy
+            );
+        });
+    </script>
 
     <!--
         Sveltia CMS — A modern, actively-maintained fork of Decap CMS (formerly Netlify CMS).
@@ -60,6 +149,27 @@
         This is a static SPA. All configuration is in config.yml next to this file.
         Authentication is handled via GitHub OAuth (configured below in config.yml).
     -->
-    <script type="module" src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <script type="module">
+        // Wrap the dynamic import in error handling so we can report failures
+        try {
+            const module = await import('https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js');
+            reportError('Sveltia loaded', 'Module loaded successfully', 'Type: ' + typeof module.default);
+        } catch (err) {
+            reportError(
+                'Sveltia import failed',
+                'The Sveltia CMS script could not be loaded or executed.',
+                'Error: ' + err.message + '\n' +
+                'Stack: ' + (err.stack || 'no stack trace') + '\n\n' +
+                'Common causes:\n' +
+                '1. CSP blocking https://unpkg.com (check netlify.toml)\n' +
+                '2. Network error (check internet connection)\n' +
+                '3. unpkg.com is down (check https://status.unpkg.com)\n' +
+                '4. Sveltia has a runtime error before initializing'
+            );
+            // Hide the loader since the error reporter will show
+            var loader = document.getElementById('sveltia-loader');
+            if (loader) loader.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
