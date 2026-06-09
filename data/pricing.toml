@@ -1,0 +1,134 @@
+# AegisGate Pricing Tiers
+
+[[tiers]]
+name = "Community"
+price = "Free"
+period = "forever"
+description = "Open-source core for individuals and small teams starting their AI security journey"
+highlights = [
+  "HTTP Proxy with bidirectional scanning",
+  "120 proxy RPM / 60 MCP RPM",
+  "3 concurrent users",
+  "144+ detection patterns",
+  "8 MCP guardrails",
+  "8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)",
+  "MITRE ATLAS enforcement",
+  "NIST AI RMF support",
+  "OWASP LLM Top 10",
+  "Built-in Certificate Authority",
+  "7-day audit log retention",
+  "Community support (GitHub Issues)"
+]
+highlights_excluded = [
+  "SSO authentication",
+  "RBAC permissions",
+  "HIPAA/GDPR compliance",
+  "Priority support",
+  "A2A license-aware enforcement"
+]
+
+[[tiers]]
+name = "Starter"
+price = "$29"
+period = "per month"
+description = "For SMB, SLED, and SOHO teams needing more actions, workflows, and MCP capacity"
+badge = "Popular for small teams"
+highlights = [
+  "Everything in Community, plus:",
+  "600 proxy RPM / 300 MCP RPM",
+  "10 concurrent users",
+  "5 concurrent agents",
+  "A2A license-aware enforcement",
+  "OIDC/SAML single sign-on",
+  "RBAC permissions and custom roles",
+  "GDPR view compliance",
+  "OWASP compliance module",
+  "Circuit breaker pattern",
+  "30-day audit log retention",
+  "Email support"
+]
+highlights_excluded = [
+  "HIPAA compliance",
+  "PCI-DSS compliance",
+  "SOC2 certification",
+  "Priority support"
+]
+
+[[tiers]]
+name = "Developer"
+price = "$79"
+period = "per month"
+description = "For growing teams building AI-powered applications"
+highlights = [
+  "Everything in Starter, plus:",
+  "1,000 proxy RPM / 500 MCP RPM",
+  "25 concurrent users",
+  "mTLS authentication (proxy + A2A)",
+  "A2A capability persistence",
+  "Full GDPR and HIPAA compliance",
+  "PCI-DSS compliance",
+  "SOC2 compliance module",
+  "Advanced ML anomaly detection",
+  "Grafana integration",
+  "SQLite and Redis storage",
+  "Code execution sandbox",
+  "Priority email support"
+]
+highlights_excluded = [
+  "ISO 27001 / ISO 42001",
+  "Custom compliance frameworks",
+  "Dedicated support"
+]
+
+[[tiers]]
+name = "Professional"
+price = "$249"
+period = "per month"
+description = "For teams with serious security and compliance requirements"
+highlights = [
+  "Everything in Developer, plus:",
+  "10,000 proxy RPM / 5,000 MCP RPM",
+  "100 concurrent users",
+  "A2A agent registry & trust scoring",
+  "A2A task-level ACLs",
+  "A2A artifact validation",
+  "ISO 27001 compliance",
+  "ISO 42001 AI compliance",
+  "SOC2 Type II",
+  "Policy engine and department separation",
+  "Kubernetes and Helm deployment",
+  "PostgreSQL and S3 storage",
+  "Process-level MCP sandboxing",
+  "90-day audit log retention",
+  "Priority support"
+]
+highlights_excluded = [
+  "Custom compliance frameworks",
+  "Dedicated support engineer"
+]
+
+[[tiers]]
+name = "Enterprise"
+price = "Custom"
+period = "contact us"
+description = "Mission-critical deployments with advanced security and dedicated support"
+highlights = [
+  "Everything in Professional, plus:",
+  "Unlimited proxy & MCP RPM",
+  "Unlimited concurrent users",
+  "A2A notification verification",
+  "A2A cross-agent attack detection",
+  "ISO 42001 AI compliance",
+  "FedRAMP compliance",
+  "Custom compliance frameworks",
+  "Custom ML models and zero-day detection",
+  "HSM and LDAP integration",
+  "FIPS 140-2 compliance",
+  "High availability and air-gapped deployment",
+  "Auto-scaling and multi-region",
+  "1-year audit log retention",
+  "Business Associate Agreement (BAA)",
+  "Data Processing Agreement (DPA)",
+  "Dedicated support engineer"
+]
+highlights_excluded = []

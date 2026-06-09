@@ -1,0 +1,64 @@
+baseURL: "https://aegisgatesecurity.io"
+languageCode: "en-us"
+title: "AegisGate Security Platform"
+copyright: "2024-2026 AegisGate Security. All rights reserved."
+
+params:
+  description: "Secure Every AI Interaction - The only AI security platform with five pillars of protection: HTTP API, MCP, A2A, RESPONSE, and the Trust Framework (v3.2.0)."
+  author: "AegisGate Security"
+  email: "security@aegisgatesecurity.io"
+  salesEmail: "sales@aegisgatesecurity.io"
+  github: "https://github.com/aegisgatesecurity/aegisgate-platform"
+  twitter: "https://twitter.com/aegisgatesec"
+  mastodon: ""
+  copyrightStartYear: 2024
+  currentYear: 2026
+  
+  # Version info
+  version: "v3.2.0"
+  goVersion: "1.26.4+"
+  coverage: "97.8%"
+  dockerSize: "19 MB"
+
+  # Features
+  atlasTechniques: 66
+  owaspPatterns: 49
+  pillars: "HTTP API, MCP, A2A, RESPONSE, Trust Framework"
+  pillarsCount: 5
+  
+  # Stripe (test mode - replace with production in production)
+  stripePublishableKey: "pk_test_TODO_REPLACE_WITH_REAL_KEY"
+  
+menu:
+  docs:
+    - name: "Getting Started"
+      url: "/docs/getting-started/"
+      weight: 1
+    - name: "API Reference"
+      url: "/docs/api/"
+      weight: 2
+    - name: "Architecture"
+      url: "/docs/architecture/"
+      weight: 3
+    - name: "Security"
+      url: "/docs/security/"
+      weight: 4
+    - name: "Deployment"
+      url: "/docs/deployment/"
+      weight: 5
+    - name: "Compliance"
+      url: "/docs/compliance/"
+      weight: 6
+    - name: "Threat Model"
+      url: "/docs/threat-model/"
+      weight: 7
+    - name: "Performance"
+      url: "/docs/performance/"
+      weight: 8
+
+outputs:
+  home:
+    - HTML
+    - RSS
+  page:
+    - HTML

@@ -1,0 +1,11 @@
+<header>
+    <nav>
+        <ul>
+            <li><a href="/" class="logo"><img src="{{ "logo.png" | relURL }}" alt="AegisGate" height="32"></a></li>
+            
+            {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+</header>

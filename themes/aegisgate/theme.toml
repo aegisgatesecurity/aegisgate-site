@@ -1,0 +1,15 @@
+name = 'aegisgate'
+license = 'Apache-2.0'
+licenselink = 'https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/LICENSE'
+description = 'AegisGate Security Platform official Hugo theme — AI security gateway documentation and marketing site'
+homepage = 'https://aegisgatesecurity.io'
+demosite = 'https://aegisgatesecurity.io/demo/'
+
+# Taxonomy terms
+tags = ['security', 'ai', 'mcp', 'aegisgate', 'hugo']
+features = ['dark-theme', 'terminal-emulator', 'mermaid-diagrams', 'responsive', 'mcp-documentation']
+
+# Author
+[author]
+name = 'AegisGate Security, LLC'
+homepage = 'https://aegisgatesecurity.io'

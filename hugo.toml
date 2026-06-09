@@ -1,0 +1,79 @@
+baseURL = "https://aegisgatesecurity.io/"
+languageCode = "en-us"
+title = "AegisGate Security Platform™ — Secure Every AI Interaction"
+theme = "aegisgate"
+
+# Site params
+[params]
+  description = "The only AI security gateway with five pillars of AI security (HTTP API, MCP, A2A, RESPONSE, Trust Framework), MITRE ATLAS enforcement, and zero external dependencies. Deploy in 60 seconds."
+  version = "v3.2.0"
+  goVersion = "1.26.3+"
+  dockerSize = "19.1MB"
+  coverage = "97.8%"
+  github = "https://github.com/aegisgatesecurity/aegisgate-platform"
+  twitter = "https://twitter.com/aegisgatesec"
+  email = "security@aegisgatesecurity.io"
+  salesEmail = "sales@aegisgatesecurity.io"
+  copyrightStartYear = 2024
+  currentYear = 2026
+
+[params.social]
+  github = "aegisgatesecurity"
+  twitter = "aegisgatesec"
+
+# Main nav menu
+[menu]
+  [[menu.main]]
+    name = "Demo"
+    url = "/demo/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Docs"
+    url = "/docs/"
+    weight = 2
+  [[menu.main]]
+    name = "ATLAS"
+    url = "/atlas/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Tech"
+    url = "/tech/"
+    weight = 4
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 5
+  [[menu.main]]
+    name = "Changelog"
+    url = "/changelog/"
+    weight = 6
+
+  [[menu.main]]
+    name = "SLA"
+    url = "/sla/"
+    weight = 7
+
+  [[menu.main]]
+    name = "Pricing"
+    url = "/pricing/"
+    weight = 8
+
+# Enable features
+enableRobotsTXT = true
+enableGitInfo = true
+
+# Markdown config
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "dracula"
+    lineNos = false
+
+# Taxonomies (we only need tags for blog)
+[taxonomies]
+  tag = "tags"
+  category = "categories"

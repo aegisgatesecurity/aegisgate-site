@@ -1,0 +1,59 @@
+# AegisGate Security Platform — Netlify Security Headers
+# =========================================================
+#
+# Add this to netlify.toml in the root of your repository
+# Netlify will automatically apply these headers to all deployments
+#
+# Docs: https://docs.netlify.com/routing-headers/
+# =================================================================
+
+[build]
+  publish = "public"
+
+[[headers]]
+  # Apply to all paths
+  for = "/*"[]
+    # Security Headers
+    # ---------------
+    
+    # 1. Content Security Policy
+    # Note: 'unsafe-inline' on style-src is required by the Stripe Buy Button widget
+    # which injects inline styles. Stripe domains (js.stripe.com, checkout.stripe.com,
+    # api.stripe.com, m.stripe.network, stripe.network) are required for the
+    # <stripe-buy-button> embed used on /pricing.
+    [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://js.stripe.com; style-src 'self' 'unsafe-inline' https://js.stripe.com; img-src 'self' data: https: https://*.stripe.com; font-src 'self' data: https://js.stripe.com; connect-src 'self' https://api.stripe.com https://m.stripe.network; frame-src 'self' https://checkout.stripe.com https://js.stripe.com; frame-ancestors 'none';"
+    # frame-ancestors replaces X-Frame-Options (modern equivalent) and is recognized by all current browsers.
+    
+    # 2. X-Content-Type-Options
+    X-Content-Type-Options = "nosniff"
+    
+    # 3. X-Frame-Options
+    X-Frame-Options = "DENY"
+    
+    # 4. X-XSS-Protection
+    X-XSS-Protection = "1; mode=block"
+    
+    # 5. Referrer-Policy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # 6. Permissions-Policy
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+[[headers]]
+  # Apply to sensitive paths (legal pages)
+  for = "/legal/*"[]
+    [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+
+[[headers]]
+  # Static assets - allow caching
+  for = "/*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf}"[]
+    [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # HTML - no caching
+  for = "/*.html"[]
+    [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"

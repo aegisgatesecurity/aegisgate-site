@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+{{ end }}

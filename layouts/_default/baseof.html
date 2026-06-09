@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ block "description" . }}{{ .Site.Params.description }}{{ end }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{{ "favicon.png" | relURL }}">
+    
+    <!-- CSS -->
+    {{ $styles := resources.Get "css/main.css" }}
+    {{ if $styles }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    {{ end }}
+    
+    <!-- Mermaid for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#00ADD8',
+                primaryBorderColor: '#00ADD8',
+                lineColor: '#F97583',
+                secondaryColor: '#238636',
+                tertiaryColor: '#1a1a2e'
+            },
+            flowchart: { htmlLabels: true, curve: 'basis' },
+            sequence: { actorMargin: 50, showSequenceNumbers: true },
+            securityLevel: 'loose'
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.run();
+        });
+    </script>
+    
+    {{ block "head_extra" . }}{{ end }}
+</head>
+<body>
+    {{ partial "header.html" . }}
+    
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    {{ partial "footer.html" . }}
+    
+    <!-- JavaScript -->
+    {{ $scripts := resources.Get "js/main.js" }}
+    {{ if $scripts }}
+    <script src="{{ $scripts.RelPermalink }}"></script>
+    {{ end }}
+    
+    {{ block "scripts_extra" . }}{{ end }}
+</body>
+</html>
