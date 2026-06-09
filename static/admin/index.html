@@ -143,9 +143,13 @@
         The script auto-mounts the Svelte app to a DOM element on import.
         It reads config.yml from the same directory automatically.
 
-        Authentication is handled via Netlify Identity / GitHub OAuth
-        (configured in the config.yml below).
+        Authentication: We use Netlify Identity + Git Gateway (configured
+        in config.yml). The netlify-identity-widget script below is the
+        popup login UI that Sveltia uses to authenticate via Netlify.
     -->
+    <!-- Netlify Identity widget — provides the login popup UI -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <script>
         // Load Sveltia as a classic script (not ES module).
         // Sveltia will self-execute and mount the UI to the DOM.

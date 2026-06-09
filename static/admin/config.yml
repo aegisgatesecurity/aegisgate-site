@@ -19,19 +19,46 @@
 # ==========================================
 # Backend (authentication + storage)
 # ==========================================
+# We use Netlify Identity + Git Gateway for authentication, NOT direct
+# GitHub OAuth. This means:
+#   - Single sign-on via your Netlify Identity user (set up via invite)
+#   - No GitHub Personal Access Token (PAT) to manage
+#   - No token expiration issues
+#   - Sveltia authenticates via Netlify's /.netlify/identity endpoint
+#   - Netlify's Git Gateway then commits to the GitHub repo on your behalf
+#
+# How it works:
+#   1. You click "Login" in Sveltia
+#   2. Sveltia opens a popup to the Netlify Identity widget
+#   3. You log in with your email/password (the same one from the invite)
+#   4. Netlify Identity sets a session cookie
+#   5. Sveltia uses Git Gateway to commit changes to the GitHub repo
+#   6. Netlify detects the commit and auto-deploys the site
+#
+# Requirements:
+#   - Netlify Identity must be enabled (Site settings → Identity → Enable)
+#   - Git Gateway must be enabled (Identity → Services → Git Gateway)
+#   - You must be invited as a user (or self-invite)
+#   - The Netlify Identity JS bundle must be loaded for the login popup
+#
+# Docs: https://docs.netlify.com/visitor-access/git-gateway/
+#       https://sveltia.org/docs/backends/
 backend:
-  name: github
-  repo: aegisgatesecurity/aegisgate-site
-  # branch is auto-detected (main)
-  # open_authoring: false (single-author; we don't accept external contributors via Sveltia)
-  squash_merges: true
-  # The commit author is the GitHub user who logged in
-  commit_messages:
-    create: 'blog: create "{{slug}}"'
-    update: 'blog: update "{{slug}}"'
-    delete: 'blog: delete "{{slug}}"'
-    uploadMedia: 'blog: upload media for "{{slug}}"'
-    openAuthoring: 'blog: contribution from {{author-login}} for "{{slug}}"'
+  name: git-gateway
+  # The branch to commit to. Defaults to the configured default branch
+  # (currently 'main'). Sveltia creates a feature branch per post and
+  # uses the editorial workflow to merge to main after you publish.
+  branch: main
+  # The Git Gateway endpoint. This is auto-detected by Sveltia from
+  # the /.netlify/identity endpoint on the same site, so you don't
+  # need to specify it explicitly.
+
+# ==========================================
+# Local backend (offline editing)
+# ==========================================
+# You can run Sveltia in "local" mode for development (no auth required).
+# To use: run `npx @sveltia/cms-cli-proxy-server` locally, then visit
+# /admin/. For now, we'll only use the Git Gateway backend.
 
 # ==========================================
 # Site URL (used for live preview)
