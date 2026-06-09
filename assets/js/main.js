@@ -1,5 +1,21 @@
 // AegisGate Security Platform - Main JavaScript
 
+// ============================================
+// No-JS Detection (Progressive Enhancement)
+// ============================================
+// This must run BEFORE DOMContentLoaded to add the .js class to <html>.
+// The CSS uses the .js class to gate animation behavior: when JS is loaded,
+// .fade-in starts at opacity:0 and fades in via IntersectionObserver. When
+// JS is NOT loaded, .fade-in has no effect and content is always visible.
+//
+// This is a SAFETY-CRITICAL pattern: the page must never depend on JS for
+// basic visibility. (Fix for the 2026-06-09 "page fades to black" bug.)
+(function() {
+    var html = document.documentElement;
+    html.classList.remove('no-js');
+    html.classList.add('js');
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     initTerminal();
     initCopyButtons();
@@ -334,20 +350,55 @@ function fillCommand(cmd) {
 // ============================================
 // Animations
 // ============================================
+// IMPORTANT: This animation logic is a SAFETY-CRITICAL fix.
+//
+// History: 2026-06-09 — User reported "homepage displays briefly, then fades to
+// black". Root cause: the previous implementation called
+//   document.querySelectorAll('section, .card, .stat').forEach(el => el.classList.add('fade-in'))
+// on every section/card/stat on the page. The .fade-in CSS rule starts elements
+// at opacity:0 and only fades them to opacity:1 when the IntersectionObserver
+// adds the .visible class. The observer only fires for elements that scroll
+// into view at 10% threshold with a -50px bottom rootMargin, so most above-
+// the-fold content (including the hero) was stuck at opacity:0, leaving only
+// the dark body background visible (--bg-primary = #0a0c10).
+//
+// The fix below is conservative: we only apply the fade-in to elements that
+// are NOT in the viewport at page load (i.e., truly below the fold), so above-
+// the-fold content is never hidden. We also skip the hero section explicitly
+// as a belt-and-suspenders measure. If JavaScript fails to load for any
+// reason, content remains visible by default (no .fade-in class is added
+// until we know it's safe to hide it).
 function initAnimations() {
-    // Intersection Observer for fade-in animations
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    // Defensive check: only run if browser supports IntersectionObserver
+    if (typeof IntersectionObserver === 'undefined') {
+        return; // Graceful degradation — no animation, but content visible
+    }
+
+    // Build the observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                // Once visible, stop observing to save cycles
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('section, .card, .stat').forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
+    // Whitelist of selectors to animate. We explicitly EXCLUDE:
+    //   - .hero (the main hero section — must always be visible)
+    //   - .no-fade (opt-out class for any element that shouldn't fade)
+    //   - elements that are above the fold at page load (rect.top < window.innerHeight)
+    const selectorsToAnimate = 'section:not(.hero):not(.no-fade), .card:not(.no-fade), .stat:not(.no-fade)';
+
+    document.querySelectorAll(selectorsToAnimate).forEach(el => {
+        // Only animate elements that are BELOW the fold at page load
+        // (i.e., require scrolling to see)
+        const rect = el.getBoundingClientRect();
+        if (rect.top >= window.innerHeight) {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        }
     });
 }
 

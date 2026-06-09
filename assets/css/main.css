@@ -772,15 +772,42 @@ tr:hover {
 /* ============================================
    Animation Classes
    ============================================ */
-.fade-in {
+
+/*
+   IMPORTANT: Animation safety pattern (2026-06-09 fix)
+
+   History: User reported "homepage displays briefly, then fades to black".
+   Root cause: the .fade-in class started elements at opacity:0 and only
+   faded to opacity:1 when JavaScript added .visible. If JS failed or the
+   IntersectionObserver didn't fire, elements stayed invisible.
+
+   The fix below uses a "no-js" pattern: by default, .fade-in has NO opacity
+   change (so elements are visible). When JS runs and adds the .js class to
+   <html>, then .fade-in starts at opacity:0 and the observer makes them
+   visible. If JS fails to load, the user still sees content (just without
+   the fade-in animation).
+
+   This is the "Progressive Enhancement" pattern: animations are a bonus, not
+   a requirement.
+*/
+
+/* When JS is enabled, .fade-in starts hidden */
+.js .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.fade-in.visible {
+/* When .visible class is added (by IntersectionObserver), fade in */
+.js .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* When JS is disabled, .fade-in has no effect (content always visible) */
+.no-js .fade-in {
+    opacity: 1;
+    transform: none;
 }
 .text-center { text-align: center; }
 
