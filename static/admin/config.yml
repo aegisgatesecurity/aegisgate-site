@@ -19,46 +19,79 @@
 # ==========================================
 # Backend (authentication + storage)
 # ==========================================
-# We use Netlify Identity + Git Gateway for authentication, NOT direct
-# GitHub OAuth. This means:
-#   - Single sign-on via your Netlify Identity user (set up via invite)
-#   - No GitHub Personal Access Token (PAT) to manage
-#   - No token expiration issues
-#   - Sveltia authenticates via Netlify's /.netlify/identity endpoint
-#   - Netlify's Git Gateway then commits to the GitHub repo on your behalf
+# We use the GitHub backend for Sveltia CMS. This is the recommended
+# approach for a single-author site (which AegisGate is) because:
+#   - Editorial Workflow works fully (the "save → preview → publish"
+#     flow with branch deploys and PRs)
+#   - No third-party service (Netlify Identity / Git Gateway) required
+#   - Sveltia's officially supported backend
+#   - Simple setup with a Personal Access Token (PAT)
 #
-# How it works:
-#   1. You click "Login" in Sveltia
-#   2. Sveltia opens a popup to the Netlify Identity widget
-#   3. You log in with your email/password (the same one from the invite)
-#   4. Netlify Identity sets a session cookie
-#   5. Sveltia uses Git Gateway to commit changes to the GitHub repo
-#   6. Netlify detects the commit and auto-deploys the site
+# IMPORTANT: As of 2024, Sveltia CMS no longer supports:
+#   - Git Gateway (deprecated by Netlify in 2024)
+#   - Azure DevOps
+#   - Bitbucket
+#   - Custom backends (CMS.registerBackend is a noop)
 #
-# Requirements:
-#   - Netlify Identity must be enabled (Site settings → Identity → Enable)
-#   - Git Gateway must be enabled (Identity → Services → Git Gateway)
-#   - You must be invited as a user (or self-invite)
-#   - The Netlify Identity JS bundle must be loaded for the login popup
+# Supported backends: GitHub, GitLab, Gitea, Forgejo, Test
+# We use GitHub because the repo is on GitHub.
 #
-# Docs: https://docs.netlify.com/visitor-access/git-gateway/
-#       https://sveltia.org/docs/backends/
+# ==========================================
+# Authentication options for the GitHub backend
+# ==========================================
+# Option A (RECOMMENDED for single author): Personal Access Token (PAT)
+#   1. Go to https://github.com/settings/tokens?type=beta
+#   2. Click "Generate new token" (Fine-grained)
+#   3. Name: "AegisGate Site CMS"
+#   4. Expiration: 90 days (set a calendar reminder to regenerate)
+#   5. Repository access: Only "aegisgatesecurity/aegisgate-site"
+#   6. Permissions:
+#      - Contents: Read and Write
+#      - Metadata: Read-only (auto-selected)
+#   7. Click "Generate token" and COPY the token
+#   8. When Sveltia first loads, paste the token in the auth prompt
+#   9. Sveltia offers to remember it in browser localStorage
+#
+#   Pros: No OAuth app registration, no env vars, ~2 min setup
+#   Cons: Token expires (90 days default)
+#
+# Option B: GitHub OAuth App (for production, no expiration)
+#   1. Go to https://github.com/settings/applications/new
+#   2. Application name: "AegisGate Site CMS"
+#   3. Homepage URL: "https://aegisgatesecurity.io"
+#   4. Authorization callback URL: "https://aegisgatesecurity.io/admin/"
+#   5. Click "Register application"
+#   6. Copy the Client ID
+#   7. Generate a Client Secret and copy it
+#   8. Add the Client ID and Secret to the "base_url" / OAuth config
+#
+#   For now, we use Option A (PAT) for simplicity.
+#
+# ==========================================
+# Backend config
+# ==========================================
 backend:
-  name: git-gateway
+  name: github
+  repo: aegisgatesecurity/aegisgate-site
   # The branch to commit to. Defaults to the configured default branch
   # (currently 'main'). Sveltia creates a feature branch per post and
   # uses the editorial workflow to merge to main after you publish.
   branch: main
-  # The Git Gateway endpoint. This is auto-detected by Sveltia from
-  # the /.netlify/identity endpoint on the same site, so you don't
-  # need to specify it explicitly.
-
-# ==========================================
-# Local backend (offline editing)
-# ==========================================
-# You can run Sveltia in "local" mode for development (no auth required).
-# To use: run `npx @sveltia/cms-cli-proxy-server` locally, then visit
-# /admin/. For now, we'll only use the Git Gateway backend.
+  # Squash merges (cleaner commit history, easier to revert)
+  squash_merges: true
+  # The commit messages Sveltia will use. The {{slug}} placeholder is
+  # automatically filled with the post's slug.
+  commit_messages:
+    create: 'blog: create "{{slug}}"'
+    update: 'blog: update "{{slug}}"'
+    delete: 'blog: delete "{{slug}}"'
+    uploadMedia: 'blog: upload media for "{{slug}}"'
+    openAuthoring: 'blog: contribution from {{author-login}} for "{{slug}}"'
+  # The default author for commits (used when no GitHub user is logged in)
+  # The actual commit will be attributed to the GitHub user who provided
+  # the PAT/OAuth token.
+  # Open authoring is disabled — we don't accept external contributions
+  open_authoring: false
 
 # ==========================================
 # Site URL (used for live preview)
