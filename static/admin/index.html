@@ -78,11 +78,6 @@
         <strong>Sveltia CMS failed to load.</strong>
         <span id="sveltia-error-message"></span>
         <pre id="sveltia-error-details"></pre>
-        <p style="margin-top:12px;font-size:12px;color:#666;">
-            Open the browser console (F12) for more details. If you see a CSP error,
-            the Content-Security-Policy in netlify.toml may be blocking the Sveltia
-            CDN. The fix is to allow https://unpkg.com in script-src.
-        </p>
     </div>
 
     <div class="sveltia-loader" id="sveltia-loader">
@@ -95,10 +90,6 @@
         // ============================================
         // Error reporter — shows errors visibly on page
         // ============================================
-        // Sveltia is loaded as an ES module, so any errors (CORS, network,
-        // CSP, parse errors) would normally only show in the browser console.
-        // This error reporter captures errors and shows them on the page
-        // so the user can see what's wrong.
         window.__sveltiaErrors = [];
         function reportError(title, message, details) {
             var errEl = document.getElementById('sveltia-error');
@@ -128,15 +119,12 @@
                 event.reason && event.reason.stack ? event.reason.stack : ''
             );
         });
-
-        // Detect CSP violations specifically
         document.addEventListener('securitypolicyviolation', function(event) {
             reportError(
                 'Content Security Policy violation',
                 'A CSP rule blocked a resource from loading.',
                 'Blocked URI: ' + event.blockedURI + '\n' +
-                'Violated directive: ' + event.violatedDirective + '\n' +
-                'Original policy: ' + event.originalPolicy
+                'Violated directive: ' + event.violatedDirective
             );
         });
     </script>
@@ -146,30 +134,44 @@
         Docs: https://sveltia.org/
         GitHub: https://github.com/sveltia/sveltia-cms
 
-        This is a static SPA. All configuration is in config.yml next to this file.
-        Authentication is handled via GitHub OAuth (configured below in config.yml).
+        IMPORTANT: Sveltia is a SELF-EXECUTING SCRIPT (not an ES module).
+        From Sveltia's own source:
+          "Sveltia CMS script is not an ES module. Remove the 'type=module'
+           attribute from the <script> tag to avoid unexpected behavior when
+           using the JavaScript API."
+
+        The script auto-mounts the Svelte app to a DOM element on import.
+        It reads config.yml from the same directory automatically.
+
+        Authentication is handled via Netlify Identity / GitHub OAuth
+        (configured in the config.yml below).
     -->
-    <script type="module">
-        // Wrap the dynamic import in error handling so we can report failures
-        try {
-            const module = await import('https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js');
-            reportError('Sveltia loaded', 'Module loaded successfully', 'Type: ' + typeof module.default);
-        } catch (err) {
+    <script>
+        // Load Sveltia as a classic script (not ES module).
+        // Sveltia will self-execute and mount the UI to the DOM.
+        var script = document.createElement('script');
+        script.src = 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js';
+        script.onload = function() {
+            // Sveltia has loaded. It should auto-initialize.
+            // The "Loading..." spinner will be replaced by the Sveltia UI.
+            // If we see this message in the error reporter, it means
+            // Sveltia's auto-init is working.
+            console.log('[Sveltia] Script loaded successfully');
+        };
+        script.onerror = function() {
             reportError(
-                'Sveltia import failed',
-                'The Sveltia CMS script could not be loaded or executed.',
-                'Error: ' + err.message + '\n' +
-                'Stack: ' + (err.stack || 'no stack trace') + '\n\n' +
+                'Sveltia script failed to load',
+                'The Sveltia CMS script could not be loaded from unpkg.com.',
+                'URL: https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js\n\n' +
                 'Common causes:\n' +
-                '1. CSP blocking https://unpkg.com (check netlify.toml)\n' +
+                '1. CSP blocking unpkg.com (check netlify.toml)\n' +
                 '2. Network error (check internet connection)\n' +
-                '3. unpkg.com is down (check https://status.unpkg.com)\n' +
-                '4. Sveltia has a runtime error before initializing'
+                '3. unpkg.com is down (check https://status.unpkg.com)'
             );
-            // Hide the loader since the error reporter will show
             var loader = document.getElementById('sveltia-loader');
             if (loader) loader.style.display = 'none';
-        }
+        };
+        document.head.appendChild(script);
     </script>
 </body>
 </html>

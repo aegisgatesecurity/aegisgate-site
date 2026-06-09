@@ -63,6 +63,9 @@
     # Directives used:
     #   default-src      - Fallback for any directive not explicitly listed
     #   script-src       - JavaScript sources (Hugo, Mermaid, Stripe, Sveltia)
+    #                     Sveltia is a CLASSIC script, not an ES module
+    #                     (it self-executes on import), so 'unsafe-eval'
+    #                     is not needed
     #   style-src        - CSS sources (Stripe injects inline styles)
     #   img-src          - Image sources (shields.io badges, Stripe images)
     #   font-src         - Web font sources
@@ -82,7 +85,7 @@
     #   - https://unpkg.com is required for Sveltia's CDN-hosted bundle
     #   - blob: is required for Sveltia's dynamic web worker imports
     [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://js.stripe.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://js.stripe.com; img-src 'self' data: https: https://*.stripe.com https://avatars.githubusercontent.com; font-src 'self' data: https://js.stripe.com; connect-src 'self' https://api.stripe.com https://m.stripe.network https://api.netlify.com https://*.netlify.app https://*.github.com https://unpkg.com; frame-src 'self' https://checkout.stripe.com https://js.stripe.com; worker-src 'self' blob:; frame-ancestors 'none';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://js.stripe.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://js.stripe.com; img-src 'self' data: https: https://*.stripe.com https://avatars.githubusercontent.com; font-src 'self' data: https://js.stripe.com; connect-src 'self' https://api.stripe.com https://m.stripe.network https://api.netlify.com https://*.netlify.app https://*.github.com https://unpkg.com; frame-src 'self' https://checkout.stripe.com https://js.stripe.com; worker-src 'self' blob:; frame-ancestors 'none';"
     # frame-ancestors replaces X-Frame-Options (modern equivalent) and is recognized by all current browsers.
 
     # 2. X-Content-Type-Options
