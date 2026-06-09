@@ -16,3 +16,11 @@
         </div>
     </section>
 {{ end }}
+
+{{ define "scripts_extra" }}
+    <!-- Homepage-only: show admin redirect banner for authenticated users -->
+    {{ $redirect := resources.Get "js/home-redirect.js" }}
+    {{ if $redirect }}
+    <script src="{{ $redirect.RelPermalink }}"></script>
+    {{ end }}
+{{ end }}
