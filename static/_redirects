@@ -1,0 +1,22 @@
+# Netlify _redirects file for aegisgatesecurity.io
+# ==================================================
+# Docs: https://docs.netlify.com/routing/redirects/
+#
+# Format: [from] [to] [status]
+# Status codes: 200 (rewrite, no redirect), 301 (permanent), 302 (temporary)
+
+# Force HTTPS (Netlify does this automatically, but explicit is good)
+http://aegisgatesecurity.io/* https://aegisgatesecurity.io/:splat 301
+http://www.aegisgatesecurity.io/* https://aegisgatesecurity.io/:splat 301
+
+# Force www to apex (or vice versa, depending on your preference)
+# We prefer apex (no www) — already configured in DNS
+# www.aegisgatesecurity.io/* https://aegisgatesecurity.io/:splat 301
+
+# Sveltia CMS admin panel — served from /admin/ directory
+# Sveltia is a static SPA, so all routes under /admin/ should serve admin/index.html
+/admin/*    /admin/index.html   200
+/admin      /admin/             301
+
+# Future: Sveltia preview URLs (draft posts)
+# /blog/preview/*    /admin/index.html   200

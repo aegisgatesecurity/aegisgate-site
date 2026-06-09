@@ -1,14 +1,52 @@
-# AegisGate Security Platform — Netlify Security Headers
-# =========================================================
+# AegisGate Security Platform — Netlify Configuration
+# =====================================================
 #
-# Add this to netlify.toml in the root of your repository
-# Netlify will automatically apply these headers to all deployments
+# This file configures the Netlify deployment of aegisgatesecurity.io.
+# Netlify reads this on every push to the connected branch (main).
 #
-# Docs: https://docs.netlify.com/routing-headers/
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
 # =================================================================
 
+# =====================================================
+# Build settings
+# =====================================================
 [build]
+  # The Hugo command to run. We use --minify for production-optimized output.
+  # --gc is "garbage collect" — removes unreferenced resources
+  # --themesDir is explicit; Hugo's default is "./themes" which is correct
+  command = "hugo --minify --gc"
+
+  # The directory to publish. Hugo's default is "public/".
   publish = "public"
+
+  # Environment variables for the build
+  [build.environment]
+    # Pin Hugo version for reproducible builds. Matches the version we use
+    # locally (Hugo 0.123.7+extended).
+    HUGO_VERSION = "0.123.7"
+    # Tell Hugo we're on Netlify (affects baseURL behavior in some templates)
+    HUGO_ENV = "production"
+
+# =====================================================
+# Deploy context settings
+# =====================================================
+# Production deploys (from main branch) use the production domain.
+# Branch deploys (from feature branches) get a unique URL like
+# https://branch-name--aegisgate-site.netlify.app for preview.
+
+[context.production]
+  command = "hugo --minify --gc"
+
+[context.deploy-preview]
+  command = "hugo --minify --gc --buildFuture --buildDrafts"
+
+[context.branch-deploy]
+  command = "hugo --minify --gc --buildFuture --buildDrafts"
+
+# =====================================================
+# Security Headers (applied to all deployments)
+# =====================================================
+# See: https://docs.netlify.com/routing/headers/
 
 [[headers]]
   # Apply to all paths
