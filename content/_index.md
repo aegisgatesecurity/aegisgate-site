@@ -9,7 +9,7 @@ type: "landing"
 </div>
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>🇪🇺 NEW in v3.3.0-beta.2:</strong> The <a href="/eu-ai-act/" style="color:#FFD700;text-decoration:underline;"><strong>EU AI Act Compliance Module</strong></a> — 82 controls across 8 categories of EU Regulation 2024/1689, included with Professional+ tier. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2" target="_blank" style="color:#FFD700;">Read the release notes →</a>
+<strong>{{< eu-flag >}} NEW in v3.3.0-beta.2:</strong> The <a href="/eu-ai-act/" style="color:#FFD700;text-decoration:underline;"><strong>EU AI Act Compliance Module</strong></a> — 82 controls across 8 categories of EU Regulation 2024/1689, included with Professional+ tier. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2" target="_blank" style="color:#FFD700;">Read the release notes →</a>
 </div>
 
 AegisGate Security Platform secures every AI interaction point with **five pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, real-time response scanning, and the **Trust Framework** (v3.2.0) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (v3.3.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
@@ -93,7 +93,7 @@ There are other AI security products. Here's how AegisGate compares on the dimen
 | **Trust Framework (attestations)** | ✅ Ed25519-signed | ❌ | ❌ | ❌ | ⚠️ |
 | **MITRE ATLAS coverage** | ✅ 66 techniques | ⚠️ Partial | ❌ | ⚠️ Partial | ✅ |
 | **OWASP LLM Top 10** | ✅ 49 patterns | ✅ | ✅ | ✅ | ✅ |
-| **🇪🇺 EU AI Act controls** | ✅ 82 controls | ❌ | ❌ | ❌ | ❌ |
+| **{{< eu-flag >}} EU AI Act controls** | ✅ 82 controls | ❌ | ❌ | ❌ | ❌ |
 | **Multi-framework compliance** | ✅ 10 frameworks | ❌ | ❌ | ❌ | ⚠️ |
 | **Tamper-evident audit logs** | ✅ Hash chain + RFC 5424 | ❌ | ❌ | ❌ | ⚠️ |
 | **Open source** | ✅ Apache 2.0 | ❌ | ✅ Apache 2.0 | ✅ MIT | ❌ |
@@ -102,9 +102,11 @@ There are other AI security products. Here's how AegisGate compares on the dimen
 
 **TL;DR**: If you need **protocol-level security** (MCP, A2A, ACP) + **compliance evidence** + **self-hosting**, AegisGate is the only option that covers all three.
 
-- **Library-style tools** (NeMo Guardrails, Rebuff) are great for in-app alignment but don't protect your network boundary
-- **SaaS tools** (Lakera) require sending your traffic to a third party
-- **Compliance-focused tools** (Protect AI) are platforms, not gateways, and don't include protocol coverage
+<ul class="tldr-list">
+<li><strong>Library-style tools</strong> (NeMo Guardrails, Rebuff) are great for in-app alignment but don't protect your network boundary</li>
+<li><strong>SaaS tools</strong> (Lakera) require sending your traffic to a third party</li>
+<li><strong>Compliance-focused tools</strong> (Protect AI) are platforms, not gateways, and don't include protocol coverage</li>
+</ul>
 
 ---
 
@@ -190,59 +192,72 @@ Every AI request, response, tool call, and session is logged. SIEM-ready with st
 
 ---
 
-## 🇪🇺 EU AI Act Compliance Module (NEW in v3.3.0) — Included with Professional+ tier
+## {{< eu-flag >}} EU AI Act Compliance Module (NEW in v3.3.0) — Included with Professional+ tier
 
 The **EU AI Act** (Regulation 2024/1689) is the world's first comprehensive AI regulation. AegisGate's **EU AI Act Compliance Module** gives you a single source of truth for whether your AI system is compliant — across **82 controls** in **8 categories**.
 
-<div class="card-grid card-grid-2">
-<div class="card" style="border-color:#003399;box-shadow:0 0 16px rgba(0,51,153,0.25);">
+<div class="cta-stack">
 
-### 📊 82 controls, 8 categories
-
-- **Prohibited Practices** (Article 5)
-- **Risk Management** (Article 9)
-- **Data Quality** (Article 10)
-- **Technical Documentation** (Articles 11+12)
-- **Record-Keeping** (Articles 13+14)
-- **Human Oversight** (Article 15)
-- **Accuracy, Robustness, Cybersecurity** (Articles 51–55)
-- **Annex IV Technical Documentation** (AI-*)
-
+<div class="cta-card cta-eu">
+<div class="cta-card-icon">📊</div>
+<div class="cta-card-content">
+<h3>82 controls, 8 categories</h3>
+<ul>
+<li><strong>Prohibited Practices</strong> (Article 5)</li>
+<li><strong>Risk Management</strong> (Article 9)</li>
+<li><strong>Data Quality</strong> (Article 10)</li>
+<li><strong>Technical Documentation</strong> (Articles 11+12)</li>
+<li><strong>Record-Keeping</strong> (Articles 13+14)</li>
+<li><strong>Human Oversight</strong> (Article 15)</li>
+<li><strong>Accuracy, Robustness, Cybersecurity</strong> (Articles 51–55)</li>
+<li><strong>Annex IV Technical Documentation</strong> (AI-*)</li>
+</ul>
 </div>
-<div class="card" style="border-color:#003399;box-shadow:0 0 16px rgba(0,51,153,0.25);">
-
-### 🎯 Who needs it
-
-- **AI providers** placing high-risk AI systems (Annex III) on the EU market after **August 2026**
-- **Deployers** of AI in employment, education, law enforcement, critical infrastructure
-- **GPAI model providers** with > 10²⁵ FLOPs of training compute
-- **EU + non-EU companies** placing AI on the EU market
-
 </div>
-<div class="card" style="border-color:#003399;box-shadow:0 0 16px rgba(0,51,153,0.25);">
 
-### ⚙️ How it works
-
-- **9 automatic controls** — AegisGate enforces these in-line (input validation, data quality, log retention, etc.)
-- **73 manual controls** — AegisGate provides checklists, evidence templates, audit-ready reports
-- **Compliance scan endpoint**: `GET /api/v1/compliance/scan?framework=eu-ai-act` returns coverage %, missing modules, remediation steps
-- **Full audit report**: `GET /api/v1/compliance/report?framework=eu-ai-act` returns all 82 controls with status
-
+<div class="cta-card cta-eu">
+<div class="cta-card-icon">🎯</div>
+<div class="cta-card-content">
+<h3>Who needs it</h3>
+<ul>
+<li><strong>AI providers</strong> placing high-risk AI systems (Annex III) on the EU market after <strong>August 2026</strong></li>
+<li><strong>Deployers</strong> of AI in employment, education, law enforcement, critical infrastructure</li>
+<li><strong>GPAI model providers</strong> with > 10²⁵ FLOPs of training compute</li>
+<li><strong>EU + non-EU companies</strong> placing AI on the EU market</li>
+</ul>
 </div>
-<div class="card" style="border-color:#003399;box-shadow:0 0 16px rgba(0,51,153,0.25);">
-
-### 💼 Tier & pricing
-
-- **Tier gate**: Professional+ (Professional and Enterprise)
-- **Pricing**: **Included** with Professional and Enterprise at no extra cost
-- **BAA + DPA**: standard agreements cover EU AI Act data flows (see [/legal/](/legal/))
-- **Read the customer 1-pager**: [EU AI Act overview](/docs/compliance/eu-ai-act/)
-
 </div>
+
+<div class="cta-card cta-eu">
+<div class="cta-card-icon">⚙️</div>
+<div class="cta-card-content">
+<h3>How it works</h3>
+<ul>
+<li><strong>9 automatic controls</strong> — AegisGate enforces these in-line (input validation, data quality, log retention, etc.)</li>
+<li><strong>73 manual controls</strong> — AegisGate provides checklists, evidence templates, audit-ready reports</li>
+<li><strong>Compliance scan endpoint</strong>: <code>GET /api/v1/compliance/scan?framework=eu-ai-act</code> returns coverage %, missing modules, remediation steps</li>
+<li><strong>Full audit report</strong>: <code>GET /api/v1/compliance/report?framework=eu-ai-act</code> returns all 82 controls with status</li>
+</ul>
+</div>
+</div>
+
+<div class="cta-card cta-eu">
+<div class="cta-card-icon">💼</div>
+<div class="cta-card-content">
+<h3>Tier &amp; pricing</h3>
+<ul>
+<li><strong>Tier gate</strong>: Professional+ (Professional and Enterprise)</li>
+<li><strong>Pricing</strong>: <strong>Included</strong> with Professional and Enterprise at no extra cost</li>
+<li><strong>BAA + DPA</strong>: standard agreements cover EU AI Act data flows (see <a href="/legal/">/legal/</a>)</li>
+<li><strong>Read the customer 1-pager</strong>: <a href="/docs/compliance/eu-ai-act/">EU AI Act overview</a></li>
+</ul>
+</div>
+</div>
+
 </div>
 
 <div style="text-align:center;margin:30px 0;">
-<a href="/eu-ai-act/" class="btn btn-primary">🇪🇺 EU AI Act Module — Full Details</a>
+<a href="/eu-ai-act/" class="btn btn-primary">{{< eu-flag >}} EU AI Act Module — Full Details</a>
 </div>
 
 > **Beta status**: This module is fully implemented and tested in v3.3.0-beta.2. Counsel review of the legal interpretation is pending (v3.4.0+). Use for **evaluation and pre-audit work**; defer formal conformity assessment until counsel sign-off is complete.
@@ -264,7 +279,7 @@ Choose the coverage that matches your compliance needs.
 | PCI-DSS | — | — | ✓ | ✓ | ✓ |
 | SOC2 Type II | — | — | Module | ✓ | ✓ |
 | ISO 42001 (AI) | — | — | — | ✓ | ✓ |
-| **🇪🇺 EU AI Act** | — | — | — | **✓ Included** | **✓ Included** |
+| **{{< eu-flag >}} EU AI Act** | — | — | — | **✓ Included** | **✓ Included** |
 
 *Starter tier adds SSO, RBAC, and GDPR view for SMB/SLED/SOHO teams. Developer tier adds full compliance and mTLS. Professional includes everything **plus the EU AI Act Module at no extra cost**. Enterprise adds custom frameworks and dedicated support.*
 
@@ -303,7 +318,7 @@ curl http://localhost:8443/health</pre>
 </div>
 <div class="stat">
 <div class="value">82</div>
-<div class="label">🇪🇺 EU AI Act Controls</div>
+<div class="label">{{< eu-flag >}} EU AI Act Controls</div>
 </div>
 <div class="stat">
 <div class="value">24,806</div>

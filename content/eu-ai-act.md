@@ -5,7 +5,7 @@ type: "landing"
 ---
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>🇪🇺 NEW in v3.3.0-beta.2:</strong> The EU AI Act Compliance Module is fully implemented and tested. <strong>Beta status</strong>: counsel review of the legal interpretation is pending (v3.4.0+). Use for evaluation and pre-audit work.
+<strong>{{< eu-flag >}} NEW in v3.3.0-beta.2:</strong> The EU AI Act Compliance Module is fully implemented and tested. <strong>Beta status</strong>: counsel review of the legal interpretation is pending (v3.4.0+). Use for evaluation and pre-audit work.
 </div>
 
 ## What is the EU AI Act?
