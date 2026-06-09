@@ -1,0 +1,203 @@
+# ==========================================
+# Sveltia CMS Configuration for aegisgatesecurity.io
+# ==========================================
+#
+# Docs: https://sveltia.org/docs/configuration/
+# Schema reference: https://sveltia.org/docs/collection-types/
+#
+# This file defines:
+#   1. Where content lives (in this Hugo repo)
+#   2. What fields a blog post has
+#   3. How authentication works (GitHub OAuth)
+#
+# When you log in to /admin/ and click "Publish", Sveltia:
+#   1. Renders your form input into Hugo Markdown frontmatter
+#   2. Commits the new/updated file to the GitHub repo
+#   3. Netlify detects the push and auto-rebuilds the site
+#   4. Within ~30 seconds, your post is live on aegisgatesecurity.io
+
+# ==========================================
+# Backend (authentication + storage)
+# ==========================================
+backend:
+  name: github
+  repo: aegisgatesecurity/aegisgate-site
+  # branch is auto-detected (main)
+  # open_authoring: false (single-author; we don't accept external contributors via Sveltia)
+  squash_merges: true
+  # The commit author is the GitHub user who logged in
+  commit_messages:
+    create: 'blog: create "{{slug}}"'
+    update: 'blog: update "{{slug}}"'
+    delete: 'blog: delete "{{slug}}"'
+    uploadMedia: 'blog: upload media for "{{slug}}"'
+    openAuthoring: 'blog: contribution from {{author-login}} for "{{slug}}"'
+
+# ==========================================
+# Site URL (used for live preview)
+# ==========================================
+# Sveltia needs to know where the site is published for "Preview" to work.
+# For aegisgatesecurity.io on Netlify, the production URL is:
+#   https://aegisgatesecurity.io
+# For previews on PR branches, Netlify gives a unique URL.
+site_url: https://aegisgatesecurity.io
+display_url: https://aegisgatesecurity.io
+logo_url: https://aegisgatesecurity.io/logo.png
+
+# ==========================================
+# Media (where uploaded images go)
+# ==========================================
+# When you drag-drop an image into the editor, Sveltia uploads it to:
+#   static/images/blog/<post-slug>/<filename>
+# Then your Hugo post can reference it with:
+#   ![Alt text](/images/blog/<post-slug>/<filename>)
+media_folder: "static/images/blog"
+public_folder: "/images/blog"
+
+# ==========================================
+# Local backend (offline editing)
+# ==========================================
+# You can run Sveltia in "local" mode for development (no GitHub auth required).
+# To use: run `npx sveltia-cms-proxy-server` locally, then visit /admin/
+# For now, we'll only use the GitHub backend.
+
+# ==========================================
+# Content collections
+# ==========================================
+# A "collection" is a type of content. We have:
+#   - "blog": blog posts (the main thing you want to edit)
+#   - "docs": documentation pages (less frequently edited)
+#
+# Each collection maps to a directory in the Hugo repo.
+
+# ==========================================
+# Blog collection (primary use case)
+# ==========================================
+collections:
+  - name: "blog"
+    label: "Blog posts"
+    label_singular: "Blog post"
+    description: "Security research, release notes, and insights from the AegisGate team"
+    folder: "content/blog"
+    create: true
+    delete: true
+    # Slug from the title field (kebab-case, e.g. "my-new-post")
+    slug: "{{slug}}"
+    # Posts are committed to a feature branch first, then merged manually
+    # Set to true if you want posts to go directly to main
+    publish_mode: editorial_workflow
+    # Default frontmatter for new posts
+    summary: "{{title}} — {{description}}"
+    sortable_fields: ['date', 'title']
+    view_filters:
+      - label: "Published"
+        field: draft
+        pattern: false
+      - label: "Drafts"
+        field: draft
+        pattern: true
+    view_groups:
+      - label: "Year"
+        field: date
+        pattern: "\d{4}"
+    # Field definitions for the editor form
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "URL slug", name: "slug", widget: "string", hint: "URL-friendly version of the title (auto-generated from title if blank)"}
+      - {label: "Description", name: "description", widget: "text", hint: "1-2 sentence summary. Shows in search results, RSS, and the blog list page."}
+      - {label: "Publication date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: "HH:mm", picker_utc: false, default: "{{now}}"}
+      - {label: "Author", name: "author", widget: "string", default: "AegisGate Security"}
+      - {label: "Tags", name: "tags", widget: "list", default: ["release"], summary: "{{fields.tag}}", hint: "Press Enter after each tag. Common tags: release, security, ai, compliance, how-to"}
+      - {label: "Categories", name: "categories", widget: "list", default: ["Releases"], summary: "{{fields.category}}", hint: "Press Enter after each category. Common categories: Releases, Security, How-To, Research"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false, hint: "Draft posts are NOT published to the live site"}
+      - {label: "Body", name: "body", widget: "markdown", hint: "The main content of the post. Markdown is supported (headings, links, images, code, tables, etc.)"}
+
+  # ==========================================
+  # Docs collection (lower priority)
+  # ==========================================
+  - name: "docs"
+    label: "Documentation"
+    label_singular: "Doc page"
+    description: "AegisGate platform documentation (installation, configuration, API reference, etc.)"
+    folder: "content/docs"
+    create: false  # Don't create new doc files via Sveltia; add via filesystem
+    delete: false  # Don't delete doc files via Sveltia
+    slug: "{{slug}}"
+    publish_mode: editorial_workflow
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # ==========================================
+  # Pages collection (legal + marketing)
+  # ==========================================
+  - name: "pages"
+    label: "Site pages"
+    label_singular: "Site page"
+    description: "Marketing pages, legal documents, and other static pages. Edit with caution — these affect the public site."
+    folder: "content"
+    create: false
+    delete: false
+    # Match only top-level .md files (not in subdirectories like /blog/ or /docs/ or /legal/)
+    filter: {field: "path", pattern: "/[^/]+\\.md$"}
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Type", name: "type", widget: "string", hint: "Page type (e.g., 'landing', 'blog', 'legal-doc', 'legal-index')"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # ==========================================
+  # Legal pages collection
+  # ==========================================
+  - name: "legal"
+    label: "Legal pages"
+    label_singular: "Legal page"
+    description: "Legal documents (ToS, Privacy, DPA, etc.). These are self-drafted and pending counsel review. Edit with caution."
+    folder: "content/legal"
+    create: false
+    delete: false
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+# ==========================================
+# Editor settings
+# ==========================================
+# Editor appearance customization
+editor:
+  frame:
+    preset: "compact"  # or "default"
+
+# ==========================================
+# Search
+# ==========================================
+# Sveltia has built-in search; no config needed.
+
+# ==========================================
+# Localization (future)
+# ==========================================
+# If you want to support multiple languages in the future, add:
+# locale: "en"
+# And per-locale collections.
+
+# ==========================================
+# Notes for the site admin (you)
+# ==========================================
+# 1. To log in: visit https://aegisgatesecurity.io/admin/
+# 2. Click "Login with GitHub"
+# 3. Authorize Sveltia to access the aegisgatesecurity/aegisgate-site repo
+# 4. Start writing! Click "Publish" when ready.
+#
+# Workflow: When you publish, Sveltia creates a branch like
+# "cms/blog/my-new-post" with your new post. Netlify will deploy a preview
+# at https://cms-blog-my-new-post--aegisgate-site.netlify.app. When you
+# click "Publish" in the editorial workflow, the branch is merged to main
+# and the site is auto-deployed.
+#
+# Or set publish_mode: "simple" to commit directly to main.
+#
+# Auth setup: see Sveltia docs at https://sveltia.org/docs/github-backend/
+# (Will need to register a GitHub OAuth app — instructions below.)

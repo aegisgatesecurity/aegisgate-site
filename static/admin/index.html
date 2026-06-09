@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Manager | AegisGate Security Platform</title>
+    <meta name="description" content="AegisGate Security Platform content management. For AegisGate Security, LLC staff only.">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .sveltia-loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #555;
+        }
+        .sveltia-loader h1 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .sveltia-loader p {
+            font-size: 14px;
+            color: #888;
+        }
+        .sveltia-loader .spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid #ddd;
+            border-top-color: #00ADD8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 12px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="sveltia-loader">
+        <div class="spinner"></div>
+        <h1>AegisGate Content Manager</h1>
+        <p>Loading Sveltia CMS...</p>
+    </div>
+
+    <!--
+        Sveltia CMS — A modern, actively-maintained fork of Decap CMS (formerly Netlify CMS).
+        Docs: https://sveltia.org/
+        GitHub: https://github.com/sveltia/sveltia-cms
+
+        This is a static SPA. All configuration is in config.yml next to this file.
+        Authentication is handled via GitHub OAuth (configured below in config.yml).
+    -->
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+</body>
+</html>
