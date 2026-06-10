@@ -71,7 +71,7 @@ AegisGate Security Platform secures every AI interaction point with **five pilla
 ---
 
 <div class="btn-group">
-<a href="/demo/" class="btn btn-primary">Try Interactive Demo</a>
+<a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🚀 Try the Live Demo</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2" target="_blank" class="btn btn-secondary">Download v3.3.0-beta.2</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" class="btn btn-ghost">⭐ Star on GitHub</a>
 </div>

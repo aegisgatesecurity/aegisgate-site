@@ -20,3 +20,19 @@ http://www.aegisgatesecurity.io/* https://aegisgatesecurity.io/:splat 301
 
 # Future: Sveltia preview URLs (draft posts)
 # /blog/preview/*    /admin/index.html   200
+
+
+# Demo launch (2026-06-10) — redirect old /demo page to the new live demo
+# --------------------------------------------------------------------
+# The old /demo page was a static Hugo page with a fake terminal emulator.
+# It has been replaced by https://demo.aegisgatesecurity.io/ which runs
+# the real AegisGate platform in --mode=demo.
+#
+# 301 = Moved Permanently (preserves SEO equity; tells search engines
+#       the URL has changed permanently; updates bookmarks).
+# :splat captures the subpath, so /demo/foo → https://demo.aegisgatesecurity.io/foo
+# The more specific /demo/* must come BEFORE /demo so it matches first.
+#
+# See SESSION-ANCHOR-2026-06-10-demo-site-live.md, Day 3.6 section.
+/demo/*      https://demo.aegisgatesecurity.io/:splat   301
+/demo        https://demo.aegisgatesecurity.io/        301
