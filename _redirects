@@ -1,0 +1,22 @@
+# AegisGate Security Platform — URL Redirects
+# ==============================================
+#
+# Added 2026-06-10 as part of the demo launch (Option 1: Replace).
+# See SESSION-ANCHOR-2026-06-10-demo-site-live.md, Day 3.6 section.
+#
+# The old /demo page has been replaced by the new interactive demo at
+# https://demo.aegisgatesecurity.io/ (which is the actual AegisGate
+# platform running in --mode=demo with real seed data).
+#
+# These redirects preserve SEO equity, bookmarks, and any external links
+# pointing at the old /demo page.
+
+# /demo (with trailing slash or any subpath) → new live demo
+# 301 = Moved Permanently (tells search engines the URL has changed)
+# :splat captures the subpath (e.g. /demo/foo → /foo)
+# /demo alone (no subpath) goes to the demo root
+/demo/*      https://demo.aegisgatesecurity.io/:splat   301
+/demo        https://demo.aegisgatesecurity.io/        301
+
+# (Future redirects can be added below this line in the format:)
+# /old-url    https://new-url   301
