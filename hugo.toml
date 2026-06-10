@@ -24,9 +24,11 @@ theme = "aegisgate"
 # Main nav menu
 [menu]
   [[menu.main]]
-    name = "Demo"
-    url = "/demo/"
+    name = "🚀 Live Demo"
+    url = "https://demo.aegisgatesecurity.io/"
     weight = 1
+    # 2026-06-10: Pointed at the new live demo (see SESSION-ANCHOR-2026-06-10-demo-site-live.md
+    # Day 3.6). The old /demo/ page is now a Netlify 301 redirect to this URL.
 
   [[menu.main]]
     name = "Docs"
