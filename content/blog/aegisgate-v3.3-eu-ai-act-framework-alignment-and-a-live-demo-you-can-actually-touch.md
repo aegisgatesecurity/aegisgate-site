@@ -1,6 +1,6 @@
 ---
 title: 'AegisGate v3.3: EU AI Act Framework Alignment, and a Live Demo You Can Actually Touch'
-slug: aegisgatesecurity.io/blog/eu-ai-framework-alignment-live-demo/
+slug: eu-ai-framework-alignment-live-demo/
 description: AegisGate v3.3 ships the EU AI Act Compliance Module — 82 controls across 8 categories spanning Articles 5, 9, 10, 11, 12, 13, 14, 15, and 51–55, gated to Professional+ tier at $99/mo. And as of today, anyone can see the platform running — for real, not a marketing mock — at https://demo.aegisgatesecurity.io.
 date: 2026-06-11
 author: AegisGate Security
