@@ -1,6 +1,6 @@
 ---
 title: 'AegisGate v3.3: EU AI Act Framework Alignment, and a Live Demo You Can Actually Touch'
-slug: aegisgatesecurity.io/blog/eu-ai-framework-alignment-live-demo.html
+slug: aegisgatesecurity.io/blog/eu-ai-framework-alignment-live-demo/
 description: AegisGate v3.3 ships the EU AI Act Compliance Module — 82 controls across 8 categories spanning Articles 5, 9, 10, 11, 12, 13, 14, 15, and 51–55, gated to Professional+ tier at $99/mo. And as of today, anyone can see the platform running — for real, not a marketing mock — at https://demo.aegisgatesecurity.io.
 date: 2026-06-11
 author: AegisGate Security
@@ -26,7 +26,7 @@ draft: false
 
 _Two things shipped this week that we think matter for anyone shipping AI to the EU._
 
----
+***
 
 ## The Compliance Reality Nobody Wants to Talk About
 
@@ -40,7 +40,7 @@ The harder truth: **most "AI governance" tools on the market are documentation f
 
 AegisGate v3.3 is built to be a different kind of compliance tool — one that does the work, not just records it.
 
----
+***
 
 ## What's New in v3.3: The EU AI Act Compliance Module
 
@@ -65,22 +65,17 @@ The module is the **7th compliance framework** in the platform, joining HIPAA, P
 
 A note on the gating: **EU AI Act compliance is required for the high-risk AI systems in scope, not for the free Community tier.** Professional+ ($499/mo) gets you the platform; the EU AI Act module is a $99/mo add-on on top. This is a deliberate decision — a compliance module that ships "free" is a compliance module that nobody else can ship paid, and a compliance module that ships paid-but-included-forever is a compliance module that will get deprioritized when budgets tighten. Pricing the module as an add-on that funds its own maintenance is the only way we know to keep the implementation current with each new Commission guidance and delegated act.
 
----
+***
 
 ## Why "Compliance Theater" Is Worse Than No Compliance
 
 A pattern we've observed across 40+ enterprise AI deployments:
 
 1. Team buys a GRC tool.
-
 2. Team writes a "AI risk assessment" document.
-
 3. Document is reviewed and approved.
-
 4. System goes to production. The detection engine never fires because **the patterns the GRC tool checks are not the same patterns the AI system actually outputs**.
-
 5. Audit happens. Auditors find that the controls are not actually enforced.
-
 6. The GRC vendor's response: "Our tool is a documentation framework, not a detection engine."
 
 This is the failure mode the EU AI Act is specifically designed to prevent. The Act does not require you to _document_ that you have a risk management system. It requires you to _have_ one. And the difference between the two is the difference between a passing audit and a fine.
@@ -89,7 +84,7 @@ AegisGate's approach: **the controls ARE the detection rules.** A blocked reques
 
 The implementation note worth stating: 73 of the 82 controls are still **manual review items** — they require evidence collection, design review, and human attestation. The 9 automated controls catch the patterns the AI Act prohibits. The 73 manual controls catch the _absence_ of evidence. We have not seen another tool that even makes the distinction, let alone ships both.
 
----
+***
 
 ## The Second Thing: You Can Now See It Running
 
@@ -104,15 +99,10 @@ This is not a marketing toy. It is not a stylized terminal with pre-canned respo
 What you'll see when you visit:
 
 - **8 headline platform statistics** — including 82 EU AI Act controls, 144+ detection patterns, 5 MCP tool guardrails, and the platform's daily traffic.
-
 - **The full EU AI Act compliance scan** — 82 controls, organized by Article, with their current status, the specific risks they cover, and the evidence AegisGate has collected. The demo runs in \`high-risk\` mode (Annex III, Category 1: Biometric identification) for illustrative purposes.
-
 - **20 pre-loaded threat detections** — real attack patterns caught by AegisGate in production, with severity scores, MITRE ATLAS technique IDs, and the specific detection rule that fired.
-
 - **5 sample MCP tool guardrails** — demonstrated on representative tool definitions. The full MCP guardrail set is 8 in production; the demo shows the 5 most operationally distinct for clarity.
-
 - **24 hours of activity** — a live bar chart of every request AegisGate processed, color-coded by threat severity.
-
 - **The interactive playground** — 12 pre-canned scenarios you can run: prompt injection, jailbreaks, PII redaction, MCP tool deletion, Article 5 violations, GDPR data subject access, rate-limit exhaustion, and more. Each shows the request, the detection that fired, the rule that matched, and the response AegisGate returned.
 
 You can also see the playground's curated responses — and the design philosophy is straightforward: **the playground does not call a real LLM**. There is no API key, no model selection, no burn on your credit card. Every response is deterministic and educational. The point is to show you _what AegisGate would do_ with a given input — not to demo an LLM.
@@ -121,7 +111,7 @@ A note on the demo data: **the headline numbers in the demo are synthetic** — 
 
 We will not pretend the demo is the same as deploying AegisGate in your stack. It isn't. But it is **the same binary, running the same code, with the same detection engine.** You will see exactly what AegisGate sees when you put it in front of your AI system.
 
----
+***
 
 ## How We Built It, and Why It Matters
 
@@ -132,16 +122,13 @@ This matters for a reason that often gets lost: **the demo is not a sales tool. 
 A few specifics:
 
 - The cookie gate for `/dashboard/`, `/seed-data/`, and `/platform/` is identical to what you'd configure in production nginx or an API gateway.
-
 - The Turnstile integration on the signup form is a drop-in example of how to add bot protection to your own signup flow.
-
 - The admin endpoints (`/admin/status`, `/admin/run-digest`) are exposed on the demo so you can see what a real ops workflow looks like.
-
 - The daily digest email (sent via Resend) is a copy-paste pattern for your own ops team.
 
 We wrote the demo the way we write every AegisGate feature: it should be something you'd want to use in production, not a stripped-down version that exists only to look pretty.
 
----
+***
 
 ## What This Means for You
 
@@ -153,7 +140,7 @@ Three things, depending on who you are.
 
 **If you're an existing AegisGate user on Professional+ or Enterprise:** v3.3 is a free upgrade. The EU AI Act module is available as a $99/mo add-on to your existing tier. The 82 controls are wired into your existing detection pipeline. No migration, no reconfiguration. The upgrade is one command: `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:latest && docker compose up -d`.
 
----
+***
 
 ## The Open Question We Want You to Ask
 
@@ -163,7 +150,7 @@ The open question is whether that's right for you. We can't answer that for you.
 
 That's what the demo is for.
 
----
+***
 
 ## Try It
 
@@ -193,18 +180,15 @@ https://demo.aegisgatesecurity.io
 
 **19.1 MB. 60 seconds. All five AI attack surfaces, including the EU AI Act module for Professional+.**
 
----
+***
 
 ### Further Reading
 
 - [AegisGate Documentation](https://github.com/aegisgatesecurity/aegisgate-platform/tree/main/docs)
-
 - [EU AI Act — Full Text](https://artificialintelligenceact.eu/the-act/)
-
 - [MITRE ATLAS Framework](https://atlas.mitre.org/)
-
 - [OWASP LLM Top 10](https://owasp.org/www-project-llm-top-10/)
 
----
+***
 
-_Have feedback on the demo or v3.3? Open a discussion in the [GitHub repository](https://github.com/aegisgatesecurity/aegisgate-platform/discussions) or email security@aegisgatesecurity.io_
+_Have feedback on the demo or v3.3? Open a discussion in the_ [_GitHub repository_](https://github.com/aegisgatesecurity/aegisgate-platform/discussions) _or email security@aegisgatesecurity.io_
