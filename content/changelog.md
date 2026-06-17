@@ -6,7 +6,67 @@ type: "changelog"
 
 ## Changelog
 
-All notable changes to AegisGate Security Platform are documented here.
+All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
+
+### Unreleased - 2026-06-18 - v3.4.0+ Engineering-Complete (Awaiting v3.4.0 GA)
+
+> **Not a version bump.** The work below is committed to `main` and engineering-complete. The v3.4.0 GA is gated on **legal review (H1) + the v3.4.0 paid pentest (H4)**, per the [Beta User Agreement](/legal/beta-agreement/). The version stays at v3.4.0-beta.1 (a forward-looking label for the in-progress work) until those gates are cleared. The public release remains **v3.3.0-beta.2**.
+
+#### The envelope primitive (the v3.4.0+ cryptographic backbone)
+
+A single, frozen, well-tested cryptographic primitive (`pkg/attestation/`, 18 tests, frozen 2026-06-16) that wraps any domain-specific payload with a tamper-evident, third-party-verifiable binding. **One envelope, 9 features, 0 duplication.**
+
+- **4 lifecycle operations** (frozen 2026-06-16, Council of Mine 8/8 unanimous): `Sign`, `Verify`, `VerifyWithKey`, `VerifyOnline`
+- **9-reason error taxonomy** (a verify failure always returns a typed `VerificationError` with one of these 9 reasons — never just "invalid")
+- **8 registered types** (all used by the 9 v3.4.0+ features): `TypeEvidenceManifest`, `TypeEvidenceCrossProtocol`, `TypeEvaluatorRun`, `TypeAIBOM`, `TypeAgentIntent`, `TypePromptCacheAttestation`, `TypeCVEEntry`, `TypeDigest`
+- **9 URI-style subject kinds** (`aegisgate://<kind>/<id>` grammar)
+- **Canonical CLI verb:** `aegisgate attestation verify envelope.json` → `VALID` / `INVALID: signature does not verify`
+- **JCS canonicalization** (RFC 8785) from scratch, zero new external dependencies
+
+#### The 9 features built on the envelope
+
+The Tier 5 features (the "5 killer features"):
+
+- **AR-EaaS** (Adversarial Robustness Evals-as-a-Service, 92.0% coverage) — 10-pattern MITRE ATLAS corpus with signed attestation
+- **AIBOM** (AI Bill of Materials, 86.8% coverage) — CycloneDX 1.6 SBOM + AI extension; reference implementation of the AIBOM spec
+- **Agent Intent Signing** (A2A intent binding, 91.6% coverage) — mTLS proves identity; intent signing proves "I, agent X, said I'd do Y for reason R"
+- **Prompt Cache Poisoning Detection** (92.2% coverage) — hash-and-sign the prompt, verify on read
+- **CVE-for-AI Entry Publisher** (92.0% coverage) — signed CVE entries; portal at [/cve/](/cve/) (live preview)
+
+The Tier 3 features (PDF + SOC):
+
+- **PDF Generator** (from-scratch PDF 1.4, 95.5% coverage after v0.2 branding) — word-wrap + WinAnsi Unicode + branded header + enhanced footer
+- **SOC Incident-Timeline View** (100% coverage) — chronological events per session with cross-protocol aggregation
+
+The Tier 4 features (CISO Digest + reporting pipeline):
+
+- **CISO Posture Digest** (81.8% coverage after v0.2 wiring) — branded PDF digest with real IOC + audit-log breakdowns, signed envelope, Professional+ tier gated
+- **Reporting Pipeline** — `Source` interface + 4 adapters (PostureSource, IOCSource, AuditLogSource, AuditSource) wired into the platform's real dependencies
+
+#### 7 self-review files (`docs/reviews/`)
+
+Every feature has a self-review documenting the issues found and fixed. **Cumulative: 44 issues found and fixed** across 7 review files (in [`docs/reviews/`](https://github.com/aegisgatesecurity/aegisgate-platform/tree/main/docs/reviews)).
+
+#### 3 v0.2 wiring fixes (this session's work)
+
+- **CISO Digest data sources** — the digest's IOCsBlocked + AnomaliesDetected fields now have real breakdowns (was a no-op source in v0.1). Coverage 76.0% → 81.8%.
+- **PDF branding** — the PDF generator now supports a branded header (left-aligned "AegisGate Posture Digest" wordmark + right-aligned "<period> | <digest-id>" subtitle) and an enhanced footer. Coverage 95.4% → 95.5%.
+- **CVE-for-AI portal** — the static portal at [/cve/](/cve/) is live with one illustrative CVE entry, the feed format docs, the verify-an-entry instructions, the security.txt at [/.well-known/security.txt](/.well-known/security.txt), and a placeholder [feed.json](/feed.json).
+
+#### Engineering hygiene
+
+- **Zero new external dependencies** added across the 9-feature Tier 5+3+4 sprint. `go.mod` has the same 8 direct deps it had at the start of the v3.3.0-beta.2 release.
+- **460+ tests passing under -race** across 44 platform packages.
+- **Project-wide coverage 91%+** with all 60+ measured packages ≥80% (CI floor).
+- **24 design patterns** documented in the 7 review files, applied consistently across all 9 features.
+- **The platform and website are now in sync with the remote.** The CVE-for-AI portal is live at [/cve/](/cve/); the security.txt is live at [/.well-known/security.txt](/.well-known/security.txt).
+
+#### What's still on the roadmap (not in v3.4.0+)
+
+- **v3.4.0 GA** — gated on H1 (legal review) + H4 (paid pentest); expected Q3 2026
+- **The v0.2 → v1.0 transition** (multi-tenant, scheduled digests, custom branding per customer) — deferred to v0.5/v1.0
+- **The static CVE portal** — the Go package + the website portal are both shipped. The curated CVE entry browser (v0.3) and the auto-publish workflow are deferred
+- **The Tier 6+ roadmap** (speculative): real-time SOC analyst AI copilot, PentestGPT, AI-specific SOAR, CNA with MITRE
 
 ### v3.3.0-beta.2 - 2026-06-08 - EU AI Act Beta (Integrity Hotfix) 🩹
 
