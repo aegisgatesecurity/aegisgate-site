@@ -273,15 +273,15 @@ Choose the coverage that matches your compliance needs.
 | MITRE ATLAS | ✓ | ✓ | ✓ | ✓ | ✓ |
 | NIST AI RMF | ✓ | ✓ | ✓ | ✓ | ✓ |
 | OWASP LLM Top 10 | ✓ | ✓ | ✓ | ✓ | ✓ |
-| ISO 27001 | ✓ | ✓ | ✓ | ✓ | ✓ |
 | GDPR | — | View | ✓ | ✓ | ✓ |
 | HIPAA | — | — | ✓ | ✓ | ✓ |
 | PCI-DSS | — | — | ✓ | ✓ | ✓ |
 | SOC2 Type II | — | — | Module | ✓ | ✓ |
+| ISO 27001 | — | — | — | ✓ | ✓ |
 | ISO 42001 (AI) | — | — | — | ✓ | ✓ |
 | **{{< eu-flag >}} EU AI Act** | — | — | — | **✓ Included** | **✓ Included** |
 
-*Starter tier adds SSO, RBAC, and GDPR view for SMB/SLED/SOHO teams. Developer tier adds full compliance and mTLS. Professional includes everything **plus the EU AI Act Module at no extra cost**. Enterprise adds custom frameworks and dedicated support.*
+*Starter tier adds SSO, RBAC, and GDPR view for SMB/SLED/SOHO teams. Developer tier adds full compliance (HIPAA + PCI-DSS) and mTLS. Professional includes everything **plus ISO 27001, ISO 42001, the EU AI Act Module at no extra cost, and the Trust Framework**. Enterprise adds custom frameworks and dedicated support.*
 
 ---
 
