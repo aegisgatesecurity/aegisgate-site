@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "generated_at": "2026-06-18T12:00:00Z",
+  "_comment": "Placeholder feed. The production feed goes live with the v3.4.0 GA. To generate a feed from your AegisGate instance: `aegisgate cve list --format=feed --out=feed.json`",
+  "entries": []
+}

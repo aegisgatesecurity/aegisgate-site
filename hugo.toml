@@ -58,9 +58,14 @@ theme = "aegisgate"
     weight = 7
 
   [[menu.main]]
+    name = "🛡️ CVE Feed"
+    url = "/cve/"
+    weight = 8
+
+  [[menu.main]]
     name = "Pricing"
     url = "/pricing/"
-    weight = 8
+    weight = 9
 
 # Enable features
 enableRobotsTXT = true

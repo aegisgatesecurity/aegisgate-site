@@ -1,0 +1,29 @@
+# RFC 9116 — A Web Application Vulnerability Disclosure Format
+# AegisGate Security Platform
+# Last updated: 2026-06-18
+# Canonical: https://aegisgatesecurity.io/.well-known/security.txt
+
+# Contact (required)
+Contact: mailto:security@aegisgatesecurity.io
+Contact: https://aegisgatesecurity.io/security/
+# PGP key (recommended)
+Encryption: https://aegisgatesecurity.io/.well-known/pgp-key.asc
+
+# Disclosure policy (recommended)
+# AegisGate Security Research follows a 90-day coordinated
+# disclosure timeline. See the full policy at:
+Policy: https://aegisgatesecurity.io/security/disclosure-policy/
+Policy: https://aegisgatesecurity.io/legal/security/
+
+# Acknowledgments (optional)
+Acknowledgments: https://aegisgatesecurity.io/security/acknowledgments/
+
+# Preferred languages for reports (optional)
+Preferred-Languages: en
+
+# Canonical URL (optional)
+Canonical: https://aegisgatesecurity.io/.well-known/security.txt
+
+# Hire (optional — AegisGate is not currently hiring, but listed
+# for completeness per the RFC)
+# Hire: https://aegisgatesecurity.io/careers/
