@@ -1,0 +1,35 @@
+name: Build and Deploy to Netlify (production)
+
+# Triggers a Netlify production build on every push to main.
+# Uses a Netlify build hook (configured in Netlify dashboard at
+# Site settings → Build & deploy → Build hooks) which is stored
+# as the NETLIFY_BUILD_HOOK secret in this repo's settings.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    # Allow manual trigger from the Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build
+        run: |
+          if [ -z "$NETLIFY_BUILD_HOOK" ]; then
+            echo "::error::NETLIFY_BUILD_HOOK secret is not set"
+            echo "Create a build hook at https://app.netlify.com/sites/marvelous-fudge-db3a6f/settings/deploys#build-hooks"
+            echo "and add it as a repository secret named NETLIFY_BUILD_HOOK"
+            exit 1
+          fi
+          echo "Triggering Netlify build..."
+          response=$(curl -s -X POST -w "\n%{http_code}" "$NETLIFY_BUILD_HOOK")
+          http_code=$(echo "$response" | tail -n 1)
+          if [ "$http_code" = "200" ]; then
+            echo "Netlify build triggered successfully"
+          else
+            echo "::warning::Netlify returned HTTP $http_code"
+            echo "$response" | head -n -1
+          fi
