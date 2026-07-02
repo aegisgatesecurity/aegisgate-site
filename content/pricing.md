@@ -4,6 +4,10 @@ description: "Simple, transparent pricing for every team size - from solo develo
 type: pricing
 ---
 
+<div class="alert alert-success alert-center" style="background:#0d2538;border-color:#38bdf8;color:#fff;margin-bottom:24px;">
+<strong>🛡️ AegisGate Lens — Free, forever.</strong> The same security team builds a free, privacy-first Chrome extension that protects users across 6 AI providers (ChatGPT, Claude, Gemini, Copilot, duck.ai, Perplexity) with 6-facet detection. <a href="/lens/" style="color:#38bdf8;">Learn more</a> · <a href="/lens/compare/" style="color:#38bdf8;">Lens vs Platform</a> · <a href="https://chromewebstore.google.com/category/extensions/ai" style="color:#38bdf8;">Install from Chrome Web Store</a>
+</div>
+
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
 
 <div class="pricing-availability-notice">

@@ -1,29 +1,27 @@
-# RFC 9116 — A Web Application Vulnerability Disclosure Format
-# AegisGate Security Platform
-# Last updated: 2026-06-18
+# RFC 9116 — /.well-known/security.txt
+# AegisGate Security — vulnerability disclosure policy
 # Canonical: https://aegisgatesecurity.io/.well-known/security.txt
+# Mirrored at: https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/.well-known/security.txt
+# Last updated: 2026-07-02
 
-# Contact (required)
+# Contact: must appear, must be a URI
 Contact: mailto:security@aegisgatesecurity.io
-Contact: https://aegisgatesecurity.io/security/
-# PGP key (recommended)
-Encryption: https://aegisgatesecurity.io/.well-known/pgp-key.asc
 
-# Disclosure policy (recommended)
-# AegisGate Security Research follows a 90-day coordinated
-# disclosure timeline. See the full policy at:
-Policy: https://aegisgatesecurity.io/security/disclosure-policy/
-Policy: https://aegisgatesecurity.io/legal/security/
-
-# Acknowledgments (optional)
-Acknowledgments: https://aegisgatesecurity.io/security/acknowledgments/
-
-# Preferred languages for reports (optional)
-Preferred-Languages: en
-
-# Canonical URL (optional)
+# Canonical URL: the absolute URL of this file
 Canonical: https://aegisgatesecurity.io/.well-known/security.txt
 
-# Hire (optional — AegisGate is not currently hiring, but listed
-# for completeness per the RFC)
-# Hire: https://aegisgatesecurity.io/careers/
+# Expires: when this file should be re-fetched (RFC 9116 §2.5.4)
+# Format: ISO 8601 (must be within 1 year per spec)
+Expires: 2027-07-02T00:00:00.000Z
+
+# Acknowledgments: optional, but we like to thank reporters
+Acknowledgments: https://aegisgatesecurity.io/security/acknowledgments
+
+# Preferred languages for security reports
+Preferred-Languages: en
+
+# Policy: link to the full disclosure policy
+Policy: https://aegisgatesecurity.io/security/
+
+# Hiring: opt-in, link to security-related job openings
+# (omitted — we don't have a dedicated security hiring page)
