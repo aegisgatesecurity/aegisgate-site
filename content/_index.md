@@ -65,7 +65,18 @@ AegisGate Security Platform secures every AI interaction point with **five pilla
 - Professional+ tier feature
 - Read scores via `GET /api/v1/trust/score`
 
+</div><div class="card" style="border-color:#38bdf8;box-shadow:0 0 16px rgba(56,189,248,0.25);">
+
+### 🛡️ AegisGate Lens <span style="font-size:11px;background:#38bdf8;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">FREE — BROWSER EXTENSION</span>
+
+- Free, privacy-first Chrome extension
+- 6-facet detection (PII, secrets, XSS, prompt-injection, toxicity, compliance)
+- 6 AI providers: ChatGPT, Claude, Gemini, Copilot, duck.ai, Perplexity
+- 233/233 tests, zero external dependencies
+- Ed25519-signed bundles, SLSA L2 provenance
+- [Learn more](/lens/) · [Install from Chrome Web Store](https://chromewebstore.google.com/category/extensions/ai) · [Lens vs Platform](/lens/compare/)
 </div>
+
 </div>
 
 ---

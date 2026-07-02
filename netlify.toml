@@ -141,3 +141,9 @@
   for = "/*.html"
     [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
+
+# AegisGate Lens
+[[redirects]]
+  from = "/lens/install"
+  to   = "https://chromewebstore.google.com/category/extensions/ai"
+  status = 302

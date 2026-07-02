@@ -67,6 +67,10 @@ theme = "aegisgate"
     url = "/pricing/"
     weight = 9
 
+  [[menu.main]]
+    name = "🛡️ Lens"
+    url = "/lens/"
+    weight = 10
 # Enable features
 enableRobotsTXT = true
 enableGitInfo = true
