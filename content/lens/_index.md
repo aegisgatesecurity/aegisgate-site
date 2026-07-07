@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Lens — Free Privacy-First Browser Protection for AI Tools"
-description: "Free, privacy-first Chrome extension that protects users across 6 AI providers (ChatGPT, Claude, Gemini, Copilot, duck.ai, Perplexity) with 6-facet detection. 233/233 tests, zero external dependencies. No account required."
+description: "Free, privacy-first Chrome extension that protects users across 10 AI providers (ChatGPT, Claude, Gemini, Copilot, Duck.ai, DuckDuckGo, Perplexity, Mistral, X.com, Grok) with 4-facet regex detection. 369/369 tests, zero external dependencies. No account required."
 type: "landing"
 ---
 
@@ -10,7 +10,7 @@ type: "landing"
 
 ## 🛡️ AegisGate Lens — Privacy-First Browser Protection for AI Tools
 
-AegisGate Lens is a free Chrome extension that detects PII, secrets, prompt-injection, XSS, toxicity, and compliance violations in real time as you type into ChatGPT, Claude, Gemini, Microsoft Copilot, duck.ai, and Perplexity. All processing happens **locally in your browser** by default — no account, no telemetry, no data exfiltration.
+AegisGate Lens is a free Chrome extension that detects PII (SSN, email, phone, credit card), secrets (API keys, tokens, private keys), XSS payloads, and compliance violations (OWASP LLM Top 10, MITRE ATLAS, EU AI Act) in real time as you type into ChatGPT, Claude, Gemini, Microsoft Copilot, Duck.ai, DuckDuckGo, Perplexity, Mistral, X.com, and Grok. All processing happens **locally in your browser** — no account, no telemetry, no data exfiltration.
 
 The same security team behind [AegisGate Platform™](https://aegisgatesecurity.io/?utm_source=lens-homepage) (the enterprise gateway) builds Lens as the consumer-facing layer. The two products share the same detection corpus, the same MITRE ATLAS mapping, and the same privacy commitments. See [Lens vs Platform](/lens/compare/) for the side-by-side comparison.
 
@@ -19,24 +19,28 @@ The same security team behind [AegisGate Platform™](https://aegisgatesecurity.
 ## Why Lens?
 
 - **🔒 Privacy by design**: 12 non-negotiables. No prompt text, no URLs, no page content, no account, no personal identifiers, no fingerprinting. All detection happens in your browser.
-- **🎯 6-facet detection**: PII (email, phone, SSN, credit card), secrets (API keys, tokens, private keys), XSS payloads, prompt-injection attacks, toxicity, and compliance keywords — all in one extension.
-- **⚡ Real-time**: 233/233 tests. Detection latency under 100ms. No network round-trips for the default detection path.
-- **🌐 6 AI providers**: ChatGPT, Claude, Gemini, Microsoft Copilot, duck.ai, Perplexity. No special setup per provider.
-- **🧠 ModernBERT-base ML**: 149M parameters, 8K context window with sliding window inference. Ed25519-signed bundles, SLSA L2 provenance.
+- **🎯 4-facet detection**: PII (43 patterns), secrets (42 patterns), XSS (12 patterns), compliance (5 patterns) — 114 total regex patterns for fast, on-device detection.
+- **⚡ Real-time**: 369/369 tests passing. Detection latency under 10ms. No network round-trips — 100% on-device detection.
+- **🌐 10 AI providers**: ChatGPT, Claude, Gemini, Microsoft Copilot, Duck.ai, DuckDuckGo, Perplexity, Mistral, X.com, Grok. No special setup per provider.
+- **🔍 Regex-based detection**: Fast, predictable, deterministic patterns. No ML model loading, no inference latency, no false positives from subjective interpretation.
 - **🔓 Free, forever**: No "Pro" tier, no feature gate, no credit card. Lens is the consumer-facing product; Platform is the optional enterprise gateway.
 
 ---
 
 ## How it works
 
-Lens injects a content script into the 6 supported AI providers. As you type a prompt, the content script:
+Lens injects a content script into the 10 supported AI providers. As you type a prompt, the content script:
 
-1. **Detects** with 6 facets: regex patterns (fast, synchronous), heuristic checks (URLs, emails, credit cards), and the optional ModernBERT ML model (async, more accurate).
-2. **Warns** via a non-blocking banner that explains what was detected, why it matters, and what to do about it.
-3. **Never sends** your prompt to any server — not even opt-in. The only data Lens may send is anonymous Tier-1 metadata (detection category, pattern ID, no text) when you explicitly opt in to help improve detection.
+1. **Detects** with 4 regex facets:
+   - **PII**: SSN, email, phone, credit card (Luhn-validated), DOB, address, driver's license, passport, tax ID, bank account, IP address (43 patterns)
+   - **Secrets**: API keys (AWS, GitHub, OpenAI, Stripe, Slack), RSA private keys, OAuth tokens, database credentials (42 patterns)
+   - **XSS**: `<script>` tags, event handlers, `javascript:` URLs, SVG-based XSS, DOM clobbering, polyglot payloads (12 patterns)
+   - **Compliance**: OWASP LLM Top 10, MITRE ATLAS, EU AI Act patterns (5 patterns)
+2. **Warns** via a non-blocking banner at the top of the page that explains what was detected, why it matters, and what to do about it (3 options: Cancel, Edit & Redact, Send Anyway).
+3. **Never sends** your prompt to any server — not even opt-in. The only data Lens may send is anonymous, hashed metadata (detection category, no text) when you explicitly opt in to help improve detection.
 4. **Stores nothing** by default. No keystroke logging, no prompt caching, no history.
 
-See the [architecture overview](/lens/architecture/) for details on the 6-facet detection system and the ModernBERT model.
+See the [architecture overview](/lens/architecture/) for details on the 4-facet detection system.
 
 ---
 
@@ -67,10 +71,10 @@ If we ever change any of these, the change will be:
 ## Try it
 
 - 🛡️ **[Install from Chrome Web Store](https://chromewebstore.google.com/category/extensions/ai)** — one click, no account
-- 🐙 **[Lens on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens)** — Apache 2.0, 233/233 tests, zero external dependencies
+- 🐙 **[Lens on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens)** — Apache 2.0, 369/369 tests, zero external dependencies
 - 📜 **[Privacy Policy](/lens/privacy/)** — the full text of what Lens does and doesn't collect
-- 🏗️ **[Architecture](/lens/architecture/)** — how the 6-facet detection system works
-- 🔒 **[Security Model](/lens/security/)** — bundle signing, SLSA L2 provenance, vulnerability disclosure
+- 🏗️ **[Architecture](/lens/architecture/)** — how the 4-facet detection system works
+- 🔒 **[Security Model](/lens/security/)** — content security policy, vulnerability disclosure
 - 📋 **[Changelog](/lens/changelog/)** — what changed in each version
 - ⚖️ **[Lens vs Platform](/lens/compare/)** — when to use Lens alone, when to add Platform
 
