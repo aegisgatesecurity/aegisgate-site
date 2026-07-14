@@ -5,17 +5,36 @@ type: "docs"
 weight: 1
 ---
 
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md -->
+<!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
+
+<div class="alert alert-info">
+<strong>🛡️ AegisGate Lens v0.1.3</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md">docs/FACTS.md</a>)</em>
+
+<ul>
+<li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
+<li><strong>132 regex patterns</strong> across <strong>4 detection facets</strong>: PII, secrets, XSS, compliance</li>
+<li><strong>450 automated tests</strong>: 431/431 Node + 3/3 Go + 16/16 headless smoke in real Chrome</li>
+<li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
+<li><strong>Sub-millisecond detection</strong> (avg 0.34ms)</li>
+<li><strong>100% on-device</strong>, zero network egress by default</li>
+<li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
+<li><strong>Free, forever</strong></li>
+</ul>
+</div>
+
+
 # AegisGate Lens — Privacy Policy
 
-**Last updated**: 2026-07-02
-**Applies to**: AegisGate Lens v0.3.0-rc1 and later
-**Source of truth**: [github.com/aegisgatesecurity/aegisgate-lens/blob/main/src/privacy/](https://github.com/aegisgatesecurity/aegisgate-lens/tree/main/src/privacy)
+**Last updated**: 2026-07-10
+**Applies to**: AegisGate Lens v0.1.3 and later
+**Source of truth**: [github.com/aegisgatesecurity/aegisgate-lens/blob/main/src/privacy/](https://github.com/aegisgatesecurity/aegisgate-lens/tree/v0.1.3/src/privacy)
 
 ---
 
 ## TL;DR
 
-AegisGate Lens is a privacy-first browser extension. By default, it sends **nothing** to any server. All detection happens locally in your browser. The only data Lens may ever send is anonymous Tier-1 metadata (detection category, pattern ID, no text) when you explicitly opt in to help improve detection.
+AegisGate Lens is a privacy-first browser extension. By default, it sends **nothing** to any server. All detection happens locally in your browser. The only data Lens may ever send is anonymous, hashed metadata (detection category, pattern ID, no text) when you explicitly opt in to help improve detection by reporting false positives.
 
 The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). You can audit every line of code that handles your data.
 
@@ -39,7 +58,7 @@ AegisGate Lens **never** sends or stores:
 12. ❌ **IP addresses** (when self-hosted — only the Gateway server IP if you use the optional opt-in telemetry with Platform)
 
 If we ever change any of these, the change will be:
-- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md)
+- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/SECURITY.md)
 - Disclosed in the release notes
 - Announced via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
 - Reversible (the change is in the source code, which you can fork)
@@ -50,7 +69,7 @@ If we ever change any of these, the change will be:
 
 By default (Tier 0: Detect-only), Lens:
 
-1. **Detects** PII, secrets, XSS payloads, prompt-injection attempts, toxicity, and compliance keywords in real time as you type into 6 AI providers (ChatGPT, Claude, Gemini, Microsoft Copilot, duck.ai, Perplexity).
+1. **Detects** PII, secrets, XSS payloads, and compliance keywords in real time as you type into 8 AI providers (ChatGPT, Claude, Gemini, Microsoft Copilot, DuckDuckGo, Perplexity, Mistral, Grok).
 2. **Warns** via a non-blocking banner that appears below the input field when a detection fires.
 3. **Stores nothing** — no detection history, no keystroke log, no prompt cache.
 
@@ -58,33 +77,26 @@ All of this happens in your browser. No network request is made.
 
 ---
 
-## What Lens does when you opt in
+## What Lens does when you opt in to false-positive reporting
 
-If you explicitly opt in to **Tier 1** (anonymized metadata) or **Tier 2** (full event details), Lens may send:
+The only opt-in path in v0.1.3 is **false-positive reporting**: when you click "Submit & Dismiss" on a detection banner. If you opt in (a single click, per-banner), Lens may send:
 
-### Tier 1: Anonymized metadata
 - ✅ Detection category (e.g., "pii_email", "secret_api_key")
 - ✅ Pattern ID (e.g., "credit_card_visa_v1")
-- ✅ Detection timestamp (ISO 8601 epoch)
 - ✅ Domain hash (SHA-256 prefix of the AI provider hostname, 16 hex chars, k-anonymous)
 - ❌ No prompt text
 - ❌ No URLs
 - ❌ No page content
 - ❌ No personal identifiers
 
-### Tier 2: Full event details (power users)
-- ✅ Everything in Tier 1, plus:
-- ✅ Detection timing (window index, latency)
-- ✅ Model consensus (0-1)
-- ✅ Pattern fingerprint (NOT text)
-- ✅ 30-day rolling count (anonymized)
-- ❌ Still no prompt text, no URLs
+This is **opt-in per-detection**, not a global opt-in. You can report one false positive while declining the next. The default is to dismiss without reporting (no data sent).
 
-### What never gets sent, at any tier
+### What never gets sent, at any opt-in level
+
 - ❌ Prompt text (input or output)
 - ❌ URLs
 - ❌ Page content
-- ❌ Personal identifiers (PII detected in your prompts is rewritten in your browser)
+- ❌ Personal identifiers (after detection redaction)
 - ❌ Account credentials
 - ❌ Browser fingerprinting
 - ❌ AI provider responses
@@ -146,7 +158,7 @@ AegisGate Lens is not intended for children under 13 (or the applicable age of d
 
 This policy may be updated as Lens evolves. The current version is always at this URL. We will:
 - Update the "Last updated" date
-- Add an entry to the [Lens CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/CHANGELOG.md) for material changes
+- Add an entry to the [Lens CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/CHANGELOG.md) for material changes
 - Announce material changes via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
 
 ---
@@ -154,9 +166,9 @@ This policy may be updated as Lens evolves. The current version is always at thi
 ## Contact
 
 - **Privacy questions**: `privacy@aegisgatesecurity.io`
-- **Security disclosures**: `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/.well-known/security.txt) per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116))
+- **Security disclosures**: `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/.well-known/security.txt) per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116))
 - **General questions**: the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
-- **PGP key**: see [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md)
+- **PGP key**: see [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/SECURITY.md)
 
 ---
 

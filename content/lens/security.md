@@ -1,13 +1,32 @@
 ---
 title: "AegisGate Lens — Security Model"
-description: "Bundle signing (Ed25519), SLSA L2 provenance, Sigstore + Rekor, vulnerability disclosure policy per RFC 9116."
+description: "Content Security Policy, Ed25519-signed commits, Apache 2.0, vulnerability disclosure policy per RFC 9116. The v0.1.3 security model."
 type: "docs"
 weight: 3
 ---
 
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md -->
+<!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
+
+<div class="alert alert-info">
+<strong>🛡️ AegisGate Lens v0.1.3</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md">docs/FACTS.md</a>)</em>
+
+<ul>
+<li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
+<li><strong>132 regex patterns</strong> across <strong>4 detection facets</strong>: PII, secrets, XSS, compliance</li>
+<li><strong>450 automated tests</strong>: 431/431 Node + 3/3 Go + 16/16 headless smoke in real Chrome</li>
+<li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
+<li><strong>Sub-millisecond detection</strong> (avg 0.34ms)</li>
+<li><strong>100% on-device</strong>, zero network egress by default</li>
+<li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
+<li><strong>Free, forever</strong></li>
+</ul>
+</div>
+
+
 # AegisGate Lens — Security Model
 
-The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the security model.
+The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the security model of v0.1.3.
 
 ## Threat Model
 
@@ -16,8 +35,7 @@ Lens protects against:
 1. **User accidentally exposing PII** in an AI prompt
 2. **User accidentally exposing secrets** (API keys, tokens) in an AI prompt
 3. **User being targeted by prompt-injection attacks** (XSS payloads embedded in pasted content, instructions to ignore prior context)
-4. **User being exposed to toxic AI responses**
-5. **User sharing compliance-relevant data** (GDPR keywords, HIPAA keywords, PCI keywords)
+4. **User sharing compliance-relevant data** (GDPR keywords, HIPAA keywords, PCI keywords)
 
 Lens does **not** protect against:
 
@@ -28,69 +46,86 @@ Lens does **not** protect against:
 
 For these threats, see [OWASP Top 10](https://owasp.org/www-project-top-10/) and [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework).
 
-## Bundle Signing (Ed25519)
+## Ed25519 Commit Signing
 
-Every model bundle (int8 and FP32) is signed with an Ed25519 key. The signature is at the end of the bundle (last 64 bytes).
+All commits to the AegisGate Lens repository are signed with Ed25519 SSH keys (per [GitHub's signing docs](https://docs.github.com/en/authentication/managing-commit-signature-verification)). This means:
 
-**Format** (per the [Lens source code](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/src/util/bundle-loader.js)):
+- Every commit has a verified signature
+- The signature is tied to a specific AegisGate maintainer
+- You can verify who made every change
+- An attacker who compromises a contributor's account cannot impersonate them (they don't have the Ed25519 private key)
 
+To verify a commit locally:
+
+```bash
+git log --show-signature
 ```
-| header (JSON) | payload (concatenated model files) | Ed25519 signature (64 bytes) |
-```
 
-The header includes:
-- `magic`: `"AEGISGATE_LENS_BUNDLE_V1"`
-- `signing_public_key`: hex of the Ed25519 public key (64 hex chars)
-- `payload_sha256`: SHA-256 of the payload
-- `n_files`, `total_payload_size`, `files[]` (per-file offset + size + sha256)
-- `bundle_version`, `license`, etc.
+## Chrome Web Store Distribution
 
-**Verification flow** (on bundle load):
+The Chrome extension `.zip` is distributed via the Chrome Web Store. Chrome verifies the package on install and provides automatic updates. The `.zip` is built by GitHub Actions on every push to the `v0.1.x` branches.
 
-1. Read the bundle as bytes
-2. Split: header bytes, payload bytes, signature bytes
-3. Parse the header JSON
-4. Look up the Ed25519 public key in the key ring (matched by `header.signing_public_key`)
-5. Verify the Ed25519 signature over (header + payload) using the public key
-6. Verify the SHA-256 of the payload matches `header.payload_sha256`
-7. Verify each file's SHA-256 matches `header.files[i].sha256`
+## Content Security Policy (CSP)
 
-If any step fails, the bundle is **rejected** and the extension falls back to regex-only detection (no ML inference). The user sees a non-blocking banner explaining that the ML model couldn't be loaded.
+Lens implements a strict CSP via the MV3 manifest:
 
-**Key ring** (2 keys at v0.3.0-rc1):
+- No inline scripts
+- No remote code loading
+- No `eval()` or `new Function()`
+- No third-party CDNs at runtime
+- All JavaScript is bundled in the extension package
+- All CSS is bundled in the extension package (no external stylesheets)
 
-- `lens-v02-2026-06-29` — PI bundle (prompt-injection, 154 MB int8)
-- `lens-v02-c6c3ab5a` — Toxicity bundle (105 MB int8)
+The CSP is enforced by Chrome at the extension level. The extension cannot load external resources even if the page tries to make it do so.
 
-Both public keys are in `src/util/bundle-loader.js`. If we add a new key in the future, it must be added to the key ring first; bundles signed with unknown keys are rejected.
+## Storage Hygiene
 
-## SLSA L2 Provenance
+- All Lens storage is local (chrome.storage.local + chrome.storage.session)
+- No cookies set by Lens
+- No IndexedDB entries for tracking
+- The 12 non-negotiables (see [Privacy Policy](/lens/privacy/)) are enforced in code
+- The opt-in storage key (`STORAGE_KEYS.OPT_IN`) is the same canonical key used by welcome.js, popup.js, and background.js (per the F-2 fix)
 
-Every release artifact (the signed `.bundle` files) has **SLSA Level 2** provenance generated by `github.com/slsa-framework/slsa-github-generator`. The provenance attests that:
+## Schema Validation
 
-- The artifact was built from the official AegisGate Lens repository
-- The build was triggered by a specific commit on the `main` branch
-- The build was performed by GitHub Actions (not by an attacker)
-- The build used specific source dependencies (no supply chain attacks)
+All detection events are validated against a schema before any processing:
 
-The provenance is generated for every release. You can verify it using [slsa-verifier](https://github.com/slsa-framework/slsa-verifier).
+- Required fields: `lens_event_version`, `timestamp`, `domain_hash`, `category`, `severity`, `confidence`, `value`, etc.
+- Prohibited fields: `text`, `url`, `prompt`, `page_content` (per the privacy policy)
+- The schema is in `src/privacy/schema.js` and is the single source of truth
 
-## Sigstore + Rekor
+If an event fails validation, it is dropped. No data is leaked.
 
-Every release commit is signed with [Sigstore](https://www.sigstore.dev/) (keyless signing, tied to the GitHub Actions OIDC token). The signature is logged to the [Rekor](https://www.rekor.sigstore.dev/) transparency log.
+## Input Validation
 
-This means you can verify that the release was made by the AegisGate maintainers, not by an attacker with stolen credentials.
+- All inputs (prompts, bundle sizes, header lengths) are bounded
+- Detection has a 100ms timeout (no infinite loops)
+- The dispatcher enforces a maximum of 20 matches per event
+- The popup is rate-limited (no rapid-fire opt-in toggles)
+
+## No Model Bundles (v0.1.3)
+
+v0.1.3 is **regex-only**. There are no model bundles, no ML inference, no inference timeouts.
+
+This means:
+- No bundle signing is needed (no bundles to sign)
+- No SLSA L2 provenance is needed (no bundles to attest)
+- No Sigstore/Rekor integration is needed (no artifacts to log)
+- No key ring is needed (no keys to manage)
+
+If v0.2.0 adds a TinyML model (planned), the bundle signing and provenance flow will be added at that time and documented here.
 
 ## Vulnerability Disclosure (RFC 9116)
 
 We follow [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116) for vulnerability disclosure. The policy is published at:
 
 - `https://aegisgatesecurity.io/.well-known/security.txt`
-- `https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/.well-known/security.txt`
+- `https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/.well-known/security.txt`
 
 **Contact**: `security@aegisgatesecurity.io`
 
 **Response SLA**:
+
 - Acknowledge: within 48 hours
 - Triage: within 7 days
 - Fix critical (CVSS ≥ 9.0): within 7 days
@@ -108,17 +143,18 @@ Lens implements several defense-in-depth measures:
 2. **No `eval()` or `new Function()`**: Lens never evaluates dynamic code
 3. **No remote code loading**: Lens never fetches executable code from the network
 4. **Strict input validation**: all bundle headers are validated against a schema before parsing
-5. **Bundle signature verification**: as described above
-6. **Hash verification**: all file hashes in the bundle are verified
-7. **Length limits**: all inputs (prompts, bundle sizes) are bounded
-8. **Timeout protection**: detection has a 100ms timeout (no infinite loops)
+5. **Schema validation**: all detection events are validated before processing
+6. **Length limits**: all inputs (prompts, bundle sizes) are bounded
+7. **Timeout protection**: detection has a 100ms timeout (no infinite loops)
+8. **Sender validation**: the SW rejects messages from any extension other than itself (per F-01 in the threat model)
 
 ## Supply Chain
 
 - All dependencies are pinned to specific versions
 - The build process is reproducible (same input → same output)
-- Releases are signed (Sigstore) and logged (Rekor)
+- Releases are signed (Ed25519 commit signing) and verifiable on GitHub
 - The source is auditable (Apache 2.0, on GitHub)
+- No npm dependencies (the extension has zero third-party JS)
 
 ## Threat Model Limitations
 
@@ -131,6 +167,7 @@ Lens is **not** a silver bullet. It cannot protect against:
 - A user who intentionally disables Lens
 
 For these threats, use a defense-in-depth approach:
+
 - Use a reputable browser with auto-updates
 - Use a reputable AI provider with SOC 2 / ISO 27001 certification
 - Use HTTPS everywhere
@@ -140,7 +177,7 @@ For these threats, use a defense-in-depth approach:
 ## See Also
 
 - [Privacy Policy](/lens/privacy/) — what we collect, what we don't
-- [Architecture](/lens/architecture/) — how the 6-facet detection works
-- [Lens SEC.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md)
+- [Architecture](/lens/architecture/) — how the 4-facet detection works
+- [Lens SECURITY.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/SECURITY.md)
 
-Report vulnerabilities to `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/.well-known/security.txt)).
+Report vulnerabilities to `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/.well-known/security.txt)).
