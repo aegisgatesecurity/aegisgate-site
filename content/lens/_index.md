@@ -40,7 +40,7 @@ type: "landing"
 
 
 <div class="alert alert-success alert-center">
-<strong>🛡️ AegisGate Lens</strong> is <strong>free and stays free</strong> for individual use. No account required. No prompt text ever sent to any server. <a href="https://chromewebstore.google.com/category/extensions/ai" class="btn btn-primary" style="margin-left:12px">Install from Chrome Web Store →</a>
+<strong>🛡️ AegisGate Lens</strong> is <strong>free and stays free</strong> for individual use. No account required. No prompt text ever sent to any server. <a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" class="btn btn-primary" style="margin-left:12px">Install from Chrome Web Store →</a>
 </div>
 
 ## 🛡️ AegisGate Lens — Privacy-First Browser Protection for AI Tools
@@ -105,7 +105,7 @@ If we ever change any of these, the change will be:
 
 ## Try it
 
-- 🛡️ **[Install from Chrome Web Store](https://chromewebstore.google.com/category/extensions/ai)** — one click, no account
+- 🛡️ **[Install from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** — one click, no account
 - 🐙 **[Lens on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens)** — Apache 2.0, 500/500 tests, zero external dependencies
 - 📜 **[Privacy Policy](/lens/privacy/)** — the full text of what Lens does and doesn't collect
 - 🏗️ **[Architecture](/lens/architecture/)** — how the 4-facet detection system works

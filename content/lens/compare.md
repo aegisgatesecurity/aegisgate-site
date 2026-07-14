@@ -140,7 +140,7 @@ See [full pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-compare
 
 ## Get started
 
-- 🛡️ **[Install Lens from Chrome Web Store](https://chromewebstore.google.com/category/extensions/ai)** — one click, no account
+- 🛡️ **[Install Lens from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** — one click, no account
 - 🐙 **[Deploy Platform](https://aegisgatesecurity.io/docs/getting-started/?utm_source=lens-compare)** — `docker run` in 60 seconds
 - ⚖️ **[Compare side-by-side](https://aegisgatesecurity.io/pricing/?utm_source=lens-compare)** — pricing details
 - 📧 **[Contact sales](mailto:sales@aegisgatesecurity.io)** for Enterprise questions
