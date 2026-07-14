@@ -16,7 +16,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug NETLIFY_BUILD_HOOK (diagnostic - DELETE after fix)
+        env:
+          SECRET_NAME: NETLIFY_BUILD_HOOK
+        run: |
+          echo "DIAGNOSTIC: this step exists only to debug the empty-secret issue. delete it after the fix."
+          echo "  repo: aegisgatesecurity/aegisgate-site"
+          echo "  workflow: deploy-production.yml"
+          echo "  secret name: $SECRET_NAME"
+          echo "  gh secret list confirms the secret exists; the workflow still fails with -z"
+          echo "  fix: paste the actual Netlify build hook URL into https://github.com/aegisgatesecurity/aegisgate-site/settings/secrets/actions"
       - name: Trigger Netlify build
+        env:
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
         run: |
           if [ -z "$NETLIFY_BUILD_HOOK" ]; then
             echo "::error::NETLIFY_BUILD_HOOK secret is not set"
