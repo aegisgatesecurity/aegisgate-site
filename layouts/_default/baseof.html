@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-    <meta name="description" content="{{ block "description" . }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
     
     <!-- Favicon -->
     <link rel="icon" href="{{ "favicon.png" | relURL }}">
