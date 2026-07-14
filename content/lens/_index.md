@@ -14,7 +14,6 @@
 
 ---
 
----
 title: "AegisGate Lens — Free Privacy-First Browser Protection for AI Tools"
 description: "Free, privacy-first Chrome extension that protects users across 8 AI providers (ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok) with 4-facet regex detection. 500/500 Node tests, 3/3 Go tests, 16/16 headless smoke + 128/128 mini-smoke in real Chrome. Zero external dependencies. No account required."
 type: "landing"
