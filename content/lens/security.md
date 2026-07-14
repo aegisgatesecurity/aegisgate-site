@@ -1,22 +1,22 @@
 ---
 title: "AegisGate Lens — Security Model"
-description: "Content Security Policy, Ed25519-signed commits, Apache 2.0, vulnerability disclosure policy per RFC 9116. The v0.1.3 security model."
+description: "Content Security Policy, Ed25519-signed commits, Apache 2.0, vulnerability disclosure policy per RFC 9116. The v0.1.4 security model."
 type: "docs"
 weight: 3
 ---
 
-<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md -->
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md -->
 <!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.1.3</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md">docs/FACTS.md</a>)</em>
+<strong>🛡️ AegisGate Lens v0.1.4</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md">docs/FACTS.md</a>)</em>
 
 <ul>
 <li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
 <li><strong>132 regex patterns</strong> across <strong>4 detection facets</strong>: PII, secrets, XSS, compliance</li>
-<li><strong>450 automated tests</strong>: 431/431 Node + 3/3 Go + 16/16 headless smoke in real Chrome</li>
+<li><strong>647 automated tests</strong>: 500/500 Node + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
 <li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
-<li><strong>Sub-millisecond detection</strong> (avg 0.34ms)</li>
+<li><strong>Sub-millisecond detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts)</li>
 <li><strong>100% on-device</strong>, zero network egress by default</li>
 <li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
 <li><strong>Free, forever</strong></li>
@@ -26,7 +26,7 @@ weight: 3
 
 # AegisGate Lens — Security Model
 
-The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the security model of v0.1.3.
+The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the security model of v0.1.4.
 
 ## Threat Model
 
@@ -103,9 +103,9 @@ If an event fails validation, it is dropped. No data is leaked.
 - The dispatcher enforces a maximum of 20 matches per event
 - The popup is rate-limited (no rapid-fire opt-in toggles)
 
-## No Model Bundles (v0.1.3)
+## No Model Bundles (v0.1.4)
 
-v0.1.3 is **regex-only**. There are no model bundles, no ML inference, no inference timeouts.
+v0.1.4 is **regex-only**. There are no model bundles, no ML inference, no inference timeouts.
 
 This means:
 - No bundle signing is needed (no bundles to sign)
@@ -120,7 +120,7 @@ If v0.2.0 adds a TinyML model (planned), the bundle signing and provenance flow 
 We follow [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116) for vulnerability disclosure. The policy is published at:
 
 - `https://aegisgatesecurity.io/.well-known/security.txt`
-- `https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/.well-known/security.txt`
+- `https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/.well-known/security.txt`
 
 **Contact**: `security@aegisgatesecurity.io`
 
@@ -178,6 +178,6 @@ For these threats, use a defense-in-depth approach:
 
 - [Privacy Policy](/lens/privacy/) — what we collect, what we don't
 - [Architecture](/lens/architecture/) — how the 4-facet detection works
-- [Lens SECURITY.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/SECURITY.md)
+- [Lens SECURITY.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/SECURITY.md)
 
-Report vulnerabilities to `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/.well-known/security.txt)).
+Report vulnerabilities to `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/.well-known/security.txt)).

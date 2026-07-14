@@ -1,29 +1,27 @@
-> **📣 AegisGate Lens v0.1.4 is in CWS review** (expected approval 2026-07-13).
-> This page documents the **v0.1.0-beta** architecture. v0.1.4 will add:
-> 8 providers, 132 patterns, 500/500 tests, mini-smoke binary, lightweight
-> shell linter, performance baseline benchmark.
+> **🆕 AegisGate Lens v0.1.4 is LIVE** — CWS approved 2026-07-13, released the same day.
+> This page documents the **v0.1.4** architecture (the v0.1.0-beta baseline + 35 polish commits).
 
 ---
 
 ---
 title: "AegisGate Lens — Architecture"
-description: "How AegisGate Lens works: 4-facet regex detection, Ed25519-signed bundle, Apache 2.0. The full technical architecture of v0.1.3."
+description: "How AegisGate Lens works: 4-facet regex detection, Ed25519-signed bundle, Apache 2.0. The full technical architecture of v0.1.4."
 type: "docs"
 weight: 2
 ---
 
-<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md -->
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md -->
 <!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.1.3</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md">docs/FACTS.md</a>)</em>
+<strong>🛡️ AegisGate Lens v0.1.4</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md">docs/FACTS.md</a>)</em>
 
 <ul>
 <li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
 <li><strong>132 regex patterns</strong> across <strong>4 detection facets</strong>: PII, secrets, XSS, compliance</li>
-<li><strong>450 automated tests</strong>: 431/431 Node + 3/3 Go + 16/16 headless smoke in real Chrome</li>
+<li><strong>647 automated tests</strong>: 500/500 Node + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
 <li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
-<li><strong>Sub-millisecond detection</strong> (avg 0.34ms)</li>
+<li><strong>Sub-millisecond detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts)</li>
 <li><strong>100% on-device</strong>, zero network egress by default</li>
 <li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
 <li><strong>Free, forever</strong></li>
@@ -33,11 +31,11 @@ weight: 2
 
 # AegisGate Lens — Architecture
 
-The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the architecture of v0.1.3.
+The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the architecture of v0.1.4.
 
 ## 4-Facet Detection System
 
-Lens runs **4 active detection facets** in parallel on every prompt you type. 2 more facets (Toxicity, Prompt-Injection) are planned for v0.2.0.
+Lens runs **4 active detection facets** in parallel on every prompt you type. v0.2.0 will expand the **compliance** facet (more frameworks: HIPAA, PCI, FedRAMP, FIPS 140-3) — the ML-based facets (Toxicity, Prompt-Injection ML) were evaluated and deferred, see the [AegisGate v0.2.0 work plan](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/.workingdirectory/V0.2.0-WORK-PLAN-2026-07-11.md).
 
 | Facet | What it catches | Example |
 |-------|----------------|---------|
@@ -50,7 +48,7 @@ All 4 facets use **regex patterns** (fast, synchronous, on-device). No ML model.
 
 ## Why Regex (not ML)?
 
-v0.1.3 is intentionally regex-only. The rationale:
+v0.1.4 is intentionally regex-only. The rationale (from the v0.1.3 baseline; v0.1.4 keeps the same approach):
 
 - **Privacy**: regex is auditable. A model is a black box.
 - **Size**: a TinyML model would add 1-2MB to the extension. Regex is 132 patterns = ~50KB.
@@ -59,7 +57,7 @@ v0.1.3 is intentionally regex-only. The rationale:
 - **No training data**: regex patterns are hand-curated. No need for training corpus.
 - **FPR**: with the v0.1.4 postProcess tightening, FPR on 6,500 WildChat prompts is 2.31% — comparable to or better than ML approaches.
 
-A TinyML model (1-2MB transformer) is planned for v0.2.0 to add the 2 missing facets (Toxicity, Prompt-Injection) and improve FPR on edge cases. See the [FPR analysis](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/METRICS-v0.1.2.md) for the current metrics.
+A TinyML model (1-2MB transformer) was planned for v0.2.0 to add the 2 missing facets (Toxicity, Prompt-Injection) and improve FPR on edge cases. After the v0.2.0 evaluation, the ML approach was deferred (6 model families failed to meet the ship gate — see [Lesson #99](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/.workingdirectory/LESSONS.md) and the [v0.2.0 work plan](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/.workingdirectory/V0.2.0-WORK-PLAN-2026-07-11.md)). The v0.1.4 approach remains regex-only; v0.2.0 will instead expand the compliance facet (more frameworks).
 
 ## Architecture Stack
 
@@ -127,9 +125,9 @@ To verify commits locally:
 git log --show-signature
 ```
 
-## No Model Bundles (v0.1.3)
+## No Model Bundles (v0.1.4)
 
-v0.1.3 is **regex-only**. There are no model bundles, no ML inference, no inference timeouts.
+v0.1.4 is **regex-only**. There are no model bundles, no ML inference, no inference timeouts.
 
 This means:
 - No bundle signing is needed (no bundles to sign)
@@ -199,7 +197,7 @@ aegisgate-lens/
 │   │   ├── typedefs.js
 │   │   └── logger.js
 │   └── manifest.json           # MV3 manifest
-├── test/                       # 431/431 Node tests + 3/3 Go tests
+├── test/                       # 500/500 Node tests + 3/3 Go tests + 16/16 smoke + 128/128 mini-smoke
 │   ├── unit/                   # 18 test files
 │   ├── helpers/                # Mock chrome, load-module
 │   ├── headless-smoke/         # 16/16 real-browser integration
@@ -211,20 +209,20 @@ aegisgate-lens/
 │   ├── API.md
 │   ├── SECURITY.md
 │   ├── THREAT-MODEL.md
-│   ├── A11Y-AUDIT-v0.1.3.md
+│   ├── A11Y-AUDIT-v0.1.4.md
 │   ├── PRODUCT-SUMMARY.md
 │   └── CHANGELOG.md
 ├── .plans/                     # Internal planning (gitignored)
 │   ├── AEGISGATE-LENS-STANDING-RULES-2026-06-29.md
 │   ├── AEGISGATE-LENS-CHROME-STORE-LISTING.md
-│   ├── todo-v0.1.3.md
+│   ├── todo-v0.1.4.md
 │   └── v0.2-burndown/          # v0.2.0 research artifacts (gitignored)
 └── README.md
 ```
 
 ## Test Coverage
 
-- **431/431 Node tests** pass (using `node:test` from Node 20+ stdlib)
+- **500/500 Node tests** pass (using `node:test` from Node 20+ stdlib)
 - **3/3 Go tests** pass (in `tools/headless-smoke/flow/`)
 - **16/16 headless smoke** in real Chrome (the 4 facet detectors + 16 flow cases)
 - **Zero external dependencies** for tests (no Jest, no Mocha)

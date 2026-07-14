@@ -5,18 +5,18 @@ type: "docs"
 weight: 10
 ---
 
-<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md -->
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md -->
 <!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.1.3</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md">docs/FACTS.md</a>)</em>
+<strong>🛡️ AegisGate Lens v0.1.4</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md">docs/FACTS.md</a>)</em>
 
 <ul>
 <li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
 <li><strong>132 regex patterns</strong> across <strong>4 detection facets</strong>: PII, secrets, XSS, compliance</li>
-<li><strong>450 automated tests</strong>: 431/431 Node + 3/3 Go + 16/16 headless smoke in real Chrome</li>
+<li><strong>647 automated tests</strong>: 500/500 Node + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
 <li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
-<li><strong>Sub-millisecond detection</strong> (avg 0.34ms)</li>
+<li><strong>Sub-millisecond detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts)</li>
 <li><strong>100% on-device</strong>, zero network egress by default</li>
 <li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
 <li><strong>Free, forever</strong></li>
@@ -30,7 +30,7 @@ Two products from the same security team, designed for different deployment poin
 
 ## TL;DR
 
-- **[AegisGate Lens](https://chromewebstore.google.com/category/extensions/ai)** is a **free Chrome extension** that protects **end users** browsing AI tools. Browser-level. No account. Privacy-first.
+- **[AegisGate Lens](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** is a **free Chrome extension** that protects **end users** browsing AI tools. Browser-level. No account. Privacy-first.
 - **[AegisGate Platform](https://aegisgatesecurity.io/?utm_source=lens-compare)** is an **enterprise gateway** that protects **servers and teams** running AI tools. Server-level. Per-team pricing. Central policy + analytics.
 
 Use **Lens alone** if you're an individual developer, security researcher, journalist, or privacy-conscious user. Use **Platform alone** if you're running AI in production at a company and need central policy + audit + compliance. Use **both** if you want every layer protected (Lens for users, Platform for servers).
@@ -111,7 +111,7 @@ Both products share the same detection corpus (the 4-facet taxonomy: PII, secret
 - **Platform**: Privacy-by-default for detection. Logging is opt-in (Enterprise tier).
 
 ### Test coverage
-- **Lens**: 431/431 Node tests + 3/3 Go tests + 16/16 headless smoke in real Chrome. Zero external dependencies. All tests in `node:test` (Node 20+ stdlib).
+- **Lens**: 500/500 Node tests + 3/3 Go tests + 16/16 headless smoke + 128/128 mini-smoke in real Chrome. Zero external dependencies. All tests in `node:test` (Node 20+ stdlib).
 - **Platform**: 5,484 tests, 97.8% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
 
 ### Source code
@@ -147,4 +147,4 @@ See [full pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-compare
 
 ---
 
-**Questions?** Email `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/.well-known/security.txt) for the disclosure policy).
+**Questions?** Email `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/.well-known/security.txt) for the disclosure policy).

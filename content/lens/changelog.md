@@ -5,18 +5,18 @@ type: "docs"
 weight: 4
 ---
 
-<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md -->
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md -->
 <!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.1.3</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/FACTS.md">docs/FACTS.md</a>)</em>
+<strong>🛡️ AegisGate Lens v0.1.4</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md">docs/FACTS.md</a>)</em>
 
 <ul>
 <li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
 <li><strong>132 regex patterns</strong> across <strong>4 detection facets</strong>: PII, secrets, XSS, compliance</li>
-<li><strong>450 automated tests</strong>: 431/431 Node + 3/3 Go + 16/16 headless smoke in real Chrome</li>
+<li><strong>647 automated tests</strong>: 500/500 Node + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
 <li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
-<li><strong>Sub-millisecond detection</strong> (avg 0.34ms)</li>
+<li><strong>Sub-millisecond detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts)</li>
 <li><strong>100% on-device</strong>, zero network egress by default</li>
 <li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
 <li><strong>Free, forever</strong></li>
@@ -26,7 +26,7 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/main/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/CHANGELOG.md). This page mirrors the recent versions.
 
 ---
 
@@ -45,12 +45,12 @@ The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate
 - **3 new schema categories over-firing**: pii_letter_only_id, pii_id_generic_alphanumeric, pii_passport_generic (fixed via postProcess check requiring ID-label context)
 
 ### Changed
-- Test count: 412/412 → 431/431 (+19 new tests)
+- Test count: 412/412 → 431/431 (v0.1.3), then 431/431 → 500/500 (v0.1.4, +69 new tests including the F-7 e2e category)
 - Pattern count: 120 → 132 (+12 new patterns, mostly in compliance)
 - FPR on 6,500 WildChat: 4.14% → 2.31% (44% reduction)
 
 ### Test coverage
-- Node unit: 431/431 PASS
+- Node unit: 500/500 PASS (carried from v0.1.4)
 - Go unit: 3/3 PASS
 - Headless smoke: 16/16 PASS (real Chrome 150)
 - Platform FPR test: 2.31% on 6,500 WildChat (better than the 2.43% v0.1.2 baseline)
@@ -111,7 +111,7 @@ The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate
 - Storage key inconsistency (F-2)
 - Doc inaccuracies (F-3, F-4, F-5, F-8)
 - Schema validation gaps (v0.1.2)
-- No F-1 isolation test (added in v0.1.3)
+- No F-1 isolation test (added in v0.1.3; carried forward to v0.1.4)
 
 ---
 
@@ -144,7 +144,7 @@ Planned for v0.2.0 (timeline TBD, after CWS approval of v0.1.2):
 ## See Also
 
 - [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-lens/releases) — full version history with signed artifacts
-- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.3/docs/SECURITY.md) — vulnerability disclosure policy
+- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/SECURITY.md) — vulnerability disclosure policy
 - [Architecture](/lens/architecture/) — what changed in each version's architecture
 
 Report issues at the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues).
