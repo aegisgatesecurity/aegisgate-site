@@ -1,3 +1,8 @@
+---
+title: "AegisGate Lens — Free Privacy-First Browser Protection for AI Tools"
+description: "Free, privacy-first Chrome extension that protects users across 8 AI providers (ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok) with 4-facet regex detection. 500/500 Node tests, 3/3 Go tests, 16/16 headless smoke + 128/128 mini-smoke in real Chrome. Zero external dependencies. No account required."
+type: "landing"
+---
 > **🆕 AegisGate Lens v0.1.4 is LIVE** — CWS approved 2026-07-13. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever, 8 AI providers).
 >
 > AegisGate Lens v0.1.4 will add the following to the **live** v0.1.0-beta below:
@@ -12,12 +17,6 @@
 >
 > Check back after the CWS review completes to download v0.1.4.
 
----
-
-title: "AegisGate Lens — Free Privacy-First Browser Protection for AI Tools"
-description: "Free, privacy-first Chrome extension that protects users across 8 AI providers (ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok) with 4-facet regex detection. 500/500 Node tests, 3/3 Go tests, 16/16 headless smoke + 128/128 mini-smoke in real Chrome. Zero external dependencies. No account required."
-type: "landing"
----
 
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md -->
 <!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
