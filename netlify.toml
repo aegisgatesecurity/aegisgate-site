@@ -145,5 +145,5 @@
 # AegisGate Lens
 [[redirects]]
   from = "/lens/install"
-  to   = "https://chromewebstore.google.com/category/extensions/ai"
+  to   = "https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjdjfdhiggaomoafnhagfcjip"
   status = 302
