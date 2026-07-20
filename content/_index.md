@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Platform™ — Secure Every AI Interaction"
-description: "The only AI security gateway with five-pillar protection: HTTP API, MCP, A2A, Response, and Trust Framework scanning. MITRE ATLAS 66 techniques. Deploy in 60 seconds."
+description: "The only AI security gateway with six-pillar protection: HTTP API, MCP, A2A, ACP, Response, and Trust Framework scanning. MITRE ATLAS 66 techniques. Deploy in 60 seconds."
 type: "landing"
 ---
 
@@ -9,10 +9,10 @@ type: "landing"
 </div>
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>{{< eu-flag >}} NEW in v3.3.0-beta.2:</strong> The <a href="/eu-ai-act/" style="color:#FFD700;text-decoration:underline;"><strong>EU AI Act Compliance Module</strong></a> — 82 controls across 8 categories of EU Regulation 2024/1689, included with Professional+ tier. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2" target="_blank" style="color:#FFD700;">Read the release notes →</a>
+<strong>{{< eu-flag >}} NEW in v3.3.0-beta.2:</strong> The <a href="/eu-ai-act/" style="color:#FFD700;text-decoration:underline;"><strong>EU AI Act Compliance Module</strong></a> — 82 controls across 8 categories of EU Regulation 2024/1689, included with Professional+ tier. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.4.0-beta.1" target="_blank" style="color:#FFD700;">v3.4.0-beta.1 release notes →</a>
 </div>
 
-AegisGate Security Platform secures every AI interaction point with **five pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, real-time response scanning, and the **Trust Framework** (v3.2.0) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (v3.3.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
+AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (v3.2.0+, ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (v3.3.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
 
 <div class="card-grid card-grid-2">
 <div class="card">
@@ -83,7 +83,7 @@ AegisGate Security Platform secures every AI interaction point with **five pilla
 
 <div class="btn-group">
 <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2" target="_blank" class="btn btn-secondary">Download v3.3.0-beta.2</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.4.0-beta.1" target="_blank" class="btn btn-secondary">Download v3.4.0-beta.1</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" class="btn btn-ghost">⭐ Star on GitHub</a>
 </div>
 
@@ -140,7 +140,7 @@ AegisGate fills these gaps with a single unified platform.
 
 ---
 
-## Five Pillars in Detail
+## Six Pillars in Detail
 
 <div class="card-grid">
 <div class="card">
@@ -305,7 +305,7 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.3.0-beta.2</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.4.0-beta.1</pre>
 </div>
 
 <div class="command-box">
@@ -340,8 +340,8 @@ curl http://localhost:8443/health</pre>
 <div class="label">Avg Latency <span style="font-size:10px;color:#888;">(v3.1.1 bench)</span></div>
 </div>
 <div class="stat">
-<div class="value">5</div>
-<div class="label">Security Pillars <span style="font-size:10px;color:#00ADD8;">+Trust</span></div>
+<div class="value">6</div>
+<div class="label">Security Pillars <span style="font-size:10px;color:#00ADD8;">(HTTP, MCP, A2A, ACP, RESPONSE, Trust)</span></div>
 </div>
 <div class="stat">
 <div class="value">10</div>

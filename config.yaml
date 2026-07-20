@@ -4,7 +4,7 @@ title: "AegisGate Security Platform"
 copyright: "2024-2026 AegisGate Security. All rights reserved."
 
 params:
-  description: "Secure Every AI Interaction - The only AI security platform with five pillars of protection: HTTP API, MCP, A2A, RESPONSE, and the Trust Framework (v3.2.0)."
+  description: "Secure Every AI Interaction - The only AI security platform with six pillars of protection: HTTP API, MCP, A2A, ACP, RESPONSE, and the Trust Framework (v3.2.0+, ECDSA P-256 attestations)."
   author: "AegisGate Security"
   email: "security@aegisgatesecurity.io"
   salesEmail: "sales@aegisgatesecurity.io"
@@ -15,16 +15,16 @@ params:
   currentYear: 2026
   
   # Version info
-  version: "v3.2.0"
-  goVersion: "1.26.4+"
+  version: "v3.4.0-beta.1"
+  goVersion: "1.26.5+"
   coverage: "97.8%"
   dockerSize: "19 MB"
 
   # Features
   atlasTechniques: 66
   owaspPatterns: 49
-  pillars: "HTTP API, MCP, A2A, RESPONSE, Trust Framework"
-  pillarsCount: 5
+  pillars: "HTTP API, MCP, A2A, ACP, RESPONSE, Trust Framework"
+  pillarsCount: 6
   
   # Stripe (test mode - replace with production in production)
   stripePublishableKey: "pk_test_TODO_REPLACE_WITH_REAL_KEY"

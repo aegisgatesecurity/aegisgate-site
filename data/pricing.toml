@@ -82,7 +82,7 @@ highlights_excluded = [
 
 [[tiers]]
 name = "Professional"
-price = "$249"
+price = "$499"
 period = "per month"
 description = "For teams with serious security and compliance requirements"
 highlights = [

@@ -37,8 +37,13 @@ admin/local-config.js
 *.v*-backup
 *.backup
 *.bak
+*.1-backup
 *.md.beta.1-backup
 *.md.v3.2.0-backup
+*-backup
+public-after/
+public-baseline-*/
+.workingdirectory/
 
 # Test artifacts
 *.log

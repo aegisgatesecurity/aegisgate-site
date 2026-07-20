@@ -6,7 +6,7 @@ type: "tech"
 
 ## Architecture Overview
 
-AegisGate v3.2.0 secures AI interactions across **five pillars** — four protocol layers (HTTP API, MCP, A2A, RESPONSE) plus the **Trust Framework** — in a single 19 MB binary.
+AegisGate v3.4.0-beta.1 secures AI interactions across **six pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE) plus the **Trust Framework** — in a single 13.3 MB binary.
 
 {{< mermaid >}}
 flowchart TB
@@ -72,7 +72,7 @@ flowchart TB
 
 ---
 
-## Five Pillars of AI Security
+## Six Pillars of AI Security
 
 AegisGate v3.2.0 protects every AI interaction with four protocol pillars and one cross-cutting trust pillar. The **Trust Framework** is the 5th pillar, new in v3.2.0, and ties together the four protocol pillars with cryptographically-signed attestations and a per-session trust score.
 

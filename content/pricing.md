@@ -11,7 +11,7 @@ type: pricing
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
 
 <div class="pricing-availability-notice">
-<strong>📌 Currently available for purchase:</strong> Community (free), Starter ($29/mo), Developer ($99/mo).
+<strong>📌 Currently available for purchase:</strong> Community (free), Developer ($79/mo).
 <strong>Hidden pending v3.4.0 + legal review:</strong> Professional tier and the 6 compliance modules (HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, FIPS).
 For early access to hidden plans, <a href="mailto:sales@aegisgatesecurity.io">contact sales</a>.
 </div>
@@ -30,10 +30,10 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 <div class="pricing-card">
 <h3>Community</h3>
 <div class="price">Free <span>forever</span></div>
-<p>For individuals and small teams getting started with AI security.</p>
+<p>Free forever: Lens browser extension + Platform server-side protection with 5 compliance frameworks.</p>
 <ul>
-<li>120 proxy RPM / 60 MCP RPM</li>
-<li>3 concurrent users</li>
+<li>Unlimited proxy RPM (soft-throttle)</li>
+<li>5 concurrent users</li>
 <li>144+ security detection patterns</li>
 <li>8 MCP guardrails</li>
 <li>8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)</li>
@@ -47,36 +47,6 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 <a href="/docs/getting-started/" class="btn btn-primary">Get Started</a>
 </div>
 
-<div class="pricing-card starter">
-<h3>Starter</h3>
-<div class="price">$29 <span>/month</span></div>
-<p>For SMB, SLED, and SOHO teams that need more actions, workflows, and MCP capacity.</p>
-<ul>
-<li>600 proxy RPM / 300 MCP RPM</li>
-<li>10 concurrent users, 5 agents</li>
-<li>Everything in Community, plus:</li>
-<li>A2A license-aware enforcement</li>
-<li>OIDC/SAML Single Sign-On</li>
-<li>RBAC permissions and custom roles</li>
-<li>GDPR view compliance</li>
-<li>OWASP compliance module</li>
-<li>Circuit breaker pattern</li>
-<li>30-day audit log retention</li>
-<li>Email support</li>
-</ul>
-<div class="pricing-buttons">
-<stripe-buy-button
-  buy-button-id="buy_btn_1Tez2dK2DQfk64XN34yWfv3Z"
-  publishable-key="pk_live_51TT0vSK2DQfk64XNCkz1nS9rVZEZyUQXUtpS4aylNiMlTqo53fQ0vhif7wskRXnx3GB5o1jMZfAfcAqmB8po1QWI00cIxRUy9u"
->
-</stripe-buy-button>
-<stripe-buy-button
-  buy-button-id="buy_btn_1Tez8VK2DQfk64XN8Ibi7Mip"
-  publishable-key="pk_live_51TT0vSK2DQfk64XNCkz1nS9rVZEZyUQXUtpS4aylNiMlTqo53fQ0vhif7wskRXnx3GB5o1jMZfAfcAqmB8po1QWI00cIxRUy9u"
->
-</stripe-buy-button>
-<p class="price-note">Monthly or annual (Save 20%)</p>
-</div>
 </div>
 
 <div class="pricing-card">
@@ -86,7 +56,7 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 <ul>
 <li>1,000 proxy RPM / 500 MCP RPM</li>
 <li>25 concurrent users</li>
-<li>Everything in Starter, plus:</li>
+<li>Everything in Community, plus:</li>
 <li>mTLS authentication (proxy + A2A)</li>
 <li>A2A capability persistence</li>
 <li>Full GDPR and HIPAA compliance</li>
@@ -134,7 +104,7 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 </ul>
 <div class="pricing-buttons">
 <div class="coming-soon">
-  <strong>Available after v3.4.0 + legal review</strong>
+  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
   <p>The Professional tier is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access or to join the waitlist.</p>
 </div>
 </div>
@@ -174,7 +144,7 @@ and can be turned on or off at any time from the customer portal.
 <p>HIPAA-compliant logging, PHI detection, Business Associate Agreement (BAA) support.</p>
 <div class="module-buttons">
 <div class="coming-soon">
-  <strong>Available after v3.4.0 + legal review</strong>
+  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
   <p>The HIPAA module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
@@ -187,7 +157,7 @@ and can be turned on or off at any time from the customer portal.
 <p>Payment card data detection, PCI-scoped audit logs, card data tokenization.</p>
 <div class="module-buttons">
 <div class="coming-soon">
-  <strong>Available after v3.4.0 + legal review</strong>
+  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
   <p>The PCI-DSS module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
@@ -200,7 +170,7 @@ and can be turned on or off at any time from the customer portal.
 <p>SOC 2 Type II control mapping, evidence collection, auditor export.</p>
 <div class="module-buttons">
 <div class="coming-soon">
-  <strong>Available after v3.4.0 + legal review</strong>
+  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
   <p>The SOC 2 module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
@@ -213,7 +183,7 @@ and can be turned on or off at any time from the customer portal.
 <p>ISO/IEC 42001 AI management system controls, statement of applicability.</p>
 <div class="module-buttons">
   <div class="coming-soon">
-  <strong>Available after v3.4.0 + legal review</strong>
+  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
   <p>The ISO 42001 module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
@@ -226,7 +196,7 @@ and can be turned on or off at any time from the customer portal.
 <p>FedRAMP Moderate/High control mapping, continuous monitoring evidence.</p>
 <div class="module-buttons">
   <div class="coming-soon">
-  <strong>Available after v3.4.0 + legal review</strong>
+  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
   <p>The FedRAMP module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
@@ -239,7 +209,7 @@ and can be turned on or off at any time from the customer portal.
 <p>FIPS-validated cryptography enforcement, certificate pinning, HSM integration.</p>
 <div class="module-buttons">
   <div class="coming-soon">
-  <strong>Available after v3.4.0 + legal review</strong>
+  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
   <p>The FIPS 140-2/140-3 module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
@@ -308,9 +278,6 @@ and can be turned on or off at any time from the customer portal.
   padding: 8px;
   background: rgba(255, 170, 0, 0.1);
   border-radius: 4px;
-}
-.pricing-card.starter {
-  border-color: #00ADD8;
 }
 .btn {
   display: inline-block;
@@ -454,7 +421,7 @@ and can be turned on or off at any time from the customer portal.
   color: #5cc8e6;
 }
 /* Coming-soon placeholder for plans/modules hidden pending legal review
-   and pentest completion. v3.3.0: Starter and Developer tiers are live and
+   and pentest completion. v3.4.0: Developer tier is live and
    sellable today. Professional tier and the 6 compliance modules are hidden
    until production-grade legal review and the v3.4.0 security pentest. */
 .pricing-buttons .coming-soon,
