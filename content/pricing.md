@@ -183,7 +183,7 @@ and can be turned on or off at any time from the customer portal.
 <h4>SOC 2</h4>
 <div class="module-price">$149 <span>/month</span></div>
 <p class="module-tier">Requires Developer tier or above</p>
-<p>SOC 2 Type II control mapping, evidence collection, auditor export.</p>
+<p><strong>8 controls across 4 categories</strong> of AICPA Trust Services Criteria (CC6.x Security, PI1 Processing Integrity, C1 Confidentiality, AI controls). 5 of 8 controls are automated (CC6.1 access control, CC6.2 ML environment, CC6.3 data protection, CC6.6 audit logging, CC6.7 transmission security). <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/soc2/" style="color:#00ADD8">See the implementation</a> for the full control-to-check mapping.</p>
 <div class="module-buttons">
 <div class="coming-soon">
   <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
@@ -196,7 +196,7 @@ and can be turned on or off at any time from the customer portal.
 <h4>ISO 42001</h4>
 <div class="module-price">$79 <span>/month</span></div>
 <p class="module-tier">Requires Professional tier or above</p>
-<p>ISO/IEC 42001 AI management system controls, statement of applicability.</p>
+<p><strong>8 controls across 5 ISO 42001 clauses</strong> (4 Context, 5 Leadership, 6 Planning, 7 Support, 8 Operation, 9 Performance Evaluation, AI extension). 5 of 8 controls are automated (5.2 AI policy, 6.1 risk assessment, 7.5 documented info, 8.2 risk treatment, 9.1 monitoring). <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/iso42001/" style="color:#00ADD8">See the implementation</a> for the full control-to-check mapping.</p>
 <div class="module-buttons">
   <div class="coming-soon">
   <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
