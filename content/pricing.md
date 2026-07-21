@@ -10,6 +10,20 @@ type: pricing
 
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
 
+## 📚 Customer 1-pagers
+
+These 1-pagers explain the technical depth behind each tier and module for sales engineers, security architects, and procurement teams. They follow the established pattern of being self-attested (we engineer the scanner; a Notified Body or counsel provides the certification / legal opinion).
+
+| 1-pager | What it explains |
+|---------|------------------|
+| **[Trust Framework 1-pager](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/trust-framework.md)** | The 6th pillar (per-agent identity, capability contracts, real-time trust scoring, signed attestations) |
+| **[Federated IOC Library 1-pager](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/federated-ioc-library-1pager.md)** | "1 customer's threat = all AegisGate customers protected" — the network effect |
+| **[EU AI Act 1-pager](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/compliance/eu-ai-act.md)** | The 7th compliance framework (82 controls, 9 automated) |
+| **[Lens → Platform Upsell 1-pager](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/lens-to-platform-upsell.md)** | The 4-stage conversion funnel (individual → team → POC → production) |
+| **[Case Study: Series-B SaaS + SOC 2 with Trust Framework](/blog/case-study-series-b-saas-soc2-with-trust-framework/)** | How a 200-person Series-B SaaS passed SOC 2 Type II in 90 days using AegisGate |
+
+The case study is **representative**, not a real customer. It is built from anonymized patterns across multiple AegisGate customers. We publish composite case studies to illustrate the value of AegisGate for a customer segment without disclosing customer information.
+
 <div class="pricing-availability-notice">
 <strong>📌 Currently available for purchase:</strong> Community (free), Developer ($79/mo).
 <strong>Hidden pending v3.4.0 + legal review:</strong> Professional tier and the 6 compliance modules (HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, FIPS).
@@ -93,6 +107,8 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 <li>A2A agent registry & trust scoring</li>
 <li>A2A task-level ACLs</li>
 <li>A2A artifact validation</li>
+<li><strong>Trust Framework (6th pillar)</strong> — per-agent identity, capability contracts, real-time trust scoring, signed attestations. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/trust-framework.md" style="color:#00ADD8">Read the 1-pager</a></li>
+<li><strong>Federated IOC library</strong> — opt-in sharing of detected threats. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/federated-ioc-library-1pager.md" style="color:#00ADD8">Read the 1-pager</a></li>
 <li>ISO 27001 compliance</li>
 <li>ISO 42001 AI compliance</li>
 <li>SOC2 Type II</li>
