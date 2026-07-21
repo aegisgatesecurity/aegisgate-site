@@ -222,7 +222,7 @@ and can be turned on or off at any time from the customer portal.
 <h4>FIPS 140-2/140-3</h4>
 <div class="module-price">$299 <span>/month</span></div>
 <p class="module-tier">Requires Professional tier or above</p>
-<p>FIPS-validated cryptography enforcement, certificate pinning, HSM integration.</p>
+<p><strong>10 controls across 5 FIPS 140 areas</strong> (Cryptographic Module Specification, Ports/Interfaces, Roles/Services/Auth, Software Security, Operational Environment). 8 of 10 controls are automated (mode enabled, approved ciphers, TLS 1.2+, approved hashes, key sizes, self-test, audit logging). 2 are manual (CMVP, HSM). <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/fips/" style="color:#00ADD8">See the implementation</a>. <em>Note: AegisGate is FIPS-compliant (uses FIPS-approved algorithms) but the Go runtime is not CMVP-validated. Federal agencies need a CMVP-validated execution environment.</em></p>
 <div class="module-buttons">
   <div class="coming-soon">
   <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
