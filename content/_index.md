@@ -74,7 +74,7 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 - 6 AI providers: ChatGPT, Claude, Gemini, Copilot, duck.ai, Perplexity
 - 233/233 tests, zero external dependencies
 - Ed25519-signed bundles, SLSA L2 provenance
-- [Learn more](/lens/) · [Install from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjdjfdhiggaomoafnhagfcjip) · [Lens vs Platform](/lens/compare/)
+- [Learn more](/lens/) · [Install from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) · [Lens vs Platform](/lens/compare/)
 </div>
 <div class="card" style="border-color:#f59e0b;box-shadow:0 0 16px rgba(245,158,11,0.25);">
 
