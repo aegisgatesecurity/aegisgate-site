@@ -5,16 +5,16 @@ type: "docs"
 weight: 4
 ---
 
-<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md -->
-<!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens -->
+<!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.1.4</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md">docs/FACTS.md</a>)</em>
+<strong>🛡️ AegisGate Lens v0.2.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
-<li><strong>132 regex patterns</strong> across <strong>4 detection facets</strong>: PII, secrets, XSS, compliance</li>
-<li><strong>647 automated tests</strong>: 500/500 Node + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
+<li><strong>151 regex patterns</strong> across <strong>4 detection facets</strong>: PII (55), secrets (45), XSS (12), compliance (39+)</li>
+<li><strong>734 automated tests</strong>: 431/431 Node + 146 secrets + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
 <li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
 <li><strong>Sub-millisecond detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts)</li>
 <li><strong>100% on-device</strong>, zero network egress by default</li>
@@ -26,7 +26,36 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/CHANGELOG.md). This page mirrors the recent versions.
+
+---
+
+## [v0.2.0] - 2026-07-27
+
+### Added
+- **19 new compliance patterns**: MITRE ATLAS techniques (TA0001 recon, TA0002 resource dev, TA0009 collection, TA0011 C2), OWASP LLM Top 10 (LLM02 insecure output, LLM05 supply chain, LLM06 system prompt, LLM09 overreliance, LLM10 unbounded consumption), EU AI Act (Art 5, Art 10, Art 52)
+- **4 new healthcare PII patterns**: Medical Record Number (MRN), ICD-10-CM diagnosis code, National Provider Identifier (NPI), SSN last-4 identity verification
+- **4 new API key patterns**: Cursor, Vercel, Groq, Replicate
+- **146 direct secrets unit tests** (was 0 for v0.1.4 patterns, now 146 covering all 45 secret patterns)
+- **734 total automated tests** (up from 647 in v0.1.4)
+- **Bearer token support** for self-hosted AegisGate Platform backends
+- **Social links**: X/Twitter (@aegisgate) and Mastodon (@aegisgate@mastodon.social) in README and SECURITY docs
+- **OPSEC hardening**: Pre-commit hook, CI scan job, unified OPSEC scanner
+- **OPSEC sweep**: Removed all private keys, internal docs, build artifacts from the public repo
+
+### Changed
+- **Pattern count**: 132 → 151 regex patterns across 4 detection facets
+- **Test count**: 647 → 734 automated tests
+- **CWS version**: v0.2.0 (up from v0.1.4)
+- **All version strings** bumped to v0.2.0 (manifest, source, docs)
+- **Compliance facet**: expanded from 24 to 43 patterns
+- **Secrets facet**: expanded from 41 to 45 patterns
+
+### Fixed
+- **Schema validation bugs**: 4 schema bugs fixed (duplicate category, wrong name, phantom categories, missing category)
+- **Production bug**: SW's inline M.isValidFPReports was stale, silently rejecting all v0.2.0 FP reports
+- **Production bug**: enqueueFP did not dedup by client_id; queue grew on every failed send
+- **8 failing tests** fixed (isValidDetection, SW handleFPReports, dismiss buildFPReport)
 
 ---
 
@@ -130,21 +159,20 @@ Pre-1.0 versions (0.x.y) may include breaking changes in MINOR versions (per the
 - **Minor releases**: every 4-6 weeks
 - **Major releases**: every 6-12 months, or when significant breaking changes are needed
 
-## Roadmap (v0.2.0)
+## Roadmap (v0.3.0)
 
-Planned for v0.2.0 (timeline TBD, after CWS approval of v0.1.2):
-- **2 missing facets**: Toxicity + Prompt-Injection
-- **TinyML model** (1-2MB transformer) for ambiguous cases
-- **Firefox/Edge support**
+Planned for v0.3.0 and beyond:
+- **ML-based detection** (Toxicity, Prompt-Injection) — deferred from v0.2.0 after evaluation
+- **Firefox/Edge support** — blocked on AMO $99 + MS $19 + accounts
 - **Public benchmark dataset release**
-- **Third-party security audit** (Cure53 / Trail of Bits / NCC Group)
-- **Marketing site refresh** (aegisgatesecurity.io/lens/)
-- **Lighthouse CI integration**
+- **Third-party security audit** (Cure53 / Trail of Bits / NCC Group) — audit-lab Docker rig ready
+- **Lighthouse CI integration** — preserved on v0.2.1/lhci-foundation branch
+- **7 vertical detection packs** — healthcare, finance, legal, education, government, startup, DevOps
 
 ## See Also
 
 - [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-lens/releases) — full version history with signed artifacts
-- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/SECURITY.md) — vulnerability disclosure policy
+- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/docs/SECURITY.md) — vulnerability disclosure policy
 - [Architecture](/lens/architecture/) — what changed in each version's architecture
 
 Report issues at the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues).

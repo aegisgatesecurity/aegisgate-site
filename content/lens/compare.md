@@ -5,16 +5,16 @@ type: "docs"
 weight: 10
 ---
 
-<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md -->
-<!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens -->
+<!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.1.4</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/docs/FACTS.md">docs/FACTS.md</a>)</em>
+<strong>🛡️ AegisGate Lens v0.2.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
-<li><strong>132 regex patterns</strong> across <strong>4 detection facets</strong>: PII, secrets, XSS, compliance</li>
-<li><strong>647 automated tests</strong>: 500/500 Node + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
+<li><strong>151 regex patterns</strong> across <strong>4 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (43)</li>
+<li><strong>734 automated tests</strong>: 431/431 Node + 146 secrets + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
 <li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
 <li><strong>Sub-millisecond detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts)</li>
 <li><strong>100% on-device</strong>, zero network egress by default</li>
@@ -44,7 +44,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Price** | Free, forever | Free (Community) / $79/mo (Developer) / custom (Enterprise) |
 | **Account required** | ❌ No | ✅ Yes |
 | **Browser-side AI provider protection** (PII, secrets, XSS, compliance in ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok) | ✅ All 4 facets | ✅ All 4 facets (same corpus) |
-| **4-facet detection** (PII / Secrets / XSS / Compliance). 2 more (Toxicity, Prompt-Injection) planned for v0.2.0. | ✅ | ✅ |
+| **4-facet detection** (PII / Secrets / XSS / Compliance). v0.2.0 expands compliance to 43 patterns. | ✅ | ✅ |
 | **Privacy: no prompt text, no URLs, no page content sent** | ✅ | ✅ |
 | **Local processing** (no server round-trip for default detection) | ✅ | ✅ |
 | **Ed25519-signed extension bundle + GitHub Actions provenance** | ✅ | ✅ |
@@ -55,7 +55,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Team-wide policy** (one rule applies to all users) | ❌ | ✅ |
 | **Team-wide analytics dashboard** | ❌ | ✅ |
 | **Central audit log** (who saw what, when) | ❌ | ✅ |
-| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (153+ patterns) |
+| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (151+ patterns) |
 | **MCP protocol protection** (Model Context Protocol) | ❌ | ✅ (8 guardrails) |
 | **A2A agent-to-agent security** (mTLS, capabilities, rate limiting) | ❌ | ✅ |
 | **ACP (Agent Communication Protocol) security** | ❌ | ✅ |
@@ -104,14 +104,14 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 - **Platform**: Self-hosted Docker container (34.7MB). Sits between your AI services and clients. Detection runs in the gateway. Bundle signed with Ed25519, distributed via GitHub Releases.
 
 ### Detection corpus
-Both products share the same detection corpus (the 4-facet taxonomy: PII, secrets, XSS, compliance). When a new threat is added to one, it's added to the other. 2 more facets (Toxicity, Prompt-Injection) are planned for v0.2.0.
+Both products share the same detection corpus (the 4-facet taxonomy: PII, secrets, XSS, compliance). When a new threat is added to one, it's added to the other.
 
 ### Privacy model
 - **Lens**: Privacy-by-default. No telemetry unless explicitly opted in. 12 non-negotiables (see [Lens homepage](/lens/)).
 - **Platform**: Privacy-by-default for detection. Logging is opt-in (Enterprise tier).
 
 ### Test coverage
-- **Lens**: 500/500 Node tests + 3/3 Go tests + 16/16 headless smoke + 128/128 mini-smoke in real Chrome. Zero external dependencies. All tests in `node:test` (Node 20+ stdlib).
+- **Lens**: 734 automated tests (431/431 Node + 146 secrets + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke in real Chrome, 5/5 stable runs). Zero external dependencies.
 - **Platform**: 5,484 tests, 97.8% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
 
 ### Source code
@@ -129,9 +129,8 @@ Both products share the same detection corpus (the 4-facet taxonomy: PII, secret
 | Tier | Price | Best for |
 |------|-------|----------|
 | Community | Free | Solo developers, getting started |
-
-| Developer | $99/mo | Mid-size teams, custom rules |
-| Professional | Custom | Compliance (HIPAA, PCI, SOC 2, EU AI Act) |
+| Developer | $79/mo | Small teams, custom rules |
+| Professional | $499/mo | Compliance (HIPAA, PCI, SOC 2, EU AI Act) |
 | Enterprise | Custom | Self-hosted, SLA, 24/7 support |
 
 See [full pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-compare) for details.
@@ -147,4 +146,4 @@ See [full pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-compare
 
 ---
 
-**Questions?** Email `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.1.4/.well-known/security.txt) for the disclosure policy).
+**Questions?** Email `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/.well-known/security.txt) for the disclosure policy).
