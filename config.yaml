@@ -15,7 +15,7 @@ params:
   currentYear: 2026
   
   # Version info
-  version: "v3.4.0-beta.1"
+  version: "v3.5.0"
   goVersion: "1.26.5+"
   coverage: "97.8%"
   dockerSize: "19 MB"

@@ -8,6 +8,29 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v3.5.0 - 2026-07-28 - Compliance Engine v2, gRPC, Trust API, SIEM, SSO Persistence 🏛️
+
+> **v3.5.0** is a major feature release: FedRAMP 82→151 automated (88.8%), gRPC service layer (7 services, 50 RPCs), Trust API attestation with TSA timestamping, SIEM promotion, SSO PostgreSQL persistence, token analytics, and PDF export. Cross-framework mapping now covers 153/153 FedRAMP controls (100%).
+
+**Compliance Engine v2 — FedRAMP 151/170 Automated (88.8%):**
+- 69 controls promoted from manual/stub to real CheckFuncs across two waves
+- 5 duplicate registration bug fixes (Go map last-write-wins)
+- 19 remaining controls are genuinely customer-responsibility
+- Cross-framework mapping: 153/153 FedRAMP → MITRE ATLAS (100%), 153/153 FedRAMP → 12+ frameworks
+
+**New Features:**
+- gRPC service layer: 7 services, 50 RPCs, health checking, reflection, TLS
+- Trust API attestation: ECDSA P-256 + RFC 3161 TSA timestamping
+- SIEM promotion: real event forwarding (Splunk, Datadog, ELK)
+- SSO: PostgreSQL-backed session persistence, OIDC ACR value mapping
+- Token analytics: per-request usage metrics wired into pipeline
+- PDF export: questionnaire results to formatted PDF with scoring/evidence
+
+**Docker image:** 34.7MB, Alpine-based, non-root, FIPS-ready
+**Tests:** 93 packages, 0 failures, 0 race conditions
+
+---
+
 ### Unreleased - 2026-06-18 - v3.4.0+ Engineering-Complete (Awaiting v3.4.0 GA)
 
 > **Not a version bump.** The work below is committed to `main` and engineering-complete. The v3.4.0 GA is gated on **legal review (H1) + the v3.4.0 paid pentest (H4)**, per the [Beta User Agreement](/legal/beta-agreement/). The version stays at v3.4.0-beta.1 (a forward-looking label for the in-progress work) until those gates are cleared. The public release remains **v3.3.0-beta.2**.
@@ -92,6 +115,26 @@ _Released 2026-06-08. This is a code-content fix, not a security fix. v3.3.0-bet
 ### v3.3.0-beta.1 - 2026-06-08 - EU AI Act Beta (Superseded)
 
 > **Note:** This release was superseded by [v3.3.0-beta.2](#v330-beta2---2026-06-08---eu-ai-act-beta-integrity-hotfix-) on the same day (2026-06-08) due to a release-integrity gap: the EU AI Act sub-package and related work were advertised in the CHANGELOG but had not been merged to `main` at the time of the v3.3.0-beta.1 tag. The v3.3.0-beta.1 tag is preserved at SHA `64d0ab5` for historical record; do not use it. Use [v3.3.0-beta.2](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2) instead.
+
+
+### v3.5.0 - 2026-07-28 - Compliance Engine v2, gRPC, Trust API, SIEM, SSO Persistence 🏛️
+
+> **v3.5.0** is a major feature release: FedRAMP automation from 82→151 controls (88.8%), gRPC service layer with 50 RPCs, Trust API attestation, SIEM promotion, SSO PostgreSQL persistence, token analytics, and PDF export.
+
+#### Highlights
+
+- **FedRAMP 151/170 automated (88.8%)** — 69 controls promoted from manual/stub to real CheckFuncs. 19 remaining are genuinely customer-responsibility (policy-only, HR, physical security).
+- **gRPC service layer** — 7 services, 50 RPCs, health checking, reflection, TLS.
+- **Trust API attestation** — Cryptographic attestation with RFC 3161 TSA timestamping.
+- **SIEM promotion** — Real event forwarding to Splunk/Datadog/ELK.
+- **SSO PostgreSQL persistence** — Sessions survive restarts. ACR value mapping for OIDC.
+- **Token analytics** — Per-request usage metrics wired into the pipeline.
+- **PDF export** — Questionnaire results to formatted PDF with scoring and evidence.
+
+#### Breaking Changes
+
+- Starter tier removed from billing. Community is free, Developer ($79/mo) is first paid tier.
+
 
 _Released 2026-06-08. This is a BETA release, not a commercial launch. Professional+ tier and module buy buttons are intentionally hidden pending counsel review and the v3.4.0 paid pentest. Starter and Developer tiers remain live and sellable._
 

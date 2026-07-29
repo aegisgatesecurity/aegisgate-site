@@ -120,7 +120,7 @@ AegisGate Lens is the consumer-facing layer. The same team builds [AegisGate Pla
 | Use case | Recommendation |
 |----------|----------------|
 | Individual developers, security researchers, journalists, privacy-conscious users | **Lens alone** (free) |
-| Teams of 2-10 who need a shared detection policy | **Lens + Platform Starter** ($29/mo) |
+| Teams of 2-10 who need a shared detection policy | **Lens + Platform Developer** ($79/mo) |
 | Enterprises needing SIEM, compliance modules, central policy | **Platform Professional or Enterprise** (custom) |
 
 See [pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-enterprise-cta) for details.

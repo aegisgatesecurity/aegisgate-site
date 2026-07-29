@@ -59,7 +59,7 @@ curl http://localhost:8443/version
 
 ### Detection Patterns
 
-- 144+ threat signatures
+- 153+ threat signatures
 - Real-time pattern matching
 - Configurable severity levels
 

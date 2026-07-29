@@ -9,7 +9,7 @@ highlights = [
   "HTTP Proxy with bidirectional scanning",
   "120 proxy RPM / 60 MCP RPM",
   "3 concurrent users",
-  "144+ detection patterns",
+  "153+ detection patterns",
   "8 MCP guardrails",
   "8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)",
   "MITRE ATLAS enforcement",
@@ -28,39 +28,12 @@ highlights_excluded = [
 ]
 
 [[tiers]]
-name = "Starter"
-price = "$29"
-period = "per month"
-description = "For SMB, SLED, and SOHO teams needing more actions, workflows, and MCP capacity"
-badge = "Popular for small teams"
-highlights = [
-  "Everything in Community, plus:",
-  "600 proxy RPM / 300 MCP RPM",
-  "10 concurrent users",
-  "5 concurrent agents",
-  "A2A license-aware enforcement",
-  "OIDC/SAML single sign-on",
-  "RBAC permissions and custom roles",
-  "GDPR view compliance",
-  "OWASP compliance module",
-  "Circuit breaker pattern",
-  "30-day audit log retention",
-  "Email support"
-]
-highlights_excluded = [
-  "HIPAA compliance",
-  "PCI-DSS compliance",
-  "SOC2 certification",
-  "Priority support"
-]
-
-[[tiers]]
 name = "Developer"
 price = "$79"
 period = "per month"
 description = "For growing teams building AI-powered applications"
 highlights = [
-  "Everything in Starter, plus:",
+  "Everything in Community, plus:",
   "1,000 proxy RPM / 500 MCP RPM",
   "25 concurrent users",
   "mTLS authentication (proxy + A2A)",
@@ -72,7 +45,9 @@ highlights = [
   "Grafana integration",
   "SQLite and Redis storage",
   "Code execution sandbox",
-  "Priority email support"
+  "Priority email support",
+  "gRPC API access (7 services, 50 RPCs)",
+  "SIEM integration (Splunk, Datadog, ELK)"
 ]
 highlights_excluded = [
   "ISO 27001 / ISO 42001",
@@ -93,14 +68,16 @@ highlights = [
   "A2A task-level ACLs",
   "A2A artifact validation",
   "ISO 27001 compliance",
-  "ISO 42001 AI compliance",
+  "ISO 42001 + CMMC L2 compliance",
   "SOC2 Type II",
   "Policy engine and department separation",
   "Kubernetes and Helm deployment",
   "PostgreSQL and S3 storage",
   "Process-level MCP sandboxing",
   "90-day audit log retention",
-  "Priority support"
+  "Priority support",
+  "FedRAMP Moderate compliance (151/170 automated)",
+  "gRPC API access"
 ]
 highlights_excluded = [
   "Custom compliance frameworks",
@@ -119,7 +96,7 @@ highlights = [
   "A2A notification verification",
   "A2A cross-agent attack detection",
   "ISO 42001 AI compliance",
-  "FedRAMP compliance",
+  "FedRAMP Moderate (full 170/170)",
   "Custom compliance frameworks",
   "Custom ML models and zero-day detection",
   "HSM and LDAP integration",
@@ -129,6 +106,7 @@ highlights = [
   "1-year audit log retention",
   "Business Associate Agreement (BAA)",
   "Data Processing Agreement (DPA)",
-  "Dedicated support engineer"
+  "Cross-framework traceability (153 controls → 12 frameworks)",
+  "Dedicated support engineer with 4-hour SLA"
 ]
 highlights_excluded = []

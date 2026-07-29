@@ -76,7 +76,7 @@ Services are provided according to the subscription tier you select:
 | Tier | Monthly Rate | RPM Limit | Key Features |
 |---|---|---|---|
 | **Community** | Free | 120 RPM | Best-effort protection, 7-day audit log retention, community support |
-| **Starter** | $29/mo | 600 RPM | Email support, 30-day audit log retention, basic compliance reporting |
+| **Developer** | $79/mo | 1,000 RPM | Email support, 30-day audit log retention, HIPAA/PCI/GDPR compliance |
 | **Developer** | $99/mo | 1,000 RPM | SSO, RBAC, compliance modules add-on, 30-day audit log retention |
 | **Professional** | $299/mo | 10,000 RPM | HIPAA / PCI-DSS / SOC 2 modules, 90-day audit log retention, 99.95% SLA, priority support |
 | **Enterprise** | Contact sales | Custom | Custom SLA (up to 99.99%), custom compliance modules, dedicated CSM, custom audit log retention |
@@ -174,7 +174,7 @@ If you provide feedback, suggestions, or ideas about the Platform, you grant us 
 | Tier | Monthly Uptime |
 |------|----------------|
 | Community | 99.0% (best effort) |
-| Starter | 99.5% |
+| Developer | 99.5% |
 | Developer | 99.9% |
 | Professional | 99.95% |
 | Enterprise | 99.99% (custom SLA) |

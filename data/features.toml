@@ -3,9 +3,9 @@
 [features.http_proxy]
 name = "HTTP API Security"
 icon = "🌐"
-description = "Bidirectional scanning of every API request and response with 144+ detection patterns"
+description = "Bidirectional scanning of every API request and response with 153+ detection patterns"
 items = [
-  "144+ detection patterns (MITRE ATLAS, OWASP LLM Top 10, PII/secrets)",
+  "153+ detection patterns (MITRE ATLAS, OWASP LLM Top 10, PII/secrets)",
   "Bidirectional request/response scanning",
   "Real-time threat blocking",
   "Rate limiting per client/IP with token-bucket algorithm",
@@ -53,9 +53,9 @@ items = [
 ]
 
 [features.compliance]
-name = "13 Compliance Frameworks"
+name = "24 Compliance Frameworks"
 icon = "📋"
-description = "Fail-closed compliance enforcement across every major standard"
+description = "Fail-closed compliance enforcement across every major standard — 151/170 FedRAMP automated"
 items = [
   "MITRE ATLAS — all adversarial AI techniques",
   "NIST AI RMF 1.500 — AI risk management",
@@ -64,7 +64,15 @@ items = [
   "HIPAA — healthcare data / PHI detection",
   "PCI-DSS — payment card security / tokenization",
   "SOC2 Type II — continuous monitoring & evidence",
-  "GDPR — data protection & PII handling"
+  "GDPR — data protection & PII handling",
+  "FedRAMP Moderate — 151/170 automated (88.8%)",
+  "EU AI Act — 82 controls across 8 categories",
+  "CMMC Level 2 — 14 domains, 98.3%",
+  "NIST 800-171 — 14 families, 99.6%",
+  "HITRUST CSF — 6 categories, 100%",
+  "TISAX — 7 categories, 100%",
+  "ISO 42001 — AI management systems",
+  "CCPA — California Consumer Privacy Act"
 ]
 
 [features.deployment]
@@ -72,7 +80,7 @@ name = "Kubernetes & Helm"
 icon = "🚀"
 description = "Production-grade deployment in 60 seconds — Docker, K8s, or Helm"
 items = [
-  "Docker image — 20 MB, zero config",
+  "Docker image — 34.7 MB, zero config",
   "Kubernetes + Helm chart included",
   "HPA autoscaling (1–10 replicas)",
   "NetworkPolicy ingress/egress restrictions",
@@ -95,14 +103,17 @@ items = [
 
 [features.stats]
 items = [
-  { label = "Detection Patterns", value = "144+" },
+  { label = "Detection Patterns", value = "153+" },
   { label = "MCP Guardrails", value = "8" },
   { label = "A2A Guardrails", value = "8" },
   { label = "Total Guardrails", value = "16" },
-  { label = "Compliance Frameworks", value = "13" },
+  { label = "Compliance Frameworks", value = "24" },
   { label = "Peak Throughput", value = "11,681 RPS" },
   { label = "Avg Latency", value = "2.44ms" },
-  { label = "Package Coverage", value = "87.1%" },
-  { label = "Tests Passing", value = "1,394" },
-  { label = "Docker Image", value = "20MB" }
+  { label = "Package Coverage", value = "86.1%" },
+  { label = "Tests Passing", value = "2,100+" },
+  { label = "Docker Image", value = "34.7MB" },
+  { label = "FedRAMP Controls", value = "151/170" },
+  { label = "Cross-Framework", value = "100%" },
+  { label = "gRPC Services", value = "7" }
 ]

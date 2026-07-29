@@ -6,10 +6,10 @@ theme = "aegisgate"
 # Site params
 [params]
   description = "The only AI security gateway with six pillars of AI security (HTTP API, MCP, A2A, ACP, RESPONSE, Trust Framework), MITRE ATLAS enforcement, the EU AI Act Compliance Module, and zero external dependencies. Deploy in 60 seconds."
-  version = "v3.4.0-beta.1"
+  version = "v3.5.0"
   goVersion = "1.26.5+"
-  dockerSize = "13.3MB"
-  coverage = "97.8%"
+  dockerSize = "34.7MB"
+  coverage = "86.1%"
   github = "https://github.com/aegisgatesecurity/aegisgate-platform"
   twitter = "https://twitter.com/aegisgatesec"
   email = "security@aegisgatesecurity.io"

@@ -5,9 +5,9 @@ type: cve
 ---
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>🆕 Coming with v3.4.0:</strong> The AegisGate CVE-for-AI feed is currently a preview. The Go package
+<strong>🆕 Coming with v3.5.0:</strong> The AegisGate CVE-for-AI feed is currently a preview. The Go package
 (<code>pkg/cve</code>) is shipped in v3.4.0+; the static portal at <code>aegisgatesecurity.io/cve/</code>
-ships with the v3.4.0 GA. Subscribe to the <a href="/feed.json" style="color:#FFD700;">JSON feed</a> for programmatic access.
+ships with the v3.5.0. Subscribe to the <a href="/feed.json" style="color:#FFD700;">JSON feed</a> for programmatic access.
 </div>
 
 # AegisGate CVE-for-AI Feed
@@ -95,5 +95,5 @@ or email `security@aegisgatesecurity.io` (PGP key on the security.txt page).
 
 ---
 
-*This page ships with the v3.4.0 GA. The preview data above is illustrative; the production feed goes
-live with the v3.4.0 GA release.*
+*This page ships with the v3.5.0. The preview data above is illustrative; the production feed goes
+live with the v3.5.0 release.*

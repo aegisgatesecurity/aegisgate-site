@@ -41,7 +41,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 
 | Feature | **Lens** (free browser ext) | **Platform** (enterprise gateway) |
 |---------|:---------------------------:|:----------------------------------:|
-| **Price** | Free, forever | Free (Community) / $29/mo (Starter) / $99/mo (Developer) / custom (Enterprise) |
+| **Price** | Free, forever | Free (Community) / $79/mo (Developer) / custom (Enterprise) |
 | **Account required** | ❌ No | ✅ Yes |
 | **Browser-side AI provider protection** (PII, secrets, XSS, compliance in ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok) | ✅ All 4 facets | ✅ All 4 facets (same corpus) |
 | **4-facet detection** (PII / Secrets / XSS / Compliance). 2 more (Toxicity, Prompt-Injection) planned for v0.2.0. | ✅ | ✅ |
@@ -55,14 +55,14 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Team-wide policy** (one rule applies to all users) | ❌ | ✅ |
 | **Team-wide analytics dashboard** | ❌ | ✅ |
 | **Central audit log** (who saw what, when) | ❌ | ✅ |
-| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (144+ patterns) |
+| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (153+ patterns) |
 | **MCP protocol protection** (Model Context Protocol) | ❌ | ✅ (8 guardrails) |
 | **A2A agent-to-agent security** (mTLS, capabilities, rate limiting) | ❌ | ✅ |
 | **ACP (Agent Communication Protocol) security** | ❌ | ✅ |
 | **Response scanning** (catches bad AI outputs before they reach the user) | ❌ | ✅ |
 | **Trust Framework** (continuous cryptographically-signed trust scoring) | ❌ | ✅ |
 | **EU AI Act Compliance Module** (82 controls, Professional+ tier) | ❌ | ✅ |
-| **OWASP compliance module** | ❌ | ✅ (Starter+) |
+| **OWASP compliance module** | ❌ | ✅ (Developer+) |
 | **GDPR / HIPAA / PCI / SOC 2 compliance modules** | ❌ | ✅ (Professional+) |
 | **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ (Enterprise) |
 | **Custom detection rules per team** | ❌ | ✅ |
@@ -101,7 +101,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 
 ### Architecture
 - **Lens**: Browser extension (MV3). Content script injected into AI provider pages. Detection runs locally in the browser. Bundle signed with Ed25519, distributed via Chrome Web Store.
-- **Platform**: Self-hosted Docker container (13.3MB). Sits between your AI services and clients. Detection runs in the gateway. Bundle signed with Ed25519, distributed via GitHub Releases.
+- **Platform**: Self-hosted Docker container (34.7MB). Sits between your AI services and clients. Detection runs in the gateway. Bundle signed with Ed25519, distributed via GitHub Releases.
 
 ### Detection corpus
 Both products share the same detection corpus (the 4-facet taxonomy: PII, secrets, XSS, compliance). When a new threat is added to one, it's added to the other. 2 more facets (Toxicity, Prompt-Injection) are planned for v0.2.0.
@@ -129,7 +129,7 @@ Both products share the same detection corpus (the 4-facet taxonomy: PII, secret
 | Tier | Price | Best for |
 |------|-------|----------|
 | Community | Free | Solo developers, getting started |
-| Starter | $29/mo | SMB, SLED, SOHO teams |
+
 | Developer | $99/mo | Mid-size teams, custom rules |
 | Professional | Custom | Compliance (HIPAA, PCI, SOC 2, EU AI Act) |
 | Enterprise | Custom | Self-hosted, SLA, 24/7 support |

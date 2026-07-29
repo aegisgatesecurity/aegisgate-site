@@ -5,7 +5,7 @@ type: "landing"
 ---
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>{{< eu-flag >}} NEW in v3.3.0-beta.2:</strong> The EU AI Act Compliance Module is fully implemented and tested. <strong>Beta status</strong>: counsel review of the legal interpretation is pending (v3.4.0+). Use for evaluation and pre-audit work.
+<strong>{{< eu-flag >}} NEW in v3.5.0:</strong> The EU AI Act Compliance Module is fully implemented and tested. <strong>Beta status</strong>: counsel review of the legal interpretation is pending (v3.4.0+). Use for evaluation and pre-audit work.
 </div>
 
 ## What is the EU AI Act?
@@ -150,7 +150,7 @@ If you fall into one of the above categories, you may not need this Module. Cont
 - **Tier gate**: **Professional+** (Professional and Enterprise tiers)
 - **Pricing**: **Included** with Professional and Enterprise at no extra cost
 - **Add-on**: Not available as a separate module — it's part of the Professional+ tier
-- **Migration**: If you're on a Community, Starter, or Developer tier, [upgrade to Professional](/pricing/) to enable the EU AI Act Module
+- **Migration**: If you're on a Community or Developer tier, [upgrade to Professional](/pricing/) to enable the EU AI Act Module
 
 ## Documentation
 
@@ -170,7 +170,7 @@ What this means for you:
 - ⚠️ **Defer your formal EU AI Act conformity assessment** until counsel has signed off on the mapping
 - ⚠️ **Don't use AegisGate's audit reports as your sole evidence** for EU AI Act compliance — they should supplement, not replace, qualified legal review
 
-When counsel sign-off is complete (target: v3.4.0), we'll:
+When counsel sign-off is complete (target: v3.5.0), we'll:
 
 - Update the Module to v1.0-GA
 - Publish the counsel-reviewed mapping
@@ -185,7 +185,7 @@ To enable the EU AI Act Compliance Module:
    - Not on Professional yet? [Upgrade at /pricing/](/pricing/) or [contact sales](mailto:sales@aegisgatesecurity.io)
 2. **Pull the latest image**:
    ```bash
-   docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v3.3.0-beta.2
+   docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v3.5.0
    ```
 3. **Run the compliance scan**:
    ```bash

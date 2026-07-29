@@ -240,7 +240,7 @@ trust scoring, and signed attestations for compliance evidence.
 **Key features** (v3.4.0+, 66/66 packages passing, 6,066 tests):
 
 - **6 protocol coverage** (HTTP, MCP, A2A, ACP, RESPONSE, Trust Framework)
-- **144+ threat detection patterns** (MITRE ATLAS, OWASP LLM Top 10)
+- **153+ threat detection patterns** (MITRE ATLAS, OWASP LLM Top 10)
 - **8 MCP guardrails** (tier-based limits, response scanning, auth)
 - **6 compliance modules** (HIPAA, PCI, SOC 2, ISO 42001, EU AI Act; FedRAMP and FIPS 140 in Path B)
 - **Trust Framework** (8 packages, ~8,500 LOC, 548 tests, 85–91% coverage)

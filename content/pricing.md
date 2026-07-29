@@ -26,7 +26,7 @@ The case study is **representative**, not a real customer. It is built from anon
 
 <div class="pricing-availability-notice">
 <strong>📌 Currently available for purchase:</strong> Community (free), Developer ($79/mo).
-<strong>Hidden pending v3.4.0 + legal review:</strong> Professional tier and the 6 compliance modules (HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, FIPS).
+<strong>Hidden pending v3.5.0 + legal review:</strong> Professional tier and the 6 compliance modules (HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, FIPS).
 For early access to hidden plans, <a href="mailto:sales@aegisgatesecurity.io">contact sales</a>.
 </div>
 
@@ -48,7 +48,7 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 <ul>
 <li>Unlimited proxy RPM (soft-throttle)</li>
 <li>5 concurrent users</li>
-<li>144+ security detection patterns</li>
+<li>153+ security detection patterns</li>
 <li>8 MCP guardrails</li>
 <li>8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)</li>
 <li>MITRE ATLAS (66 techniques)</li>
@@ -80,6 +80,8 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 <li>Code execution sandbox</li>
 <li>Grafana integration</li>
 <li>Priority email support</li>
+<li>gRPC API access (7 services, 50 RPCs)</li>
+<li>SIEM integration (Splunk, Datadog, ELK)</li>
 </ul>
 <div class="pricing-buttons">
 <stripe-buy-button
@@ -110,18 +112,20 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 <li><strong>Trust Framework (6th pillar)</strong> — per-agent identity, capability contracts, real-time trust scoring, signed attestations. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/trust-framework.md" style="color:#00ADD8">Read the 1-pager</a></li>
 <li><strong>Federated IOC library</strong> — opt-in sharing of detected threats. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/federated-ioc-library-1pager.md" style="color:#00ADD8">Read the 1-pager</a></li>
 <li>ISO 27001 compliance</li>
-<li>ISO 42001 AI compliance</li>
+<li>ISO 42001 + CMMC L2 compliance</li>
 <li>SOC2 Type II</li>
 <li>Custom RBAC policy engine</li>
 <li>Department separation</li>
 <li>Kubernetes and Helm deployment</li>
 <li>Process-level MCP sandboxing</li>
+<li>FedRAMP Moderate compliance (151/170 automated)</li>
+<li>gRPC API access</li>
 <li>Priority support</li>
 </ul>
 <div class="pricing-buttons">
 <div class="coming-soon">
-  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
-  <p>The Professional tier is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access or to join the waitlist.</p>
+  <strong>Targeting Q4 2026 (was v3.5.0 + legal review)</strong>
+  <p>The Professional tier is currently hidden pending production-grade legal review and the v3.5.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access or to join the waitlist.</p>
 </div>
 </div>
 </div>
@@ -160,8 +164,8 @@ and can be turned on or off at any time from the customer portal.
 <p>HIPAA-compliant logging, PHI detection, Business Associate Agreement (BAA) support.</p>
 <div class="module-buttons">
 <div class="coming-soon">
-  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
-  <p>The HIPAA module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
+  <strong>Targeting Q4 2026 (was v3.5.0 + legal review)</strong>
+  <p>The HIPAA module is currently hidden pending production-grade legal review and the v3.5.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
 </div>
@@ -173,8 +177,8 @@ and can be turned on or off at any time from the customer portal.
 <p>Payment card data detection, PCI-scoped audit logs, card data tokenization.</p>
 <div class="module-buttons">
 <div class="coming-soon">
-  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
-  <p>The PCI-DSS module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
+  <strong>Targeting Q4 2026 (was v3.5.0 + legal review)</strong>
+  <p>The PCI-DSS module is currently hidden pending production-grade legal review and the v3.5.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
 </div>
@@ -186,8 +190,8 @@ and can be turned on or off at any time from the customer portal.
 <p><strong>8 controls across 4 categories</strong> of AICPA Trust Services Criteria (CC6.x Security, PI1 Processing Integrity, C1 Confidentiality, AI controls). 5 of 8 controls are automated (CC6.1 access control, CC6.2 ML environment, CC6.3 data protection, CC6.6 audit logging, CC6.7 transmission security). <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/soc2/" style="color:#00ADD8">See the implementation</a> for the full control-to-check mapping.</p>
 <div class="module-buttons">
 <div class="coming-soon">
-  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
-  <p>The SOC 2 module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
+  <strong>Targeting Q4 2026 (was v3.5.0 + legal review)</strong>
+  <p>The SOC 2 module is currently hidden pending production-grade legal review and the v3.5.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
 </div>
@@ -199,8 +203,8 @@ and can be turned on or off at any time from the customer portal.
 <p><strong>8 controls across 5 ISO 42001 clauses</strong> (4 Context, 5 Leadership, 6 Planning, 7 Support, 8 Operation, 9 Performance Evaluation, AI extension). 5 of 8 controls are automated (5.2 AI policy, 6.1 risk assessment, 7.5 documented info, 8.2 risk treatment, 9.1 monitoring). <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/iso42001/" style="color:#00ADD8">See the implementation</a> for the full control-to-check mapping.</p>
 <div class="module-buttons">
   <div class="coming-soon">
-  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
-  <p>The ISO 42001 module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
+  <strong>Targeting Q4 2026 (was v3.5.0 + legal review)</strong>
+  <p>The ISO 42001 module is currently hidden pending production-grade legal review and the v3.5.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
 </div>
@@ -212,8 +216,8 @@ and can be turned on or off at any time from the customer portal.
 <p><strong>8 of the highest-priority FedRAMP Moderate controls</strong> (AC-2 Account Management, AC-17 Remote Access, AU-2 Audit Events, AU-9 Audit Information Protection, CM-2 Baseline Configuration, IA-2 Identification/Authentication, SC-8 Transmission Protection, SI-4 System Monitoring). 6 are automated, 2 are evidence-mapped. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/fedramp/" style="color:#00ADD8">See the implementation</a>. <em>Note: AegisGate is NOT a FedRAMP-accredited 3PAO. The platform generates the technical evidence; the 3PAO assessment and ATO issuance is the customer's responsibility. The 8 controls in v3.4.0+ are the highest-priority subset for AI/ML systems; the full ~323-control Moderate catalog would be 4-6 weeks of additional work.</em></p>
 <div class="module-buttons">
   <div class="coming-soon">
-  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
-  <p>The FedRAMP module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
+  <strong>Targeting Q4 2026 (was v3.5.0 + legal review)</strong>
+  <p>The FedRAMP module is currently hidden pending production-grade legal review and the v3.5.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
 </div>
@@ -225,8 +229,8 @@ and can be turned on or off at any time from the customer portal.
 <p><strong>10 controls across 5 FIPS 140 areas</strong> (Cryptographic Module Specification, Ports/Interfaces, Roles/Services/Auth, Software Security, Operational Environment). 8 of 10 controls are automated (mode enabled, approved ciphers, TLS 1.2+, approved hashes, key sizes, self-test, audit logging). 2 are manual (CMVP, HSM). <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/fips/" style="color:#00ADD8">See the implementation</a>. <em>Note: AegisGate is FIPS-compliant (uses FIPS-approved algorithms) but the Go runtime is not CMVP-validated. Federal agencies need a CMVP-validated execution environment.</em></p>
 <div class="module-buttons">
   <div class="coming-soon">
-  <strong>Targeting Q4 2026 (was v3.4.0 + legal review)</strong>
-  <p>The FIPS 140-2/140-3 module is currently hidden pending production-grade legal review and the v3.4.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
+  <strong>Targeting Q4 2026 (was v3.5.0 + legal review)</strong>
+  <p>The FIPS 140-2/140-3 module is currently hidden pending production-grade legal review and the v3.5.0 security pentest. <a href="mailto:sales@aegisgatesecurity.io">Contact sales</a> for early access.</p>
 </div>
 </div>
 </div>
@@ -392,7 +396,7 @@ and can be turned on or off at any time from the customer portal.
   width: 100%;
   max-width: 100%;
 }
-/* Pricing-availability notice (v3.3.0): explains which tiers and modules
+/* Pricing-availability notice (v3.5.0): explains which tiers and modules
    are live and which are hidden pending legal review and pentest completion.
    Sits above the legal-acceptance-notice so it's the first thing the user
    sees before scrolling to the buy buttons. */
@@ -437,9 +441,9 @@ and can be turned on or off at any time from the customer portal.
   color: #5cc8e6;
 }
 /* Coming-soon placeholder for plans/modules hidden pending legal review
-   and pentest completion. v3.4.0: Developer tier is live and
+   and pentest completion. v3.5.0: Developer tier is live and
    sellable today. Professional tier and the 6 compliance modules are hidden
-   until production-grade legal review and the v3.4.0 security pentest. */
+   until production-grade legal review and the v3.5.0 security pentest. */
 .pricing-buttons .coming-soon,
 .module-buttons .coming-soon {
   display: block;

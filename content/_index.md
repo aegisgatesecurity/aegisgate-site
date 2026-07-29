@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Platform™ — Secure Every AI Interaction"
-description: "The only AI security gateway with six-pillar protection: HTTP API, MCP, A2A, ACP, Response, and Trust Framework scanning. MITRE ATLAS 66 techniques. Deploy in 60 seconds."
+description: "The only AI security gateway with six-pillar protection: HTTP API, MCP, A2A, ACP, Response, and Trust Framework scanning. MITRE ATLAS 66 techniques. 24 compliance frameworks. 151/170 FedRAMP automated. Deploy in 60 seconds."
 type: "landing"
 ---
 
@@ -9,17 +9,17 @@ type: "landing"
 </div>
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>{{< eu-flag >}} NEW in v3.3.0-beta.2:</strong> The <a href="/eu-ai-act/" style="color:#FFD700;text-decoration:underline;"><strong>EU AI Act Compliance Module</strong></a> — 82 controls across 8 categories of EU Regulation 2024/1689, included with Professional+ tier. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.4.0-beta.1" target="_blank" style="color:#FFD700;">v3.4.0-beta.1 release notes →</a>
+<strong>{{< eu-flag >}} NEW in v3.5.0:</strong> The <a href="/eu-ai-act/" style="color:#FFD700;text-decoration:underline;"><strong>EU AI Act Compliance Module</strong></a> — 82 controls across 8 categories, plus gRPC, Trust Attestation, and SIEM integration. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.5.0" target="_blank" style="color:#FFD700;">v3.5.0 release notes →</a>
 </div>
 
-AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (v3.2.0+, ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (v3.3.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
+AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (v3.2.0+, ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (v3.5.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
 
 <div class="card-grid card-grid-2">
 <div class="card">
 
 ### 🌐 HTTP API Security
 
-- 144+ detection patterns
+- 153+ detection patterns
 - MITRE ATLAS 66 techniques
 - PII, secrets, API key detection
 - Bidirectional request/response scanning
@@ -57,7 +57,7 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 </div>
 <div class="card" style="border-color:#00ADD8;box-shadow:0 0 16px rgba(0,173,216,0.25);">
 
-### 🔐 Trust Framework <span style="font-size:11px;background:#00ADD8;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">NEW in v3.2.0</span>
+### 🔐 Trust Framework <span style="font-size:11px;background:#00ADD8;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.2.0+</span>
 
 - Per-session trust score accumulator
 - Ed25519-signed attestations on every event
@@ -76,6 +76,36 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 - Ed25519-signed bundles, SLSA L2 provenance
 - [Learn more](/lens/) · [Install from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjdjfdhiggaomoafnhagfcjip) · [Lens vs Platform](/lens/compare/)
 </div>
+<div class="card" style="border-color:#f59e0b;box-shadow:0 0 16px rgba(245,158,11,0.25);">
+
+### ⚡ gRPC Service Layer <span style="font-size:11px;background:#f59e0b;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">NEW in v3.5.0</span>
+
+- 7 services: Compliance, Scanner, Trust, SSO, Audit, Analytics, Health
+- 50 RPC methods with server reflection
+- gRPC health checking (grpc.health.v1)
+- TLS support with mutual TLS
+
+</div>
+<div class="card" style="border-color:#10b981;box-shadow:0 0 16px rgba(16,185,129,0.25);">
+
+### 🔐 Trust Attestation <span style="font-size:11px;background:#10b981;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">NEW in v3.5.0</span>
+
+- ECDSA P-256 attestations with RFC 3161 TSA timestamping
+- Per-session trust score accumulator
+- Cross-pillar correlation (MCP, A2A, Proxy, Response)
+- Attestation verification CLI: `aegisgate attestation verify`
+
+</div>
+<div class="card" style="border-color:#8b5cf6;box-shadow:0 0 16px rgba(139,92,246,0.25);">
+
+### 📡 SIEM Integration <span style="font-size:11px;background:#8b5cf6;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">NEW in v3.5.0</span>
+
+- Splunk HEC integration with index routing
+- Datadog Logs API with service tags
+- ELK Stack via Logstash HTTP input
+- Batch event forwarding with retry logic
+
+</div>
 
 </div>
 
@@ -83,7 +113,7 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 
 <div class="btn-group">
 <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.4.0-beta.1" target="_blank" class="btn btn-secondary">Download v3.4.0-beta.1</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.5.0" target="_blank" class="btn btn-secondary">Download v3.5.0</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" class="btn btn-ghost">⭐ Star on GitHub</a>
 </div>
 
@@ -105,11 +135,11 @@ There are other AI security products. Here's how AegisGate compares on the dimen
 | **MITRE ATLAS coverage** | ✅ 66 techniques | ⚠️ Partial | ❌ | ⚠️ Partial | ✅ |
 | **OWASP LLM Top 10** | ✅ 49 patterns | ✅ | ✅ | ✅ | ✅ |
 | **{{< eu-flag >}} EU AI Act controls** | ✅ 82 controls | ❌ | ❌ | ❌ | ❌ |
-| **Multi-framework compliance** | ✅ 10 frameworks | ❌ | ❌ | ❌ | ⚠️ |
+| **Multi-framework compliance** | ✅ 24 frameworks | ❌ | ❌ | ❌ | ⚠️ |
 | **Tamper-evident audit logs** | ✅ Hash chain + RFC 5424 | ❌ | ❌ | ❌ | ⚠️ |
 | **Open source** | ✅ Apache 2.0 | ❌ | ✅ Apache 2.0 | ✅ MIT | ❌ |
 | **Air-gap deployable** | ✅ Single binary | ❌ | ✅ Library | ✅ Library | ❌ |
-| **Hardware footprint** | 13.3 MB binary, < 256 MB RAM | n/a (SaaS) | In-process | In-process | n/a (platform) |
+| **Hardware footprint** | 34.7 MB binary, < 256 MB RAM | n/a (SaaS) | In-process | In-process | n/a (platform) |
 
 **TL;DR**: If you need **protocol-level security** (MCP, A2A, ACP) + **compliance evidence** + **self-hosting**, AegisGate is the only option that covers all three.
 
@@ -127,7 +157,7 @@ Your AI infrastructure spans multiple attack surfaces. Most security tools only 
 
 | Attack Surface | Risk | Traditional WAFs | LLM Alignment Tools | **AegisGate** |
 |---|---|---|---|---|
-| **HTTP APIs** | Prompt injection, data leakage, PII exposure | ⚠️ AI-agnostic | ❌ No | ✅ AI-aware scanning, 144+ patterns |
+| **HTTP APIs** | Prompt injection, data leakage, PII exposure | ⚠️ AI-agnostic | ❌ No | ✅ AI-aware scanning, 153+ patterns |
 | **MCP Protocol** | Tool poisoning, session hijacking, supply-chain attacks | ❌ No native protection | ❌ No | ✅ Built-in protocol guard, 8 guardrails |
 | **A2A Communication** | Agent impersonation, data tampering, capability escalation | ❌ No native protection | ❌ No | ✅ mTLS, HMAC, capability enforcement |
 | **Agent Response** | PII leakage, secret exposure, hallucination, toxicity | ❌ No native protection | ⚠️ Some | ✅ Real-time response guard, 5 detectors |
@@ -136,7 +166,7 @@ Your AI infrastructure spans multiple attack surfaces. Most security tools only 
 
 AegisGate fills these gaps with a single unified platform.
 
-**AegisGate secures all six in a single 13.3 MB binary you deploy in 60 seconds.**
+**AegisGate secures all six in a single 34.7 MB binary you deploy in 60 seconds.**
 
 ---
 
@@ -147,7 +177,7 @@ AegisGate fills these gaps with a single unified platform.
 
 ### 🌐 HTTP Proxy Security
 
-Bidirectional scanning of every API request and response. 144+ patterns detect secrets, PII, and threats before they reach your AI services.
+Bidirectional scanning of every API request and response. 153+ patterns detect secrets, PII, and threats before they reach your AI services.
 
 </div>
 <div class="card">
@@ -189,7 +219,7 @@ Protect your AI infrastructure from abuse with intelligent rate limiting. Per-cl
 
 ### 🔍 Threat Intelligence
 
-Real-time threat detection with pattern matching across 144+ signatures. Blocks prompt injection, sensitive data exfiltration, and adversarial attacks.
+Real-time threat detection with pattern matching across 153+ signatures. Blocks prompt injection, sensitive data exfiltration, and adversarial attacks.
 
 </div>
 <div class="card text-center">
@@ -203,7 +233,7 @@ Every AI request, response, tool call, and session is logged. SIEM-ready with st
 
 ---
 
-## {{< eu-flag >}} EU AI Act Compliance Module (NEW in v3.3.0) — Included with Professional+ tier
+## {{< eu-flag >}} EU AI Act Compliance Module — Included with Professional+ tier
 
 The **EU AI Act** (Regulation 2024/1689) is the world's first comprehensive AI regulation. AegisGate's **EU AI Act Compliance Module** gives you a single source of truth for whether your AI system is compliant — across **82 controls** in **8 categories**.
 
@@ -271,7 +301,7 @@ The **EU AI Act** (Regulation 2024/1689) is the world's first comprehensive AI r
 <a href="/eu-ai-act/" class="btn btn-primary">{{< eu-flag >}} EU AI Act Module — Full Details</a>
 </div>
 
-> **Beta status**: This module is fully implemented and tested in v3.3.0-beta.2. Counsel review of the legal interpretation is pending (v3.4.0+). Use for **evaluation and pre-audit work**; defer formal conformity assessment until counsel sign-off is complete.
+> **Beta status**: This module is fully implemented and tested in v3.5.0. Counsel review of the legal interpretation is pending (v3.4.0+). Use for **evaluation and pre-audit work**; defer formal conformity assessment until counsel sign-off is complete.
 
 ---
 
@@ -279,20 +309,27 @@ The **EU AI Act** (Regulation 2024/1689) is the world's first comprehensive AI r
 
 Choose the coverage that matches your compliance needs.
 
-| Framework | Community | Starter | Developer | Professional | Enterprise |
+| Framework | Community | Developer | Professional | Enterprise |
 |-----------|:---------:|:-------:|:---------:|:------------:|:----------:|
-| MITRE ATLAS | ✓ | ✓ | ✓ | ✓ | ✓ |
-| NIST AI RMF | ✓ | ✓ | ✓ | ✓ | ✓ |
-| OWASP LLM Top 10 | ✓ | ✓ | ✓ | ✓ | ✓ |
-| GDPR | — | View | ✓ | ✓ | ✓ |
-| HIPAA | — | — | ✓ | ✓ | ✓ |
-| PCI-DSS | — | — | ✓ | ✓ | ✓ |
-| SOC2 Type II | — | — | Module | ✓ | ✓ |
-| ISO 27001 | — | — | — | ✓ | ✓ |
-| ISO 42001 (AI) | — | — | — | ✓ | ✓ |
-| **{{< eu-flag >}} EU AI Act** | — | — | — | **✓ Included** | **✓ Included** |
+| MITRE ATLAS | ✓ | ✓ | ✓ | ✓ |
+| NIST AI RMF | ✓ | ✓ | ✓ | ✓ |
+| OWASP LLM Top 10 | ✓ | ✓ | ✓ | ✓ |
+| GDPR | — | ✓ | ✓ | ✓ |
+| HIPAA | — | ✓ | ✓ | ✓ |
+| PCI-DSS | — | ✓ | ✓ | ✓ |
+| SOC2 Type II | — | Module | ✓ | ✓ |
+| ISO 27001 | — | — | ✓ | ✓ |
+| ISO 42001 (AI) | — | — | ✓ | ✓ |
+| **{{< eu-flag >}} EU AI Act** | — | — | **✓ Included** | **✓ Included** |
+| FedRAMP Moderate | — | — | 151/170 | 170/170 |
+| CMMC Level 2 | — | — | — | ✓ |
+| NIST 800-171 | — | — | — | ✓ |
+| HITRUST CSF | — | — | — | ✓ |
+| TISAX | — | — | — | ✓ |
+| ISO 42001 | — | — | ✓ | ✓ |
+| CCPA | — | — | — | ✓ |
 
-*Starter tier adds SSO, RBAC, and GDPR view for SMB/SLED/SOHO teams. Developer tier adds full compliance (HIPAA + PCI-DSS) and mTLS. Professional includes everything **plus ISO 27001, ISO 42001, the EU AI Act Module at no extra cost, and the Trust Framework**. Enterprise adds custom frameworks and dedicated support.*
+*Developer tier adds full compliance (HIPAA + PCI-DSS) and mTLS. Professional includes everything **plus ISO 27001, ISO 42001, CMMC L2, FedRAMP Moderate (151/170), the EU AI Act Module at no extra cost, and the Trust Framework**. Enterprise adds custom frameworks, FedRAMP Moderate (full 170/170), and dedicated support.*
 
 ---
 
@@ -305,7 +342,7 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.4.0-beta.1</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.5.0</pre>
 </div>
 
 <div class="command-box">
@@ -320,7 +357,7 @@ curl http://localhost:8443/health</pre>
 
 <div class="stats-grid">
 <div class="stat">
-<div class="value">144+</div>
+<div class="value">153+</div>
 <div class="label">Detection Patterns</div>
 </div>
 <div class="stat">
@@ -344,19 +381,19 @@ curl http://localhost:8443/health</pre>
 <div class="label">Security Pillars <span style="font-size:10px;color:#00ADD8;">(HTTP, MCP, A2A, ACP, RESPONSE, Trust)</span></div>
 </div>
 <div class="stat">
-<div class="value">10</div>
+<div class="value">24</div>
 <div class="label">Compliance Frameworks</div>
 </div>
 <div class="stat">
-<div class="value">97.8%</div>
+<div class="value">86.1%</div>
 <div class="label">Test Coverage</div>
 </div>
 <div class="stat">
-<div class="value">5,484</div>
+<div class="value">2,100+</div>
 <div class="label">Tests Passing</div>
 </div>
 <div class="stat">
-<div class="value">13.3 MB</div>
+<div class="value">34.7 MB</div>
 <div class="label">Binary Size</div>
 </div>
 </div>

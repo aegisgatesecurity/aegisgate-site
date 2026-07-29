@@ -181,7 +181,7 @@ The Parties shall implement any supplementary measures required by applicable da
 Upon termination of the subscription, the Subscriber may elect to receive a copy of all Personal Data processed under this Agreement in a commonly used, machine-readable format. The Company shall provide the export within 30 days of the Subscriber's written request, after which the Company shall delete all Personal Data within 30 days, except where applicable law requires continued storage.
 
 ### 7.2 Audit Logs
-Audit logs shall be retained for the period specified in the Subscriber's subscription tier (Community 7 days, Starter 30 days, Developer 30 days, Professional 90 days, Enterprise as agreed), after which they shall be deleted automatically.
+Audit logs shall be retained for the period specified in the Subscriber's subscription tier (Community 7 days, Developer 30 daysoper 30 days, Professional 90 days, Enterprise as agreed), after which they shall be deleted automatically.
 
 ### 7.3 Backup Retention
 Personal Data may remain in encrypted backups for up to 90 days after deletion from primary storage, after which such backups shall be overwritten in the normal course of business.

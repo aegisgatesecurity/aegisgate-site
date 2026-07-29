@@ -25,7 +25,7 @@ AegisGate is a security product. When in doubt, we deny. If any security check f
 
 ## Pillar 1: HTTP API Security
 
-AegisGate scans all HTTP traffic using 144+ detection patterns covering:
+AegisGate scans all HTTP traffic using 153+ detection patterns covering:
 
 - **Secrets & API Keys**: Detects exposed credentials before they leak
 - **PII/PHI**: Identifies personally identifiable and health information

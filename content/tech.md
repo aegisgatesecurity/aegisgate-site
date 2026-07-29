@@ -6,7 +6,7 @@ type: "tech"
 
 ## Architecture Overview
 
-AegisGate v3.4.0-beta.1 secures AI interactions across **six pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE) plus the **Trust Framework** — in a single 13.3 MB binary.
+AegisGate v3.5.0 secures AI interactions across **six pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE) plus the **Trust Framework** — in a single 34.7 MB binary.
 
 {{< mermaid >}}
 flowchart TB
@@ -27,7 +27,7 @@ flowchart TB
         L["RESPONSE Guard"]
         TR["Trust Framework\nPkg/trust/\n(NEW v3.2.0)"]
 
-        M["Scanner - 144+ patterns"]
+        M["Scanner - 153+ patterns"]
         N["ATLAS - 66 techniques"]
         O["Rate Limiter"]
         P["Audit Logger - RFC 5424"]
@@ -78,7 +78,7 @@ AegisGate v3.2.0 protects every AI interaction with four protocol pillars and on
 
 ### 1. HTTP API Security (v3.0+, port 8080)
 
-Bidirectional scanning with 144+ detection patterns:
+Bidirectional scanning with 153+ detection patterns:
 
 | Pattern Set | Count | Coverage |
 |-------------|-------|----------|

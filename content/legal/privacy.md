@@ -92,7 +92,7 @@ We retain personal data for the following periods:
 |---|---|---|
 | Account data | While account is active + 30 days after deletion | Account recovery, dispute resolution |
 | Payment data | 7 years (US IRS requirements) | Tax compliance |
-| Audit logs | 7 days (Community), 30 days (Starter), 30 days (Developer), 90 days (Professional), as agreed (Enterprise) | Service improvement, security |
+| Audit logs | 7 days (Community), 30 days (Developer), 90 days (Professional), as agreed (Enterprise) | Service improvement, security |
 | Support tickets | 3 years after closure | Dispute resolution, training |
 | Marketing email engagement | Until you unsubscribe + 30 days | Deliverability |
 | Backup snapshots | 90 days (overwritten in normal rotation) | Disaster recovery |
