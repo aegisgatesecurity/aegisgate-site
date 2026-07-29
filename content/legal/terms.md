@@ -198,6 +198,21 @@ Service level commitments do not apply during:
 - Failures caused by your violation of these Terms
 - Beta features (designated as "beta" in the documentation)
 
+### 7.4 Rate Limits and Usage Quotas
+
+Rate limits are enforced per tier to ensure fair usage and platform stability:
+
+| Tier | RPM Limit | Daily Request Limit | Burst Allowance |
+|------|-----------|---------------------|-----------------|
+| Community | 120 RPM | 172,800/day | 10% above limit for 60 seconds |
+| Developer | 1,000 RPM | 1,440,000/day | 10% above limit for 60 seconds |
+| Professional | 2,500 RPM | 3,600,000/day | 15% above limit for 60 seconds |
+| Enterprise | Custom | Custom | Custom |
+
+When a rate limit is exceeded, the Platform returns HTTP 429 (Too Many Requests) with a `Retry-After` header indicating when the client may retry. Persistent abuse of rate limits (sustained traffic exceeding 200% of the tier limit for more than 5 minutes) may result in temporary request throttling or, for repeated violations, account suspension under Section 5 (Acceptable Use).
+
+Rate limits are measured at the license key level. If you require higher limits, contact **sales@aegisgatesecurity.io** for Enterprise tier pricing.
+
 ## 8. CONFIDENTIALITY
 
 Each Party agrees to protect the other Party's confidential information using the same degree of care it uses to protect its own confidential information of like kind (and in any event, no less than reasonable care). Confidential information does not include information that:

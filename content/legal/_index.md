@@ -26,7 +26,14 @@ AegisGate Security, LLC's legal documents are listed below. Each document is a *
 | [Subprocessor List](/legal/subprocessors/) | Third-party service providers that process personal data on our behalf | 2026-06-07 |
 | [Security Addendum](/legal/security-addendum/) | Security controls, infrastructure, and compliance posture for Professional and Enterprise tiers | 2026-07-29 |
 | [Acceptable Use Policy](/legal/acceptable-use/) | Defines permitted and prohibited uses of the service | 2026-07-29 |
+| [Mutual NDA](/legal/nda/) | Mutual non-disclosure agreement for business discussions | 2026-07-29 |
 | [Beta User Agreement](/legal/beta-agreement/) | Supplemental terms for v3.5.0 program participants | 2026-06-07 |
+
+## Accessibility
+
+| Document | Purpose | Last Updated |
+|---|---|---|
+| [Accessibility Statement](/legal/accessibility/) | Our commitment to accessibility and conformance with WCAG 2.1, ADA, Section 508, and EU Accessibility Act 2025 | 2026-07-29 |
 
 ## For Developers and Contributors
 
