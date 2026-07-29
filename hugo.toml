@@ -11,7 +11,8 @@ theme = "aegisgate"
   dockerSize = "34.7MB"
   coverage = "86.1%"
   github = "https://github.com/aegisgatesecurity/aegisgate-platform"
-  twitter = "https://twitter.com/aegisgatesec"
+  twitter = "https://x.com/aegisgate"
+  mastodon = "https://mastodon.social/@aegisgate"
   email = "security@aegisgatesecurity.io"
   salesEmail = "sales@aegisgatesecurity.io"
   copyrightStartYear = 2024
@@ -19,7 +20,8 @@ theme = "aegisgate"
 
 [params.social]
   github = "aegisgatesecurity"
-  twitter = "aegisgatesec"
+  twitter = "aegisgate"
+  mastodon = "https://mastodon.social/@aegisgate"
 
 # Main nav menu
 [menu]

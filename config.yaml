@@ -9,8 +9,8 @@ params:
   email: "security@aegisgatesecurity.io"
   salesEmail: "sales@aegisgatesecurity.io"
   github: "https://github.com/aegisgatesecurity/aegisgate-platform"
-  twitter: "https://twitter.com/aegisgatesec"
-  mastodon: ""
+  twitter: "https://x.com/aegisgate"
+  mastodon: "https://mastodon.social/@aegisgate"
   copyrightStartYear: 2024
   currentYear: 2026
   
