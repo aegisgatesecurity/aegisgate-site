@@ -78,7 +78,15 @@ When you click a "Buy" button on the pricing page, Stripe's payment widget loads
 
 ## 5. Your Choices Regarding Cookies
 
-### 5.1 Browser Controls
+### 5.1 Cookie Consent Banner
+When you first visit aegisgatesecurity.io, a cookie consent banner will appear allowing you to:
+- **Accept All** — consent to all cookie categories (essential, analytics, functional)
+- **Reject All** — consent to essential cookies only (required for authentication and security)
+- **Customize** — choose which non-essential categories to enable
+
+Your choice is stored in your browser's `localStorage` (not a cookie) and persists until you clear your browser data. You can change your preferences at any time by clicking **"Manage Cookies"** in the site footer.
+
+### 5.2 Browser Controls
 Most web browsers allow you to control cookies through their settings. You can set your browser to:
 - Block all cookies
 - Block only third-party cookies
@@ -93,10 +101,10 @@ Browser-specific opt-out instructions:
 - **Safari:** Preferences → Privacy → Cookies and website data
 - **Edge:** Settings → Cookies and site permissions → Cookies and site data
 
-### 5.2 Global Privacy Control (GPC)
+### 5.3 Global Privacy Control (GPC)
 We honor the **Global Privacy Control (GPC)** signal. If your browser sends a GPC header, we treat it as a valid opt-out of any non-essential cookies. The AegisGate platform's cookie banner does not appear for visitors sending GPC, and any non-essential cookies are suppressed.
 
-### 5.3 Do Not Track (DNT)
+### 5.4 Do Not Track (DNT)
 We honor the legacy Do Not Track (DNT) signal from your browser in the same way as GPC.
 
 ## 6. Updates to This Policy
@@ -104,7 +112,8 @@ We honor the legacy Do Not Track (DNT) signal from your browser in the same way 
 We may update this Cookie Policy from time to time. The most current version is always available at https://aegisgatesecurity.io/legal/cookies.
 
 Material changes will be communicated via:
-- A banner on aegisgatesecurity.io for at least 30 days
+- The cookie consent banner will reappear, requiring renewed consent
+- A notice on aegisgatesecurity.io for at least 30 days
 - An email to active subscribers for changes affecting platform cookies
 
 **Last Updated:** 2026-06-07

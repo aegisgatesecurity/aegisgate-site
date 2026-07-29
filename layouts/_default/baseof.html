@@ -54,6 +54,11 @@
     <script src="{{ $scripts.RelPermalink }}"></script>
     {{ end }}
     
+    {{ $cookieConsent := resources.Get "js/cookie-consent.js" }}
+    {{ if $cookieConsent }}
+    <script src="{{ $cookieConsent.RelPermalink }}"></script>
+    {{ end }}
+    
     {{ block "scripts_extra" . }}{{ end }}
 </body>
 </html>
