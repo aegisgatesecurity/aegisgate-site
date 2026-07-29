@@ -12,7 +12,7 @@ type: "landing"
 <strong>{{< eu-flag >}} NEW in v3.5.0:</strong> The <a href="/eu-ai-act/" style="color:#FFD700;text-decoration:underline;"><strong>EU AI Act Compliance Module</strong></a> — 82 controls across 8 categories, plus gRPC, Trust Attestation, and SIEM integration. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.5.0" target="_blank" style="color:#FFD700;">v3.5.0 release notes →</a>
 </div>
 
-AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (v3.2.0+, ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (v3.5.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
+AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (v3.5.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
 
 <div class="card-grid card-grid-2">
 <div class="card">
@@ -57,7 +57,7 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 </div>
 <div class="card" style="border-color:#00ADD8;box-shadow:0 0 16px rgba(0,173,216,0.25);">
 
-### 🔐 Trust Framework <span style="font-size:11px;background:#00ADD8;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.2.0+</span>
+### 🔐 Trust Framework
 
 - Per-session trust score accumulator
 - Ed25519-signed attestations on every event
@@ -111,10 +111,26 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 
 ---
 
-<div class="btn-group">
-<a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.5.0" target="_blank" class="btn btn-secondary">Download v3.5.0</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" class="btn btn-ghost">⭐ Star on GitHub</a>
+<div class="cta-showcase">
+<div class="cta-primary-wrapper">
+<a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-primary">
+<span class="cta-icon">🚀</span>
+<span class="cta-text">Try the Live Demo</span>
+<span class="cta-sub">No account needed · Instant access</span>
+</a>
+</div>
+<div class="cta-secondary-wrapper">
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.5.0" target="_blank" class="cta-btn cta-btn-secondary">
+<span class="cta-icon">📦</span>
+<span class="cta-text">Download v3.5.0</span>
+<span class="cta-sub">Single binary · 34.7 MB</span>
+</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" class="cta-btn cta-btn-outline">
+<span class="cta-icon">⭐</span>
+<span class="cta-text">Star on GitHub</span>
+<span class="cta-sub">Apache 2.0 · Open source</span>
+</a>
+</div>
 </div>
 
 ---
@@ -370,11 +386,11 @@ curl http://localhost:8443/health</pre>
 </div>
 <div class="stat">
 <div class="value">24,806</div>
-<div class="label">Peak RPS <span style="font-size:10px;color:#888;">(v3.1.1 bench)</span></div>
+<div class="label">Peak RPS <span style="font-size:10px;color:#888;">(v3.5.0 bench)</span></div>
 </div>
 <div class="stat">
 <div class="value">3.2ms</div>
-<div class="label">Avg Latency <span style="font-size:10px;color:#888;">(v3.1.1 bench)</span></div>
+<div class="label">Avg Latency <span style="font-size:10px;color:#888;">(v3.5.0 bench)</span></div>
 </div>
 <div class="stat">
 <div class="value">6</div>
@@ -389,7 +405,7 @@ curl http://localhost:8443/health</pre>
 <div class="label">Test Coverage</div>
 </div>
 <div class="stat">
-<div class="value">2,100+</div>
+<div class="value">7,500+</div>
 <div class="label">Tests Passing</div>
 </div>
 <div class="stat">

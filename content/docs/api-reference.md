@@ -1,6 +1,6 @@
 ---
 title: "API Reference"
-description: "AegisGate Security Platform API Reference v2.0.1"
+description: "AegisGate Security Platform API Reference v3.5.0"
 type: docs
 ---
 
@@ -38,7 +38,7 @@ Returns system health status, including dependency checks.
 ```json
 {
   "status": "healthy",
-  "version": "2.0.1",
+  "version": "3.5.0",
   "dependencies": {
     "proxy": "up",
     "persistence": "up",
@@ -52,7 +52,7 @@ Returns system health status, including dependency checks.
 ```json
 {
   "status": "degraded",
-  "version": "2.0.1",
+  "version": "3.5.0",
   "dependencies": {
     "proxy": "up",
     "persistence": "down",
@@ -76,7 +76,7 @@ Extended health check that also verifies scanner and A2A subsystems.
 ```json
 {
   "status": "healthy",
-  "version": "2.0.1",
+  "version": "3.5.0",
   "dependencies": {
     "proxy": "up",
     "persistence": "up",

@@ -18,14 +18,14 @@ flowchart TB
         E["ANP Client"]
     end
 
-    subgraph AegisGate["AegisGate Platform v3.2.0"]
+    subgraph AegisGate["AegisGate Platform v3.5.0"]
         G["HTTP Proxy :8080"]
         H["MCP Server :8081"]
         I["A2A Endpoint :8082"]
         J["ACP Gateway :8083"]
         K["ANP Router :8084"]
         L["RESPONSE Guard"]
-        TR["Trust Framework\nPkg/trust/\n(NEW v3.2.0)"]
+        TR["Trust Framework\nPkg/trust/\n(v3.5.0)"]
 
         M["Scanner - 153+ patterns"]
         N["ATLAS - 66 techniques"]
@@ -74,7 +74,7 @@ flowchart TB
 
 ## Six Pillars of AI Security
 
-AegisGate v3.2.0 protects every AI interaction with four protocol pillars and one cross-cutting trust pillar. The **Trust Framework** is the 5th pillar, new in v3.2.0, and ties together the four protocol pillars with cryptographically-signed attestations and a per-session trust score.
+AegisGate v3.5.0 protects every AI interaction with five protocol pillars and one cross-cutting trust pillar. The **Trust Framework** is the 6th pillar, and ties together the five protocol pillars with cryptographically-signed attestations and a per-session trust score.
 
 ### 1. HTTP API Security (v3.0+, port 8080)
 
@@ -132,9 +132,9 @@ AI response scanning for all protocols:
 | 7 | Compliance Reports | Auto-generates GDPR, HIPAA, PCI-DSS, SOC2 reports |
 | 8 | Response Guard Middleware | Unified scanning for HTTP, MCP, A2A, ACP, ANP |
 
-### 5. Trust Framework (v3.2.0, new)
+### 5. Trust Framework (v3.5.0)
 
-The 5th pillar. Continuous, per-session trust scoring with cryptographically-signed attestations. Ties the four protocol pillars together into a single, auditable trust story. Available on Professional+ tiers.
+The 6th pillar. Continuous, per-session trust scoring with cryptographically-signed attestations. Ties the five protocol pillars together into a single, auditable trust story. Available on Professional+ tiers.
 
 | # | Component | Description |
 |---|-----------|-------------|
@@ -199,12 +199,12 @@ The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which
 
 ---
 
-## Performance (v3.2.0)
+## Performance (v3.5.0)
 
 | Metric | Target | Achieved |
 |--------|--------|----------|
 | Test Coverage | 95%+ | **97.8%** |
-| Total Tests | All | **5,484** |
+| Total Tests | All | **7,500+** |
 | PII Detection Latency | < 1ms | **94.7 us** |
 | Secret Detection Latency | < 1ms | **121.3 us** |
 | Token Counting Speed | < 1ms | **97 ns** |
@@ -224,7 +224,7 @@ docker run -d \
   -p 8081:8081 \
   -p 8082:8082 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.2.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.5.0
 ```
 
 ### Kubernetes (Helm)

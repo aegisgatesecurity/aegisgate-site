@@ -213,7 +213,7 @@ and can be turned on or off at any time from the customer portal.
 <h4>FedRAMP</h4>
 <div class="module-price">$499 <span>/month</span></div>
 <p class="module-tier">Requires Professional tier or above</p>
-<p><strong>8 of the highest-priority FedRAMP Moderate controls</strong> (AC-2 Account Management, AC-17 Remote Access, AU-2 Audit Events, AU-9 Audit Information Protection, CM-2 Baseline Configuration, IA-2 Identification/Authentication, SC-8 Transmission Protection, SI-4 System Monitoring). 6 are automated, 2 are evidence-mapped. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/fedramp/" style="color:#00ADD8">See the implementation</a>. <em>Note: AegisGate is NOT a FedRAMP-accredited 3PAO. The platform generates the technical evidence; the 3PAO assessment and ATO issuance is the customer's responsibility. The 8 controls in v3.4.0+ are the highest-priority subset for AI/ML systems; the full ~323-control Moderate catalog would be 4-6 weeks of additional work.</em></p>
+<p><strong>151/170 FedRAMP Moderate controls automated</strong> (88.8% coverage). The platform enforces AC, AU, CM, IA, SC, and SI control families with CheckFuncs and generates audit-ready evidence. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/fedramp/" style="color:#00ADD8">See the implementation</a>. <em>Note: AegisGate is NOT a FedRAMP-accredited 3PAO. The platform generates the technical evidence; the 3PAO assessment and ATO issuance is the customer's responsibility. Enterprise tier covers all 170/170 controls.</em></p>
 <div class="module-buttons">
   <div class="coming-soon">
   <strong>Targeting Q4 2026 (was v3.5.0 + legal review)</strong>

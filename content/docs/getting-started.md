@@ -24,7 +24,7 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:latest
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.5.0
 ```
 
 ### Verify Installation
@@ -40,11 +40,13 @@ Expected response:
 ```json
 {
   "status": "healthy",
-  "version": "2.0.1",
+  "version": "3.5.0",
   "services": {
     "proxy": "up",
     "mcp": "up",
-    "scanner": "up"
+    "scanner": "up",
+    "a2a": "up",
+    "trust": "up"
   }
 }
 ```

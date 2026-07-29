@@ -818,3 +818,142 @@ tr:hover {
 .pricing-card .btn{display:block;text-align:center;margin-top:auto;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
 .content h3{color:#e6edf3}
 .content hr{border:none;border-top:1px solid #30363d;margin:2rem 0}
+
+/* ============================================
+   CTA Showcase (Landing Page)
+   ============================================ */
+.cta-showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.cta-primary-wrapper {
+    width: 100%;
+    max-width: 480px;
+}
+
+.cta-secondary-wrapper {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 480px;
+    justify-content: center;
+}
+
+.cta-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn .cta-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.cta-btn .cta-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #e6edf3;
+}
+
+.cta-btn .cta-sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.3;
+    opacity: 0.65;
+    color: #8b949e;
+}
+
+/* Primary CTA — bold, glowing */
+.cta-btn-primary {
+    background: #0a1628;
+    border: 2px solid #00ADD8;
+    color: #e6edf3;
+    box-shadow: 0 0 24px rgba(0,173,216,0.18), inset 0 0 24px rgba(0,173,216,0.04);
+}
+
+.cta-btn-primary:hover {
+    background: #0d1f3c;
+    border-color: #00d2ff;
+    box-shadow: 0 0 36px rgba(0,173,216,0.35), inset 0 0 30px rgba(0,173,216,0.08);
+    transform: translateY(-2px);
+}
+
+.cta-btn-primary .cta-text {
+    color: #00d2ff;
+    font-size: 1.3rem;
+}
+
+.cta-btn-primary .cta-sub {
+    color: #8b949e;
+    opacity: 0.8;
+}
+
+/* Secondary CTA — muted card */
+.cta-btn-secondary {
+    background: #161b22;
+    border: 1px solid #30363d;
+    color: #e6edf3;
+    flex: 1;
+}
+
+.cta-btn-secondary:hover {
+    background: #1c2333;
+    border-color: #58a6ff;
+    box-shadow: 0 0 16px rgba(88,166,255,0.15);
+    transform: translateY(-1px);
+}
+
+/* Outline CTA — ghost/outline style */
+.cta-btn-outline {
+    background: transparent;
+    border: 1px solid #30363d;
+    color: #e6edf3;
+    flex: 1;
+}
+
+.cta-btn-outline:hover {
+    background: #161b22;
+    border-color: #f0883e;
+    box-shadow: 0 0 16px rgba(240,136,62,0.15);
+    transform: translateY(-1px);
+}
+
+.cta-btn-outline .cta-sub {
+    color: #8b949e;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .cta-secondary-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-btn-secondary,
+    .cta-btn-outline {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .cta-btn .cta-text {
+        font-size: 1.05rem;
+    }
+
+    .cta-btn-primary .cta-text {
+        font-size: 1.15rem;
+    }
+}
