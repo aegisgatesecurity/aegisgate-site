@@ -1,0 +1,42 @@
+{
+  "id": "723b6e10-2253-44c5-92c3-3ce278869c20",
+  "type": "cve.entry.v1",
+  "issued_at": "2026-07-29T14:33:58.703879349Z",
+  "valid_until": "0001-01-01T00:00:00Z",
+  "subject": "aegisgate://cve/AEGIS-2026-0001",
+  "issuer": "cve:shortfp:af41e1d8be307e6d:k-33915135b2a7d1f9",
+  "payload": {
+    "id": "AEGIS-2026-0001",
+    "title": "Prompt injection via Markdown image alt-text",
+    "description": "An attacker can inject instructions into a model prompt by including carefully crafted Markdown image alt-text that is rendered as part of the model's context window. This vulnerability affects LLM-powered document-processing pipelines that render Markdown content without sanitizing alt-text attributes. When a document containing malicious alt-text is processed, the alt-text is included in the model's context as instructions rather than as content, enabling direct prompt injection.\n\nThe attack exploits the trust boundary between content rendering and instruction following: models treat alt-text as content metadata but process it with the same priority as system instructions. This allows an attacker to exfiltrate data, manipulate outputs, or chain into secondary attacks.\n\nAffected versions include anthropic/claude-3-5-sonnet before 20241022 and similar LLM integrations that render Markdown alt-text without sanitization.",
+    "affected": [
+      "anthropic/claude-3-5-sonnet@\u003c20241022"
+    ],
+    "fixed": [
+      "anthropic/claude-3-5-sonnet@20241022"
+    ],
+    "score": 7.5,
+    "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+    "band": "HIGH",
+    "references": [
+      "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+      "https://atlas.mitre.org/techniques/technique-id/T0018"
+    ],
+    "mitigations": [
+      "Sanitize Markdown before including in prompts; strip or neutralize alt-text attributes from img tags.",
+      "Use Anthropic's system field with explicit instructions to ignore image alt-text as instructions.",
+      "Deploy the AegisGate Prompt Cache Poisoning Detection primitive to sign and verify prompts entering the LLM cache."
+    ],
+    "discovered_by": "AegisGate Research",
+    "disclosed_at": "2026-06-01T00:00:00Z",
+    "published_at": "2026-07-29T14:33:58.703775423Z",
+    "withdrawn_at": "0001-01-01T00:00:00Z"
+  },
+  "signature": {
+    "algorithm": "ecdsa-p256",
+    "key_id": "k-33915135b2a7d1f9",
+    "public_key": "BIEu/UHnE//CUTHE/zzY0wWFoE0RbxcCGZyKTR5heGhMT+Q+mIyM/vC7zV7lktbYjKHsHMlZkBUMlpvKW1OU7/4=",
+    "value": "MEUCICvvbbVFtoBC8itBiIu8CXu/Uzx00YMNA1ibbmn08KVFAiEAo52W6PmfhG0Cx2vxw0mXUGa6XnQ6H7uc9d9A8QsBKpM=",
+    "signed_at": "2026-07-29T14:33:58.703879349Z"
+  }
+}

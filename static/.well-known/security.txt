@@ -23,5 +23,8 @@ Preferred-Languages: en
 # Policy: link to the full disclosure policy
 Policy: https://aegisgatesecurity.io/security/
 
+# CVE: link to our CVE-for-AI feed (RFC 9116 extension)
+CVE: https://aegisgatesecurity.io/cve/
+
 # Hiring: opt-in, link to security-related job openings
 # (omitted — we don't have a dedicated security hiring page)
