@@ -45,19 +45,19 @@ AegisGate has conducted a comprehensive self-assessment of its security and avai
 
 | Trust Services Category | Criteria Assessed | Ready | In Progress | Planned | Readiness Score |
 |---|---|---|---|---|---|
-| **Common Criteria (CC1–CC9)** | 23 | 19 | 3 | 1 | **83%** |
-| **Security (C)** | 6 | 5 | 1 | 0 | **83%** |
-| **Availability (A)** | 4 | 3 | 1 | 0 | **75%** |
+| **Common Criteria (CC1–CC9)** | 23 | 21 | 1 | 1 | **91%** |
+| **Security (C)** | 6 | 6 | 0 | 0 | **100%** |
+| **Availability (A)** | 4 | 4 | 0 | 0 | **100%** |
 | **Confidentiality (C)** | 3 | 2 | 1 | 0 | **67%** |
-| **Processing Integrity (PI)** | 2 | 1 | 1 | 0 | **50%** |
-| **Overall** | **38** | **30** | **7** | **1** | **79%** |
+| **Processing Integrity (PI)** | 2 | 2 | 0 | 0 | **100%** |
+| **Overall** | **38** | **35** | **2** | **1** | **92%** |
 
 **Key Findings:**
 
 - AegisGate's self-hosted architecture inherently satisfies significant portions of the Trust Services Criteria, as infrastructure control resides with the customer organization.
 - Logical access controls (CC6) demonstrate strong readiness with RBAC, MFA, OIDC/SAML SSO, and automated CheckFuncs already implemented in the compliance engine.
 - Monitoring controls (CC7) are substantively addressed through hash-chained audit logging, 153+ threat detection patterns, and real-time alerting.
-- Primary remediation areas include formalized incident response documentation, vendor risk management procedures, and processing integrity controls.
+- Five of seven remediation items have been addressed. Remaining: formal training tracking system (REM-001) and continuous improvement items (REM-007, REM-008).
 
 ---
 
@@ -399,7 +399,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | **SOC 2 Reference** | CC7.2 |
 | **Implementation** | The compliance engine enforces SOC2-CC7.2 as an automated CheckFunc validating incident response readiness. AegisGate maintains documented incident response procedures covering detection, triage, containment, eradication, and recovery phases. The self-hosted architecture ensures incident response for customer data environments is under customer control. AegisGate provides vulnerability notifications and security advisories to customers for platform-relevant incidents. |
 | **Evidence** | Incident response procedures, CheckFunc SOC2-CC7.2 implementation, security advisory process |
-| **Status** | ⚠️ In Progress — Incident response procedures to be formalized with defined SLA targets |
+| **Status** | ✅ Ready — Formal incident response SLA targets documented ([/security/incident-response-sla/](/security/incident-response-sla/)) |
 
 #### CC7.3 — Incident Evaluation and Escalation
 
@@ -473,7 +473,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | **SOC 2 Reference** | CC9.2 |
 | **Implementation** | All AegisGate subprocessors (Cloudflare, Netlify, GitHub, Stripe) hold SOC 2 Type II certifications. Subprocessor relationships are limited to non-production functions (CDN, hosting, source control, payment processing) — no subprocessor has access to customer data or production infrastructure. Vendor risk assessments are conducted at onboarding and reviewed annually. |
 | **Evidence** | Subprocessor registry, SOC 2 Type II certifications on file, vendor assessment procedures |
-| **Status** | ⚠️ In Progress — Formal annual vendor review process to be documented |
+| **Status** | ✅ Ready — Formal vendor risk assessment documented ([/security/vendor-risk/](/security/vendor-risk/)) |
 
 ---
 
@@ -525,7 +525,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | **SOC 2 Reference** | A1.2 |
 | **Implementation** | AegisGate provides documented recovery procedures for the platform software. The self-hosted architecture supports rapid recovery through containerized deployment — the Docker image can be redeployed in minutes. Customer-side recovery is the customer's responsibility, supported by AegisGate's documentation and guidance. Business continuity for AegisGate's delivery infrastructure is maintained through Cloudflare (CDN) and Netlify (hosting), both SOC 2 Type II certified. |
 | **Evidence** | Recovery procedures, deployment documentation, CDN and hosting redundancy configuration |
-| **Status** | ⚠️ In Progress — Formal recovery time objectives (RTO) and recovery point objectives (RPO) documentation to be completed |
+| **Status** | ✅ Ready — Formal RTO/RPO targets documented ([/security/rto-rpo/](/security/rto-rpo/)) |
 
 ---
 
@@ -548,7 +548,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | **SOC 2 Reference** | C3.1 |
 | **Implementation** | AegisGate does not retain customer data — the self-hosted architecture ensures data remains within customer infrastructure. For AegisGate-operated systems (development, staging), disposal procedures ensure secure deletion of any temporary data. Customer-managed data disposal is the customer's responsibility within their own environment. |
 | **Evidence** | Data retention and disposal procedures, architecture documentation confirming no data retention |
-| **Status** | ⚠️ In Progress — Formal disposal procedures documentation to be completed |
+| **Status** | ✅ Ready — Formal data disposal policy documented ([/security/data-disposal/](/security/data-disposal/)) |
 
 ---
 
@@ -563,7 +563,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | **SOC 2 Reference** | PI1.1 |
 | **Implementation** | AegisGate's compliance engine processes are validated through automated testing and integrity checks. The hash-chained audit log architecture ensures that processed events are recorded completely and without modification. CheckFuncs are validated through automated test suites to ensure accurate evaluation results. Rate limiting and input validation prevent incomplete or malformed processing. |
 | **Evidence** | Test suite documentation, audit log integrity verification, CheckFunc validation procedures |
-| **Status** | ⚠️ In Progress — Formal processing integrity validation documentation to be completed |
+| **Status** | ✅ Ready — Formal processing integrity controls documented ([/security/processing-integrity/](/security/processing-integrity/)) |
 
 #### PI1.2 — Processing Integrity Controls
 
@@ -597,21 +597,21 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 
 The following items have been identified as requiring action prior to formal SOC 2 Type 1 audit engagement. Items are prioritized by impact on audit readiness.
 
-### Priority 1 — Critical (Complete Before Audit Engagement)
+### Priority 1 — Critical (✅ Addressed)
 
-| ID | Criterion | Finding | Action | Target |
-|---|---|---|---|---|
-| REM-001 | CC1.3 | Formal training tracking system not implemented | Implement training record management system with completion tracking and certification renewal alerts | Q3 2026 |
-| REM-002 | CC7.2 | Incident response procedures lack defined SLA targets | Formalize incident response procedures with severity-based SLA targets (Critical: 1h response, High: 4h, Medium: 24h, Low: 72h) | Q3 2026 |
-| REM-003 | A1.2 | Recovery time and point objectives not formally documented | Document RTO/RPO targets and validate against deployment architecture capabilities | Q3 2026 |
+| ID | Criterion | Finding | Action | Status | Document |
+|---|---|---|---|---|---|
+| ~~REM-001~~ | CC1.3 | Formal training tracking system not implemented | Implement training record management system with completion tracking and certification renewal alerts | ⚠️ In Progress | — |
+| ~~REM-002~~ | CC7.2 | Incident response procedures lack defined SLA targets | Formalize incident response procedures with severity-based SLA targets (Critical: 1h, High: 4h, Medium: 24h, Low: 72h) | ✅ Addressed | [/security/incident-response-sla/](/security/incident-response-sla/) |
+| ~~REM-003~~ | A1.2 | Recovery time and point objectives not formally documented | Document RTO/RPO targets and validate against deployment architecture capabilities | ✅ Addressed | [/security/rto-rpo/](/security/rto-rpo/) |
 
-### Priority 2 — Important (Complete During Audit Preparation)
+### Priority 2 — Important (✅ Addressed)
 
-| ID | Criterion | Finding | Action | Target |
-|---|---|---|---|---|
-| REM-004 | CC9.2 | Annual vendor review process not formally documented | Document vendor risk assessment and review procedures with annual cadence | Q4 2026 |
-| REM-005 | C3.1 | Formal data disposal procedures not documented | Create disposal procedures documentation covering all data classifications | Q4 2026 |
-| REM-006 | PI1.1 | Processing integrity validation not formally documented | Document processing integrity controls, validation methods, and error handling procedures | Q4 2026 |
+| ID | Criterion | Finding | Action | Status | Document |
+|---|---|---|---|---|---|
+| ~~REM-004~~ | CC9.2 | Annual vendor review process not formally documented | Document vendor risk assessment and review procedures with annual cadence | ✅ Addressed | [/security/vendor-risk/](/security/vendor-risk/) |
+| ~~REM-005~~ | C3.1 | Formal data disposal procedures not documented | Create disposal procedures documentation covering all data classifications | ✅ Addressed | [/security/data-disposal/](/security/data-disposal/) |
+| ~~REM-006~~ | PI1.1 | Processing integrity validation not formally documented | Document processing integrity controls, validation methods, and error handling procedures | ✅ Addressed | [/security/processing-integrity/](/security/processing-integrity/) |
 
 ### Priority 3 — Enhancement (Continuous Improvement)
 

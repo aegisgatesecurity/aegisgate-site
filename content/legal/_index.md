@@ -35,6 +35,19 @@ AegisGate Security, LLC's legal documents are listed below. Each document is a *
 |---|---|---|
 | [Accessibility Statement](/legal/accessibility/) | Our commitment to accessibility and conformance with WCAG 2.1, ADA, Section 508, and EU Accessibility Act 2025 | 2026-07-29 |
 
+## Security and Compliance
+
+| Document | Purpose | Last Updated |
+|---|---|---|
+| [Vulnerability Disclosure Policy](/security/) | How to report security vulnerabilities — coordinated disclosure with 90-day timeline | 2026-07-29 |
+| [Breach Notification Policy](/security/breach-notification/) | How AegisGate notifies affected parties in the event of a data breach | 2026-07-29 |
+| [Incident Response SLA](/security/incident-response-sla/) | Severity-based response targets and escalation procedures | 2026-07-29 |
+| [Vendor Risk Assessment](/security/vendor-risk/) | Third-party risk assessments for subprocessors (Cloudflare, Netlify, GitHub, Stripe) | 2026-07-29 |
+| [Recovery Time and Point Objectives](/security/rto-rpo/) | RTO/RPO targets by tier and component for business continuity planning | 2026-07-29 |
+| [Data Disposal Policy](/security/data-disposal/) | Data classification, retention, and disposal procedures | 2026-07-29 |
+| [Processing Integrity Controls](/security/processing-integrity/) | SOC 2 Processing Integrity criteria — validation methods, error handling, and data accuracy | 2026-07-29 |
+| [Compliance Self-Assessments](/compliance/) | HIPAA, NIST CSF 2.0, SOC 2 Type 1, CIS v8 IG1, EU AI Act self-assessments | 2026-07-29 |
+
 ## For Developers and Contributors
 
 | Document | Purpose | Last Updated |
