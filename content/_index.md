@@ -347,6 +347,8 @@ Choose the coverage that matches your compliance needs.
 
 *Developer tier adds full compliance (HIPAA + PCI-DSS) and mTLS. Professional includes everything **plus ISO 27001, ISO 42001, CMMC L2, FedRAMP Moderate (151/170), the EU AI Act Module at no extra cost, and the Trust Framework**. Enterprise adds custom frameworks, FedRAMP Moderate (full 170/170), and dedicated support.*
 
+> **📋 Compliance Posture:** AegisGate publishes self-assessments against HIPAA, NIST CSF 2.0, SOC 2 Type 1, CIS Controls v8 IG1, and the EU AI Act — [View all compliance documentation →](/compliance/)
+
 ---
 
 ## Quick Start
