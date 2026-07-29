@@ -70,6 +70,11 @@ theme = "aegisgate"
     weight = 9
 
   [[menu.main]]
+    name = "🛡️ Compliance"
+    url = "/compliance/"
+    weight = 11
+
+  [[menu.main]]
     name = "🛡️ Lens"
     url = "/lens/"
     weight = 10
