@@ -47,6 +47,7 @@ AegisGate Security, LLC's legal documents are listed below. Each document is a *
 | [Data Disposal Policy](/security/data-disposal/) | Data classification, retention, and disposal procedures | 2026-07-29 |
 | [Processing Integrity Controls](/security/processing-integrity/) | SOC 2 Processing Integrity criteria — validation methods, error handling, and data accuracy | 2026-07-29 |
 | [Security Awareness Training](/security/training/) | Security awareness training program with role-based modules, phishing simulations, and completion tracking | 2026-07-29 |
+| [Training Completion Records](/security/training-records/) | Training completion and assessment records for SOC 2 CC1.3, HIPAA §164.308(a)(5), ISO 27001 A.6.3 | 2026-07-29 |
 | [Disaster Recovery Test](/security/dr-test/) | DR test results documenting full platform recovery in 15.5 minutes, RTO/RPO validation | 2026-07-29 |
 | [Compliance Self-Assessments](/compliance/) | HIPAA, NIST CSF 2.0, SOC 2 Type 1, CIS v8 IG1, EU AI Act self-assessments | 2026-07-29 |
 

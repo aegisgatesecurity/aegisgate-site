@@ -45,19 +45,19 @@ AegisGate has conducted a comprehensive self-assessment of its security and avai
 
 | Trust Services Category | Criteria Assessed | Ready | In Progress | Planned | Readiness Score |
 |---|---|---|---|---|---|
-| **Common Criteria (CC1–CC9)** | 23 | 21 | 1 | 1 | **91%** |
+| **Common Criteria (CC1–CC9)** | 23 | 22 | 0 | 1 | **96%** |
 | **Security (C)** | 6 | 6 | 0 | 0 | **100%** |
 | **Availability (A)** | 4 | 4 | 0 | 0 | **100%** |
 | **Confidentiality (C)** | 3 | 2 | 1 | 0 | **67%** |
 | **Processing Integrity (PI)** | 2 | 2 | 0 | 0 | **100%** |
-| **Overall** | **38** | **35** | **2** | **1** | **92%** |
+| **Overall** | **38** | **36** | **1** | **1** | **95%** |
 
 **Key Findings:**
 
 - AegisGate's self-hosted architecture inherently satisfies significant portions of the Trust Services Criteria, as infrastructure control resides with the customer organization.
 - Logical access controls (CC6) demonstrate strong readiness with RBAC, MFA, OIDC/SAML SSO, and automated CheckFuncs already implemented in the compliance engine.
 - Monitoring controls (CC7) are substantively addressed through hash-chained audit logging, 153+ threat detection patterns, and real-time alerting.
-- Five of seven remediation items have been addressed. Remaining: formal training tracking system (REM-001) and continuous improvement items (REM-007, REM-008).
+- All Priority 1 and Priority 2 remediation items addressed. Remaining: continuous improvement items (REM-007, REM-008) scheduled for Q1 2027.
 
 ---
 
@@ -133,7 +133,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | **SOC 2 Reference** | CC1.3 |
 | **Implementation** | Hiring practices include background verification and security competency assessment for engineering roles. Ongoing development is supported through security training requirements and access to relevant certifications. Performance evaluations include security and compliance responsibilities. |
 | **Evidence** | Hiring procedures, training policy, performance evaluation framework |
-| **Status** | ⚠️ In Progress — Training program documented ([/security/training/](/security/training/)); tracking system implementation underway |
+| **Status** | ✅ Ready — Training program and completion records documented ([/security/training/](/security/training/), [/security/training-records/](/security/training-records/)) |
 
 #### CC1.4 — Board of Directors / Oversight
 
@@ -601,7 +601,7 @@ The following items have been identified as requiring action prior to formal SOC
 
 | ID | Criterion | Finding | Action | Status | Document |
 |---|---|---|---|---|---|
-| ~~REM-001~~ | CC1.3 | Formal training tracking system not implemented | Training program documented ([/security/training/](/security/training/)); LMS tracking implementation underway | ⚠️ In Progress | [/security/training/](/security/training/) |
+| ~~REM-001~~ | CC1.3 | Formal training tracking system not implemented | Training program documented, completion records tracked ([/security/training/](/security/training/), [/security/training-records/](/security/training-records/)) | ✅ Addressed | [/security/training/](/security/training/) |
 | ~~REM-002~~ | CC7.2 | Incident response procedures lack defined SLA targets | Formalize incident response procedures with severity-based SLA targets (Critical: 1h, High: 4h, Medium: 24h, Low: 72h) | ✅ Addressed | [/security/incident-response-sla/](/security/incident-response-sla/) |
 | ~~REM-003~~ | A1.2 | Recovery time and point objectives not formally documented | Document RTO/RPO targets and validate against deployment architecture capabilities | ✅ Addressed | [/security/rto-rpo/](/security/rto-rpo/) |
 
