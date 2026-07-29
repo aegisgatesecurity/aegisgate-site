@@ -193,7 +193,7 @@ This Agreement may be executed in counterparts, each of which shall be deemed an
 If any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.
 
 ### 5.7 Survival
-The following sections shall survive termination of this Agreement: Sections 2.5, 2.6, 2.7, 4.4, 5, and 6.
+The following sections shall survive termination of this Agreement: Sections 2.5, 2.6, 2.7, 4.4, 5, 6, 8, 9, 10, 11, and 12.
 
 ---
 
@@ -213,6 +213,58 @@ Company shall maintain insurance coverage appropriate to its obligations under t
 - (a) Commercial general liability insurance;
 - (b) Professional liability (errors and omissions) insurance;
 - (c) Cyber liability insurance.
+
+---
+
+## 8. MINIMUM NECESSARY STANDARD
+
+### 8.1 Minimum Necessary Standard (45 C.F.R. § 164.502(b))
+Business Associate shall only request, use, or disclose the minimum amount of Protected Health Information necessary to accomplish the intended purpose of the use, disclosure, or request. Business Associate shall implement policies and procedures to limit access to PHI to those persons who need access to carry out their duties.
+
+---
+
+## 9. RIGHT TO AN ACCOUNTING OF DISCLOSURES
+
+### 9.1 Right to an Accounting of Disclosures (HITECH § 13405(c))
+Covered Entity has the right to request an accounting of disclosures of PHI made by Business Associate during the six years prior to the date of the request, as required by 45 C.F.R. § 164.528. Business Associate shall maintain and make available to Covered Entity a record of all disclosures of PHI for purposes other than treatment, payment, or health care operations, including: (a) the date of disclosure; (b) the name of the entity or person who received the PHI; (c) a brief description of the PHI disclosed; and (d) a brief statement of the purpose of the disclosure. Business Associate shall provide this accounting within 30 days of a written request from Covered Entity.
+
+---
+
+## 10. HITECH ACT BREACH NOTIFICATION REQUIREMENTS
+
+### 10.1 Breach Notification (45 C.F.R. § 164.400-414)
+Business Associate shall comply with the breach notification requirements of the HITECH Act and implementing regulations at 45 C.F.R. §§ 164.400-414, including but not limited to the following obligations:
+
+### 10.2 Notification Timeline
+Business Associate shall notify Covered Entity of any breach of Unsecured PHI without unreasonable delay, and in no event later than 60 calendar days from the date of discovery of the breach.
+
+### 10.3 Notification to Individuals, HHS, and Media
+Covered Entity shall be responsible for providing breach notification to affected individuals, the U.S. Department of Health and Human Services (HHS), and, where applicable, prominent media outlets serving a State or jurisdiction, in accordance with the following:
+- (a) If the breach affects 500 or more individuals in a single State or jurisdiction, Covered Entity shall notify prominent media outlets serving that State or jurisdiction without unreasonable delay and no later than 60 calendar days from discovery;
+- (b) Covered Entity shall notify HHS of breaches affecting fewer than 500 individuals on an annual basis, and of breaches affecting 500 or more individuals without unreasonable delay and within 60 calendar days of discovery;
+- (c) Business Associate shall provide Covered Entity with all information necessary for Covered Entity to fulfill its notification obligations under this Section.
+
+### 10.4 Content of Breach Notifications
+Each breach notification shall include, at a minimum, the following content:
+- (a) A description of what happened, including the date of the breach and the date of discovery, if known;
+- (b) A description of the types of unsecured PHI that were involved in the breach (e.g., name, Social Security number, date of birth, diagnosis, etc.);
+- (c) The steps individuals should take to protect themselves from potential harm resulting from the breach;
+- (d) A brief description of what Business Associate and Covered Entity are doing to investigate the breach, mitigate harm, and protect against further breaches;
+- (e) Contact information for individuals to ask questions, including a toll-free telephone number, email address, website, or postal address.
+
+---
+
+## 11. HHS AUDIT AND COMPLIANCE REVIEW RIGHTS
+
+### 11.1 Availability of Records to the Secretary
+Business Associate agrees to make its internal practices, books, and records relating to the use and disclosure of PHI available to the Secretary of the U.S. Department of Health and Human Services for purposes of determining Covered Entity's compliance with the HIPAA Rules, pursuant to 45 C.F.R. § 164.502(i) and 42 U.S.C. § 1320d-2.
+
+---
+
+## 12. REPORTING OF CRIMINAL OR CIVIL PROCEEDINGS
+
+### 12.1 Reporting Requirement (45 C.F.R. § 164.530(d))
+Business Associate shall report to Covered Entity any criminal or civil proceedings initiated against Business Associate relating to the privacy or security of PHI, within 10 business days of Business Associate becoming aware of such proceedings.
 
 ---
 
