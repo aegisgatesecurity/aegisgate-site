@@ -62,7 +62,7 @@ As of the Effective Date, the following Subprocessors process personal data on o
 
 In the standard self-hosted deployment, the customer is the data controller and processes personal data on their own infrastructure. AegisGate Security, LLC is not a processor in this model (no personal data flows to us).
 
-For customers who opt into the **AegisGate Managed Cloud** offering (currently in private beta, planned for v3.5.0+ general availability), AegisGate Security, LLC will become a processor and will publish an updated subprocessor list covering the cloud infrastructure provider at that time.
+AegisGate Security Platform is self-hosted and on-premises by design. AegisGate Security, LLC does not operate a managed cloud offering and does not process customer data on customer infrastructure. Customers are responsible for their own hosting infrastructure. If AegisGate ever offers a hosted service in the future, an updated subprocessor list will be published at that time.
 
 ### 1.5 Email Delivery
 
@@ -115,7 +115,7 @@ The following categories of Subprocessors are pre-approved for future use, subje
 
 | Category | Examples | Purpose |
 |---|---|---|
-| Cloud Infrastructure (Managed Cloud only) | AWS, GCP, Azure | Hosting for the future AegisGate Managed Cloud offering (v3.5.0+). NOT used in the self-hosted default deployment. |
+| Cloud Infrastructure | Customer-managed | AegisGate does not host customer data. Customers deploy on their own infrastructure (AWS, GCP, Azure, bare metal, or on-premises). AegisGate processes no customer data outside the customer's environment. |
 | Application Performance Monitoring (opt-in) | Datadog, Honeycomb, Grafana Cloud | Optional APM for the platform. Self-hosters may enable any of these in their own configuration; AegisGate Security, LLC does not enable them in the default distribution. |
 | Error Tracking (opt-in) | Sentry, Bugsnag, Rollbar | Optional error tracking for the platform. Self-hosters may enable any of these in their own configuration. |
 | Customer Support (when budget allows) | Intercom, Zendesk, Help Scout | Customer support ticketing. NOT currently used. |

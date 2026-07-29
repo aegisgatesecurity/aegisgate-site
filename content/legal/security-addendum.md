@@ -45,7 +45,7 @@ Company maintains the following security certifications:
 
 ### 2.1 Data Centers
 Customer data is hosted in:
-- Customer-managed infrastructure (self-hosted deployment; AegisGate does not host customer data). For AegisGate Managed Cloud (planned), hosting details will be published at general availability.
+- Customer-managed infrastructure (self-hosted / on-premises deployment only; AegisGate does not host customer data and does not operate a managed cloud offering). Customers deploy on their own infrastructure.
 
 For self-hosted deployments, all infrastructure security is the customer's responsibility. AegisGate provides security configurations and hardening guides.
 

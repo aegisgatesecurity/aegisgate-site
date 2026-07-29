@@ -60,7 +60,7 @@ We share personal data with the following categories of recipients:
 | **Cloudflare, Inc.** | When you visit aegisgatesecurity.io | IP address, user-agent, request metadata | Legitimate interest (site security and performance) |
 | **Netlify, Inc.** | When you visit aegisgatesecurity.io | None (cookieless hosting) | Legitimate interest (site hosting) |
 | **GitHub, Inc.** | When you visit our public repositories or sponsor us on GitHub | Public profile data (if you star, watch, or sponsor) | Legitimate interest (open-source community) |
-| **Cloud hosting provider** | When customer uses AegisGate Managed Cloud (v3.5.0+; not currently offered) | All platform data | Performance of contract |
+| **Cloud hosting provider** | Not applicable — AegisGate is self-hosted and on-premises by design. AegisGate does not host customer data. | Not applicable | Not applicable |
 | **Courts, regulators, law enforcement** | When legally required | As compelled by legal process | Legal obligation |
 | **Prospective acquirers** | In connection with a merger, acquisition, or sale of assets | All personal data | Legitimate interest (corporate transactions) |
 
@@ -148,7 +148,7 @@ We extend the rights described in Section 5.1 to all data subjects, regardless o
 ### 6.1 Data Location
 The Platform is designed to be self-hosted by customers on their own infrastructure. Customers may choose any data location they prefer. For our own systems (Marketing Site, billing, support), we use infrastructure located in the United States.
 
-For the future AegisGate Managed Cloud offering (planned v3.5.0+), data will be hosted in US-based data centers, with EU and APAC regional hosting available as add-on options.
+AegisGate Security Platform is self-hosted and on-premises by design. All customer data remains on infrastructure controlled by the customer. AegisGate does not operate a managed cloud offering and does not process, store, or transmit customer data outside the customer's own environment. Customers are responsible for their own hosting, data residency, and regional compliance.
 
 ### 6.2 Transfer Mechanisms
 When we transfer personal data from the EEA, UK, or Switzerland to the United States, we rely on:
