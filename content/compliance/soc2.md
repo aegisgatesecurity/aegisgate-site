@@ -133,7 +133,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | **SOC 2 Reference** | CC1.3 |
 | **Implementation** | Hiring practices include background verification and security competency assessment for engineering roles. Ongoing development is supported through security training requirements and access to relevant certifications. Performance evaluations include security and compliance responsibilities. |
 | **Evidence** | Hiring procedures, training policy, performance evaluation framework |
-| **Status** | ⚠️ In Progress — Formal training tracking system to be implemented |
+| **Status** | ⚠️ In Progress — Training program documented ([/security/training/](/security/training/)); tracking system implementation underway |
 
 #### CC1.4 — Board of Directors / Oversight
 
@@ -601,7 +601,7 @@ The following items have been identified as requiring action prior to formal SOC
 
 | ID | Criterion | Finding | Action | Status | Document |
 |---|---|---|---|---|---|
-| ~~REM-001~~ | CC1.3 | Formal training tracking system not implemented | Implement training record management system with completion tracking and certification renewal alerts | ⚠️ In Progress | — |
+| ~~REM-001~~ | CC1.3 | Formal training tracking system not implemented | Training program documented ([/security/training/](/security/training/)); LMS tracking implementation underway | ⚠️ In Progress | [/security/training/](/security/training/) |
 | ~~REM-002~~ | CC7.2 | Incident response procedures lack defined SLA targets | Formalize incident response procedures with severity-based SLA targets (Critical: 1h, High: 4h, Medium: 24h, Low: 72h) | ✅ Addressed | [/security/incident-response-sla/](/security/incident-response-sla/) |
 | ~~REM-003~~ | A1.2 | Recovery time and point objectives not formally documented | Document RTO/RPO targets and validate against deployment architecture capabilities | ✅ Addressed | [/security/rto-rpo/](/security/rto-rpo/) |
 

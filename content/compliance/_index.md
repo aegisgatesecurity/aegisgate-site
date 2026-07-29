@@ -22,6 +22,18 @@ AegisGate Security, LLC maintains self-assessment documentation against industry
 | **[NIST CSF 2.0](/compliance/nist-csf/)** | Six core functions (GV, ID, PR, DE, RS, RC) | Self-Assessment | 2026-07-29 |
 | **[SOC 2 Type 1 Readiness](/compliance/soc2/)** | Trust Services Criteria (Security, Availability) | Readiness Assessment | 2026-07-29 |
 | **[CIS Controls v8 IG1](/compliance/cis/)** | 56 baseline safeguards | Self-Assessment | 2026-07-29 |
+| **[EU AI Act](/compliance/eu-ai-act/)** | Regulation 2024/1689 | Self-Assessment | 2026-07-29 |
+
+---
+
+## ISO 27001 ISMS Documentation
+
+| Document | Scope | Status | Last Reviewed |
+|----------|-------|--------|---------------|
+| **[ISO 27001 Alignment & SoA](/compliance/iso27001/)** | All 93 Annex A controls | Alignment Assessment | 2026-07-29 |
+| **[ISMS Policy](/compliance/isms-policy/)** | Top-level commitment and objectives | Policy | 2026-07-29 |
+| **[Management Review](/compliance/management-review/)** | Quarterly review procedure | Procedure | 2026-07-29 |
+| **[Internal Audit](/compliance/internal-audit/)** | Annual audit program | Program | 2026-07-29 |
 
 ---
 

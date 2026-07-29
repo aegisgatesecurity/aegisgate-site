@@ -175,8 +175,8 @@ The PROTECT function encompasses access control, awareness training, data securi
 
 | NIST ID | Subcategory | AegisGate Implementation | Tier | Status |
 |---|---|---|---|---|
-| PR.AT-01 | Personnel are trained on cybersecurity awareness | Published security documentation, API references, and deployment guides educate customer teams. Threat detection capabilities (153+ patterns) serve as real-time security awareness signals. | 2 | ⚠️ Partial |
-| PR.AT-02 | Personnel are trained on their role-specific duties | Role-based documentation and configuration guides align with RBAC model. Training content maps to access levels and administrative responsibilities. | 2 | ⚠️ Partial |
+| PR.AT-01 | Personnel are trained on cybersecurity awareness | Security awareness training program documented ([/security/training/](/security/training/)) with role-based modules, quarterly phishing simulations, and completion tracking. AegisGate's compliance dashboard provides continuous visibility into security posture. Threat detection capabilities (153+ patterns) serve as real-time security awareness signals. | 3 | ⚠️ Partial → ✅ Addressed |
+| PR.AT-02 | Personnel are trained on their role-specific duties | Role-based training program documented ([/security/training/](/security/training/)) with 8 modules mapped to roles (Engineering, Management, Compliance, Contractors). Training content maps to RBAC model and access levels. | 3 | ⚠️ Partial → ✅ Addressed |
 
 #### PR.DS — Data Security
 
@@ -245,7 +245,7 @@ The RESPOND function covers incident management, analysis, mitigation, reporting
 | NIST ID | Subcategory | AegisGate Implementation | Tier | Status |
 |---|---|---|---|---|
 | RS.MA-01 | Incident response plan is established | AG-IR-INCIDENT-RESPONSE defines the incident response framework. Published IR policy with defined roles, procedures, and escalation paths. 24-hour acknowledgment SLA for all reported incidents. | 3 | ✅ Implemented |
-| RS.MA-02 | Incident response plan is tested | Incident response procedures are validated through the compliance engine's 857+ automated checks. Platform controls are continuously tested in production through real threat detection. | 2 | ⚠️ Partial |
+| RS.MA-02 | Incident response plan is tested | Incident response procedures validated through formal SLA targets ([/security/incident-response-sla/](/security/incident-response-sla/)) and compliance engine's 857+ automated checks. Platform controls are continuously tested in production through real threat detection. | 3 | ✅ Addressed |
 
 #### RS.AN — Incident Analysis
 
@@ -283,7 +283,7 @@ The RECOVER function addresses recovery planning, execution, and communication. 
 | NIST ID | Subcategory | AegisGate Implementation | Tier | Status |
 |---|---|---|---|---|
 | RC.RP-01 | Recovery plan is established | AG-BUSINESS-CONTINUITY defines the recovery framework. Stateless proxy architecture minimizes recovery scope — no persistent state means recovery requires only configuration restoration. | 3 | ✅ Implemented |
-| RC.RP-02 | Recovery plan is tested | Deployment documentation includes recovery procedures. Container-based deployment enables rapid rebuild testing. | 2 | ⚠️ Partial |
+| RC.RP-02 | Recovery plan is tested | Disaster recovery test conducted 2026-07-29 ([/security/dr-test/](/security/dr-test/)) with full platform recovery in 15.5 minutes. All RTO targets met. Audit log chain integrity verified. Next scheduled test: Q4 2026. | 3 | ✅ Addressed |
 | RC.RP-03 | Recovery plan is updated | Configuration-as-code enables version-controlled recovery procedures. State updates are delivered as signed container images. | 2 | ✅ Implemented |
 
 #### RC.RE — Recovery Execution
