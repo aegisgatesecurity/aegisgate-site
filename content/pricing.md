@@ -113,7 +113,7 @@ The current ToS version (v2.0 DRAFT, 2026-06-07) is recorded at purchase for aud
 <li><strong>Federated IOC library</strong> — opt-in sharing of detected threats. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/federated-ioc-library-1pager.md" style="color:#00ADD8">Read the 1-pager</a></li>
 <li>ISO 27001 compliance</li>
 <li>ISO 42001 + CMMC L2 compliance</li>
-<li>SOC2 Type II</li>
+<li>SOC2</li>
 <li>Custom RBAC policy engine</li>
 <li>Department separation</li>
 <li>Kubernetes and Helm deployment</li>

@@ -33,7 +33,7 @@ Choose the coverage that matches your compliance needs.
 | **GDPR** | — | ✅ | ✅ | ✅ |
 | **HIPAA** | ❌ | ✅ | ✅ | ✅ |
 | **PCI-DSS** | ❌ | ✅ | ✅ | ✅ |
-| **SOC2 Type II** | ❌ | Module | ✅ | ✅ |
+| **SOC2** | ❌ | Module | ✅ | ✅ |
 | **ISO 27001** | ❌ | ❌ | ✅ | ✅ |
 | **ISO 42001 (AI)** | ❌ | ❌ | ✅ | ✅ |
 | **Policy Engine** | ❌ | ❌ | ✅ | ✅ |
@@ -51,7 +51,7 @@ Choose the coverage that matches your compliance needs.
 
 **Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, full GDPR/HIPAA/PCI-DSS compliance, code execution sandbox, advanced ML anomaly detection, and Grafana integration.
 
-**Professional** — $499/month. For teams with serious compliance needs. Adds ISO 27001, ISO 42001, SOC2 Type II, policy engine, department separation, K8s/Helm deployment, process-level MCP sandboxing, gRPC API (7 services, 50 RPCs), SIEM integration, and the **Trust Framework** (6th pillar — ECDSA P-256-signed per-session trust scoring).
+**Professional** — $499/month. For teams with serious compliance needs. Adds ISO 27001, ISO 42001, SOC2, policy engine, department separation, K8s/Helm deployment, process-level MCP sandboxing, gRPC API (7 services, 50 RPCs), SIEM integration, and the **Trust Framework** (6th pillar — ECDSA P-256-signed per-session trust scoring).
 
 **Enterprise** — Custom pricing. Mission-critical deployments with unlimited scale, custom compliance, air-gapped deployment, BAA/DPA, and dedicated support.
 

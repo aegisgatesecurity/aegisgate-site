@@ -1,12 +1,12 @@
 ---
 title: "Privacy Policy"
-description: "How AegisGate Security, LLC collects, uses, discloses, and protects personal data. Effective 2026-06-07. 2.0 DRAFT for v3.3.0 beta."
+description: "How AegisGate Security, LLC collects, uses, discloses, and protects personal data. Effective 2026-06-07. 2.0 DRAFT for v3.5.0."
 type: "legal-doc"
 ---
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v3.3.0 beta release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.4.0+ when budget is available. Until then, customers and end users should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v3.5.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.5.0+ when budget is available. Until then, customers and end users should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # Privacy Policy
@@ -14,7 +14,7 @@ This document is self-drafted by AegisGate Security, LLC for the v3.3.0 beta rel
 **AegisGate Security Platform**
 
 **Effective Date:** 2026-06-07
-**Version:** 2.0 DRAFT (v3.3.0 beta)
+**Version:** 2.0 DRAFT (v3.5.0)
 **Last Updated:** 2026-06-07
 
 ---
@@ -60,7 +60,7 @@ We share personal data with the following categories of recipients:
 | **Cloudflare, Inc.** | When you visit aegisgatesecurity.io | IP address, user-agent, request metadata | Legitimate interest (site security and performance) |
 | **Netlify, Inc.** | When you visit aegisgatesecurity.io | None (cookieless hosting) | Legitimate interest (site hosting) |
 | **GitHub, Inc.** | When you visit our public repositories or sponsor us on GitHub | Public profile data (if you star, watch, or sponsor) | Legitimate interest (open-source community) |
-| **Cloud hosting provider** | When customer uses AegisGate Managed Cloud (v3.4.0+; not currently offered) | All platform data | Performance of contract |
+| **Cloud hosting provider** | When customer uses AegisGate Managed Cloud (v3.5.0+; not currently offered) | All platform data | Performance of contract |
 | **Courts, regulators, law enforcement** | When legally required | As compelled by legal process | Legal obligation |
 | **Prospective acquirers** | In connection with a merger, acquisition, or sale of assets | All personal data | Legitimate interest (corporate transactions) |
 
@@ -112,7 +112,7 @@ We implement appropriate technical and organizational measures to protect person
 - **Incident response:** Documented IR plan with a 72-hour breach notification commitment to customers
 - **Personnel security:** Background checks, security training, confidentiality agreements for all employees and contractors
 
-A current security posture summary is available at https://aegisgatesecurity.io/security (a self-attested posture document; full third-party SOC 2 Type II is planned for v3.5.0+).
+A current security posture summary is available at https://aegisgatesecurity.io/security (a self-attested posture document; SOC 2 Type 1 preparation is underway; targeting completion in Q4 2026).
 
 ## 5. Your Rights
 
@@ -148,7 +148,7 @@ We extend the rights described in Section 5.1 to all data subjects, regardless o
 ### 6.1 Data Location
 The Platform is designed to be self-hosted by customers on their own infrastructure. Customers may choose any data location they prefer. For our own systems (Marketing Site, billing, support), we use infrastructure located in the United States.
 
-For the future AegisGate Managed Cloud offering (planned v3.4.0+), data will be hosted in US-based data centers, with EU and APAC regional hosting available as add-on options.
+For the future AegisGate Managed Cloud offering (planned v3.5.0+), data will be hosted in US-based data centers, with EU and APAC regional hosting available as add-on options.
 
 ### 6.2 Transfer Mechanisms
 When we transfer personal data from the EEA, UK, or Switzerland to the United States, we rely on:
@@ -201,11 +201,11 @@ The current and complete list of Subprocessors is maintained at [/legal/subproce
 
 *— Counsel Sign-Off Required —*
 
-*This document is a 2.0 DRAFT for the v3.3.0 beta release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Privacy Policy and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, customers and end users should rely on this document at their own risk and consult their own legal counsel.*
+*This document is a 2.0 DRAFT for the v3.5.0 release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Privacy Policy and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, customers and end users should rely on this document at their own risk and consult their own legal counsel.*
 
 *Retention periods, data location, and lawful bases reflect the platform's documented behavior as of v3.3.0 (2026-06-07). Consult the most recent version of this Policy and the most recent Subprocessor List at [/legal/subprocessors/](/legal/subprocessors/).*
 
-**Version:** 2.0 DRAFT (v3.3.0 beta)
+**Version:** 2.0 DRAFT (v3.5.0)
 **Last Updated:** 2026-06-07
 **Next Review Date:** 2026-09-07 (quarterly review, or sooner if materially changed)
-**Counsel Review Required:** Yes (deferred to v3.4.0+ budget cycle)
+**Counsel Review Required:** Yes (deferred to v3.5.0+ budget cycle)

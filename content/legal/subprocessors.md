@@ -1,18 +1,18 @@
 ---
 title: "Subprocessor List"
-description: "Third-party subprocessors that process personal data on behalf of AegisGate Security, LLC. Effective 2026-06-07. 2.0 DRAFT for v3.3.0 beta."
+description: "Third-party subprocessors that process personal data on behalf of AegisGate Security, LLC. Effective 2026-06-07. 2.0 DRAFT for v3.5.0."
 type: "legal-doc"
 ---
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v3.3.0 beta release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.4.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v3.5.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.5.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # Subprocessor List
 
 **Effective Date:** 2026-06-07
-**Version:** 2.0 DRAFT (v3.3.0 beta)
+**Version:** 2.0 DRAFT (v3.5.0)
 **Last Updated:** 2026-06-07
 
 ---
@@ -62,7 +62,7 @@ As of the Effective Date, the following Subprocessors process personal data on o
 
 In the standard self-hosted deployment, the customer is the data controller and processes personal data on their own infrastructure. AegisGate Security, LLC is not a processor in this model (no personal data flows to us).
 
-For customers who opt into the **AegisGate Managed Cloud** offering (currently in private beta, planned for v3.4.0+ general availability), AegisGate Security, LLC will become a processor and will publish an updated subprocessor list covering the cloud infrastructure provider at that time.
+For customers who opt into the **AegisGate Managed Cloud** offering (currently in private beta, planned for v3.5.0+ general availability), AegisGate Security, LLC will become a processor and will publish an updated subprocessor list covering the cloud infrastructure provider at that time.
 
 ### 1.5 Email Delivery
 
@@ -115,7 +115,7 @@ The following categories of Subprocessors are pre-approved for future use, subje
 
 | Category | Examples | Purpose |
 |---|---|---|
-| Cloud Infrastructure (Managed Cloud only) | AWS, GCP, Azure | Hosting for the future AegisGate Managed Cloud offering (v3.4.0+). NOT used in the self-hosted default deployment. |
+| Cloud Infrastructure (Managed Cloud only) | AWS, GCP, Azure | Hosting for the future AegisGate Managed Cloud offering (v3.5.0+). NOT used in the self-hosted default deployment. |
 | Application Performance Monitoring (opt-in) | Datadog, Honeycomb, Grafana Cloud | Optional APM for the platform. Self-hosters may enable any of these in their own configuration; AegisGate Security, LLC does not enable them in the default distribution. |
 | Error Tracking (opt-in) | Sentry, Bugsnag, Rollbar | Optional error tracking for the platform. Self-hosters may enable any of these in their own configuration. |
 | Customer Support (when budget allows) | Intercom, Zendesk, Help Scout | Customer support ticketing. NOT currently used. |
@@ -143,6 +143,6 @@ Material changes are subject to the 30-day notification and objection process in
 
 *— Counsel Sign-Off Required —*
 
-*This document is a 2.0 DRAFT for the v3.3.0 beta release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Subprocessor List and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.*
+*This document is a 2.0 DRAFT for the v3.5.0 release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Subprocessor List and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.*
 
 *This Subprocessor List reflects the actual third-party integrations in the AegisGate platform codebase as of v3.3.0 (2026-06-07), verified by direct audit of the platform source tree. The list is intentionally shorter than typical SaaS subprocessor lists because the platform is self-hosted by default — AegisGate Security, LLC does not process customer traffic in the standard deployment model.*

@@ -187,7 +187,7 @@ Six billable compliance modules are now available as add-ons to any paid tier. P
 |---|---|---|---|
 | HIPAA | $99/mo | Developer+ | HIPAA-compliant logging, PHI detection, BAA support |
 | PCI-DSS | $99/mo | Developer+ | Payment card data detection, PCI-scoped audit logs |
-| SOC 2 | $149/mo | Developer+ | SOC 2 Type II control mapping, evidence collection |
+| SOC 2 | $149/mo | Developer+ | SOC 2 control mapping and evidence collection |
 | ISO 42001 | $79/mo | Professional+ | ISO/IEC 42001 AI management system controls |
 | FedRAMP | $499/mo | Professional+ | FedRAMP Moderate/High control mapping, continuous monitoring |
 | FIPS 140-2/140-3 | $299/mo | Professional+ | FIPS-validated cryptography enforcement, HSM integration |

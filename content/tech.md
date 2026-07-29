@@ -193,7 +193,7 @@ The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which
 | GDPR | PII detection | Community |
 | HIPAA | PHI detection | Professional |
 | PCI-DSS | Card data detection | Professional |
-| SOC2 Type II | Enterprise controls | Professional |
+| SOC2 | Enterprise controls | Professional |
 | ISO 27001 | Information security | Professional |
 | ISO 42001 | AI management | Professional |
 

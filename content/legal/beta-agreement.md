@@ -1,18 +1,18 @@
 ---
 title: "Beta User Agreement"
-description: "Supplemental terms for v3.3.0 beta program participants. 1.0 DRAFT for v3.3.0 beta."
+description: "Supplemental terms for v3.5.0 program participants. 1.0 DRAFT for v3.5.0."
 type: "legal-doc"
 ---
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v3.3.0 beta release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.4.0+ when budget is available. Until then, beta participants should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v3.5.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.5.0+ when budget is available. Until then, beta participants should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # AegisGate Beta User Agreement
 
 **Effective Date:** 2026-06-07
-**Version:** 1.0 DRAFT (v3.3.0 beta)
+**Version:** 1.0 DRAFT (v3.5.0)
 
 ---
 
@@ -104,7 +104,7 @@ For questions about the Beta Program, contact:
 
 *— Counsel Sign-Off Required —*
 
-*This document is a 1.0 DRAFT for the v3.3.0 beta release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Beta Agreement and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, beta participants should rely on this document at their own risk and consult their own legal counsel.*
+*This document is a 1.0 DRAFT for the v3.5.0 release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Beta Agreement and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, beta participants should rely on this document at their own risk and consult their own legal counsel.*
 
-**Version:** 1.0 DRAFT (v3.3.0 beta)
+**Version:** 1.0 DRAFT (v3.5.0)
 **Last Updated:** 2026-06-07

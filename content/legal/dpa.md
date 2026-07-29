@@ -1,21 +1,21 @@
 ---
 title: "Data Processing Agreement"
-description: "GDPR Article 28 Data Processing Agreement for AegisGate Security, LLC customers. Effective 2026-06-07. 2.0 DRAFT for v3.3.0 beta."
+description: "GDPR Article 28 Data Processing Agreement for AegisGate Security, LLC customers. Effective 2026-06-07. 2.0 DRAFT for v3.5.0."
 type: "legal-doc"
 ---
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v3.3.0 beta release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.4.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v3.5.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.5.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # Data Processing Agreement
 
-> **First published:** 2026-06-07 (v3.3.0 beta). **Effective:** 2026-06-07.
-> **Real legal counsel review is deferred to v3.4.0+** when budget is available.
+> **First published:** 2026-06-07 (v3.5.0). **Effective:** 2026-06-07.
+> **Real legal counsel review is deferred to v3.5.0+** when budget is available.
 
 **Effective Date:** 2026-06-07
-**Version:** 2.0 DRAFT (v3.3.0 beta)
+**Version:** 2.0 DRAFT (v3.5.0)
 
 ---
 
@@ -137,7 +137,7 @@ The Subscriber shall provide the Company with at least **30 calendar days' writt
 The audit shall be conducted during regular business hours, at the Subscriber's expense, in a manner that does not unreasonably interfere with the Company's operations. The Subscriber (or its auditor) shall be bound by reasonable confidentiality undertakings.
 
 ### 4.4 Alternative Evidence
-The Company may satisfy its audit obligations by providing the Subscriber with (a) a current SOC 2 Type II report (or equivalent third-party attestation), (b) a current ISO 27001 certification (or equivalent), or (c) a self-attested security posture document, in each case covering the period in question. The provision of such evidence reduces the need for on-site audits and may, at the Company's discretion, satisfy the Subscriber's audit rights for the relevant period.
+The Company may satisfy its audit obligations by providing the Subscriber with (a) a current SOC 2 Type 1 report (or equivalent self-assessment against the Trust Services Criteria), (b) a current ISO 27001 certification (or equivalent), or (c) a self-attested security posture document, in each case covering the period in question. The provision of such evidence reduces the need for on-site audits and may, at the Company's discretion, satisfy the Subscriber's audit rights for the relevant period.
 
 ### 4.5 Security
 The auditor and the Subscriber shall comply with the Company's reasonable security and confidentiality requirements when conducting an audit.
@@ -219,6 +219,6 @@ For questions about this Data Processing Agreement, contact:
 
 *— Counsel Sign-Off Required —*
 
-*This document is a 2.0 DRAFT for the v3.3.0 beta release. The full 17-clause vendor-favorability framework applied to this DPA is documented in the internal legal review framework (a confidential document not published on this site; revision O3, audit-rights cap, applied). When budget is available, AegisGate Security, LLC will engage qualified counsel to review this DPA and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.*
+*This document is a 2.0 DRAFT for the v3.5.0 release. The full 17-clause vendor-favorability framework applied to this DPA is documented in the internal legal review framework (a confidential document not published on this site; revision O3, audit-rights cap, applied). When budget is available, AegisGate Security, LLC will engage qualified counsel to review this DPA and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.*
 
 *Audit log retention periods referenced in §7.2 reflect the platform's documented behavior as of v3.3.0 (2026-06-07). Consult the most recent version of this DPA for current retention periods.*

@@ -133,7 +133,7 @@ AegisGate supports:
 | NIST AI RMF | AI risk management |
 | OWASP LLM Top 10 | Large language model vulnerabilities |
 | ISO 27001 | Information security |
-| SOC2 Type II | Security, availability, confidentiality |
+| SOC2 | Security, availability, confidentiality |
 | HIPAA | Health information protection |
 | GDPR | EU data protection |
 | PCI-DSS | Payment card data security |

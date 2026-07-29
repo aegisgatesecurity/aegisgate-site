@@ -333,7 +333,7 @@ Choose the coverage that matches your compliance needs.
 | GDPR | — | ✓ | ✓ | ✓ |
 | HIPAA | — | ✓ | ✓ | ✓ |
 | PCI-DSS | — | ✓ | ✓ | ✓ |
-| SOC2 Type II | — | Module | ✓ | ✓ |
+| SOC2 | — | Module | ✓ | ✓ |
 | ISO 27001 | — | — | ✓ | ✓ |
 | ISO 42001 (AI) | — | — | ✓ | ✓ |
 | **{{< eu-flag >}} EU AI Act** | — | — | **✓ Included** | **✓ Included** |
