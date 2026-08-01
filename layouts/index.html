@@ -5,11 +5,14 @@
             <p class="subtitle">{{ .Site.Params.description }}</p>
             
             <div class="badges">
-                <img src="https://img.shields.io/github/v/tag/aegisgatesecurity/aegisgate-platform?label=Version" alt="Version">
-                <img src="https://img.shields.io/badge/Go-{{ .Site.Params.goVersion }}-00ADD8?logo=go" alt="Go">
-                <img src="https://img.shields.io/badge/Security-0_CVEs-brightgreen?logo=shield" alt="Security">
+                <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/{{ .Site.Params.version }}" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Version-{{ .Site.Params.version }}-blue?logo=semver" alt="Version"></a>
+                <a href="https://golang.org/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Go-{{ .Site.Params.goVersion }}-00ADD8?logo=go" alt="Go"></a>
+                <a href="https://github.com/aegisgatesecurity/aegisgate-platform/actions/workflows/security.yml" target="_blank" rel="noopener noreferrer"><img src="https://github.com/aegisgatesecurity/aegisgate-platform/actions/workflows/security.yml/badge.svg" alt="Security"></a>
                 <img src="https://img.shields.io/badge/Coverage-{{ .Site.Params.coverage }}-green?logo=codecov" alt="Coverage">
                 <img src="https://img.shields.io/badge/Docker-{{ .Site.Params.dockerSize }}-2496ED?logo=docker" alt="Docker">
+                <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/compliance/eu-ai-act.md" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/EU_AI_Act-82_controls-003399?logo=europeanunion" alt="EU AI Act"></a>
+                <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
+                <a href="https://github.com/aegisgatesecurity/aegisgate-platform/security/policy" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/security-RFC%209116-blue.svg" alt="Security Policy"></a>
             </div>
 
             {{/*
