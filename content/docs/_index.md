@@ -73,5 +73,7 @@ Scans content for threats.
 
 ## Next Steps
 
+- [Detection Coverage Matrix](/docs/detection-coverage/) - Per-category detection rates and evasion resistance scores
+- [Graceful Degradation](/docs/graceful-degradation/) - How AegisGate maintains security when ML is unavailable
 - [Technical Details](/tech/) - Deep dive into architecture
 - [Blog](/blog/) - Security research and updates
