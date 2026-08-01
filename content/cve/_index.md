@@ -119,4 +119,4 @@ or email `security@aegisgatesecurity.io` (PGP key on the security.txt page).
 
 ---
 
-*This page and the feed at [`/feed.json`](/feed.json) are the canonical sources for AegisGate-disclosed AI/ML vulnerabilities. The Go package (`pkg/cve`) ships with AegisGate Platform v3.5.0+.*
+*This page and the feed at [`/feed.json`](/feed.json) are the canonical sources for AegisGate-disclosed AI/ML vulnerabilities. The Go package (`pkg/cve`) ships with AegisGate Platform v3.6.0+.*

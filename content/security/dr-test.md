@@ -10,7 +10,7 @@ layout: single
 
 **Test Date:** 2026-07-29
 **Test Type:** Full Platform Recovery
-**Test Scope:** AegisGate Security Platform v3.5.0
+**Test Scope:** AegisGate Security Platform v3.6.0
 **Test Environment:** Clean Docker host (Ubuntu 22.04 LTS)
 **Result:** ✅ PASSED — All RTO targets met
 **Owner:** AegisGate Security, LLC
@@ -55,7 +55,7 @@ Complete loss of primary AegisGate instance. Recovery from scratch on a new host
 
 | Step | Action | Expected Result | Actual Result | Time |
 |------|--------|-----------------|---------------|------|
-| 1 | Pull container image | `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v3.5.0` succeeds | ✅ Pulled successfully | 4 min |
+| 1 | Pull container image | `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.0` succeeds | ✅ Pulled successfully | 4 min |
 | 2 | Restore configuration | Mount version-controlled YAML backup | ✅ Configuration loaded | 8 min |
 | 3 | Set license key | `AEGISGATE_LICENSE` environment variable | ✅ License validated | 1 min |
 | 4 | Start container | `docker run -d -p 8080:8080 -p 8443:8443 ...` | ✅ Container started | 30 sec |

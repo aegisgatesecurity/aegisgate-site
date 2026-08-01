@@ -151,6 +151,7 @@ If you are interested in a paid bounty program, please contact security@aegisgat
 
 | Product | Version | Support Status |
 |---------|---------|---------------|
+| **AegisGate Platform** | v3.6.x | ✅ Current release |
 | **AegisGate Platform** | v3.5.x | ✅ Active support |
 | **AegisGate Platform** | v3.4.x | ✅ Active support |
 | **AegisGate Platform** | v3.3.x | ✅ Active support |

@@ -296,6 +296,6 @@ Conventional Commits (lightweight):
 ---
 
 **Last updated**: 2026-06-09
-**AegisGate version**: v3.5.0
+**AegisGate version**: v3.6.0
 **Hugo version**: 0.123.7
 **Sveltia version**: latest (loaded from CDN)

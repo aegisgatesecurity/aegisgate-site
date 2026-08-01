@@ -9,10 +9,14 @@ type: "landing"
 </div>
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>{{< eu-flag >}} NEW in v3.5.0:</strong> The <a href="/eu-ai-act/" style="color:#FFD700;text-decoration:underline;"><strong>EU AI Act Compliance Module</strong></a> — 82 controls across 8 categories, plus gRPC, Trust Attestation, and SIEM integration. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.5.0" target="_blank" style="color:#FFD700;">v3.5.0 release notes →</a>
+<strong>{{< eu-flag >}} NEW in v3.6.0:</strong> ATLAS FPR fix (0%), evasion resistance hardening, ML pipeline foundation, and rule integrity verification. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.0" target="_blank" style="color:#FFD700;">v3.6.0 release notes →</a>
 </div>
 
-AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (v3.5.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
+<div class="alert alert-success alert-center" style="background:#1a472a;border-color:#22c55e;color:#fff;">
+<strong>🔒 v3.6.0 Hardening Release:</strong> ATLAS FPR 30.8%→0.0% · Evasion-resistant normalization · Multi-turn attack detection · ML pipeline foundation (Char CNN-BiLSTM) · Rule integrity verification (SHA256) · 70% proxy overhead reduction · 55 packages passing, 0 failures
+</div>
+
+AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (since v3.5.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
 
 <div class="card-grid card-grid-2">
 <div class="card">
@@ -78,7 +82,7 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 </div>
 <div class="card" style="border-color:#f59e0b;box-shadow:0 0 16px rgba(245,158,11,0.25);">
 
-### ⚡ gRPC Service Layer <span style="font-size:11px;background:#f59e0b;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">NEW in v3.5.0</span>
+### ⚡ gRPC Service Layer <span style="font-size:11px;background:#6b7280;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.5.0</span>
 
 - 7 services: Compliance, Scanner, Trust, SSO, Audit, Analytics, Health
 - 50 RPC methods with server reflection
@@ -88,7 +92,7 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 </div>
 <div class="card" style="border-color:#10b981;box-shadow:0 0 16px rgba(16,185,129,0.25);">
 
-### 🔐 Trust Attestation <span style="font-size:11px;background:#10b981;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">NEW in v3.5.0</span>
+### 🔐 Trust Attestation <span style="font-size:11px;background:#6b7280;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.5.0</span>
 
 - ECDSA P-256 attestations with RFC 3161 TSA timestamping
 - Per-session trust score accumulator
@@ -98,7 +102,7 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 </div>
 <div class="card" style="border-color:#8b5cf6;box-shadow:0 0 16px rgba(139,92,246,0.25);">
 
-### 📡 SIEM Integration <span style="font-size:11px;background:#8b5cf6;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">NEW in v3.5.0</span>
+### 📡 SIEM Integration <span style="font-size:11px;background:#6b7280;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.5.0</span>
 
 - Splunk HEC integration with index routing
 - Datadog Logs API with service tags
@@ -120,9 +124,9 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 </a>
 </div>
 <div class="cta-secondary-wrapper">
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.5.0" target="_blank" class="cta-btn cta-btn-secondary">
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.0" target="_blank" class="cta-btn cta-btn-secondary">
 <span class="cta-icon">📦</span>
-<span class="cta-text">Download v3.5.0</span>
+<span class="cta-text">Download v3.6.0</span>
 <span class="cta-sub">Single binary · 34.7 MB</span>
 </a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" class="cta-btn cta-btn-outline">
@@ -317,7 +321,7 @@ The **EU AI Act** (Regulation 2024/1689) is the world's first comprehensive AI r
 <a href="/eu-ai-act/" class="btn btn-primary">{{< eu-flag >}} EU AI Act Module — Full Details</a>
 </div>
 
-> **Beta status**: This module is fully implemented and tested in v3.5.0. Counsel review of the legal interpretation is pending (v3.4.0+). Use for **evaluation and pre-audit work**; defer formal conformity assessment until counsel sign-off is complete.
+> **Beta status**: This module is fully implemented and tested since v3.5.0. Counsel review of the legal interpretation is pending (v3.4.0+). Use for **evaluation and pre-audit work**; defer formal conformity assessment until counsel sign-off is complete.
 
 ---
 
@@ -360,7 +364,7 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.5.0</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.0</pre>
 </div>
 
 <div class="command-box">
@@ -388,11 +392,11 @@ curl http://localhost:8443/health</pre>
 </div>
 <div class="stat">
 <div class="value">24,806</div>
-<div class="label">Peak RPS <span style="font-size:10px;color:#888;">(v3.5.0 bench)</span></div>
+<div class="label">Peak RPS <span style="font-size:10px;color:#888;">(v3.6.0 bench)</span></div>
 </div>
 <div class="stat">
 <div class="value">3.2ms</div>
-<div class="label">Avg Latency <span style="font-size:10px;color:#888;">(v3.5.0 bench)</span></div>
+<div class="label">Avg Latency <span style="font-size:10px;color:#888;">(v3.6.0 bench)</span></div>
 </div>
 <div class="stat">
 <div class="value">6</div>

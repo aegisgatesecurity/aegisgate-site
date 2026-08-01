@@ -93,7 +93,7 @@ The recommended deployment sequence ensures safe activation of ML threat detecti
 
 ### Step 1: Deploy with ML Disabled (Default)
 
-Deploy v3.8+ with ML disabled. All rule-based detection is active and providing full deterministic protection.
+Deploy v3.6.0+ with ML disabled. All rule-based detection is active and providing full deterministic protection.
 
 ```bash
 # Default configuration - ML disabled
@@ -101,7 +101,7 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.8.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.0
 ```
 
 ### Step 2: Enable Shadow Mode for 7 Days
