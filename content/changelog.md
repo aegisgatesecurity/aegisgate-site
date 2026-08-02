@@ -8,6 +8,34 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v3.6.2 - 2026-08-02 - Persistence, SIEM Coverage, Performance, Bug Fixes 🔒
+
+> **v3.6.2** closes all remaining persistence and SIEM gaps. Incident PostgreSQL backend (3 stores, 1,157 LOC), SIEM event durability, reporting delivery (Webhook + SMTP), CSV data export, 3 new SIEM clients (Datadog, CloudWatch, SecurityHub → 11/11 platform coverage), and 2 tenant-management bug fixes.
+
+**Persistence Gap Closure:**
+- Incident PostgreSQL backend: `PostgresIncidentStore`, `PostgresPlaybookStore`, `PostgresDetectionRuleStore` — 8 PostgreSQL stores, 7 migrations
+- SIEM event durability: JSON-lines file persistence with replay on startup
+- Reporting delivery: Webhook (HTTP POST) and Email (SMTP+STARTTLS) handlers
+- Reporting templates: Custom template execution wired into report generation
+- CSV data export: Full recursive Section/Key/Value flattening
+
+**SIEM 11/11 Coverage:**
+- Datadog (Events API + Log Intake API)
+- AWS CloudWatch Logs (PutLogEvents)
+- AWS Security Hub (BatchImportFindings/ASFF)
+- Existing: Splunk, Elasticsearch, QRadar, Sentinel, SumoLogic, LogRhythm, ArcSight, Syslog
+
+**Bug Fixes:**
+- `SearchTenants` SQL LIKE bug: removed `%` wrapping, fixed substring matching
+- `FileStorage.loadAll` nil resources: call `InitializeTenantResources()` after JSON unmarshal
+
+**Performance:**
+- Zero-cost proxy: -2.8ms p99 overhead (faster than direct)
+- 15,645 sustained RPS, 0% errors at 2,000 VUs
+- ATLAS blocked-request p99: 10.7ms (81% improvement)
+
+---
+
 ### v3.6.0 - 2026-08-01 - Security Hardening, ML Pipeline Foundation, ATLAS FPR Fix 🔒
 
 > **v3.6.0** is a hard version rebaseline: ATLAS false-positive rate eliminated (30.8%→0.0%), evasion-resistant detection normalization, ML pipeline foundation for v4, rule integrity verification, and 70% proxy overhead reduction.

@@ -6,7 +6,7 @@ type: "tech"
 
 ## Architecture Overview
 
-AegisGate v3.6.0 secures AI interactions across **six pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE) plus the **Trust Framework** — in a single 34.7 MB binary.
+AegisGate v3.6.2 secures AI interactions across **six pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE) plus the **Trust Framework** — in a single 34.7 MB binary.
 
 {{< mermaid >}}
 flowchart TB
@@ -18,14 +18,14 @@ flowchart TB
         E["ANP Client"]
     end
 
-    subgraph AegisGate["AegisGate Platform v3.6.0"]
+    subgraph AegisGate["AegisGate Platform v3.6.2"]
         G["HTTP Proxy :8080"]
         H["MCP Server :8081"]
         I["A2A Endpoint :8082"]
         J["ACP Gateway :8083"]
         K["ANP Router :8084"]
         L["RESPONSE Guard"]
-        TR["Trust Framework\nPkg/trust/\n(v3.6.0)"]
+        TR["Trust Framework\nPkg/trust/\n(v3.6.2)"]
 
         M["Scanner - 153+ patterns"]
         N["ATLAS - 66 techniques"]
@@ -74,7 +74,7 @@ flowchart TB
 
 ## Six Pillars of AI Security
 
-AegisGate v3.6.0 protects every AI interaction with five protocol pillars and one cross-cutting trust pillar. The **Trust Framework** is the 6th pillar, and ties together the five protocol pillars with cryptographically-signed attestations and a per-session trust score.
+AegisGate v3.6.2 protects every AI interaction with five protocol pillars and one cross-cutting trust pillar. The **Trust Framework** is the 6th pillar, and ties together the five protocol pillars with cryptographically-signed attestations and a per-session trust score.
 
 ### 1. HTTP API Security (v3.0+, port 8080)
 
@@ -132,7 +132,7 @@ AI response scanning for all protocols:
 | 7 | Compliance Reports | Auto-generates GDPR, HIPAA, PCI-DSS, SOC2 reports |
 | 8 | Response Guard Middleware | Unified scanning for HTTP, MCP, A2A, ACP, ANP |
 
-### 5. Trust Framework (v3.6.0)
+### 5. Trust Framework (v3.6.2)
 
 The 6th pillar. Continuous, per-session trust scoring with cryptographically-signed attestations. Ties the five protocol pillars together into a single, auditable trust story. Available on Professional+ tiers.
 
@@ -199,7 +199,7 @@ The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which
 
 ---
 
-## Performance (v3.6.0)
+## Performance (v3.6.2)
 
 | Metric | Target | Achieved |
 |--------|--------|----------|
@@ -224,7 +224,7 @@ docker run -d \
   -p 8081:8081 \
   -p 8082:8082 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.2
 ```
 
 ### Kubernetes (Helm)

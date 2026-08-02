@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Platform™ — Secure Every AI Interaction"
-description: "The only AI security gateway with six-pillar protection: HTTP API, MCP, A2A, ACP, Response, and Trust Framework scanning. MITRE ATLAS 66 techniques. 24 compliance frameworks. 151/170 FedRAMP automated. Deploy in 60 seconds."
+description: "The only AI security gateway with six-pillar protection: HTTP API, MCP, A2A, ACP, Response, and Trust Framework scanning. MITRE ATLAS 66 techniques. 24 compliance frameworks. 151/170 FedRAMP automated. 11/11 SIEM platforms. Deploy in 60 seconds."
 type: "landing"
 ---
 
@@ -9,11 +9,11 @@ type: "landing"
 </div>
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>{{< eu-flag >}} NEW in v3.6.0:</strong> ATLAS FPR fix (0%), evasion resistance hardening, ML pipeline foundation, and rule integrity verification. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.0" target="_blank" style="color:#FFD700;">v3.6.0 release notes →</a>
+<strong>{{< eu-flag >}} NEW in v3.6.2:</strong> 11/11 SIEM platforms (Datadog + CloudWatch + SecurityHub), Incident PostgreSQL backend, SIEM event durability, reporting delivery (Webhook + SMTP), CSV data export. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" style="color:#FFD700;">v3.6.2 release notes →</a>
 </div>
 
 <div class="alert alert-success alert-center" style="background:#1a472a;border-color:#22c55e;color:#fff;">
-<strong>🔒 v3.6.0 Hardening Release:</strong> ATLAS FPR 30.8%→0.0% · Evasion-resistant normalization · Multi-turn attack detection · ML pipeline foundation (Char CNN-BiLSTM) · Rule integrity verification (SHA256) · 70% proxy overhead reduction · 55 packages passing, 0 failures
+<strong>🔒 v3.6.2:</strong> 11/11 SIEM platforms (Datadog, CloudWatch, SecurityHub added) · Incident PostgreSQL backend · SIEM event durability · Webhook + Email reporting delivery · CSV data export · Zero-cost proxy (-2.8ms p99) · 101 packages, 0 failures
 </div>
 
 AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (since v3.5.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
@@ -102,12 +102,12 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 </div>
 <div class="card" style="border-color:#8b5cf6;box-shadow:0 0 16px rgba(139,92,246,0.25);">
 
-### 📡 SIEM Integration <span style="font-size:11px;background:#6b7280;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.5.0</span>
+### 📡 SIEM Integration <span style="font-size:11px;background:#6b7280;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.6.2</span>
 
-- Splunk HEC integration with index routing
-- Datadog Logs API with service tags
-- ELK Stack via Logstash HTTP input
+- 11/11 SIEM platform coverage (Splunk, Elasticsearch, QRadar, Sentinel, SumoLogic, LogRhythm, ArcSight, Syslog, Datadog, CloudWatch, SecurityHub)
+- JSON-lines persistence with replay on startup
 - Batch event forwarding with retry logic
+- CEF, LEEF, JSON, Syslog RFC 5424, CSV formats
 
 </div>
 
@@ -124,9 +124,9 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 </a>
 </div>
 <div class="cta-secondary-wrapper">
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.0" target="_blank" class="cta-btn cta-btn-secondary">
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" class="cta-btn cta-btn-secondary">
 <span class="cta-icon">📦</span>
-<span class="cta-text">Download v3.6.0</span>
+<span class="cta-text">Download v3.6.2</span>
 <span class="cta-sub">Single binary · 34.7 MB</span>
 </a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" class="cta-btn cta-btn-outline">
@@ -364,7 +364,7 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.0</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.2</pre>
 </div>
 
 <div class="command-box">
@@ -391,12 +391,12 @@ curl http://localhost:8443/health</pre>
 <div class="label">{{< eu-flag >}} EU AI Act Controls</div>
 </div>
 <div class="stat">
-<div class="value">24,806</div>
-<div class="label">Peak RPS <span style="font-size:10px;color:#888;">(v3.6.0 bench)</span></div>
+<div class="value">15,645</div>
+<div class="label">Sustained RPS <span style="font-size:10px;color:#888;">(v3.6.2 bench)</span></div>
 </div>
 <div class="stat">
-<div class="value">3.2ms</div>
-<div class="label">Avg Latency <span style="font-size:10px;color:#888;">(v3.6.0 bench)</span></div>
+<div class="value">-2.8ms</div>
+<div class="label">Proxy Overhead p99 <span style="font-size:10px;color:#888;">(zero-cost)</span></div>
 </div>
 <div class="stat">
 <div class="value">6</div>
@@ -411,7 +411,7 @@ curl http://localhost:8443/health</pre>
 <div class="label">Test Coverage</div>
 </div>
 <div class="stat">
-<div class="value">7,500+</div>
+<div class="value">10,831+</div>
 <div class="label">Tests Passing</div>
 </div>
 <div class="stat">
