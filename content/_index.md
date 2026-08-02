@@ -13,7 +13,7 @@ type: "landing"
 </div>
 
 <div class="alert alert-success alert-center" style="background:#1a472a;border-color:#22c55e;color:#fff;">
-<strong>🔒 v3.6.2:</strong> 11/11 SIEM platforms (Datadog, CloudWatch, SecurityHub added) · Incident PostgreSQL backend · SIEM event durability · Webhook + Email reporting delivery · CSV data export · Zero-cost proxy (-2.8ms p99) · 101 packages, 0 failures
+<strong>🔒 v3.6.2:</strong> 11/11 SIEM platforms (Datadog, CloudWatch, SecurityHub added) · Incident PostgreSQL backend · SIEM event durability · Webhook + Email reporting delivery · CSV data export · Zero-cost proxy (-2.8ms p99) · 102 packages, 0 failures
 </div>
 
 AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (since v3.5.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
@@ -411,7 +411,7 @@ curl http://localhost:8443/health</pre>
 <div class="label">Test Coverage</div>
 </div>
 <div class="stat">
-<div class="value">10,831+</div>
+<div class="value">11,200+</div>
 <div class="label">Tests Passing</div>
 </div>
 <div class="stat">
