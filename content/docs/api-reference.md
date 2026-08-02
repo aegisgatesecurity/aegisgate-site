@@ -1,6 +1,6 @@
 ---
 title: "API Reference"
-description: "AegisGate Security Platform API Reference v3.6.0"
+description: "AegisGate Security Platform API Reference v3.6.2"
 type: docs
 ---
 

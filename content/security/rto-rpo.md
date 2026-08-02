@@ -96,7 +96,7 @@ AegisGate is a self-hosted, on-premises security gateway. Infrastructure recover
 
 ### AegisGate Platform Recovery
 
-1. **Pull latest container image**: `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.0`
+1. **Pull latest container image**: `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.2`
 2. **Restore configuration**: Mount version-controlled YAML from backup
 3. **Restore license**: Set `AEGISGATE_LICENSE` environment variable
 4. **Start container**: `docker run -d -p 8080:8080 -p 8443:8443 ...`
