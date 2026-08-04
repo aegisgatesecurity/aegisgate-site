@@ -1,7 +1,7 @@
 baseURL = "https://aegisgatesecurity.io/"
 languageCode = "en-us"
 title = "AegisGate Security Platform™ — Secure Every AI Interaction"
-theme = "aegisgate"
+# theme = "aegisgate" (deprecated)
 
 # Site params
 [params]
@@ -90,8 +90,13 @@ enableGitInfo = true
   [markup.highlight]
     style = "dracula"
     lineNos = false
+    noClasses = false
+    guessSyntax = true
 
 # Taxonomies (we only need tags for blog)
 [taxonomies]
   tag = "tags"
-  category = "categories"
+
+# Deprecated theme - site overrides all theme files
+# See themes/aegisgate-deprecated-20260803 for reference
+theme = "aegisgate-deprecated-20260803"

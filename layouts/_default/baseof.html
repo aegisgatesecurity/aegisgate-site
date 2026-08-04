@@ -6,8 +6,25 @@
     <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
     
+    <!-- Security Headers (also set in netlify.toml for production) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
     <!-- Favicon -->
-    <link rel="icon" href="{{ "favicon.png" | relURL }}">
+    <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
+    <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32.png" | relURL }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16.png" | relURL }}">
+    <link rel="apple-touch-icon" href="{{ "favicon-64.png" | relURL }}">
+    
+    <!-- Font Preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
     
     <!-- CSS -->
     {{ $styles := resources.Get "css/main.css" }}
@@ -15,27 +32,14 @@
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{ end }}
     
-    <!-- Mermaid for diagrams -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <script>
-        mermaid.initialize({
-            startOnLoad: false,
-            theme: 'dark',
-            themeVariables: {
-                primaryColor: '#00ADD8',
-                primaryBorderColor: '#00ADD8',
-                lineColor: '#F97583',
-                secondaryColor: '#238636',
-                tertiaryColor: '#1a1a2e'
-            },
-            flowchart: { htmlLabels: true, curve: 'basis' },
-            sequence: { actorMargin: 50, showSequenceNumbers: true },
-            securityLevel: 'loose'
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            mermaid.run();
-        });
-    </script>
+    <!-- Mermaid for diagrams (with SRI) -->
+    <script 
+      src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" 
+      integrity="sha384-qX9VvWkP79m/O121ZE6sOYp0nf/pldQgtvWDbkpzi+3mUo4Wn4Ix4cFzNPay3VaB" 
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="{{ "js/mermaid-init.js" | relURL }}" defer></script>
     
     {{ block "head_extra" . }}{{ end }}
 </head>
@@ -51,12 +55,12 @@
     <!-- JavaScript -->
     {{ $scripts := resources.Get "js/main.js" }}
     {{ if $scripts }}
-    <script src="{{ $scripts.RelPermalink }}"></script>
+    <script src="{{ $scripts.RelPermalink }}" defer></script>
     {{ end }}
     
     {{ $cookieConsent := resources.Get "js/cookie-consent.js" }}
     {{ if $cookieConsent }}
-    <script src="{{ $cookieConsent.RelPermalink }}"></script>
+    <script src="{{ $cookieConsent.RelPermalink }}" defer></script>
     {{ end }}
     
     {{ block "scripts_extra" . }}{{ end }}

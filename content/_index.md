@@ -4,135 +4,159 @@ description: "The only AI security gateway with six-pillar protection: HTTP API,
 type: "landing"
 ---
 
-<div class="alert alert-warning alert-center">
-<strong>"One platform. Complete AI security. From HTTP APIs to agent communication."</strong>
+<div class="hero-badges-wrapper">
+<div class="project-badges">
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Version-v3.6.2-blue?logo=semver" alt="Version"></a>
+    <a href="https://golang.org/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Go-1.26.5+-00ADD8?logo=go" alt="Go"></a>
+    <img src="https://img.shields.io/badge/Coverage-87%25+-green?logo=codecov" alt="Coverage">
+    <img src="https://img.shields.io/badge/Docker-34.7MB-2496ED?logo=docker" alt="Docker">
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/compliance/eu-ai-act.md" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/EU_AI_Act-82_controls-003399?logo=europeanunion" alt="EU AI Act"></a>
 </div>
 
-<div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>{{< eu-flag >}} NEW in v3.6.2:</strong> 11/11 SIEM platforms (Datadog + CloudWatch + SecurityHub), Incident PostgreSQL backend, SIEM event durability, reporting delivery (Webhook + SMTP), CSV data export. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" style="color:#FFD700;">v3.6.2 release notes →</a>
+<div class="hero-badges performance-badges">
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/security/policy" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/security-RFC%209116-blue.svg" alt="Security Policy"></a>
+    <img src="https://img.shields.io/badge/p99 latency-2.8ms-00ADD8?logo=amd" alt="p99 latency">
+    <img src="https://img.shields.io/badge/sustained RPS-15,645-00ADD8?logo=amd" alt="sustained RPS">
+    <img src="https://img.shields.io/badge/uptime-99.9%25-00ADD8?logo=uptime" alt="uptime">
+    <img src="https://img.shields.io/badge/tests-11,200+-00ADD8?logo=jest" alt="test coverage">
 </div>
 
-<div class="alert alert-success alert-center" style="background:#1a472a;border-color:#22c55e;color:#fff;">
-<strong>🔒 v3.6.2:</strong> 11/11 SIEM platforms (Datadog, CloudWatch, SecurityHub added) · Incident PostgreSQL backend · SIEM event durability · Webhook + Email reporting delivery · CSV data export · Zero-cost proxy (-2.8ms p99) · 102 packages, 0 failures
+<a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="hero-demo-btn">🚀 Try the Live Demo</a>
 </div>
 
-AegisGate Security Platform secures every AI interaction point with **six pillars**: HTTP API scanning, MCP protocol protection, A2A agent-to-agent verification, **ACP (Agent Communication Protocol) — HMAC-signed messages and capability enforcement**, real-time response scanning, and the **Trust Framework** (ECDSA P-256 attestations) — continuous, cryptographically-signed trust scoring for every AI interaction. The **EU AI Act Compliance Module** (since v3.5.0) adds 82 controls for EU AI Regulation 2024/1689, included with Professional+ tier.
+<p class="hero-description">The only AI security gateway with six pillars of AI security (HTTP API, MCP, A2A, ACP, RESPONSE, Trust Framework), MITRE ATLAS enforcement, the EU AI Act Compliance Module, and zero external dependencies. Deploy in 60 seconds.</p>
 
-<div class="card-grid card-grid-2">
+<div class="alert alert-info alert-center">
+<strong>🇪 NEW in v3.6.2:</strong> 11/11 SIEM platforms (Datadog + CloudWatch + SecurityHub), Incident PostgreSQL backend, SIEM event durability, reporting delivery (Webhook + SMTP), CSV data export. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" rel="noopener noreferrer">v3.6.2 release notes →</a>
+</div>
+
+<div class="alert alert-success alert-center">
+<strong>🔒 v3.6.2:</strong> 11/11 SIEM platforms · Incident PostgreSQL backend · SIEM event durability · Webhook + Email reporting · CSV export · Zero-cost proxy (-2.8ms p99) · 102 packages, 0 failures
+</div>
+
+<div class="card-grid card-grid-2x2">
 <div class="card">
-
-### 🌐 HTTP API Security
-
-- 153+ detection patterns
-- MITRE ATLAS 66 techniques
-- PII, secrets, API key detection
-- Bidirectional request/response scanning
-
-</div>
-<div class="card">
-
-### 🔗 MCP Protocol Protection
-
-- Session authentication + isolation
-- 8 guardrails active
-- MITRE ATLAS enforcement
-- Tool authorization with risk matrix
-
-</div>
-<div class="card">
-
-### 🤝 A2A Agent-to-Agent Security
-
-- mTLS + HMAC-SHA256 integrity
-- Capability enforcement per agent
-- License-aware enforcement
-- Rate limiting and audit logging
-
+<h3>🌐 HTTP API Security</h3>
+<ul>
+<li>153+ detection patterns</li>
+<li>MITRE ATLAS 66 techniques</li>
+<li>PII, secrets, API key detection</li>
+<li>Bidirectional request/response scanning</li>
+</ul>
 </div>
 <div class="card">
-
-### 🛡️ Agent Response Security
-
-- PII, secrets, hallucination, toxicity detection
-- Fail-closed by default
-- Redaction with multiple strategies
-- Compliance reports (GDPR, HIPAA, PCI, SOC 2)
-
+<h3>🔗 MCP Protocol Protection</h3>
+<ul>
+<li>Session authentication + isolation</li>
+<li>8 guardrails active</li>
+<li>MITRE ATLAS enforcement</li>
+<li>Tool authorization with risk matrix</li>
+</ul>
 </div>
-<div class="card" style="border-color:#00ADD8;box-shadow:0 0 16px rgba(0,173,216,0.25);">
-
-### 🔐 Trust Framework
-
-- Per-session trust score accumulator
-- Ed25519-signed attestations on every event
-- Cross-pillar correlation (MCP, A2A, Proxy, Response)
-- Professional+ tier feature
-- Read scores via `GET /api/v1/trust/score`
-
-</div><div class="card" style="border-color:#38bdf8;box-shadow:0 0 16px rgba(56,189,248,0.25);">
-
-### 🛡️ AegisGate Lens <span style="font-size:11px;background:#38bdf8;color:#000;padding:2px 6px;border-radius:4px;margin-left:6px;">FREE — BROWSER EXTENSION</span>
-
-- Free, privacy-first Chrome extension
-- 6-facet detection (PII, secrets, XSS, prompt-injection, toxicity, compliance)
-- 6 AI providers: ChatGPT, Claude, Gemini, Copilot, duck.ai, Perplexity
-- 233/233 tests, zero external dependencies
-- Ed25519-signed bundles, SLSA L2 provenance
-- [Learn more](/lens/) · [Install from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) · [Lens vs Platform](/lens/compare/)
+<div class="card">
+<h3>🤝 A2A Agent-to-Agent Security</h3>
+<ul>
+<li>mTLS + HMAC-SHA256 integrity</li>
+<li>Capability enforcement per agent</li>
+<li>License-aware enforcement</li>
+<li>Rate limiting and audit logging</li>
+</ul>
 </div>
-<div class="card" style="border-color:#f59e0b;box-shadow:0 0 16px rgba(245,158,11,0.25);">
-
-### ⚡ gRPC Service Layer <span style="font-size:11px;background:#6b7280;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.5.0</span>
-
-- 7 services: Compliance, Scanner, Trust, SSO, Audit, Analytics, Health
-- 50 RPC methods with server reflection
-- gRPC health checking (grpc.health.v1)
-- TLS support with mutual TLS
-
+<div class="card">
+<h3>🛡️ Agent Response Security</h3>
+<ul>
+<li>PII, secrets, hallucination, toxicity detection</li>
+<li>Fail-closed by default</li>
+<li>Redaction with multiple strategies</li>
+<li>Compliance reports (GDPR, HIPAA, PCI, SOC 2)</li>
+</ul>
 </div>
-<div class="card" style="border-color:#10b981;box-shadow:0 0 16px rgba(16,185,129,0.25);">
-
-### 🔐 Trust Attestation <span style="font-size:11px;background:#6b7280;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.5.0</span>
-
-- ECDSA P-256 attestations with RFC 3161 TSA timestamping
-- Per-session trust score accumulator
-- Cross-pillar correlation (MCP, A2A, Proxy, Response)
-- Attestation verification CLI: `aegisgate attestation verify`
-
+<div class="card" style="border-color:#00ADD8;">
+<h3>🔐 Trust Framework</h3>
+<ul>
+<li>Per-session trust score accumulator</li>
+<li>Ed25519-signed attestations on every event</li>
+<li>Cross-pillar correlation (MCP, A2A, Proxy, Response)</li>
+<li>Professional+ tier feature</li>
+</ul>
 </div>
-<div class="card" style="border-color:#8b5cf6;box-shadow:0 0 16px rgba(139,92,246,0.25);">
-
-### 📡 SIEM Integration <span style="font-size:11px;background:#6b7280;color:#fff;padding:2px 6px;border-radius:4px;margin-left:6px;">v3.6.2</span>
-
-- 11/11 SIEM platform coverage (Splunk, Elasticsearch, QRadar, Sentinel, SumoLogic, LogRhythm, ArcSight, Syslog, Datadog, CloudWatch, SecurityHub)
-- JSON-lines persistence with replay on startup
-- Batch event forwarding with retry logic
-- CEF, LEEF, JSON, Syslog RFC 5424, CSV formats
-
+<div class="card" style="border-color:#38bdf8;">
+<h3>🛡️ AegisGate Lens <span class="badge">FREE</span></h3>
+<ul>
+<li>Free, privacy-first Chrome extension</li>
+<li>4-facet detection (PII, secrets, XSS, compliance)</li>
+<li>8 AI providers: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
+<li>734 automated tests, zero external dependencies</li>
+</ul>
+</div>
+<div class="card" style="border-color:#f59e0b;">
+<h3>⚡ gRPC Service Layer <span class="badge">v3.5.0</span></h3>
+<ul>
+<li>7 services: Compliance, Scanner, Trust, SSO, Audit, Analytics, Health</li>
+<li>50 RPC methods with server reflection</li>
+<li>gRPC health checking (grpc.health.v1)</li>
+<li>TLS support with mutual TLS</li>
+</ul>
+</div>
+<div class="card" style="border-color:#10b981;">
+<h3>🔐 Trust Attestation <span class="badge">v3.5.0</span></h3>
+<ul>
+<li>ECDSA P-256 attestations with RFC 3161 TSA timestamping</li>
+<li>Per-session trust score accumulator</li>
+<li>Cross-pillar correlation (MCP, A2A, Proxy, Response)</li>
+<li>Attestation verification CLI: <code>aegisgate attestation verify</code></li>
+</ul>
+</div>
+<div class="card" style="border-color:#8b5cf6;">
+<h3>📡 SIEM Integration <span class="badge">v3.6.2</span></h3>
+<ul>
+<li>11/11 SIEM platform coverage (Splunk, Elasticsearch, QRadar, Sentinel, SumoLogic, LogRhythm, ArcSight, Syslog, Datadog, CloudWatch, SecurityHub)</li>
+<li>JSON-lines persistence with replay on startup</li>
+<li>Batch event forwarding with retry logic</li>
+<li>CEF, LEEF, JSON, Syslog RFC 5424, CSV formats</li>
+</ul>
+</div>
 </div>
 
-</div>
+<div class="cta-grid-compact">
+<div class="cta-card-compact">
+<h3>🚀 Live Demo</h3>
+<p>Try AegisGate in action with our interactive demo environment</p>
 
----
-
-<div class="cta-showcase">
-<div class="cta-primary-wrapper">
-<a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-primary">
-<span class="cta-icon">🚀</span>
-<span class="cta-text">Try the Live Demo</span>
-<span class="cta-sub">No account needed · Instant access</span>
+<ul>
+<li>No account required</li>
+<li>Instant access</li>
+<li>Full feature set</li>
+</ul>
+<a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-primary demo-button">
+<span class="cta-text">🚀 Launch Demo →</span>
 </a>
 </div>
-<div class="cta-secondary-wrapper">
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" class="cta-btn cta-btn-secondary">
-<span class="cta-icon">📦</span>
-<span class="cta-text">Download v3.6.2</span>
-<span class="cta-sub">Single binary · 34.7 MB</span>
+
+<div class="cta-card-compact">
+<h3>📦 Download v3.6.2</h3>
+<p>Deploy the latest release in your infrastructure</p>
+<ul>
+<li>Single binary: 34.7 MB</li>
+<li>Docker: ghcr.io/aegisgatesecurity</li>
+<li>Apache 2.0 licensed</li>
+</ul>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-secondary" style="min-width:auto;padding:0.75rem 1.5rem;margin-top:1rem;">
+<span class="cta-text" style="font-size:0.95rem;">Download →</span>
 </a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" class="cta-btn cta-btn-outline">
-<span class="cta-icon">⭐</span>
-<span class="cta-text">Star on GitHub</span>
-<span class="cta-sub">Apache 2.0 · Open source</span>
+</div>
+
+<div class="cta-card-compact">
+<h3>⭐ Star on GitHub</h3>
+<p>Join our growing community of security engineers</p>
+<ul>
+<li>100+ contributors</li>
+<li>Active development</li>
+<li>Enterprise support available</li>
+</ul>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-outline" style="min-width:auto;padding:0.75rem 1.5rem;margin-top:1rem;">
+<span class="cta-text" style="font-size:0.95rem;">Star Project →</span>
 </a>
 </div>
 </div>
@@ -143,23 +167,140 @@ AegisGate Security Platform secures every AI interaction point with **six pillar
 
 There are other AI security products. Here's how AegisGate compares on the dimensions that matter to enterprise security teams:
 
-| Capability | **AegisGate** | Lakera Guard | NeMo Guardrails | Rebuff | Protect AI |
-|---|---|---|---|---|---|
-| **Deployment model** | Self-hosted single binary | SaaS API only | Library (in-app) | Library (in-app) | Platform |
-| **HTTP proxy scanning** | ✅ | ✅ | ❌ | ❌ | ⚠️ |
-| **MCP protocol protection** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **A2A protocol protection** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **ACP protocol protection** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Response-side scanning** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Trust Framework (attestations)** | ✅ Ed25519-signed | ❌ | ❌ | ❌ | ⚠️ |
-| **MITRE ATLAS coverage** | ✅ 66 techniques | ⚠️ Partial | ❌ | ⚠️ Partial | ✅ |
-| **OWASP LLM Top 10** | ✅ 49 patterns | ✅ | ✅ | ✅ | ✅ |
-| **{{< eu-flag >}} EU AI Act controls** | ✅ 82 controls | ❌ | ❌ | ❌ | ❌ |
-| **Multi-framework compliance** | ✅ 24 frameworks | ❌ | ❌ | ❌ | ⚠️ |
-| **Tamper-evident audit logs** | ✅ Hash chain + RFC 5424 | ❌ | ❌ | ❌ | ⚠️ |
-| **Open source** | ✅ Apache 2.0 | ❌ | ✅ Apache 2.0 | ✅ MIT | ❌ |
-| **Air-gap deployable** | ✅ Single binary | ❌ | ✅ Library | ✅ Library | ❌ |
-| **Hardware footprint** | 34.7 MB binary, < 256 MB RAM | n/a (SaaS) | In-process | In-process | n/a (platform) |
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Capability</th>
+<th>AegisGate</th>
+<th>Lakera Guard</th>
+<th>NeMo Guardrails</th>
+<th>Rebuff</th>
+<th>Protect AI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="metric-label"><strong>Deployment model</strong></td>
+<td class="metric-value">Self-hosted binary</td>
+<td class="metric-note">SaaS API only</td>
+<td class="metric-note">Library</td>
+<td class="metric-note">Library</td>
+<td class="metric-note">Platform</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>HTTP proxy scanning</strong></td>
+<td class="metric-value">✅</td>
+<td class="metric-note">✅</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">⚠️</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>MCP protocol protection</strong></td>
+<td class="metric-value">✅</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>A2A protocol protection</strong></td>
+<td class="metric-value">✅</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>ACP protocol protection</strong></td>
+<td class="metric-value">✅</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Response scanning</strong></td>
+<td class="metric-value">✅</td>
+<td class="metric-note">✅</td>
+<td class="metric-note">✅</td>
+<td class="metric-note">✅</td>
+<td class="metric-note">✅</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Trust Framework</strong></td>
+<td class="metric-value">✅ Ed25519</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">⚠️</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>MITRE ATLAS</strong></td>
+<td class="metric-value">✅ 66 techniques</td>
+<td class="metric-note">⚠️ Partial</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">⚠️ Partial</td>
+<td class="metric-note">✅</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>OWASP LLM Top 10</strong></td>
+<td class="metric-value">✅ 49 patterns</td>
+<td class="metric-note">✅</td>
+<td class="metric-note">✅</td>
+<td class="metric-note">✅</td>
+<td class="metric-note">✅</td>
+</tr>
+<tr>
+<td class="metric-label"><strong> EU AI Act</strong></td>
+<td class="metric-value">✅ 82 controls</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Multi-framework</strong></td>
+<td class="metric-value">✅ 24 frameworks</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">⚠️</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Tamper-evident logs</strong></td>
+<td class="metric-value">✅ Hash chain</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">⚠️</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Open source</strong></td>
+<td class="metric-value">✅ Apache 2.0</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">✅ Apache 2.0</td>
+<td class="metric-note">✅ MIT</td>
+<td class="metric-note">❌</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Air-gap deployable</strong></td>
+<td class="metric-value">✅ Single binary</td>
+<td class="metric-note">❌</td>
+<td class="metric-note">✅ Library</td>
+<td class="metric-note">✅ Library</td>
+<td class="metric-note">❌</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Hardware footprint</strong></td>
+<td class="metric-value">34.7 MB, &lt;256MB RAM</td>
+<td class="metric-note">n/a</td>
+<td class="metric-note">In-process</td>
+<td class="metric-note">In-process</td>
+<td class="metric-note">n/a</td>
+</tr>
+</tbody>
+</table>
 
 **TL;DR**: If you need **protocol-level security** (MCP, A2A, ACP) + **compliance evidence** + **self-hosting**, AegisGate is the only option that covers all three.
 
@@ -175,18 +316,64 @@ There are other AI security products. Here's how AegisGate compares on the dimen
 
 Your AI infrastructure spans multiple attack surfaces. Most security tools only cover one or two. AegisGate covers all six:
 
-| Attack Surface | Risk | Traditional WAFs | LLM Alignment Tools | **AegisGate** |
-|---|---|---|---|---|
-| **HTTP APIs** | Prompt injection, data leakage, PII exposure | ⚠️ AI-agnostic | ❌ No | ✅ AI-aware scanning, 153+ patterns |
-| **MCP Protocol** | Tool poisoning, session hijacking, supply-chain attacks | ❌ No native protection | ❌ No | ✅ Built-in protocol guard, 8 guardrails |
-| **A2A Communication** | Agent impersonation, data tampering, capability escalation | ❌ No native protection | ❌ No | ✅ mTLS, HMAC, capability enforcement |
-| **Agent Response** | PII leakage, secret exposure, hallucination, toxicity | ❌ No native protection | ⚠️ Some | ✅ Real-time response guard, 5 detectors |
-| **ACP Protocol** | Message tampering, capability escalation, replay attacks | ❌ No native protection | ❌ No | ✅ HMAC-signed messages |
-| **Trust / Audit** | No traceability of agent behavior across protocols | ❌ No native protection | ❌ No | ✅ Ed25519-signed attestations |
 
-AegisGate fills these gaps with a single unified platform.
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Attack Surface</th>
+<th>Risk</th>
+<th>Traditional WAFs</th>
+<th>LLM Alignment Tools</th>
+<th>AegisGate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="metric-label"><strong>HTTP APIs</strong></td>
+<td class="metric-note">Prompt injection, data leakage</td>
+<td class="metric-note">⚠️ AI-agnostic</td>
+<td class="metric-note">❌ No</td>
+<td class="metric-value">✅ AI-aware, 153+ patterns</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>MCP Protocol</strong></td>
+<td class="metric-note">Tool poisoning, session hijacking</td>
+<td class="metric-note">❌ No protection</td>
+<td class="metric-note">❌ No</td>
+<td class="metric-value">✅ Built-in guard, 8 guardrails</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>A2A Communication</strong></td>
+<td class="metric-note">Agent impersonation, tampering</td>
+<td class="metric-note">❌ No protection</td>
+<td class="metric-note">❌ No</td>
+<td class="metric-value">✅ mTLS, HMAC, capability</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Agent Response</strong></td>
+<td class="metric-note">PII leakage, hallucination</td>
+<td class="metric-note">❌ No protection</td>
+<td class="metric-note">⚠️ Some</td>
+<td class="metric-value">✅ Real-time guard, 5 detectors</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>ACP Protocol</strong></td>
+<td class="metric-note">Message tampering, replay</td>
+<td class="metric-note">❌ No protection</td>
+<td class="metric-note">❌ No</td>
+<td class="metric-value">✅ HMAC-signed messages</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Trust / Audit</strong></td>
+<td class="metric-note">No traceability</td>
+<td class="metric-note">❌ No protection</td>
+<td class="metric-note">❌ No</td>
+<td class="metric-value">✅ Ed25519 attestations</td>
+</tr>
+</tbody>
+</table>
 
-**AegisGate secures all six in a single 34.7 MB binary you deploy in 60 seconds.**
+****AegisGate secures all six** in a single 34.7 MB binary you deploy in 60 seconds.**
 
 ---
 
@@ -251,9 +438,25 @@ Every AI request, response, tool call, and session is logged. SIEM-ready with st
 </div>
 </div>
 
+<div class="cta-grid-compact" style="margin: 2rem 0;">
+<div class="cta-card-compact" style="grid-column: 1 / -1; border-color: rgba(255, 255, 255, 0.15);">
+<h3> EU AI Act Compliance</h3>
+<p>World's first comprehensive AI regulation compliance module — 82 controls across 8 categories, automated at no extra cost</p>
+<ul>
+<li><strong>9 automatic controls:</strong> Input validation, data quality, log retention</li>
+<li><strong>73 manual controls:</strong> Checklists, evidence templates, audit reports</li>
+<li><strong>API endpoints:</strong> `/api/v1/compliance/scan?framework=eu-ai-act`</li>
+<li><strong>Tier:</strong> Included with Professional+ at no extra cost</li>
+</ul>
+<a href="/eu-ai-act/" class="cta-btn cta-btn-primary" style="min-width:auto;padding:0.75rem 1.5rem;margin-top:1rem;">
+<span class="cta-text" style="font-size:0.95rem;">Learn More →</span>
+</a>
+</div>
+</div>
+
 ---
 
-## {{< eu-flag >}} EU AI Act Compliance Module — Included with Professional+ tier
+##  EU AI Act Compliance Module — Included with Professional+ tier
 
 The **EU AI Act** (Regulation 2024/1689) is the world's first comprehensive AI regulation. AegisGate's **EU AI Act Compliance Module** gives you a single source of truth for whether your AI system is compliant — across **82 controls** in **8 categories**.
 
@@ -318,7 +521,7 @@ The **EU AI Act** (Regulation 2024/1689) is the world's first comprehensive AI r
 </div>
 
 <div style="text-align:center;margin:30px 0;">
-<a href="/eu-ai-act/" class="btn btn-primary">{{< eu-flag >}} EU AI Act Module — Full Details</a>
+<a href="/eu-ai-act/" class="btn btn-primary"> EU AI Act Module — Full Details</a>
 </div>
 
 > **Beta status**: This module is fully implemented and tested since v3.5.0. Counsel review of the legal interpretation is pending (v3.4.0+). Use for **evaluation and pre-audit work**; defer formal conformity assessment until counsel sign-off is complete.
@@ -329,29 +532,136 @@ The **EU AI Act** (Regulation 2024/1689) is the world's first comprehensive AI r
 
 Choose the coverage that matches your compliance needs.
 
-| Framework | Community | Developer | Professional | Enterprise |
-|-----------|:---------:|:-------:|:---------:|:------------:|:----------:|
-| MITRE ATLAS | ✓ | ✓ | ✓ | ✓ |
-| NIST AI RMF | ✓ | ✓ | ✓ | ✓ |
-| OWASP LLM Top 10 | ✓ | ✓ | ✓ | ✓ |
-| GDPR | — | ✓ | ✓ | ✓ |
-| HIPAA | — | ✓ | ✓ | ✓ |
-| PCI-DSS | — | ✓ | ✓ | ✓ |
-| SOC2 | — | Module | ✓ | ✓ |
-| ISO 27001 | — | — | ✓ | ✓ |
-| ISO 42001 (AI) | — | — | ✓ | ✓ |
-| **{{< eu-flag >}} EU AI Act** | — | — | **✓ Included** | **✓ Included** |
-| FedRAMP Moderate | — | — | 151/170 | 170/170 |
-| CMMC Level 2 | — | — | — | ✓ |
-| NIST 800-171 | — | — | — | ✓ |
-| HITRUST CSF | — | — | — | ✓ |
-| TISAX | — | — | — | ✓ |
-| ISO 42001 | — | — | ✓ | ✓ |
-| CCPA | — | — | — | ✓ |
+
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Framework</th>
+<th>Community</th>
+<th>Developer</th>
+<th>Professional</th>
+<th>Enterprise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="metric-label"><strong>MITRE ATLAS</strong></td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>NIST AI RMF</strong></td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>OWASP LLM Top 10</strong></td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>GDPR</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>HIPAA</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>PCI-DSS</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>SOC2</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">Module</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>ISO 27001</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>ISO 42001 (AI)</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong> EU AI Act</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-value"><strong>✓ Included</strong></td>
+<td class="metric-value"><strong>✓ Included</strong></td>
+</tr>
+<tr>
+<td class="metric-label"><strong>FedRAMP Moderate</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-note">151/170</td>
+<td class="metric-value">170/170</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>CMMC Level 2</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>NIST 800-171</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>HITRUST CSF</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>TISAX</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>CCPA</strong></td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-note">—</td>
+<td class="metric-value">✓</td>
+</tr>
+</tbody>
+</table>
 
 *Developer tier adds full compliance (HIPAA + PCI-DSS) and mTLS. Professional includes everything **plus ISO 27001, ISO 42001, CMMC L2, FedRAMP Moderate (151/170), the EU AI Act Module at no extra cost, and the Trust Framework**. Enterprise adds custom frameworks, FedRAMP Moderate (full 170/170), and dedicated support.*
 
-> **📋 Compliance Posture:** AegisGate publishes self-assessments against HIPAA, NIST CSF 2.0, SOC 2 Type 1, CIS Controls v8 IG1, and the EU AI Act — [View all compliance documentation →](/compliance/)
+> **📋 Compliance Posture:** AegisGate publishes self-assessments against HIPAA, NIST CSF 2.0, SOC 2 Type 1, CIS Controls v8 IG1, and the EU AI Act. <a href="/compliance/" class="btn btn-secondary">📋 View all compliance documentation</a>
 
 ---
 
@@ -377,54 +687,73 @@ curl http://localhost:8443/health</pre>
 
 ## By the Numbers
 
-<div class="stats-grid">
-<div class="stat">
-<div class="value">153+</div>
-<div class="label">Detection Patterns</div>
-</div>
-<div class="stat">
-<div class="value">66</div>
-<div class="label">MITRE ATLAS Techniques</div>
-</div>
-<div class="stat">
-<div class="value">82</div>
-<div class="label">{{< eu-flag >}} EU AI Act Controls</div>
-</div>
-<div class="stat">
-<div class="value">15,645</div>
-<div class="label">Sustained RPS <span style="font-size:10px;color:#888;">(v3.6.2 bench)</span></div>
-</div>
-<div class="stat">
-<div class="value">-2.8ms</div>
-<div class="label">Proxy Overhead p99 <span style="font-size:10px;color:#888;">(zero-cost)</span></div>
-</div>
-<div class="stat">
-<div class="value">6</div>
-<div class="label">Security Pillars <span style="font-size:10px;color:#00ADD8;">(HTTP, MCP, A2A, ACP, RESPONSE, Trust)</span></div>
-</div>
-<div class="stat">
-<div class="value">24</div>
-<div class="label">Compliance Frameworks</div>
-</div>
-<div class="stat">
-<div class="value">86.1%</div>
-<div class="label">Test Coverage</div>
-</div>
-<div class="stat">
-<div class="value">11,200+</div>
-<div class="label">Tests Passing</div>
-</div>
-<div class="stat">
-<div class="value">34.7 MB</div>
-<div class="label">Binary Size</div>
-</div>
-</div>
+<table class="stats-table">
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="metric-label">Detection Patterns</td>
+<td class="metric-value">153+</td>
+<td class="metric-note">Comprehensive threat signatures</td>
+</tr>
+<tr>
+<td class="metric-label">MITRE ATLAS Techniques</td>
+<td class="metric-value">66</td>
+<td class="metric-note">Full adversarial coverage</td>
+</tr>
+<tr>
+<td class="metric-label">EU AI Act Controls</td>
+<td class="metric-value">82</td>
+<td class="metric-note">8 categories automated</td>
+</tr>
+<tr>
+<td class="metric-label">Sustained RPS</td>
+<td class="metric-value">15,645</td>
+<td class="metric-note">v3.6.2 benchmark</td>
+</tr>
+<tr>
+<td class="metric-label">Proxy Overhead p99</td>
+<td class="metric-value">-2.8ms</td>
+<td class="metric-note">Zero-cost (faster than direct)</td>
+</tr>
+<tr>
+<td class="metric-label">Security Pillars</td>
+<td class="metric-value">6</td>
+<td class="metric-note">HTTP, MCP, A2A, ACP, RESPONSE, Trust</td>
+</tr>
+<tr>
+<td class="metric-label">Compliance Frameworks</td>
+<td class="metric-value">24</td>
+<td class="metric-note">Global regulatory coverage</td>
+</tr>
+<tr>
+<td class="metric-label">Test Coverage</td>
+<td class="metric-value">86.1%</td>
+<td class="metric-note">Comprehensive validation</td>
+</tr>
+<tr>
+<td class="metric-label">Tests Passing</td>
+<td class="metric-value">11,200+</td>
+<td class="metric-note">CI/CD verified</td>
+</tr>
+<tr>
+<td class="metric-label">Binary Size</td>
+<td class="metric-value">34.7 MB</td>
+<td class="metric-note">Single static binary</td>
+</tr>
+</tbody>
+</table>
 
 ---
 
 ## Enterprise Security Features
 
-<div class="card-grid card-grid-2">
+<div class="card-grid card-grid-2x2">
 <div class="card">
 
 ### 🔐 Cryptographic Identity
@@ -454,3 +783,4 @@ Correlate threats across HTTP, MCP, A2A, ACP, and ANP protocols with real-time p
 
 </div>
 </div>
+

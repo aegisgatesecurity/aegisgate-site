@@ -157,7 +157,7 @@
 
         // Focus trap — focus the accept button
         var acceptBtn = document.getElementById('cookie-btn-accept');
-        if (acceptBtn) acceptBtn.focus();
+        // if (acceptBtn) acceptBtn.focus(); // Disabled - prevents scroll jump on load
 
         // Prevent scrolling behind overlay
         document.body.style.overflow = 'hidden';

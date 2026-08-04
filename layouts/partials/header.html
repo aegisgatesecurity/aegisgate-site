@@ -1,11 +1,19 @@
 <header>
     <nav>
-        <ul>
-            <li><a href="/" class="logo"><img src="{{ "logo.png" | relURL }}" alt="AegisGate" height="32"></a></li>
-            
-            {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
-            {{ end }}
-        </ul>
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="{{ "logo.png" | relURL }}" alt="AegisGate Security" height="48">
+                <span class="nav-brand-text">AegisGate Security</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/lens/">Lens</a></li>
+                <li><a href="/compliance/">Compliance</a></li>
+                <li><a href="/cve/">CVE Feed</a></li>
+                <li><a href="/docs/">Docs</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+        </div>
     </nav>
 </header>

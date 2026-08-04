@@ -1,45 +1,11 @@
 {{ define "main" }}
 <section id="pitch" class="hero">
-        <div class="container">
-            <h1>🛡️ {{ .Site.Title }}</h1>
-            <p class="subtitle">{{ .Site.Params.description }}</p>
-            
-            <div class="badges">
-                <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/{{ .Site.Params.version }}" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Version-{{ .Site.Params.version }}-blue?logo=semver" alt="Version"></a>
-                <a href="https://golang.org/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Go-{{ .Site.Params.goVersion }}-00ADD8?logo=go" alt="Go"></a>
-                <a href="https://github.com/aegisgatesecurity/aegisgate-platform/actions/workflows/security.yml" target="_blank" rel="noopener noreferrer"><img src="https://github.com/aegisgatesecurity/aegisgate-platform/actions/workflows/security.yml/badge.svg" alt="Security"></a>
-                <img src="https://img.shields.io/badge/Coverage-{{ .Site.Params.coverage }}-green?logo=codecov" alt="Coverage">
-                <img src="https://img.shields.io/badge/Docker-{{ .Site.Params.dockerSize }}-2496ED?logo=docker" alt="Docker">
-                <a href="https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/compliance/eu-ai-act.md" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/EU_AI_Act-82_controls-003399?logo=europeanunion" alt="EU AI Act"></a>
-                <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
-                <a href="https://github.com/aegisgatesecurity/aegisgate-platform/security/policy" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/security-RFC%209116-blue.svg" alt="Security Policy"></a>
-            </div>
-
-            {{/*
-              Hero CTA — "Try the Live Demo"
-              Added 2026-06-10 as part of Option 1 (Replace) from the launch roadmap.
-              See SESSION-ANCHOR-2026-06-10-demo-site-live.md, Day 3.6 section.
-              Links to the new interactive demo at https://demo.aegisgatesecurity.io/
-              which is the actual AegisGate platform running in --mode=demo with
-              real seed data (82 EU AI Act controls, 20 threat detections, etc.).
-            */}}
-            <div class="hero-cta" style="margin: 2rem 0 1rem; text-align: center;">
-                <a href="https://demo.aegisgatesecurity.io/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn btn-primary"
-                   style="font-size: 1.125rem; padding: 0.875rem 1.75rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-                    <span aria-hidden="true">🚀</span>
-                    <span>Try the Live Demo</span>
-                </a>
-                <p style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--text-muted);">
-                    82 EU AI Act controls &middot; 20 threat detections &middot; 5 MCP tools &middot; interactive playground
-                </p>
-            </div>
-
-            {{ .Content }}
-        </div>
-    </section>
+    <div class="container">
+        <h1>🛡️ {{ .Site.Title }}</h1>
+        
+        {{ .Content }}
+    </div>
+</section>
 {{ end }}
 
 {{ define "scripts_extra" }}

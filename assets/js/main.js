@@ -307,9 +307,42 @@ function escapeHtml(text) {
 // Copy Buttons
 // ============================================
 function initCopyButtons() {
-    const copyButtons = document.querySelectorAll('.copy-btn');
+    // Handle Hugo's .highlight divs
+    const highlightBlocks = document.querySelectorAll('.highlight');
     
-    copyButtons.forEach(btn => {
+    highlightBlocks.forEach(highlight => {
+        // Skip if already has a copy button
+        if (highlight.querySelector('.copy-btn')) {
+            return;
+        }
+        
+        const preElement = highlight.querySelector('pre');
+        if (!preElement) return;
+        
+        // Create copy button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-btn';
+        copyBtn.textContent = 'Copy';
+        
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(preElement.textContent).then(() => {
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                this.style.background = 'rgba(56, 189, 248, 0.3)';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = 'rgba(56, 189, 248, 0.2)';
+                }, 2000);
+            });
+        });
+        
+        highlight.appendChild(copyBtn);
+    });
+    
+    // Also handle any other .copy-btn elements (for non-highlight code blocks)
+    const existingButtons = document.querySelectorAll('.copy-btn:not(.highlight .copy-btn)');
+    existingButtons.forEach(btn => {
         btn.addEventListener('click', function() {
             const preElement = this.parentElement.querySelector('pre');
             if (preElement) {

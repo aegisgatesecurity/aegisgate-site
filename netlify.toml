@@ -1,149 +1,74 @@
-# AegisGate Security Platform — Netlify Configuration
-# =====================================================
-#
-# This file configures the Netlify deployment of aegisgatesecurity.io.
-# Netlify reads this on every push to the connected branch (main).
-#
-# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
-# =================================================================
-
-# =====================================================
-# Build settings
-# =====================================================
 [build]
-  # The Hugo command to run. We use --minify for production-optimized output.
-  # --gc is "garbage collect" — removes unreferenced resources
-  # --themesDir is explicit; Hugo's default is "./themes" which is correct
-  command = "hugo --minify --gc"
-
-  # The directory to publish. Hugo's default is "public/".
   publish = "public"
-
-  # Environment variables for the build
-  [build.environment]
-    # Pin Hugo version for reproducible builds. Matches the version we use
-    # locally (Hugo 0.123.7+extended).
-    HUGO_VERSION = "0.123.7"
-    # Tell Hugo we're on Netlify (affects baseURL behavior in some templates)
-    HUGO_ENV = "production"
-
-# =====================================================
-# Deploy context settings
-# =====================================================
-# Production deploys (from main branch) use the production domain.
-# Branch deploys (from feature branches) get a unique URL like
-# https://branch-name--aegisgate-site.netlify.app for preview.
-
-[context.production]
   command = "hugo --minify --gc"
 
-[context.deploy-preview]
-  command = "hugo --minify --gc --buildFuture --buildDrafts"
+[build.environment]
+  HUGO_VERSION = "0.123.7"
+  HUGO_ENV = "production"
 
-[context.branch-deploy]
-  command = "hugo --minify --gc --buildFuture --buildDrafts"
-
-# =====================================================
-# Security Headers (applied to all deployments)
-# =====================================================
-# See: https://docs.netlify.com/routing/headers/
-
+# Security Headers
 [[headers]]
-  # Apply to all paths (catch-all for the entire site)
   for = "/*"
-    # Security Headers
-    # ---------------
-
+  [headers.values]
     # Content Security Policy
-    # -----------------------
-    # This CSP is a "strict" policy that allows only the resources needed
-    # by the site. When adding new external services, add their domains
-    # to the appropriate directive below.
-    #
-    # Directives used:
-    #   default-src      - Fallback for any directive not explicitly listed
-    #   script-src       - JavaScript sources (Hugo, Mermaid, Stripe, Sveltia)
-    #                     Sveltia is a CLASSIC script, not an ES module
-    #                     (it self-executes on import), so 'unsafe-eval'
-    #                     is not needed
-    #   style-src        - CSS sources (Stripe injects inline styles)
-    #   img-src          - Image sources (shields.io badges, Stripe images)
-    #   font-src         - Web font sources
-    #   connect-src      - XHR/fetch/WebSocket targets (Stripe API, Sveltia)
-    #   frame-src        - iframe sources (Stripe checkout widget)
-    #   frame-ancestors  - Who can embed us (replaces X-Frame-Options)
-    #   worker-src       - Web worker sources (Sveltia uses web workers)
-    #
-    # Notes:
-    #   - 'unsafe-inline' on style-src is required by Stripe Buy Button
-    #     widget which injects inline styles
-    #   - 'unsafe-inline' on script-src is required for Hugo's inline
-    #     Mermaid initialization script
-    #   - https://api.netlify.com is required for Sveltia CMS (uses
-    #     Netlify Identity / Git Gateway API for authentication)
-    #   - https://*.github.com is required for Sveltia's GitHub backend
-    #   - https://unpkg.com is required for Sveltia's CDN-hosted bundle
-    #   - blob: is required for Sveltia's dynamic web worker imports
-    #   - https://fonts.googleapis.com and https://fonts.gstatic.com are
-    #     required for Sveltia's Material Symbols Outlined font (used for
-    #     icons in the Sveltia UI). Without these, the CSP blocks the
-    #     stylesheet and Sveltia's icon font doesn't load.
-    #   - blob: is required for Sveltia's dynamic web worker imports
-    #   - https://fonts.googleapis.com and https://fonts.gstatic.com are
-    #     required for Sveltia's Material Symbols Outlined font (used for
-    #     icons in the Sveltia UI). Without these, the CSP blocks the
-    #     stylesheet and Sveltia's icon font doesn't load.
-    #   - https://www.githubstatus.com is required for Sveltia's
-    #     optional GitHub status indicator (shows a green/yellow/red dot
-    #     if GitHub is having an incident). It's a nice-to-have, not
-    #     critical, but blocking it generates a CSP warning in the
-    #     browser console.
-    #
-    #   AUTHENTICATION NOTE (2026-06-09):
-    #   Sveltia CMS no longer supports the Git Gateway backend (it was
-    #   deprecated by Netlify in 2024). We use the GitHub backend with
-    #   a Personal Access Token (PAT) for authentication. This means
-    #   Sveltia authenticates DIRECTLY with api.github.com — no Netlify
-    #   Identity / Git Gateway / OAuth app required.
-    [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://js.stripe.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://js.stripe.com https://fonts.googleapis.com; style-src-elem 'self' 'unsafe-inline' https://js.stripe.com https://fonts.googleapis.com; img-src 'self' data: https: https://*.stripe.com https://avatars.githubusercontent.com; font-src 'self' data: https://js.stripe.com https://fonts.gstatic.com; connect-src 'self' https://api.stripe.com https://m.stripe.network https://api.github.com https://*.github.com https://unpkg.com https://www.githubstatus.com; frame-src 'self' https://checkout.stripe.com https://js.stripe.com; worker-src 'self' blob:; frame-ancestors 'none';"
-    # frame-ancestors replaces X-Frame-Options (modern equivalent) and is recognized by all current browsers.
-
-    # 2. X-Content-Type-Options
-    X-Content-Type-Options = "nosniff"
-
-    # 3. X-Frame-Options
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    
+    # HSTS - 1 year with subdomains
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # Prevent clickjacking
     X-Frame-Options = "DENY"
-
-    # 4. X-XSS-Protection
-    X-XSS-Protection = "1; mode=block"
-
-    # 5. Referrer-Policy
+    
+    # Prevent MIME sniffing
+    X-Content-Type-Options = "nosniff"
+    
+    # Referrer policy
     Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Permissions policy (disable unnecessary features)
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+    
+    # Cross-Origin policies
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
 
-    # 6. Permissions-Policy
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
-
+# Cache static assets aggressively
 [[headers]]
-  # Apply to sensitive paths (legal pages)
-  for = "/legal/*"
-    [headers.values]
-    Cache-Control = "no-store, no-cache, must-revalidate"
-
-[[headers]]
-  # Static assets - allow caching
-  for = "/*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf}"
-    [headers.values]
+  for = "/css/*"
+  [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  # HTML - no caching
-  for = "/*.html"
-    [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
-# AegisGate Lens
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML should not be cached as aggressively (allows quick updates)
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Redirects for clean URLs
 [[redirects]]
-  from = "/lens/install"
-  to   = "https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip"
-  status = 302
+  from = "/demo"
+  to = "https://demo.aegisgatesecurity.io/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/demo/"
+  to = "https://demo.aegisgatesecurity.io/"
+  status = 301
+  force = true
