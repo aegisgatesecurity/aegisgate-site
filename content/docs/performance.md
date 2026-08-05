@@ -22,9 +22,9 @@ AegisGate is engineered for minimal latency impact while providing comprehensive
 
 | Metric | Value |
 |--------|-------|
-| Requests/second (single core) | 50,000+ |
-| Requests/second (8-core) | 400,000+ |
-| Concurrent connections | 100,000+ |
+| Sustained throughput | **23,578 RPS** (5,000 VUs, 0% error) |
+| Ceiling test | 7,310,431 requests, 0% error rate |
+| Single-instance ceiling | 5,000 concurrent VUs |
 | Memory footprint (idle) | 34.7MB |
 | Memory footprint (screening) | ~50MB |
 

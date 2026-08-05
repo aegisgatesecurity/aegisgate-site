@@ -194,7 +194,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | Attribute | Detail |
 |---|---|
 | **SOC 2 Reference** | CC3.1 |
-| **Implementation** | AegisGate conducts risk assessments covering information security, operational continuity, and compliance objectives. The compliance engine's 857+ automated CheckFuncs across 24 frameworks provide continuous risk identification. Threat modeling is performed for architecture changes and new features. The 153+ threat detection patterns actively identify security risks in production. |
+| **Implementation** | AegisGate conducts risk assessments covering information security, operational continuity, and compliance objectives. The compliance engine's 857+ automated CheckFuncs across 27 frameworks provide continuous risk identification. Threat modeling is performed for architecture changes and new features. The 153+ threat detection patterns actively identify security risks in production. |
 | **Evidence** | Risk register, threat model documentation, CheckFunc catalog, detection pattern registry |
 | **Status** | ✅ Ready |
 
@@ -242,7 +242,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | Attribute | Detail |
 |---|---|
 | **SOC 2 Reference** | CC4.1 |
-| **Implementation** | Ongoing evaluation is performed continuously through the compliance engine's automated CheckFuncs, which validate control effectiveness across 24 frameworks. Separate evaluations are conducted through periodic internal reviews of security posture, access reviews, and audit log analysis. 153+ threat detection patterns provide real-time monitoring of control effectiveness. |
+| **Implementation** | Ongoing evaluation is performed continuously through the compliance engine's automated CheckFuncs, which validate control effectiveness across 27 frameworks. Separate evaluations are conducted through periodic internal reviews of security posture, access reviews, and audit log analysis. 153+ threat detection patterns provide real-time monitoring of control effectiveness. |
 | **Evidence** | CheckFunc execution results, internal review schedule, threat detection alerting |
 | **Status** | ✅ Ready |
 
@@ -587,7 +587,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | Attribute | Detail |
 |---|---|
 | **SOC 2 Reference** | SOC2-AI-001 |
-| **Implementation** | AegisGate's compliance engine enforces SOC2-AI-001 as an automated CheckFunc. AI governance is implemented through 8 MCP guardrails that enforce safety, content, and operational constraints on AI model interactions. Threat detection patterns include AI-specific detection capabilities. The compliance engine monitors AI operations against 24 frameworks to ensure continuous compliance. Rate limiting enforces per-tier RPM constraints on AI interactions. |
+| **Implementation** | AegisGate's compliance engine enforces SOC2-AI-001 as an automated CheckFunc. AI governance is implemented through 8 MCP guardrails that enforce safety, content, and operational constraints on AI model interactions. Threat detection patterns include AI-specific detection capabilities. The compliance engine monitors AI operations against 27 frameworks to ensure continuous compliance. Rate limiting enforces per-tier RPM constraints on AI interactions. |
 | **Evidence** | CheckFunc SOC2-AI-001 implementation, MCP guardrail configurations, AI threat detection patterns, rate limiting policies |
 | **Status** | ✅ Ready |
 

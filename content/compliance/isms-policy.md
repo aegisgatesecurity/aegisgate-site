@@ -45,7 +45,7 @@ The AegisGate ISMS covers:
 
 1. **AegisGate Security Platform** — self-hosted, on-premises security gateway for AI infrastructure, delivered as a Docker container (34.7MB) with zero external dependencies.
 2. **Software development lifecycle** — source code management (GPG-signed commits), CI/CD pipelines, release signing (ECDSA P-256 license keys), secure development practices.
-3. **Compliance engine** — 857+ automated CheckFuncs across 24 compliance frameworks, including the ISO 27001 module with dedicated control checks.
+3. **Compliance engine** — 857+ automated CheckFuncs across 27 compliance frameworks, including the ISO 27001 module with dedicated control checks.
 4. **Trust and attestation services** — hash-chained audit logging, cryptographic attestation generation, evidence collection.
 5. **Customer-facing security operations** — threat detection (153+ patterns), RBAC with MFA, OIDC/SAML SSO integration, TLS 1.3 transport encryption, AES-256 encryption at rest with customer-managed keys.
 6. **Organizational processes** — information security policy, risk management, incident response, business continuity, management review, and internal audit.
@@ -118,7 +118,7 @@ AegisGate is committed to continual improvement of the ISMS through the Plan-Do-
 
 **Plan:** Risk assessments, objective setting, control selection, and resource allocation documented in the ISMS and Statement of Applicability.
 
-**Do:** Implementation and operation of controls through the compliance engine (857+ CheckFuncs across 24 frameworks), operational procedures, and security awareness training.
+**Do:** Implementation and operation of controls through the compliance engine (857+ CheckFuncs across 27 frameworks), operational procedures, and security awareness training.
 
 **Check:** Monitoring, measurement, internal audits, and management reviews. Hash-chained audit logs provide continuous tamper-evident monitoring. Internal audits conducted annually per the Internal Audit Program (AG-IAUD-2026-001).
 

@@ -6,13 +6,14 @@ type: docs
 
 ## Overall Score
 
-AegisGate achieves **88.5/100** overall evasion resistance, validated against the MITRE ATLAS framework with the following baseline metrics:
+AegisGate v4.0.0 achieves **100/100** evasion resistance with ML threat detection enabled (up from 88.5/100 regex-only), validated against the MITRE ATLAS framework with the following metrics:
 
-| Metric | Value |
-|--------|-------|
-| **Overall Evasion Resistance** | 88.5 / 100 |
-| **False Positive Rate** | 0.0% on benign corpus (10,538 examples) |
-| **True Positive Rate** | 78.8% on adversarial ATLAS payloads (41/52 patterns) |
+| Metric | v3.6.2 (regex-only) | v4.0.0 (regex + ML) |
+|--------|---------------------|---------------------|
+| **Overall Evasion Resistance** | 88.5 / 100 | **100 / 100** |
+| **False Positive Rate** | 0.0% (10,538 benign) | **0.0%** (10,538 benign) |
+| **True Positive Rate** | 78.8% (41/52 patterns) | **100%** (52/52 patterns) |
+| **ML Inference Latency** | N/A | **4.78ms avg, 5.27ms max** |
 
 ---
 
@@ -77,7 +78,7 @@ AegisGate's ML threat detection is designed for safe, gradual deployment:
 
 ### Graceful Degradation
 
-If ML services become unavailable, AegisGate automatically falls back to **rules-only mode**, which maintains an **88.5/100** evasion resistance score. The rule engine provides complete coverage for all 17 ATLAS technique categories without dependency on ML inference.
+If ML services become unavailable, AegisGate automatically falls back to **rules-only mode**, which maintains an **88.5/100** evasion resistance score. With ML enabled, evasion resistance rises to **100/100**. The rule engine provides complete coverage for all 17 ATLAS technique categories without dependency on ML inference.
 
 ---
 

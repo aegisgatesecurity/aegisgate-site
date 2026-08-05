@@ -18,7 +18,7 @@ These 1-pagers explain the technical depth behind each tier and module for sales
 |---------|------------------|
 | **[Trust Framework 1-pager](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/trust-framework.md)** | The 6th pillar (per-agent identity, capability contracts, real-time trust scoring, signed attestations) |
 | **[Federated IOC Library 1-pager](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/federated-ioc-library-1pager.md)** | "1 customer's threat = all AegisGate customers protected" — the network effect |
-| **[EU AI Act 1-pager](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/compliance/eu-ai-act.md)** | The 7th compliance framework (82 controls, 9 automated) |
+| **[EU AI Act 1-pager](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/compliance/eu-ai-act.md)** | EU AI Act compliance (82 controls, Professional+ tier) |
 | **[Lens → Platform Upsell 1-pager](/pricing/)** | The 4-stage conversion funnel (individual → team → POC → production) |
 | **[Case Study: Series-B SaaS + SOC 2 with Trust Framework](/blog/case-study-series-b-saas-soc2-with-trust-framework/)** | How a 200-person Series-B SaaS passed SOC 2 Type II in 90 days using AegisGate |
 
@@ -41,7 +41,7 @@ The case study is **representative**, not a real customer. It is built from anon
 <div class="pricing-card">
 <h3>Community</h3>
 <div class="price">Free <span>forever</span></div>
-<p>Free forever: Lens browser extension + Platform server-side protection with 5 compliance frameworks.</p>
+<p>Free forever: Lens browser extension + Platform server-side protection with 10 compliance frameworks.</p>
 <ul>
 <li>Unlimited proxy RPM (soft-throttle)</li>
 <li>5 concurrent users</li>

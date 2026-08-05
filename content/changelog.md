@@ -308,7 +308,7 @@ The marketing site has been updated to reflect the v3.2.0 5-pillar architecture:
 
 - [Homepage](/) — the hero card grid now lists the four protocol pillars plus a highlighted **Trust Framework** card (new in v3.2.0).
 - [Tech page](/tech/) — the "Five Pillars" section is reordered (HTTP API, MCP, A2A, RESPONSE, Trust) and the Trust Framework gets its own detail table (8 components, 2 API endpoints, attestation format, tier gating).
-- [Pricing page](/pricing/) — Pro tier is now $499/mo and the 6 compliance modules are listed with tier requirements and Stripe buy buttons.
+- [Pricing page](/pricing/) — Pro tier is now $499/mo and 27 compliance frameworks are listed with tier requirements and Stripe buy buttons.
 - [Tier Comparison](/docs/tiers/) — Pro price updated, new "Trust Framework" and "Compliance Scan API" rows added.
 
 #### Upcoming in v3.2.0

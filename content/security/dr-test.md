@@ -60,7 +60,7 @@ Complete loss of primary AegisGate instance. Recovery from scratch on a new host
 | 3 | Set license key | `AEGISGATE_LICENSE` environment variable | ✅ License validated | 1 min |
 | 4 | Start container | `docker run -d -p 8080:8080 -p 8443:8443 ...` | ✅ Container started | 30 sec |
 | 5 | Verify health endpoint | `curl -f https://localhost:8443/health` | ✅ 200 OK | 10 sec |
-| 6 | Validate compliance engine | `curl https://localhost:8443/api/v1/compliance/status` | ✅ 24 frameworks registered | 45 sec |
+| 6 | Validate compliance engine | `curl https://localhost:8443/api/v1/compliance/status` | ✅ 27 frameworks registered | 45 sec |
 | 7 | Verify audit log integrity | SHA-256 chain verification | ✅ Chain intact | 15 sec |
 | 8 | Verify TLS certificates | Certificate validity check | ✅ Certificates valid | 5 sec |
 | 9 | Verify RBAC policies | Test RBAC enforcement | ✅ Policies loaded | 10 sec |
@@ -97,7 +97,7 @@ T+15:30   Full service restoration confirmed
 | Configuration integrity | YAML schema validation | ✅ All fields valid |
 | License validity | ECDSA P-256 signature verification | ✅ Valid |
 | Detection patterns | Pattern count vs. expected (153+) | ✅ 153 patterns loaded |
-| Compliance frameworks | Registration count vs. expected (24) | ✅ 24 frameworks registered |
+| Compliance frameworks | Registration count vs. expected (24) | ✅ 27 frameworks registered |
 
 ### 3.3 Functional Verification
 
@@ -120,7 +120,7 @@ T+15:30   Full service restoration confirmed
 
 1. **Container recovery is fast** — 15.5 minutes from scratch, well within RTO target
 2. **No data loss** — Stateful data on customer-managed volumes was not affected
-3. **Compliance engine auto-recovery** — All 24 frameworks registered without manual intervention
+3. **Compliance engine auto-recovery** — All 27 frameworks registered without manual intervention
 4. **Audit log integrity preserved** — Hash chain verified intact after recovery
 5. **Fail-closed validation** — Malicious requests correctly blocked during recovery
 

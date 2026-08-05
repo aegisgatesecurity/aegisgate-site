@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Platform™ — Secure Every AI Interaction"
-description: "The only AI security gateway with six-pillar protection: HTTP API, MCP, A2A, ACP, Response, and Trust Framework scanning. MITRE ATLAS 66 techniques. 24 compliance frameworks. 151/170 FedRAMP automated. 11/11 SIEM platforms. Deploy in 60 seconds."
+description: "The only AI security gateway with six-pillar protection: HTTP API, MCP, A2A, ACP, Response, and Trust Framework scanning. MITRE ATLAS 66 techniques. 27 compliance frameworks. 151/170 FedRAMP automated. 11/11 SIEM platforms. Deploy in 60 seconds."
 type: "landing"
 ---
 
@@ -17,9 +17,9 @@ type: "landing"
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform/security/policy" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/security-RFC%209116-blue.svg" alt="Security Policy"></a>
     <img src="https://img.shields.io/badge/p99 latency-2.8ms-00ADD8?logo=amd" alt="p99 latency">
-    <img src="https://img.shields.io/badge/sustained RPS-15,645-00ADD8?logo=amd" alt="sustained RPS">
+    <img src="https://img.shields.io/badge/sustained RPS-23,578-00ADD8?logo=amd" alt="sustained RPS">
     <img src="https://img.shields.io/badge/uptime-99.9%25-00ADD8?logo=uptime" alt="uptime">
-    <img src="https://img.shields.io/badge/tests-10,983+-00ADD8?logo=jest" alt="test coverage">
+    <img src="https://img.shields.io/badge/tests-11,983+-00ADD8?logo=jest" alt="test coverage">
 </div>
 
 <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="hero-demo-btn">🚀 Try the Live Demo</a>
@@ -28,11 +28,11 @@ type: "landing"
 <p class="hero-description">The only AI security gateway with six pillars of AI security (HTTP API, MCP, A2A, ACP, RESPONSE, Trust Framework), MITRE ATLAS enforcement, the EU AI Act Compliance Module, and zero external dependencies. Deploy in 60 seconds.</p>
 
 <div class="alert alert-info alert-center">
-<strong>🧠 NEW in v4.0.0:</strong> ML Threat Detection — Char CNN-BiLSTM neural network (1.58M params, 6.2MB ONNX) achieves <strong>100/100 evasion resistance</strong> with <strong>0% false positive rate</strong> and ~6ms inference latency. Supplementary layer that catches what regex misses. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer">v4.0.0 release notes →</a>
+<strong>🧠 NEW in v4.0.0:</strong> ML Threat Detection — Char CNN-BiLSTM neural network (1.58M params, 6.2MB ONNX) achieves <strong>100/100 evasion resistance</strong> with <strong>0% false positive rate</strong> and ~5ms inference latency. Supplementary layer that catches what regex misses. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer">v4.0.0 release notes →</a>
 </div>
 
 <div class="alert alert-success alert-center">
-<strong>🔒 v4.0.0:</strong> ML Threat Detection · 100/100 evasion resistance · 0% FPR · ~6ms latency · CGO build tags · Adversarial robustness (PGD/FGSM) · Drift monitoring · 10,983 tests, 0 failures
+<strong>🔒 v4.0.0:</strong> ML Threat Detection · 100/100 evasion resistance · 0% FPR · ~5ms latency · 27 compliance frameworks · 23,578 RPS · 11,983 tests, 0 failures
 </div>
 
 <div class="card-grid card-grid-2x2">
@@ -270,7 +270,7 @@ There are other AI security products. Here's how AegisGate compares on the dimen
 </tr>
 <tr>
 <td class="metric-label"><strong>Multi-framework</strong></td>
-<td class="metric-value">✅ 24 frameworks</td>
+<td class="metric-value">✅ 27 frameworks</td>
 <td class="metric-note">❌</td>
 <td class="metric-note">❌</td>
 <td class="metric-note">❌</td>
@@ -722,7 +722,7 @@ curl http://localhost:8443/health</pre>
 </tr>
 <tr>
 <td class="metric-label">Sustained RPS</td>
-<td class="metric-value">15,645</td>
+<td class="metric-value">23,578</td>
 <td class="metric-note">v4.0.0 benchmark</td>
 </tr>
 <tr>

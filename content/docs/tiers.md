@@ -27,15 +27,33 @@ Choose the coverage that matches your compliance needs.
 | **MITRE ATLAS** | ✅ | ✅ | ✅ | ✅ |
 | **NIST AI RMF** | ✅ | ✅ | ✅ | ✅ |
 | **OWASP LLM Top 10** | ✅ | ✅ | ✅ | ✅ |
+| **GDPR** | ✅ | ✅ | ✅ | ✅ |
+| **CIS Controls v8** | ✅ | ✅ | ✅ | ✅ |
+| **NIST CSF 2.0** | ✅ | ✅ | ✅ | ✅ |
+| **OWASP Web Top 10** | ✅ | ✅ | ✅ | ✅ |
+| **CSA STAR Level 1** | ✅ | ✅ | ✅ | ✅ |
+| **NIST AI 600-1** | ✅ | ✅ | ✅ | ✅ |
+| **CCPA/CPRA** | ✅ | ✅ | ✅ | ✅ |
 | **mTLS** | ❌ | ✅ | ✅ | ✅ |
 | **Code Exec Sandbox** | ❌ | ✅ | ✅ | ✅ |
 | **Compliance Reports** | ❌ | Basic | Advanced | Full |
-| **GDPR** | — | ✅ | ✅ | ✅ |
 | **HIPAA** | ❌ | ✅ | ✅ | ✅ |
 | **PCI-DSS** | ❌ | ✅ | ✅ | ✅ |
-| **SOC2** | ❌ | Module | ✅ | ✅ |
+| **SOC 2 Type II** | ❌ | ✅ | ✅ | ✅ |
 | **ISO 27001** | ❌ | ❌ | ✅ | ✅ |
 | **ISO 42001 (AI)** | ❌ | ❌ | ✅ | ✅ |
+| **FedRAMP Moderate** | ❌ | ❌ | ✅ | ✅ |
+| **FIPS 140-2/3** | ❌ | ❌ | ✅ | ✅ |
+| **EU AI Act** | ❌ | ❌ | ✅ | ✅ |
+| **CMMC Level 2** | ❌ | ❌ | ✅ | ✅ |
+| **NIST 800-171** | ❌ | ❌ | ✅ | ✅ |
+| **FERPA** | ❌ | ❌ | ✅ | ✅ |
+| **SOX** | ❌ | ❌ | ✅ | ✅ |
+| **GLBA** | ❌ | ❌ | ✅ | ✅ |
+| **NERC CIP** | ❌ | ❌ | ✅ | ✅ |
+| **HITRUST CSF** | ❌ | ❌ | ❌ | ✅ |
+| **TISAX** | ❌ | ❌ | ❌ | ✅ |
+| **CJIS** | ❌ | ❌ | ❌ | ✅ |
 | **Policy Engine** | ❌ | ❌ | ✅ | ✅ |
 | **ML Anomaly Detection** | Basic | Advanced | Behavioral | Custom |
 | **K8s / Helm** | ❌ | ❌ | ✅ | ✅ |
@@ -45,15 +63,13 @@ Choose the coverage that matches your compliance needs.
 
 ### Tier Details
 
-**Community** — Free forever. For individuals and small teams getting started with AI security. Includes core proxy, 153+ detection patterns, MITRE ATLAS, NIST AI RMF, and OWASP LLM Top 10 enforcement.
+**Community** — Free forever. For individuals and small teams getting started with AI security. Includes core proxy, 153+ detection patterns, and 10 compliance frameworks: MITRE ATLAS, OWASP LLM Top 10, NIST AI RMF, GDPR, CIS Controls v8, NIST CSF 2.0, OWASP Web Top 10, CSA STAR Level 1, NIST AI 600-1, CCPA/CPRA.
 
+**Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, HIPAA, PCI-DSS, SOC 2 Type II compliance (3 more frameworks, 13 total), code execution sandbox, advanced ML anomaly detection, and Grafana integration.
 
+**Professional** — $499/month. For teams with serious compliance needs. Adds ISO 27001, ISO 42001, FedRAMP, FIPS 140-2/3, EU AI Act, CMMC Level 2, NIST 800-171, FERPA, SOX, GLBA, NERC CIP (11 more frameworks, 24 total), policy engine, department separation, K8s/Helm deployment, process-level MCP sandboxing, gRPC API (7 services, 50 RPCs), SIEM integration, and the **Trust Framework** (6th pillar — ECDSA P-256-signed per-session trust scoring).
 
-**Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, full GDPR/HIPAA/PCI-DSS compliance, code execution sandbox, advanced ML anomaly detection, and Grafana integration.
-
-**Professional** — $499/month. For teams with serious compliance needs. Adds ISO 27001, ISO 42001, SOC2, policy engine, department separation, K8s/Helm deployment, process-level MCP sandboxing, gRPC API (7 services, 50 RPCs), SIEM integration, and the **Trust Framework** (6th pillar — ECDSA P-256-signed per-session trust scoring).
-
-**Enterprise** — Custom pricing. Mission-critical deployments with unlimited scale, custom compliance, air-gapped deployment, BAA/DPA, and dedicated support.
+**Enterprise** — Custom pricing. Mission-critical deployments with HITRUST CSF, TISAX, CJIS (3 more frameworks, all 27), unlimited scale, custom compliance, air-gapped deployment, BAA/DPA, and dedicated support.
 
 ### Migration Path
 

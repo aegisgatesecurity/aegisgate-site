@@ -24,7 +24,7 @@ AegisGate is a six-pillar AI security gateway built in Go with zero external run
 │            (CNN-BiLSTM + Regex Pipeline)             │
 ├─────────────────────────────────────────────────────┤
 │            Trust & Compliance Engine                  │
-│         (31 Frameworks · 312 Controls)              │
+│         (27 Frameworks · 312 Controls)              │
 ├─────────────────────────────────────────────────────┤
 │              Audit & Evidence Engine                  │
 │        (ATLAS-Mapped · SOC 2 Evidence)              │

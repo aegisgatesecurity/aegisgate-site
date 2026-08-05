@@ -35,7 +35,7 @@ This self-assessment evaluates AegisGate's compliance posture against the CIS Co
 
 **Overall IG1 compliance: 100% of applicable safeguards addressed** (41 Implemented + 8 Partial of 49 applicable; 7 N/A).
 
-AegisGate's automated compliance engine enforces 15 CIS-specific controls (CIS-1 through CIS-17) via 857+ CheckFuncs across 24 frameworks, providing continuous validation of CIS safeguard implementations.
+AegisGate's automated compliance engine enforces 15 CIS-specific controls (CIS-1 through CIS-17) via 857+ CheckFuncs across 27 frameworks, providing continuous validation of CIS safeguard implementations.
 
 ---
 
@@ -54,7 +54,7 @@ This assessment covers the AegisGate Security Platform in its production deploym
 
 1. **Safeguard mapping**: Each IG1 safeguard was mapped to AegisGate's architecture, features, and operational capabilities.
 2. **Implementation verification**: Functional claims were validated against product documentation, source code, and deployment specifications.
-3. **Automated assessment**: AegisGate's built-in compliance engine (24 frameworks, 857+ CheckFuncs) was used to verify CIS-specific control implementations.
+3. **Automated assessment**: AegisGate's built-in compliance engine (27 frameworks, 857+ CheckFuncs) was used to verify CIS-specific control implementations.
 4. **Gap analysis**: Any safeguard not fully addressed was documented with remediation guidance. No open gaps were identified in this assessment cycle.
 
 ### Applicability Notes
@@ -104,7 +104,7 @@ Develop processes and technical controls to identify, classify, securely handle,
 
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
-| 9 | 3.1 | **Establish and Maintain a Data Management Process** | AegisGate's compliance engine automates data classification across 24 frameworks with 857+ CheckFuncs. The PII/PHI scanner identifies and classifies sensitive data in-flight using 153+ detection patterns covering SSN, credit card, health plan ID, email, phone, date of birth, and other identifiers. Data classification policies are customer-configurable. | ✅ Implemented |
+| 9 | 3.1 | **Establish and Maintain a Data Management Process** | AegisGate's compliance engine automates data classification across 27 frameworks with 857+ CheckFuncs. The PII/PHI scanner identifies and classifies sensitive data in-flight using 153+ detection patterns covering SSN, credit card, health plan ID, email, phone, date of birth, and other identifiers. Data classification policies are customer-configurable. | ✅ Implemented |
 | 10 | 3.3 | **Configure Data Access Control Lists** | RBAC with least-privilege enforcement controls all data access within AegisGate. MFA is required for administrative access. OIDC/SAML SSO integration maps organizational access policies to gateway permissions. MCP guardrails (8 guardrails) enforce need-to-know restrictions on tool-use interactions. | ✅ Implemented |
 | 11 | 3.4 | **Enforce Data Retention** | AegisGate enforces configurable data retention policies. Audit logs are retained according to customer-defined periods (7/30/90-day defaults by tier). Hash-chained integrity ensures retained data is tamper-evident. Data disposal is automatic per configured retention schedules. | ✅ Implemented |
 | 12 | 3.5 | **Securely Dispose of Data** | AegisGate's container architecture supports clean disposal — container destruction leaves no residual data. Persistent volume data is encrypted with customer-managed AES-256 keys, ensuring data is cryptographically shredded when keys are destroyed. In-flight data is never persisted by AegisGate. | ✅ Implemented |

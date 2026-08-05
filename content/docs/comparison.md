@@ -12,7 +12,7 @@ Choosing an AI security platform means evaluating coverage, accuracy, and operat
 
 | Feature | AegisGate | Rebuff | Protect AI | Lakera |
 |---------|-----------|--------|------------|--------|
-| **ATLAS Coverage** | **52 patterns, 17 categories** | 8-10 patterns | 12-15 patterns | 15-20 patterns |
+| **ATLAS Coverage** | **66 patterns, 17 categories** | 8-10 patterns | 12-15 patterns | 15-20 patterns |
 | **Detection Method** | Regex + heuristic + ML | Regex + ML | ML-first | Regex + ML |
 | **Heuristic Fallback** | ✅ (transposition, vowel deletion, reversal) | ❌ | ❌ | ❌ |
 | **Shadow Mode** | ✅ (zero-risk deployment) | ❌ | ❌ | Partial |
@@ -25,10 +25,19 @@ Choosing an AI security platform means evaluating coverage, accuracy, and operat
 | **ISO 27001 Mapping** | ✅ | ❌ | ❌ | ❌ |
 | **NIST 800-171** | ✅ | ❌ | ❌ | ❌ |
 | **EU AI Act** | ✅ | ❌ | Partial | ✅ |
+| **HIPAA** | ✅ | ❌ | ❌ | ❌ |
+| **PCI-DSS** | ✅ | ❌ | ❌ | ❌ |
+| **CMMC Level 2** | ✅ | ❌ | ❌ | ❌ |
+| **HITRUST CSF** | ✅ | ❌ | ❌ | ❌ |
+| **CIS Controls** | ✅ | ❌ | ❌ | ❌ |
+| **NIST CSF 2.0** | ✅ | ❌ | ❌ | ❌ |
+| **FIPS 140-2/3** | ✅ | ❌ | ❌ | ❌ |
+| **CCPA/CPRA** | ✅ | ❌ | ❌ | ❌ |
 | **Shadow Mode Deployment** | ✅ | ❌ | ❌ | Partial |
 | **FPR (Measured)** | **0.0%** (10,538 benign) | ~2-5% (est.) | ~3-7% (est.) | ~1-3% (est.) |
-| **Evasion Resistance** | **88.5/100** | Not published | Not published | Not published |
-| **ONNX Export** | ✅ (<1ms CPU inference) | N/A | N/A | N/A |
+| **Compliance Frameworks** | **27** (10 Community + 3 Developer + 11 Professional + 3 Enterprise) | 0 | 0-1 | 1-2 |
+| **Evasion Resistance** | **100/100** | Not published | Not published | Not published |
+| **ONNX Export** | ✅ (~5ms CPU inference) | N/A | N/A | N/A |
 | **Open Source** | ✅ (Apache 2.0) | ✅ (MIT) | ❌ (proprietary) | ❌ (proprietary) |
 | **Self-Hosted** | ✅ | ✅ | ❌ | ❌ |
 | **SIEM Integration** | ✅ (10+ platforms) | ❌ | Partial | ✅ (limited) |
@@ -40,10 +49,10 @@ Choosing an AI security platform means evaluating coverage, accuracy, and operat
 
 1. **Only multi-protocol AI security gateway** — HTTP APIs, MCP, A2A, ACP, and response scanning in one platform
 2. **Measured 0% FPR** — tested against 10,538 benign examples including 1,869 near-miss cases
-3. **Compliance-native** — built-in mappings for FedRAMP, SOC 2, ISO 27001, NIST 800-171, and MITRE ATLAS
+3. **Compliance-native** — built-in mappings for 27 compliance frameworks across 4 tiers, including FedRAMP, SOC 2, ISO 27001, NIST 800-171, EU AI Act, and MITRE ATLAS
 4. **Shadow mode deployment** — zero-risk ML deployment with 7-day validation window
 5. **Open source** — Apache 2.0 license, self-hosted, no vendor lock-in
-6. **Incident response automation** — built-in playbooks for 4 compliance frameworks plus ATLAS
+6. **Incident response automation** — built-in playbooks for 27 compliance frameworks plus ATLAS
 
 ## Pricing Context
 

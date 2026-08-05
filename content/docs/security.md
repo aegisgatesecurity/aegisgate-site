@@ -125,18 +125,54 @@ A2A guardrails map directly to MITRE ATLAS adversarial techniques:
 
 ## Compliance Frameworks
 
-AegisGate supports:
+AegisGate provides automated compliance mapping across **27 security and AI governance frameworks** — 10 at the free Community tier, 3 at Developer, 11 at Professional, and 3 at Enterprise. No competitor covers more than 2.
+
+### Community (Free, Apache 2.0) — 10 frameworks
 
 | Framework | Coverage |
 |-----------|----------|
-| MITRE ATLAS | Adversarial AI threat matrix |
-| NIST AI RMF | AI risk management |
+| MITRE ATLAS | Adversarial AI threat matrix (66 technique patterns) |
 | OWASP LLM Top 10 | Large language model vulnerabilities |
-| ISO 27001 | Information security |
-| SOC2 | Security, availability, confidentiality |
+| NIST AI RMF 1.0 | AI risk management framework |
+| GDPR | EU data protection regulation |
+| CIS Controls v8 | Critical security controls baseline |
+| NIST CSF 2.0 | Cybersecurity framework |
+| OWASP Web Top 10 | Web application security risks |
+| CSA STAR Level 1 | Cloud security assurance |
+| NIST AI 600-1 | GenAI risk profile |
+| CCPA/CPRA | California consumer privacy |
+
+### Developer — 3 frameworks
+
+| Framework | Coverage |
+|-----------|----------|
 | HIPAA | Health information protection |
-| GDPR | EU data protection |
-| PCI-DSS | Payment card data security |
+| PCI-DSS v4.0 | Payment card data security |
+| SOC 2 Type II | Security, availability, confidentiality |
+
+### Professional — 11 frameworks
+
+| Framework | Coverage |
+|-----------|----------|
+| ISO/IEC 42001:2023 | AI management system |
+| ISO/IEC 27001:2022 | Information security management |
+| FedRAMP Moderate | US federal cloud authorization |
+| FIPS 140-2/140-3 | Cryptographic module validation |
+| EU AI Act | European AI regulation |
+| CMMC Level 2 | DoD contractor cybersecurity |
+| NIST SP 800-171 | Controlled unclassified information |
+| FERPA | Student education records privacy |
+| SOX | Financial reporting and controls |
+| GLBA | Financial data privacy |
+| NERC CIP | Critical infrastructure protection |
+
+### Enterprise — 3 frameworks
+
+| Framework | Coverage |
+|-----------|----------|
+| HITRUST CSF v11.2 | Health information trust alliance |
+| TISAX AL2 | Automotive information security |
+| CJIS Security Policy v5.9.1 | Criminal justice information systems |
 
 If a compliance framework returns unregistered, AegisGate fails closed — it reports an error and marks the check as failed, rather than silently passing.
 

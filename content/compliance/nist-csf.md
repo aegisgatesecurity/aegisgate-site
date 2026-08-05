@@ -90,8 +90,8 @@ The GOVERN function establishes organizational context, risk management strategy
 
 | NIST ID | Subcategory | AegisGate Implementation | Tier | Status |
 |---|---|---|---|---|
-| GV.OC-01 | Organizational mission is informed by cybersecurity risk | AegisGate's mission — securing AI infrastructure — is the primary driver of product security architecture. Every platform control (857+ CheckFuncs across 24 frameworks) is designed to translate cybersecurity risk requirements into enforceable policy. | 2 | ✅ Implemented |
-| GV.OC-02 | Internal and external stakeholders are identified | Stakeholder map includes: customers (security and platform engineering teams), regulators (via 24 compliance frameworks), AI model providers, and internal engineering. Published security documentation and incident response policy define stakeholder communication channels. | 2 | ✅ Implemented |
+| GV.OC-01 | Organizational mission is informed by cybersecurity risk | AegisGate's mission — securing AI infrastructure — is the primary driver of product security architecture. Every platform control (857+ CheckFuncs across 27 frameworks) is designed to translate cybersecurity risk requirements into enforceable policy. | 2 | ✅ Implemented |
+| GV.OC-02 | Internal and external stakeholders are identified | Stakeholder map includes: customers (security and platform engineering teams), regulators (via 27 compliance frameworks), AI model providers, and internal engineering. Published security documentation and incident response policy define stakeholder communication channels. | 2 | ✅ Implemented |
 | GV.OC-03 | Cybersecurity risk management expectations and requirements are established | Compliance engine enforces risk requirements via 857+ automated CheckFuncs across NIST CSF, SOC 2, HIPAA, PCI-DSS, and 20 additional frameworks. Risk requirements are codified as policy, not advisory guidance. | 3 | ✅ Implemented |
 | GV.OC-04 | Legal and regulatory requirements are understood and managed | Compliance engine provides automated mapping to 24 regulatory frameworks with continuous audit readiness. Legal requirements are translated into enforceable controls. | 2 | ⚠️ Partial |
 
@@ -127,7 +127,7 @@ The IDENTIFY function ensures assets are managed, risks are assessed, and improv
 | NIST ID | Subcategory | AegisGate Implementation | Tier | Status |
 |---|---|---|---|---|
 | ID.AM-01 | Assets are identified and inventoried | AG-ASSET-INVENTORY maintains a comprehensive registry of AI models, API endpoints, and connected services. Inventory is automated and continuously updated through the gateway proxy layer. | 3 | ✅ Implemented |
-| ID.AM-02 | Asset vulnerabilities are identified and managed | Compliance engine runs 857+ automated CheckFuncs including vulnerability-oriented controls across 24 frameworks. 153+ detection patterns identify exposure risks in real time (secrets, PII/PHI, prompt injection vectors, data exfiltration paths). | 3 | ✅ Implemented |
+| ID.AM-02 | Asset vulnerabilities are identified and managed | Compliance engine runs 857+ automated CheckFuncs including vulnerability-oriented controls across 27 frameworks. 153+ detection patterns identify exposure risks in real time (secrets, PII/PHI, prompt injection vectors, data exfiltration paths). | 3 | ✅ Implemented |
 | ID.AM-03 | Asset roles and responsibilities are mapped | RBAC model with MFA enforcement defines clear role boundaries. Six authentication providers (OIDC/SAML SSO) integrate with customer identity infrastructure. Access roles map directly to asset responsibilities. | 3 | ✅ Implemented |
 | ID.AM-04 | Asset interdependencies are understood | AI infrastructure topology is mapped through the gateway proxy. Dependency flows between models, tools, and data sources are explicitly configured and enforced via MCP guardrails (8 guardrails for tool-use security). | 3 | ✅ Implemented |
 | ID.AM-05 | Asset criticality is assigned | Customer-configurable tier system assigns criticality levels. Rate limiting enforces per-tier RPM thresholds. High-criticality workflows receive enhanced monitoring and stricter guardrail enforcement. | 3 | ✅ Implemented |
@@ -137,19 +137,19 @@ The IDENTIFY function ensures assets are managed, risks are assessed, and improv
 
 | NIST ID | Subcategory | AegisGate Implementation | Tier | Status |
 |---|---|---|---|---|
-| ID.RA-01 | Risk assessment process is established | AG-RISK-GOVERNANCE defines the risk assessment methodology. The compliance engine operationalizes risk assessment through continuous automated evaluation of 857+ control checks across 24 frameworks. | 3 | ✅ Implemented |
+| ID.RA-01 | Risk assessment process is established | AG-RISK-GOVERNANCE defines the risk assessment methodology. The compliance engine operationalizes risk assessment through continuous automated evaluation of 857+ control checks across 27 frameworks. | 3 | ✅ Implemented |
 | ID.RA-02 | Threat sources are identified | 153+ detection patterns covering: secrets exposure, PII/PHI leakage, prompt injection attacks, data exfiltration attempts, and tool-use abuse. Detection patterns are continuously updated and validated against emerging threat intelligence. | 3 | ✅ Implemented |
 | ID.RA-03 | Vulnerabilities and their likelihood are assessed | Compliance engine continuously evaluates configuration vulnerabilities and policy violations. Each of the 38 AG-* platform controls includes severity classification and risk scoring. | 3 | ✅ Implemented |
 | ID.RA-04 | Potential impact is identified | Impact assessment is automated: data classification via PII/PHI detection, secrets exposure severity grading, and prompt injection risk scoring. Impact thresholds are customer-configurable. | 3 | ✅ Implemented |
 | ID.RA-05 | Threat and vulnerability information is used | Detection patterns are informed by real-world threat data. 153+ patterns reflect known attack vectors in AI infrastructure, including OWASP LLM Top 10 coverage. | 3 | ✅ Implemented |
 | ID.RA-06 | Risk responses are selected | Automated risk response via the compliance engine: block, redact, alert, or rate-limit based on detection severity. Response actions are policy-driven and fully auditable. | 3 | ✅ Implemented |
-| ID.RA-07 | Risk assessment results are communicated | Audit logs with hash-chained integrity provide tamper-evident risk assessment records. Compliance dashboards communicate findings to stakeholders via 24 framework reports, including 6 NIST CSF controls (NIST-CSF-GOVERN through NIST-CSF-RECOVER). | 3 | ✅ Implemented |
+| ID.RA-07 | Risk assessment results are communicated | Audit logs with hash-chained integrity provide tamper-evident risk assessment records. Compliance dashboards communicate findings to stakeholders via 27 framework reports, including 6 NIST CSF controls (NIST-CSF-GOVERN through NIST-CSF-RECOVER). | 3 | ✅ Implemented |
 
 #### ID.IM — Improvement
 
 | NIST ID | Subcategory | AegisGate Implementation | Tier | Status |
 |---|---|---|---|---|
-| ID.IM-01 | Improvement opportunities are identified | Compliance engine identifies gaps through continuous automated assessment. Failed CheckFuncs generate actionable findings with specific remediation guidance across all 24 frameworks. | 3 | ✅ Implemented |
+| ID.IM-01 | Improvement opportunities are identified | Compliance engine identifies gaps through continuous automated assessment. Failed CheckFuncs generate actionable findings with specific remediation guidance across all 27 frameworks. | 3 | ✅ Implemented |
 | ID.IM-02 | Security and resilience improvements are implemented | Platform updates are delivered as signed container images. ECDSA P-256 license verification ensures only authorized updates are applied. Release process includes security review and vulnerability remediation. | 2 | ✅ Implemented |
 | ID.IM-03 | Improvement results are evaluated | Improvement effectiveness is measured through compliance score trending, detection pattern efficacy metrics, and incident reduction rates. Hash-chained audit logs provide longitudinal evidence of improvement. | 2 | ⚠️ Partial |
 

@@ -56,8 +56,8 @@ Every incoming request first passes through the **Rule-Based Scan**, which is al
 |------|------------|-------------|----------|----------|-----|
 | Full Protection | ✅ | — | ✅ | Highest | ~0% |
 | Shadow Mode | ✅ | ✅ | — | Highest | 0% (logs only) |
-| Rules Only | — | — | — | 88.5/100 | 0% |
-| Cold Start | — | ✅ | — | 88.5/100 | 0% |
+| Rules Only | — | — | — | 88.5/100 (100/100 with ML) | 0% |
+| Cold Start | — | ✅ | — | 88.5/100 (100/100 with ML) | 0% |
 
 ### Mode Descriptions
 
@@ -141,11 +141,11 @@ export AEGIS_ML_SHADOW_MODE=false
 | Component | Latency | CPU | Memory |
 |-----------|---------|-----|--------|
 | Rule-based scan | <1ms | <1% | ~2MB |
-| ML threat scan | <1ms | ~2% | ~50MB (ONNX model) |
+| ML threat scan | ~5ms | ~2% | ~50MB (ONNX model) |
 | Shadow mode logging | <0.1ms | <0.5% | ~5MB |
 | Total (full protection) | <2ms | ~3% | ~55MB |
 
-The ONNX Runtime-based ML inference engine is optimized for minimal latency impact. Even in full protection mode, total request processing adds less than 2ms to latency.
+The ONNX Runtime-based ML inference engine is optimized for minimal latency impact. Even in full protection mode, total request processing adds ~5ms to latency (4.78ms avg inference, measured across 10,538 benign + 100 adversarial samples).
 
 ---
 

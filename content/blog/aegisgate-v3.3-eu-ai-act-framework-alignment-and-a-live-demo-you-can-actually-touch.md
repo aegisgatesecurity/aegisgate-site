@@ -46,7 +46,7 @@ AegisGate v3.3 is built to be a different kind of compliance tool — one that d
 
 The v3.3 release adds a dedicated **EU AI Act Compliance Module** to the AegisGate platform. It's a **licensed add-on** — gated to **Professional+ tier at $99/mo** (founder-locked pricing through 2027-06-06) — and it ships with the implementation that the documentation-only tools don't have.
 
-The module is the **7th compliance framework** in the platform, joining HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, and FIPS 140-2/140-3. It's wired into the existing Compliance Scan Engine — the same engine that runs your HIPAA and PCI scans today.
+The module is part of the **27 compliance frameworks** in the platform, joining HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, and FIPS 140-2/140-3. It's wired into the existing Compliance Scan Engine — the same engine that runs your HIPAA and PCI scans today.
 
 **Coverage**: 82 controls across 8 categories, mapped to the Act's actual structure:
 
