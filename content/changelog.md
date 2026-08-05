@@ -199,7 +199,7 @@ _Released 2026-06-08. This is a code-content fix, not a security fix. v3.3.0-bet
 
 ### v3.3.0-beta.1 - 2026-06-08 - EU AI Act Beta (Superseded)
 
-> **Note:** This release was superseded by [v3.3.0-beta.2](#v330-beta2---2026-06-08---eu-ai-act-beta-integrity-hotfix-) on the same day (2026-06-08) due to a release-integrity gap: the EU AI Act sub-package and related work were advertised in the CHANGELOG but had not been merged to `main` at the time of the v3.3.0-beta.1 tag. The v3.3.0-beta.1 tag is preserved at SHA `64d0ab5` for historical record; do not use it. Use [v3.3.0-beta.2](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2) instead.
+> **Note:** This release was superseded by [v3.3.0-beta.2](#v330-beta2---2026-06-08---eu-ai-act-beta-integrity-hotfix) on the same day (2026-06-08) due to a release-integrity gap: the EU AI Act sub-package and related work were advertised in the CHANGELOG but had not been merged to `main` at the time of the v3.3.0-beta.1 tag. The v3.3.0-beta.1 tag is preserved at SHA `64d0ab5` for historical record; do not use it. Use [v3.3.0-beta.2](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2) instead.
 
 
 ### v3.5.0 - 2026-07-28 - Compliance Engine v2, gRPC, Trust API, SIEM, SSO Persistence 🏛️

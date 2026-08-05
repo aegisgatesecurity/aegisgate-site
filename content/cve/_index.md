@@ -48,7 +48,7 @@ offline (no AegisGate server required).
 
 **References:**
 - [Anthropic's prompt engineering guide on system prompts](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering)
-- [MITRE ATLAS T0018 (LLM Prompt Injection: Direct)](https://atlas.mitre.org/techniques/technique-id/T0018)
+- [MITRE ATLAS T0018 (LLM Prompt Injection: Direct)](https://atlas.mitre.org/)
 
 ---
 

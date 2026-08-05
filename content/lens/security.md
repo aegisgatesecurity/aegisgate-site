@@ -120,7 +120,7 @@ If a future version adds a TinyML model, the bundle signing and provenance flow 
 We follow [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116) for vulnerability disclosure. The policy is published at:
 
 - `https://aegisgatesecurity.io/.well-known/security.txt`
-- `https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/.well-known/security.txt`
+- `https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/.well-known/security.txt`
 
 **Contact**: `security@aegisgatesecurity.io`
 
@@ -180,4 +180,4 @@ For these threats, use a defense-in-depth approach:
 - [Architecture](/lens/architecture/) — how the 4-facet detection works
 - [Lens SECURITY.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/docs/SECURITY.md)
 
-Report vulnerabilities to `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/.well-known/security.txt)).
+Report vulnerabilities to `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/.well-known/security.txt)).

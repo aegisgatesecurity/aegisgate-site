@@ -60,7 +60,7 @@ AegisGate Lens **never** sends or stores:
 If we ever change any of these, the change will be:
 - Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/docs/SECURITY.md)
 - Disclosed in the release notes
-- Announced via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
+- Announced via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 - Reversible (the change is in the source code, which you can fork)
 
 ---
@@ -159,7 +159,7 @@ AegisGate Lens is not intended for children under 13 (or the applicable age of d
 This policy may be updated as Lens evolves. The current version is always at this URL. We will:
 - Update the "Last updated" date
 - Add an entry to the [Lens CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/CHANGELOG.md) for material changes
-- Announce material changes via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
+- Announce material changes via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 
 ---
 
@@ -167,7 +167,7 @@ This policy may be updated as Lens evolves. The current version is always at thi
 
 - **Privacy questions**: `privacy@aegisgatesecurity.io`
 - **Security disclosures**: `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/.well-known/security.txt) per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116))
-- **General questions**: the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
+- **General questions**: the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 - **PGP key**: see [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/docs/SECURITY.md)
 
 ---

@@ -104,7 +104,7 @@ Any disputes arising under these ToS shall be resolved in the courts of the Stat
 ## 11. Changes to These Terms
 
 We may update these ToS from time to time. Material changes will be announced via:
-- A notice on the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
+- A notice on the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 - An update to the "Last updated" date on this page
 
 Continued use of the Lens after changes take effect constitutes acceptance of the updated ToS.
@@ -119,7 +119,7 @@ These ToS, together with the [Privacy Policy](/lens/privacy/) and the [Apache 2.
 
 ## 14. Contact
 
-- **General questions:** [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
+- **General questions:** [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 - **Security disclosures:** security@aegisgatesecurity.io
 - **Privacy:** privacy@aegisgatesecurity.io
 - **Legal:** legal@aegisgatesecurity.io

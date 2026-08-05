@@ -146,4 +146,4 @@ See [full pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-compare
 
 ---
 
-**Questions?** Email `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/.well-known/security.txt) for the disclosure policy).
+**Questions?** Email `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/.well-known/security.txt) for the disclosure policy).
