@@ -159,8 +159,11 @@
         var acceptBtn = document.getElementById('cookie-btn-accept');
         // if (acceptBtn) acceptBtn.focus(); // Disabled - prevents scroll jump on load
 
-        // Prevent scrolling behind overlay
-        document.body.style.overflow = 'hidden';
+        // NOTE: We intentionally do NOT set document.body.style.overflow = 'hidden'
+        // here. Doing so locks the entire page scroll, which causes a "can't scroll"
+        // bug if the banner overlay fails to render visually but the JS has already
+        // executed. The overlay itself uses position:fixed with overflow-y:auto,
+        // which is sufficient to block interaction with the page behind it.
     }
 
     function hideBanner() {
@@ -168,6 +171,8 @@
         if (overlay) {
             overlay.remove();
         }
+        // Restore scrolling (no-op if we didn't lock it, but safe belt-and-suspenders)
+        // Clear any stray overflow style that might have been set by an older version
         document.body.style.overflow = '';
     }
 
