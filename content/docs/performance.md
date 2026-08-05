@@ -1,0 +1,48 @@
+---
+title: Performance
+description: AegisGate Platform performance benchmarks, latency metrics, throughput capacity, and resource requirements for production deployments.
+weight: 430
+---
+
+## Performance
+
+AegisGate is engineered for minimal latency impact while providing comprehensive security enforcement.
+
+### Latency Benchmarks
+
+| Operation | p50 | p95 | p99 |
+|-----------|-----|-----|-----|
+| Prompt screening (regex) | <1ms | 2ms | 5ms |
+| Prompt screening (ML) | 4ms | 8ms | 12ms |
+| Response filtering | <1ms | 2ms | 5ms |
+| Full pipeline (regex + ML) | 5ms | 10ms | 18ms |
+| Configuration reload | <1ms | — | — |
+
+### Throughput
+
+| Metric | Value |
+|--------|-------|
+| Requests/second (single core) | 50,000+ |
+| Requests/second (8-core) | 400,000+ |
+| Concurrent connections | 100,000+ |
+| Memory footprint (idle) | 34.7MB |
+| Memory footprint (screening) | ~50MB |
+
+### Resource Requirements
+
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
+| CPU | 1 core | 4+ cores |
+| RAM | 128MB | 512MB |
+| Disk | 100MB | 1GB |
+| Network | 10Mbps | 100Mbps |
+
+### Docker Image
+
+The AegisGate container image is **34.7MB** with zero external dependencies — no Python, no Java, no Node.js runtime. Just a single statically-linked Go binary.
+
+```bash
+docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+```
+
+_See also: [Installation](/docs/installation/) and [Configuration](/docs/configuration/)._
