@@ -64,10 +64,23 @@ jobs:
       - name: Build site for checking
         run: hugo --minify --baseURL https://aegisgatesecurity.io/
 
+      - name: Serve site locally
+        run: |
+          npx -y serve public/ -p 1313 -s -l tcp://127.0.0.1:1313 > /tmp/serve.log 2>&1 &
+          # Wait for server to be ready (up to 30s)
+          for i in $(seq 1 30); do
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:1313/ 2>/dev/null | grep -q "200"; then
+              echo "✅ Site serving on http://localhost:1313"
+              break
+            fi
+            echo "Waiting for server... ($i)"
+            sleep 1
+          done
+
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --base-url https://aegisgatesecurity.io --include-fragments --no-progress public/**/*.html
+          args: --base-url http://localhost:1313 --include-fragments --no-progress public/**/*.html
           fail: true
           jobSummary: true
 
