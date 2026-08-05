@@ -67,7 +67,7 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --base-dir public/ --include-fragments --no-progress public/**/*.html
+          args: --include-fragments --no-progress public/**/*.html
           fail: true
           jobSummary: true
 
