@@ -1,8 +1,7 @@
 {{ define "main" }}
-<div class="docs-layout">
-    {{ partial "docs-sidebar.html" . }}
-    <div class="docs-content">
+<div class="container">
+    <article class="page-content">
         {{ .Content }}
-    </div>
+    </article>
 </div>
 {{ end }}
