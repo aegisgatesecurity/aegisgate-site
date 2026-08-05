@@ -141,7 +141,7 @@ All CDN resources include SRI hashes:
 
 ### Local Development
 ```bash
-cd /home/chaos/Desktop/AegisGate/websites/aegisgate-site
+cd aegisgate-site
 hugo server --port 1313 --disableFastRender
 # Open http://localhost:1313
 ```
