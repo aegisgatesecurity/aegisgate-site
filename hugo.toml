@@ -6,7 +6,7 @@ title = "AegisGate Security Platform™ — Secure Every AI Interaction"
 # Site params
 [params]
   description = "The only AI security gateway with six pillars of AI security (HTTP API, MCP, A2A, ACP, RESPONSE, Trust Framework), MITRE ATLAS enforcement, the EU AI Act Compliance Module, and zero external dependencies. Deploy in 60 seconds."
-  version = "v3.6.2"
+  version = "v4.0.0"
   goVersion = "1.26.5+"
   dockerSize = "34.7MB"
   coverage = "87%+"

@@ -8,6 +8,25 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.0.0 - 2026-08-04 - ML Threat Detection 🔒
+
+> **v4.0.0** adds neural network-based threat detection as a supplementary layer alongside the existing regex scanner. The Char CNN-BiLSTM model (1.58M params, 6.2MB ONNX) achieves 100/100 evasion resistance with 0% false positive rate on benign traffic and ~6ms inference latency.
+
+**ML Threat Detection:**
+- Char CNN-BiLSTM neural network (1.58M params, 6.2MB ONNX, opset 18)
+- 100/100 evasion resistance — catches transposition, vowel deletion, word reversal, character substitution
+- 0% false positive rate on benign traffic (calibrated threshold)
+- ~6ms inference latency per request
+- CGO build-tag architecture: ONNX inference when CGO enabled, heuristic-only fallback when CGO disabled
+- Auto-discovery of onnxruntime shared library (config → env → venv → system paths)
+- Adversarial robustness testing (PGD + FGSM attack simulation)
+- Data drift monitoring (PSI + KL-divergence across 4 feature dimensions)
+- A/B testing framework for detector configuration comparison
+- Cold-start deployment runbook (shadow mode → 7-day validation → enable blocking)
+- 10,983 tests passing, 0 failures, 0 race conditions
+
+---
+
 ### v3.6.2 - 2026-08-02 - Persistence, SIEM Coverage, Performance, Bug Fixes 🔒
 
 > **v3.6.2** closes all remaining persistence and SIEM gaps. Incident PostgreSQL backend (3 stores, 1,157 LOC), SIEM event durability, reporting delivery (Webhook + SMTP), CSV data export, 3 new SIEM clients (Datadog, CloudWatch, SecurityHub → 11/11 platform coverage), and 2 tenant-management bug fixes.

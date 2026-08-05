@@ -39,7 +39,7 @@ Choose the coverage that matches your compliance needs.
 | **Policy Engine** | ❌ | ❌ | ✅ | ✅ |
 | **ML Anomaly Detection** | Basic | Advanced | Behavioral | Custom |
 | **K8s / Helm** | ❌ | ❌ | ✅ | ✅ |
-| **Trust Framework (v3.6.2)** | ❌ | ❌ | ✅ | ✅ |
+| **Trust Framework (v4.0.0)** | ❌ | ❌ | ✅ | ✅ |
 | **Compliance Scan API** | ❌ | ✅ | ✅ | ✅ |
 | **Support** | Community | Priority email | Priority | Dedicated |
 

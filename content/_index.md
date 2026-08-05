@@ -6,7 +6,7 @@ type: "landing"
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Version-v3.6.2-blue?logo=semver" alt="Version"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Version-v4.0.0-blue?logo=semver" alt="Version"></a>
     <a href="https://golang.org/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Go-1.26.5+-00ADD8?logo=go" alt="Go"></a>
     <img src="https://img.shields.io/badge/Coverage-87%25+-green?logo=codecov" alt="Coverage">
     <img src="https://img.shields.io/badge/Docker-34.7MB-2496ED?logo=docker" alt="Docker">
@@ -19,7 +19,7 @@ type: "landing"
     <img src="https://img.shields.io/badge/p99 latency-2.8ms-00ADD8?logo=amd" alt="p99 latency">
     <img src="https://img.shields.io/badge/sustained RPS-15,645-00ADD8?logo=amd" alt="sustained RPS">
     <img src="https://img.shields.io/badge/uptime-99.9%25-00ADD8?logo=uptime" alt="uptime">
-    <img src="https://img.shields.io/badge/tests-11,200+-00ADD8?logo=jest" alt="test coverage">
+    <img src="https://img.shields.io/badge/tests-10,983+-00ADD8?logo=jest" alt="test coverage">
 </div>
 
 <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="hero-demo-btn">🚀 Try the Live Demo</a>
@@ -28,11 +28,11 @@ type: "landing"
 <p class="hero-description">The only AI security gateway with six pillars of AI security (HTTP API, MCP, A2A, ACP, RESPONSE, Trust Framework), MITRE ATLAS enforcement, the EU AI Act Compliance Module, and zero external dependencies. Deploy in 60 seconds.</p>
 
 <div class="alert alert-info alert-center">
-<strong>🇪 NEW in v3.6.2:</strong> 11/11 SIEM platforms (Datadog + CloudWatch + SecurityHub), Incident PostgreSQL backend, SIEM event durability, reporting delivery (Webhook + SMTP), CSV data export. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" rel="noopener noreferrer">v3.6.2 release notes →</a>
+<strong>🧠 NEW in v4.0.0:</strong> ML Threat Detection — Char CNN-BiLSTM neural network (1.58M params, 6.2MB ONNX) achieves <strong>100/100 evasion resistance</strong> with <strong>0% false positive rate</strong> and ~6ms inference latency. Supplementary layer that catches what regex misses. <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer">v4.0.0 release notes →</a>
 </div>
 
 <div class="alert alert-success alert-center">
-<strong>🔒 v3.6.2:</strong> 11/11 SIEM platforms · Incident PostgreSQL backend · SIEM event durability · Webhook + Email reporting · CSV export · Zero-cost proxy (-2.8ms p99) · 102 packages, 0 failures
+<strong>🔒 v4.0.0:</strong> ML Threat Detection · 100/100 evasion resistance · 0% FPR · ~6ms latency · CGO build tags · Adversarial robustness (PGD/FGSM) · Drift monitoring · 10,983 tests, 0 failures
 </div>
 
 <div class="card-grid card-grid-2x2">
@@ -117,6 +117,15 @@ type: "landing"
 <li>CEF, LEEF, JSON, Syslog RFC 5424, CSV formats</li>
 </ul>
 </div>
+<div class="card" style="border-color:#22c55e;">
+<h3>🧠 ML Threat Detection <span class="badge">NEW v4.0.0</span></h3>
+<ul>
+<li>Char CNN-BiLSTM neural network (1.58M params, 6.2MB ONNX)</li>
+<li>100/100 evasion resistance, 0% false positive rate</li>
+<li>~6ms inference latency — supplementary layer, never overrides regex</li>
+<li>Adversarial robustness testing (PGD + FGSM), drift monitoring (PSI + KL)</li>
+</ul>
+</div>
 </div>
 
 <div class="cta-grid-compact">
@@ -135,14 +144,14 @@ type: "landing"
 </div>
 
 <div class="cta-card-compact">
-<h3>📦 Download v3.6.2</h3>
+<h3>📦 Download v4.0.0</h3>
 <p>Deploy the latest release in your infrastructure</p>
 <ul>
 <li>Single binary: 34.7 MB</li>
 <li>Docker: ghcr.io/aegisgatesecurity</li>
 <li>Apache 2.0 licensed</li>
 </ul>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.6.2" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-secondary" style="min-width:auto;padding:0.75rem 1.5rem;margin-top:1rem;">
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-secondary" style="min-width:auto;padding:0.75rem 1.5rem;margin-top:1rem;">
 <span class="cta-text" style="font-size:0.95rem;">Download →</span>
 </a>
 </div>
@@ -674,7 +683,7 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.2</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0</pre>
 </div>
 
 <div class="command-box">
@@ -714,7 +723,7 @@ curl http://localhost:8443/health</pre>
 <tr>
 <td class="metric-label">Sustained RPS</td>
 <td class="metric-value">15,645</td>
-<td class="metric-note">v3.6.2 benchmark</td>
+<td class="metric-note">v4.0.0 benchmark</td>
 </tr>
 <tr>
 <td class="metric-label">Proxy Overhead p99</td>

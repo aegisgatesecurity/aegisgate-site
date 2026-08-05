@@ -24,7 +24,7 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v3.6.2
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
 ```
 
 ### Verify Installation
