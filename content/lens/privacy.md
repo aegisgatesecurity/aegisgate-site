@@ -166,7 +166,7 @@ This policy may be updated as Lens evolves. The current version is always at thi
 ## Contact
 
 - **Privacy questions**: `privacy@aegisgatesecurity.io`
-- **Security disclosures**: `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/.well-known/security.txt) per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116))
+- **Security disclosures**: `security@aegisgatesecurity.io` (see [`SECURITY.md`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md) per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116))
 - **General questions**: the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 - **PGP key**: see [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/docs/SECURITY.md)
 

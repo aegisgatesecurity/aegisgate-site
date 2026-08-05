@@ -84,7 +84,7 @@ Lens **never** sends or stores:
 If we ever change any of these, the change will be:
 - Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/docs/SECURITY.md)
 - Disclosed in the release notes
-- Announced via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/discussions)
+- Announced via the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 
 ---
 
@@ -114,4 +114,4 @@ See [pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-enterprise-c
 
 ---
 
-**Built with privacy by the [AegisGate Security](https://aegisgatesecurity.io) team.** Report vulnerabilities to `security@aegisgatesecurity.io` (see [`.well-known/security.txt`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/.well-known/security.txt) for the disclosure policy per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)).
+**Built with privacy by the [AegisGate Security](https://aegisgatesecurity.io) team.** Report vulnerabilities to `security@aegisgatesecurity.io` (see [`SECURITY.md`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md) for the disclosure policy per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)).
