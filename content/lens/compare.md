@@ -9,16 +9,16 @@ weight: 10
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.2.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.3.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
-<li><strong>8 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok</li>
-<li><strong>151 regex patterns</strong> across <strong>4 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (43)</li>
-<li><strong>734 automated tests</strong>: 431/431 Node + 146 secrets + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke (5/5 stable runs)</li>
-<li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
-<li><strong>Sub-millisecond detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts)</li>
+<li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
+<li><strong>5 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (43), ML adversarial (1 Char CNN-BiLSTM model) — 151 regex patterns + on-device ML</li>
+<li><strong>504 automated tests</strong>: 492/492 Node + 12/12 ML perf/stress</li>
+<li><strong>100% adversarial detection</strong> (10/10 prompt injections caught by ML model); <strong>2.31% regex FPR</strong> on 6,500 WildChat prompts</li>
+<li><strong>~0.3ms regex + ~5ms ML</strong> (regex p50 0.076ms; ML ~5ms in Chrome, pure JS, no WASM)</li>
 <li><strong>100% on-device</strong>, zero network egress by default</li>
-<li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
+<li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies, zero WASM binaries</li>
 <li><strong>Free, forever</strong></li>
 </ul>
 </div>
@@ -43,8 +43,8 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 |---------|:---------------------------:|:----------------------------------:|
 | **Price** | Free, forever | Free (Community) / $79/mo (Developer) / custom (Enterprise) |
 | **Account required** | ❌ No | ✅ Yes |
-| **Browser-side AI provider protection** (PII, secrets, XSS, compliance in ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok) | ✅ All 4 facets | ✅ All 4 facets (same corpus) |
-| **4-facet detection** (PII / Secrets / XSS / Compliance). v0.2.0 expands compliance to 43 patterns. | ✅ | ✅ |
+| **Browser-side AI provider protection** (PII, secrets, XSS, compliance, adversarial ML in ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI) | ✅ All 5 facets | ✅ All 5 facets (same corpus) |
+| **5-facet detection** (PII / Secrets / XSS / Compliance / ML Adversarial). v0.3.0 adds on-device ML. | ✅ | ✅ |
 | **Privacy: no prompt text, no URLs, no page content sent** | ✅ | ✅ |
 | **Local processing** (no server round-trip for default detection) | ✅ | ✅ |
 | **Ed25519-signed extension bundle + GitHub Actions provenance** | ✅ | ✅ |
@@ -104,14 +104,14 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 - **Platform**: Self-hosted Docker container (34.7MB). Sits between your AI services and clients. Detection runs in the gateway. Bundle signed with Ed25519, distributed via GitHub Releases.
 
 ### Detection corpus
-Both products share the same detection corpus (the 4-facet taxonomy: PII, secrets, XSS, compliance). When a new threat is added to one, it's added to the other.
+Both products share the same detection corpus (the 5-facet taxonomy: PII, secrets, XSS, compliance, adversarial ML). When a new threat is added to one, it's added to the other.
 
 ### Privacy model
 - **Lens**: Privacy-by-default. No telemetry unless explicitly opted in. 12 non-negotiables (see [Lens homepage](/lens/)).
 - **Platform**: Privacy-by-default for detection. Logging is opt-in (Enterprise tier).
 
 ### Test coverage
-- **Lens**: 734 automated tests (431/431 Node + 146 secrets + 3/3 Go + 16/16 headless smoke + 128/128 mini-smoke in real Chrome, 5/5 stable runs). Zero external dependencies.
+- **Lens**: 504 automated tests (492/492 Node + 12/12 ML perf/stress). Zero external dependencies, zero WASM binaries.
 - **Platform**: 5,484 tests, 97.8% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
 
 ### Source code
