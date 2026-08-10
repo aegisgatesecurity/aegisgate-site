@@ -73,7 +73,7 @@ Please include as much of the following as possible:
 | Product | Scope |
 |---------|-------|
 | **AegisGate Platform** | All code in `aegisgate-platform` repository, including API, CLI, compliance modules, and Docker images |
-| **AegisGate Lens** | All code in `aegisgate-lens` repository, including the Chrome extension and backend |
+| **AegisGate Lens** | All code in `aegisgate-lens` repository, including the browser extension and backend |
 | **aegisgatesecurity.io** | The corporate website (Hugo static site) |
 | **Infrastructure** | DNS, TLS certificates, and publicly accessible endpoints |
 

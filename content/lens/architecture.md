@@ -117,7 +117,7 @@ All detection is **synchronous** — the user gets the result before they can se
 
 ## Ed25519 Commit Signing
 
-All commits to the AegisGate Lens repository are signed with Ed25519 SSH keys (per [GitHub's signing docs](https://docs.github.com/en/authentication/managing-commit-signature-verification)). The Chrome extension `.zip` is built by GitHub Actions and distributed via the Chrome Web Store, which verifies the package on install.
+All commits to the AegisGate Lens repository are signed with Ed25519 SSH keys (per [GitHub's signing docs](https://docs.github.com/en/authentication/managing-commit-signature-verification)). The browser extension `.zip` is built by GitHub Actions and distributed via the Chrome Web Store and Firefox Add-ons (AMO), both of which verify the package on install.
 
 To verify commits locally:
 

@@ -30,8 +30,8 @@ Two products from the same security team, designed for different deployment poin
 
 ## TL;DR
 
-- **[AegisGate Lens](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** is a **free Chrome extension** that protects **end users** browsing AI tools. Browser-level. No account. Privacy-first.
-- **[AegisGate Platform](https://aegisgatesecurity.io/?utm_source=lens-compare)** is an **enterprise gateway** that protects **servers and teams** running AI tools. Server-level. Per-team pricing. Central policy + analytics.
+- **[AegisGate Lens](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** is a **free browser extension** ([also on Firefox](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/)) that protects **end users** browsing AI tools. Browser-level. No account. Privacy-first.
+- **[AegisGate Platform](/platform/)** is an **enterprise gateway** that protects **servers and teams** running AI tools. Server-level. Per-team pricing. Central policy + analytics.
 
 Use **Lens alone** if you're an individual developer, security researcher, journalist, or privacy-conscious user. Use **Platform alone** if you're running AI in production at a company and need central policy + audit + compliance. Use **both** if you want every layer protected (Lens for users, Platform for servers).
 
@@ -112,7 +112,7 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 
 ### Test coverage
 - **Lens**: 504 automated tests (492/492 Node + 12/12 ML perf/stress). Zero external dependencies, zero WASM binaries.
-- **Platform**: 5,484 tests, 97.8% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
+- **Platform**: 11,300+ tests, 97.8% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
 
 ### Source code
 - **Lens**: [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens) — Apache 2.0
@@ -133,15 +133,15 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 | Professional | $499/mo | Compliance (HIPAA, PCI, SOC 2, EU AI Act) |
 | Enterprise | Custom | Self-hosted, SLA, 24/7 support |
 
-See [full pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-compare) for details.
+See [full pricing](/pricing/) for details.
 
 ---
 
 ## Get started
 
 - 🛡️ **[Install Lens from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** — one click, no account
-- 🐙 **[Deploy Platform](https://aegisgatesecurity.io/docs/getting-started/?utm_source=lens-compare)** — `docker run` in 60 seconds
-- ⚖️ **[Compare side-by-side](https://aegisgatesecurity.io/pricing/?utm_source=lens-compare)** — pricing details
+- 🐙 **[Deploy Platform](/docs/getting-started/)** — `docker run` in 60 seconds
+- ⚖️ **[Compare side-by-side](/pricing/)** — pricing details
 - 📧 **[Contact sales](mailto:sales@aegisgatesecurity.io)** for Enterprise questions
 
 ---

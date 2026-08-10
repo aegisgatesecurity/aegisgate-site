@@ -61,9 +61,9 @@ To verify a commit locally:
 git log --show-signature
 ```
 
-## Chrome Web Store Distribution
+## Browser Store Distribution
 
-The Chrome extension `.zip` is distributed via the Chrome Web Store. Chrome verifies the package on install and provides automatic updates. The `.zip` is built from the `main` branch.
+The extension `.zip` is distributed via the Chrome Web Store and Firefox Add-ons (AMO). Both browsers verify the package on install and provide automatic updates. The `.zip` is built from the `main` branch.
 
 ## Content Security Policy (CSP)
 

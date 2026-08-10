@@ -625,6 +625,25 @@ pre, code {
     font-size: 0.875rem;
 }
 
+/* Highlight wrapper - global positioning context for copy buttons */
+.highlight {
+    position: relative;
+    background: #1a1a2e;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+.highlight pre {
+    padding: 1.25rem;
+    margin: 0;
+    overflow-x: auto;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
 pre {
     background: var(--terminal-bg);
     border: 1px solid var(--border-color);
@@ -2020,7 +2039,28 @@ table.comparison-table img[src*="europeanunion"],
   color: #38bdf8;
 }
 
-/* Copy Button for Code Blocks */
+/* Copy Button for Code Blocks - Global (applies to all pages) */
+.highlight .copy-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  color: #38bdf8;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.highlight .copy-btn:hover {
+  background: rgba(56, 189, 248, 0.3);
+  border-color: #38bdf8;
+}
+
+/* Docs-specific copy button (inherits from global) */
 .docs-content .highlight .copy-btn {
   position: absolute;
   top: 0.75rem;

@@ -10,7 +10,7 @@ weight: 4
 **Last updated**: 2026-07-29
 **Effective for**: AegisGate Lens v0.2.0 and later
 **Licensor:** AegisGate Security, LLC ("AegisGate", "we", "us")
-**Licensee:** End user of the AegisGate Lens Chrome extension ("you", "your")
+**Licensee:** End user of the AegisGate Lens browser extension ("you", "your")
 
 These Terms of Service ("ToS") govern your use of the AegisGate Lens Chrome browser extension. By installing or using the Lens, you agree to these ToS.
 

@@ -1,9 +1,9 @@
 ---
 title: "AegisGate Lens — Free Privacy-First Browser Protection for AI Tools"
-description: "Free, privacy-first Chrome extension that protects users across 10 AI providers with 5-facet detection (PII, secrets, XSS, compliance, adversarial ML). 504 automated tests. 151 regex patterns + 1 ML model. Zero external dependencies. No account required."
+description: "Free, privacy-first browser extension that protects users across 10 AI providers with 5-facet detection (PII, secrets, XSS, compliance, adversarial ML). 504 automated tests. 151 regex patterns + 1 ML model. Zero external dependencies. No account required. Available for Chrome and Firefox."
 type: "landing"
 ---
-> **🆕 AegisGate Lens v0.3.0 is LIVE** — ML threat detection, DeepSeek & Meta AI support, 6× smaller extension, stricter CSP. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever, 10 AI providers).
+> **🆕 AegisGate Lens v0.3.0 is LIVE** — ML threat detection, DeepSeek & Meta AI support, 6× smaller extension, stricter CSP. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever, 10 AI providers). Also available on [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/).
 
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/ -->
 <!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
@@ -27,13 +27,14 @@ type: "landing"
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate Lens</strong> is <strong>free and stays free</strong> for individual use. No account required. No prompt text ever sent to any server. <a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" class="btn btn-primary" style="margin-left:12px">Install from Chrome Web Store →</a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" class="btn btn-primary" style="margin-left:12px">Install from Firefox Add-ons →</a>
 </div>
 
 ## 🛡️ AegisGate Lens — Privacy-First Browser Protection for AI Tools
 
-AegisGate Lens is a free Chrome extension that detects PII (SSN, email, phone, credit card), secrets (API keys, tokens, private keys), XSS payloads, compliance violations (OWASP LLM Top 10, MITRE ATLAS, EU AI Act), and **adversarial prompt injections** (instruction override, roleplay injection, obfuscated commands) in real time as you type into ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, and Meta AI. All processing happens **locally in your browser** — no account, no telemetry, no data exfiltration.
+AegisGate Lens is a free browser extension (Chrome and Firefox) that detects PII (SSN, email, phone, credit card), secrets (API keys, tokens, private keys), XSS payloads, compliance violations (OWASP LLM Top 10, MITRE ATLAS, EU AI Act), and **adversarial prompt injections** (instruction override, roleplay injection, obfuscated commands) in real time as you type into ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, and Meta AI. All processing happens **locally in your browser** — no account, no telemetry, no data exfiltration.
 
-The same security team behind [AegisGate Platform™](https://aegisgatesecurity.io/?utm_source=lens-homepage) (the enterprise gateway) builds Lens as the consumer-facing layer. The two products share the same detection corpus, the same MITRE ATLAS mapping, and the same privacy commitments. See [Lens vs Platform](/lens/compare/) for the side-by-side comparison.
+The same security team behind [AegisGate Platform™](/platform/) (the enterprise gateway) builds Lens as the consumer-facing layer. The two products share the same detection corpus, the same MITRE ATLAS mapping, and the same privacy commitments. See [Lens vs Platform](/lens/compare/) for the side-by-side comparison.
 
 ---
 
@@ -103,6 +104,7 @@ If we ever change any of these, the change will be:
 ## Try it
 
 - 🛡️ **[Install from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** — one click, no account
+- 🦊 **[Install from Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/)** — one click, no account
 - 🐙 **[Lens on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens)** — Apache 2.0, 504 tests, zero external dependencies
 - 📜 **[Privacy Policy](/lens/privacy/)** — the full text of what Lens does and doesn't collect
 - 🏗️ **[Architecture](/lens/architecture/)** — how the 5-facet detection system works
@@ -114,7 +116,7 @@ If we ever change any of these, the change will be:
 
 ## For enterprise teams
 
-AegisGate Lens is the consumer-facing layer. The same team builds [AegisGate Platform™](https://aegisgatesecurity.io/?utm_source=lens-enterprise-cta) — the server-side gateway that adds central policy management, team-wide analytics, MCP/A2A/ACP/RESPONSE protection, the Trust Framework, MITRE ATLAS enforcement, OWASP LLM Top-10, the EU AI Act Compliance Module, and SIEM export. The two products share the detection corpus.
+AegisGate Lens is the consumer-facing layer. The same team builds [AegisGate Platform™](/platform/) — the server-side gateway that adds central policy management, team-wide analytics, MCP/A2A/ACP/RESPONSE protection, the Trust Framework, MITRE ATLAS enforcement, OWASP LLM Top-10, the EU AI Act Compliance Module, and SIEM export. The two products share the detection corpus.
 
 | Use case | Recommendation |
 |----------|----------------|
@@ -122,8 +124,8 @@ AegisGate Lens is the consumer-facing layer. The same team builds [AegisGate Pla
 | Teams of 2-10 who need a shared detection policy | **Lens + Platform Developer** ($79/mo) |
 | Enterprises needing SIEM, compliance modules, central policy | **Platform Professional or Enterprise** (custom) |
 
-See [pricing](https://aegisgatesecurity.io/pricing/?utm_source=lens-enterprise-cta) for details.
+See [pricing](/pricing/) for details.
 
 ---
 
-**Built with privacy by the [AegisGate Security](https://aegisgatesecurity.io) team.** Report vulnerabilities to `security@aegisgatesecurity.io` (see [`SECURITY.md`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md) for the disclosure policy per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)).
+**Built with privacy by the [AegisGate Security](/) team.** Report vulnerabilities to `security@aegisgatesecurity.io` (see [`SECURITY.md`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md) for the disclosure policy per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)).

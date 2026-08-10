@@ -1,11 +1,11 @@
 baseURL = "https://aegisgatesecurity.io/"
 languageCode = "en-us"
-title = "AegisGate Security Platform™ — Secure Every AI Interaction"
+title = "AegisGate — Secure Every AI Interaction"
 # theme = "aegisgate" (deprecated)
 
 # Site params
 [params]
-  description = "The only AI security gateway with six pillars of AI security (HTTP API, MCP, A2A, ACP, RESPONSE, Trust Framework), MITRE ATLAS enforcement, the EU AI Act Compliance Module, and zero external dependencies. Deploy in 60 seconds."
+  description = "Free browser protection (Lens), developer-grade local proxy (Rampart), and enterprise AI security gateway (Platform). Three products that secure every AI interaction — from ChatGPT to Copilot to custom LLMs. 100% open source."
   version = "v4.0.0"
   goVersion = "1.26.5+"
   dockerSize = "34.7MB"
@@ -23,61 +23,47 @@ title = "AegisGate Security Platform™ — Secure Every AI Interaction"
   twitter = "aegisgate"
   mastodon = "https://mastodon.social/@aegisgate"
 
-# Main nav menu
+# Main nav menu — 3-product suite structure
 [menu]
   [[menu.main]]
-    name = "🚀 Live Demo"
-    url = "https://demo.aegisgatesecurity.io/"
+    name = "Lens"
+    url = "/lens/"
     weight = 1
-    # 2026-06-10: Pointed at the new live demo (see SESSION-ANCHOR-2026-06-10-demo-site-live.md
-    # Day 3.6). The old /demo/ page is now a Netlify 301 redirect to this URL.
+
+  [[menu.main]]
+    name = "Rampart"
+    url = "/rampart/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Platform"
+    url = "/platform/"
+    weight = 3
 
   [[menu.main]]
     name = "Docs"
     url = "/docs/"
-    weight = 2
-  [[menu.main]]
-    name = "ATLAS"
-    url = "/atlas/"
-    weight = 3
-
-  [[menu.main]]
-    name = "Tech"
-    url = "/tech/"
     weight = 4
-  [[menu.main]]
-    name = "Blog"
-    url = "/blog/"
-    weight = 5
-  [[menu.main]]
-    name = "Changelog"
-    url = "/changelog/"
-    weight = 6
-
-  [[menu.main]]
-    name = "SLA"
-    url = "/sla/"
-    weight = 7
-
-  [[menu.main]]
-    name = "🛡️ CVE Feed"
-    url = "/cve/"
-    weight = 8
 
   [[menu.main]]
     name = "Pricing"
     url = "/pricing/"
-    weight = 9
+    weight = 5
 
   [[menu.main]]
-    name = "🛡️ Compliance"
-    url = "/compliance/"
-    weight = 11
+    name = "🚀 Live Demo"
+    url = "https://demo.aegisgatesecurity.io/"
+    weight = 6
 
   [[menu.main]]
-    name = "🛡️ Lens"
-    url = "/lens/"
-    weight = 10
+    name = "Blog"
+    url = "/blog/"
+    weight = 7
+
+  [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/aegisgatesecurity/aegisgate-platform"
+    weight = 8
 # Enable features
 enableRobotsTXT = true
 enableGitInfo = true

@@ -5,7 +5,7 @@ type: pricing
 ---
 
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#38bdf8;color:#fff;margin-bottom:24px;">
-<strong>🛡️ AegisGate Lens — Free, forever.</strong> The same security team builds a free, privacy-first Chrome extension that protects users across 6 AI providers (ChatGPT, Claude, Gemini, Copilot, duck.ai, Perplexity) with 6-facet detection. <a href="/lens/" style="color:#38bdf8;">Learn more</a> · <a href="/lens/compare/" style="color:#38bdf8;">Lens vs Platform</a> · <a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" style="color:#38bdf8;">Install from Chrome Web Store</a>
+<strong>🛡️ AegisGate Lens — Free, forever.</strong> The same security team builds a free, privacy-first browser extension that protects users across 10 AI providers (ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI) with 5-facet detection. <a href="/lens/" style="color:#38bdf8;">Learn more</a> · <a href="/lens/compare/" style="color:#38bdf8;">Lens vs Platform</a> · <a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" style="color:#38bdf8;">Chrome Web Store</a> · <a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" style="color:#38bdf8;">Firefox Add-ons</a>
 </div>
 
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
