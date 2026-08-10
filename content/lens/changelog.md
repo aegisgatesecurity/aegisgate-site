@@ -25,7 +25,7 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/release/v0.3.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/release/v0.3.0/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/CHANGELOG.md). This page mirrors the recent versions.
 
 ---
 
@@ -101,8 +101,8 @@ Pre-1.0 versions (0.x.y) may include breaking changes in MINOR versions (per the
 ## See Also
 
 - [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-lens/releases) — full version history with signed artifacts
-- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/release/v0.3.0/docs/SECURITY.md) — vulnerability disclosure policy
+- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/docs/SECURITY.md) — vulnerability disclosure policy
 - [Architecture](/lens/architecture/) — how the 5-facet detection system works
-- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/release/v0.3.0/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
+- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
 
 Report issues at the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues).

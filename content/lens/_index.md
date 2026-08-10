@@ -5,7 +5,7 @@ type: "landing"
 ---
 > **🆕 AegisGate Lens v0.3.0 is LIVE** — ML threat detection, DeepSeek & Meta AI support, 6× smaller extension, stricter CSP. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever, 10 AI providers).
 
-<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/release/v0.3.0/ -->
+<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/ -->
 <!-- If you change any number below, update FACTS.md FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
@@ -94,7 +94,7 @@ Lens **never** sends or stores:
 12. ❌ IP addresses (when self-hosted) — only the Gateway server IP if you use the optional opt-in telemetry
 
 If we ever change any of these, the change will be:
-- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/release/v0.3.0/docs/SECURITY.md)
+- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/docs/SECURITY.md)
 - Disclosed in the release notes
 - Announced via the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 

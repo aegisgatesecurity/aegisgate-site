@@ -63,7 +63,7 @@ git log --show-signature
 
 ## Chrome Web Store Distribution
 
-The Chrome extension `.zip` is distributed via the Chrome Web Store. Chrome verifies the package on install and provides automatic updates. The `.zip` is built from the `release/v0.3.0` branch.
+The Chrome extension `.zip` is distributed via the Chrome Web Store. Chrome verifies the package on install and provides automatic updates. The `.zip` is built from the `main` branch.
 
 ## Content Security Policy (CSP)
 
@@ -169,7 +169,7 @@ We will coordinate disclosure with the reporter. We do not pursue legal action a
 
 - [Privacy Policy](/lens/privacy/) — what we collect, what we don't (including ML disclosure)
 - [Architecture](/lens/architecture/) — how the 5-facet detection system works
-- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/release/v0.3.0/docs/MODEL-CARD.md) — architecture, evaluation, limitations, ethical considerations
-- [Lens SECURITY.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/release/v0.3.0/docs/SECURITY.md)
+- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/docs/MODEL-CARD.md) — architecture, evaluation, limitations, ethical considerations
+- [Lens SECURITY.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/docs/SECURITY.md)
 
 Report vulnerabilities to `security@aegisgatesecurity.io` (see [`SECURITY.md`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md)).
