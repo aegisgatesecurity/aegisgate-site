@@ -15,7 +15,7 @@ type: "landing"
 <strong>⚡ AegisGate Rampart</strong> is <strong>free and open source</strong>. No account required. No cloud calls. All detection happens locally on your machine.
 <br><br>
 <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart v0.6.0 →</a>
-<a href="#quick-start" class="btn btn-secondary">Quick start guide &rarr;</a>
+<a href="/rampart/#quick-start" class="btn btn-secondary">Quick start guide &rarr;</a>
 </div>
 
 ---
