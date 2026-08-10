@@ -4,97 +4,103 @@ description: "Free, open-source local proxy that intercepts AI traffic from Copi
 type: "landing"
 ---
 
-> **⚡ AegisGate Rampart v0.6.0 is LIVE** — Local proxy, MITM block mode, CA key encryption, audit log redaction, IDE plugins for VS Code/Cursor and JetBrains. [Download from GitHub](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0) (free, open source, Apache 2.0).
+<!-- ============================================================
+     TIER 1: FOR THE CURIOUS HOME USER
+     Plain language. "What is this and do I need it?"
+     ============================================================ -->
 
-<!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-rampart -->
-
-<div class="alert alert-info">
-<strong>⚡ AegisGate Rampart v0.6.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-rampart">aegisgate-rampart repo</a>)</em>
-
-<ul>
-<li><strong>Local proxy</strong>: Intercepts AI traffic transparently at the system level — no app changes needed</li>
-<li><strong>IDE integration</strong>: VS Code/Cursor extension, JetBrains plugin, generic LSP server (Neovim, Emacs, Helix, Sublime)</li>
-<li><strong>MITM block mode</strong>: Blocks malicious prompts before they reach the AI model</li>
-<li><strong>CA key encryption</strong>: Encrypted at rest with passphrase — no plaintext keys on disk</li>
-<li><strong>Audit log redaction</strong>: PII and secrets stripped from logs before writing</li>
-<li><strong>1,318 test functions</strong>, 80.7% coverage</li>
-<li><strong>13 release assets</strong>: macOS (Intel + ARM), Linux (deb + rpm), Windows, Docker (multi-arch, signed)</li>
-<li><strong>Apache 2.0</strong>, zero external dependencies for core functionality</li>
-</ul>
-</div>
+> **⚡ AegisGate Rampart v0.6.0 is LIVE** — Local proxy, IDE plugins for VS Code/Cursor and JetBrains, real-time detection. [Download from GitHub](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0) (free, open source, Apache 2.0).
 
 <div class="alert alert-success alert-center">
-<strong>⚡ AegisGate Rampart</strong> is <strong>free and open source</strong>. No account required. No cloud calls. All detection happens locally on your machine. <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">Download Rampart v0.6.0 →</a>
+<strong>⚡ AegisGate Rampart</strong> is <strong>free and open source</strong>. No account required. No cloud calls. All detection happens locally on your machine.
+<br><br>
+<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart v0.6.0 →</a>
+<a href="#quick-start" class="btn btn-secondary">Quick start guide →</a>
 </div>
 
 ---
 
 ## What is Rampart?
 
-Rampart is a **local security proxy** that sits between your AI tools and the AI models they talk to. It works in two ways:
+Rampart is a **local security tool for developers** who use AI coding assistants like GitHub Copilot, Cursor, or local LLMs (Ollama, LM Studio). It sits between your editor and the AI model, scanning everything you send — and everything the AI sends back — for sensitive data and security risks.
 
-### 1. Local Proxy Mode
-
-Rampart runs as a transparent proxy on your machine. Any AI tool that makes HTTP requests — Copilot, Cursor, local LLMs like Ollama, API calls to OpenAI/Anthropic — gets intercepted and scanned.
-
-**How it works:**
-
-```
-Your AI tool (Copilot/Cursor/API) → Rampart proxy (localhost:8443) → AI model (OpenAI/Anthropic/local)
-```
-
-- Rampart generates a local CA certificate and configures your system to trust it
-- All HTTPS traffic to AI services flows through the proxy
-- Requests and responses are scanned in real-time
-- Malicious content is blocked before it reaches the model (or before the response reaches you)
-- CA keys are encrypted at rest with a passphrase — no plaintext keys on disk
-
-### 2. IDE Plugin Mode
-
-Rampart runs inside your editor, providing real-time detection as you type:
-
-| Editor | Plugin | Status |
-|--------|--------|--------|
-| **VS Code / Cursor** | [aegisgate-rampart-ext](https://github.com/aegisgatesecurity/aegisgate-rampart-ext) | v0.3.0, published |
-| **JetBrains (IntelliJ, PyCharm, etc.)** | [aegisgate-rampart-jetbrains](https://github.com/aegisgatesecurity/aegisgate-rampart-jetbrains) | v0.3.0, published |
-| **Neovim / Emacs / Helix / Sublime** | Rampart-LSP (generic LSP server) | Available via `rampart-lsp` binary |
-
-The LSP server uses JSON-RPC 2.0 over stdio — it works with any editor that supports LSP.
+Think of it as a firewall for AI coding tools. It catches the moment you're about to send a database password to Copilot, or when the AI generates code that contains an API key, and stops it before it's too late.
 
 ---
 
-## What Rampart Detects
+## Do I need Rampart?
 
-Rampart uses the same detection engine as AegisGate Lens and Platform:
+**If you use AI chat in a browser (ChatGPT, Claude, etc.):** You need [Lens](/lens/) — it's a free browser extension that protects you in the browser. Rampart is not for this use case.
 
-| Category | What it catches |
-|----------|-----------------|
-| **PII** | SSN, email, phone, passport, credit card, bank routing, addresses |
-| **Secrets** | API keys, AWS keys, GitHub tokens, database passwords, SSH keys, JWTs |
-| **XSS** | Script injection, event handlers, encoded payloads, SVG vectors |
-| **Compliance** | HIPAA, GDPR, PCI-DSS, EU AI Act text violations |
-| **Adversarial ML** | Prompt injection, jailbreak attempts, model extraction, data exfiltration — 100/100 patterns caught |
-| **Response scanning** | PII leakage in AI responses, hallucinated secrets, injected content |
+**If you use AI coding tools (Copilot, Cursor, local LLMs, API calls):** You need Rampart. It protects the places Lens can't reach — your IDE, your terminal, your API calls.
+
+| Your setup | What to use |
+|-----------|-------------|
+| ChatGPT or Claude in a browser | [Lens](/lens/) (free browser extension) |
+| GitHub Copilot in VS Code | **Rampart** (IDE plugin) |
+| Cursor AI editor | **Rampart** (IDE plugin) |
+| Local LLMs (Ollama, LM Studio) | **Rampart** (local proxy) |
+| API calls to OpenAI/Anthropic from your code | **Rampart** (local proxy) |
+| Both browser chat AND coding tools | **Lens + Rampart** (both are free) |
 
 ---
 
-## Quick Start
+## What does it catch?
 
-### Option 1: Install the IDE plugin
+| Risk | Examples |
+|------|----------|
+| **Secrets** | API keys (AWS, GitHub, OpenAI, Stripe), database passwords, SSH private keys, JWT tokens, OAuth tokens |
+| **Personal info (PII)** | SSN, email, phone, credit card, passport, bank routing numbers |
+| **Prompt injection** | Adversarial prompts designed to make the AI ignore safety rules, leak system prompts, or execute unauthorized actions |
+| **Compliance violations** | Text that violates HIPAA, GDPR, PCI-DSS, EU AI Act |
+| **Malicious code (XSS)** | Script injection, event handlers, encoded payloads, SVG vectors |
+| **Response risks** | PII leaked in AI responses, hallucinated secrets, injected content in model output |
+
+---
+
+## Is it private?
+
+**Yes.** Everything runs on your machine. Nothing is sent to any server — not your prompts, not your code, not your detection results.
+
+| ✅ Rampart DOES | ❌ Rampart does NOT |
+|---|---|
+| Run entirely on your machine | Send your prompts or code to any server |
+| Scan traffic locally in real-time | Phone home with analytics or telemetry |
+| Encrypt its CA keys with a passphrase | Store plaintext keys on disk |
+| Redact PII/secrets from audit logs | Log your actual prompt text or secrets |
+| Stay free and open source | Require an account or subscription |
+
+Open source (Apache 2.0): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
+
+---
+
+<!-- ============================================================
+     TIER 2: FOR DEVELOPERS / POWER USERS
+     Quick start, IDE setup, proxy config, technical details
+     ============================================================
+-->
+
+---
+
+## Quick Start {#quick-start}
+
+### Option 1: Install the IDE plugin (recommended)
 
 **VS Code / Cursor:**
-1. Open Extensions panel
+1. Open the Extensions panel (`Ctrl+Shift+X` / `Cmd+Shift+X`)
 2. Search for "AegisGate Rampart"
-3. Install and reload
+3. Click Install, then Reload
+4. Detection runs automatically as you type — results appear as inline warnings
 
-**JetBrains:**
+**JetBrains (IntelliJ, PyCharm, WebStorm, etc.):**
 1. Open Settings → Plugins → Marketplace
 2. Search for "AegisGate Rampart"
-3. Install and restart
+3. Click Install, then Restart
+4. Detection results appear in the Problems tool window
 
 **Neovim / any LSP editor:**
 ```bash
-# Download rampart-lsp binary
+# Download the Rampart LSP binary
 curl -L https://github.com/aegisgatesecurity/aegisgate-rampart/releases/latest/download/rampart-lsp-linux-amd64 -o /usr/local/bin/rampart-lsp
 chmod +x /usr/local/bin/rampart-lsp
 
@@ -128,6 +134,38 @@ docker run -d \
 
 ---
 
+## How it works
+
+Rampart runs in two modes — you can use either or both:
+
+### 1. IDE Plugin Mode
+
+Rampart runs inside your editor as a Language Server (LSP). As you type prompts or code that will be sent to an AI tool, Rampart checks for sensitive data and security risks in real-time. Warnings appear inline, just like lint errors.
+
+| Editor | Plugin | Status |
+|--------|--------|--------|
+| **VS Code / Cursor** | [aegisgate-rampart-ext](https://github.com/aegisgatesecurity/aegisgate-rampart-ext) | v0.3.0, published |
+| **JetBrains (IntelliJ, PyCharm, etc.)** | [aegisgate-rampart-jetbrains](https://github.com/aegisgatesecurity/aegisgate-rampart-jetbrains) | v0.3.0, published |
+| **Neovim / Emacs / Helix / Sublime** | Rampart-LSP (generic LSP server) | Available via `rampart-lsp` binary |
+
+The LSP server uses JSON-RPC 2.0 over stdio — it works with any editor that supports LSP.
+
+### 2. Local Proxy Mode
+
+Rampart runs as a transparent proxy on your machine. Any AI tool that makes HTTP requests — Copilot, Cursor, local LLMs, API calls — gets intercepted and scanned.
+
+```
+Your AI tool (Copilot/Cursor/API) → Rampart proxy (localhost:8443) → AI model (OpenAI/Anthropic/local)
+```
+
+- Rampart generates a local CA certificate and configures your system to trust it
+- All HTTPS traffic to AI services flows through the proxy
+- Requests and responses are scanned in real-time
+- Malicious content is blocked before it reaches the model (or before the response reaches you)
+- CA keys are encrypted at rest with a passphrase — no plaintext keys on disk
+
+---
+
 ## Rampart vs Lens vs Platform
 
 | Feature | Lens (browser) | Rampart (local proxy/IDE) | Platform (server) |
@@ -143,16 +181,25 @@ docker run -d \
 | **Air-gapped deployment** | — | — | ✅ |
 | **Price** | Free | Free | Free tier + paid |
 
-**Typical setup:**
-- **Individual**: Install Lens (browser) + Rampart (IDE) → full local protection
-- **Developer team**: Rampart (IDE) for each dev + Platform (server) for centralized policy
-- **Enterprise**: Platform (server) + Lens (browser) for non-technical staff + Rampart (IDE) for developers
+---
+
+<!-- ============================================================
+     TIER 3: FOR ORGANIZATIONS / TECHNICAL DETAILS
+     Architecture, download assets, IDE config, FAQs
+     ============================================================
+-->
 
 ---
 
-## Privacy & Security
+## For Organizations
 
-Rampart is designed with the same privacy principles as all AegisGate products:
+### Typical team setups
+
+- **Individual developer**: Lens (browser) + Rampart (IDE) → full local protection, zero cost
+- **Developer team (2-10)**: Rampart (IDE) for each dev + [Platform](/platform/) (server) for centralized policy, audit logs, and compliance reporting
+- **Enterprise**: Platform (server) + Lens (browser) for non-technical staff + Rampart (IDE) for developers + SIEM/SOAR integration + 31 compliance frameworks
+
+### Privacy & Security (for compliance teams)
 
 1. **Zero data collection** — no telemetry, no analytics, no phone-home
 2. **All detection is local** — patterns and ML model run on your machine
@@ -288,4 +335,20 @@ Lens is a browser extension that watches what you type into AI chat websites. Ra
 <summary><strong>Is Rampart free for commercial use?</strong></summary>
 
 Yes. Apache 2.0 license. Free for personal and commercial use. No restrictions, no attribution required beyond the license terms.
+</details>
+
+<details>
+<summary><strong>Canonical facts (v0.6.0)</strong></summary>
+
+Source: [aegisgate-rampart repo](https://github.com/aegisgatesecurity/aegisgate-rampart)
+
+- **Local proxy**: Intercepts AI traffic transparently at the system level — no app changes needed
+- **IDE integration**: VS Code/Cursor extension, JetBrains plugin, generic LSP server (Neovim, Emacs, Helix, Sublime)
+- **MITM block mode**: Blocks malicious prompts before they reach the AI model
+- **CA key encryption**: Encrypted at rest with passphrase — no plaintext keys on disk
+- **Audit log redaction**: PII and secrets stripped from logs before writing
+- **1,318 test functions**, 80.7% coverage
+- **13 release assets**: macOS (Intel + ARM), Linux (deb + rpm), Windows, Docker (multi-arch, signed)
+- **Apache 2.0**, zero external dependencies for core functionality
+
 </details>
