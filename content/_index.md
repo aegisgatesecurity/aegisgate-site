@@ -53,7 +53,7 @@ type: "landing"
 
 <!-- ── ADVANCED PATH: RAMPART ─────────────────────────────── -->
 <div class="card" style="border-color:#f59e0b;">
-<h3>⚡ Rampart — For Developers</h3>
+<h3>⚡ Rampart — For Developers <span class="badge">FREE</span></h3>
 <p><strong>You write code and use AI coding tools like Copilot or Cursor.</strong></p>
 <p>Rampart runs as a local proxy on your machine, intercepting AI traffic from any tool — Copilot, Cursor, local LLMs, API calls. It scans prompts and responses for security risks in real-time, right in your IDE.</p>
 <ul>
@@ -61,6 +61,7 @@ type: "landing"
 <li>IDE integration: VS Code, Cursor, JetBrains, Neovim, any LSP editor</li>
 <li>Real-time detection in your editor — no context switching</li>
 <li>Catches secrets, PII, injection attacks before they reach the AI model</li>
+<li>Free and open source (Apache 2.0). No account needed. No data collected.</li>
 </ul>
 <p>
 <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
@@ -234,7 +235,7 @@ type: "landing"
 
 <div class="card text-center" style="border-color:#f59e0b;">
 <h3>⚡ Download Rampart</h3>
-<p>Local proxy + IDE plugin. macOS, Linux, Windows.</p>
+<p>Free local proxy + IDE plugin. macOS, Linux, Windows.</p>
 <p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
 <p style="font-size:0.85rem; color:#888;">VS Code, JetBrains, Neovim, any LSP editor</p>
 </div>
