@@ -2498,3 +2498,81 @@ table.comparison-table img[src*="europeanunion"],
         text-align: center;
     }
 }
+
+/* ============================================================
+   CASE STUDY EMAIL GATE
+   ============================================================ */
+
+#case-study-gate {
+    display: none;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #0a0c10 0%, #161b22 100%);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    text-align: center;
+}
+
+#case-study-gate h3 {
+    color: #58a6ff;
+    margin-bottom: 16px;
+}
+
+#case-study-gate p {
+    color: #8b949e;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+#case-study-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#case-study-email {
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background: #0d1117;
+    color: #c9d1d9;
+}
+
+#case-study-email:focus {
+    outline: none;
+    border-color: #58a6ff;
+}
+
+#case-study-form button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #1f6feb;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#case-study-form button:hover {
+    background: #388bfd;
+}
+
+#case-study-error {
+    color: #f85149;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+}
+
+.gate-privacy-note {
+    font-size: 0.8rem;
+    color: #6e7681;
+    margin-top: 16px;
+}
+
+.gate-privacy-note a {
+    color: #58a6ff;
+}

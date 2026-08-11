@@ -314,6 +314,7 @@ type: "landing"
 <li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
 <li><a href="/compliance/">Compliance documentation</a> — HIPAA, SOC 2, EU AI Act, FedRAMP</li>
 <li><a href="/blog/">Blog</a> — case studies, technical deep dives</li>
+<li><a href="/case-studies/">Case studies</a> — real-world scenarios across industries</li>
 </ul>
 </div>
 

@@ -2,7 +2,22 @@
 {{ partial "page-header.html" . }}
 <div class="container">
     <article class="page-content">
-        {{ .Content }}
+        <!-- Email gate wrapper -->
+        <div id="case-study-gate">
+            <h3>📧 Read the full case study</h3>
+            <p>Enter your email to access this case study. We'll use it to send you related content — no spam, no sharing, unsubscribe anytime.</p>
+            <form id="case-study-form">
+                <input type="email" id="case-study-email" placeholder="you@company.com" required>
+                <button type="submit">Read Case Study →</button>
+                <div id="case-study-error"></div>
+            </form>
+            <p class="gate-privacy-note">We respect your privacy. See our <a href="/legal/privacy/">Privacy Policy</a>. Your email is stored locally in a cookie for 30 days — we do not collect it on our server.</p>
+        </div>
+        <div id="case-study-content">
+            {{ .Content }}
+        </div>
     </article>
 </div>
+{{ $js := resources.Get "js/case-study-gate.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
 {{ end }}
