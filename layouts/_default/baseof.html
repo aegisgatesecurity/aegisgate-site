@@ -88,14 +88,17 @@
     </script>
     {{ end }}
     
-    <!-- JSON-LD Structured Data: Products on product pages -->
-    {{ if or (eq .Type "landing") (eq .Type "case-study") }}
+    <!-- JSON-LD Structured Data: Software Applications on product pages -->
+    {{ if and (eq .Type "landing") (not .IsHome) }}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
+      "@type": "SoftwareApplication",
       "name": "{{ .Title }}",
       "description": {{ .Description | default .Site.Params.description | jsonify }},
+      "image": "https://aegisgatesecurity.io/logo.png",
+      "applicationCategory": "{{ if (strings.Contains (lower .Title) "lens") }}BrowserExtension{{ else if (strings.Contains (lower .Title) "rampart") }}DeveloperTool{{ else }}EnterpriseApplication{{ end }}",
+      "operatingSystem": "{{ if (strings.Contains (lower .Title) "lens") }}Chrome, Firefox{{ else if (strings.Contains (lower .Title) "rampart") }}macOS, Linux, Windows{{ else }}Docker, Kubernetes, Bare Metal{{ end }}",
       "brand": {
         "@type": "Brand",
         "name": "AegisGate Security"
