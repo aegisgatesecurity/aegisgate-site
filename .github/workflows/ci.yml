@@ -80,7 +80,7 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --base-url https://aegisgatesecurity.io --remap 'https://aegisgatesecurity.io http://localhost:1313' --include-fragments --no-progress --exclude 'https://addons.mozilla.org' public/**/*.html
+          args: --base-url https://aegisgatesecurity.io --remap 'https://aegisgatesecurity.io http://localhost:1313' --include-fragments --no-progress public/**/*.html
           fail: true
           jobSummary: true
 

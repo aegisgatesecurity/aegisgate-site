@@ -1,5 +1,0 @@
-# Exclude URLs from lychee link checker
-# Format: one regex/URL per line
-
-# Firefox AMO listing — pending Mozilla review, returns 404 until approved
-https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/
