@@ -133,7 +133,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 | SOC 2 Type II (independent audit) | Nightfall, Cisco | Self-attestation Type I + controls exist; independent audit pending |
 | Third-party pentest | Cisco | Self-pentest v3.3.0 exists; independent pentest pending |
 | 24/7 support | All enterprise vendors | Single-developer; MSSP partnership planned |
-| Browser coverage | N/A (no extensions) | Chrome/Edge only; **Firefox LIVE**, Safari pending |
+| Browser coverage | N/A (no extensions) | **Chrome and Firefox available today**, Safari pending |
 | Mobile | None (no one has it) | Not yet built |
 
 ### Conclusion
