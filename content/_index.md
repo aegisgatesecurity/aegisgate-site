@@ -12,8 +12,8 @@ type: "landing"
 <div class="hero-badges-wrapper">
 <div class="project-badges">
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Platform-v4.0.0-blue?logo=semver" alt="Platform Version"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.3.0" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Lens-v0.3.0-blue?logo=semver" alt="Lens Version"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Rampart-v0.6.0-blue?logo=semver" alt="Rampart Version"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.3.1" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Lens-v0.3.1-blue?logo=semver" alt="Lens Version"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Rampart-v0.6.1-blue?logo=semver" alt="Rampart Version"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
 </div>
 </div>
@@ -25,10 +25,10 @@ type: "landing"
 </div>
 
 <!-- ============================================================
-     THREE PRODUCTS — Audience Paths
+     THREE PRODUCTS — Audience Paths (MOVED TO TOP)
      ============================================================ -->
 
-<h2 style="text-align:center; margin-top:60px;">Which one are you?</h2>
+<h2 style="text-align:center; margin-top:60px;">Three Products, One Mission</h2>
 
 <p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">Pick your path — we'll meet you where you are.</p>
 
@@ -47,6 +47,7 @@ type: "landing"
 </ul>
 <p>
 <a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" class="btn btn-primary">Install for Chrome →</a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" class="btn btn-primary">Install for Firefox →</a>
 <a href="/lens/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
@@ -64,7 +65,7 @@ type: "landing"
 <li>Free and open source (Apache 2.0). No account needed. No data collected.</li>
 </ul>
 <p>
-<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
 <a href="/rampart/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
@@ -117,6 +118,75 @@ type: "landing"
 <div class="card">
 <h3>📋 Compliance Risks</h3>
 <p>Text that violates HIPAA, GDPR, PCI-DSS, EU AI Act, or 27 other regulatory frameworks. Enterprise teams get automatic compliance scanning on every AI interaction.</p>
+</div>
+
+</div>
+
+<!-- ============================================================
+     VERIFIABLE SECURITY — Enterprise Differentiators
+     Positioned below the fold for enterprise visitors
+     ============================================================ -->
+
+<h2 style="text-align:center; margin-top:80px;">Enterprise Differentiators: Verifiable AI Security</h2>
+
+<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">For organizations that need cryptographic proof, not just compliance checklists.</p>
+
+<div class="card-grid card-grid-2x2">
+
+<!-- ── TRUST FRAMEWORK ─────────────────────────────────────── -->
+<div class="card" style="border-color:#10b981;">
+<h3>🔐 Trust Framework</h3>
+<p><strong>Per-agent cryptographic identity with ECDSA P-256.</strong></p>
+<p>Every agent gets a unique keypair. Every action is signed. Every attestation is independently verifiable — no server round-trip needed.</p>
+<ul>
+<li>Capability contracts enforced at runtime (fail-closed)</li>
+<li>Real-time trust scoring (0-100) with anomaly detection</li>
+<li>Signed attestations verifiable with OpenSSL</li>
+<li>FIPS 140-2 crypto, air-gap compatible</li>
+</ul>
+<p><a href="/trust-framework/" class="btn btn-primary">Learn more →</a></p>
+</div>
+
+<!-- ── FEDERATED IOC STORE ────────────────────────────────── -->
+<div class="card" style="border-color:#10b981;">
+<h3>🛡️ Federated IOC Store</h3>
+<p><strong>Crowdsourced AI threat intelligence via signed bundles.</strong></p>
+<p>When one customer detects a novel attack, every customer is protected within minutes. Network effects make the platform stronger with every detection.</p>
+<ul>
+<li>AI-specific IOCs (prompt patterns, adversarial examples)</li>
+<li>Real-time distribution (&lt; 5 minutes)</li>
+<li>Cryptographically signed bundles (ECDSA P-256)</li>
+<li>TAXII 2.1 + STIX 2.1 compatible</li>
+</ul>
+<p><a href="/federated-ioc/" class="btn btn-primary">Learn more →</a></p>
+</div>
+
+<!-- ── AIBOM GENERATOR ────────────────────────────────────── -->
+<div class="card" style="border-color:#10b981;">
+<h3>📋 AIBOM Generator</h3>
+<p><strong>AI Bill of Materials for EU AI Act compliance.</strong></p>
+<p>Automatically generate CycloneDX 1.6+ SBOMs extended with AI components. Track models, prompts, training data, and embeddings with cryptographic integrity.</p>
+<ul>
+<li>CycloneDX 1.6+ compliant (emerging standard)</li>
+<li>Tracks models, prompts, datasets, embeddings</li>
+<li>Byte-stable, cryptographically signed</li>
+<li>PDF export for regulators, JSON for tooling</li>
+</ul>
+<p><a href="/aibom/" class="btn btn-primary">Learn more →</a></p>
+</div>
+
+<!-- ── CISO POSTURE DIGEST ────────────────────────────────── -->
+<div class="card" style="border-color:#10b981;">
+<h3>📊 CISO Posture Digest</h3>
+<p><strong>Executive-ready PDF reports with multi-framework mapping.</strong></p>
+<p>Automated, signed reports for CISOs, boards, and auditors. HIPAA, PCI-DSS, SOX, EU AI Act compliance in plain language — no dashboard login required.</p>
+<ul>
+<li>Executive summary with posture score (0-100)</li>
+<li>Multi-framework compliance mapping</li>
+<li>Trend analysis (6-month rolling)</li>
+<li>Cryptographically signed, verifiable offline</li>
+</ul>
+<p><a href="/ciso-digest/" class="btn btn-primary">Learn more →</a></p>
 </div>
 
 </div>
@@ -219,39 +289,75 @@ type: "landing"
 </div>
 
 <!-- ============================================================
-     GET STARTED — Quick CTAs by product
+     VERIFIABLE SECURITY COMPETITIVE MATRIX
      ============================================================ -->
 
-<h2 style="text-align:center; margin-top:60px;">Get started in 60 seconds</h2>
+<h2 style="text-align:center; margin-top:60px;">Verifiable Security vs. Competitors</h2>
 
-<div class="card-grid card-grid-3">
+<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">The four pillars no competitor can replicate.</p>
 
-<div class="card text-center" style="border-color:#38bdf8;">
-<h3>🛡️ Install Lens</h3>
-<p>Free browser extension. Chrome or Firefox.</p>
-<p><a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" class="btn btn-primary">Chrome Web Store →</a>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" class="btn btn-primary">Firefox Add-ons →</a></p>
-</div>
-
-<div class="card text-center" style="border-color:#f59e0b;">
-<h3>⚡ Download Rampart</h3>
-<p>Free local proxy + IDE plugin. macOS, Linux, Windows.</p>
-<p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
-<p style="font-size:0.85rem; color:#888;">VS Code, JetBrains, Neovim, any LSP editor</p>
-</div>
-
-<div class="card text-center" style="border-color:#10b981;">
-<h3>🏢 Deploy Platform</h3>
-<p>Single binary. Docker or bare metal.</p>
-<div class="command-box">
-<button class="copy-btn">Copy</button>
-<pre>docker run -d -p 8080:8080 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0</pre>
-</div>
-<p><a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try Live Demo →</a></p>
-</div>
-
-</div>
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Capability</th>
+<th>AegisGate</th>
+<th>Competitor A</th>
+<th>Competitor B</th>
+<th>Competitor C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="metric-label"><strong>Per-agent cryptographic identity</strong></td>
+<td>✅ ECDSA P-256</td>
+<td>❌ Anonymous</td>
+<td>❌ API key only</td>
+<td>⚠️ Shared service account</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Crowdsourced threat intelligence</strong></td>
+<td>✅ Network effect</td>
+<td>❌ Isolated</td>
+<td>❌ Vendor-curated only</td>
+<td>❌ None</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>AI bill of materials</strong></td>
+<td>✅ CycloneDX 1.6+</td>
+<td>❌ Software SBOM only</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Executive compliance reports</strong></td>
+<td>✅ Signed PDF</td>
+<td>❌ Dashboard only</td>
+<td>⚠️ CSV export</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Offline verification</strong></td>
+<td>✅ Yes (OpenSSL)</td>
+<td>❌ Requires login</td>
+<td>❌ Requires login</td>
+<td>❌ N/A</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Air-gap deployment</strong></td>
+<td>✅ Full support</td>
+<td>❌ Cloud-only</td>
+<td>❌ Cloud-only</td>
+<td>⚠️ Limited</td>
+</tr>
+<tr>
+<td class="metric-label"><strong>Open source</strong></td>
+<td>✅ Apache 2.0</td>
+<td>❌ Proprietary</td>
+<td>❌ Proprietary</td>
+<td>❌ Proprietary</td>
+</tr>
+</tbody>
+</table>
 
 <!-- ============================================================
      BY THE NUMBERS
@@ -274,7 +380,7 @@ type: "landing"
 </div>
 <div class="card text-center">
 <h3 style="font-size:2.5rem; color:#38bdf8;">31</h3>
-<p>Compliance frameworks</p>
+<p>Compliance frameworks mapped</p>
 </div>
 <div class="card text-center">
 <h3 style="font-size:2.5rem; color:#f59e0b;">23,578</h3>
@@ -284,6 +390,41 @@ type: "landing"
 <h3 style="font-size:2.5rem; color:#10b981;">~5ms</h3>
 <p>Detection latency</p>
 </div>
+</div>
+
+<!-- ============================================================
+     GET STARTED — Quick CTAs by product
+     ============================================================ -->
+
+<h2 style="text-align:center; margin-top:60px;">Get started in 60 seconds</h2>
+
+<div class="card-grid card-grid-3">
+
+<div class="card text-center" style="border-color:#38bdf8;">
+<h3>🛡️ Install Lens</h3>
+<p>Free browser extension. Chrome or Firefox.</p>
+<p><a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" class="btn btn-primary">Chrome Web Store →</a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" class="btn btn-primary">Firefox Add-ons →</a></p>
+</div>
+
+<div class="card text-center" style="border-color:#f59e0b;">
+<h3>⚡ Download Rampart</h3>
+<p>Free local proxy + IDE plugin. macOS, Linux, Windows.</p>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
+<p style="font-size:0.85rem; color:#888;">VS Code, JetBrains, Neovim, any LSP editor</p>
+</div>
+
+<div class="card text-center" style="border-color:#10b981;">
+<h3>🏢 Deploy Platform</h3>
+<p>Single binary. Docker or bare metal.</p>
+<div class="command-box">
+<button class="copy-btn">Copy</button>
+<pre>docker run -d -p 8080:8080 \
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0</pre>
+</div>
+<p><a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try Live Demo →</a></p>
+</div>
+
 </div>
 
 <!-- ============================================================
@@ -299,32 +440,32 @@ type: "landing"
 <ul>
 <li><a href="/docs/">Full documentation</a> — architecture, API, deployment, configuration</li>
 <li><a href="/docs/executive-brief/">Executive brief</a> — one-page overview for CISOs and CIOs</li>
-<li><a href="/docs/ide-integration/">IDE integration guide</a> — VS Code, JetBrains, Neovim, LSP</li>
-<li><a href="/docs/siem-soar-integration/">SIEM/SOAR integration</a> — 12 SIEM + 4 SOAR platforms</li>
+<li><a href="/trust-framework/">Trust Framework</a> — per-agent identity, capability contracts, trust scoring</li>
+<li><a href="/federated-ioc/">Federated IOC Store</a> — crowdsourced AI threat intelligence</li>
+<li><a href="/aibom/">AIBOM Generator</a> — AI bill of materials for EU AI Act</li>
+<li><a href="/ciso-digest/">CISO Posture Digest</a> — executive compliance reports</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>🔗 Product Pages</h3>
+<ul>
+<li><a href="/lens/">Lens</a> — browser extension for AI chat protection</li>
+<li><a href="/rampart/">Rampart</a> — local proxy + IDE plugin for developers</li>
+<li><a href="/platform/">Platform</a> — enterprise gateway with verifiable security</li>
+<li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
 <li><a href="/docs/comparison/">Competitive comparison</a> — 7 competitors, 31 frameworks</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>🔗 Resources</h3>
-<ul>
-<li><a href="/lens/">Lens product page</a> — full feature list, architecture, privacy</li>
-<li><a href="/rampart/">Rampart product page</a> — local proxy, IDE plugins, developer guide</li>
-<li><a href="/platform/">Platform product page</a> — enterprise gateway, six pillars, compliance, SIEM/SOAR</li>
-<li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
-<li><a href="/compliance/">Compliance documentation</a> — HIPAA, SOC 2, EU AI Act, FedRAMP</li>
-<li><a href="/blog/">Blog</a> — case studies, technical deep dives</li>
-<li><a href="/case-studies/">Case studies</a> — real-world scenarios across industries</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>🛡️ Security</h3>
+<h3>🛡️ Security & Compliance</h3>
 <ul>
 <li><a href="/cve/">CVE Feed</a> — AegisGate vulnerability disclosures</li>
 <li><a href="/atlas/">ATLAS coverage</a> — MITRE ATLAS technique mapping</li>
-<li><a href="/tech/">Technical architecture</a> — six-pillar deep dive</li>
+<li><a href="/compliance/">Compliance docs</a> — HIPAA, SOC 2, EU AI Act, FedRAMP</li>
 <li><a href="/changelog/">Changelog</a> — version history and release notes</li>
+<li><a href="/tech/">Technical architecture</a> — six-pillar deep dive</li>
 </ul>
 </div>
 
@@ -334,6 +475,8 @@ type: "landing"
 <li><a href="https://github.com/aegisgatesecurity" target="_blank" rel="noopener noreferrer">GitHub</a> — all 6 repos, Apache 2.0</li>
 <li><a href="https://x.com/aegisgate" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
 <li><a href="https://mastodon.social/@aegisgate" target="_blank" rel="noopener noreferrer">Mastodon</a></li>
+<li><a href="/blog/">Blog</a> — case studies, technical deep dives</li>
+<li><a href="/case-studies/">Case studies</a> — real-world scenarios across industries</li>
 <li><a href="mailto:security@aegisgatesecurity.io">security@aegisgatesecurity.io</a></li>
 <li><a href="mailto:sales@aegisgatesecurity.io">sales@aegisgatesecurity.io</a></li>
 </ul>

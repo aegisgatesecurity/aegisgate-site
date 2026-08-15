@@ -238,7 +238,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | Tier | Price | Key Features |
 |------|-------|--------------|
 | **Community** | Free | HTTP proxy, MCP, A2A, 153+ patterns, MITRE ATLAS, basic compliance |
-| **Developer** | $49/mo | + HIPAA, PCI-DSS, mTLS, OIDC/SAML, full compliance |
+| **Developer** | $79/mo | + HIPAA, PCI-DSS, mTLS, OIDC/SAML, full compliance |
 | **Professional** | $499/mo | + ISO 27001, ISO 42001, FedRAMP, EU AI Act, Trust Framework, ML detection |
 | **Enterprise** | Custom | + Custom frameworks, FedRAMP full 170/170, dedicated support, SLA |
 | **Air-Gapped** | Custom | Enterprise + offline deployment, custom integrations |
