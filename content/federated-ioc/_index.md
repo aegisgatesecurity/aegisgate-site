@@ -15,10 +15,10 @@ type: "landing"
 > **AegisGate Federated IOC Store changes this.** Detected threats are packaged into cryptographically signed bundles and distributed to all customers. The network grows stronger with every detection.
 
 <div class="alert alert-success alert-center">
-<strong>Federated IOC Store</strong> is available in <strong>Enterprise tier and above</strong>.
+<strong>Federated IOC Store</strong> is available in <strong>Professional tier and above</strong>.
 <br><br>
 <a href="/pricing/" class="btn btn-primary">View Pricing &rarr;</a>
-<a href="/docs/federated-ioc/" class="btn btn-secondary">Technical Documentation &rarr;</a>
+<a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
 ---
@@ -385,12 +385,12 @@ Content-Type: application/json
 
 | Tier | Federated IOC Store Features |
 |------|-----------------------------|
-| **Free** | ❌ Not available |
-| **Professional** | ❌ Not available |
-| **Enterprise** | ✅ Real-time IOC feed, TAXII 2.1 integration, STIX 2.1 export |
-| **Air-Gap** | ✅ All Enterprise features + manual bundle import, segmented feeds |
+| **Community** | ❌ Not available |
+| **Developer** | ❌ Not available |
+| **Professional** | ✅ Real-time IOC feed, TAXII 2.1 integration, STIX 2.1 export |
+| **Enterprise** | ✅ All Professional features + manual bundle import for air-gap, segmented feeds, redistribution rights |
 
-**Minimum Version:** Platform v4.0.0+
+**Minimum Version:** Platform v4.1.0+
 
 ---
 
@@ -466,8 +466,8 @@ Platform continues operating with locally cached IOCs. When connectivity is rest
 
 ## Ready to Join the Network?
 
-Federated IOC Store is available in **Enterprise tier and above**.
+Federated IOC Store is available in **Professional tier and above**.
 
 <a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>
-<a href="/docs/federated-ioc/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/contact/" class="btn btn-secondary">Contact Sales &rarr;</a>
+<a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
+<a href="/pricing/" class="btn btn-secondary">Contact Sales &rarr;</a>

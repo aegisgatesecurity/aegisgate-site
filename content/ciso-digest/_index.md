@@ -15,10 +15,10 @@ type: "landing"
 > **AegisGate CISO Posture Digest solves this.** Automatically generated, cryptographically signed PDF reports that summarize AI security posture in executive-friendly language with multi-framework compliance mapping.
 
 <div class="alert alert-success alert-center">
-<strong>CISO Posture Digest</strong> is available in <strong>Enterprise tier and above</strong>.
+<strong>CISO Posture Digest</strong> is available in <strong>Professional tier and above</strong>.
 <br><br>
 <a href="/pricing/" class="btn btn-primary">View Pricing &rarr;</a>
-<a href="/docs/ciso-digest/" class="btn btn-secondary">Technical Documentation &rarr;</a>
+<a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
 ---
@@ -439,12 +439,12 @@ Authorization: Bearer <api_key>
 
 | Tier | CISO Posture Digest Features |
 |------|-----------------------------|
-| **Free** | ❌ Not available |
-| **Professional** | ❌ Not available |
-| **Enterprise** | ✅ PDF generation, multi-framework mapping, scheduled digests, cryptographic signature |
-| **Air-Gap** | ✅ All Enterprise features + offline generation, FIPS 140-2 crypto |
+| **Community** | ❌ Not available |
+| **Developer** | ❌ Not available |
+| **Professional** | ✅ PDF generation, multi-framework mapping, scheduled digests, cryptographic signature |
+| **Enterprise** | ✅ All Professional features + custom branding, FIPS 140-2 crypto, offline generation |
 
-**Minimum Version:** Platform v4.0.0+
+**Minimum Version:** Platform v4.1.0+
 
 ---
 
@@ -501,8 +501,8 @@ Yes. Enterprise tier supports JSON export for GRC integration. Contact support f
 
 ## Ready to Report AI Security Posture?
 
-CISO Posture Digest is available in **Enterprise tier and above**.
+CISO Posture Digest is available in **Professional tier and above**.
 
 <a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>
-<a href="/docs/ciso-digest/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/contact/" class="btn btn-secondary">Contact Sales &rarr;</a>
+<a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
+<a href="/pricing/" class="btn btn-secondary">Contact Sales &rarr;</a>

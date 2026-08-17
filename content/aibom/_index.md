@@ -15,10 +15,10 @@ type: "landing"
 > **AegisGate AIBOM Generator fills this gap.** Automatically generate CycloneDX 1.6+ compliant AI Bill of Materials that tracks every AI component in your systems.
 
 <div class="alert alert-success alert-center">
-<strong>AIBOM Generator</strong> is available in <strong>Professional tier and above</strong>.
+<strong>AIBOM Generator</strong> is available in <strong>Developer tier and above</strong>.
 <br><br>
 <a href="/pricing/" class="btn btn-primary">View Pricing &rarr;</a>
-<a href="/docs/aibom/" class="btn btn-secondary">Technical Documentation &rarr;</a>
+<a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
 ---
@@ -402,12 +402,12 @@ Authorization: Bearer <api_key>
 
 | Tier | AIBOM Generator Features |
 |------|-------------------------|
-| **Free** | ❌ Not available |
-| **Professional** | ✅ AIBOM generation (JSON), basic component tracking |
-| **Enterprise** | ✅ All Professional features + PDF export, cryptographic signature, historical tracking |
-| **Air-Gap** | ✅ All Enterprise features + offline generation, FIPS 140-2 crypto |
+| **Community** | ❌ Not available |
+| **Developer** | ✅ AIBOM generation (JSON), basic component tracking |
+| **Professional** | ✅ All Developer features + PDF export, cryptographic signature, historical tracking |
+| **Enterprise** | ✅ All Professional features + FIPS 140-2 crypto, offline generation |
 
-**Minimum Version:** Platform v4.0.0+
+**Minimum Version:** Platform v4.1.0+
 
 ---
 
@@ -484,8 +484,8 @@ CycloneDX is recognized by EU regulators as an acceptable format for technical d
 
 ## Ready to Document Your AI Systems?
 
-AIBOM Generator is available in **Professional tier and above**.
+AIBOM Generator is available in **Developer tier and above**.
 
 <a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>
-<a href="/docs/aibom/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/contact/" class="btn btn-secondary">Contact Sales &rarr;</a>
+<a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
+<a href="/pricing/" class="btn btn-secondary">Contact Sales &rarr;</a>
