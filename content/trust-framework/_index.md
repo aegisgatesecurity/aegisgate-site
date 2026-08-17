@@ -18,7 +18,7 @@ type: "landing"
 <strong>Trust Framework</strong> is available in <strong>Professional tier and above</strong>.
 <br><br>
 <a href="/pricing/" class="btn btn-primary">View Pricing &rarr;</a>
-<a href="/docs/trust-framework/" class="btn btn-secondary">Technical Documentation &rarr;</a>
+<a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
 ---
@@ -297,7 +297,7 @@ Accept: application/json
 | **Enterprise** | ✅ All Professional features + signed attestations, audit export, SIEM integration |
 | **Air-Gap** | ✅ All Enterprise features + offline verification, FIPS 140-2 validated crypto |
 
-**Minimum Version:** Platform v4.0.0+
+**Minimum Version:** Platform v4.1.0+
 
 ---
 
@@ -356,5 +356,5 @@ Yes. Enterprise tier includes SIEM integration (Splunk, QRadar, Sentinel). Trust
 Trust Framework is available in **Professional tier and above**.
 
 <a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>
-<a href="/docs/trust-framework/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/contact/" class="btn btn-secondary">Contact Sales &rarr;</a>
+<a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
+<a href="/pricing/" class="btn btn-secondary">Contact Sales &rarr;</a>
