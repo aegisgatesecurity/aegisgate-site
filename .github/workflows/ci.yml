@@ -80,7 +80,16 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --base-url https://aegisgatesecurity.io --remap 'https://aegisgatesecurity.io http://localhost:1313' --include-fragments --no-progress public/**/*.html
+          # Exclude github.com/aegisgatesecurity/* — all repos are private
+          # and return 404 to unauthenticated requests (lychee has no GitHub auth).
+          # Also exclude localhost (served locally), and common non-page URLs.
+          args: >-
+            --base-url https://aegisgatesecurity.io
+            --remap 'https://aegisgatesecurity.io http://localhost:1313'
+            --exclude 'github.com/aegisgatesecurity/'
+            --include-fragments
+            --no-progress
+            public/**/*.html
           fail: true
           jobSummary: true
 
