@@ -8,6 +8,20 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.1.0 - 2026-08-16 - Open-Core, Pricing, CI Fixes
+
+> **v4.1.0** completes the open-core split. Community edition is Apache 2.0 (CGO_ENABLED=0, no ONNX Runtime). Enterprise features gated by `//go:build enterprise` tags and tier checks in `pkg/tier/tier.go`.
+
+- Open-core model: Community (Apache 2.0), Developer ($79/mo), Professional ($499/mo), Enterprise (custom)
+- 31 compliance frameworks with tier-based gating (Community=4, Developer=10, Professional=26, Enterprise=31)
+- 176 detection patterns (secrets, XSS, PII, compliance, OT/ICS)
+- Trust Framework: Professional+ (per-agent identity, trust scoring, signed attestations)
+- SIEM integration: Professional+ (11 platforms)
+- ML threat detection: Professional+ (Char CNN-BiLSTM, ONNX)
+- HSM, FIPS, air-gapped, K8s clustering: Enterprise only
+- Go 1.26.6, 8,000+ tests, 83.1% coverage
+- Single branch (main), tag-based releases
+
 ### v4.0.0 - 2026-08-04 - ML Threat Detection 🔒
 
 > **v4.0.0** adds neural network-based threat detection as a supplementary layer alongside the existing regex scanner. The Char CNN-BiLSTM model (1.58M params, 6.2MB ONNX) achieves 100/100 evasion resistance with 0% false positive rate on benign traffic and ~6ms inference latency.

@@ -23,7 +23,7 @@ A2A protocols enable AI agents to communicate and delegate tasks, creating uniqu
 |-------|-----------|----------------|
 | Agent authentication | Identity verification, capability tokens | Full chain |
 | Task screening | Prompt injection in task descriptions | 100% (adversarial suite) |
-| Context validation | Cross-agent context integrity checks | 87%+ coverage |
+| Context validation | Cross-agent context integrity checks | 83.1% coverage |
 | Rate limiting | Per-agent, per-task-type | Configurable |
 | Audit logging | Full A2A message recording | ATLAS-mapped |
 

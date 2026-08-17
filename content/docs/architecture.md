@@ -12,7 +12,7 @@ AegisGate is a six-pillar AI security gateway built in Go with zero external run
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                   AegisGate v4.0.0                   │
+│                   AegisGate v4.1.0                   │
 ├─────────┬─────────┬─────────┬──────────┬──────────┤
 │  HTTP   │   MCP   │   A2A   │   ACP    │   ANP    │
 │  API    │Protocol │ Protocol│Protocol  │Protocol  │
@@ -46,7 +46,7 @@ AegisGate is a six-pillar AI security gateway built in Go with zero external run
 |-----------|-----------|
 | Core | Go 1.26+, statically compiled |
 | ML Runtime | ONNX Runtime (optional, graceful degradation) |
-| Container | Docker (34.7MB image) |
+| Container | Docker (19.1MB image) |
 | Orchestration | Kubernetes (Helm chart provided) |
 | Observability | Prometheus metrics, structured JSON logging |
 | Dependencies | Zero external runtime dependencies |

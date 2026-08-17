@@ -144,10 +144,9 @@ Your use is subject to rate limits based on your subscription tier:
 
 | Tier | Proxy RPM | MCP RPM | Concurrent Sessions |
 |------|----------:|--------:|--------------------:|
-| Community | 120 | 60 | 3 |
-| Starter | 150 | 75 | 5 |
-| Developer | 500 | 250 | 10 |
-| Professional | 2,500 | 1,250 | 25 |
+| Community | soft-throttle | — | 5 |
+| Developer | 1,000 | 500 | 25 |
+| Professional | 10,000 | 5,000 | 100 |
 | Enterprise | Unlimited | Unlimited | Unlimited |
 
 ### 5.2 Fair Use

@@ -25,7 +25,7 @@ AegisGate is engineered for minimal latency impact while providing comprehensive
 | Sustained throughput | **23,578 RPS** (5,000 VUs, 0% error) |
 | Ceiling test | 7,310,431 requests, 0% error rate |
 | Single-instance ceiling | 5,000 concurrent VUs |
-| Memory footprint (idle) | 34.7MB |
+| Memory footprint (idle) | 19.1MB |
 | Memory footprint (screening) | ~50MB |
 
 ### Resource Requirements
@@ -39,10 +39,10 @@ AegisGate is engineered for minimal latency impact while providing comprehensive
 
 ### Docker Image
 
-The AegisGate container image is **34.7MB** with zero external dependencies — no Python, no Java, no Node.js runtime. Just a single statically-linked Go binary.
+The AegisGate container image is **19.1MB** with zero external dependencies — no Python, no Java, no Node.js runtime. Just a single statically-linked Go binary.
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
 ```
 
 _See also: [Installation](/docs/installation/) and [Configuration](/docs/configuration/)._

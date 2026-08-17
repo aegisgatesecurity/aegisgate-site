@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Lens — Privacy Policy"
-description: "Full privacy policy for AegisGate Lens. What we collect, what we don't collect, and how to verify it. Includes ML detection disclosure for v0.3.0."
+description: "Full privacy policy for AegisGate Lens. What we collect, what we don't collect, and how to verify it. Includes ML detection disclosure for v0.3.1."
 type: "docs"
 weight: 1
 ---
@@ -9,7 +9,7 @@ weight: 1
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.3.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.3.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -25,8 +25,8 @@ weight: 1
 
 # AegisGate Lens — Privacy Policy
 
-**Last updated**: 2026-08-05
-**Applies to**: AegisGate Lens v0.3.0 and later
+**Last updated**: 2026-08-16
+**Applies to**: AegisGate Lens v0.3.1 and later
 **Source of truth**: [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens)
 
 ---
@@ -57,7 +57,7 @@ AegisGate Lens **never** sends or stores:
 12. ❌ **IP addresses** (when self-hosted — only the Gateway server IP if you use the optional opt-in telemetry with Platform)
 
 If we ever change any of these, the change will be:
-- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/docs/SECURITY.md)
+- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/docs/SECURITY.md)
 - Disclosed in the release notes
 - Announced via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 - Reversible (the change is in the source code, which you can fork)
@@ -165,7 +165,7 @@ AegisGate Lens is not intended for children under 13 (or the applicable age of d
 
 This policy may be updated as Lens evolves. The current version is always at this URL. We will:
 - Update the "Last updated" date
-- Add an entry to the [Lens CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/CHANGELOG.md) for material changes
+- Add an entry to the [Lens CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/CHANGELOG.md) for material changes
 - Announce material changes via the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 
 ---
@@ -175,7 +175,7 @@ This policy may be updated as Lens evolves. The current version is always at thi
 - **Privacy questions**: `privacy@aegisgatesecurity.io`
 - **Security disclosures**: `security@aegisgatesecurity.io` (see [`SECURITY.md`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md) per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116))
 - **General questions**: the [Lens GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
-- **PGP key**: see [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/docs/SECURITY.md)
+- **PGP key**: see [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/docs/SECURITY.md)
 
 ---
 

@@ -16,14 +16,14 @@ docker run -d \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
 ```
 
 See the [5-Minute Quickstart](/docs/quickstart/) for the fastest path to a running instance.
 
 ### Docker with ML Detection (Recommended)
 
-v4.0.0 introduces CNN-BiLSTM neural network detection. To enable it, mount the ONNX Runtime shared library:
+v4.1.0 introduces CNN-BiLSTM neural network detection. To enable it, mount the ONNX Runtime shared library:
 
 ```bash
 # 1. Download ONNX Runtime
@@ -37,10 +37,10 @@ docker run -d --name aegisgate \
   -v $(pwd)/config.yaml:/etc/aegisgate/config.yaml \
   -v $(pwd)/onnxruntime-linux-x64-1.21.0/lib/libonnxruntime.so:/usr/local/lib/libonnxruntime.so \
   -e ONNXRUNTIME_SHARED_LIBRARY_PATH=/usr/local/lib/libonnxruntime.so \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
 ```
 
-**Without ONNX Runtime**, AegisGate runs in regex-only mode with 87%+ detection coverage. **With ONNX Runtime**, detection reaches 100% on the adversarial test suite with 0% false positives.
+**Without ONNX Runtime**, AegisGate runs in regex-only mode with 83.1% detection coverage. **With ONNX Runtime**, detection reaches 100% on the adversarial test suite with 0% false positives.
 
 ### Kubernetes (Helm)
 
@@ -68,7 +68,7 @@ ml:
 
 ```bash
 # 1. Download the binary
-curl -sL https://github.com/aegisgatesecurity/aegisgate-platform/releases/download/v4.0.0/aegisgate-platform-linux-amd64 -o aegisgate-platform
+curl -sL https://github.com/aegisgatesecurity/aegisgate-platform/releases/download/v4.1.0/aegisgate-platform-linux-amd64 -o aegisgate-platform
 chmod +x aegisgate-platform
 
 # 2. (Optional) Install ONNX Runtime
@@ -97,8 +97,8 @@ ml_detection:
 | ONNX Runtime | Detection Mode | Coverage | Latency |
 |-------------|---------------|----------|---------|
 | Available | ML + Regex | 100% adversarial, 0% FPR | ~6ms |
-| Unavailable | Regex Only | 87%+ | <1ms |
-| Load Failure | Regex Only | 87%+ | <1ms |
+| Unavailable | Regex Only | 83.1% | <1ms |
+| Load Failure | Regex Only | 83.1% | <1ms |
 
 The degradation path is fully automatic — no manual intervention required.
 
@@ -122,6 +122,6 @@ The degradation path is fully automatic — no manual intervention required.
 | Disk | 100MB | 1GB | 10GB+ |
 | Network | 10Mbps | 100Mbps | 1Gbps+ |
 
-The Docker image is **34.7MB** with zero external runtime dependencies (excluding optional ONNX Runtime).
+The Docker image is **19.1MB** with zero external runtime dependencies (excluding optional ONNX Runtime).
 
 _See also: [Installation](/docs/installation/), [Configuration](/docs/configuration/), and [Performance](/docs/performance/)._

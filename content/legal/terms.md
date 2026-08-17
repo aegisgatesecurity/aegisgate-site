@@ -75,11 +75,10 @@ Services are provided according to the subscription tier you select:
 
 | Tier | Monthly Rate | RPM Limit | Key Features |
 |---|---|---|---|
-| **Community** | Free | 120 RPM | Best-effort protection, 7-day audit log retention, community support |
+| **Community** | Free | soft-throttle | Best-effort protection, 7-day audit log retention, community support |
 | **Developer** | $79/mo | 1,000 RPM | Email support, 30-day audit log retention, HIPAA/PCI/GDPR compliance |
-| **Developer** | $99/mo | 1,000 RPM | SSO, RBAC, compliance modules add-on, 30-day audit log retention |
-| **Professional** | $299/mo | 10,000 RPM | HIPAA / PCI-DSS / SOC 2 modules, 90-day audit log retention, 99.95% SLA, priority support |
-| **Enterprise** | Contact sales | Custom | Custom SLA (up to 99.99%), custom compliance modules, dedicated CSM, custom audit log retention |
+| **Professional** | $499/mo | 10,000 RPM | HIPAA / PCI-DSS / SOC 2 modules, 90-day audit log retention, 99.95% SLA, priority support |
+| **Enterprise** | Contact sales | Unlimited | Custom SLA (up to 99.99%), custom compliance modules, dedicated CSM, custom audit log retention |
 
 Compliance module add-on prices (per the v3.2.0 pricing decision, locked at purchase):
 - HIPAA: $99/mo
@@ -175,7 +174,6 @@ If you provide feedback, suggestions, or ideas about the Platform, you grant us 
 |------|----------------|
 | Community | 99.0% (best effort) |
 | Developer | 99.5% |
-| Developer | 99.9% |
 | Professional | 99.95% |
 | Enterprise | 99.99% (custom SLA) |
 
@@ -204,10 +202,10 @@ Rate limits are enforced per tier to ensure fair usage and platform stability:
 
 | Tier | RPM Limit | Daily Request Limit | Burst Allowance |
 |------|-----------|---------------------|-----------------|
-| Community | 120 RPM | 172,800/day | 10% above limit for 60 seconds |
+| Community | soft-throttle | — | 10% above limit for 60 seconds |
 | Developer | 1,000 RPM | 1,440,000/day | 10% above limit for 60 seconds |
-| Professional | 2,500 RPM | 3,600,000/day | 15% above limit for 60 seconds |
-| Enterprise | Custom | Custom | Custom |
+| Professional | 10,000 RPM | 14,400,000/day | 15% above limit for 60 seconds |
+| Enterprise | Unlimited | Unlimited | Unlimited |
 
 When a rate limit is exceeded, the Platform returns HTTP 429 (Too Many Requests) with a `Retry-After` header indicating when the client may retry. Persistent abuse of rate limits (sustained traffic exceeding 200% of the tier limit for more than 5 minutes) may result in temporary request throttling or, for repeated violations, account suspension under Section 5 (Acceptable Use).
 

@@ -1,6 +1,6 @@
 ---
 title: Compliance Frameworks
-description: AegisGate compliance coverage across 27 frameworks — SOC 2, ISO 27001, NIST AI RMF, EU AI Act, FedRAMP, HIPAA, PCI-DSS, and more.
+description: AegisGate compliance coverage across 31 frameworks — SOC 2, ISO 27001, NIST AI RMF, EU AI Act, FedRAMP, HIPAA, PCI-DSS, and more.
 weight: 320
 ---
 

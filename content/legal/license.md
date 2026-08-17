@@ -91,6 +91,6 @@ The Apache 2.0 license is one of the most widely-used open-source licenses in th
 ---
 
 **Last reviewed**: 2026-06-08
-**AegisGate version**: v3.3.0-beta.2
+**AegisGate version**: v4.1.0
 **License version**: Apache 2.0 (January 2004)
 **This summary is not legal advice** — it is provided for informational purposes only. For specific legal questions, consult qualified counsel.

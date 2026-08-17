@@ -240,7 +240,7 @@ trust scoring, and signed attestations for compliance evidence.
 **Key features** (v3.4.0+, 66/66 packages passing, 6,066 tests):
 
 - **6 protocol coverage** (HTTP, MCP, A2A, ACP, RESPONSE, Trust Framework)
-- **153+ threat detection patterns** (MITRE ATLAS, OWASP LLM Top 10)
+- **176 threat detection patterns** (MITRE ATLAS, OWASP LLM Top 10)
 - **8 MCP guardrails** (tier-based limits, response scanning, auth)
 - **27 compliance frameworks** (10 Community: MITRE ATLAS, OWASP LLM Top 10, NIST AI RMF, GDPR, CIS Controls, NIST CSF 2.0, OWASP Web, CSA STAR, NIST AI 600-1, CCPA/CPRA; 3 Developer: HIPAA, PCI, SOC 2; 11 Professional: ISO 27001, ISO 42001, FedRAMP, FIPS 140, EU AI Act, CMMC L2, NIST 800-171, FERPA, SOX, GLBA, NERC CIP; 3 Enterprise: HITRUST, TISAX, CJIS)
 - **Trust Framework** (8 packages, ~8,500 LOC, 548 tests, 85–91% coverage)

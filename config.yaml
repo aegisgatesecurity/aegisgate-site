@@ -15,10 +15,10 @@ params:
   currentYear: 2026
   
   # Version info
-  version: "v3.6.2"
-  goVersion: "1.26.5+"
-  coverage: "86.1%"
-  dockerSize: "34.7MB"
+  version: "v4.1.0"
+  goVersion: "1.26.6+"
+  coverage: "83.1%"
+  dockerSize: "19.1MB"
 
   # Features
   atlasTechniques: 66

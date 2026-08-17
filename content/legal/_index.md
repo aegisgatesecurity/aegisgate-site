@@ -6,12 +6,12 @@ type: "legal-index"
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-These legal documents are self-drafted by AegisGate Security, LLC for the v3.5.0 release. AegisGate Security, LLC is not a law firm, and these documents do not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.5.0+ when budget is available. Until then, customers and counterparties should rely on these documents at their own risk and consult their own legal counsel.
+These legal documents are self-drafted by AegisGate Security, LLC for the v4.1.0 release. AegisGate Security, LLC is not a law firm, and these documents do not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.1.0+ when budget is available. Until then, customers and counterparties should rely on these documents at their own risk and consult their own legal counsel.
 </div>
 
 # Legal Documents
 
-AegisGate Security, LLC's legal documents are listed below. Each document is a **2.0 DRAFT for the v3.5.0 release**.
+AegisGate Security, LLC's legal documents are listed below. Each document is a **2.0 DRAFT for the v4.1.0 release**.
 
 ## For Customers and End Users
 
@@ -27,7 +27,7 @@ AegisGate Security, LLC's legal documents are listed below. Each document is a *
 | [Security Addendum](/legal/security-addendum/) | Security controls, infrastructure, and compliance posture for Professional and Enterprise tiers | 2026-07-29 |
 | [Acceptable Use Policy](/legal/acceptable-use/) | Defines permitted and prohibited uses of the service | 2026-07-29 |
 | [Mutual NDA](/legal/nda/) | Mutual non-disclosure agreement for business discussions | 2026-07-29 |
-| [Beta User Agreement](/legal/beta-agreement/) | Supplemental terms for v3.5.0 program participants | 2026-06-07 |
+| [Beta User Agreement](/legal/beta-agreement/) | Supplemental terms for v4.1.0 program participants | 2026-06-07 |
 
 ## Accessibility
 
@@ -69,4 +69,4 @@ For questions about any of these documents, contact:
 
 ## Counsel Sign-Off Required
 
-All documents on this page are **2.0 DRAFT for v3.5.0** and require counsel review before being used as binding legal agreements. The full 17-clause vendor-favorability framework applied to these documents is documented in the internal legal review framework (a confidential document not published on this site). When budget is available, AegisGate Security, LLC will engage qualified counsel to convert these DRAFTs to production-grade legal documents.
+All documents on this page are **2.0 DRAFT for v4.1.0** and require counsel review before being used as binding legal agreements. The full 17-clause vendor-favorability framework applied to these documents is documented in the internal legal review framework (a confidential document not published on this site). When budget is available, AegisGate Security, LLC will engage qualified counsel to convert these DRAFTs to production-grade legal documents.

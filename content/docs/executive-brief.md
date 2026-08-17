@@ -48,7 +48,7 @@ AegisGate is the only full-suite, open-source AI security platform that protects
 ```bash
 # Download and run
 docker run -d -p 8080:8080 -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
 
 # Verify
 curl http://localhost:8443/health
@@ -79,7 +79,7 @@ SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NI
 |------|-------|-------------|
 | **Community** | Free | 10 compliance frameworks, Lens, Rampart, all detection |
 | **Developer** | $79/mo | 13 frameworks, SIEM, API access |
-| **Professional** | $499/mo | 24 frameworks, SOAR, evidence packages, attestation |
+| **Professional** | $499/mo | 26 frameworks, SOAR, evidence packages, attestation |
 | **Enterprise** | Custom | 31 frameworks, all features, priority support |
 
 **No per-request fees. No data egress. No vendor lock-in.**

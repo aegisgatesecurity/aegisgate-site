@@ -107,11 +107,10 @@ Subject to the terms and conditions of this Agreement and your payment of applic
 
 | Tier | License Type | Users | Usage Limits |
 |------|--------------|-------|-------------|
-| **Community** | Non-commercial | Unlimited | 120 RPM |
-| **Starter** | Commercial | Up to 5 users | 150 RPM |
-| **Developer** | Commercial | Up to 25 users | 500 RPM |
-| **Professional** | Commercial | Up to 100 users | 2,500 RPM |
-| **Enterprise** | Commercial | Unlimited | Custom |
+| **Community** | Non-commercial | 5 users | soft-throttle |
+| **Developer** | Commercial | Up to 25 users | 1,000 RPM |
+| **Professional** | Commercial | Up to 100 users | 10,000 RPM |
+| **Enterprise** | Commercial | Unlimited | Unlimited |
 
 ### 3.3 License Restrictions
 You shall NOT:
@@ -819,14 +818,14 @@ For Enterprise customers, this Agreement is executed by the parties' authorized 
 
 This matrix summarizes the compliance frameworks supported by each subscription tier. Full terms for each framework are set forth in Section 6.3 and the related Data Processing Agreement, Business Associate Agreement, and PCI-DSS Vendor Agreement.
 
-| Framework | Community | Starter | Developer | Professional | Enterprise |
-|-----------|:---------:|:-------:|:---------:|:------------:|:----------:|
-| **HIPAA** | ❌ | ❌ | ❌ | ✅ + BAA | ✅ + BAA |
-| **GDPR (EU/UK)** | ⚠️ DPA required | ✅ + DPA | ✅ + DPA | ✅ + DPA | ✅ + DPA |
-| **PCI-DSS** | ❌ | ❌ | ❌ | ✅ + Vendor Agr | ✅ + Vendor Agr |
-| **SOC 2** | ❌ | ❌ | ❌ | ❌ | ✅ + audit coop |
-| **EU AI Act** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **CCPA / CPRA** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Framework | Community | Developer | Professional | Enterprise |
+|-----------|:---------:|:---------:|:------------:|:----------:|
+| **HIPAA** | ❌ | ❌ | ✅ + BAA | ✅ + BAA |
+| **GDPR (EU/UK)** | ⚠️ DPA required | ✅ + DPA | ✅ + DPA | ✅ + DPA |
+| **PCI-DSS** | ❌ | ❌ | ✅ + Vendor Agr | ✅ + Vendor Agr |
+| **SOC 2** | ❌ | ❌ | ❌ | ✅ + audit coop |
+| **EU AI Act** | ✅ | ✅ | ✅ | ✅ |
+| **CCPA / CPRA** | ✅ | ✅ | ✅ | ✅ |
 
 Legend: ✅ = supported | ❌ = not supported | ⚠️ = requires supplemental agreement
 

@@ -23,7 +23,7 @@ MCP enables AI models to invoke external tools, retrieve context, and interact w
 |-------|-----------|----------------|
 | Request screening | Prompt injection detection | 100% (adversarial suite) |
 | Tool validation | Schema enforcement, parameter sanitization | 42 attack patterns |
-| Response filtering | Output classification, PII redaction | 87%+ coverage |
+| Response filtering | Output classification, PII redaction | 83.1% coverage |
 | Rate limiting | Per-server, per-tool, per-client | Configurable |
 | Audit logging | Full MCP session recording | ATLAS-mapped |
 

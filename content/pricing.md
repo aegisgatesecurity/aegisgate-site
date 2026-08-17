@@ -45,11 +45,11 @@ The case study is **representative**, not a real customer. It is built from anon
 <div class="pricing-card">
 <h3>Community</h3>
 <div class="price">Free <span>forever</span></div>
-<p>Free forever: Lens browser extension + Platform server-side protection with 10 compliance frameworks.</p>
+<p>Free forever: Lens browser extension + Platform server-side protection with 4 community frameworks.</p>
 <ul>
 <li>Unlimited proxy RPM (soft-throttle)</li>
 <li>5 concurrent users</li>
-<li>153+ security detection patterns</li>
+<li>176+ security detection patterns</li>
 <li>8 MCP guardrails</li>
 <li>8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)</li>
 <li>MITRE ATLAS (66 techniques)</li>
@@ -80,7 +80,6 @@ The case study is **representative**, not a real customer. It is built from anon
 <li>Grafana integration</li>
 <li>Priority email support</li>
 <li>gRPC API access (7 services, 50 RPCs)</li>
-<li>SIEM integration (Splunk, Datadog, ELK)</li>
 </ul>
 <div class="pricing-buttons">
 <stripe-buy-button
@@ -119,6 +118,7 @@ The case study is **representative**, not a real customer. It is built from anon
 <li>Process-level MCP sandboxing</li>
 <li>FedRAMP Moderate compliance (151/170 automated)</li>
 <li>gRPC API access</li>
+<li>SIEM integration (11 platforms: Splunk, Datadog, ELK, and more)</li>
 <li>Priority support</li>
 </ul>
 <div class="pricing-buttons">

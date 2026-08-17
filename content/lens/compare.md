@@ -9,11 +9,11 @@ weight: 10
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.3.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.3.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
-<li><strong>5 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (43), ML adversarial (1 Char CNN-BiLSTM model) — 151 regex patterns + on-device ML</li>
+<li><strong>5 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (61), ML adversarial (1 Char CNN-BiLSTM model) — 169 regex patterns + on-device ML</li>
 <li><strong>504 automated tests</strong>: 492/492 Node + 12/12 ML perf/stress</li>
 <li><strong>100% adversarial detection</strong> (10/10 prompt injections caught by ML model); <strong>2.31% regex FPR</strong> on 6,500 WildChat prompts</li>
 <li><strong>~0.3ms regex + ~5ms ML</strong> (regex p50 0.076ms; ML ~5ms in Chrome, pure JS, no WASM)</li>
@@ -44,7 +44,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Price** | Free, forever | Free (Community) / $79/mo (Developer) / custom (Enterprise) |
 | **Account required** | ❌ No | ✅ Yes |
 | **Browser-side AI provider protection** (PII, secrets, XSS, compliance, adversarial ML in ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI) | ✅ All 5 facets | ✅ All 5 facets (same corpus) |
-| **5-facet detection** (PII / Secrets / XSS / Compliance / ML Adversarial). v0.3.0 adds on-device ML. | ✅ | ✅ |
+| **5-facet detection** (PII / Secrets / XSS / Compliance / ML Adversarial). v0.3.1 adds on-device ML. | ✅ | ✅ |
 | **Privacy: no prompt text, no URLs, no page content sent** | ✅ | ✅ |
 | **Local processing** (no server round-trip for default detection) | ✅ | ✅ |
 | **Ed25519-signed extension bundle + GitHub Actions provenance** | ✅ | ✅ |
@@ -55,7 +55,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Team-wide policy** (one rule applies to all users) | ❌ | ✅ |
 | **Team-wide analytics dashboard** | ❌ | ✅ |
 | **Central audit log** (who saw what, when) | ❌ | ✅ |
-| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (151+ patterns) |
+| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (176 patterns) |
 | **MCP protocol protection** (Model Context Protocol) | ❌ | ✅ (8 guardrails) |
 | **A2A agent-to-agent security** (mTLS, capabilities, rate limiting) | ❌ | ✅ |
 | **ACP (Agent Communication Protocol) security** | ❌ | ✅ |
@@ -64,7 +64,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **EU AI Act Compliance Module** (82 controls, Professional+ tier) | ❌ | ✅ |
 | **OWASP compliance module** | ❌ | ✅ (Developer+) |
 | **GDPR / HIPAA / PCI / SOC 2 compliance modules** | ❌ | ✅ (Professional+) |
-| **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ (Enterprise) |
+| **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ (Professional+) |
 | **Custom detection rules per team** | ❌ | ✅ |
 | **Slack / Teams / Jira integration** | ❌ | ✅ (Enterprise) |
 | **Self-hosted option** | N/A (already client-side) | ✅ (Enterprise) |
@@ -101,7 +101,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 
 ### Architecture
 - **Lens**: Browser extension (MV3). Content script injected into AI provider pages. Detection runs locally in the browser. Bundle signed with Ed25519, distributed via Chrome Web Store.
-- **Platform**: Self-hosted Docker container (34.7MB). Sits between your AI services and clients. Detection runs in the gateway. Bundle signed with Ed25519, distributed via GitHub Releases.
+- **Platform**: Self-hosted Docker container (19.1MB). Sits between your AI services and clients. Detection runs in the gateway. Bundle signed with Ed25519, distributed via GitHub Releases.
 
 ### Detection corpus
 Both products share the same detection corpus (the 5-facet taxonomy: PII, secrets, XSS, compliance, adversarial ML). When a new threat is added to one, it's added to the other.
@@ -112,7 +112,7 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 
 ### Test coverage
 - **Lens**: 504 automated tests (492/492 Node + 12/12 ML perf/stress). Zero external dependencies, zero WASM binaries.
-- **Platform**: 11,300+ tests, 97.8% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
+- **Platform**: 8,000+ tests, 83.1% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
 
 ### Source code
 - **Lens**: [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens) — Apache 2.0

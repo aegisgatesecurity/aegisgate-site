@@ -98,7 +98,7 @@ This is not a marketing toy. It is not a stylized terminal with pre-canned respo
 
 What you'll see when you visit:
 
-- **8 headline platform statistics** — including 82 EU AI Act controls, 153+ detection patterns, 5 MCP tool guardrails, and the platform's daily traffic.
+- **8 headline platform statistics** — including 82 EU AI Act controls, 176 detection patterns, 5 MCP tool guardrails, and the platform's daily traffic.
 - **The full EU AI Act compliance scan** — 82 controls, organized by Article, with their current status, the specific risks they cover, and the evidence AegisGate has collected. The demo runs in \`high-risk\` mode (Annex III, Category 1: Biometric identification) for illustrative purposes.
 - **20 pre-loaded threat detections** — real attack patterns caught by AegisGate in production, with severity scores, MITRE ATLAS technique IDs, and the specific detection rule that fired.
 - **5 sample MCP tool guardrails** — demonstrated on representative tool definitions. The full MCP guardrail set is 8 in production; the demo shows the 5 most operationally distinct for clarity.

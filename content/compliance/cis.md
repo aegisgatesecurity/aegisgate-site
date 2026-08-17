@@ -22,7 +22,7 @@ layout: single
 
 ## Executive Summary
 
-AegisGate is a self-hosted, on-premises security gateway for AI infrastructure. Deployed as a Docker container (34.7 MB) on customer-controlled infrastructure with zero external dependencies, AegisGate operates as an in-flight proxy that scans AI traffic for threats — never persisting, storing, or exfiltrating customer data after deployment.
+AegisGate is a self-hosted, on-premises security gateway for AI infrastructure. Deployed as a Docker container (19.1 MB) on customer-controlled infrastructure with zero external dependencies, AegisGate operates as an in-flight proxy that scans AI traffic for threats — never persisting, storing, or exfiltrating customer data after deployment.
 
 This self-assessment evaluates AegisGate's compliance posture against the CIS Controls v8 Implementation Group 1 (IG1) baseline — 56 safeguards across 14 control families that represent the minimum standard of cybersecurity hygiene applicable to all organizations.
 
@@ -35,7 +35,7 @@ This self-assessment evaluates AegisGate's compliance posture against the CIS Co
 
 **Overall IG1 compliance: 100% of applicable safeguards addressed** (41 Implemented + 8 Partial of 49 applicable; 7 N/A).
 
-AegisGate's automated compliance engine enforces 15 CIS-specific controls (CIS-1 through CIS-17) via 857+ CheckFuncs across 27 frameworks, providing continuous validation of CIS safeguard implementations.
+AegisGate's automated compliance engine enforces 15 CIS-specific controls (CIS-1 through CIS-17) via 857+ CheckFuncs across 31 frameworks, providing continuous validation of CIS safeguard implementations.
 
 ---
 
@@ -54,7 +54,7 @@ This assessment covers the AegisGate Security Platform in its production deploym
 
 1. **Safeguard mapping**: Each IG1 safeguard was mapped to AegisGate's architecture, features, and operational capabilities.
 2. **Implementation verification**: Functional claims were validated against product documentation, source code, and deployment specifications.
-3. **Automated assessment**: AegisGate's built-in compliance engine (27 frameworks, 857+ CheckFuncs) was used to verify CIS-specific control implementations.
+3. **Automated assessment**: AegisGate's built-in compliance engine (31 frameworks, 857+ CheckFuncs) was used to verify CIS-specific control implementations.
 4. **Gap analysis**: Any safeguard not fully addressed was documented with remediation guidance. No open gaps were identified in this assessment cycle.
 
 ### Applicability Notes
@@ -94,9 +94,9 @@ Establish and maintain an accurate, up-to-date inventory of all software assets,
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
 | 5 | 2.1 | **Establish and Maintain a Software Inventory** | AegisGate maintains a comprehensive software inventory through its platform binary attestation system (pkg/attestation/). Every component version, dependency, and configuration is tracked and verifiable. CycloneDX and SPDX SBOMs are generated in CI, providing complete software composition visibility. Model versions and AI provider integrations are tracked through the gateway configuration registry. | ✅ Implemented |
-| 6 | 2.2 | **Ensure Authorized Software** | AegisGate runs as a single minimal Docker container (34.7 MB) with a non-root user and no shell. The container image is signed with ECDSA P-256 keys, and signature verification is enforced before execution. No additional software can be installed within the container. Software allowlisting on the host OS is the customer's responsibility. | ⚠️ Partial |
+| 6 | 2.2 | **Ensure Authorized Software** | AegisGate runs as a single minimal Docker container (19.1 MB) with a non-root user and no shell. The container image is signed with ECDSA P-256 keys, and signature verification is enforced before execution. No additional software can be installed within the container. Software allowlisting on the host OS is the customer's responsibility. | ⚠️ Partial |
 | 7 | 2.3 | **Handle Unauthorized Software** | AegisGate's minimal container architecture eliminates unauthorized software risk — no package manager, no shell, no runtime installation capability. OPSEC scanning in CI validates that no unauthorized files or dependencies are present in release builds. Unauthorized software on customer host infrastructure is the customer's responsibility. | ⚠️ Partial |
-| 8 | 2.5 | **Securely Manage Enterprise Assets and Software** | AegisGate container images are signed with ECDSA P-256 keys. GPG-signed commits are enforced in CI. The 34.7 MB minimal container runs as non-root with no shell, no package manager, and no runtime modification capability. Automated OPSEC scanning validates release builds. | ✅ Implemented |
+| 8 | 2.5 | **Securely Manage Enterprise Assets and Software** | AegisGate container images are signed with ECDSA P-256 keys. GPG-signed commits are enforced in CI. The 19.1 MB minimal container runs as non-root with no shell, no package manager, and no runtime modification capability. Automated OPSEC scanning validates release builds. | ✅ Implemented |
 
 ### Control 3: Data Protection
 
@@ -104,7 +104,7 @@ Develop processes and technical controls to identify, classify, securely handle,
 
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
-| 9 | 3.1 | **Establish and Maintain a Data Management Process** | AegisGate's compliance engine automates data classification across 27 frameworks with 857+ CheckFuncs. The PII/PHI scanner identifies and classifies sensitive data in-flight using 153+ detection patterns covering SSN, credit card, health plan ID, email, phone, date of birth, and other identifiers. Data classification policies are customer-configurable. | ✅ Implemented |
+| 9 | 3.1 | **Establish and Maintain a Data Management Process** | AegisGate's compliance engine automates data classification across 31 frameworks with 857+ CheckFuncs. The PII/PHI scanner identifies and classifies sensitive data in-flight using 176 detection patterns covering SSN, credit card, health plan ID, email, phone, date of birth, and other identifiers. Data classification policies are customer-configurable. | ✅ Implemented |
 | 10 | 3.3 | **Configure Data Access Control Lists** | RBAC with least-privilege enforcement controls all data access within AegisGate. MFA is required for administrative access. OIDC/SAML SSO integration maps organizational access policies to gateway permissions. MCP guardrails (8 guardrails) enforce need-to-know restrictions on tool-use interactions. | ✅ Implemented |
 | 11 | 3.4 | **Enforce Data Retention** | AegisGate enforces configurable data retention policies. Audit logs are retained according to customer-defined periods (7/30/90-day defaults by tier). Hash-chained integrity ensures retained data is tamper-evident. Data disposal is automatic per configured retention schedules. | ✅ Implemented |
 | 12 | 3.5 | **Securely Dispose of Data** | AegisGate's container architecture supports clean disposal — container destruction leaves no residual data. Persistent volume data is encrypted with customer-managed AES-256 keys, ensuring data is cryptographically shredded when keys are destroyed. In-flight data is never persisted by AegisGate. | ✅ Implemented |
@@ -158,7 +158,7 @@ Develop a plan to continuously assess and track vulnerabilities on all enterpris
 |---|-----------|-------------|--------------------------|--------|
 | 33 | 7.1 | **Establish and Maintain a Vulnerability Management Process** | AegisGate maintains a documented vulnerability management process integrated into CI/CD. Automated dependency scanning (govulncheck, Trivy) runs on every build. SBOM generation (CycloneDX) provides complete software composition for vulnerability correlation. Zero known vulnerabilities are permitted in release builds. | ✅ Implemented |
 | 34 | 7.2 | **Establish and Maintain a Vulnerability Scanning Process** | Automated vulnerability scanning is integrated into the CI/CD pipeline. govulncheck scans Go dependencies, Trivy scans container images, and OPSEC scanning validates release builds. Scanning is mandatory — builds with known vulnerabilities are blocked from release. | ✅ Implemented |
-| 35 | 7.3 | **Remediate Vulnerabilities** | AegisGate maintains zero known vulnerabilities in all release builds. Vulnerabilities identified during CI/CD scanning are remediated before release. The 34.7 MB minimal container reduces attack surface, eliminating common vulnerability vectors (no shell, no package manager, no runtime dependencies). | ✅ Implemented |
+| 35 | 7.3 | **Remediate Vulnerabilities** | AegisGate maintains zero known vulnerabilities in all release builds. Vulnerabilities identified during CI/CD scanning are remediated before release. The 19.1 MB minimal container reduces attack surface, eliminating common vulnerability vectors (no shell, no package manager, no runtime dependencies). | ✅ Implemented |
 | 36 | 7.4 | **Perform Automated Vulnerability Scanning of Enterprise Assets** | Automated scanning runs on every build: govulncheck for Go dependencies, Trivy for container images, and OPSEC scanning for release validation. Results are tracked and trended. Vulnerability remediation SLAs are enforced in the CI pipeline. | ✅ Implemented |
 | 37 | 7.5 | **Perform Automated Vulnerability Scanning of Software** | SBOM generation (CycloneDX/SPDX) provides complete software composition for vulnerability scanning. govulncheck scans all Go dependencies. Trivy scans container layers. All scanning is automated and integrated into the release pipeline. | ✅ Implemented |
 | 38 | 7.6 | **Ensure Software Vulnerability Scanning is Performed** | AegisGate's vulnerability scanning covers all software: application code (govulncheck), container images (Trivy), and release builds (OPSEC scanning). The single-container architecture ensures complete coverage — there are no hidden dependencies or unscanned components. | ✅ Implemented |
@@ -182,7 +182,7 @@ Ensure appropriate security controls are in place on email and web browser clien
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
 | 44 | 9.1 | **Ensure Use of Standard Secure Configuration for Web Browsers** | AegisGate Lens enforces security headers (CSP, HSTS, X-Content-Type-Options) on AI chat interfaces. Content Security Policy prevents XSS and injection attacks in browser-based AI interactions. Browser hardening for general web browsing is the customer's responsibility. | ⚠️ Partial |
-| 45 | 9.2 | **Ensure Use of Standard Secure Configuration for Email Clients** | AegisGate is an AI infrastructure security product and does not manage email client configurations. Email client security is the customer's responsibility. AegisGate's threat detection patterns (153+ patterns including phishing indicators) can be integrated into email security workflows. | N/A |
+| 45 | 9.2 | **Ensure Use of Standard Secure Configuration for Email Clients** | AegisGate is an AI infrastructure security product and does not manage email client configurations. Email client security is the customer's responsibility. AegisGate's threat detection patterns (176 patterns including phishing indicators) can be integrated into email security workflows. | N/A |
 
 ### Control 10: Malware Defenses
 
@@ -190,7 +190,7 @@ Ensure that anti-malware software is installed on all enterprise assets; that th
 
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
-| 46 | 10.1 | **Deploy and Maintain Anti-Malware Software** | AegisGate's scanner provides the AI-security equivalent of anti-malware: 153+ detection patterns covering prompt injection, jailbreak, data exfiltration, secrets exposure, PII/PHI leakage, and model manipulation. Scanning occurs on every request and response in real time. Traditional endpoint anti-malware for host operating systems is the customer's responsibility. | ⚠️ Partial |
+| 46 | 10.1 | **Deploy and Maintain Anti-Malware Software** | AegisGate's scanner provides the AI-security equivalent of anti-malware: 176 detection patterns covering prompt injection, jailbreak, data exfiltration, secrets exposure, PII/PHI leakage, and model manipulation. Scanning occurs on every request and response in real time. Traditional endpoint anti-malware for host operating systems is the customer's responsibility. | ⚠️ Partial |
 | 47 | 10.2 | **Ensure Anti-Malware Software is Updated** | AegisGate's detection patterns are updated through the compliance engine's continuous update mechanism. Pattern updates are delivered through the platform release cycle. Zero-day detection patterns can be deployed via configuration without a full platform update. Host-level anti-malware updates are the customer's responsibility. | ⚠️ Partial |
 | 48 | 10.3 | **Configure Automatic Anti-Malware Scanning** | AegisGate performs real-time scanning on every AI traffic request and response. No manual scanning is required — the scanner is always active. Scheduled compliance scans validate runtime configurations against 857+ CheckFuncs. Host-level scanning schedules are the customer's responsibility. | ⚠️ Partial |
 
@@ -222,7 +222,7 @@ Operate processes and tooling to establish and maintain comprehensive network mo
 |---|-----------|-------------|--------------------------|--------|
 | 55 | 13.1 | **Establish and Maintain a Network Monitoring Process** | AegisGate monitors all AI traffic in real time. The IOC store maintains a real-time inventory of indicators of compromise. Anomaly detection identifies unusual traffic patterns. The compliance engine continuously validates network security configurations. | ✅ Implemented |
 | 56 | 13.2 | **Collect Traffic Flows** | AegisGate collects comprehensive traffic metadata: source, destination, volume, protocol, and classification for all AI traffic flows through the gateway. Traffic data is stored in hash-chained audit logs for forensic analysis. | ✅ Implemented |
-| 57 | 13.3 | **Deploy a Network Intrusion Detection Solution** | AegisGate's 153+ detection patterns function as an application-layer IDS for AI traffic. Threat detection includes prompt injection, jailbreak, data exfiltration, secrets exposure, PII/PHI leakage, and model manipulation. IOC federation shares threat intelligence across deployments. Traditional network IDS for the customer's infrastructure is the customer's responsibility. | ⚠️ Partial |
+| 57 | 13.3 | **Deploy a Network Intrusion Detection Solution** | AegisGate's 176 detection patterns function as an application-layer IDS for AI traffic. Threat detection includes prompt injection, jailbreak, data exfiltration, secrets exposure, PII/PHI leakage, and model manipulation. IOC federation shares threat intelligence across deployments. Traditional network IDS for the customer's infrastructure is the customer's responsibility. | ⚠️ Partial |
 
 ### Control 16: Application Software Security
 
@@ -232,7 +232,7 @@ Manage the security life cycle of in-house developed, hosted, or acquired softwa
 |---|-----------|-------------|--------------------------|--------|
 | 58 | 16.1 | **Establish and Maintain a Secure Application Development Process** | AegisGate follows a secure SDLC with automated security testing integrated into every stage. OPSEC scanning validates release builds. GPG-signed commits enforce code provenance. The compliance engine validates security configurations at runtime. Dependency scanning (govulncheck, Trivy) runs on every build. | ✅ Implemented |
 | 59 | 16.2 | **Perform Application Security Testing** | AegisGate performs automated security testing including: static analysis (gosec), dependency vulnerability scanning (govulncheck), container image scanning (Trivy), and OPSEC scanning for release builds. Pre-release testing validates all 857+ CheckFuncs. | ✅ Implemented |
-| 60 | 16.3 | **Remediate Application Security Flaws** | AegisGate maintains zero known vulnerabilities in all release builds. Security flaws identified during testing are remediated before release. The minimal container architecture (34.7 MB, no shell, non-root) eliminates entire classes of application security flaws. | ✅ Implemented |
+| 60 | 16.3 | **Remediate Application Security Flaws** | AegisGate maintains zero known vulnerabilities in all release builds. Security flaws identified during testing are remediated before release. The minimal container architecture (19.1 MB, no shell, non-root) eliminates entire classes of application security flaws. | ✅ Implemented |
 | 61 | 16.4 | **Secure Software Architecture** | AegisGate's architecture is designed for security: zero external dependencies, no phone-home, no telemetry, no data exfiltration pathways. The proxy model ensures AegisGate never stores customer data. Defense in depth is achieved through layered security controls (RBAC, MFA, TLS 1.3, hash-chained logs, MCP guardrails). | ✅ Implemented |
 | 62 | 16.6 | **Use a Secure Software Development Lifecycle** | AegisGate's SDLC includes: threat modeling, secure design review, automated security testing (static analysis, dependency scanning, container scanning), GPG-signed commits, OPSEC scanning, and release signing with ECDSA P-256 keys. Every stage of the development lifecycle has automated security validation. | ✅ Implemented |
 
@@ -242,7 +242,7 @@ Maintain a plan to rapidly respond to an attack with the appropriate resources a
 
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
-| 63 | 17.1 | **Establish and Maintain an Incident Response Process** | AegisGate's compliance engine continuously monitors for control failures and configuration drift. Threat detection identifies security incidents in real time (153+ patterns). Hash-chained audit logs provide irrefutable forensic evidence. Rate limiting and MCP guardrails provide automated incident containment. Formal incident response planning for the customer's organization is the customer's responsibility. | ⚠️ Partial |
+| 63 | 17.1 | **Establish and Maintain an Incident Response Process** | AegisGate's compliance engine continuously monitors for control failures and configuration drift. Threat detection identifies security incidents in real time (176 patterns). Hash-chained audit logs provide irrefutable forensic evidence. Rate limiting and MCP guardrails provide automated incident containment. Formal incident response planning for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 | 64 | 17.2 | **Assign Incident Response Roles** | AegisGate's RBAC system includes defined incident response roles (Security Officer, Operator). Role assignments are audited. SSO-based role assignment enables integration with the customer's IR team structure. Formal IR role assignment for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 | 65 | 17.3 | **Establish and Maintain Contact Lists for Incident Response** | AegisGate provides configurable alerting and notification channels for incident response. SIEM integration enables automated incident escalation. IR contact management for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 
@@ -263,7 +263,7 @@ The following table maps AegisGate's built-in CIS compliance checks to the CIS v
 | CIS-7 | Vulnerability Management | Control 7 | Confirms govulncheck, Trivy, SBOM, and patch process configuration |
 | CIS-8 | Audit Log Management | Control 8 | Verifies audit log collection, hash-chain integrity, retention, and review/alert process |
 | CIS-9 | Email and Web Browser | Control 9 | Validates AegisGate Lens extension, telemetry bridge, and CSP headers |
-| CIS-10 | Malware Defenses | Control 10 | Confirms scanner (153+ patterns), pattern auto-updates, and scheduled scans |
+| CIS-10 | Malware Defenses | Control 10 | Confirms scanner (176 patterns), pattern auto-updates, and scheduled scans |
 | CIS-11 | Data Recovery | Control 11 | Verifies backup, hash-chain integrity for verifiable restore, and retention policy |
 | CIS-12 | Network Infrastructure | Control 12 | Validates TLS 1.2+ on all protocol pillars, mTLS, segmentation, and allowlists |
 | CIS-13 | Network Monitoring | Control 13 | Confirms IOC store, anomaly detection, and IDS integration |

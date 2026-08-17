@@ -22,7 +22,7 @@ HTTP APIs are the most common interface for AI model access, exposing several at
 | Layer | Protection | Detection Rate |
 |-------|-----------|----------------|
 | Request screening | Prompt injection, jailbreak detection | 100% (adversarial suite) |
-| Response filtering | PII redaction, content classification | 87%+ coverage |
+| Response filtering | PII redaction, content classification | 83.1% coverage |
 | Rate limiting | Per-IP, per-API-key, per-endpoint | Configurable |
 | Audit logging | Full request/response recording | ATLAS-mapped |
 

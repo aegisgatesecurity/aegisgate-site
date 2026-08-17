@@ -10,7 +10,7 @@ layout: single
 
 **Test Date:** 2026-07-29
 **Test Type:** Full Platform Recovery
-**Test Scope:** AegisGate Security Platform v4.0.0
+**Test Scope:** AegisGate Security Platform v4.1.0
 **Test Environment:** Clean Docker host (Ubuntu 22.04 LTS)
 **Result:** ✅ PASSED — All RTO targets met
 **Owner:** AegisGate Security, LLC
@@ -55,18 +55,18 @@ Complete loss of primary AegisGate instance. Recovery from scratch on a new host
 
 | Step | Action | Expected Result | Actual Result | Time |
 |------|--------|-----------------|---------------|------|
-| 1 | Pull container image | `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0` succeeds | ✅ Pulled successfully | 4 min |
+| 1 | Pull container image | `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0` succeeds | ✅ Pulled successfully | 4 min |
 | 2 | Restore configuration | Mount version-controlled YAML backup | ✅ Configuration loaded | 8 min |
 | 3 | Set license key | `AEGISGATE_LICENSE` environment variable | ✅ License validated | 1 min |
 | 4 | Start container | `docker run -d -p 8080:8080 -p 8443:8443 ...` | ✅ Container started | 30 sec |
 | 5 | Verify health endpoint | `curl -f https://localhost:8443/health` | ✅ 200 OK | 10 sec |
-| 6 | Validate compliance engine | `curl https://localhost:8443/api/v1/compliance/status` | ✅ 27 frameworks registered | 45 sec |
+| 6 | Validate compliance engine | `curl https://localhost:8443/api/v1/compliance/status` | ✅ 31 frameworks registered | 45 sec |
 | 7 | Verify audit log integrity | SHA-256 chain verification | ✅ Chain intact | 15 sec |
 | 8 | Verify TLS certificates | Certificate validity check | ✅ Certificates valid | 5 sec |
 | 9 | Verify RBAC policies | Test RBAC enforcement | ✅ Policies loaded | 10 sec |
 | 10 | Verify rate limiting | Send rapid requests | ✅ Rate limiting active | 5 sec |
 | 11 | Verify MCP guardrails | Test MCP connection | ✅ Guardrails active | 5 sec |
-| 12 | Verify scanner | Test detection pattern count | ✅ 153+ patterns active | 10 sec |
+| 12 | Verify scanner | Test detection pattern count | ✅ 176 patterns active | 10 sec |
 | 13 | Full end-to-end test | Proxy AI request through gateway | ✅ Scanned and allowed | 30 sec |
 | 14 | Block malicious request | Send prompt injection through gateway | ✅ Scanned and blocked | 10 sec |
 
@@ -96,8 +96,8 @@ T+15:30   Full service restoration confirmed
 | Audit log chain | SHA-256 sequential hash verification | ✅ No breaks detected |
 | Configuration integrity | YAML schema validation | ✅ All fields valid |
 | License validity | ECDSA P-256 signature verification | ✅ Valid |
-| Detection patterns | Pattern count vs. expected (153+) | ✅ 153 patterns loaded |
-| Compliance frameworks | Registration count vs. expected (24) | ✅ 27 frameworks registered |
+| Detection patterns | Pattern count vs. expected (176) | ✅ 176 patterns loaded |
+| Compliance frameworks | Registration count vs. expected (31) | ✅ 31 frameworks registered |
 
 ### 3.3 Functional Verification
 
@@ -120,7 +120,7 @@ T+15:30   Full service restoration confirmed
 
 1. **Container recovery is fast** — 15.5 minutes from scratch, well within RTO target
 2. **No data loss** — Stateful data on customer-managed volumes was not affected
-3. **Compliance engine auto-recovery** — All 27 frameworks registered without manual intervention
+3. **Compliance engine auto-recovery** — All 31 frameworks registered without manual intervention
 4. **Audit log integrity preserved** — Hash chain verified intact after recovery
 5. **Fail-closed validation** — Malicious requests correctly blocked during recovery
 

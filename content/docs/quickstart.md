@@ -1,6 +1,6 @@
 ---
 title: "5-Minute Quickstart"
-description: "Deploy AegisGate v4.0.0 with ML-powered threat detection and scan your first AI request in under 5 minutes"
+description: "Deploy AegisGate v4.1.0 with ML-powered threat detection and scan your first AI request in under 5 minutes"
 type: docs
 weight: 1
 ---
@@ -8,15 +8,15 @@ weight: 1
 ## Step 1: Pull and Run (1 minute)
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
 docker run -d --name aegisgate \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
 ```
 
-AegisGate starts in **regex-only mode** (87%+ detection coverage). To enable ML-powered detection (100% adversarial accuracy), see Step 6 below.
+AegisGate starts in **regex-only mode** (83.1% detection coverage). To enable ML-powered detection (100% adversarial accuracy), see Step 6 below.
 
 ## Step 2: Verify (30 seconds)
 
@@ -64,9 +64,9 @@ mcp:
 docker restart aegisgate
 ```
 
-## Step 6: Enable ML Threat Detection (v4.0.0) 🧠
+## Step 6: Enable ML Threat Detection (v4.1.0) 🧠
 
-v4.0.0 introduces a CNN-BiLSTM neural network for 100% adversarial detection with zero false positives. To enable:
+v4.1.0 introduces a CNN-BiLSTM neural network for 100% adversarial detection with zero false positives. To enable:
 
 ### Option A: Docker (recommended)
 
@@ -86,7 +86,7 @@ docker run -d --name aegisgate \
   -v $(pwd)/config.yaml:/etc/aegisgate/config.yaml \
   -v $(pwd)/${ONNX_LIB}:/usr/local/lib/libonnxruntime.so \
   -e ONNXRUNTIME_SHARED_LIBRARY_PATH=/usr/local/lib/libonnxruntime.so \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
 ```
 
 ### Option B: Environment Variable (bare metal)
@@ -120,10 +120,10 @@ curl -H "X-API-Key: your-key" \
 
 In under 5 minutes you've:
 
-- Deployed AegisGate v4.0.0 with Docker
+- Deployed AegisGate v4.1.0 with Docker
 - Scanned adversarial and benign requests
 - Enabled MCP guardrails
-- Activated ML-powered threat detection (v4.0.0)
+- Activated ML-powered threat detection (v4.1.0)
 - Verified ATLAS compliance coverage
 
 **What's next?**

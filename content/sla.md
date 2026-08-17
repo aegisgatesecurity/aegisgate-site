@@ -47,7 +47,7 @@ The `/health` endpoint verifies all critical dependencies:
 {
   "status": "healthy",
   "tier": "community",
-  "version": "3.5.0",
+  "version": "4.1.0",
   "checks": {
     "proxy": { "enabled": true, "healthy": true },
     "persistence": { "enabled": true, "started": true, "healthy": true },

@@ -88,7 +88,7 @@ docker run -d -p 8080:8080 \
   -v ./aegisgate-data:/data \
   -e AEGISGATE_COMPLIANCE_FRAMEWORKS=hipaa,gdpr \
   -e AEGISGATE_AUDIT_REDACT_PII=true \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
 ```
 
 Configuration:

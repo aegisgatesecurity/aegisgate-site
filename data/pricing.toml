@@ -7,9 +7,9 @@ period = "forever"
 description = "Open-source core for individuals and small teams starting their AI security journey"
 highlights = [
   "HTTP Proxy with bidirectional scanning",
-  "120 proxy RPM / 60 MCP RPM",
-  "3 concurrent users",
-  "153+ detection patterns",
+  "Soft-throttle (no hard RPM cap)",
+  "5 concurrent users",
+  "176 detection patterns",
   "8 MCP guardrails",
   "8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)",
   "MITRE ATLAS enforcement",
@@ -46,11 +46,11 @@ highlights = [
   "SQLite and Redis storage",
   "Code execution sandbox",
   "Priority email support",
-  "gRPC API access (7 services, 50 RPCs)",
-  "SIEM integration (Splunk, Datadog, ELK)"
+  "gRPC API access (7 services, 50 RPCs)"
 ]
 highlights_excluded = [
   "ISO 27001 / ISO 42001",
+  "SIEM integration",
   "Custom compliance frameworks",
   "Dedicated support"
 ]
@@ -74,6 +74,7 @@ highlights = [
   "Kubernetes and Helm deployment",
   "PostgreSQL and S3 storage",
   "Process-level MCP sandboxing",
+  "SIEM integration (11 platforms: Splunk, ELK, Datadog, etc.)",
   "90-day audit log retention",
   "Priority support",
   "FedRAMP Moderate compliance (151/170 automated)",

@@ -11,7 +11,7 @@ type: "landing"
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Platform-v4.0.0-blue?logo=semver" alt="Platform Version"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.1.0" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Platform-v4.1.0-blue?logo=semver" alt="Platform Version"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.3.1" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Lens-v0.3.1-blue?logo=semver" alt="Lens Version"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Rampart-v0.6.1-blue?logo=semver" alt="Rampart Version"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
@@ -78,7 +78,7 @@ type: "landing"
 <ul>
 <li>6 attack surfaces: HTTP API, MCP, A2A, ACP, Response, Trust Framework</li>
 <li>31 compliance frameworks (HIPAA, SOC 2, EU AI Act, FedRAMP, and more)</li>
-<li>SIEM integration (12 platforms), SOAR integration (4 platforms)</li>
+<li>SIEM integration (11 platforms), SOAR integration (4 platforms)</li>
 <li>Web UI, multi-tenant, air-gapped deployment, single 19.1MB Go binary</li>
 </ul>
 <p>
@@ -283,7 +283,7 @@ type: "landing"
 
 <div class="card">
 <h3>📊 Proven at Scale</h3>
-<p>5,000 concurrent virtual users, 23,578 requests per second, 0% errors. 11,983+ tests passing. 31 compliance frameworks. 12 SIEM integrations. 4 SOAR integrations.</p>
+<p>5,000 concurrent virtual users, 23,578 requests per second, 0% errors. 8,000+ tests passing. 31 compliance frameworks. 11 SIEM platforms. 4 SOAR integrations.</p>
 </div>
 
 </div>
@@ -420,7 +420,7 @@ type: "landing"
 <div class="command-box">
 <button class="copy-btn">Copy</button>
 <pre>docker run -d -p 8080:8080 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0</pre>
 </div>
 <p><a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try Live Demo →</a></p>
 </div>

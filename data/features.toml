@@ -3,9 +3,9 @@
 [features.http_proxy]
 name = "HTTP API Security"
 icon = "🌐"
-description = "Bidirectional scanning of every API request and response with 153+ detection patterns"
+description = "Bidirectional scanning of every API request and response with 176 detection patterns"
 items = [
-  "153+ detection patterns (MITRE ATLAS, OWASP LLM Top 10, PII/secrets)",
+  "176 detection patterns (MITRE ATLAS, OWASP LLM Top 10, PII/secrets)",
   "Bidirectional request/response scanning",
   "Real-time threat blocking",
   "Rate limiting per client/IP with token-bucket algorithm",
@@ -53,7 +53,7 @@ items = [
 ]
 
 [features.compliance]
-name = "24 Compliance Frameworks"
+name = "31 Compliance Frameworks"
 icon = "📋"
 description = "Fail-closed compliance enforcement across every major standard — 151/170 FedRAMP automated"
 items = [
@@ -80,7 +80,7 @@ name = "Kubernetes & Helm"
 icon = "🚀"
 description = "Production-grade deployment in 60 seconds — Docker, K8s, or Helm"
 items = [
-  "Docker image — 34.7 MB, zero config",
+  "Docker image — 19.1 MB, zero config",
   "Kubernetes + Helm chart included",
   "HPA autoscaling (1–10 replicas)",
   "NetworkPolicy ingress/egress restrictions",
@@ -103,16 +103,16 @@ items = [
 
 [features.stats]
 items = [
-  { label = "Detection Patterns", value = "153+" },
+  { label = "Detection Patterns", value = "176" },
   { label = "MCP Guardrails", value = "8" },
   { label = "A2A Guardrails", value = "8" },
   { label = "Total Guardrails", value = "16" },
-  { label = "Compliance Frameworks", value = "24" },
+  { label = "Compliance Frameworks", value = "31" },
   { label = "Peak Throughput", value = "24,806 RPS" },
   { label = "Avg Latency", value = "3.2ms" },
-  { label = "Package Coverage", value = "86.1%" },
-  { label = "Tests Passing", value = "7,500+" },
-  { label = "Docker Image", value = "34.7MB" },
+  { label = "Package Coverage", value = "83.1%" },
+  { label = "Tests Passing", value = "8,000+" },
+  { label = "Docker Image", value = "19.1MB" },
   { label = "FedRAMP Controls", value = "151/170" },
   { label = "Cross-Framework", value = "100%" },
   { label = "gRPC Services", value = "7" }

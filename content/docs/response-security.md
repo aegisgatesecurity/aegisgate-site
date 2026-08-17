@@ -21,7 +21,7 @@ AI model responses can contain dangerous content that must be filtered before de
 
 | Layer | Protection | Detection Rate |
 |-------|-----------|----------------|
-| Content classification | Toxicity, hate speech, CSAM | 87%+ coverage |
+| Content classification | Toxicity, hate speech, CSAM | 83.1% coverage |
 | PII redaction | SSN, credit card, email, phone, medical | 42 pattern types |
 | Hallucination detection | Factual consistency checks | ML-based scoring |
 | Instruction leak prevention | System prompt exposure blocking | Pattern + ML |

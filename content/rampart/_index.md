@@ -9,12 +9,12 @@ type: "landing"
      Plain language. "What is this and do I need it?"
      ============================================================ -->
 
-> **⚡ AegisGate Rampart v0.6.0 is LIVE** — Local proxy, IDE plugins for VS Code/Cursor and JetBrains, real-time detection. [Download from GitHub](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0) (free, open source, Apache 2.0).
+> **⚡ AegisGate Rampart v0.6.1 is LIVE** — Local proxy, IDE plugins for VS Code/Cursor and JetBrains, real-time detection. [Download from GitHub](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1) (free, open source, Apache 2.0).
 
 <div class="alert alert-success alert-center">
 <strong>⚡ AegisGate Rampart</strong> is <strong>free and open source</strong>. No account required. No cloud calls. All detection happens locally on your machine.
 <br><br>
-<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart v0.6.0 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart v0.6.1 →</a>
 <a href="/rampart/#quick-start" class="btn btn-secondary">Quick start guide &rarr;</a>
 </div>
 
@@ -129,7 +129,7 @@ chmod +x aegisgate-rampart
 docker run -d \
   -p 8443:8443 \
   -p 9090:9090 \
-  ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.6.0
+  ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.6.1
 ```
 
 ---
@@ -212,7 +212,7 @@ Your AI tool (Copilot/Cursor/API) → Rampart proxy (localhost:8443) → AI mode
 
 ## Download
 
-### Release Assets (v0.6.0)
+### Release Assets (v0.6.1)
 
 | Platform | Asset | Architecture |
 |----------|-------|-------------|
@@ -223,10 +223,10 @@ Your AI tool (Copilot/Cursor/API) → Rampart proxy (localhost:8443) → AI mode
 | Linux | `aegisgate-rampart-linux-amd64.deb` | Debian/Ubuntu |
 | Linux | `aegisgate-rampart-linux-amd64.rpm` | RHEL/Fedora |
 | Windows | `aegisgate-rampart-windows-amd64.zip` | x86_64 |
-| Docker | `ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.6.0` | Multi-arch (cosign-signed) |
+| Docker | `ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.6.1` | Multi-arch (cosign-signed) |
 
 <p>
-<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">All 13 assets on GitHub →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">All 13 assets on GitHub →</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-rampart" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Source code →</a>
 </p>
 
@@ -338,7 +338,7 @@ Yes. Apache 2.0 license. Free for personal and commercial use. No restrictions, 
 </details>
 
 <details>
-<summary><strong>Canonical facts (v0.6.0)</strong></summary>
+<summary><strong>Canonical facts (v0.6.1)</strong></summary>
 
 Source: [aegisgate-rampart repo](https://github.com/aegisgatesecurity/aegisgate-rampart)
 

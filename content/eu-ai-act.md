@@ -5,7 +5,7 @@ type: "landing"
 ---
 
 <div class="alert alert-info alert-center" style="background:#003399;border-color:#FFD700;color:#fff;">
-<strong>{{< eu-flag >}} v4.0.0 (GA):</strong> The EU AI Act Compliance Module is fully implemented and tested. <strong>Beta status</strong>: counsel review of the legal interpretation is pending (v3.4.0+). Use for evaluation and pre-audit work.
+<strong>{{< eu-flag >}} v4.1.0 (GA):</strong> The EU AI Act Compliance Module is fully implemented and tested. <strong>Beta status</strong>: counsel review of the legal interpretation is pending (v3.4.0+). Use for evaluation and pre-audit work.
 </div>
 
 ## What is the EU AI Act?
@@ -170,7 +170,7 @@ What this means for you:
 - ⚠️ **Defer your formal EU AI Act conformity assessment** until counsel has signed off on the mapping
 - ⚠️ **Don't use AegisGate's audit reports as your sole evidence** for EU AI Act compliance — they should supplement, not replace, qualified legal review
 
-When counsel sign-off is complete (target: v4.0.0), we'll:
+When counsel sign-off is complete (target: v4.1.0), we'll:
 
 - Update the Module to v1.0-GA
 - Publish the counsel-reviewed mapping
@@ -185,7 +185,7 @@ To enable the EU AI Act Compliance Module:
    - Not on Professional yet? [Upgrade at /pricing/](/pricing/) or [contact sales](mailto:sales@aegisgatesecurity.io)
 2. **Pull the latest image**:
    ```bash
-   docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0
+   docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
    ```
 3. **Run the compliance scan**:
    ```bash

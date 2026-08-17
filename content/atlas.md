@@ -20,7 +20,7 @@ AI systems face unique adversarial techniques that traditional security tools do
 
 | ATLAS Technique | ID | AegisGate Defense |
 |-----------------|-----|-------------------|
-| Prompt Injection | T1059 | 153+ detection patterns for adversarial instructions |
+| Prompt Injection | T1059 | 176 detection patterns for adversarial instructions |
 | Data Exfiltration | T1037 | PII/PHI/secret detection in request and response bodies |
 | Credential Harvesting | T1110 | API key exposure scanning, vault integration |
 | Model Extraction | T1190 | Rate limiting + anomaly detection on inference endpoints |
@@ -95,14 +95,14 @@ ATLAS organizes 66 techniques into 14 tactics. AegisGate provides comprehensive 
 | Technique | Coverage |
 |-----------|----------|
 | Supply Chain Compromise | mTLS, signature verification, MCP/ACP server validation |
-| Exploit Public-Facing Application | Input validation, 153+ threat patterns |
+| Exploit Public-Facing Application | Input validation, 176 threat patterns |
 | Phishing (AI-specific) | Prompt injection detection across all pillars |
 
 ### Execution
 
 | Technique | Coverage |
 |-----------|----------|
-| Prompt Injection | 153+ detection patterns, input sanitization |
+| Prompt Injection | 176 detection patterns, input sanitization |
 | Command & Scripting Interpreter | Tool authorization, stdio validation |
 | Agent Task Execution | Capability enforcement, license gating |
 
@@ -182,7 +182,7 @@ ATLAS organizes 66 techniques into 14 tactics. AegisGate provides comprehensive 
 
 | Feature | Community | Developer | Professional | Enterprise |
 |---------|-----------|-----------|-------------|-----------|
-| HTTP threat scanning (153+ patterns) | ✅ | ✅ | ✅ | ✅ |
+| HTTP threat scanning (176 patterns) | ✅ | ✅ | ✅ | ✅ |
 | MCP 8 guardrails | ✅ | ✅ | ✅ | ✅ |
 | A2A 8 guardrails | — | ✅ | ✅ | ✅ |
 | ACP protocol security | ✅ | ✅ | ✅ | ✅ |

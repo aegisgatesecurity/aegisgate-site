@@ -75,7 +75,7 @@ Topics covered:
 - Cryptographic practices (TLS 1.3, AES-256, ECDSA P-256)
 - Secret management (no hardcoding, environment variables)
 - Dependency management and supply chain security
-- Container security (34.7MB minimal image, non-root, no shell)
+- Container security (19.1MB minimal image, non-root, no shell)
 - OPSEC practices (no local paths, no private keys, no internal refs)
 - Code review security checklist
 

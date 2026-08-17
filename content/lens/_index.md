@@ -9,7 +9,7 @@ type: "landing"
      Plain language. No jargon. Install buttons.
      ============================================================ -->
 
-> **🆕 AegisGate Lens v0.3.0 is LIVE** — Now with AI-powered injection detection. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/).
+> **🆕 AegisGate Lens v0.3.1 is LIVE** — Now with AI-powered injection detection. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/).
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate Lens</strong> is <strong>free and stays free</strong> for individual use. No account required. No prompt text ever sent to any server.
@@ -124,7 +124,7 @@ The banner is **non-blocking** — it doesn't prevent you from sending. It just 
 The content below is for developers, security engineers, and anyone who wants to understand how Lens works under the hood.
 
 <details>
-<summary><strong>📖 Canonical facts (v0.3.0)</strong></summary>
+<summary><strong>📖 Canonical facts (v0.3.1)</strong></summary>
 
 Source: [aegisgate-lens repo](https://github.com/aegisgatesecurity/aegisgate-lens)
 
@@ -179,14 +179,14 @@ Lens **never** sends or stores:
 12. ❌ IP addresses (when self-hosted) — only the Gateway server IP if you use the optional opt-in telemetry
 
 If we ever change any of these, the change will be:
-- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.0/docs/SECURITY.md)
+- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/docs/SECURITY.md)
 - Disclosed in the release notes
 - Announced via the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 
 </details>
 
 <details>
-<summary><strong>🧪 What's new in v0.3.0</strong></summary>
+<summary><strong>🧪 What's new in v0.3.1</strong></summary>
 
 - **🧠 ML threat detector** — Char CNN-BiLSTM with Attention catches adversarial prompt injections that regex can't. Pure JavaScript inference (~5ms in Chrome). No WASM, no onnxruntime, no remote server. Lazy-loaded on first detection.
 - **🔍 DeepSeek + Meta AI** — two new AI provider integrations (10 total).

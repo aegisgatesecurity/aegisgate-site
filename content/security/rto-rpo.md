@@ -27,7 +27,7 @@ AegisGate is a self-hosted, on-premises security gateway. Infrastructure recover
 
 | Component | State | Deployment | Recovery Model |
 |-----------|-------|------------|----------------|
-| AegisGate binary (34.7 MB) | Stateless | Docker container | Pull and recreate |
+| AegisGate binary (19.1 MB) | Stateless | Docker container | Pull and recreate |
 | Configuration (YAML) | Semi-stateful | Volume mount | Customer-managed backup |
 | Audit logs (hash-chained) | Stateful | Volume mount | Customer-managed backup |
 | License key (ECDSA P-256) | Stateless | Environment variable | Re-download from portal |
@@ -63,7 +63,6 @@ AegisGate is a self-hosted, on-premises security gateway. Infrastructure recover
 | Tier | Overall RTO | SLA | Rationale |
 |------|------------|-----|-----------|
 | **Community** | 24 hours | Best effort | No guaranteed response time |
-| **Starter** | 8 hours | Next business day | Email support |
 | **Developer** | 4 hours | Same business day | Priority email |
 | **Professional** | 2 hours | 24/7 security support | Dedicated security channel |
 | **Enterprise** | 1 hour | 24/7 + dedicated engineer | Named engineer on-call |
@@ -96,7 +95,7 @@ AegisGate is a self-hosted, on-premises security gateway. Infrastructure recover
 
 ### AegisGate Platform Recovery
 
-1. **Pull latest container image**: `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.0.0`
+1. **Pull latest container image**: `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0`
 2. **Restore configuration**: Mount version-controlled YAML from backup
 3. **Restore license**: Set `AEGISGATE_LICENSE` environment variable
 4. **Start container**: `docker run -d -p 8080:8080 -p 8443:8443 ...`

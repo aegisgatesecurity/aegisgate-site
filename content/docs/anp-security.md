@@ -23,7 +23,7 @@ ANP enables dynamic agent networks with service discovery and mesh communication
 |-------|-----------|----------------|
 | Network admission | Agent identity verification | Full verification |
 | Service discovery | Signed service advertisements | 100% (adversarial suite) |
-| Mesh integrity | Topology validation, anomaly detection | 87%+ coverage |
+| Mesh integrity | Topology validation, anomaly detection | 83.1% coverage |
 | Rate limiting | Per-agent, per-service | Configurable |
 
 ### Configuration
