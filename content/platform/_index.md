@@ -22,12 +22,12 @@ type: "landing"
 <li><strong>Single 19.1MB Go binary</strong>, zero external dependencies, air-gapped deployment</li>
 <li><strong>8,000+ tests passing</strong>, 83.1% coverage</li>
 <li><strong>Load tested</strong>: 5,000 VUs, 23,578 RPS, 0% errors</li>
-<li><strong>Apache 2.0</strong>, self-hosted, zero data collection</li>
+<li><strong>Apache 2.0 community edition</strong>, self-hosted, zero data collection</li>
 </ul>
 </div>
 
 <div class="alert alert-success alert-center">
-<strong>🏢 AegisGate Platform</strong> is <strong>open source</strong> (Apache 2.0). Free Community tier. Self-hosted. No vendor lock-in. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
+<strong>🏢 AegisGate Platform</strong> is <strong>open-core</strong> (Apache 2.0 community edition + commercial enterprise modules). Free Community tier. Self-hosted. No vendor lock-in. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.1.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v4.1.0 →</a>
 </div>
 
@@ -238,10 +238,9 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | Tier | Price | Key Features |
 |------|-------|--------------|
 | **Community** | Free | HTTP proxy, MCP, A2A, 176+ patterns, MITRE ATLAS, basic compliance |
-| **Developer** | $79/mo | + HIPAA, PCI-DSS, mTLS, OIDC/SAML, full compliance |
-| **Professional** | $499/mo | + ISO 27001, ISO 42001, FedRAMP, EU AI Act, Trust Framework, ML detection |
-| **Enterprise** | Custom | + Custom frameworks, FedRAMP full 170/170, dedicated support, SLA |
-| **Air-Gapped** | Custom | Enterprise + offline deployment, custom integrations |
+| **Developer** | $79/mo | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
+| **Professional** | $499/mo | + Trust Framework, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
+| **Enterprise** | Custom | + Air-gapped deployment, custom compliance modules, dedicated SE, SLA |
 
 <p><a href="/pricing/" class="btn btn-secondary">Full pricing details →</a></p>
 
@@ -280,7 +279,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | 11 SIEM integrations | ✅ | ❌ | ❌ | ⚠️ |
 | 4 SOAR integrations | ✅ | ❌ | ❌ | ❌ |
 | Air-gapped deployment | ✅ | ❌ | ❌ | ❌ |
-| Open source (Apache 2.0) | ✅ | ❌ | ✅ (Apache) | ❌ |
+| Open-core (Apache 2.0 community + commercial enterprise) | ✅ | ❌ | ✅ (Apache) | ❌ |
 
 <p><a href="/docs/comparison/" class="btn btn-secondary">Full competitive analysis →</a></p>
 

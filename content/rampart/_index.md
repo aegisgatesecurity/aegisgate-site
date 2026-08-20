@@ -283,7 +283,7 @@ require'lspconfig'.rampart_lsp.setup{
 
 ## Architecture
 
-```mermaid
+{{< mermaid >}}
 graph TB
     subgraph "Your Machine"
         A[AI Tool<br/>Copilot/Cursor/API] --> B[Rampart Proxy<br/>localhost:8443]
@@ -301,7 +301,7 @@ graph TB
     J --> K{Safe?}
     K -->|No| F
     K -->|Yes| L[Return to AI Tool]
-```
+{{< /mermaid >}}
 
 ---
 

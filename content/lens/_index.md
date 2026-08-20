@@ -59,7 +59,7 @@ Lens catches these **before they leave your browser** and gives you a chance to 
 1. **You type a prompt** into ChatGPT, Claude, or any of the 10 supported AI chat tools
 2. **Lens checks it locally** in your browser — nothing is sent anywhere, ever
 3. **If it finds something sensitive**, a banner appears at the top of the page telling you what was found and why it matters
-4. **You choose**: Cancel (don't send), Edit & Redact (Lens removes the sensitive parts), or Send Anyway (it's your data)
+4. **You choose**: Cancel (don't send), Edit & Resend (you remove the sensitive parts yourself), or Send Anyway (it's your data)
 5. **That's it.** No account, no signup, no settings to configure. It just works.
 
 ---
@@ -104,7 +104,7 @@ When you're about to send sensitive data, Lens shows a warning banner at the top
 >
 > **What would you like to do?**
 > - **Cancel** — Don't send this prompt
-> - **Edit & Redact** — Remove the sensitive data automatically
+> - **Edit & Resend** — Go back and remove the sensitive data yourself
 > - **Send Anyway** — I understand the risks, send it
 
 The banner is **non-blocking** — it doesn't prevent you from sending. It just makes sure you know what you're about to share. You're always in control.
@@ -152,7 +152,7 @@ Lens injects a content script into the 10 supported AI providers. As you type a 
    - **Compliance**: 43 patterns including OWASP LLM Top 10, MITRE ATLAS, EU AI Act, NIST CSF, ISO 27001, CCPA, LGPD, PIPEDA, POPIA
 2. **Enriches** with on-device ML (asynchronous, ~5ms):
    - **ML adversarial**: Char CNN-BiLSTM with Attention detects prompt injection attacks — instruction override ("ignore all previous instructions"), roleplay injection, obfuscated commands, and other adversarial patterns that structured regex can't catch. Pure JavaScript, no WASM, no remote inference.
-3. **Warns** via a non-blocking banner at the top of the page that explains what was detected, why it matters, and what to do about it (3 options: Cancel, Edit & Redact, Send Anyway).
+3. **Warns** via a non-blocking banner at the top of the page that explains what was detected, why it matters, and what to do about it (3 options: Cancel, Edit & Resend, Send Anyway).
 4. **Never sends** your prompt to any server — not even opt-in. The only data Lens may send is anonymous, hashed metadata (detection category, no text) when you explicitly opt in to help improve detection.
 5. **Stores nothing** by default. No keystroke logging, no prompt caching, no history.
 

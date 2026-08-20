@@ -6,7 +6,7 @@ weight: 500
 
 ## AI Security Platform Comparison — 2026
 
-AegisGate is the only platform that secures every AI interaction surface — browser, IDE, local proxy, API gateway, and agent protocols — in a single open-source, self-hosted suite. This comparison reflects verified, in-codebase capabilities as of v4.1.0 (August 2026).
+AegisGate is the only platform that secures every AI interaction surface — browser, IDE, local proxy, API gateway, and agent protocols — in a single open-core, self-hosted suite. This comparison reflects verified, in-codebase capabilities as of v4.1.0 (August 2026).
 
 ---
 
@@ -15,7 +15,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 | Capability | AegisGate | Nightfall AI | Prompt Security | Cisco AI Defense | Microsoft Purview | Lakera | Rebuff |
 |-----------|-----------|-------------|-----------------|------------------|-------------------|--------|--------|
 | **Architecture** | Single 19.1 MB Go binary | SaaS microservices | SaaS | Hardware appliance | M365 suite | SaaS | SaaS |
-| **Open Source** | ✅ Apache 2.0 | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ MIT |
+| **Open Core** | ✅ Apache 2.0 + commercial | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ MIT |
 | **Self-Hosted** | ✅ | ❌ | ❌ | ⚠️ Appliance | ❌ | ❌ | ✅ |
 | **Air-Gapped** | ✅ Full offline | ❌ | ❌ | ⚠️ | ❌ | ❌ | ❌ |
 | **License** | Apache 2.0 | Proprietary | Proprietary | Proprietary | Proprietary | Proprietary | MIT |
@@ -124,7 +124,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 7. **SOAR integration** — PagerDuty, Jira, ServiceNow out of the box. No competitor offers SOAR.
 8. **IDE integration** — VS Code, Cursor, JetBrains, Neovim, Emacs, Helix, Sublime. No competitor offers IDE integration.
 9. **Verified scale** — 5,000 concurrent VUs, 23,578 RPS, 0.00% errors on bare metal. No competitor publishes scale data.
-10. **Open source** — Apache 2.0, self-hosted, no vendor lock-in, full code auditability. Only Rebuff is also open source (MIT), but with ~10 patterns vs AegisGate's 154+ML.
+10. **Open-core** — Apache 2.0 community edition + commercial enterprise modules. Self-hosted, no vendor lock-in, full community code auditability. Only Rebuff is also open source (MIT), but with ~10 patterns vs AegisGate's 154+ML.
 
 ### Where Competitors Still Lead
 

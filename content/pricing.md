@@ -14,6 +14,8 @@ type: pricing
 
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
 
+# Pricing
+
 ## 📚 Customer 1-pagers
 
 These 1-pagers explain the technical depth behind each tier and module for sales engineers, security architects, and procurement teams. They follow the established pattern of being self-attested (we engineer the scanner; a Notary Body or counsel provides the certification / legal opinion).

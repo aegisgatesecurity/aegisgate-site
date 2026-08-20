@@ -17,7 +17,7 @@ AI tools (ChatGPT, Claude, Copilot, Gemini, etc.) are now used by 80%+ of knowle
 
 ### The Solution
 
-AegisGate is the only full-suite, open-source AI security platform that protects every AI interaction surface:
+AegisGate is the only full-suite, open-core AI security platform that protects every AI interaction surface:
 
 | Product | What It Does | Where It Runs | Price |
 |---------|-------------|---------------|-------|
