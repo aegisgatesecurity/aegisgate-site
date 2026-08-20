@@ -4,8 +4,6 @@ description: "Simple, transparent pricing for every team size - from solo develo
 type: pricing
 ---
 
-# Pricing
-
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
 
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#38bdf8;color:#fff;margin-bottom:16px;">
