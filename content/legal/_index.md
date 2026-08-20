@@ -55,7 +55,7 @@ AegisGate Security, LLC's legal documents are listed below. Each document is a *
 
 | Document | Purpose | Last Updated |
 |---|---|---|
-| [Open Source License (Apache 2.0)](/legal/license/) | Plain-English summary of the Apache 2.0 license that the AegisGate platform source code is released under | 2026-06-08 |
+| [Open-Core License (Apache 2.0 + Commercial)](/legal/license/) | Plain-English summary of the open-core licensing model — Apache 2.0 community edition + commercial enterprise modules | 2026-08-20 |
 
 ## Questions?
 

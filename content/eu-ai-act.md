@@ -39,23 +39,27 @@ You need the **EU AI Act Compliance Module** if any of the following apply to yo
 
 ## What AegisGate's EU AI Act Module Provides
 
-AegisGate's EU AI Act Compliance Module gives you a **single source of truth** for whether your AI system is compliant — across **120 controls** in **8 categories**.
+AegisGate's EU AI Act Compliance Module gives you a **single source of truth** for whether your AI system is compliant — across **120 controls** in **12 categories**.
 
-### 8 Categories, 82 Controls
+### 12 Categories, 120 Controls
 
 | # | Category | EU AI Act Article | # of Controls | Type |
 |---|----------|-------------------|---------------|------|
-| 1 | **Prohibited Practices** | Article 5 | 6 | Automatic + Manual |
+| 1 | **Prohibited Practices** | Article 5 | 10 | Automatic + Manual |
 | 2 | **Risk Management** | Article 9 | 12 | Automatic + Manual |
-| 3 | **Data Quality** | Article 10 | 9 | Automatic + Manual |
-| 4 | **Technical Documentation** | Articles 11+12 | 14 | Manual |
-| 5 | **Record-Keeping** | Articles 13+14 | 11 | Automatic + Manual |
-| 6 | **Human Oversight** | Article 15 | 8 | Manual |
-| 7 | **Accuracy, Robustness, Cybersecurity** | Articles 51–55 | 12 | Automatic + Manual |
-| 8 | **Annex IV Technical Documentation** | AI-* | 10 | Manual |
-| | **Total** | | **82** | **9 Automatic + 73 Manual** |
+| 3 | **Data Governance** | Article 10 | 10 | Automatic + Manual |
+| 4 | **Transparency** | Articles 11+12, 50 | 10 | Manual |
+| 5 | **Technical Documentation** | Articles 11+12 | 7 | Manual |
+| 6 | **Record Keeping** | Articles 13+14, 19 | 7 | Automatic + Manual |
+| 7 | **Human Oversight** | Article 15 | 8 | Manual |
+| 8 | **Accuracy and Robustness** | Articles 15, 51–55 | 14 | Automatic + Manual |
+| 9 | **AI Controls** | Articles 16–29 | 12 | Automatic + Manual |
+| 10 | **GPAI Models** | Articles 51–55 | 12 | Automatic + Manual |
+| 11 | **Governance and Compliance** | Articles 6–14 | 10 | Manual |
+| 12 | **Penalties and Enforcement** | Articles 99–101 | 8 | Manual |
+| | **Total** | | **120** | **17 Automatic + 103 Manual** |
 
-### 9 Automatic Controls (Enforced by AegisGate)
+### 17 Automatic Controls (Enforced by AegisGate)
 
 These controls are **enforced in-line** by AegisGate — you don't have to manually verify them, AegisGate does it:
 

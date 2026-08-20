@@ -1,14 +1,17 @@
 ---
-title: "Open Source License (Apache 2.0)"
-description: "AegisGate is released under the Apache 2.0 license. Here's what that means for you, in plain English."
+title: "Open-Core License (Apache 2.0 Community + Commercial Enterprise)"
+description: "AegisGate uses an open-core licensing model — Apache 2.0 for the community edition and a separate commercial license for enterprise modules."
 type: "legal-doc"
 ---
 
-# Open Source License — Apache 2.0
+# Open-Core License — Apache 2.0 Community Edition
 
-**AegisGate Security Platform** is released under the **Apache License 2.0**.
+**AegisGate Security Platform** uses an **open-core** licensing model:
 
-The full text of the license is available in the [LICENSE](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/LICENSE) file in the GitHub repository. Below is a plain-English summary of what Apache 2.0 means for you. This summary is **not a substitute** for the actual license; in case of any conflict, the LICENSE file governs.
+- **Community edition** — Released under the **Apache License 2.0**. This includes the core proxy, detection engine, MCP/A2A/ACP/ANP protocol protection, response scanning, and 4 community compliance frameworks (OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF).
+- **Enterprise modules** — Governed by a separate **commercial license**. These include the Trust Framework, SIEM dispatcher, premium compliance frameworks (HIPAA, PCI-DSS, SOC 2, ISO 27001, FedRAMP, and 22 others), ML model training, and the trust portal. Enterprise modules are distributed via the `aegisgate-enterprise` repository under a commercial license.
+
+The full text of the Apache 2.0 license is available in the [LICENSE](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/LICENSE) file in the GitHub repository. Below is a plain-English summary of what Apache 2.0 means for the **community edition**. This summary is **not a substitute** for the actual license; in case of any conflict, the LICENSE file governs.
 
 ## What You CAN Do (✅)
 
@@ -16,7 +19,7 @@ The full text of the license is available in the [LICENSE](https://github.com/ae
 - ✅ **Use AegisGate in closed-source products** — you don't have to open-source your own code
 - ✅ **Modify AegisGate** — change it, customize it, add features
 - ✅ **Distribute modifications** — share your version with others, internally or externally
-- ✅ **Create derivative works** — build new products that include AegisGate code
+- ✅ **Create derivative works** — build new products that include AegisGate community code
 - ✅ **Sublicense AegisGate** — include it as part of a larger product you sell
 - ✅ **Use AegisGate for any purpose** — there's no field-of-use restriction
 - ✅ **Use AegisGate in patents** — you get an explicit patent grant from contributors
