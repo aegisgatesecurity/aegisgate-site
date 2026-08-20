@@ -21,7 +21,7 @@ type: "landing"
 <p class="hero-description">Every time you type a prompt into an AI tool, you might be leaking sensitive data — passwords, API keys, personal information, trade secrets. <strong>AegisGate catches those risks before you press send.</strong> Three products, one mission: secure every AI interaction.</p>
 
 <div class="alert alert-success alert-center">
-<strong>100% open source.</strong> Apache 2.0. No data collection. No vendor lock-in. Self-hosted or cloud. Deploy in 60 seconds.
+<strong>Open-core.</strong> Apache 2.0 community + commercial enterprise modules. No data collection. No vendor lock-in. Self-hosted only. Deploy in 60 seconds.
 </div>
 
 <!-- ============================================================
