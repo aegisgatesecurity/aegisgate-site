@@ -4,6 +4,8 @@ description: "Learn how to deploy, configure, and use AegisGate Security Platfor
 type: "docs"
 ---
 
+# Documentation
+
 ## Getting Started
 
 Welcome to the AegisGate Security Platform documentation. Here you'll find everything you need to deploy, configure, and use AegisGate Security Platform.

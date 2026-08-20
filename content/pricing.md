@@ -4,6 +4,10 @@ description: "Simple, transparent pricing for every team size - from solo develo
 type: pricing
 ---
 
+# Pricing
+
+Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
+
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#38bdf8;color:#fff;margin-bottom:16px;">
 <strong>🛡️ AegisGate Lens — Free, forever.</strong> Privacy-first browser extension that protects users across 10 AI providers with 5-facet detection. <a href="/lens/" style="color:#38bdf8;">Learn more</a> · <a href="/lens/compare/" style="color:#38bdf8;">Lens vs Platform</a> · <a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" style="color:#38bdf8;">Chrome</a> · <a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" style="color:#38bdf8;">Firefox</a>
 </div>
@@ -11,10 +15,6 @@ type: pricing
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#f59e0b;color:#fff;margin-bottom:24px;">
 <strong>⚡ AegisGate Rampart — Free, forever.</strong> Local proxy + IDE plugin for developers. Works with VS Code, JetBrains, Neovim, and any LSP editor. No account needed. <a href="/rampart/" style="color:#f59e0b;">Learn more</a> · <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases" style="color:#f59e0b;">Download</a>
 </div>
-
-Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
-
-# Pricing
 
 ## 📚 Customer 1-pagers
 

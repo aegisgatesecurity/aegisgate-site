@@ -144,8 +144,8 @@ Rampart runs inside your editor as a Language Server (LSP). As you type prompts 
 
 | Editor | Plugin | Status |
 |--------|--------|--------|
-| **VS Code / Cursor** | [aegisgate-rampart-ext](https://github.com/aegisgatesecurity/aegisgate-rampart-ext) | v0.3.0, published |
-| **JetBrains (IntelliJ, PyCharm, etc.)** | [aegisgate-rampart-jetbrains](https://github.com/aegisgatesecurity/aegisgate-rampart-jetbrains) | v0.3.0, published |
+| **VS Code / Cursor** | [aegisgate-rampart-ext](https://github.com/aegisgatesecurity/aegisgate-rampart-ext) | v0.3.0, published (IDE plugins — Rampart core is v0.6.1) |
+| **JetBrains (IntelliJ, PyCharm, etc.)** | [aegisgate-rampart-jetbrains](https://github.com/aegisgatesecurity/aegisgate-rampart-jetbrains) | v0.3.0, published (IDE plugins — Rampart core is v0.6.1) |
 | **Neovim / Emacs / Helix / Sublime** | Rampart-LSP (generic LSP server) | Available via `rampart-lsp` binary |
 
 The LSP server uses JSON-RPC 2.0 over stdio — it works with any editor that supports LSP.
