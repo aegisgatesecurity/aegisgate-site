@@ -235,7 +235,7 @@ Although AegisGate is not subject to the substantive requirements for high-risk 
 | TLS 1.3 + AES-256 | Article 15 (Cybersecurity) | Encryption in transit and at rest exceeding baseline security requirements |
 | Self-hosted, on-premises architecture | Article 15 (Robustness) | Zero external dependencies, no cloud data processing, customer-controlled deployment |
 | PII/PHI detection and prevention | Article 5 (Prohibited practices) | Active prevention of unauthorized biometric and personal data processing in AI traffic |
-| EU AI Act compliance module (82 controls) | Multiple articles | Automated controls enabling AegisGate's customers to meet their own EU AI Act obligations |
+| EU AI Act compliance module (120 controls) | Multiple articles | Automated controls enabling AegisGate's customers to meet their own EU AI Act obligations |
 
 ---
 

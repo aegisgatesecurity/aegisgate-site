@@ -27,33 +27,38 @@ Choose the coverage that matches your compliance needs.
 | **MITRE ATLAS** | ✅ | ✅ | ✅ | ✅ |
 | **NIST AI RMF** | ✅ | ✅ | ✅ | ✅ |
 | **OWASP LLM Top 10** | ✅ | ✅ | ✅ | ✅ |
-| **GDPR** | ✅ | ✅ | ✅ | ✅ |
-| **CIS Controls v8** | ✅ | ✅ | ✅ | ✅ |
-| **NIST CSF 2.0** | ✅ | ✅ | ✅ | ✅ |
 | **OWASP Web Top 10** | ✅ | ✅ | ✅ | ✅ |
-| **CSA STAR Level 1** | ✅ | ✅ | ✅ | ✅ |
-| **NIST AI 600-1** | ✅ | ✅ | ✅ | ✅ |
-| **CCPA/CPRA** | ✅ | ✅ | ✅ | ✅ |
+| **MITRE ATLAS** | ✅ | ✅ | ✅ | ✅ |
 | **mTLS** | ❌ | ✅ | ✅ | ✅ |
 | **Code Exec Sandbox** | ❌ | ✅ | ✅ | ✅ |
 | **Compliance Reports** | ❌ | Basic | Advanced | Full |
-| **HIPAA** | ❌ | ✅ | ✅ | ✅ |
-| **PCI-DSS** | ❌ | ✅ | ✅ | ✅ |
-| **SOC 2 Type II** | ❌ | ✅ | ✅ | ✅ |
-| **ISO 27001** | ❌ | ❌ | ✅ | ✅ |
-| **ISO 42001 (AI)** | ❌ | ❌ | ✅ | ✅ |
-| **FedRAMP Moderate** | ❌ | ❌ | ✅ | ✅ |
-| **FIPS 140-2/3** | ❌ | ❌ | ✅ | ✅ |
-| **EU AI Act** | ❌ | ❌ | ✅ | ✅ |
-| **CMMC Level 2** | ❌ | ❌ | ✅ | ✅ |
-| **NIST 800-171** | ❌ | ❌ | ✅ | ✅ |
-| **FERPA** | ❌ | ❌ | ✅ | ✅ |
-| **SOX** | ❌ | ❌ | ✅ | ✅ |
-| **GLBA** | ❌ | ❌ | ✅ | ✅ |
-| **NERC CIP** | ❌ | ❌ | ✅ | ✅ |
-| **HITRUST CSF** | ❌ | ❌ | ❌ | ✅ |
-| **TISAX** | ❌ | ❌ | ❌ | ✅ |
-| **CJIS** | ❌ | ❌ | ❌ | ✅ |
+| **HIPAA** *(add-on)* | ❌ | $149/mo | $149/mo | $149/mo |
+| **PCI-DSS** *(add-on)* | ❌ | $149/mo | $149/mo | $149/mo |
+| **SOC 2** *(add-on)* | ❌ | $149/mo | $149/mo | $149/mo |
+| **ISO 27001** *(add-on)* | ❌ | $149/mo | $149/mo | $149/mo |
+| **CCPA/CPRA** *(add-on)* | ❌ | $149/mo | $149/mo | $149/mo |
+| **GDPR** *(add-on)* | ❌ | $149/mo | $149/mo | $149/mo |
+| **CIS Controls v8** *(add-on)* | ❌ | ❌ | $79/mo | $79/mo |
+| **NIST CSF 2.0** *(add-on)* | ❌ | ❌ | $79/mo | $79/mo |
+| **CSA STAR** *(add-on)* | ❌ | ❌ | $79/mo | $79/mo |
+| **NIST AI 600-1** *(add-on)* | ❌ | ❌ | $79/mo | $79/mo |
+| **ISO 42001 (AI)** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **EU AI Act** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **FIPS 140-2/3** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **SOX** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **GLBA** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **CJIS** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **NERC CIP** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **FERPA** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **HITECH** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **FFIEC** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **TSA SD** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **ISO 21434** *(add-on)* | ❌ | ❌ | $199/mo | $199/mo |
+| **FedRAMP Moderate** *(add-on)* | ❌ | ❌ | ❌ | $499/mo |
+| **CMMC Level 2** *(add-on)* | ❌ | ❌ | ❌ | $499/mo |
+| **NIST 800-171** *(add-on)* | ❌ | ❌ | ❌ | $499/mo |
+| **HITRUST CSF** *(add-on)* | ❌ | ❌ | ❌ | $499/mo |
+| **TISAX** *(add-on)* | ❌ | ❌ | ❌ | $499/mo |
 | **Policy Engine** | ❌ | ❌ | ✅ | ✅ |
 | **ML Anomaly Detection** | Basic | Advanced | Behavioral | Custom |
 | **K8s / Helm** | ❌ | ❌ | ✅ | ✅ |
@@ -65,11 +70,11 @@ Choose the coverage that matches your compliance needs.
 
 **Community** — Free forever. For individuals and small teams getting started with AI security. Includes core proxy, 176+ detection patterns, and 4 community frameworks: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF.
 
-**Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, HIPAA, PCI-DSS, SOC 2 Type II compliance (6 more frameworks, 10 total), code execution sandbox, advanced ML anomaly detection, and Grafana integration.
+**Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, code execution sandbox, advanced ML anomaly detection, and Grafana integration. 6 compliance modules available as $149/mo add-ons (HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR).
 
-**Professional** — $499/month. For teams with serious compliance needs. Adds ISO 27001, ISO 42001, FedRAMP, FIPS 140-2/3, EU AI Act, CMMC Level 2, NIST 800-171, FERPA, SOX, GLBA, NERC CIP (16 more frameworks, 26 total), policy engine, department separation, K8s/Helm deployment, process-level MCP sandboxing, gRPC API (7 services, 50 RPCs), SIEM integration (11 platforms), and the **Trust Framework** (6th pillar — ECDSA P-256-signed per-session trust scoring).
+**Professional** — $499/month. For teams with serious compliance needs. Adds policy engine, department separation, K8s/Helm deployment, process-level MCP sandboxing, gRPC API (7 services, 50 RPCs), SIEM integration (11 platforms), and the **Trust Framework** (6th pillar — ECDSA P-256-signed per-session trust scoring). 16 compliance modules available as add-ons: 4 security foundation at $79/mo (CIS, NIST CSF, CSA STAR, NIST AI 600-1) and 12 industry-specific at $199/mo (ISO 42001, EU AI Act, FIPS, SOX, GLBA, CJIS, NERC CIP, FERPA, HITECH, FFIEC, TSA SD, ISO 21434).
 
-**Enterprise** — Custom pricing. Mission-critical deployments with HITRUST CSF, TISAX, CJIS (3 more frameworks, all 27), unlimited scale, custom compliance, air-gapped deployment, BAA/DPA, and dedicated support.
+**Enterprise** — Custom pricing. Mission-critical deployments with unlimited scale, custom compliance, air-gapped deployment, BAA/DPA, and dedicated support. 5 compliance modules available as $499/mo add-ons: FedRAMP, CMMC Level 2, NIST 800-171, HITRUST, TISAX. Total coverage: all 31 frameworks.
 
 ### Migration Path
 

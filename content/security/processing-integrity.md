@@ -26,7 +26,7 @@ This document describes the processing integrity controls implemented in AegisGa
 | Principle | Definition | AegisGate Control |
 |-----------|-----------|-------------------|
 | **Completeness** | All processing steps execute without omission | Fail-closed architecture — if any check fails, the request is rejected |
-| **Validity** | Processing follows defined business rules | 857+ compliance CheckFuncs validate rules at runtime |
+| **Validity** | Processing follows defined business rules | 1,076+ compliance CheckFuncs validate rules at runtime |
 | **Accuracy** | Processing produces correct results | Hash-chained audit logs verify output integrity |
 | **Timeliness** | Processing occurs within defined timeframes | Per-tier rate limiting ensures timely processing |
 | **Authorization** | Processing is initiated by authorized parties | RBAC + MFA + OIDC/SAML enforce authorization |
@@ -50,7 +50,7 @@ This document describes the processing integrity controls implemented in AegisGa
 | Control | Implementation | Verification |
 |---------|---------------|--------------|
 | Fail-closed default | If any security check fails, encounters an error, or receives unexpected input, the request is rejected | Test coverage: nil handler recovery + deny |
-| Compliance engine | 857+ CheckFuncs validate processing against 31 frameworks at runtime | Compliance status API endpoint |
+| Compliance engine | 1,076+ CheckFuncs validate processing against 31 frameworks at runtime | Compliance status API endpoint |
 | MCP guardrails | 8 guardrails validate MCP protocol interactions | Guardrail metrics per session |
 | Threat detection | 176 patterns scanned per request/response pair | Detection metrics dashboard |
 | PII/PHI scanning | Regex and pattern-based detection of 8 PHI identifiers and 12 PII categories | Scanner hit rates and false positive metrics |

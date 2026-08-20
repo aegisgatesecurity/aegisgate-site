@@ -1,18 +1,18 @@
 ---
 title: "Subprocessor List"
-description: "Third-party subprocessors that process personal data on behalf of AegisGate Security, LLC. Effective 2026-06-07. 2.0 DRAFT for v3.5.0."
+description: "Third-party subprocessors that process personal data on behalf of AegisGate Security, LLC. Effective 2026-06-07. 2.0 DRAFT for v4.1.0."
 type: "legal-doc"
 ---
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v3.5.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.5.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v4.1.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.1.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # Subprocessor List
 
 **Effective Date:** 2026-06-07
-**Version:** 2.0 DRAFT (v3.5.0)
+**Version:** 2.0 DRAFT (v4.1.0)
 **Last Updated:** 2026-06-07
 
 ---
@@ -143,6 +143,6 @@ Material changes are subject to the 30-day notification and objection process in
 
 *— Counsel Sign-Off Required —*
 
-*This document is a 2.0 DRAFT for the v3.5.0 release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Subprocessor List and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.*
+*This document is a 2.0 DRAFT for the v4.1.0 release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Subprocessor List and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.*
 
 *This Subprocessor List reflects the actual third-party integrations in the AegisGate platform codebase as of v3.3.0 (2026-06-07), verified by direct audit of the platform source tree. The list is intentionally shorter than typical SaaS subprocessor lists because the platform is self-hosted by default — AegisGate Security, LLC does not process customer traffic in the standard deployment model.*

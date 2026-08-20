@@ -136,8 +136,8 @@ Platform includes 31 compliance frameworks — the most comprehensive AI complia
 | ISO 27001 | Professional+ | InfoSec |
 | ISO 42001 | Professional+ | AI management |
 | CMMC L2 | Professional+ | Access control |
-| FedRAMP Moderate | Professional+ | 151/170 controls |
-| EU AI Act | Professional+ | 82 controls, 8 categories |
+| FedRAMP Moderate | Professional+ | 153/170 controls |
+| EU AI Act | Professional+ | 120 controls, 8 categories |
 | NIST CSF 2.0 | Community | Full |
 | CIS Controls v8 | Community | IG1 |
 

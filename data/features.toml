@@ -55,24 +55,39 @@ items = [
 [features.compliance]
 name = "31 Compliance Frameworks"
 icon = "📋"
-description = "Fail-closed compliance enforcement across every major standard — 151/170 FedRAMP automated"
+description = "Fail-closed compliance enforcement across every major standard — 153/170 FedRAMP automated"
 items = [
   "MITRE ATLAS — all adversarial AI techniques",
-  "NIST AI RMF 1.500 — AI risk management",
+  "NIST AI RMF 1.0 — AI risk management (50 controls)",
   "OWASP LLM Top 10 — LLM01–LLM10",
-  "ISO 27001 — information security management",
-  "HIPAA — healthcare data / PHI detection",
-  "PCI-DSS — payment card security / tokenization",
-  "SOC2 Type II — continuous monitoring & evidence",
-  "GDPR — data protection & PII handling",
-  "FedRAMP Moderate — 151/170 automated (88.8%)",
-  "EU AI Act — 82 controls across 8 categories",
-  "CMMC Level 2 — 14 domains, 98.3%",
-  "NIST 800-171 — 14 families, 99.6%",
-  "HITRUST CSF — 6 categories, 100%",
-  "TISAX — 7 categories, 100%",
-  "ISO 42001 — AI management systems",
-  "CCPA — California Consumer Privacy Act"
+  "OWASP Web Top 10 — web application risks",
+  "ISO 27001 — information security management (116 controls)",
+  "HIPAA — healthcare data / PHI detection (54 controls)",
+  "PCI-DSS — payment card security / tokenization (152 controls)",
+  "SOC2 Type II — continuous monitoring & evidence (64 controls)",
+  "GDPR — data protection & PII handling (99 controls)",
+  "CCPA/CPRA — California consumer privacy (26 controls)",
+  "CIS Controls v8 — critical security baseline (50 controls)",
+  "NIST CSF 2.0 — cybersecurity framework (131 controls)",
+  "CSA STAR — cloud security assurance (16 controls)",
+  "NIST AI 600-1 — GenAI risk profile (12 controls)",
+  "ISO 42001 — AI management systems (38 controls)",
+  "EU AI Act — 120 controls across 8 categories",
+  "FIPS 140-2/3 — cryptographic validation (40 controls)",
+  "SOX — financial reporting (80 controls)",
+  "GLBA — financial data privacy (14 controls)",
+  "CJIS — criminal justice info systems (64 controls)",
+  "NERC CIP — critical infrastructure (55 controls)",
+  "FERPA — student records privacy (45 controls)",
+  "HITECH — health IT (35 controls)",
+  "FFIEC — financial institution security (40 controls)",
+  "TSA SD — transportation security (35 controls)",
+  "ISO 21434 — automotive cybersecurity (42 controls)",
+  "FedRAMP Moderate — 153/170 automated (90%)",
+  "CMMC Level 2 — DoD contractor cybersecurity (150 controls)",
+  "NIST 800-171 — controlled unclassified info (110 controls)",
+  "HITRUST CSF — health trust alliance (200 controls)",
+  "TISAX AL2 — automotive security (65 controls)",
 ]
 
 [features.deployment]
@@ -113,7 +128,7 @@ items = [
   { label = "Package Coverage", value = "83.1%" },
   { label = "Tests Passing", value = "8,000+" },
   { label = "Docker Image", value = "19.1MB" },
-  { label = "FedRAMP Controls", value = "151/170" },
+  { label = "FedRAMP Controls", value = "153/170" },
   { label = "Cross-Framework", value = "100%" },
   { label = "gRPC Services", value = "7" }
 ]

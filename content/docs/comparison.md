@@ -55,7 +55,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 | **FedRAMP** | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
 | **ISO 27001** | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
 | **ISO 42001** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **EU AI Act** | ✅ 82 controls | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| **EU AI Act** | ✅ 120 controls | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | **NIST AI RMF** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **NIST 800-171** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **CMMC L2** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -119,7 +119,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 2. **Only multi-protocol gateway** — HTTP API + MCP + A2A + ACP + ANP + Response scanning. All competitors are HTTP-only.
 3. **Measured 0% FPR** — Verified against 10,538+ benign examples including 1,869 near-miss cases. Competitors do not publish FPR.
 4. **100/100 evasion resistance** — Verified against adversarial suite (transposition, vowel deletion, word reversal, obfuscation). Competitors do not publish evasion results.
-5. **31 compliance frameworks** — Including EU AI Act (82 controls), NIST AI RMF, ISO 42001, CMMC L2, FERPA, CJIS, NERC CIP. No competitor has more than 5.
+5. **31 compliance frameworks** — Including EU AI Act (120 controls), NIST AI RMF, ISO 42001, CMMC L2, FERPA, CJIS, NERC CIP. No competitor has more than 5.
 6. **Air-gapped deployment** — Full capability (UI, SOAR, SIEM, evidence) with zero outbound connectivity. No competitor offers this.
 7. **SOAR integration** — PagerDuty, Jira, ServiceNow out of the box. No competitor offers SOAR.
 8. **IDE integration** — VS Code, Cursor, JetBrains, Neovim, Emacs, Helix, Sublime. No competitor offers IDE integration.

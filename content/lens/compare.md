@@ -61,7 +61,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **ACP (Agent Communication Protocol) security** | ❌ | ✅ |
 | **Response scanning** (catches bad AI outputs before they reach the user) | ❌ | ✅ |
 | **Trust Framework** (continuous cryptographically-signed trust scoring) | ❌ | ✅ |
-| **EU AI Act Compliance Module** (82 controls, Professional+ tier) | ❌ | ✅ |
+| **EU AI Act Compliance Module** (120 controls, Professional+ tier) | ❌ | ✅ |
 | **OWASP compliance module** | ❌ | ✅ (Developer+) |
 | **GDPR / HIPAA / PCI / SOC 2 compliance modules** | ❌ | ✅ (Professional+) |
 | **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ (Professional+) |

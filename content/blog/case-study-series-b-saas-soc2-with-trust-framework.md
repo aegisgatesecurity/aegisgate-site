@@ -248,7 +248,7 @@ trust scoring, and signed attestations for compliance evidence.
 
 **Website:** [https://aegisgatesecurity.io](https://aegisgatesecurity.io)
 **Pricing:** [https://aegisgatesecurity.io/pricing](https://aegisgatesecurity.io/pricing)
-**Trust Framework 1-pager:** See [docs/trust-framework.md](/docs/trust-framework/) (the AegisGate Platform repo)
+**Trust Framework 1-pager:** See [trust-framework](/trust-framework/) (the AegisGate Platform repo)
 **Contact:** [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io)
 
 ---

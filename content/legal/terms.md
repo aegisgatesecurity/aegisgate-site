@@ -1,12 +1,12 @@
 ---
 title: "Terms of Service"
-description: "The agreement governing your use of AegisGate Security Platform. Effective 2026-06-07. 2.0 DRAFT for v3.5.0."
+description: "The agreement governing your use of AegisGate Security Platform. Effective 2026-06-07. 2.0 DRAFT for v4.1.0."
 type: "legal-doc"
 ---
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v3.5.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v3.5.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v4.1.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.1.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # Terms of Service
@@ -14,7 +14,7 @@ This document is self-drafted by AegisGate Security, LLC for the v3.5.0 release.
 **AegisGate Security Platform**
 
 **Effective Date:** 2026-06-07
-**Version:** 2.0 DRAFT (v3.5.0)
+**Version:** 2.0 DRAFT (v4.1.0)
 **Last Updated:** 2026-06-07
 
 ---
@@ -61,7 +61,7 @@ The AegisGate Security Platform provides AI-aware API security, including:
 - ISO 42001 — ISO/IEC 42001 AI management system controls
 - FedRAMP — FedRAMP Moderate/High control mapping and continuous monitoring
 - FIPS 140-2/140-3 — FIPS-validated cryptography enforcement and HSM integration
-- EU AI Act — 82 controls across 8 categories of the EU AI Act (v3.3.0+)
+- EU AI Act — 120 controls across 8 categories of the EU AI Act (v3.3.0+)
 
 **Core Capabilities:**
 - Role-based access control (RBAC)
@@ -76,18 +76,55 @@ Services are provided according to the subscription tier you select:
 | Tier | Monthly Rate | RPM Limit | Key Features |
 |---|---|---|---|
 | **Community** | Free | soft-throttle | Best-effort protection, 7-day audit log retention, community support |
-| **Developer** | $79/mo | 1,000 RPM | Email support, 30-day audit log retention, HIPAA/PCI/GDPR compliance |
-| **Professional** | $499/mo | 10,000 RPM | HIPAA / PCI-DSS / SOC 2 modules, 90-day audit log retention, 99.95% SLA, priority support |
-| **Enterprise** | Contact sales | Unlimited | Custom SLA (up to 99.99%), custom compliance modules, dedicated CSM, custom audit log retention |
+| **Developer** | $79/mo | 1,000 RPM | Email support, 30-day audit log retention, SSO/RBAC, code exec sandbox |
+| **Professional** | $499/mo | 10,000 RPM | 90-day audit log retention, 99.95% SLA, priority support, Trust Framework, SIEM, SOAR |
+| **Enterprise** | Contact sales | Unlimited | Custom SLA (up to 99.99%), custom compliance modules, dedicated CSM, custom audit log retention, air-gapped |
 
-Compliance module add-on prices (per the v3.2.0 pricing decision, locked at purchase):
-- HIPAA: $99/mo
-- PCI-DSS: $99/mo
+Compliance module add-on prices (per the v4.1.0 pricing decision, locked at purchase):
+
+**Developer tier add-ons ($149/mo each):**
+- HIPAA: $149/mo
+- PCI-DSS: $149/mo
 - SOC 2: $149/mo
-- ISO 42001: $79/mo
+- ISO 27001: $149/mo
+- CCPA/CPRA: $149/mo
+- GDPR: $149/mo
+
+**Professional tier — Security Foundation ($79/mo each):**
+- CIS Controls v8: $79/mo
+- NIST CSF 2.0: $79/mo
+- CSA STAR: $79/mo
+- NIST AI 600-1: $79/mo
+
+**Professional tier — Industry-Specific ($199/mo each):**
+- ISO 42001: $199/mo
+- EU AI Act: $199/mo
+- FIPS 140-2/3: $199/mo
+- SOX: $199/mo
+- GLBA: $199/mo
+- CJIS: $199/mo
+- NERC CIP: $199/mo
+- FERPA: $199/mo
+- HITECH: $199/mo
+- FFIEC: $199/mo
+- TSA SD: $199/mo
+- ISO 21434: $199/mo
+
+**Enterprise tier add-ons ($499/mo each):**
 - FedRAMP: $499/mo
-- FIPS 140-2/140-3: $299/mo
-- EU AI Act: $149/mo (v3.3.0+)
+- CMMC Level 2: $499/mo
+- NIST 800-171: $499/mo
+- HITRUST CSF: $499/mo
+- TISAX AL2: $499/mo
+
+**Vertical Accelerator Bundles:**
+- Privacy & Data Protection: $149/mo
+- SaaS / B2B Technology: $199/mo
+- Financial Services: $249/mo
+- Healthcare: $199/mo
+- EU Compliance: $149/mo
+- Energy & Critical Infrastructure: $299/mo
+- Defense & Government: $1,199/mo
 
 ### 2.3 Service Availability
 We strive to maintain high availability but do not guarantee uninterrupted access. See Section 7 for service level commitments by tier.
@@ -358,7 +395,7 @@ Wisconsin, USA
 
 The following exhibits are incorporated by reference and form part of these Terms. Exhibits A–C are conditional on your purchase of the relevant add-on module or your request for the relevant agreement.
 
-- **Exhibit A — Business Associate Agreement (BAA):** Required if you purchase the HIPAA compliance module. Available at https://aegisgatesecurity.io/legal/baa (deferred to v3.5.0+ for production-grade review).
+- **Exhibit A — Business Associate Agreement (BAA):** Required if you purchase the HIPAA compliance module. Available at https://aegisgatesecurity.io/legal/baa (deferred to v4.1.0+ for production-grade review).
 - **Exhibit B — PCI-DSS Vendor Agreement:** Required if you purchase the PCI-DSS compliance module. Available on request.
 - **Exhibit C — Master Services Agreement (MSA):** Required for Enterprise customers. Available on request.
 
@@ -366,11 +403,11 @@ The following exhibits are incorporated by reference and form part of these Term
 
 *— Counsel Sign-Off Required —*
 
-*This document is a 2.0 DRAFT for the v3.5.0 release. The 17-clause vendor-favorability framework applied to these Terms is documented in the internal legal review framework (a confidential document not published on this site). When budget is available, AegisGate Security, LLC will engage qualified counsel to review these Terms and convert them from a self-drafted DRAFT to a production-grade legal agreement. Until then, customers and counterparties should rely on these Terms at their own risk and consult their own legal counsel.*
+*This document is a 2.0 DRAFT for the v4.1.0 release. The 17-clause vendor-favorability framework applied to these Terms is documented in the internal legal review framework (a confidential document not published on this site). When budget is available, AegisGate Security, LLC will engage qualified counsel to review these Terms and convert them from a self-drafted DRAFT to a production-grade legal agreement. Until then, customers and counterparties should rely on these Terms at their own risk and consult their own legal counsel.*
 
 *Tier names, RPMs, SLA commitments, and pricing reflect the platform's documented behavior as of v3.3.0 (2026-06-07). Consult the most recent version of these Terms and the live pricing page at https://aegisgatesecurity.io/pricing for current values.*
 
-**Version:** 2.0 DRAFT (v3.5.0)
+**Version:** 2.0 DRAFT (v4.1.0)
 **Last Updated:** 2026-06-07
 **Next Review Date:** 2026-09-07 (quarterly review, or sooner if materially changed)
-**Counsel Review Required:** Yes (deferred to v3.5.0+ budget cycle)
+**Counsel Review Required:** Yes (deferred to v4.1.0+ budget cycle)

@@ -29,7 +29,7 @@ AegisGate's design philosophy — customer-owned infrastructure, customer-manage
 - 28 of 34 assessed controls are **Implemented** — fully addressed by AegisGate's architecture, features, or operational model.
 - 0 controls are **Not Implemented** — no gaps exist in applicable requirements.
 - 6 controls are **N/A** — not applicable to a self-hosted software product deployed on customer infrastructure.
-- AegisGate's automated compliance engine enforces 15 HIPAA-specific controls (HIPAA-AS-001 through HIPAA-TS-006, HIPAA-AI-001, HIPAA-AI-002) via 857+ CheckFuncs across 31 frameworks.
+- AegisGate's automated compliance engine enforces 15 HIPAA-specific controls (HIPAA-AS-001 through HIPAA-TS-006, HIPAA-AI-001, HIPAA-AI-002) via 1,076+ CheckFuncs across 31 frameworks.
 
 ---
 
@@ -48,7 +48,7 @@ This assessment covers the AegisGate Security Platform in its production deploym
 
 1. **Control mapping**: Each HIPAA Security Rule requirement was mapped to AegisGate's architecture, features, and operational capabilities.
 2. **Implementation verification**: Functional claims were validated against product documentation, source code, and deployment specifications.
-3. **Automated assessment**: AegisGate's built-in compliance engine (31 frameworks, 857+ CheckFuncs) was used to verify HIPAA-specific control implementations.
+3. **Automated assessment**: AegisGate's built-in compliance engine (31 frameworks, 1,076+ CheckFuncs) was used to verify HIPAA-specific control implementations.
 4. **Gap analysis**: Any requirement not fully addressed was documented with remediation guidance. No open gaps were identified in this assessment cycle.
 
 ### Applicability Notes
@@ -65,7 +65,7 @@ Administrative safeguards constitute the foundation of HIPAA compliance. AegisGa
 
 | # | HIPAA Citation | Requirement | AegisGate Implementation | Status |
 |---|----------------|-------------|---------------------------|--------|
-| 1 | § 164.308(a)(1)(ii)(A) | **Risk Analysis** — Conduct an accurate and thorough assessment of potential risks and vulnerabilities to ePHI. | AegisGate's compliance engine continuously evaluates the deployment environment against 857+ automated CheckFuncs across 31 frameworks, including 15 HIPAA-specific controls. Risk posture is assessed in real-time with configurable alerting thresholds. Customers can export risk assessment reports for their own documentation. | ✅ Implemented |
+| 1 | § 164.308(a)(1)(ii)(A) | **Risk Analysis** — Conduct an accurate and thorough assessment of potential risks and vulnerabilities to ePHI. | AegisGate's compliance engine continuously evaluates the deployment environment against 1,076+ automated CheckFuncs across 31 frameworks, including 15 HIPAA-specific controls. Risk posture is assessed in real-time with configurable alerting thresholds. Customers can export risk assessment reports for their own documentation. | ✅ Implemented |
 | 2 | § 164.308(a)(1)(ii)(B) | **Risk Management** — Implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level. | AegisGate enforces risk-reduction controls automatically: RBAC with MFA limits unauthorized access, PHI detection prevents data leakage, and MCP guardrails constrain tool-use interactions. The compliance engine identifies configuration drift and failed controls, enabling prompt remediation. | ✅ Implemented |
 | 3 | § 164.308(a)(1)(ii)(C) | **Sanction Policy** — Apply sanctions against workforce members who violate security policies. | AegisGate's audit logging captures all user actions with hash-chained integrity, providing irrefutable evidence for sanction proceedings. RBAC enforcement logs document policy violations in real-time. Sanction policy implementation remains the customer's responsibility. | ✅ Implemented |
 | 4 | § 164.308(a)(1)(ii)(D) | **Information System Activity Review** — Regularly review records of information system activity. | Hash-chained audit logs provide tamper-evident records of all system activity. Logs capture authentication events, access requests, policy changes, and data interactions with configurable retention periods. Supports SIEM integration for continuous monitoring. | ✅ Implemented |
@@ -85,7 +85,7 @@ Administrative safeguards constitute the foundation of HIPAA compliance. AegisGa
 | 18 | § 164.308(a)(7)(ii)(C) | **Emergency Mode Operation** — Establish and implement procedures to enable continuation of critical business processes. | AegisGate's 7-day license grace period ensures continuity during key management disruptions. OIDC/SAML failover configurations support emergency access. Emergency mode planning for the broader environment remains the customer's responsibility. | ⚠️ Partial |
 | 19 | § 164.308(a)(7)(ii)(D) | **Testing and Revision** — Test and revise the contingency plan. | Disaster recovery test conducted 2026-07-29 with full platform recovery in 15.5 minutes (within 45-minute RTO). Audit log chain integrity verified. Compliance engine (31 frameworks) recovered without manual intervention. Test documented at [/security/dr-test/](/security/dr-test/). Next scheduled test: Q4 2026. | ⚠️ Partial → ✅ Addressed |
 | 20 | § 164.308(a)(7)(ii)(E) | **Applications and Data Criticality Analysis** — Assess the relative criticality of specific applications and data. | AegisGate provides criticality classification for its own components (audit logs = critical, configuration = high, telemetry = standard). Full applications and data criticality analysis for the customer's environment is the customer's responsibility. | ⚠️ Partial |
-| 21 | § 164.308(a)(8) | **Evaluation** — Perform a periodic technical and nontechnical evaluation of security safeguards. | AegisGate's compliance engine performs continuous automated evaluation across 857+ CheckFuncs, including 15 HIPAA-specific controls. Evaluation results are accessible via API and dashboard, with historical trend tracking. Customers should supplement with periodic manual reviews. | ✅ Implemented |
+| 21 | § 164.308(a)(8) | **Evaluation** — Perform a periodic technical and nontechnical evaluation of security safeguards. | AegisGate's compliance engine performs continuous automated evaluation across 1,076+ CheckFuncs, including 15 HIPAA-specific controls. Evaluation results are accessible via API and dashboard, with historical trend tracking. Customers should supplement with periodic manual reviews. | ✅ Implemented |
 
 ### Physical Safeguards (45 C.F.R. § 164.310)
 
@@ -138,7 +138,7 @@ Policies and procedures requirements govern the documentation, retention, and av
 
 ## HIPAA Automated Control Mapping
 
-The following table maps AegisGate's built-in HIPAA compliance checks to the Security Rule requirements they enforce. These controls are continuously evaluated by the compliance engine as part of the 857+ CheckFunc library.
+The following table maps AegisGate's built-in HIPAA compliance checks to the Security Rule requirements they enforce. These controls are continuously evaluated by the compliance engine as part of the 1,076+ CheckFunc library.
 
 | Control ID | Control Name | HIPAA Reference | CheckFunc Description |
 |------------|-------------|-----------------|----------------------|

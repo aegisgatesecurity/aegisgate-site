@@ -1,6 +1,6 @@
 ---
 title: "EU AI Act Compliance Module"
-description: "AegisGate's EU AI Act Module gives you 82 controls across 8 categories of EU Regulation 2024/1689, included with Professional+ tier."
+description: "AegisGate's EU AI Act Module gives you 120 controls across 8 categories of EU Regulation 2024/1689, included with Professional+ tier."
 type: "landing"
 ---
 
@@ -39,7 +39,7 @@ You need the **EU AI Act Compliance Module** if any of the following apply to yo
 
 ## What AegisGate's EU AI Act Module Provides
 
-AegisGate's EU AI Act Compliance Module gives you a **single source of truth** for whether your AI system is compliant — across **82 controls** in **8 categories**.
+AegisGate's EU AI Act Compliance Module gives you a **single source of truth** for whether your AI system is compliant — across **120 controls** in **8 categories**.
 
 ### 8 Categories, 82 Controls
 
@@ -75,7 +75,7 @@ These controls require human input (policies, processes, governance) but AegisGa
 
 - **Checklists** for each control, with step-by-step instructions
 - **Evidence templates** you can fill in (e.g., for risk management policies, human oversight procedures)
-- **Audit-ready reports** that bundle all 82 controls with their status
+- **Audit-ready reports** that bundle all 120 controls with their status
 - **Coverage tracking** that shows what's done vs. what's outstanding
 
 ## How the Module Works in Practice
@@ -122,7 +122,7 @@ curl -H "X-License-Key: $AEGISGATE_LICENSE" \
   > eu-ai-act-audit-report.json
 ```
 
-The report includes, for each of the 82 controls:
+The report includes, for each of the 120 controls:
 - **Control ID** (e.g., `AI-ACT-9.1`, `AI-ACT-10.3`)
 - **EU AI Act article reference**
 - **Description** (plain English)
@@ -155,7 +155,7 @@ If you fall into one of the above categories, you may not need this Module. Cont
 ## Documentation
 
 - 📘 **Customer 1-pager** (this page): what the Module is, who needs it, how it works
-- 📚 **Full control mapping**: [docs/compliance/eu-ai-act-mapping.md](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/compliance/eu-ai-act-mapping.md) — 438 lines, all 82 controls with article references
+- 📚 **Full control mapping**: [docs/compliance/eu-ai-act-mapping.md](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/docs/compliance/eu-ai-act-mapping.md) — 438 lines, all 120 controls with article references
 - 🧪 **Sub-package source**: [`pkg/compliance/eu-ai-act/`](https://github.com/aegisgatesecurity/aegisgate-platform/tree/main/pkg/compliance/eu-ai-act) — 4 Go files, full implementation
 - 🧪 **Tests**: [`eu_ai_act_test.go`](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/pkg/compliance/eu-ai-act/eu_ai_act_test.go) — verifies 9+ control categories, control registry integrity, evaluator logic
 

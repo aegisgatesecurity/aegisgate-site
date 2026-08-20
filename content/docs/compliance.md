@@ -6,58 +6,69 @@ weight: 320
 
 ## Compliance Frameworks
 
-AegisGate provides automated compliance mapping across **27 security and AI governance frameworks** — 10 at the free Community tier, 3 at Developer, 11 at Professional, and 3 at Enterprise. Every framework has a full Go implementation with automated control checking, evidence generation, and ATLAS cross-referencing. No competitor covers more than 2.
+AegisGate provides automated compliance mapping across **31 security and AI governance frameworks** — 4 at the free Community tier, 6 at Developer, 16 at Professional, and 5 at Enterprise. Every framework has a full Go implementation with automated control checking, evidence generation, and ATLAS cross-referencing. No competitor covers more than 5.
 
-### Community (Free, Apache 2.0) — 10 frameworks
+### Community (Free, Apache 2.0) — 4 frameworks
 
 | Framework | Scope |
 |-----------|-------|
 | MITRE ATLAS | Adversarial AI threat matrix (66 technique patterns) |
 | OWASP LLM Top 10 | LLM application vulnerabilities (10 risk categories) |
-| NIST AI RMF 1.0 | AI system governance and risk management |
-| GDPR | EU data protection regulation |
-| CIS Controls v8 | Critical security controls baseline |
-| NIST CSF 2.0 | Cybersecurity framework |
-| OWASP Web Top 10 | Web application security risks |
-| CSA STAR Level 1 | Cloud security assurance |
-| NIST AI 600-1 | GenAI risk profile |
-| CCPA/CPRA | California consumer privacy |
+| OWASP Web Top 10 | Web application security risks (10 categories) |
+| NIST AI RMF 1.0 | AI system governance and risk management (50 controls) |
 
-### Developer — 3 frameworks
+### Developer — 6 frameworks ($149/mo each, add-on)
 
 | Framework | Scope |
 |-----------|-------|
-| HIPAA | Health information protection |
-| PCI-DSS v4.0 | Payment card data security |
-| SOC 2 Type II | Security, availability, confidentiality |
+| HIPAA | Health information protection (54 controls) |
+| PCI-DSS v4.0 | Payment card data security (152 controls) |
+| SOC 2 Type II | Security, availability, confidentiality (64 controls) |
+| ISO/IEC 27001:2022 | Information security management (116 controls) |
+| CCPA/CPRA | California consumer privacy (26 controls) |
+| GDPR | EU data protection regulation (99 controls) |
 
-### Professional — 11 frameworks
+### Professional — 4 Security Foundation ($79/mo each) + 12 Industry-Specific ($199/mo each)
 
-| Framework | Scope |
-|-----------|-------|
-| ISO/IEC 42001:2023 | AI management system |
-| ISO/IEC 27001:2022 | Information security management |
-| FedRAMP Moderate | US federal cloud authorization |
-| FIPS 140-2/140-3 | Cryptographic module validation |
-| EU AI Act | European AI regulation |
-| CMMC Level 2 | DoD contractor cybersecurity |
-| NIST SP 800-171 | Controlled unclassified information |
-| FERPA | Student education records privacy |
-| SOX | Financial reporting and controls |
-| GLBA | Financial data privacy |
-| NERC CIP | Critical infrastructure protection |
-
-### Enterprise — 3 frameworks
+**Security Foundation:**
 
 | Framework | Scope |
 |-----------|-------|
-| HITRUST CSF v11.2 | Health information trust alliance |
-| TISAX AL2 | Automotive information security |
-| CJIS Security Policy v5.9.1 | Criminal justice information systems |
+| CIS Controls v8 | Critical security controls baseline (50 controls) |
+| NIST CSF 2.0 | Cybersecurity framework (131 controls) |
+| CSA STAR Level 1 | Cloud security assurance (16 controls) |
+| NIST AI 600-1 | GenAI risk profile (12 controls) |
+
+**Industry-Specific:**
+
+| Framework | Scope |
+|-----------|-------|
+| ISO/IEC 42001:2023 | AI management system (38 controls) |
+| EU AI Act | European AI regulation (120 controls) |
+| FIPS 140-2/140-3 | Cryptographic module validation (40 controls) |
+| SOX | Financial reporting and controls (80 controls) |
+| GLBA | Financial data privacy (14 controls) |
+| CJIS Security Policy v5.9.1 | Criminal justice information systems (64 controls) |
+| NERC CIP | Critical infrastructure protection (55 controls) |
+| FERPA | Student education records privacy (45 controls) |
+| HITECH | Health information technology (35 controls) |
+| FFIEC | Financial institution security (40 controls) |
+| TSA SD | Transportation security (35 controls) |
+| ISO 21434 | Automotive cybersecurity (42 controls) |
+
+### Enterprise — 5 frameworks ($499/mo each)
+
+| Framework | Scope |
+|-----------|-------|
+| FedRAMP Moderate | US federal cloud authorization (170 controls) |
+| CMMC Level 2 | DoD contractor cybersecurity (150 controls) |
+| NIST SP 800-171 | Controlled unclassified information (110 controls) |
+| HITRUST CSF v11.2 | Health information trust alliance (200 controls) |
+| TISAX AL2 | Automotive information security (65 controls) |
 
 ### Automated Controls
 
-AegisGate automates **312 unique security controls** across these frameworks:
+AegisGate automates **1,076+ CheckFuncs** across these frameworks, covering **1,870+ total controls**:
 
 - **Prompt screening**: Maps to 47 access control and input validation controls
 - **Response filtering**: Maps to 82 output control and data protection controls

@@ -71,15 +71,15 @@ AegisGate runs fully air-gapped with no outbound connectivity:
 
 ### Compliance Coverage (31 Frameworks)
 
-SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NIST AI 600-1 · FedRAMP · HIPAA · PCI-DSS · EU AI Act (82 controls) · CMMC L2 · CIS Controls · HITRUST · FIPS 140-2/3 · CCPA/CPRA · GDPR · SOX · GLBA · FERPA · CJIS · NERC CIP · TISAX · CSA STAR · OWASP Web · MITRE ATLAS · CMMCL2 · GDPR · LGPD · PIPEDA · POPIA
+SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NIST AI 600-1 · FedRAMP · HIPAA · PCI-DSS · EU AI Act (120 controls) · CMMC L2 · CIS Controls · HITRUST · FIPS 140-2/3 · CCPA/CPRA · GDPR · SOX · GLBA · FERPA · CJIS · NERC CIP · TISAX · CSA STAR · OWASP Web · MITRE ATLAS · HITECH · FFIEC · TSA SD · ISO 21434
 
 ### Pricing
 
 | Tier | Price | Key Features |
 |------|-------|-------------|
-| **Community** | Free | 10 compliance frameworks, Lens, Rampart, all detection |
-| **Developer** | $79/mo | 13 frameworks, SIEM, API access |
-| **Professional** | $499/mo | 26 frameworks, SOAR, evidence packages, attestation |
+| **Community** | Free | 4 compliance frameworks, Lens, Rampart, all detection |
+| **Developer** | $79/mo | 10 frameworks (4 community + 6 add-ons), SIEM, API access |
+| **Professional** | $499/mo | 26 frameworks (4 community + 6 + 16 add-ons), SOAR, evidence packages, attestation |
 | **Enterprise** | Custom | 31 frameworks, all features, priority support |
 
 **No per-request fees. No data egress. No vendor lock-in.**
