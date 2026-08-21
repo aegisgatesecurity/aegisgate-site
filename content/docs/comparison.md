@@ -6,7 +6,7 @@ weight: 500
 
 ## AI Security Platform Comparison — 2026
 
-AegisGate is the only platform that secures every AI interaction surface — browser, IDE, local proxy, API gateway, and agent protocols — in a single open-core, self-hosted suite. This comparison reflects verified, in-codebase capabilities as of v4.1.0 (August 2026).
+AegisGate is the only platform that secures every AI interaction surface — browser, IDE, local proxy, API gateway, and agent protocols — in a single open-core, self-hosted suite. This comparison reflects verified, in-codebase capabilities as of v4.2.0 (August 2026).
 
 ---
 

@@ -297,7 +297,7 @@ Accept: application/json
 | **Enterprise** | ✅ All Professional features + signed attestations, audit export, SIEM integration |
 | **Air-Gap** | ✅ All Enterprise features + offline verification, FIPS 140-2 validated crypto |
 
-**Minimum Version:** Platform v4.1.0+
+**Minimum Version:** Platform v4.2.0+
 
 ---
 

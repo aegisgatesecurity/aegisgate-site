@@ -37,7 +37,7 @@ docker run -d \
   -p 8081:8081 \
   -p 8443:8443 \
   -p 9000:9000 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.1.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.2.0
 ```
 
 ### Verify Installation
@@ -48,7 +48,7 @@ curl http://localhost:8443/health
 
 Expected response:
 ```json
-{"status":"healthy","version":"4.1.0","services":{"proxy":"up","mcp":"up","scanner":"up","a2a":"up","trust":"up"}}
+{"status":"healthy","version":"4.2.0","services":{"proxy":"up","mcp":"up","scanner":"up","a2a":"up","trust":"up"}}
 ```
 
 ---

@@ -38,6 +38,32 @@ aegisgate-platform --profile <name>        # Deploy profile selector
 
 ---
 
+### v4.2.0 - 2026-08-21 - Guided Setup, Dashboard Polish, Documentation Overhaul 🚀
+
+> **v4.2.0** delivers the complete Guided Setup initiative — deploy profiles, setup wizard, config validation, maintenance windows, and a full dashboard overhaul. 31 compliance frameworks, 2,043 controls, 1,457 automated. Documentation rewritten across 3 repositories.
+
+#### New Features
+
+- **Deploy Profiles** — 5 presets (quickstart, small-team, production, high-security, air-gapped) for one-command deployment
+- **Setup Wizard** — Interactive CLI wizard that auto-detects environment (Docker/K8s/systemd/bare metal) and generates validated config
+- **Config Validation** — 15+ pre-flight checks (ports, TLS, log levels, rate limits, SIEM endpoints, data dirs)
+- **Maintenance Windows** — Schedule downtime with 503+Retry-After, REST API, CLI command, atomic lock-free state
+- **Dashboard Overhaul** — Getting Started tab, compliance status dashboard (31 frameworks), maintenance windows UI, configuration tab, unified 8-tab navigation
+
+#### Documentation
+
+- Comprehensive 6-round documentation overhaul across 3 repos (72+ files)
+- New docs: CLI reference, maintenance windows, glossary, day-2-operations, compliance overview, troubleshooting
+- Fixed stale compliance counts across 14+ pages
+- Legacy v1.x repo archived with deprecation banners and migration guide
+
+#### Improvements
+
+- Setup wizard test coverage raised from 74.9% to 87.7%
+- Trademark fix: "Easy Button" → "Guided Setup" (Staples trademark)
+
+---
+
 ### v4.1.0 - 2026-08-16 - Open-Core, Pricing, CI Fixes
 
 > **v4.1.0** completes the open-core split. Community edition is Apache 2.0 (CGO_ENABLED=0, no ONNX Runtime). Enterprise features gated by `//go:build enterprise` tags and tier checks in `pkg/tier/tier.go`.

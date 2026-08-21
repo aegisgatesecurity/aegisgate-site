@@ -1,12 +1,12 @@
 ---
 title: "Terms of Service"
-description: "The agreement governing your use of AegisGate Security Platform. Effective 2026-06-07. 2.0 DRAFT for v4.1.0."
+description: "The agreement governing your use of AegisGate Security Platform. Effective 2026-06-07. 2.0 DRAFT for v4.2.0."
 type: "legal-doc"
 ---
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v4.1.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.1.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v4.2.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.2.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # Terms of Service
@@ -14,7 +14,7 @@ This document is self-drafted by AegisGate Security, LLC for the v4.1.0 release.
 **AegisGate Security Platform**
 
 **Effective Date:** 2026-06-07
-**Version:** 2.0 DRAFT (v4.1.0)
+**Version:** 2.0 DRAFT (v4.2.0)
 **Last Updated:** 2026-06-07
 
 ---
@@ -80,7 +80,7 @@ Services are provided according to the subscription tier you select:
 | **Professional** | $499/mo | 10,000 RPM | 90-day audit log retention, 99.95% SLA, priority support, Trust Framework, SIEM, SOAR |
 | **Enterprise** | Contact sales | Unlimited | Custom SLA (up to 99.99%), custom compliance modules, dedicated CSM, custom audit log retention, air-gapped |
 
-Compliance module add-on prices (per the v4.1.0 pricing decision, locked at purchase):
+Compliance module add-on prices (per the v4.2.0 pricing decision, locked at purchase):
 
 **Developer tier add-ons ($149/mo each):**
 - HIPAA: $149/mo
@@ -395,7 +395,7 @@ Wisconsin, USA
 
 The following exhibits are incorporated by reference and form part of these Terms. Exhibits A–C are conditional on your purchase of the relevant add-on module or your request for the relevant agreement.
 
-- **Exhibit A — Business Associate Agreement (BAA):** Required if you purchase the HIPAA compliance module. Available at https://aegisgatesecurity.io/legal/baa (deferred to v4.1.0+ for production-grade review).
+- **Exhibit A — Business Associate Agreement (BAA):** Required if you purchase the HIPAA compliance module. Available at https://aegisgatesecurity.io/legal/baa (deferred to v4.2.0+ for production-grade review).
 - **Exhibit B — PCI-DSS Vendor Agreement:** Required if you purchase the PCI-DSS compliance module. Available on request.
 - **Exhibit C — Master Services Agreement (MSA):** Required for Enterprise customers. Available on request.
 
@@ -403,11 +403,11 @@ The following exhibits are incorporated by reference and form part of these Term
 
 *— Counsel Sign-Off Required —*
 
-*This document is a 2.0 DRAFT for the v4.1.0 release. The 17-clause vendor-favorability framework applied to these Terms is documented in the internal legal review framework (a confidential document not published on this site). When budget is available, AegisGate Security, LLC will engage qualified counsel to review these Terms and convert them from a self-drafted DRAFT to a production-grade legal agreement. Until then, customers and counterparties should rely on these Terms at their own risk and consult their own legal counsel.*
+*This document is a 2.0 DRAFT for the v4.2.0 release. The 17-clause vendor-favorability framework applied to these Terms is documented in the internal legal review framework (a confidential document not published on this site). When budget is available, AegisGate Security, LLC will engage qualified counsel to review these Terms and convert them from a self-drafted DRAFT to a production-grade legal agreement. Until then, customers and counterparties should rely on these Terms at their own risk and consult their own legal counsel.*
 
 *Tier names, RPMs, SLA commitments, and pricing reflect the platform's documented behavior as of v3.3.0 (2026-06-07). Consult the most recent version of these Terms and the live pricing page at https://aegisgatesecurity.io/pricing for current values.*
 
-**Version:** 2.0 DRAFT (v4.1.0)
+**Version:** 2.0 DRAFT (v4.2.0)
 **Last Updated:** 2026-06-07
 **Next Review Date:** 2026-09-07 (quarterly review, or sooner if materially changed)
-**Counsel Review Required:** Yes (deferred to v4.1.0+ budget cycle)
+**Counsel Review Required:** Yes (deferred to v4.2.0+ budget cycle)

@@ -31,7 +31,7 @@ AegisGate's threat model is structured using the [STRIDE](https://en.wikipedia.o
 
 ### ML-Powered Detection
 
-v4.1.0 introduces a CNN-BiLSTM neural network for prompt classification:
+v4.2.0 introduces a CNN-BiLSTM neural network for prompt classification:
 
 - **100% detection rate** on adversarial test suite (100/100)
 - **0% false positive rate** on benign inputs

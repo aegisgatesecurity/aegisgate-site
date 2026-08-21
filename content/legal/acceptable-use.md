@@ -6,7 +6,7 @@ type: "legal-doc"
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v4.1.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.1.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v4.2.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.2.0+ when budget is available. Until then, customers and counterparties should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # ACCEPTABLE USE POLICY

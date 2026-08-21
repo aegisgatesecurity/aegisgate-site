@@ -407,7 +407,7 @@ Authorization: Bearer <api_key>
 | **Professional** | ✅ All Developer features + PDF export, cryptographic signature, historical tracking |
 | **Enterprise** | ✅ All Professional features + FIPS 140-2 crypto, offline generation |
 
-**Minimum Version:** Platform v4.1.0+
+**Minimum Version:** Platform v4.2.0+
 
 ---
 

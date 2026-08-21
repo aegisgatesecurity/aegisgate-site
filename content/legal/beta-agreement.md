@@ -1,18 +1,18 @@
 ---
 title: "Beta User Agreement"
-description: "Supplemental terms for v4.1.0 program participants. 1.0 DRAFT for v4.1.0."
+description: "Supplemental terms for v4.2.0 program participants. 1.0 DRAFT for v4.2.0."
 type: "legal-doc"
 ---
 
 <div class="alert alert-warning" style="border-left: 4px solid #f0ad4e; padding: 16px; margin-bottom: 24px; background: #fff8e1;">
 <strong>📋 DRAFT — Not Legal Advice</strong><br>
-This document is self-drafted by AegisGate Security, LLC for the v4.1.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.1.0+ when budget is available. Until then, beta participants should rely on this document at their own risk and consult their own legal counsel.
+This document is self-drafted by AegisGate Security, LLC for the v4.2.0 release. AegisGate Security, LLC is not a law firm, and this document does not constitute legal advice. Production-grade review by qualified legal counsel is deferred to v4.2.0+ when budget is available. Until then, beta participants should rely on this document at their own risk and consult their own legal counsel.
 </div>
 
 # AegisGate Beta User Agreement
 
 **Effective Date:** 2026-06-07
-**Version:** 1.0 DRAFT (v4.1.0)
+**Version:** 1.0 DRAFT (v4.2.0)
 
 ---
 
@@ -21,7 +21,7 @@ This Beta User Agreement ("Beta Agreement") supplements the [AegisGate Security 
 ## 1. Beta Program Description
 
 The Beta Program provides early access to pre-release versions of the AegisGate Security Platform ("Beta Features"), including:
-- The v4.1.0 release candidate
+- The v4.2.0 release candidate
 - New compliance modules (HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, FIPS 140, EU AI Act)
 - The minimum-viable legal kit
 - New website pages and documentation
@@ -70,7 +70,7 @@ This confidentiality obligation survives termination of the Beta Program for **2
 
 ## 7. Term and Termination
 
-The Beta Program begins when you accept this Beta Agreement and ends when AegisGate Security, LLC releases the generally available (GA) version of the v4.1.0 release (or earlier, at our discretion).
+The Beta Program begins when you accept this Beta Agreement and ends when AegisGate Security, LLC releases the generally available (GA) version of the v4.2.0 release (or earlier, at our discretion).
 
 Either Party may terminate your participation in the Beta Program at any time, for any reason, with **7 calendar days' notice** (or immediately for breach).
 
@@ -104,7 +104,7 @@ For questions about the Beta Program, contact:
 
 *— Counsel Sign-Off Required —*
 
-*This document is a 1.0 DRAFT for the v4.1.0 release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Beta Agreement and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, beta participants should rely on this document at their own risk and consult their own legal counsel.*
+*This document is a 1.0 DRAFT for the v4.2.0 release. When budget is available, AegisGate Security, LLC will engage qualified counsel to review this Beta Agreement and convert it from a self-drafted DRAFT to a production-grade legal document. Until then, beta participants should rely on this document at their own risk and consult their own legal counsel.*
 
-**Version:** 1.0 DRAFT (v4.1.0)
+**Version:** 1.0 DRAFT (v4.2.0)
 **Last Updated:** 2026-06-07

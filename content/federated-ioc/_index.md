@@ -390,7 +390,7 @@ Content-Type: application/json
 | **Professional** | ✅ Real-time IOC feed, TAXII 2.1 integration, STIX 2.1 export |
 | **Enterprise** | ✅ All Professional features + manual bundle import for air-gap, segmented feeds, redistribution rights |
 
-**Minimum Version:** Platform v4.1.0+
+**Minimum Version:** Platform v4.2.0+
 
 ---
 
