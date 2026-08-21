@@ -68,7 +68,18 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 
 ### Automated Controls
 
-AegisGate automates **1,076+ CheckFuncs** across these frameworks, covering **1,870+ total controls**:
+AegisGate automates **1,457 controls** across these frameworks, out of **2,043 total controls** — a **71.3% automation rate**. The remaining **586 manual controls** (28.7%) are genuinely human-process controls: organizational policies, legal agreements, physical security, HR training, governance, supply chain management, and external audit procedures.
+
+**4 automation methods:**
+
+| Method | How it works | Example |
+|--------|-------------|---------|
+| **Config State Verification** | Reads running configuration and validates it against framework requirements | TLS enabled, audit logging on, rate limits configured |
+| **Audit Trail Evidence** | Examines audit logs for required evidence artifacts | Access logged, data retention enforced, incident response tracked |
+| **Detection Engine State** | Checks that detection rules and scanners are active and covering required patterns | PII detection running, prompt injection blocking, secret scanning enabled |
+| **Cross-Framework Mapping** | Maps evidence from one framework to satisfy another's requirements | HIPAA access logging → SOC 2 CC6.1, GDPR PII protection → ISO 27001 A.8.12 |
+
+**Automation coverage by detection capability:**
 
 - **Prompt screening**: Maps to 47 access control and input validation controls
 - **Response filtering**: Maps to 82 output control and data protection controls
@@ -86,4 +97,21 @@ All detections produce ATLAS-mapped audit evidence with:
 - ATLAS tactic and technique mapping
 - Compliance framework cross-reference
 
-_See also: [MITRE ATLAS Coverage](/docs/atlas/) and [Security Overview](/docs/security/)._
+### Guided Setup: Quick Compliance Setup
+
+Getting compliance-ready is faster with AegisGate's Guided Setup features:
+
+```bash
+# Auto-detect your environment and generate a compliance-ready config
+./aegisgate-platform setup --non-interactive
+
+# Use a profile tailored to your compliance needs
+./aegisgate-platform --profile high-security --embedded-mcp
+
+# Validate your config before deploying
+./aegisgate-platform config validate aegisgate-platform.yaml
+```
+
+The **high-security** profile enables TLS 1.3, strict rate limits, and full audit logging — suitable for HIPAA, SOC 2, and EU AI Act environments. The **air-gapped** profile is designed for FedRAMP, CMMC L2, and HITRUST deployments in isolated networks.
+
+_See also: [Deploy Profiles](/docs/deploy-profiles/), [MITRE ATLAS Coverage](/docs/atlas/), and [Security Overview](/docs/security/)._

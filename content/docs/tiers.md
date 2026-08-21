@@ -28,7 +28,6 @@ Choose the coverage that matches your compliance needs.
 | **NIST AI RMF** | ✅ | ✅ | ✅ | ✅ |
 | **OWASP LLM Top 10** | ✅ | ✅ | ✅ | ✅ |
 | **OWASP Web Top 10** | ✅ | ✅ | ✅ | ✅ |
-| **MITRE ATLAS** | ✅ | ✅ | ✅ | ✅ |
 | **mTLS** | ❌ | ✅ | ✅ | ✅ |
 | **Code Exec Sandbox** | ❌ | ✅ | ✅ | ✅ |
 | **Compliance Reports** | ❌ | Basic | Advanced | Full |
@@ -70,11 +69,27 @@ Choose the coverage that matches your compliance needs.
 
 **Community** — Free forever. For individuals and small teams getting started with AI security. Includes core proxy, 176+ detection patterns, and 4 community frameworks: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF.
 
-**Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, code execution sandbox, advanced ML anomaly detection, and Grafana integration. 6 compliance modules available as $149/mo add-ons (HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR).
+**Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, code execution sandbox, advanced ML anomaly detection, and Grafana integration. 6 compliance frameworks included (HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR). Additional frameworks available as add-ons.
 
 **Professional** — $499/month. For teams with serious compliance needs. Adds policy engine, department separation, K8s/Helm deployment, process-level MCP sandboxing, gRPC API (7 services, 50 RPCs), SIEM integration (11 platforms), and the **Trust Framework** (6th pillar — ECDSA P-256-signed per-session trust scoring). 16 compliance modules available as add-ons: 4 security foundation at $79/mo (CIS, NIST CSF, CSA STAR, NIST AI 600-1) and 12 industry-specific at $199/mo (ISO 42001, EU AI Act, FIPS, SOX, GLBA, CJIS, NERC CIP, FERPA, HITECH, FFIEC, TSA SD, ISO 21434).
 
 **Enterprise** — Custom pricing. Mission-critical deployments with unlimited scale, custom compliance, air-gapped deployment, BAA/DPA, and dedicated support. 5 compliance modules available as $499/mo add-ons: FedRAMP, CMMC Level 2, NIST 800-171, HITRUST, TISAX. Total coverage: all 31 frameworks.
+
+### Guided Setup Features
+
+All tiers include the Guided Setup deployment simplification tools:
+
+| Feature | Community | Developer | Professional | Enterprise |
+|---------|:---------:|:---------:|:---------:|:------------:|
+| **Setup Wizard** | ✅ | ✅ | ✅ | ✅ |
+| **Deploy Profiles** | ✅ | ✅ | ✅ | ✅ |
+| **Config Validation** | ✅ | ✅ | ✅ | ✅ |
+| **Maintenance Windows** | ✅ | ✅ | ✅ | ✅ |
+| **Dashboard Polish** | ✅ | ✅ | ✅ | ✅ |
+
+The setup wizard, deploy profiles, config validation, and maintenance windows are available to all tiers at no additional cost. These features make deployment and administration accessible to teams without dedicated DevOps or Kubernetes expertise.
+
+See [Deploy Profiles](/docs/deploy-profiles/) and [Getting Started](/docs/getting-started/) for details.
 
 ### Migration Path
 

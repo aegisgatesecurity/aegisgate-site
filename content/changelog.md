@@ -8,6 +8,36 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.2.0 - 2026-08-20 - Guided Setup: Deploy Profiles, Setup Wizard, Config Validation, Maintenance Windows
+
+> **v4.2.0** introduces the "Guided Setup" initiative — four deployment simplification features that make AegisGate accessible to teams without dedicated DevOps or Kubernetes expertise. Build, configure, and deploy in 30 seconds. No YAML editing required.
+
+**Guided Setup Deliverables:**
+
+- **Deploy Profiles** (`pkg/profiles/`) — 5 predefined configuration presets: `quickstart`, `small-team`, `production`, `high-security`, `air-gapped`. Each returns a fully-populated, validated `*platformconfig.Config`. Use `--profile list` to see all options, `--profile production` to run with one.
+- **Setup Wizard** (`pkg/setup/`) — Interactive and non-interactive environment detection. Auto-detects Docker, Kubernetes, systemd, or bare metal. Recommends a profile, generates a validated YAML config file, auto-fills TLS cert paths, and prints next steps. Use `./aegisgate-platform setup` (interactive) or `./aegisgate-platform setup --non-interactive` (automated).
+- **Config Validation** (`pkg/platformconfig/validate.go`) — 15+ validation checks: port conflicts, TLS certificate paths, log levels, rate limits, SIEM endpoints, persistence backends. Returns `ValidationResult` with errors (fatal) and warnings (non-fatal). Use `./aegisgate-platform config validate <file>` or `./aegisgate-platform config show` to see effective config.
+- **Maintenance Windows** (`pkg/maintenance/`) — Lock-free hot path using `atomic.Bool` for zero-overhead state checks. Returns HTTP 503 with `Retry-After` header during active windows. REST API at `/api/v1/maintenance`, CLI subcommand `./aegisgate-platform maintenance enable|disable|schedule`. Health, version, and maintenance endpoints remain accessible during maintenance.
+
+**Compliance Automation Expansion (P1–P5):**
+
+- 147 manual controls promoted to automated across 8 frameworks (HITECH, TSA SD, HITRUST, PCI-DSS, NIST CSF, CMMC L2, NIST 800-171, EU AI Act)
+- Cumulative: **1,457 automated controls** (71.3%), **586 manual controls** (28.7%), **2,043 total controls** across 31 frameworks
+- 4 automation methods: Config State Verification, Audit Trail Evidence, Detection Engine State, Cross-Framework Mapping
+
+**CLI Subcommands:**
+
+All Guided Setup features use the `init()` hook subcommand pattern consistent with existing CLI commands:
+
+```
+aegisgate-platform setup [flags]           # Setup wizard
+aegisgate-platform config <verb> [flags]  # validate, show, init
+aegisgate-platform maintenance <verb>      # enable, disable, schedule, status
+aegisgate-platform --profile <name>        # Deploy profile selector
+```
+
+---
+
 ### v4.1.0 - 2026-08-16 - Open-Core, Pricing, CI Fixes
 
 > **v4.1.0** completes the open-core split. Community edition is Apache 2.0 (CGO_ENABLED=0, no ONNX Runtime). Enterprise features gated by `//go:build enterprise` tags and tier checks in `pkg/tier/tier.go`.

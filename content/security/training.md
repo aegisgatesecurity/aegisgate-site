@@ -106,7 +106,7 @@ Topics covered:
 Topics covered:
 - Trust Services Criteria overview
 - Control objectives and AegisGate's control framework
-- 1,076+ automated CheckFuncs
+- 1,457 automated controls
 - Hash-chained audit logs and evidence collection
 - Change management and release process
 - Monitoring and reporting obligations

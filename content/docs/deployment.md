@@ -6,7 +6,77 @@ weight: 420
 
 ## Deployment
 
-AegisGate can be deployed in minutes using Docker, Kubernetes, or bare metal.
+AegisGate can be deployed in minutes using Docker, Kubernetes, or bare metal. The **Guided Setup** features (v4.2.0+) make deployment even simpler — use the setup wizard to auto-detect your environment and generate a validated config, or pick a deploy profile that matches your use case.
+
+### Guided Setup (30-Second Setup)
+
+```bash
+# Build the binary
+go build -o aegisgate-platform ./cmd/aegisgate-platform/
+
+# Auto-detect your environment and generate a validated config
+./aegisgate-platform setup --non-interactive
+
+# Start the platform
+./aegisgate-platform --config aegisgate-platform.yaml --embedded-mcp
+```
+
+The setup wizard detects Docker, Kubernetes, systemd, or bare metal; recommends a deploy profile; generates a validated YAML config with TLS paths auto-filled; and prints next steps. No YAML editing required.
+
+**Deploy profiles** (5 presets for every scenario):
+
+| Profile | TLS | Rate Limit | Use Case |
+|---------|-----|------------|----------|
+| `quickstart` | Off | 60 RPM | Zero-config evaluation |
+| `small-team` | Auto-generated | 300 RPM | 5–50 users |
+| `production` | TLS 1.3 (bring certs) | 1,000 RPM | Hardened production |
+| `high-security` | mTLS + FIPS | 5,000 RPM | Regulated industries (HIPAA, SOC 2, EU AI Act) |
+| `air-gapped` | TLS 1.3 (bring certs) | 1,000 RPM | Isolated networks (FedRAMP, CMMC, HITRUST) |
+
+```bash
+# List all profiles
+./aegisgate-platform --profile list
+
+# Run with a profile (no config file needed)
+./aegisgate-platform --profile small-team --embedded-mcp
+
+# Generate a config from a profile for customization
+./aegisgate-platform setup --profile production --output my-config.yaml
+```
+
+**Config precedence**: CLI flags > env vars > config file > profile > defaults.
+
+### Config Validation
+
+Before deploying, validate your configuration:
+
+```bash
+# Validate a config file (checks ports, TLS paths, log levels, rate limits, SIEM endpoints)
+./aegisgate-platform config validate aegisgate-platform.yaml
+
+# Show effective config (what the platform would use with all overrides applied)
+./aegisgate-platform config show --format json
+```
+
+### Maintenance Windows
+
+Schedule maintenance windows without taking the platform offline:
+
+```bash
+# Enable maintenance mode (returns 503 with Retry-After header to clients)
+./aegisgate-platform maintenance enable --message "Security update in progress"
+
+# Schedule a future window
+./aegisgate-platform maintenance schedule --start "2026-09-01T02:00:00Z" --end "2026-09-01T04:00:00Z" --reason "Quarterly patch"
+
+# Check status
+./aegisgate-platform maintenance status
+
+# Disable
+./aegisgate-platform maintenance disable
+```
+
+During maintenance, the platform returns HTTP 503 with a `Retry-After` header. Health (`/health`), version (`/version`), and maintenance (`/api/v1/maintenance`) endpoints remain accessible so load balancers and monitoring tools can detect the maintenance state.
 
 ### Docker (Quick Start)
 
@@ -112,6 +182,8 @@ The degradation path is fully automatic — no manual intervention required.
 - [ ] Health check endpoint monitored (`GET /health`)
 - [ ] Prometheus metrics endpoint scraped (`GET /metrics`)
 - [ ] Resource limits set (min 128MB RAM, 1 core CPU)
+- [ ] Config validated (`aegisgate-platform config validate`)
+- [ ] Maintenance window schedule planned (if needed)
 
 ### Resource Requirements
 

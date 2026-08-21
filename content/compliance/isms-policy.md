@@ -45,7 +45,7 @@ The AegisGate ISMS covers:
 
 1. **AegisGate Security Platform** — self-hosted, on-premises security gateway for AI infrastructure, delivered as a Docker container (19.1MB) with zero external dependencies.
 2. **Software development lifecycle** — source code management (GPG-signed commits), CI/CD pipelines, release signing (ECDSA P-256 license keys), secure development practices.
-3. **Compliance engine** — 1,076+ automated CheckFuncs across 31 compliance frameworks, including the ISO 27001 module with dedicated control checks.
+3. **Compliance engine** — 1,457 automated controls across 31 compliance frameworks, including the ISO 27001 module with dedicated control checks.
 4. **Trust and attestation services** — hash-chained audit logging, cryptographic attestation generation, evidence collection.
 5. **Customer-facing security operations** — threat detection (176 patterns), RBAC with MFA, OIDC/SAML SSO integration, TLS 1.3 transport encryption, AES-256 encryption at rest with customer-managed keys.
 6. **Organizational processes** — information security policy, risk management, incident response, business continuity, management review, and internal audit.
@@ -106,7 +106,7 @@ AegisGate adopts a risk-based approach to information security management aligne
 
 ### 4.3 Risk Monitoring
 
-- Risks monitored continuously through the compliance engine's 1,076+ automated CheckFuncs.
+- Risks monitored continuously through the compliance engine's 1,457 automated controls.
 - Risk register reviewed quarterly during Management Review.
 - Emerging risks from threat intelligence feeds evaluated monthly.
 
@@ -118,7 +118,7 @@ AegisGate is committed to continual improvement of the ISMS through the Plan-Do-
 
 **Plan:** Risk assessments, objective setting, control selection, and resource allocation documented in the ISMS and Statement of Applicability.
 
-**Do:** Implementation and operation of controls through the compliance engine (1,076+ CheckFuncs across 31 frameworks), operational procedures, and security awareness training.
+**Do:** Implementation and operation of controls through the compliance engine (1,457 automated controls across 31 frameworks), operational procedures, and security awareness training.
 
 **Check:** Monitoring, measurement, internal audits, and management reviews. Hash-chained audit logs provide continuous tamper-evident monitoring. Internal audits conducted annually per the Internal Audit Program (AG-IAUD-2026-001).
 

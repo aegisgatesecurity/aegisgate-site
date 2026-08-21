@@ -82,7 +82,7 @@ Each Management Review receives the following inputs, prepared by Compliance & S
 ### 4.2 Compliance Assessment Results
 
 - ISO 27001 Statement of Applicability status update (implemented, partial, planned, N/A)
-- Compliance engine coverage metrics (1,076+ CheckFuncs across 31 frameworks)
+- Compliance engine coverage metrics (1,457 automated controls across 31 frameworks)
 - Changes in regulatory or legal requirements affecting AegisGate
 
 ### 4.3 Risk Assessment Results

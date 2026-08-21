@@ -57,7 +57,7 @@ The Internal Audit Program covers:
 AegisGate employs a **risk-based audit methodology** that prioritizes areas of highest risk and greatest impact. The audit approach combines:
 
 - **Document review:** Examination of policies, procedures, risk assessments, and evidence records.
-- **Technical verification:** Automated compliance checks via the AegisGate compliance engine (1,076+ CheckFuncs across 31 frameworks) supplemented by manual technical testing.
+- **Technical verification:** Automated compliance checks via the AegisGate compliance engine (1,457 automated controls across 31 frameworks) supplemented by manual technical testing.
 - **Interview-based assessment:** Structured interviews with control owners, process operators, and management.
 - **Observation:** Direct observation of control operation, configuration, and process execution.
 

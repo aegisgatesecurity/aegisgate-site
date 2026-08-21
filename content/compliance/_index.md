@@ -41,7 +41,7 @@ AegisGate Security, LLC maintains self-assessment documentation against industry
 
 AegisGate's compliance posture is reinforced by our automated compliance engine, which provides continuous enforcement across 31 frameworks:
 
-- **1,076+ automated CheckFuncs** validate controls at runtime
+- **1,457 automated controls** validate controls at runtime
 - **176 detection patterns** scan for threats in real time
 - **31 compliance frameworks** including HIPAA, PCI-DSS, GDPR, SOC 2, FedRAMP, ISO 27001, NIST CSF, CIS, and more
 - **Hash-chained audit logs** provide tamper-evident compliance records

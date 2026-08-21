@@ -4,7 +4,7 @@ description: "Self-hosted AI security gateway. Six pillars of protection: HTTP A
 type: "landing"
 ---
 
-> **🏢 AegisGate Platform v4.1.0 is LIVE** — Six-pillar AI security, ML threat detection, 31 compliance frameworks, 11 SIEM + 4 SOAR integrations, web UI, air-gapped deployment. [Try the Live Demo](https://demo.aegisgatesecurity.io/) or [Download v4.1.0](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.1.0).
+> **🏢 AegisGate Platform v4.1.0 is LIVE** — Six-pillar AI security, ML threat detection, 31 compliance frameworks (2,043 total controls, 1,457 automated), 11 SIEM + 4 SOAR integrations, web UI, air-gapped deployment, Guided Setup setup. [Try the Live Demo](https://demo.aegisgatesecurity.io/) or [Download v4.1.0](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.1.0).
 
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
@@ -13,7 +13,7 @@ type: "landing"
 
 <ul>
 <li><strong>6 attack surfaces</strong>: HTTP API, MCP, A2A, ACP, Response, Trust Framework</li>
-<li><strong>31 compliance frameworks</strong>: HIPAA, SOC 2, EU AI Act, FedRAMP, ISO 27001, ISO 42001, NIST AI RMF, OWASP LLM Top 10, and more</li>
+<li><strong>31 compliance frameworks</strong> (2,043 controls, 1,457 automated): HIPAA, SOC 2, EU AI Act, FedRAMP, ISO 27001, ISO 42001, NIST AI RMF, OWASP LLM Top 10, and more</li>
 <li><strong>11 SIEM integrations</strong>: Splunk, Elastic, Datadog, Sumo Logic, Chronicle, Loki, Fluentd, Logstash, Cribl, Kafka, Graylog, syslog</li>
 <li><strong>4 SOAR integrations</strong>: PagerDuty, Jira, ServiceNow, Custom webhook</li>
 <li><strong>ML threat detection</strong>: CharCNN-BiLSTM (1.58M params), 100/100 evasion resistance, 0% FPR, ~5ms</li>
@@ -122,26 +122,27 @@ Platform v4.1.0 protects every AI interaction across six attack surfaces:
 
 ## Compliance Frameworks
 
-Platform includes 31 compliance frameworks — the most comprehensive AI compliance coverage available:
+Platform includes 31 compliance frameworks (2,043 total controls, 1,457 automated) — the most comprehensive AI compliance coverage available:
 
 | Framework | Tier | Coverage |
 |-----------|------|----------|
-| MITRE ATLAS | Community | 66 techniques |
-| NIST AI RMF 1.0 | Community | Full |
 | OWASP LLM Top 10 | Community | 49 patterns |
-| GDPR | Community | PII detection |
-| HIPAA | Developer+ | PHI detection |
-| PCI-DSS | Developer+ | Card data |
-| SOC 2 | Professional+ | Enterprise controls |
-| ISO 27001 | Professional+ | InfoSec |
-| ISO 42001 | Professional+ | AI management |
-| CMMC L2 | Professional+ | Access control |
-| FedRAMP Moderate | Professional+ | 153/170 controls |
-| EU AI Act | Professional+ | 120 controls, 8 categories |
-| NIST CSF 2.0 | Community | Full |
-| CIS Controls v8 | Community | IG1 |
+| OWASP Web Top 10 | Community | 10 categories |
+| MITRE ATLAS | Community | 66 techniques |
+| NIST AI RMF 1.0 | Community | 50 controls |
+| HIPAA | Developer | PHI detection (54 controls) |
+| PCI-DSS v4.0 | Developer | Card data (152 controls) |
+| SOC 2 Type II | Developer | 64 controls |
+| ISO/IEC 27001:2022 | Developer | 116 controls |
+| CCPA/CPRA | Developer | 26 controls |
+| GDPR | Developer | PII detection (99 controls) |
+| EU AI Act | Professional | 120 controls, 8 categories |
+| ISO/IEC 42001:2023 | Professional | AI management (38 controls) |
+| NIST CSF 2.0 | Professional | 131 controls |
+| CIS Controls v8 | Professional | 50 controls |
+| FedRAMP Moderate | Enterprise | 170 controls |
 
-<p style="font-size:0.9rem; color:#888;">...and 17 more frameworks. <a href="/compliance/">View all compliance documentation →</a></p>
+<p style="font-size:0.9rem; color:#888;">...and 16 more frameworks. <a href="/docs/compliance/">View all compliance documentation →</a></p>
 
 ---
 
@@ -196,6 +197,31 @@ Platform includes a built-in web dashboard at `/ui/`:
 ---
 
 ## Deployment
+
+### Guided Setup (30-Second Setup)
+
+```bash
+# Build the binary
+go build -o aegisgate-platform ./cmd/aegisgate-platform/
+
+# Auto-detect your environment and generate a validated config
+./aegisgate-platform setup --non-interactive
+
+# Start the platform
+./aegisgate-platform --config aegisgate-platform.yaml --embedded-mcp
+```
+
+The setup wizard auto-detects Docker, Kubernetes, systemd, or bare metal; recommends a deploy profile; generates a validated config; and prints next steps. No YAML editing required.
+
+**Deploy profiles** (5 presets): `quickstart`, `small-team`, `production`, `high-security`, `air-gapped`.
+
+```bash
+# List all profiles
+./aegisgate-platform --profile list
+
+# Run with a profile
+./aegisgate-platform --profile production --embedded-mcp
+```
 
 ### Docker (Recommended)
 

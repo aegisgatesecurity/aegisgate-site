@@ -194,7 +194,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | Attribute | Detail |
 |---|---|
 | **SOC 2 Reference** | CC3.1 |
-| **Implementation** | AegisGate conducts risk assessments covering information security, operational continuity, and compliance objectives. The compliance engine's 1,076+ automated CheckFuncs across 31 frameworks provide continuous risk identification. Threat modeling is performed for architecture changes and new features. The 176 threat detection patterns actively identify security risks in production. |
+| **Implementation** | AegisGate conducts risk assessments covering information security, operational continuity, and compliance objectives. The compliance engine's 1,457 automated controls across 31 frameworks provide continuous risk identification. Threat modeling is performed for architecture changes and new features. The 176 threat detection patterns actively identify security risks in production. |
 | **Evidence** | Risk register, threat model documentation, CheckFunc catalog, detection pattern registry |
 | **Status** | ✅ Ready |
 

@@ -6,7 +6,7 @@ type: docs
 
 ## Troubleshooting Guide
 
-Common issues and solutions for AegisGate Security Platform.
+Common issues and solutions for AegisGate Security Platform. For deployment help, try the [Guided Setup setup](/docs/getting-started/) first — it auto-detects your environment and generates a validated config.
 
 ### Container Won't Start
 
@@ -25,6 +25,11 @@ Common issues and solutions for AegisGate Security Platform.
    ```
 
 3. Ensure ports are not already in use by another service.
+
+4. Validate your config file:
+   ```bash
+   ./aegisgate-platform config validate aegisgate-platform.yaml
+   ```
 
 ### Health Check Fails
 
@@ -278,6 +283,90 @@ curl -H "A2A-Capability: send_message" ...
    ```
 
 3. Review audit logs for blocked/allowed decisions.
+
+---
+
+## Guided Setup Troubleshooting
+
+### Setup Wizard Can't Detect Environment
+
+**Symptom:** `./aegisgate-platform setup --non-interactive` generates an incorrect or minimal config.
+
+**Solutions:**
+
+1. Run in interactive mode to see detection results:
+   ```bash
+   ./aegisgate-platform setup
+   ```
+   The wizard prints what it detected (Docker, K8s, systemd, bare metal) and why it selected a profile.
+
+2. Specify a profile explicitly:
+   ```bash
+   ./aegisgate-platform setup --profile production
+   ```
+
+3. If running in a container, the wizard may not detect the host environment. Use `--profile` to select the right preset for your infrastructure.
+
+### Config Validation Reports Errors
+
+**Symptom:** `./aegisgate-platform config validate` reports errors.
+
+**Common errors and fixes:**
+
+| Error | Fix |
+|-------|-----|
+| Port conflict: proxy and MCP on same port | Change `mcp_port` to a different value |
+| TLS cert path does not exist | Run `./aegisgate-platform setup --profile production` to auto-fill cert paths, or provide valid paths |
+| Invalid log level | Use one of: `debug`, `info`, `warn`, `error` |
+| SIEM endpoint not reachable | Verify the SIEM URL is correct and the SIEM server is running |
+| Rate limit too low | Set `proxy_rate_limit` ≥ `mcp_rate_limit` |
+
+### Maintenance Mode Stuck
+
+**Symptom:** Platform is in maintenance mode and won't disable.
+
+**Solutions:**
+
+1. Check maintenance status:
+   ```bash
+   ./aegisgate-platform maintenance status
+   ```
+
+2. Disable explicitly:
+   ```bash
+   ./aegisgate-platform maintenance disable
+   ```
+
+3. If using the REST API:
+   ```bash
+   curl -X POST http://localhost:8443/api/v1/maintenance \
+     -H "Content-Type: application/json" \
+     -d '{"action": "disable"}'
+   ```
+
+4. Restart the platform — maintenance state is in-memory and resets on restart.
+
+### Profile Not Found
+
+**Symptom:** `Error: unknown profile "my-profile"`
+
+**Solutions:**
+
+1. List available profiles:
+   ```bash
+   ./aegisgate-platform --profile list
+   ```
+
+2. Use one of: `quickstart`, `small-team`, `production`, `high-security`, `air-gapped`.
+
+3. If you need a custom config, generate one from a profile and edit it:
+   ```bash
+   ./aegisgate-platform setup --profile production --output my-config.yaml
+   # Edit my-config.yaml, then:
+   ./aegisgate-platform --config my-config.yaml --embedded-mcp
+   ```
+
+---
 
 ### Getting More Help
 
