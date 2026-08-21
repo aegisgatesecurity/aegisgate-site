@@ -12,7 +12,7 @@ AegisGate is a six-pillar AI security gateway built in Go with zero external run
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                   AegisGate v4.2.0                   │
+│                   AegisGate v4.3.0                   │
 ├─────────┬─────────┬─────────┬──────────┬──────────┤
 │  HTTP   │   MCP   │   A2A   │   ACP    │   ANP    │
 │  API    │Protocol │ Protocol│Protocol  │Protocol  │

@@ -8,6 +8,34 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.3.0 - 2026-08-21 - Security Hardening, Observability, Multi-Tenant Foundation
+
+> **v4.3.0** delivers a comprehensive security and observability upgrade based on a deep-dive audit of the existing codebase. 11 genuinely missing items were identified and implemented across auth hardening, distributed tracing, multi-tenant infrastructure, and compliance tooling.
+
+**Security Hardening:**
+
+- Auth enforced on all `/api/v1/` routes (6 previously unauthenticated endpoints now require `RequireAuth`)
+- RBAC permissions (`RequirePermission`) replace tier-based `AdminOnly` on config, profiles, and compliance endpoints
+- SAML audience restriction and destination validation enforced when `StrictAudience=true`
+- OIDC access token introspection (RFC 7662) with auto-discovery and fail-open on network errors
+- Scoped API tokens with per-token role, tier, and tenant isolation (`AEGISGATE_SCOPED_TOKENS` env var)
+
+**Observability:**
+
+- OpenTelemetry distributed tracing (`pkg/tracing/`) — OTLP gRPC + stdout exporters, W3C Trace Context, opt-in via `AEGISGATE_TRACING_ENABLED`
+- 2 new Grafana dashboards: Security (12 panels: MTTD/MTTR, incidents, detection latency) and MCP/Agents (12 panels: sessions, tool invocations, A2A failures)
+- Total: 3 dashboards, 34 panels
+
+**Multi-Tenant Infrastructure:**
+
+- Tenant management API (`pkg/tenant/`) — CRUD REST API with PostgreSQL backend, `tnt_` prefixed IDs
+- PostgreSQL Row-Level Security (migration 008) — RLS policies on 6 tenant-scoped tables using `app.tenant_id` session variables
+- Tenant context propagated through auth middleware (SSO, JWT, API tokens)
+
+**Compliance Tooling:**
+
+- Live infrastructure compliance scanning (`pkg/compliancelive/`) — 10 real-time config checks mapped to NIST CSF controls, `GET /api/v1/compliance/live`
+
 ### v4.2.0 - 2026-08-20 - Guided Setup: Deploy Profiles, Setup Wizard, Config Validation, Maintenance Windows
 
 > **v4.2.0** introduces the "Guided Setup" initiative — four deployment simplification features that make AegisGate accessible to teams without dedicated DevOps or Kubernetes expertise. Build, configure, and deploy in 30 seconds. No YAML editing required.

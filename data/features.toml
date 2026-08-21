@@ -45,9 +45,11 @@ icon = "🔐"
 description = "Production-grade SSO and access control — SAML 2.0, OIDC, OAuth 2.0 with PKCE"
 items = [
   "OIDC / OAuth 2.0 with PKCE & auto-discovery",
-  "SAML 2.0 SP-initiated login",
+  "SAML 2.0 SP-initiated login with audience restriction enforcement",
   "Pre-configured for Azure AD, Okta, Google Workspace",
-  "Role-based access control (RBAC)",
+  "Role-based access control (RBAC) with 4 user roles × 11 resources",
+  "Scoped API tokens with per-token role, tier, and tenant isolation",
+  "OIDC access token introspection (RFC 7662)",
   "Risk-weighted tool authorization matrix",
   "API key fallback for service accounts & CI/CD"
 ]
@@ -106,12 +108,13 @@ items = [
 [features.observability]
 name = "Full Observability"
 icon = "📊"
-description = "Every AI request, response, tool call, and A2A interaction is logged and measurable"
+description = "Every AI request, response, tool call, and A2A interaction is logged, traced, and measurable"
 items = [
   "RFC 5424-compliant structured audit logging",
   "Prometheus metrics per protocol",
+  "OpenTelemetry distributed tracing (OTLP, W3C Trace Context)",
   "SIEM-ready JSON output",
-  "Grafana dashboard integration",
+  "3 pre-built Grafana dashboards (34 panels)",
   "Compliance reports",
   "Real-time health checks & alerting"
 ]

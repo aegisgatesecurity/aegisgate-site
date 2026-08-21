@@ -42,7 +42,7 @@ AegisGate is engineered for minimal latency impact while providing comprehensive
 The AegisGate container image is **19.1MB** with zero external dependencies — no Python, no Java, no Node.js runtime. Just a single statically-linked Go binary.
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.2.0
+docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.0
 ```
 
 _See also: [Installation](/docs/installation/) and [Configuration](/docs/configuration/)._

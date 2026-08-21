@@ -37,7 +37,7 @@ docker run -d \
   -p 8081:8081 \
   -p 8443:8443 \
   -p 9000:9000 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.2.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.0
 ```
 
 ### Verify Installation
@@ -48,7 +48,7 @@ curl http://localhost:8443/health
 
 Expected response:
 ```json
-{"status":"healthy","version":"4.2.0","services":{"proxy":"up","mcp":"up","scanner":"up","a2a":"up","trust":"up"}}
+{"status":"healthy","version":"4.3.0","services":{"proxy":"up","mcp":"up","scanner":"up","a2a":"up","trust":"up"}}
 ```
 
 ---
@@ -152,5 +152,10 @@ POST /api/v1/maintenance     # Enable/disable/schedule
 - [Tier Comparison](/docs/tiers/) - Community, Developer, Professional, and Enterprise editions
 - [Detection Coverage Matrix](/docs/detection-coverage/) - Per-category detection rates and evasion resistance scores
 - [Graceful Degradation](/docs/graceful-degradation/) - How AegisGate maintains security when ML is unavailable
+- [Distributed Tracing](/docs/distributed-tracing/) - OpenTelemetry integration with Jaeger, Tempo, and OTLP collectors
+- [Tenant Management](/docs/tenant-management/) - Multi-tenant CRUD API with PostgreSQL persistence and RLS
+- [Scoped API Tokens](/docs/scoped-tokens/) - Least-privilege tokens with per-token role, tier, and tenant isolation
+- [Live Compliance Scanning](/docs/live-compliance-scan/) - Real-time infrastructure config checks mapped to NIST CSF controls
+- [Grafana Dashboards](/docs/grafana-dashboards/) - 3 pre-built dashboards (34 panels) for security, MCP/agents, and system overview
 - [Technical Details](/tech/) - Deep dive into architecture
 - [Blog](/blog/) - Security research and updates

@@ -48,7 +48,7 @@ AegisGate is the only full-suite, open-core AI security platform that protects e
 ```bash
 # Download and run
 docker run -d -p 8080:8080 -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.2.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.0
 
 # Verify
 curl http://localhost:8443/health
