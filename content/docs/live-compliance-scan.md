@@ -6,7 +6,7 @@ weight: 370
 
 ## Live Infrastructure Compliance Scanning
 
-AegisGate Platform v4.3.0+ includes a live infrastructure compliance scanner that checks your platform's runtime configuration against security best practices and maps results to NIST CSF controls.
+AegisGate Platform v4.3.1+ includes a live infrastructure compliance scanner that checks your platform's runtime configuration against security best practices and maps results to NIST CSF controls.
 
 ### Overview
 

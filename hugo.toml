@@ -6,7 +6,7 @@ title = "AegisGate — Secure Every AI Interaction"
 # Site params
 [params]
   description = "Free browser protection (Lens), developer-grade local proxy (Rampart), and enterprise AI security gateway (Platform). Three products that secure every AI interaction — from ChatGPT to Copilot to custom LLMs. 100% open source."
-  version = "v4.2.0"
+  version = "v4.3.1"
   goVersion = "1.26.6"
   dockerSize = "19.1MB"
   coverage = "83.1%"
