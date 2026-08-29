@@ -46,7 +46,7 @@ Configuration is resolved in the following order (highest priority first):
 
 ## Deploy Profiles
 
-Deploy profiles (v4.3.2+) are predefined configuration presets that populate all config fields with sensible defaults for common deployment scenarios.
+Deploy profiles (v4.3.3+) are predefined configuration presets that populate all config fields with sensible defaults for common deployment scenarios.
 
 ### Listing Profiles
 
@@ -80,7 +80,7 @@ See [Deploy Profiles](/docs/deploy-profiles/) for detailed per-profile configura
 
 Subcommands use a hook pattern: the binary checks `os.Args[1]` before `flag.Parse()` and dispatches to the appropriate handler. All subcommands return an exit code (0 = success, 1 = error).
 
-### `setup` — Setup Wizard (v4.3.2+)
+### `setup` — Setup Wizard (v4.3.3+)
 
 Interactive or non-interactive environment detection and config generation.
 
@@ -110,7 +110,7 @@ Interactive or non-interactive environment detection and config generation.
 
 The wizard detects: Docker, Kubernetes, systemd, bare metal; available ports; existing TLS certificates; and recommends the most appropriate deploy profile.
 
-### `config` — Config Validation (v4.3.2+)
+### `config` — Config Validation (v4.3.3+)
 
 Validate and inspect configuration files.
 
@@ -143,7 +143,7 @@ Validation checks include:
 - Persistence backend validation
 - A2A configuration consistency
 
-### `maintenance` — Maintenance Windows (v4.3.2+)
+### `maintenance` — Maintenance Windows (v4.3.3+)
 
 Manage maintenance windows for planned downtime.
 

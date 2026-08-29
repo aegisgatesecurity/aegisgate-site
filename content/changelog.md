@@ -7,6 +7,10 @@ type: "changelog"
 ## Changelog
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
+### v4.3.3 - 2026-08-29 - SSRF Remediation (HIGH-2)
+
+> **v4.3.3** remediates the final HIGH finding from the adversarial security audit: SSRF via MCP `http_request` tool. The `validateURL` function now blocks private IPs, loopback, link-local addresses, cloud metadata endpoints, and non-http(s) schemes. A custom HTTP transport dialer provides SSRF-safe DNS resolution to prevent DNS rebinding attacks. 60+ comprehensive test cases cover all attack vectors. All 13 adversarial audit findings (1 CRITICAL, 3 HIGH, 5 MEDIUM, 4 LOW) are now fully resolved.
+
 ### v4.3.2 - 2026-08-29 - Security Audit Remediation
 
 > **v4.3.2** resolves all 28 findings from the comprehensive 5-phase security audit of AegisGate Platform. Includes SAML signature validation enforcement, SSRF mitigation, RLS enforcement for 7 stores, A2A replay protection, and hardening across auth, RBAC, and infrastructure. 0 regressions, all scanners clean.

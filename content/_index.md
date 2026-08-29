@@ -11,7 +11,7 @@ type: "landing"
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.3.2" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Platform-v4.3.2-blue?logo=semver" alt="Platform Version"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.3.3" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Platform-v4.3.3-blue?logo=semver" alt="Platform Version"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.3.2" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Lens-v0.3.2-blue?logo=semver" alt="Lens Version"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.2" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Rampart-v0.6.2-blue?logo=semver" alt="Rampart Version"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
@@ -420,7 +420,7 @@ type: "landing"
 <div class="command-box">
 <button class="copy-btn">Copy</button>
 <pre>docker run -d -p 8080:8080 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.2</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.3</pre>
 </div>
 <p><a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try Live Demo →</a></p>
 </div>

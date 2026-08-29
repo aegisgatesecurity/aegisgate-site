@@ -1,12 +1,12 @@
 ---
-title: "Compliance Pipelines (v4.3.2)"
+title: "Compliance Pipelines (v4.3.3)"
 description: "DSAR, Legal Hold, and A/B Testing — GDPR Articles 15-20, e-discovery, and ML model evaluation"
 weight: 25
 ---
 
-# Compliance Pipelines (v4.3.2)
+# Compliance Pipelines (v4.3.3)
 
-AegisGate v4.3.2 introduces three new compliance and testing pipelines:
+AegisGate v4.3.3 introduces three new compliance and testing pipelines:
 
 ## DSAR — GDPR Data Subject Access Requests
 
