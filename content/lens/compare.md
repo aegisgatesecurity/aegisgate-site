@@ -9,7 +9,7 @@ weight: 10
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.3.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.3.2</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -44,7 +44,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Price** | Free, forever | Free (Community) / $79/mo (Developer) / custom (Enterprise) |
 | **Account required** | ❌ No | ✅ Yes |
 | **Browser-side AI provider protection** (PII, secrets, XSS, compliance, adversarial ML in ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI) | ✅ All 5 facets | ✅ All 5 facets (same corpus) |
-| **5-facet detection** (PII / Secrets / XSS / Compliance / ML Adversarial). v0.3.1 adds on-device ML. | ✅ | ✅ |
+| **5-facet detection** (PII / Secrets / XSS / Compliance / ML Adversarial). v0.3.2 adds on-device ML. | ✅ | ✅ |
 | **Privacy: no prompt text, no URLs, no page content sent** | ✅ | ✅ |
 | **Local processing** (no server round-trip for default detection) | ✅ | ✅ |
 | **Ed25519-signed extension bundle + GitHub Actions provenance** | ✅ | ✅ |

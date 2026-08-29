@@ -9,7 +9,7 @@ weight: 4
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.3.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.3.2</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -25,11 +25,11 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.2/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.2/CHANGELOG.md). This page mirrors the recent versions.
 
 ---
 
-## [v0.3.1] - 2026-08-16
+## [v0.3.2] - 2026-08-16
 
 ### Added
 - 18 SOC detection patterns (SWIFT/BIC banking, CPT/HCPCS medical billing, OT/ICS protocols)
@@ -37,7 +37,7 @@ The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate
 - AMO data_collection_permissions attestation
 
 ### Changed
-- Manifest version 0.3.1
+- Manifest version 0.3.2
 
 ## [v0.3.0] - 2026-08-05
 
@@ -111,8 +111,8 @@ Pre-1.0 versions (0.x.y) may include breaking changes in MINOR versions (per the
 ## See Also
 
 - [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-lens/releases) — full version history with signed artifacts
-- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/docs/SECURITY.md) — vulnerability disclosure policy
+- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.2/docs/SECURITY.md) — vulnerability disclosure policy
 - [Architecture](/lens/architecture/) — how the 5-facet detection system works
-- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
+- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.2/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
 
 Report issues at the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues).

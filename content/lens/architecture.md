@@ -1,9 +1,9 @@
-> **🆕 AegisGate Lens v0.3.1 is LIVE** — CWS approved, AMO approved.
-> This page documents the **v0.3.1** architecture.
+> **🆕 AegisGate Lens v0.3.2 is LIVE** — CWS approved, AMO approved.
+> This page documents the **v0.3.2** architecture.
 
 ---
 title: "AegisGate Lens — Architecture"
-description: "How AegisGate Lens works: 5-facet detection (4 regex + ML), Ed25519-signed bundle, Apache 2.0. The full technical architecture of v0.3.1."
+description: "How AegisGate Lens works: 5-facet detection (4 regex + ML), Ed25519-signed bundle, Apache 2.0. The full technical architecture of v0.3.2."
 type: "docs"
 weight: 2
 ---
@@ -12,7 +12,7 @@ weight: 2
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.3.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.3.2</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -29,11 +29,11 @@ weight: 2
 
 # AegisGate Lens — Architecture
 
-The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the architecture of v0.3.1.
+The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the architecture of v0.3.2.
 
 ## 5-Facet Detection System
 
-Lens runs **5 detection facets** — 4 synchronous regex facets and 1 async ML facet — on every prompt you type. v0.3.0 added the **ML adversarial** facet (Char CNN-BiLSTM model, 3.7MB float16 JSON weights, pure JS inference). v0.3.1 added 18 SOC detection patterns (SWIFT/BIC banking codes, CPT/HCPCS medical billing codes, OT/ICS protocols).
+Lens runs **5 detection facets** — 4 synchronous regex facets and 1 async ML facet — on every prompt you type. v0.3.0 added the **ML adversarial** facet (Char CNN-BiLSTM model, 3.7MB float16 JSON weights, pure JS inference). v0.3.2 added 18 SOC detection patterns (SWIFT/BIC banking codes, CPT/HCPCS medical billing codes, OT/ICS protocols).
 
 | Facet | What it catches | Example |
 |-------|----------------|---------|
@@ -47,7 +47,7 @@ The 4 regex facets run **synchronously** (fast, deterministic, on-device). The M
 
 ## Regex + ML Approach
 
-v0.3.1 combines regex and ML for complementary coverage:
+v0.3.2 combines regex and ML for complementary coverage:
 
 - **Regex (4 facets)**: Fast (<1ms), deterministic, auditable, zero false negatives for known patterns. 169 patterns = ~60KB.
 - **ML (1 facet)**: Char CNN-BiLSTM catches novel/zero-day adversarial prompts that regex misses. 3.7MB float16 JSON weights, pure JS inference (no WASM, no onnxruntime). ~5ms async inference.

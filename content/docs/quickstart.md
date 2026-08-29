@@ -26,7 +26,7 @@ That's it. The setup wizard auto-detects whether you're on Docker, Kubernetes, o
 docker run -d --name aegisgate \
   -p 8080:8080 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.1 \
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.2 \
   --profile quickstart --embedded-mcp
 ```
 
@@ -38,7 +38,7 @@ The `--profile quickstart` flag loads zero-config defaults: no TLS, low rate lim
 # Small team (5-50 users, TLS auto-generated)
 docker run -d --name aegisgate \
   -p 8080:8080 -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.1 \
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.2 \
   --profile small-team --embedded-mcp
 
 # Production (TLS 1.3, CSRF, detailed audit)
@@ -46,14 +46,14 @@ docker run -d --name aegisgate \
   -p 8080:8080 -p 8443:8443 \
   -v /path/to/cert.pem:/data/certs/cert.pem \
   -v /path/to/key.pem:/data/certs/key.pem \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.1 \
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.2 \
   --profile production --embedded-mcp
 
 # Air-gapped (no external connections)
 docker run -d --name aegisgate \
   -p 8080:8080 -p 8443:8443 \
   -v /path/to/local-llm:/upstream \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.1 \
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.2 \
   --profile air-gapped --embedded-mcp
 ```
 

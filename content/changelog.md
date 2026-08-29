@@ -7,6 +7,38 @@ type: "changelog"
 ## Changelog
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
+### v4.3.2 - 2026-08-29 - Security Audit Remediation
+
+> **v4.3.2** resolves all 28 findings from the comprehensive 5-phase security audit of AegisGate Platform. Includes SAML signature validation enforcement, SSRF mitigation, RLS enforcement for 7 stores, A2A replay protection, and hardening across auth, RBAC, and infrastructure. 0 regressions, all scanners clean.
+
+**Critical:** SAML signature validation now defaults to `true` (was `false`).
+
+**High:** A2A replay protection (nonce + timestamp), MCP `http_request` SSRF mitigation (URL allowlist + blocklist), RLS enforcement for 7 stores that bypassed tenant scoping.
+
+**Medium:** Dashboard path traversal fix, health endpoint info disclosure, IOC sync rate limiting, Lens webhook auth, default JWT key replaced.
+
+**Low:** Version leak, testdb password, A2A TLS requirement, RLS nil panic.
+
+---
+
+### v0.6.2 (Rampart) - 2026-08-29 - Security Audit Remediation
+
+> **v0.6.2** resolves all 56 findings from the comprehensive 5-phase security audit of AegisGate Rampart (4 CRITICAL, 13 HIGH, 22 MEDIUM, 17 LOW). 39 fixes applied, 17 accepted with documented justifications. Supply chain hardened.
+
+**Critical:** AppleScript injection fix, dual CA certificate vulnerability, open proxy/SSRF (bind to 127.0.0.1), pprof token auth.
+
+**High:** Race condition fix, detection bypass fix, cert cache limit, AEAD-only TLS ciphers, CA path length, shared transport, webhook SSRF, enterprise gate hardening, PBKDF2 600K iterations, key zeroing.
+
+### v0.3.2 (Lens) - 2026-08-29 - Security Audit Remediation
+
+> **v0.3.2** resolves all 27 findings from the comprehensive security audit of AegisGate Lens (1 CRITICAL, 5 HIGH, 10 MEDIUM, 11 LOW). 25 fixes applied, 2 accepted.
+
+**Critical:** SHA-256 model weight integrity verification (supply chain protection).
+
+**High:** ReDoS fixes (2 patterns), path traversal in build tool, double-close panic fix, SSRF via backend URL.
+
+**Medium:** XSS in banner, kill switch fix, event listener cleanup, input length cap, BIP39 cache optimization, bundle checksum, PII masking, CI action pinning, shell injection fix.
+
 
 ### v4.3.0 - 2026-08-21 - Security Hardening, Observability, Multi-Tenant Foundation
 

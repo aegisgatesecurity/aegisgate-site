@@ -40,7 +40,7 @@ The setup wizard detects Docker, Kubernetes, systemd, or bare metal; recommends 
 ```bash
 docker run -d --name aegisgate \
   -p 8080:8080 -p 8081:8081 -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.1
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.2
 ```
 
 ### Step 2: Verify Installation

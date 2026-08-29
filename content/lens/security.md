@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Lens — Security Model"
-description: "Content Security Policy, on-device ML inference, Ed25519-signed commits, Apache 2.0, vulnerability disclosure policy per RFC 9116. The v0.3.1 security model."
+description: "Content Security Policy, on-device ML inference, Ed25519-signed commits, Apache 2.0, vulnerability disclosure policy per RFC 9116. The v0.3.2 security model."
 type: "docs"
 weight: 3
 ---
@@ -9,7 +9,7 @@ weight: 3
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.3.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.3.2</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -25,7 +25,7 @@ weight: 3
 
 # AegisGate Lens — Security Model
 
-The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the security model of v0.3.1.
+The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the security model of v0.3.2.
 
 ## Threat Model
 
@@ -169,7 +169,7 @@ We will coordinate disclosure with the reporter. We do not pursue legal action a
 
 - [Privacy Policy](/lens/privacy/) — what we collect, what we don't (including ML disclosure)
 - [Architecture](/lens/architecture/) — how the 5-facet detection system works
-- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/docs/MODEL-CARD.md) — architecture, evaluation, limitations, ethical considerations
-- [Lens SECURITY.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.1/docs/SECURITY.md)
+- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.2/docs/MODEL-CARD.md) — architecture, evaluation, limitations, ethical considerations
+- [Lens SECURITY.md on GitHub](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.3.2/docs/SECURITY.md)
 
 Report vulnerabilities to `security@aegisgatesecurity.io` (see [`SECURITY.md`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md)).

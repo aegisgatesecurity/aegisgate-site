@@ -25,7 +25,7 @@ Today we're announcing three products — all open source, all Apache 2.0, all b
 
 ---
 
-## 🛡️ AegisGate Lens v0.3.1 — Free Browser Protection for Everyone
+## 🛡️ AegisGate Lens v0.3.2 — Free Browser Protection for Everyone
 
 Lens is a free browser extension for Chrome and Firefox that detects PII, secrets, XSS, compliance risks, and adversarial prompt injections **before you click send** on 10 AI chat tools:
 
@@ -46,7 +46,7 @@ It runs 100% on-device. No account. No telemetry. No data collection. Nothing ev
 
 ---
 
-## ⚡ AegisGate Rampart v0.6.1 — Local Proxy + IDE Plugin for Developers
+## ⚡ AegisGate Rampart v0.6.2 — Local Proxy + IDE Plugin for Developers
 
 Rampart protects the AI tools that Lens can't reach — your IDE, your terminal, your API calls. It runs as a local proxy or as an IDE plugin, intercepting AI traffic from Copilot, Cursor, local LLMs (Ollama, LM Studio), and direct API calls to OpenAI/Anthropic.
 
@@ -60,7 +60,7 @@ Rampart protects the AI tools that Lens can't reach — your IDE, your terminal,
 - Same detection engine as Lens: PII, secrets, XSS, compliance, adversarial ML
 - Apache 2.0, zero external dependencies for core functionality
 
-**Download:** [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1) · [Source code](https://github.com/aegisgatesecurity/aegisgate-rampart)
+**Download:** [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.2) · [Source code](https://github.com/aegisgatesecurity/aegisgate-rampart)
 
 ---
 
@@ -124,7 +124,7 @@ We believe security tools should not require trust. Our code is open. Our detect
 | You are... | What to install | Time | Cost |
 |------------|-----------------|------|------|
 | Anyone who uses ChatGPT/Claude/etc. | [Lens](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) | 10 seconds | Free |
-| Developer using Copilot/Cursor | [Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.1) | 2 minutes | Free |
+| Developer using Copilot/Cursor | [Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.2) | 2 minutes | Free |
 | Team or enterprise running AI infrastructure | [Platform](https://github.com/aegisgatesecurity/aegisgate-platform) | 5 minutes | Free tier + paid |
 
 **All three products are Apache 2.0. No vendor lock-in. No proprietary formats. No hidden behavior.**
