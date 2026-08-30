@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /legal/cookies/
+Disallow: /legal/privacy-policy/
+
+Sitemap: https://aegisgatesecurity.io/sitemap.xml
