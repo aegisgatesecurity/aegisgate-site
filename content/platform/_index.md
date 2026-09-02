@@ -118,6 +118,128 @@ Platform v4.3.3 protects every AI interaction across six attack surfaces:
 </div>
 </div>
 
+### Architecture Diagram
+
+{{< mermaid >}}
+flowchart TD
+    subgraph UserLayer["User Layer"]
+        A[Developers]
+        B[AI Agents]
+        C[Applications]
+    end
+
+    subgraph Platform["AegisGate Platform v4.3.3"]
+        direction TB
+        
+        subgraph Pillar1["🌐 HTTP API Security"]
+            P1[176+ Detection Patterns]
+            P1a[PII & Secrets Detection]
+            P1b[Bidirectional Scanning]
+        end
+        
+        subgraph Pillar2["🔗 MCP Protocol"]
+            P2[Session Auth + Isolation]
+            P2a[8 Guardrails Active]
+            P2b[Tool Authorization]
+        end
+        
+        subgraph Pillar3["🤝 A2A Security"]
+            P3[mTLS + HMAC-SHA256]
+            P3a[Capability Enforcement]
+            P3b[Rate Limiting]
+        end
+        
+        subgraph Pillar4["🛡️ Response Security"]
+            P4[PII Scanner]
+            P4a[Secret Detector]
+            P4b[Response Redaction]
+        end
+        
+        subgraph Pillar5["🔐 Trust Framework"]
+            P5[Trust Scoring 0-100]
+            P5a[Ed25519 Attestations]
+            P5b[Offline Verification]
+        end
+        
+        subgraph Pillar6["🧠 ML Detection"]
+            P6[CharCNN-BiLSTM 1.58M]
+            P6a[100/100 Evasion Resistance]
+            P6b[~5ms Inference]
+        end
+    end
+
+    subgraph Output["AI Services"]
+        D[OpenAI]
+        E[Anthropic]
+        F[Local LLMs]
+        G[MCP Servers]
+    end
+
+    A --> Platform
+    B --> Platform
+    C --> Platform
+    
+    Pillar1 --> Output
+    Pillar2 --> Output
+    Pillar3 --> Output
+    Pillar4 --> Output
+    
+    Pillar5 -.->|Attestations| Pillar1
+    Pillar5 -.->|Attestations| Pillar2
+    Pillar5 -.->|Attestations| Pillar3
+    Pillar6 -.->|Threat Scores| Pillar1
+    Pillar6 -.->|Threat Scores| Pillar4
+
+    style Pillar1 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Pillar2 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Pillar3 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Pillar4 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Pillar5 fill:#1a1f2e,stroke:#00ADD8,stroke-width:2px
+    style Pillar6 fill:#1a1f2e,stroke:#22c55e,stroke-width:2px
+{{< /mermaid >}}
+
+### Detection Flow
+
+{{< mermaid >}}
+sequenceDiagram
+    participant Client as Client App
+    participant Proxy as Platform Proxy
+    participant Scanner as Detection Engine
+    participant Trust as Trust Framework
+    participant SIEM as SIEM/SOAR
+    participant AI as AI Service
+
+    Client->>Proxy: POST /proxy/ai-request
+    Proxy->>Scanner: Scan Request (PII, Secrets, XSS)
+    
+    alt Threat Detected
+        Scanner-->>Proxy: Block (403 Forbidden)
+        Proxy->>Trust: Generate Attestation
+        Trust-->>Proxy: Signed Attestation
+        Proxy->>SIEM: Log Security Event
+        Proxy-->>Client: 403 Forbidden + Attestation ID
+    else Clean Request
+        Scanner-->>Proxy: Allow
+        Proxy->>AI: Forward Request
+        AI-->>Proxy: AI Response
+        Proxy->>Scanner: Scan Response (PII, Hallucination)
+        
+        alt Response Threat
+            Scanner-->>Proxy: Redact/Block
+            Proxy->>Trust: Generate Attestation
+            Proxy-->>Client: Redacted Response
+        else Clean Response
+            Scanner-->>Proxy: Allow
+            Proxy->>Trust: Generate Attestation
+            Proxy->>SIEM: Log Transaction
+            Proxy-->>Client: AI Response + Attestation
+        end
+    end
+
+    Note over Proxy,Trust: Every action cryptographically signed
+    Note over Scanner: 176+ patterns + ML model (~5ms)
+{{< /mermaid >}}
+
 ---
 
 ## Compliance Frameworks

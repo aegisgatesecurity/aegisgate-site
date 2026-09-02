@@ -56,6 +56,97 @@ Think of it as a firewall for AI coding tools. It catches the moment you're abou
 | **Malicious code (XSS)** | Script injection, event handlers, encoded payloads, SVG vectors |
 | **Response risks** | PII leaked in AI responses, hallucinated secrets, injected content in model output |
 
+### Architecture Overview
+
+{{< mermaid >}}
+flowchart TD
+    subgraph IDE["IDE Integration"]
+        VS[VS Code / Cursor]
+        JB[JetBrains]
+        NV[Neovim / LSP]
+    end
+
+    subgraph Rampart["AegisGate Rampart v0.6.2"]
+        direction TB
+        
+        subgraph PluginMode["IDE Plugin Mode"]
+            PM1[LSP Server]
+            PM2[Real-time Detection]
+            PM3[Inline Warnings]
+        end
+        
+        subgraph ProxyMode["Local Proxy Mode"]
+            PX1[MITM Proxy :8443]
+            PX2[Traffic Interception]
+            PX3[API Redirection]
+        end
+        
+        subgraph Engine["Detection Engine"]
+            E1[176+ Patterns]
+            E2[PII + Secrets]
+            E3[XSS + Compliance]
+            E4[ML Adversarial]
+        end
+    end
+
+    subgraph AI["AI Services"]
+        A[Copilot]
+        B[Cursor]
+        C[Ollama]
+        D[OpenAI API]
+        E[Local LLMs]
+    end
+
+    VS --> PluginMode
+    JB --> PluginMode
+    NV --> PluginMode
+    
+    PluginMode --> Engine
+    ProxyMode --> Engine
+    
+    PluginMode --> AI
+    ProxyMode --> A
+    ProxyMode --> B
+    ProxyMode --> C
+    ProxyMode --> D
+    ProxyMode --> E
+
+    style PluginMode fill:#1a1f2e,stroke:#f59e0b,stroke-width:2px
+    style ProxyMode fill:#1a1f2e,stroke:#f59e0b,stroke-width:2px
+    style Engine fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+{{< /mermaid >}}
+
+### Detection Flow
+
+{{< mermaid >}}
+sequenceDiagram
+    participant Dev as Developer
+    participant IDE as IDE / Editor
+    participant Rampart as Rampart
+    participant Proxy as Local Proxy
+    participant AI as AI Service
+
+    Dev->>IDE: Write Code / Prompt
+    IDE->>Rampart: Send for Analysis (LSP)
+    Rampart->>Rampart: Scan (PII, Secrets, XSS)
+    
+    alt Threat Detected
+        Rampart-->>IDE: Show Warning (Inline)
+        Dev->>IDE: Edit & Remove Risk
+        IDE->>Rampart: Re-scan
+    else Clean
+        Rampart-->>IDE: Allow Send
+        IDE->>Proxy: Forward to AI
+        Proxy->>AI: POST Request
+        AI-->>Proxy: AI Response
+        Proxy->>Proxy: Scan Response
+        Proxy-->>IDE: Return Response
+    end
+
+    Note over Rampart: All detection local (~5ms)
+    Note over Proxy: Zero data leaves machine
+{{< /mermaid >}}
+
 ---
 
 ## Is it private?

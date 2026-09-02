@@ -25,6 +25,55 @@ type: "landing"
 </div>
 
 <!-- ============================================================
+     AEGISGATE SUITE ARCHITECTURE
+     Visual overview of how all three products work together
+     ============================================================ -->
+
+<h2 style="text-align:center; margin-top:60px;">Complete AI Security Suite</h2>
+
+<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">From individual users to enterprise teams — comprehensive protection at every layer.</p>
+
+{{< mermaid >}}
+flowchart LR
+    subgraph Individual["🛡️ Individual Users"]
+        A[Browser Extension]
+        A1[Lens]
+        A2[10 AI Chat Tools]
+        A3[Zero Data Collection]
+    end
+
+    subgraph Developer["⚡ Developers"]
+        B[Local Proxy + IDE]
+        B1[Rampart]
+        B2[Copilot/Cursor/LLMs]
+        B3[Real-time Detection]
+    end
+
+    subgraph Enterprise["🏢 Enterprise"]
+        C[Security Gateway]
+        C1[Platform]
+        C2[6 Attack Surfaces]
+        C3[31 Frameworks]
+    end
+
+    subgraph Core["🔐 Core Detection Engine"]
+        D[176+ Patterns]
+        D1[PII + Secrets]
+        D2[XSS + Compliance]
+        D3[ML Adversarial]
+    end
+
+    Individual --> Core
+    Developer --> Core
+    Enterprise --> Core
+
+    style Individual fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Developer fill:#1a1f2e,stroke:#f59e0b,stroke-width:2px
+    style Enterprise fill:#1a1f2e,stroke:#10b981,stroke-width:2px
+    style Core fill:#1a1f2e,stroke:#8b5cf6,stroke-width:2px
+{{< /mermaid >}}
+
+<!-- ============================================================
      THREE PRODUCTS — Audience Paths (MOVED TO TOP)
      ============================================================ -->
 

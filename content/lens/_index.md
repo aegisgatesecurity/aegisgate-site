@@ -52,6 +52,117 @@ Lens catches these **before they leave your browser** and gives you a chance to 
 | **Compliance violations** | Text that violates HIPAA, GDPR, PCI-DSS, EU AI Act, or other regulatory frameworks |
 | **Malicious code** | XSS payloads — hidden `<script>` tags, event handlers, encoded attack vectors |
 
+### Detection Architecture
+
+{{< mermaid >}}
+flowchart LR
+    subgraph User["User Types Prompt"]
+        A[AI Chat Input]
+    end
+
+    subgraph Lens["AegisGate Lens v0.3.2"]
+        direction TB
+        
+        subgraph Facet1["PII Detection (55 patterns)"]
+            F1[SSN, Email, Phone]
+            F1a[Credit Card + Luhn]
+            F1b[Passport, Tax ID]
+        end
+        
+        subgraph Facet2["Secrets Detection (41 patterns)"]
+            F2[AWS, GitHub, OpenAI]
+            F2a[Stripe, Slack Tokens]
+            F2b[RSA Keys, OAuth]
+        end
+        
+        subgraph Facet3["XSS Detection (12 patterns)"]
+            F3[Script Tags]
+            F3a[Event Handlers]
+            F3b[Polyglot Payloads]
+        end
+        
+        subgraph Facet4["Compliance (43 patterns)"]
+            F4[HIPAA, GDPR]
+            F4a[PCI-DSS, EU AI Act]
+            F4b[OWASP LLM Top 10]
+        end
+        
+        subgraph Facet5["ML Adversarial"]
+            F5[CharCNN-BiLSTM]
+            F5a[1.58M Parameters]
+            F5b[~5ms Inference]
+        end
+    end
+
+    subgraph Result["Detection Result"]
+        B{Threat Found?}
+        C[Show Warning Banner]
+        D[Allow Send]
+    end
+
+    subgraph Providers["Supported AI Tools"]
+        E[ChatGPT]
+        F[Claude]
+        G[Gemini]
+        H[Copilot]
+        I[6 More...]
+    end
+
+    A --> Lens
+    Facet1 --> B
+    Facet2 --> B
+    Facet3 --> B
+    Facet4 --> B
+    Facet5 --> B
+    
+    B -->|Yes| C
+    B -->|No| D
+    
+    D --> Providers
+
+    style Facet1 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Facet2 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Facet3 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Facet4 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style Facet5 fill:#1a1f2e,stroke:#22c55e,stroke-width:2px
+    style B fill:#1a1f2e,stroke:#f59e0b,stroke-width:2px
+{{< /mermaid >}}
+
+### Privacy Architecture
+
+{{< mermaid >}}
+flowchart TD
+    subgraph Browser["Your Browser"]
+        L[Lens Extension]
+        D[Detection Engine]
+        B[Banner UI]
+    end
+
+    subgraph AIChat["AI Chat Website"]
+        C[ChatGPT/Claude/Gemini]
+    end
+
+    subgraph External["External"]
+        N[NO Network Calls]
+        S[NO Servers]
+        T[NO Telemetry]
+    end
+
+    L --> D
+    D --> B
+    B --> C
+    
+    D -.->|100% On-Device| N
+    D -.->|Zero Data Collection| S
+    D -.->|No Phone Home| T
+
+    style L fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style D fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style N fill:#1a1f2e,stroke:#10b981,stroke-width:2px
+    style S fill:#1a1f2e,stroke:#10b981,stroke-width:2px
+    style T fill:#1a1f2e,stroke:#10b981,stroke-width:2px
+{{< /mermaid >}}
+
 ---
 
 ## How does it work?
