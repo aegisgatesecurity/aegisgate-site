@@ -42,6 +42,21 @@ Lens catches these **before they leave your browser** and gives you a chance to 
 
 ---
 
+## See Lens in Action
+
+<div class="video-container" style="max-width: 960px; margin: 2rem auto; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);">
+<video controls preload="metadata" poster="/videos/lens/poster.jpg" style="width: 100%; display: block;">
+<source src="/videos/lens/demo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div style="text-align: center; margin: 1.5rem 0;">
+<p style="color: var(--text-secondary); font-size: 1rem;">Watch how Lens detects PII, secrets, and prompt injection in real-time — all on-device.</p>
+</div>
+
+---
+
 ## What does it catch?
 
 | Risk | Examples |

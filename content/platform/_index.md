@@ -57,6 +57,21 @@ Platform solves all four with a single self-hosted binary.
 
 ---
 
+## See Platform in Action
+
+<div class="video-container" style="max-width: 960px; margin: 2rem auto; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);">
+<video controls preload="metadata" poster="/videos/platform/poster.jpg" style="width: 100%; display: block;">
+<source src="/videos/platform/demo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div style="text-align: center; margin: 1.5rem 0;">
+<p style="color: var(--text-secondary); font-size: 1rem;">Explore the enterprise dashboard — real-time threat detection, compliance coverage, and SIEM integrations.</p>
+</div>
+
+---
+
 ## Six Pillars of AI Security
 
 Platform v4.3.3 protects every AI interaction across six attack surfaces:

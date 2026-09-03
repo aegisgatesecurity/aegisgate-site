@@ -2843,3 +2843,36 @@ html {
         height: auto;
     }
 }
+
+/* ============================================================
+   Video Embeds
+   ============================================================ */
+.video-container {
+    position: relative;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+}
+
+.video-container video::-webkit-media-controls-panel {
+    background: rgba(17, 20, 29, 0.9);
+}
+
+.video-container video::-webkit-media-controls-current-time-display,
+.video-container video::-webkit-media-controls-time-remaining-display {
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Responsive video */
+@media (max-width: 768px) {
+    .video-container {
+        border-radius: 12px;
+    }
+}
