@@ -87,6 +87,7 @@ jobs:
             --base-url https://aegisgatesecurity.io
             --remap 'https://aegisgatesecurity.io http://localhost:1313'
             --exclude 'github.com/aegisgatesecurity/'
+            --exclude 'x.com/aegisgate'
             --include-fragments
             --no-progress
             public/**/*.html

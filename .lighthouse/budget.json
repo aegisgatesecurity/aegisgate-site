@@ -17,12 +17,6 @@
     ],
     "resourceCounts": [
       { "resourceType": "total", "budget": 50 }
-    ],
-    "metricScores": {
-      "performance": 0.85,
-      "accessibility": 0.90,
-      "best-practices": 0.90,
-      "seo": 0.90
-    }
+    ]
   }
 ]
