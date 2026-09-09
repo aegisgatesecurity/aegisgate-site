@@ -33,7 +33,7 @@ grafana:
 
 ### Dashboard Details
 
-#### AegisGate Security (v4.3.0+)
+#### AegisGate Security (v4.4.0+)
 
 12 panels for security operations teams:
 
@@ -52,7 +52,7 @@ grafana:
 | Scan Pipeline Duration | `aegisgate_scan_duration_seconds` | End-to-end scan pipeline timing |
 | ML Shadow Predictions | `aegisgate_ml_predictions_total` | ML model predictions in shadow mode |
 
-#### AegisGate MCP/Agents (v4.3.0+)
+#### AegisGate MCP/Agents (v4.4.0+)
 
 12 panels for MCP and agent-to-agent monitoring:
 

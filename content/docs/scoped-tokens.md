@@ -6,7 +6,7 @@ weight: 360
 
 ## Scoped API Tokens
 
-AegisGate Platform v4.3.0+ supports scoped API tokens that restrict access by role, tier, and tenant. This provides least-privilege access for service accounts, CI/CD pipelines, and automated integrations.
+AegisGate Platform v4.4.0+ supports scoped API tokens that restrict access by role, tier, and tenant. This provides least-privilege access for service accounts, CI/CD pipelines, and automated integrations.
 
 ### Configuration
 

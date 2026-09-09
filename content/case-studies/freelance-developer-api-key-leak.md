@@ -109,7 +109,7 @@ Alex chose "Edit & Redact" — Lens automatically redacted the password from the
 
 - 🛡️ [Install Lens for Chrome](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) — free, 10 seconds
 - 🛡️ [Install Lens for Firefox](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/) — free, 10 seconds
-- ⚡ [Download Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.6.0) — free, VS Code/JetBrains/LSP
+- ⚡ [Download Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1) — free, VS Code/JetBrains/LSP
 
 ---
 

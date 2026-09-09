@@ -6,7 +6,7 @@ weight: 350
 
 ## Tenant Management
 
-AegisGate Platform v4.3.0+ includes a tenant management API for MSP/MSSP operators who need to manage multiple isolated tenants on a single AegisGate deployment.
+AegisGate Platform v4.4.0+ includes a tenant management API for MSP/MSSP operators who need to manage multiple isolated tenants on a single AegisGate deployment.
 
 ### Overview
 
@@ -16,7 +16,7 @@ Multi-tenant support operates at three layers:
 |-------|-----------|--------|
 | **Data isolation** | PostgreSQL Row-Level Security (RLS) on 6 tenant-scoped tables | ✅ Migration 008 |
 | **Application filtering** | `tenant_id` columns + application-level query filtering | ✅ Existing |
-| **Management API** | REST CRUD for tenant metadata with PostgreSQL persistence | ✅ v4.3.0 |
+| **Management API** | REST CRUD for tenant metadata with PostgreSQL persistence | ✅ v4.4.0 |
 
 ### API Endpoints
 

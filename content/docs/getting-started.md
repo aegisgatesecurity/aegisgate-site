@@ -49,7 +49,7 @@ The wizard will show you:
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║           AegisGate Setup Wizard — v4.3.0                    ║
+║           AegisGate Setup Wizard — v4.4.0                    ║
 ╚══════════════════════════════════════════════════════════════╝
 
 Environment Detection:
@@ -136,7 +136,7 @@ MCP server embedded
 
 ```bash
 curl http://localhost:8443/health
-# Expected: {"status":"healthy","version":"4.3.0",...}
+# Expected: {"status":"healthy","version":"4.4.0",...}
 ```
 
 ### Open the Dashboard

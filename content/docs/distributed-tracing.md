@@ -6,7 +6,7 @@ weight: 440
 
 ## Distributed Tracing
 
-AegisGate Platform v4.3.0+ includes built-in OpenTelemetry distributed tracing. Tracing is **opt-in** and disabled by default — enabling it adds zero overhead when not configured.
+AegisGate Platform v4.4.0+ includes built-in OpenTelemetry distributed tracing. Tracing is **opt-in** and disabled by default — enabling it adds zero overhead when not configured.
 
 ### Configuration
 
@@ -50,7 +50,7 @@ spec:
     spec:
       containers:
       - name: aegisgate
-        image: ghcr.io/aegisgatesecurity/aegisgate-platform:v4.3.0
+        image: ghcr.io/aegisgatesecurity/aegisgate-platform:v4.4.0
         env:
         - name: AEGISGATE_TRACING_ENABLED
           value: "true"
