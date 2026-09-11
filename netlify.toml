@@ -60,6 +60,13 @@
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
 
+# MTA-STS policy file — serve as text/plain with short cache
+[[headers]]
+  for = "/.well-known/mta-sts.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
 # Redirects for clean URLs
 [[redirects]]
   from = "/demo"
