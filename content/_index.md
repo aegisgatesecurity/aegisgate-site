@@ -24,6 +24,10 @@ type: "landing"
 <strong>Open-core.</strong> Apache 2.0 community + commercial enterprise modules. No data collection. No vendor lock-in. Self-hosted only. Deploy in 60 seconds.
 </div>
 
+<div class="alert alert-info alert-center" style="font-size:0.9rem;">
+<strong>Patent Pending.</strong> AegisGate technologies are patent pending — including cryptographic identity, capability contracts, trust scoring, multi-layered detection, compliance mapping, and AI response scanning.
+</div>
+
 <!-- ============================================================
      AEGISGATE SUITE ARCHITECTURE
      Visual overview of how all three products work together

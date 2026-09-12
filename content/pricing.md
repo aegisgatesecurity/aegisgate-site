@@ -6,6 +6,10 @@ type: pricing
 
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
 
+<div class="alert alert-info alert-center" style="margin-bottom:16px;font-size:0.9rem;">
+<strong>Patent Pending</strong> &mdash; AegisGate technologies are patent pending (US Provisional App. Nos. 64/153,573–64/153,577).
+</div>
+
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#38bdf8;color:#fff;margin-bottom:16px;">
 <strong>🛡️ AegisGate Lens — Free, forever.</strong> Privacy-first browser extension that protects users across 10 AI providers with 5-facet detection. <a href="/lens/" style="color:#38bdf8;">Learn more</a> · <a href="/lens/compare/" style="color:#38bdf8;">Lens vs Platform</a> · <a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" style="color:#38bdf8;">Chrome</a> · <a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" style="color:#38bdf8;">Firefox</a>
 </div>

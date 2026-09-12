@@ -11,6 +11,10 @@ type: "landing"
 
 > **🆕 AegisGate Lens v0.4.1 is LIVE** — Now with AI-powered injection detection. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/).
 
+<div class="alert alert-info alert-center" style="font-size:0.9rem;">
+<strong>Patent pending</strong> &mdash; detection pipeline technology (US Provisional App. No. 64/153,576).
+</div>
+
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate Lens</strong> is <strong>free and stays free</strong> for individual use. No account required. No prompt text ever sent to any server.
 <br><br>

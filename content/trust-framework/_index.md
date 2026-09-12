@@ -14,6 +14,10 @@ type: "landing"
 >
 > **AegisGate Trust Framework changes this.** Every agent gets a unique cryptographic identity. Every action is signed. Every attestation is independently verifiable. No server round-trip needed.
 
+<div class="alert alert-info alert-center" style="margin-bottom:24px;">
+<strong>Patent Pending</strong> (US Provisional App. No. 64/153,573) &mdash; Cryptographic identity, capability contracts, and trust scoring technologies.
+</div>
+
 <div class="alert alert-success alert-center">
 <strong>Trust Framework</strong> is available in <strong>Professional tier and above</strong>.
 <br><br>

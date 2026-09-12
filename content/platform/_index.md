@@ -24,6 +24,10 @@ type: "landing"
 <li><strong>Load tested</strong>: 5,000 VUs, 23,578 RPS, 0% errors</li>
 <li><strong>Apache 2.0 community edition</strong>, self-hosted, zero data collection</li>
 </ul>
+
+<p style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(0,173,216,0.2);">
+<strong>Patent Pending</strong> &mdash; Multi-layered detection, compliance mapping, and response scanning technologies. US Provisional App. Nos. 64/153,574; 64/153,575; 64/153,576; 64/153,577.
+</p>
 </div>
 
 <div class="alert alert-success alert-center">
