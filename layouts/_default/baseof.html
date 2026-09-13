@@ -7,7 +7,7 @@
     <meta name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
     
     <!-- Security Headers (also set in netlify.toml for production) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; video-src 'self'; connect-src 'self' https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; video-src 'self'; connect-src 'self' https://api.github.com https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -31,6 +31,15 @@
     {{ if $styles }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{ end }}
+    
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LP7XKYPPBM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LP7XKYPPBM');
+    </script>
     
     <!-- Mermaid for diagrams -->
     <script 
