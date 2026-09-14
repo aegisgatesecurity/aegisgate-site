@@ -315,6 +315,8 @@ section {
     text-align: center;
     position: relative;
     overflow: hidden;
+    min-height: 400px;
+    contain: layout paint;
 }
 
 .hero::before {
@@ -328,6 +330,7 @@ section {
     background: radial-gradient(ellipse, rgba(56, 189, 248, 0.15) 0%, transparent 60%);
     pointer-events: none;
     z-index: -1;
+    will-change: transform;
 }
 
 .hero h1 {

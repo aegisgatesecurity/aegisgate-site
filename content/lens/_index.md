@@ -2,6 +2,7 @@
 title: "AegisGate Lens — Free Privacy-First Browser Protection for AI Tools"
 description: "Free browser extension (Chrome and Firefox) that detects PII, secrets, XSS, compliance risks, and adversarial prompt injections before you send to 10 AI chat tools. 100% on-device, zero data collection."
 type: "landing"
+mermaid: true
 ---
 
 <!-- ============================================================
@@ -22,6 +23,7 @@ type: "landing"
 <a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" class="btn btn-primary">Install for Firefox →</a>
 </div>
 
+mermaid: true
 ---
 
 ## What is Lens?
@@ -30,6 +32,7 @@ AegisGate Lens is a **free browser extension** that watches what you type into A
 
 Think of it like a spellchecker for privacy — but instead of catching typos, it catches your Social Security number, credit card number, passwords, API keys, and other things you really don't want going to an AI company.
 
+mermaid: true
 ---
 
 ## Why do I need it?
@@ -44,6 +47,7 @@ Every time you paste something into ChatGPT or Claude, that text goes to a serve
 
 Lens catches these **before they leave your browser** and gives you a chance to remove the sensitive data.
 
+mermaid: true
 ---
 
 ## See Lens in Action
@@ -59,6 +63,7 @@ Your browser does not support the video tag.
 <p style="color: var(--text-secondary); font-size: 1rem;">Watch how Lens detects PII, secrets, and prompt injection in real-time — all on-device.</p>
 </div>
 
+mermaid: true
 ---
 
 ## What does it catch?
@@ -182,6 +187,7 @@ flowchart TD
     style T fill:#1a1f2e,stroke:#10b981,stroke-width:2px
 {{< /mermaid >}}
 
+mermaid: true
 ---
 
 ## How does it work?
@@ -192,6 +198,7 @@ flowchart TD
 4. **You choose**: Cancel (don't send), Edit & Resend (you remove the sensitive parts yourself), or Send Anyway (it's your data)
 5. **That's it.** No account, no signup, no settings to configure. It just works.
 
+mermaid: true
 ---
 
 ## Is it really private?
@@ -209,6 +216,7 @@ flowchart TD
 
 Lens is 100% open source (Apache 2.0). You can read every line of code at [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens).
 
+mermaid: true
 ---
 
 ## Install Lens
@@ -222,6 +230,7 @@ Lens is 100% open source (Apache 2.0). You can read every line of code at [githu
 
 **Supported AI tools (10):** ChatGPT, Claude, Gemini, Microsoft Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI
 
+mermaid: true
 ---
 
 ## What happens when Lens detects something?
@@ -239,6 +248,7 @@ When you're about to send sensitive data, Lens shows a warning banner at the top
 
 The banner is **non-blocking** — it doesn't prevent you from sending. It just makes sure you know what you're about to share. You're always in control.
 
+mermaid: true
 ---
 
 <!-- ============================================================
@@ -247,6 +257,7 @@ The banner is **non-blocking** — it doesn't prevent you from sending. It just 
      ============================================================
 -->
 
+mermaid: true
 ---
 
 ## For the Curious: Technical Details
@@ -325,6 +336,7 @@ If we ever change any of these, the change will be:
 
 </details>
 
+mermaid: true
 ---
 
 ## Resources
@@ -335,6 +347,7 @@ If we ever change any of these, the change will be:
 - 📋 **[Changelog](/lens/changelog/)** — what changed in each version
 - ⚖️ **[Lens vs Platform](/lens/compare/)** — when to use Lens alone, when to add Platform
 
+mermaid: true
 ---
 
 ## For enterprise teams
@@ -349,6 +362,7 @@ AegisGate Lens is the consumer-facing layer. The same team builds [AegisGate Pla
 
 See [pricing](/pricing/) for details.
 
+mermaid: true
 ---
 
 **Built with privacy by the [AegisGate Security](/) team.** Report vulnerabilities to `security@aegisgatesecurity.io` (see [`SECURITY.md`](https://github.com/aegisgatesecurity/aegisgate-lens/blob/main/SECURITY.md) for the disclosure policy per [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)).

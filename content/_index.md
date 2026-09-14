@@ -2,6 +2,7 @@
 title: "Secure Every AI Interaction"
 description: "Free browser protection, developer-grade local proxy, and enterprise AI security gateway. Three products that protect you before you press send on any AI tool — from ChatGPT to Copilot to custom LLMs."
 type: "landing"
+mermaid: true
 ---
 
 <!-- ============================================================
@@ -11,10 +12,10 @@ type: "landing"
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.1" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Platform-v4.4.1-blue?logo=semver" alt="Platform Version"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Lens-v0.4.1-blue?logo=semver" alt="Lens Version"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Rampart-v0.7.1-blue?logo=semver" alt="Rampart Version"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg" alt="Lens Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
 </div>
 </div>
 

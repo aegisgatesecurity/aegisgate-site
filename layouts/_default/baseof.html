@@ -22,9 +22,8 @@
     <!-- Font Preloading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;600&display=swap">
     
     <!-- CSS -->
     {{ $styles := resources.Get "css/main.css" }}
@@ -36,7 +35,8 @@
     <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af80d47299174d8f85052dcaa950fa18"}'></script>
     <!-- End Cloudflare Web Analytics -->
     
-    <!-- Mermaid for diagrams -->
+    <!-- Mermaid for diagrams (lazy-loaded only on pages with mermaid content) -->
+    {{ if .Params.mermaid }}
     <script 
       src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" 
       crossorigin="anonymous"
@@ -44,6 +44,7 @@
       defer
     ></script>
     <script src="{{ "js/mermaid-init.js" | relURL }}" defer></script>
+    {{ end }}
     
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="{{ if .IsHome }}website{{ else if eq .Type "blog" }}article{{ else }}website{{ end }}">

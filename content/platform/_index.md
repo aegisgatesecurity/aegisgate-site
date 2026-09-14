@@ -2,6 +2,7 @@
 title: "AegisGate Platform — Enterprise AI Security Gateway"
 description: "Self-hosted AI security gateway. Six pillars of protection: HTTP API, MCP, A2A, ACP, Response scanning, and Trust Framework. 31 compliance frameworks, 11 SIEM integrations, 4 SOAR integrations. Single 19.1MB Go binary. Deploy in 60 seconds."
 type: "landing"
+mermaid: true
 ---
 
 > **🏢 AegisGate Platform v4.4.1 is LIVE** — Production hardening, security event categorization, RLS enforcement, gRPC v4 services, 31 compliance frameworks (2,043 total controls, 1,457 automated), 11 SIEM + 4 SOAR integrations, web UI, air-gapped deployment, Guided Setup. [Try the Live Demo](https://demo.aegisgatesecurity.io/) or [Download v4.4.1](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.1).
@@ -35,6 +36,7 @@ type: "landing"
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v4.4.1 →</a>
 </div>
 
+mermaid: true
 ---
 
 ## What is AegisGate Platform?
@@ -59,6 +61,7 @@ When your team uses AI tools — ChatGPT API, Copilot, MCP-based agents, agent-t
 
 Platform solves all four with a single self-hosted binary.
 
+mermaid: true
 ---
 
 ## See Platform in Action
@@ -74,6 +77,7 @@ Your browser does not support the video tag.
 <p style="color: var(--text-secondary); font-size: 1rem;">Explore the enterprise dashboard — real-time threat detection, compliance coverage, and SIEM integrations.</p>
 </div>
 
+mermaid: true
 ---
 
 ## Six Pillars of AI Security
@@ -259,6 +263,7 @@ sequenceDiagram
     Note over Scanner: 176+ patterns + ML model (~5ms)
 {{< /mermaid >}}
 
+mermaid: true
 ---
 
 ## Compliance Frameworks
@@ -285,6 +290,7 @@ Platform includes 31 compliance frameworks (2,043 total controls, 1,457 automate
 
 <p style="font-size:0.9rem; color:#888;">...and 16 more frameworks. <a href="/docs/compliance/">View all compliance documentation →</a></p>
 
+mermaid: true
 ---
 
 ## SIEM & SOAR Integration
@@ -319,6 +325,7 @@ Platform integrates with your existing security operations stack:
 
 For detailed setup, see our [SIEM/SOAR Integration Guide](/docs/siem-soar-integration/).
 
+mermaid: true
 ---
 
 ## Web UI
@@ -335,6 +342,7 @@ Platform includes a built-in web dashboard at `/ui/`:
 | Users | User management and RBAC |
 | Audit | Audit log viewer with export |
 
+mermaid: true
 ---
 
 ## Deployment
@@ -398,6 +406,7 @@ Includes HPA autoscaling (1-10 replicas), NetworkPolicy, ServiceMonitor, and rol
 
 Platform runs fully offline. No external dependencies. No phone-home. No telemetry. The binary, Docker image, and Helm chart can all be transferred to air-gapped environments via offline media.
 
+mermaid: true
 ---
 
 ## Pricing Tiers
@@ -411,6 +420,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 
 <p><a href="/pricing/" class="btn btn-secondary">Full pricing details →</a></p>
 
+mermaid: true
 ---
 
 ## Performance
@@ -429,6 +439,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | Test coverage | 83.1% |
 | Tests passing | 8,000+ |
 
+mermaid: true
 ---
 
 ## Competitive Comparison
@@ -450,12 +461,14 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 
 <p><a href="/docs/comparison/" class="btn btn-secondary">Full competitive analysis →</a></p>
 
+mermaid: true
 ---
 
 ## Deep Dive
 
 For the full technical architecture — six-pillar internals, Trust Framework API, authentication, configuration, and environment variables — see the [Technical Architecture page](/tech/).
 
+mermaid: true
 ---
 
 ## Links

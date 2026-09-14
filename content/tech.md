@@ -2,6 +2,7 @@
 title: "Technical Details"
 description: "Deep dive into AegisGate Security Platform architecture, security mechanisms, and implementation"
 type: "tech"
+mermaid: true
 ---
 
 ## Architecture Overview
@@ -70,6 +71,7 @@ flowchart TB
     S --> TR
 {{< /mermaid >}}
 
+mermaid: true
 ---
 
 ## Six Pillars of AI Security
@@ -168,6 +170,7 @@ Each attestation is a JSON object signed with Ed25519. The signature is computed
 
 The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which is set automatically for Professional and Enterprise tiers. Developer and lower tiers receive HTTP 402 (Payment Required) from the trust API endpoints.
 
+mermaid: true
 ---
 
 ## Enterprise Authentication (v3.0+)
@@ -181,6 +184,7 @@ The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which
 | License Enforcement | Community+ | ECDSA P-256 cryptographic validation |
 | API Key Fallback | Community+ | Key-based auth for CI/CD |
 
+mermaid: true
 ---
 
 ## Compliance Frameworks (v3.1)
@@ -197,6 +201,7 @@ The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which
 | ISO 27001 | Information security | Professional |
 | ISO 42001 | AI management | Professional |
 
+mermaid: true
 ---
 
 ## Performance (v4.2.0)
@@ -212,6 +217,7 @@ The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which
 | Docker Image Size | < 20MB | **19.1 MB** |
 | CVEs | 0 | **0** |
 
+mermaid: true
 ---
 
 ## Deployment
@@ -236,6 +242,7 @@ helm install aegisgate aegisgate/aegisgate-platform
 
 The Helm chart includes HPA autoscaling (1-10 replicas), NetworkPolicy, ServiceMonitor for Prometheus, and rolling update strategy.
 
+mermaid: true
 ---
 
 ## Configuration
@@ -252,6 +259,7 @@ The Helm chart includes HPA autoscaling (1-10 replicas), NetworkPolicy, ServiceM
 | `AEGISGATE_METRICS_PORT` | Prometheus metrics port (default: 8443) |
 | `AEGISGATE_LICENSE_KEY` | License key for commercial tiers |
 
+mermaid: true
 ---
 
 _For API documentation, see [docs/API.md](/docs/api/)._
