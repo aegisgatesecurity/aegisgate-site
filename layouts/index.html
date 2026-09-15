@@ -6,12 +6,9 @@
         {{ .Content }}
     </div>
 </section>
+<a href="/admin/" id="admin-link" aria-label="Content Manager" style="position:fixed;bottom:16px;left:16px;background:rgba(0,51,153,0.7);color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;font-size:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;z-index:9998;opacity:0.6;transition:opacity 0.2s;backdrop-filter:blur(4px);border:1px solid rgba(255,215,0,0.3)" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.6'">✏️ Content Manager</a>
 {{ end }}
 
 {{ define "scripts_extra" }}
-    <!-- Homepage-only: show admin redirect banner for authenticated users -->
-    {{ $redirect := resources.Get "js/home-redirect.js" }}
-    {{ if $redirect }}
-    <script src="{{ $redirect.RelPermalink }}"></script>
-    {{ end }}
+    {{/* home-redirect.js removed from render path - inline admin link in markup instead to avoid INP/CLS */}}
 {{ end }}
