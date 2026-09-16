@@ -19,7 +19,6 @@ mermaid: true
 <a href="/rampart/#quick-start" class="btn btn-secondary">Quick start guide &rarr;</a>
 </div>
 
-mermaid: true
 ---
 
 ## What is Rampart?
@@ -28,7 +27,6 @@ Rampart is a **local security tool for developers** who use AI coding assistants
 
 Think of it as a firewall for AI coding tools. It catches the moment you're about to send a database password to Copilot, or when the AI generates code that contains an API key, and stops it before it's too late.
 
-mermaid: true
 ---
 
 ## Do I need Rampart?
@@ -46,7 +44,6 @@ mermaid: true
 | API calls to OpenAI/Anthropic from your code | **Rampart** (local proxy) |
 | Both browser chat AND coding tools | **Lens + Rampart** (both are free) |
 
-mermaid: true
 ---
 
 ## See Rampart in Action
@@ -62,7 +59,6 @@ Your browser does not support the video tag.
 <p style="color: var(--text-secondary); font-size: 1rem;">Watch Rampart intercept AI traffic from VS Code, detect hardcoded secrets, and protect your coding workflow.</p>
 </div>
 
-mermaid: true
 ---
 
 ## What does it catch?
@@ -167,7 +163,6 @@ sequenceDiagram
     Note over Proxy: Zero data leaves machine
 {{< /mermaid >}}
 
-mermaid: true
 ---
 
 ## Is it private?
@@ -184,7 +179,6 @@ mermaid: true
 
 Open source (Apache 2.0): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
 
-mermaid: true
 ---
 
 <!-- ============================================================
@@ -193,7 +187,6 @@ mermaid: true
      ============================================================
 -->
 
-mermaid: true
 ---
 
 ## Quick Start
@@ -246,7 +239,6 @@ docker run -d \
   ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.7.1
 ```
 
-mermaid: true
 ---
 
 ## How it works
@@ -279,7 +271,6 @@ Your AI tool (Copilot/Cursor/API) → Rampart proxy (localhost:8443) → AI mode
 - Malicious content is blocked before it reaches the model (or before the response reaches you)
 - CA keys are encrypted at rest with a passphrase — no plaintext keys on disk
 
-mermaid: true
 ---
 
 ## Rampart vs Lens vs Platform
@@ -297,7 +288,6 @@ mermaid: true
 | **Air-gapped deployment** | — | — | ✅ |
 | **Price** | Free | Free | Free tier + paid |
 
-mermaid: true
 ---
 
 <!-- ============================================================
@@ -306,7 +296,6 @@ mermaid: true
      ============================================================
 -->
 
-mermaid: true
 ---
 
 ## For Organizations
@@ -326,7 +315,6 @@ mermaid: true
 5. **No network egress** — Rampart never sends your data anywhere
 6. **Open source** — Apache 2.0, auditable, no hidden behavior
 
-mermaid: true
 ---
 
 ## Download
@@ -349,7 +337,6 @@ mermaid: true
 <a href="https://github.com/aegisgatesecurity/aegisgate-rampart" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Source code →</a>
 </p>
 
-mermaid: true
 ---
 
 ## IDE Integration Details
@@ -399,7 +386,6 @@ require'lspconfig'.rampart_lsp.setup{
 ```
 </details>
 
-mermaid: true
 ---
 
 ## Architecture
@@ -424,7 +410,6 @@ graph TB
     K -->|Yes| L[Return to AI Tool]
 {{< /mermaid >}}
 
-mermaid: true
 ---
 
 ## Frequently Asked Questions

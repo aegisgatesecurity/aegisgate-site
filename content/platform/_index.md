@@ -36,7 +36,6 @@ mermaid: true
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v4.4.1 →</a>
 </div>
 
-mermaid: true
 ---
 
 ## What is AegisGate Platform?
@@ -61,7 +60,6 @@ When your team uses AI tools — ChatGPT API, Copilot, MCP-based agents, agent-t
 
 Platform solves all four with a single self-hosted binary.
 
-mermaid: true
 ---
 
 ## See Platform in Action
@@ -77,7 +75,6 @@ Your browser does not support the video tag.
 <p style="color: var(--text-secondary); font-size: 1rem;">Explore the enterprise dashboard — real-time threat detection, compliance coverage, and SIEM integrations.</p>
 </div>
 
-mermaid: true
 ---
 
 ## Six Pillars of AI Security
@@ -263,7 +260,6 @@ sequenceDiagram
     Note over Scanner: 176+ patterns + ML model (~5ms)
 {{< /mermaid >}}
 
-mermaid: true
 ---
 
 ## Compliance Frameworks
@@ -290,7 +286,6 @@ Platform includes 31 compliance frameworks (2,043 total controls, 1,457 automate
 
 <p style="font-size:0.9rem; color:#888;">...and 16 more frameworks. <a href="/docs/compliance/">View all compliance documentation →</a></p>
 
-mermaid: true
 ---
 
 ## SIEM & SOAR Integration
@@ -325,7 +320,6 @@ Platform integrates with your existing security operations stack:
 
 For detailed setup, see our [SIEM/SOAR Integration Guide](/docs/siem-soar-integration/).
 
-mermaid: true
 ---
 
 ## Web UI
@@ -342,7 +336,6 @@ Platform includes a built-in web dashboard at `/ui/`:
 | Users | User management and RBAC |
 | Audit | Audit log viewer with export |
 
-mermaid: true
 ---
 
 ## Deployment
@@ -406,7 +399,6 @@ Includes HPA autoscaling (1-10 replicas), NetworkPolicy, ServiceMonitor, and rol
 
 Platform runs fully offline. No external dependencies. No phone-home. No telemetry. The binary, Docker image, and Helm chart can all be transferred to air-gapped environments via offline media.
 
-mermaid: true
 ---
 
 ## Pricing Tiers
@@ -420,7 +412,6 @@ mermaid: true
 
 <p><a href="/pricing/" class="btn btn-secondary">Full pricing details →</a></p>
 
-mermaid: true
 ---
 
 ## Performance
@@ -439,7 +430,6 @@ mermaid: true
 | Test coverage | 83.1% |
 | Tests passing | 8,000+ |
 
-mermaid: true
 ---
 
 ## Competitive Comparison
@@ -461,14 +451,12 @@ mermaid: true
 
 <p><a href="/docs/comparison/" class="btn btn-secondary">Full competitive analysis →</a></p>
 
-mermaid: true
 ---
 
 ## Deep Dive
 
 For the full technical architecture — six-pillar internals, Trust Framework API, authentication, configuration, and environment variables — see the [Technical Architecture page](/tech/).
 
-mermaid: true
 ---
 
 ## Links

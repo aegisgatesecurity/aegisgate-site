@@ -1,12 +1,13 @@
-> **🆕 AegisGate Lens v0.4.1 is LIVE** — CWS approved, AMO approved.
-> This page documents the **v0.4.1** architecture.
-
 ---
 title: "AegisGate Lens — Architecture"
 description: "How AegisGate Lens works: 5-facet detection (4 regex + ML), Ed25519-signed bundle, Apache 2.0. The full technical architecture of v0.4.1."
 type: "docs"
 weight: 2
 ---
+
+> **🆕 AegisGate Lens v0.4.1 is LIVE** — CWS approved, AMO approved.
+> This page documents the **v0.4.1** architecture.
+
 
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens -->
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->

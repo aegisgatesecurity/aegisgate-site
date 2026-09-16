@@ -9,7 +9,6 @@ mermaid: true
 
 This guide covers deploying AegisGate Platform in enterprise environments, tying together SSO authentication, SIEM log forwarding, SOAR incident automation, compliance frameworks, and multi-tenant isolation into a single coherent deployment architecture.
 
-mermaid: true
 ---
 
 ## Architecture Overview
@@ -59,7 +58,6 @@ graph TB
     style SOAR fill:#1a1f2e,stroke:#ec4899,stroke-width:2px
 {{< /mermaid >}}
 
-mermaid: true
 ---
 
 ## Prerequisites
@@ -97,7 +95,6 @@ One or more of: Splunk, Elasticsearch, IBM QRadar, Microsoft Sentinel, Sumo Logi
 
 One or more of: PagerDuty, Jira, ServiceNow, or custom webhook.
 
-mermaid: true
 ---
 
 ## Deployment Profiles
@@ -190,7 +187,6 @@ ml_shadow_mode: false
 
 **Infrastructure**: Fully isolated network, on-prem IdP, on-prem SIEM, no internet egress.
 
-mermaid: true
 ---
 
 ## SSO Configuration
@@ -258,7 +254,6 @@ curl -L https://aegisgate.yourcompany.com/auth/login
 
 See the [SSO Configuration Guide](/docs/sso-configuration/) for provider-specific step-by-step instructions.
 
-mermaid: true
 ---
 
 ## SIEM Integration
@@ -319,7 +314,6 @@ curl -X POST -H "X-API-Key: your-key" \
 
 See the [SIEM & SOAR Integration guide](/docs/siem-soar-integration/) for full configuration details.
 
-mermaid: true
 ---
 
 ## SOAR Integration
@@ -365,7 +359,6 @@ soar:
 | ServiceNow | REST API | Create incidents with severity mapping |
 | Custom webhook | HTTP POST | HMAC-SHA256 signed, custom headers |
 
-mermaid: true
 ---
 
 ## Compliance Configuration
@@ -422,7 +415,6 @@ Litigation notice → POST /api/v1/legal-holds → Entity's data frozen
                   → DELETE /api/v1/legal-holds/{id} → Hold released, data can be pruned
 ```
 
-mermaid: true
 ---
 
 ## Trust Framework Configuration
@@ -439,7 +431,6 @@ trust:
 
 See the [Trust Framework Architecture](/docs/trust-framework-architecture/) for the full technical deep-dive.
 
-mermaid: true
 ---
 
 ## Multi-Tenant Configuration
@@ -476,7 +467,6 @@ Each tenant has isolated:
 - Compliance reports
 - RBAC roles and permissions
 
-mermaid: true
 ---
 
 ## ML Threat Detection
@@ -524,7 +514,6 @@ curl -H "X-API-Key: your-key" \
   https://aegisgate.yourcompany.com/api/v1/abtest/tests/{id}/metrics
 ```
 
-mermaid: true
 ---
 
 ## High Availability
@@ -558,7 +547,6 @@ Configure your load balancer with:
 - Backups: Daily snapshots + WAL archiving for point-in-time recovery
 - RLS: Enable row-level security for multi-tenant isolation
 
-mermaid: true
 ---
 
 ## Security Hardening Checklist
@@ -581,7 +569,6 @@ mermaid: true
 | Rate limiting configured | ☐ | Per-tier and per-agent limits |
 | CA keys encrypted at rest | ☐ | For Rampart instances connecting to Platform |
 
-mermaid: true
 ---
 
 ## Monitoring & Observability
@@ -614,7 +601,6 @@ See [Grafana Dashboards](/docs/grafana-dashboards/) for dashboard JSON templates
 
 AegisGate supports OpenTelemetry distributed tracing. See [Distributed Tracing](/docs/distributed-tracing/) for configuration.
 
-mermaid: true
 ---
 
 ## Day 2 Operations
@@ -634,7 +620,6 @@ mermaid: true
 
 See [Day 2 Operations](/docs/day-2-operations/) for the full operations runbook.
 
-mermaid: true
 ---
 
 ## Troubleshooting
