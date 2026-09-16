@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{- if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+    <meta name="robots" content="noindex, follow">
+    {{- end }}
     
     <!-- Security Headers (also set in netlify.toml for production) -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; video-src 'self'; connect-src 'self' https://api.github.com https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
