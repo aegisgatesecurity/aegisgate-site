@@ -1,4 +1,5 @@
 ---
+noindex: true
 title: "AegisGate v1.x — End of Life"
 description: "AegisGate v1.x (aegisgate) has been deprecated. All development has moved to aegisgate-platform."
 date: 2026-08-21
@@ -8,6 +9,7 @@ aliases:
   - "/v1/"
   - "/legacy/"
 ---
+noindex: true
 
 # AegisGate v1.x — End of Life
 
