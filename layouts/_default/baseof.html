@@ -31,6 +31,15 @@
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{ end }}
     
+    <!-- RSS Auto-Discovery -->
+    {{ if eq .Type "blog" }}
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Blog" href="{{ "/blog/feed.xml" | absURL }}">
+    {{ else }}
+    {{ with .OutputFormats.Get "RSS" }}
+    <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+    {{ end }}
+    {{ end }}
+    
     <!-- Cloudflare Web Analytics -->
     <script defer type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af80d47299174d8f85052dcaa950fa18"}'></script>
     <!-- End Cloudflare Web Analytics -->

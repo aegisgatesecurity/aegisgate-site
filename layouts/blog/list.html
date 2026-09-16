@@ -2,12 +2,28 @@
 {{ partial "page-header.html" . }}
 <div class="container">
     <div class="content">
-        <h2>Latest Posts</h2>
-        {{ range first 5 (where .Site.RegularPages "Type" "blog") }}
+        <div class="blog-list-header">
+            <h2>Latest Posts</h2>
+            <a href="{{ with .OutputFormats.Get "RSS" }}{{ .Permalink }}{{ end }}" class="blog-rss-link" title="Subscribe via RSS">
+                RSS Feed
+            </a>
+        </div>
+        {{ range.Pages }}
         <article class="blog-excerpt">
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <div class="blog-excerpt-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                <span>&middot;</span>
+                <span>{{ .ReadingTime }} min read</span>
+            </div>
             <p>{{ .Description }}</p>
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ with .Params.tags }}
+            <div class="blog-post-tags">
+                {{ range . }}
+                <a href="/tags/{{ . | urlize }}/" class="blog-post-tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
         </article>
         {{ else }}
         <p>No posts yet. Check back soon!</p>

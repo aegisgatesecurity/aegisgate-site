@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<div class="container">
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <h1 class="blog-post-title">{{ .Title }}</h1>
+            <div class="blog-post-meta">
+                <span class="blog-post-author">By {{ .Params.author | default "AegisGate Security" }}</span>
+                <span class="blog-post-separator">&middot;</span>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                <span class="blog-post-separator">&middot;</span>
+                <span class="blog-post-reading-time">{{ .ReadingTime }} min read</span>
+            </div>
+            {{ with .Params.tags }}
+            <div class="blog-post-tags">
+                {{ range . }}
+                <a href="/tags/{{ . | urlize }}/" class="blog-post-tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </header>
+
+        <div class="blog-post-content">
+            {{ .Content }}
+        </div>
+
+        <footer class="blog-post-footer">
+            <div class="blog-post-share">
+                <span>Share:</span>
+                <a href="https://twitter.com/intent/tweet?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}&via=aegisgate" target="_blank" rel="noopener" class="share-link">X</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}" target="_blank" rel="noopener" class="share-link">LinkedIn</a>
+                <a href="https://mastodon.social/share?text={{ .Title | urlquery }} {{ .Permalink | urlquery }}" target="_blank" rel="noopener" class="share-link">Mastodon</a>
+                <a href="https://news.ycombinator.com/submitlink?u={{ .Permalink | urlquery }}&t={{ .Title | urlquery }}" target="_blank" rel="noopener" class="share-link">HN</a>
+            </div>
+            <a href="/blog/" class="blog-post-back">&larr; Back to Blog</a>
+        </footer>
+
+        <div class="blog-subscribe">
+            <h3>Subscribe to New Posts</h3>
+            <p>Get notified when we publish new AI security research and analysis.</p>
+            <form action="https://buttondown.com/api/emails/embed-subscribe/aegisgate" method="post" target="_blank">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <input type="hidden" name="embed" value="1">
+                <button type="submit">Subscribe</button>
+            </form>
+            <p class="blog-subscribe-note">No spam. Unsubscribe anytime. We never share your email.</p>
+        </div>
+    </article>
+</div>
+{{ end }}

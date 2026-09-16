@@ -8,7 +8,7 @@ title = "AegisGate — Secure Every AI Interaction"
   description = "Free browser protection (Lens), developer-grade local proxy (Rampart), and enterprise AI security gateway (Platform). Three products that secure every AI interaction — from ChatGPT to Copilot to custom LLMs. 100% open source."
   version = "v4.4.1"
   goVersion = "1.27.0"
-  dockerSize = "19.1MB"
+  dockerSize = "34.7MB"
   coverage = "83.1%"
   github = "https://github.com/aegisgatesecurity/aegisgate-platform"
   twitter = "https://x.com/aegisgate"
@@ -83,6 +83,19 @@ enableGitInfo = true
 [taxonomies]
   tag = "tags"
 
-# Deprecated theme - site overrides all theme files
-# See themes/aegisgate-deprecated-20260803 for reference
-theme = "aegisgate-deprecated-20260803"
+# RSS feed — enable for all section/page types
+[outputFormats.RSS]
+  mediatype = "application/rss+xml"
+  baseName = "feed"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+# Sitemap config
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
