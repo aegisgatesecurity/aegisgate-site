@@ -3,7 +3,7 @@ title: "The False Dichotomy of AI Safety: Why 'Pause' and 'Full Speed Ahead' Are
 slug: false-dichotomy-ai-safety
 description: "AI CEOs want to pause development. The government says full speed ahead. Both sides are missing the third option: don't pause, but secure."
 date: 2026-09-16
-author: Joshua Colvin
+author: Josh Colvin
 tags:
   - ai-safety
   - policy

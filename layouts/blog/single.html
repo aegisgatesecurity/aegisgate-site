@@ -14,7 +14,7 @@
             {{ with .Params.tags }}
             <div class="blog-post-tags">
                 {{ range . }}
-                <a href="/tags/{{ . | urlize }}/" class="blog-post-tag">{{ . }}</a>
+                <a href="/tags/{{ . | urlize }}/" class="blog-post-tag">#{{ . }}</a>
                 {{ end }}
             </div>
             {{ end }}
@@ -26,17 +26,31 @@
 
         <footer class="blog-post-footer">
             <div class="blog-post-share">
-                <span>Share:</span>
-                <a href="https://twitter.com/intent/tweet?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}&via=aegisgate" target="_blank" rel="noopener" class="share-link">X</a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}" target="_blank" rel="noopener" class="share-link">LinkedIn</a>
-                <a href="https://mastodon.social/share?text={{ .Title | urlquery }} {{ .Permalink | urlquery }}" target="_blank" rel="noopener" class="share-link">Mastodon</a>
-                <a href="https://news.ycombinator.com/submitlink?u={{ .Permalink | urlquery }}&t={{ .Title | urlquery }}" target="_blank" rel="noopener" class="share-link">HN</a>
+                <span class="share-label">Share this article</span>
+                <div class="share-buttons">
+                    <a href="https://twitter.com/intent/tweet?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}&via=aegisgate" target="_blank" rel="noopener" class="share-btn share-x" aria-label="Share on X">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.91l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <span>X</span>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}" target="_blank" rel="noopener" class="share-btn share-linkedin" aria-label="Share on LinkedIn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://mastodon.social/share?text={{ .Title | urlquery }} {{ .Permalink | urlquery }}" target="_blank" rel="noopener" class="share-btn share-mastodon" aria-label="Share on Mastodon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.268 5.313c-.35-2.578-2.117-4.61-4.687-5.136C18.706.064 15.593 0 12.003 0H12C8.404 0 5.29.064 3.417.177C.854.703-.91 2.735-1.26 5.313c-.064.41-.108.873-.135 1.364C-1.4 7.18-1.4 8.526-1.4 9.55c0 .246.001.485.003.718C-1.4 12.36-1.4 17.879.18 21.247c.35.6.96 1.022 1.67 1.165c2.118.42 5.213.617 9.49.625h.004c4.278-.008 7.373-.205 9.49-.625c.71-.143 1.32-.565 1.67-1.165c1.58-3.368 1.58-8.887 1.58-10.98c0-.246.001-.485.003-.718c0-1.024 0-2.37-.135-3.873c-.027-.49-.07-.953-.135-1.364zM20.5 14.5c0 1.5-.196 3-.588 4.5c-.196.75-.696 1.25-1.446 1.5c-1.5.5-4.5.75-7.466.75s-5.966-.25-7.466-.75c-.75-.25-1.25-.75-1.446-1.5C1.696 17.5 1.5 16 1.5 14.5V9.5c0-1.5.196-3 .588-4.5c.196-.75.696-1.25 1.446-1.5C5.034 3 8.034 2.75 11 2.75s5.966.25 7.466.75c.75.25 1.25.75 1.446 1.5C20.304 6.5 20.5 8 20.5 9.5v5z"/></svg>
+                        <span>Mastodon</span>
+                    </a>
+                    <a href="https://news.ycombinator.com/submitlink?u={{ .Permalink | urlquery }}&t={{ .Title | urlquery }}" target="_blank" rel="noopener" class="share-btn share-hn" aria-label="Share on Hacker News">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M0 24V0h24v24H0zM6.072 5.395l3.928 7.36v4.555h2v-4.555l3.928-7.36h-2.214l-2.714 5.376-2.714-5.376H6.072z"/></svg>
+                        <span>HN</span>
+                    </a>
+                </div>
             </div>
             <a href="/blog/" class="blog-post-back">&larr; Back to Blog</a>
         </footer>
 
         <div class="blog-subscribe">
-            <h3>Subscribe to New Posts</h3>
+            <h3>Subscribe to AegisGate Security Research</h3>
             <p>Get notified when we publish new AI security research and analysis.</p>
             <form action="https://buttondown.com/api/emails/embed-subscribe/aegisgate" method="post" target="_blank">
                 <input type="email" name="email" placeholder="your@email.com" required>
