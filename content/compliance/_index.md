@@ -1,6 +1,6 @@
 ---
 title: "Compliance Self-Assessments"
-description: "AegisGate Security Platform compliance self-assessments documenting our security posture against industry frameworks. Listed in the CSA STAR Registry."
+description: "AegisGate Security Platform compliance self-assessments documenting our security posture against industry frameworks. Listed in the CSA STAR Registry and Startup Showcase."
 type: "compliance"
 date: 2026-07-29
 layout: list
@@ -23,6 +23,14 @@ AegisGate Security is listed in the Cloud Security Alliance (CSA) Security, Trus
 - **Listed since:** 2026-09-17
 - **Assessment:** AI-CAIQ v1.0.2 (311 questions, 184 Yes / 127 NA)
 - **Level:** STAR Level 1 (Self-Assessment)
+
+---
+
+## CSA Startup Showcase
+
+AegisGate Security is featured in the CSA Startup Showcase, highlighting our solution for Agentic AI Identity and Access Management.
+
+**[View our Startup Showcase listing →](https://cloudsecurityalliance.org/csa-startup-showcase/registry/?modal=aegisgate-security-llc)**
 
 ---
 
@@ -54,7 +62,7 @@ AegisGate Security is listed in the Cloud Security Alliance (CSA) Security, Trus
 AegisGate's compliance posture is reinforced by our automated compliance engine, which provides continuous enforcement across 31 frameworks:
 
 - **1,457 automated controls** validate controls at runtime
-- **176 detection patterns** scan for threats in real time
+- **216 detection patterns** scan for threats in real time
 - **31 compliance frameworks** including HIPAA, PCI-DSS, GDPR, SOC 2, FedRAMP, ISO 27001, NIST CSF, CIS, and more
 - **Hash-chained audit logs** provide tamper-evident compliance records
 
