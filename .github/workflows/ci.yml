@@ -82,12 +82,15 @@ jobs:
         with:
           # Exclude github.com/aegisgatesecurity/* — all repos are private
           # and return 404 to unauthenticated requests (lychee has no GitHub auth).
+          # Exclude cloudsecurityalliance.org — CSA has aggressive rate limiting
+          # and periodic maintenance windows (503) that cause false CI failures.
           # Also exclude localhost (served locally), and common non-page URLs.
           args: >-
             --base-url https://aegisgatesecurity.io
             --remap 'https://aegisgatesecurity.io http://localhost:1313'
             --exclude 'github.com/aegisgatesecurity/'
             --exclude 'x.com/aegisgate'
+            --exclude 'cloudsecurityalliance.org'
             --include-fragments
             --no-progress
             public/**/*.html
