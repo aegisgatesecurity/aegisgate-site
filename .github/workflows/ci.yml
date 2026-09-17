@@ -91,6 +91,7 @@ jobs:
             --exclude 'github.com/aegisgatesecurity/'
             --exclude 'x.com/aegisgate'
             --exclude 'cloudsecurityalliance.org'
+            --exclude 'linkedin.com'
             --include-fragments
             --no-progress
             public/**/*.html
