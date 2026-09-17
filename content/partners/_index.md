@@ -90,7 +90,7 @@ Being transparent about our capacity:
 
 **Email:** [josh@aegisgatesecurity.io](mailto:josh@aegisgatesecurity.io)
 
-**LinkedIn:** [Josh Colvin](https://www.linkedin.com/in/joshcolvin/)
+**LinkedIn:** [Josh Colvin](https://www.linkedin.com/in/josh-c-5428584a)
 
 **GitHub:** [aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
 
