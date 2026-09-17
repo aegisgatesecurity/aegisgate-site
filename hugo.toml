@@ -51,19 +51,24 @@ title = "AegisGate — Secure Every AI Interaction"
     weight = 5
 
   [[menu.main]]
+    name = "Partners"
+    url = "/partners/"
+    weight = 6
+
+  [[menu.main]]
     name = "🚀 Live Demo"
     url = "https://demo.aegisgatesecurity.io/"
-    weight = 6
+    weight = 7
 
   [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 7
+    weight = 8
 
   [[menu.main]]
     name = "GitHub"
     url = "https://github.com/aegisgatesecurity/aegisgate-platform"
-    weight = 8
+    weight = 9
 # Enable features
 enableRobotsTXT = true
 enableGitInfo = true
