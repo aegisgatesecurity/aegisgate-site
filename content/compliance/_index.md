@@ -1,6 +1,6 @@
 ---
 title: "Compliance Self-Assessments"
-description: "AegisGate Security Platform compliance self-assessments documenting our security posture against industry frameworks."
+description: "AegisGate Security Platform compliance self-assessments documenting our security posture against industry frameworks. Listed in the CSA STAR Registry."
 type: "compliance"
 date: 2026-07-29
 layout: list
@@ -11,6 +11,18 @@ layout: list
 AegisGate Security, LLC maintains self-assessment documentation against industry-standard cybersecurity and privacy frameworks. These assessments demonstrate our commitment to transparency and provide customers with visibility into our security posture.
 
 > **Important:** These documents are self-assessments, not third-party certifications. They document how AegisGate's controls map to each framework's requirements based on our product architecture, development practices, and operational procedures. Formal third-party audits are planned as the organization scales.
+
+---
+
+## CSA STAR Registry
+
+AegisGate Security is listed in the Cloud Security Alliance (CSA) Security, Trust, Assurance, and Risk (STAR) Registry at Level 1. Our AI Consensus Assessments Initiative Questionnaire (AI-CAIQ) self-assessment — 311 questions documenting our compliance with the AI Controls Matrix (AICM) — is publicly available.
+
+**[View our STAR Registry listing →](https://cloudsecurityalliance.org/star/registry/aegisgate-security)**
+
+- **Listed since:** 2026-09-17
+- **Assessment:** AI-CAIQ v1.0.2 (311 questions, 184 Yes / 127 NA)
+- **Level:** STAR Level 1 (Self-Assessment)
 
 ---
 
