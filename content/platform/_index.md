@@ -5,12 +5,12 @@ type: "landing"
 mermaid: true
 ---
 
-> **🏢 AegisGate Platform v4.4.2 is LIVE** — Production hardening, security event categorization, RLS enforcement, gRPC v4 services, 31 compliance frameworks (2,043 total controls, 1,457 automated), 11 SIEM + 4 SOAR integrations, web UI, air-gapped deployment, Guided Setup. [Try the Live Demo](https://demo.aegisgatesecurity.io/) or [Download v4.4.2](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.2).
+> **🏢 AegisGate Platform v4.5.0 is LIVE** — Production hardening, security event categorization, RLS enforcement, gRPC v4 services, 31 compliance frameworks (2,043 total controls, 1,457 automated), 11 SIEM + 4 SOAR integrations, web UI, air-gapped deployment, Guided Setup. [Try the Live Demo](https://demo.aegisgatesecurity.io/) or [Download v4.5.0](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.5.0).
 
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
 <div class="alert alert-info">
-<strong>🏢 AegisGate Platform v4.4.2</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-platform">aegisgate-platform repo</a>)</em>
+<strong>🏢 AegisGate Platform v4.5.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-platform">aegisgate-platform repo</a>)</em>
 
 <ul>
 <li><strong>6 attack surfaces</strong>: HTTP API, MCP, A2A, ACP, Response, Trust Framework</li>
@@ -33,7 +33,7 @@ mermaid: true
 
 <div class="alert alert-success alert-center">
 <strong>🏢 AegisGate Platform</strong> is <strong>open-core</strong> (Apache 2.0 community edition + commercial enterprise modules). Free Community tier. Self-hosted. No vendor lock-in. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.2" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v4.4.2 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.5.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v4.5.0 →</a>
 </div>
 
 ---
@@ -79,7 +79,7 @@ Your browser does not support the video tag.
 
 ## Six Pillars of AI Security
 
-Platform v4.4.2 protects every AI interaction across six attack surfaces:
+Platform v4.5.0 protects every AI interaction across six attack surfaces:
 
 <div class="card-grid card-grid-2x2">
 <div class="card">
@@ -374,7 +374,7 @@ docker run -d \
   -p 8082:8082 \
   -p 8083:8083 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.4.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.5.0
 ```
 
 ### Bare Metal
@@ -463,7 +463,7 @@ For the full technical architecture — six-pillar internals, Trust Framework AP
 
 <p>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source code →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.2" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.5.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
 <a href="/docs/" class="btn btn-secondary">Documentation →</a>
 <a href="/pricing/" class="btn btn-secondary">Pricing →</a>
 <a href="/compliance/" class="btn btn-secondary">Compliance →</a>

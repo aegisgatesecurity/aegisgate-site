@@ -50,7 +50,7 @@ spec:
     spec:
       containers:
       - name: aegisgate
-        image: ghcr.io/aegisgatesecurity/aegisgate-platform:v4.4.0
+        image: ghcr.io/aegisgatesecurity/aegisgate-platform:v4.5.0
         env:
         - name: AEGISGATE_TRACING_ENABLED
           value: "true"

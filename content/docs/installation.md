@@ -124,5 +124,5 @@ curl http://localhost:8443/health
 
 Expected response:
 ```json
-{"status":"healthy","version":"4.4.0"}
+{"status":"healthy","version":"4.5.0"}
 ```
