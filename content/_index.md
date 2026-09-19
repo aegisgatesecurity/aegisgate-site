@@ -12,7 +12,7 @@ mermaid: true
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.4.2" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg" alt="Platform Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg" alt="Lens Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
