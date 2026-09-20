@@ -14,7 +14,7 @@ A reference for terms used throughout AegisGate documentation. Organized by cate
 |------|-----------|
 | **A2A** | Agent-to-Agent protocol. AegisGate secures A2A communication with mTLS, HMAC integrity, and capability enforcement. See `pkg/a2a/`. |
 | **ACP** | Agent Capability Policy. Controls which actions an AI agent is permitted to perform. See `pkg/acp/`. |
-| **Adversarial Pattern** | A prompt or content pattern designed to bypass security controls (prompt injection, jailbreak, encoding evasion). AegisGate detects 176 such patterns. |
+| **Adversarial Pattern** | A prompt or content pattern designed to bypass security controls (prompt injection, jailbreak, encoding evasion). AegisGate detects 223 such patterns. |
 | **ATLAS** | MITRE ATLAS (Adversarial Threat Landscape for AI Systems). A framework cataloging attacks against AI systems. AegisGate maps detections to ATLAS techniques. |
 | **CheckFunc** | The Go type for an automated compliance control check. Each `CheckFunc` evaluates a specific control and returns compliant/partial/non-compliant status. |
 | **Fail-Closed** | A security principle where the system blocks traffic if it cannot scan or verify it. AegisGate is fail-closed by default — if scanning fails, the request is blocked, not allowed through. |
@@ -60,7 +60,7 @@ A reference for terms used throughout AegisGate documentation. Organized by cate
 | Term | Definition |
 |------|-----------|
 | **6 Pillars** | AegisGate's six protection domains: HTTP API, MCP, A2A, ACP (Agent Capability Policy), Response, and Trust. |
-| **Detection Pattern** | A regex or ML-based pattern that identifies a specific threat type (secret, XSS, PII, prompt injection, etc.). 176 patterns are wired into every request/response. |
+| **Detection Pattern** | A regex or ML-based pattern that identifies a specific threat type (secret, XSS, PII, prompt injection, etc.). 223 patterns are wired into every request/response. |
 | **Graceful Degradation** | When ML detection is unavailable (no ONNX Runtime), AegisGate falls back to regex-only detection (83.1% coverage) instead of failing. |
 | **ML Threat Detection** | CNN-BiLSTM neural network (1.58M params) for adversarial pattern detection with 100/100 evasion resistance. Professional+ tier. |
 | **ONNX Runtime** | Open Neural Network Exchange runtime. Optional dependency for ML threat detection. Without it, AegisGate uses regex-only mode. |

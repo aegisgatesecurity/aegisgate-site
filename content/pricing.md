@@ -51,7 +51,7 @@ The case study is **representative**, not a real customer. It is built from anon
 <ul>
 <li>Unlimited proxy RPM (soft-throttle)</li>
 <li>5 concurrent users</li>
-<li>176+ security detection patterns</li>
+<li>223+ security detection patterns</li>
 <li>8 MCP guardrails</li>
 <li>8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)</li>
 <li>MITRE ATLAS (66 techniques)</li>

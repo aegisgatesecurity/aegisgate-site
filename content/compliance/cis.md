@@ -104,7 +104,7 @@ Develop processes and technical controls to identify, classify, securely handle,
 
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
-| 9 | 3.1 | **Establish and Maintain a Data Management Process** | AegisGate's compliance engine automates data classification across 31 frameworks with 1,457 automated controls. The PII/PHI scanner identifies and classifies sensitive data in-flight using 176 detection patterns covering SSN, credit card, health plan ID, email, phone, date of birth, and other identifiers. Data classification policies are customer-configurable. | ✅ Implemented |
+| 9 | 3.1 | **Establish and Maintain a Data Management Process** | AegisGate's compliance engine automates data classification across 31 frameworks with 1,457 automated controls. The PII/PHI scanner identifies and classifies sensitive data in-flight using 223 detection patterns covering SSN, credit card, health plan ID, email, phone, date of birth, and other identifiers. Data classification policies are customer-configurable. | ✅ Implemented |
 | 10 | 3.3 | **Configure Data Access Control Lists** | RBAC with least-privilege enforcement controls all data access within AegisGate. MFA is required for administrative access. OIDC/SAML SSO integration maps organizational access policies to gateway permissions. MCP guardrails (8 guardrails) enforce need-to-know restrictions on tool-use interactions. | ✅ Implemented |
 | 11 | 3.4 | **Enforce Data Retention** | AegisGate enforces configurable data retention policies. Audit logs are retained according to customer-defined periods (7/30/90-day defaults by tier). Hash-chained integrity ensures retained data is tamper-evident. Data disposal is automatic per configured retention schedules. | ✅ Implemented |
 | 12 | 3.5 | **Securely Dispose of Data** | AegisGate's container architecture supports clean disposal — container destruction leaves no residual data. Persistent volume data is encrypted with customer-managed AES-256 keys, ensuring data is cryptographically shredded when keys are destroyed. In-flight data is never persisted by AegisGate. | ✅ Implemented |
@@ -182,7 +182,7 @@ Ensure appropriate security controls are in place on email and web browser clien
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
 | 44 | 9.1 | **Ensure Use of Standard Secure Configuration for Web Browsers** | AegisGate Lens enforces security headers (CSP, HSTS, X-Content-Type-Options) on AI chat interfaces. Content Security Policy prevents XSS and injection attacks in browser-based AI interactions. Browser hardening for general web browsing is the customer's responsibility. | ⚠️ Partial |
-| 45 | 9.2 | **Ensure Use of Standard Secure Configuration for Email Clients** | AegisGate is an AI infrastructure security product and does not manage email client configurations. Email client security is the customer's responsibility. AegisGate's threat detection patterns (176 patterns including phishing indicators) can be integrated into email security workflows. | N/A |
+| 45 | 9.2 | **Ensure Use of Standard Secure Configuration for Email Clients** | AegisGate is an AI infrastructure security product and does not manage email client configurations. Email client security is the customer's responsibility. AegisGate's threat detection patterns (223 patterns including phishing indicators) can be integrated into email security workflows. | N/A |
 
 ### Control 10: Malware Defenses
 
@@ -190,7 +190,7 @@ Ensure that anti-malware software is installed on all enterprise assets; that th
 
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
-| 46 | 10.1 | **Deploy and Maintain Anti-Malware Software** | AegisGate's scanner provides the AI-security equivalent of anti-malware: 176 detection patterns covering prompt injection, jailbreak, data exfiltration, secrets exposure, PII/PHI leakage, and model manipulation. Scanning occurs on every request and response in real time. Traditional endpoint anti-malware for host operating systems is the customer's responsibility. | ⚠️ Partial |
+| 46 | 10.1 | **Deploy and Maintain Anti-Malware Software** | AegisGate's scanner provides the AI-security equivalent of anti-malware: 223 detection patterns covering prompt injection, jailbreak, data exfiltration, secrets exposure, PII/PHI leakage, and model manipulation. Scanning occurs on every request and response in real time. Traditional endpoint anti-malware for host operating systems is the customer's responsibility. | ⚠️ Partial |
 | 47 | 10.2 | **Ensure Anti-Malware Software is Updated** | AegisGate's detection patterns are updated through the compliance engine's continuous update mechanism. Pattern updates are delivered through the platform release cycle. Zero-day detection patterns can be deployed via configuration without a full platform update. Host-level anti-malware updates are the customer's responsibility. | ⚠️ Partial |
 | 48 | 10.3 | **Configure Automatic Anti-Malware Scanning** | AegisGate performs real-time scanning on every AI traffic request and response. No manual scanning is required — the scanner is always active. Scheduled compliance scans validate runtime configurations against 1,457 automated controls. Host-level scanning schedules are the customer's responsibility. | ⚠️ Partial |
 
@@ -222,7 +222,7 @@ Operate processes and tooling to establish and maintain comprehensive network mo
 |---|-----------|-------------|--------------------------|--------|
 | 55 | 13.1 | **Establish and Maintain a Network Monitoring Process** | AegisGate monitors all AI traffic in real time. The IOC store maintains a real-time inventory of indicators of compromise. Anomaly detection identifies unusual traffic patterns. The compliance engine continuously validates network security configurations. | ✅ Implemented |
 | 56 | 13.2 | **Collect Traffic Flows** | AegisGate collects comprehensive traffic metadata: source, destination, volume, protocol, and classification for all AI traffic flows through the gateway. Traffic data is stored in hash-chained audit logs for forensic analysis. | ✅ Implemented |
-| 57 | 13.3 | **Deploy a Network Intrusion Detection Solution** | AegisGate's 176 detection patterns function as an application-layer IDS for AI traffic. Threat detection includes prompt injection, jailbreak, data exfiltration, secrets exposure, PII/PHI leakage, and model manipulation. IOC federation shares threat intelligence across deployments. Traditional network IDS for the customer's infrastructure is the customer's responsibility. | ⚠️ Partial |
+| 57 | 13.3 | **Deploy a Network Intrusion Detection Solution** | AegisGate's 223 detection patterns function as an application-layer IDS for AI traffic. Threat detection includes prompt injection, jailbreak, data exfiltration, secrets exposure, PII/PHI leakage, and model manipulation. IOC federation shares threat intelligence across deployments. Traditional network IDS for the customer's infrastructure is the customer's responsibility. | ⚠️ Partial |
 
 ### Control 16: Application Software Security
 
@@ -242,7 +242,7 @@ Maintain a plan to rapidly respond to an attack with the appropriate resources a
 
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
-| 63 | 17.1 | **Establish and Maintain an Incident Response Process** | AegisGate's compliance engine continuously monitors for control failures and configuration drift. Threat detection identifies security incidents in real time (176 patterns). Hash-chained audit logs provide irrefutable forensic evidence. Rate limiting and MCP guardrails provide automated incident containment. Formal incident response planning for the customer's organization is the customer's responsibility. | ⚠️ Partial |
+| 63 | 17.1 | **Establish and Maintain an Incident Response Process** | AegisGate's compliance engine continuously monitors for control failures and configuration drift. Threat detection identifies security incidents in real time (223 patterns). Hash-chained audit logs provide irrefutable forensic evidence. Rate limiting and MCP guardrails provide automated incident containment. Formal incident response planning for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 | 64 | 17.2 | **Assign Incident Response Roles** | AegisGate's RBAC system includes defined incident response roles (Security Officer, Operator). Role assignments are audited. SSO-based role assignment enables integration with the customer's IR team structure. Formal IR role assignment for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 | 65 | 17.3 | **Establish and Maintain Contact Lists for Incident Response** | AegisGate provides configurable alerting and notification channels for incident response. SIEM integration enables automated incident escalation. IR contact management for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 
@@ -263,7 +263,7 @@ The following table maps AegisGate's built-in CIS compliance checks to the CIS v
 | CIS-7 | Vulnerability Management | Control 7 | Confirms govulncheck, Trivy, SBOM, and patch process configuration |
 | CIS-8 | Audit Log Management | Control 8 | Verifies audit log collection, hash-chain integrity, retention, and review/alert process |
 | CIS-9 | Email and Web Browser | Control 9 | Validates AegisGate Lens extension, telemetry bridge, and CSP headers |
-| CIS-10 | Malware Defenses | Control 10 | Confirms scanner (176 patterns), pattern auto-updates, and scheduled scans |
+| CIS-10 | Malware Defenses | Control 10 | Confirms scanner (223 patterns), pattern auto-updates, and scheduled scans |
 | CIS-11 | Data Recovery | Control 11 | Verifies backup, hash-chain integrity for verifiable restore, and retention policy |
 | CIS-12 | Network Infrastructure | Control 12 | Validates TLS 1.2+ on all protocol pillars, mTLS, segmentation, and allowlists |
 | CIS-13 | Network Monitoring | Control 13 | Confirms IOC store, anomaly detection, and IDS integration |

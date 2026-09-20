@@ -40,7 +40,7 @@ This document describes the processing integrity controls implemented in AegisGa
 | Control | Implementation | Verification |
 |---------|---------------|--------------|
 | Request authentication | ECDSA P-256 license key validation on every request | License check logging |
-| Input sanitization | Regex pattern matching against 176 detection patterns | Scanner metrics dashboard |
+| Input sanitization | Regex pattern matching against 223 detection patterns | Scanner metrics dashboard |
 | Schema validation | gRPC Protobuf schema validation for all 50 RPC methods | Protobuf compiler enforcement |
 | Rate limiting | Per-tier RPM enforcement (Community: soft-throttle, Developer: 1000, Professional: 10,000, Enterprise: unlimited) | Rate limit headers in response |
 | Authorization | RBAC policy evaluation on every request | Policy engine audit log |
@@ -52,7 +52,7 @@ This document describes the processing integrity controls implemented in AegisGa
 | Fail-closed default | If any security check fails, encounters an error, or receives unexpected input, the request is rejected | Test coverage: nil handler recovery + deny |
 | Compliance engine | 1,457 automated controls validate processing against 31 frameworks at runtime | Compliance status API endpoint |
 | MCP guardrails | 8 guardrails validate MCP protocol interactions | Guardrail metrics per session |
-| Threat detection | 176 patterns scanned per request/response pair | Detection metrics dashboard |
+| Threat detection | 223 patterns scanned per request/response pair | Detection metrics dashboard |
 | PII/PHI scanning | Regex and pattern-based detection of 8 PHI identifiers and 12 PII categories | Scanner hit rates and false positive metrics |
 
 ### 3.3 Output Validation
@@ -114,7 +114,7 @@ If any step fails, encounters an error, or produces unexpected output, the reque
 | Audit log chain integrity | Every 1,000 entries | SHA-256 chain verification | Alert + quarantine affected entries |
 | Compliance engine state | On startup + every 5 minutes | Framework registration count vs expected | Alert + fail-closed |
 | License validation | Every request | ECDSA P-256 signature verification | 7-day grace period, then fail-closed |
-| Scanner pattern count | On startup | Pattern count vs expected (176) | Alert + degraded mode |
+| Scanner pattern count | On startup | Pattern count vs expected (223) | Alert + degraded mode |
 | Rate limit counter accuracy | Every request | Atomic counter increment | Over-limit → 429 |
 
 ---

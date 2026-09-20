@@ -13,7 +13,7 @@ AegisGate is an AI security platform that acts as a gateway for your AI infrastr
 - **Bidirectional scanning** of every API request and response
 - **MCP protocol protection** for AI agent tool execution
 - **A2A protocol protection** for agent-to-agent communication
-- **Threat detection** across 176 patterns with ML-based adversarial detection
+- **Threat detection** across 223 patterns with ML-based adversarial detection
 - **Compliance reporting** for 31 frameworks (SOC 2, HIPAA, EU AI Act, FedRAMP, and more)
 - **Trust Framework** with per-session trust scoring and signed attestations
 

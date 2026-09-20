@@ -7,6 +7,44 @@ type: "changelog"
 ## Changelog
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
+
+### v4.5.0 - 2026-09-19 - Threat Detection Enhancement Release
+
+> **v4.5.0** adds five new detection capabilities (P1-P5), two new ATLAS techniques (T1110 Brute Force, T1552 Unsecured Credentials), four distillation attack detectors (GAP-DIST2-5), and seven new L1 scanner patterns closing real-world attack gaps identified through internal adversarial testing. 100% detection rate on 24 real-world attack payloads, 0% false positives. Full 10-phase regression passed.
+
+**New Detection Capabilities:**
+- **P1: Multi-Turn Session Correlation** — Detects multi-turn attack patterns where individual prompts appear benign but escalate across conversation turns
+- **P2: Tool Call Chain Analysis** — Analyzes MCP tool call sequences for privilege escalation and breakout patterns (Gemini-style attacks)
+- **P3: AIBOM Model Provenance** — Supply chain verification for AI Bill of Materials (model origin, training data, integrity hashes)
+- **P4: API Key Behavioral Baselining** — Anomaly detection for API keys (burst, off-hours, geographic anomalies)
+- **P5: Egress Exfiltration Scoring** — Response-level data exfiltration detection (entropy analysis, volume heuristics, sensitivity scoring)
+
+**Distillation Attack Detection (GAP-DIST2-5):**
+- Proxy service detection (known datacenter IP ranges)
+- Distillation pattern recognition (systematic CoT extraction)
+- Account clustering (coordinated attack patterns)
+- Stolen key detection (datacenter usage + geo velocity)
+
+**New L1 Scanner Patterns (7):** SSTI, eval/atob obfuscation, question-form model theft, system prompt extraction variants, safety protocol bypass, data exfiltration queries, expanded model theft verbs
+
+**Performance:** p95=1.37ms health, 2,605 req/s throughput, 6.48M requests in break test, 100% TPR, 0% FPR, F1=1.0
+
+### v4.4.3 - 2026-09-13 - Patent Filings + Platform Hardening
+
+> **v4.4.3** adds RLS enforcement for all remaining tenant-scoped stores (migration 012), gRPC v4 backend wiring, DR/RTO documentation, and five provisional patent applications filed (trust framework, multi-protocol interception, compliance mapping, 3-layer detection, response scanning).
+
+### v4.4.2 - 2026-09-11 - MCP Guardrail Wiring Fix
+
+> **v4.4.2** fixes two critical wiring gaps: GuardrailMiddleware was created but never connected to the MCP server handler (zero guardrails running), and MCPResponseGuard was never called (tool responses not scanned for PII/secrets/XSS). Both fixed, 15 unit tests + 9 integration tests added.
+
+### v4.4.1 - 2026-09-09 - v11b Model + Evasion Suite + OPSEC Hardening
+
+> **v4.4.1** upgrades the Char CNN-BiLSTM threat detection model from v9 to v11b across all three products. The v11b model syncs all 50 augmentor transforms to match the adversarial evasion suite, achieving 99.8/100 evasion resistance with zero in-scope misses. Adds keyWalkReverse text normalization, full adversarial evasion test suites (2,600 tests on Platform/Rampart, 550 on Lens), and OPSEC hardening (pre-commit hooks, gitleaks, CODEOWNERS).
+
+### v4.4.0 - 2026-09-08 - v9 Neural Threat Detection Model
+
+> **v4.4.0** upgrades the Char CNN-BiLSTM threat detection model from v4 to v9 across all three products (Platform, Rampart, Lens). The v9 model introduces a larger Latin-1 vocabulary (256 chars), doubled input sequence length (256 chars), and a recalibrated detection threshold (0.5). Docker images switched from Alpine to Debian bookworm-slim to support ONNX Runtime's glibc requirement. Adds ML model integrity verification (SHA-256 hash check), ML crash isolation (defer/recover), audit log encryption at rest (AES-256-GCM), CORS hardening, temporal query FP mitigation, and response-side ML detection.
+
 ### v4.3.3 - 2026-08-29 - SSRF Remediation (HIGH-2)
 
 > **v4.3.3** remediates the final HIGH finding from the adversarial security audit: SSRF via MCP `http_request` tool. The `validateURL` function now blocks private IPs, loopback, link-local addresses, cloud metadata endpoints, and non-http(s) schemes. A custom HTTP transport dialer provides SSRF-safe DNS resolution to prevent DNS rebinding attacks. 60+ comprehensive test cases cover all attack vectors. All 13 adversarial audit findings (1 CRITICAL, 3 HIGH, 5 MEDIUM, 4 LOW) are now fully resolved.

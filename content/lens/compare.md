@@ -55,7 +55,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Team-wide policy** (one rule applies to all users) | ❌ | ✅ |
 | **Team-wide analytics dashboard** | ❌ | ✅ |
 | **Central audit log** (who saw what, when) | ❌ | ✅ |
-| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (176 patterns) |
+| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (223 patterns) |
 | **MCP protocol protection** (Model Context Protocol) | ❌ | ✅ (8 guardrails) |
 | **A2A agent-to-agent security** (mTLS, capabilities, rate limiting) | ❌ | ✅ |
 | **ACP (Agent Communication Protocol) security** | ❌ | ✅ |

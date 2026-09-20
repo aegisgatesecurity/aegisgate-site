@@ -62,7 +62,7 @@ flowchart LR
     end
 
     subgraph Core["🔐 Core Detection Engine"]
-        D[176+ Patterns]
+        D[223+ Patterns]
         D1[PII + Secrets]
         D2[XSS + Compliance]
         D3[ML Adversarial]
@@ -337,7 +337,7 @@ flowchart LR
 
 <div class="card">
 <h3>📊 Proven at Scale</h3>
-<p>5,000 concurrent virtual users, 23,578 requests per second, 0% errors. 8,000+ tests passing. 31 compliance frameworks. 11 SIEM platforms. 4 SOAR integrations.</p>
+<p>5,000 concurrent virtual users, 23,578 requests per second, 0% errors. 10,883+ tests passing. 31 compliance frameworks. 11 SIEM platforms. 4 SOAR integrations.</p>
 </div>
 
 </div>

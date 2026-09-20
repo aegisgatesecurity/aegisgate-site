@@ -66,7 +66,7 @@ Complete loss of primary AegisGate instance. Recovery from scratch on a new host
 | 9 | Verify RBAC policies | Test RBAC enforcement | ✅ Policies loaded | 10 sec |
 | 10 | Verify rate limiting | Send rapid requests | ✅ Rate limiting active | 5 sec |
 | 11 | Verify MCP guardrails | Test MCP connection | ✅ Guardrails active | 5 sec |
-| 12 | Verify scanner | Test detection pattern count | ✅ 176 patterns active | 10 sec |
+| 12 | Verify scanner | Test detection pattern count | ✅ 223 patterns active | 10 sec |
 | 13 | Full end-to-end test | Proxy AI request through gateway | ✅ Scanned and allowed | 30 sec |
 | 14 | Block malicious request | Send prompt injection through gateway | ✅ Scanned and blocked | 10 sec |
 
@@ -96,7 +96,7 @@ T+15:30   Full service restoration confirmed
 | Audit log chain | SHA-256 sequential hash verification | ✅ No breaks detected |
 | Configuration integrity | YAML schema validation | ✅ All fields valid |
 | License validity | ECDSA P-256 signature verification | ✅ Valid |
-| Detection patterns | Pattern count vs. expected (176) | ✅ 176 patterns loaded |
+| Detection patterns | Pattern count vs. expected (223) | ✅ 223 patterns loaded |
 | Compliance frameworks | Registration count vs. expected (31) | ✅ 31 frameworks registered |
 
 ### 3.3 Functional Verification

@@ -1,12 +1,12 @@
 ---
 title: "Open-Core License (Apache 2.0 Community + Commercial Enterprise)"
-description: "AegisGate uses an open-core licensing model — Apache 2.0 for the community edition and a separate commercial license for enterprise modules."
+description: "AegisGate uses an open-source licensing model — Apache 2.0 for the community edition and a separate commercial license for enterprise modules."
 type: "legal-doc"
 ---
 
 # Open-Core License — Apache 2.0 Community Edition
 
-**AegisGate Security Platform** uses an **open-core** licensing model:
+**AegisGate Security Platform** uses an **open-source** licensing model:
 
 - **Community edition** — Released under the **Apache License 2.0**. This includes the core proxy, detection engine, MCP/A2A/ACP/ANP protocol protection, response scanning, and 4 community compliance frameworks (OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF).
 - **Enterprise modules** — Governed by a separate **commercial license**. These include the Trust Framework, SIEM dispatcher, premium compliance frameworks (HIPAA, PCI-DSS, SOC 2, ISO 27001, FedRAMP, and 22 others), ML model training, and the trust portal. Enterprise modules are distributed via the `aegisgate-enterprise` repository under a commercial license.

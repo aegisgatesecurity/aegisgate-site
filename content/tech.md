@@ -28,7 +28,7 @@ flowchart TB
         L["RESPONSE Guard"]
         TR["Trust Framework\nPkg/trust/\n(v4.2.0)"]
 
-        M["Scanner - 176 patterns"]
+        M["Scanner - 223 patterns"]
         N["ATLAS - 66 techniques"]
         O["Rate Limiter"]
         P["Audit Logger - RFC 5424"]
@@ -79,7 +79,7 @@ AegisGate v4.2.0 protects every AI interaction with five protocol pillars and on
 
 ### 1. HTTP API Security (v3.0+, port 8080)
 
-Bidirectional scanning with 176 detection patterns:
+Bidirectional scanning with 223 detection patterns:
 
 | Pattern Set | Count | Coverage |
 |-------------|-------|----------|
