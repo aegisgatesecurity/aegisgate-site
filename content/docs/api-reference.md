@@ -225,7 +225,7 @@ GET /api/v1/sla
     {
       "name": "threat_detection_accuracy",
       "target": "> 99.5%",
-      "current": "99.8%"
+      "current": "100.0%"
     }
   ]
 }

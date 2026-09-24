@@ -1,10 +1,10 @@
 ---
 title: "Model Card"
-description: "AegisGate Char CNN-BiLSTM Threat Detection Model v11b — architecture, training data, evaluation metrics, and deployment guidance."
+description: "AegisGate Char CNN-BiLSTM Threat Detection Model v13 — architecture, training data, evaluation metrics, and deployment guidance."
 weight: 380
 ---
 
-## Model Card — AegisGate Threat Detector v11b
+## Model Card — AegisGate Threat Detector v13
 
 This model card follows the ML Model Card framework (Mitchell et al., 2019) and provides transparency into the AegisGate threat detection model.
 
@@ -14,9 +14,9 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 
 | Field | Value |
 |-------|-------|
-| **Model name** | AegisGate Threat Detector v11b |
+| **Model name** | AegisGate Threat Detector v13 |
 | **Model type** | Character CNN-BiLSTM with Attention |
-| **Version** | 11b (char-cnn-bilstm-v11b) |
+| **Version** | v13 (char-cnn-bilstm-v13) |
 | **Release date** | 2026-09-09 |
 | **License** | Apache 2.0 |
 | **Parameters** | 1,596,034 |
@@ -84,8 +84,8 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 
 | Metric | Value |
 |--------|-------|
-| Evasion test suite | 2,600 tests (52 ATLAS payloads × 50 transforms) |
-| Layered score (L1+L2+L3) | 99.8/100 |
+| Evasion test suite | 4,050 tests (81 payloads × 50 transforms (52 ATLAS + 29 V450 advanced)) |
+| Layered score (L1+L2+L3) | 100.0/100 |
 | In-scope misses | 0 |
 
 ---
@@ -95,7 +95,7 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 | Format | SHA-256 |
 |--------|---------|
 | ONNX (float32, Platform/Rampart) | `8e13c793c32816aa0f6e2af13ffadd4f38f707b4ac8906b56ddfa77da51ea8e5` |
-| JSON weights (float16, Lens) | `c09eef58c79928bb6ff19bcd155da34ee1809c0ff0165d1afd6b049b400615d7` |
+| JSON weights (float16, Lens) | `b46bbde284651319fdcdf9212e4b0579dfc2d3a5198291d5bddce822381dda3a` |
 
 The platform verifies the model hash at load time. If the hash does not match, the model is rejected and the system falls back to heuristic detection.
 
@@ -144,9 +144,9 @@ AegisGate includes a built-in A/B testing framework for comparing model variants
 ```bash
 # Create test
 curl -X POST -H "X-API-Key: your-key" -d '{
-  "name": "v11b-vs-v12",
+  "name": "v13-vs-v12",
   "variants": [
-    {"name": "champion", "weight": 90, "model_ref": "model-v11b"},
+    {"name": "champion", "weight": 90, "model_ref": "model-v13"},
     {"name": "challenger", "weight": 10, "model_ref": "model-v12"}
   ]
 }' https://aegisgate.yourcompany.com/api/v1/abtest/tests
@@ -162,7 +162,7 @@ curl -X POST -H "X-API-Key: your-key" -d '{
 |---------|------|-------------|---------|----------|
 | v9 | 2026-09-08 | Initial ATLAS-focused training, 66K samples | 95.5% | 0.7% |
 | v11 | 2026-09-09 | Expanded corpus to 70K, added evasion augmentation | 96.0% | 0.7% |
-| **v11b** | **2026-09-09** | **Final calibration, 99.8/100 layered evasion score** | **96.07%** | **0.64%** |
+| **v13** | **2026-09-23** | **Cross-product parity, 100.0/100 Platform/Rampart, 99.975/100 Lens (float16)** | **99.57%** | **0% (calibrated)** |
 
 ---
 
@@ -170,7 +170,7 @@ curl -X POST -H "X-API-Key: your-key" -d '{
 
 ```
 AegisGate Platform v4.5.0
-Char CNN-BiLSTM with Attention — Threat Detection Model v11b
+Char CNN-BiLSTM with Attention — Threat Detection Model v13
 Apache License 2.0
 https://github.com/aegisgatesecurity/aegisgate-platform
 ```

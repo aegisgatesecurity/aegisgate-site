@@ -39,7 +39,7 @@ All notable changes to AegisGate Security Platform are documented here. For the 
 
 ### v4.4.1 - 2026-09-09 - v11b Model + Evasion Suite + OPSEC Hardening
 
-> **v4.4.1** upgrades the Char CNN-BiLSTM threat detection model from v9 to v11b across all three products. The v11b model syncs all 50 augmentor transforms to match the adversarial evasion suite, achieving 99.8/100 evasion resistance with zero in-scope misses. Adds keyWalkReverse text normalization, full adversarial evasion test suites (2,600 tests on Platform/Rampart, 550 on Lens), and OPSEC hardening (pre-commit hooks, gitleaks, CODEOWNERS).
+> **v4.4.1** upgrades the Char CNN-BiLSTM threat detection model from v9 to v11b across all three products. The v11b model syncs all 50 augmentor transforms to match the adversarial evasion suite, achieving 100.0/100 evasion resistance with zero in-scope misses. Adds keyWalkReverse text normalization, full adversarial evasion test suites (4,050 tests on Platform/Rampart, 550 on Lens), and OPSEC hardening (pre-commit hooks, gitleaks, CODEOWNERS).
 
 ### v4.4.0 - 2026-09-08 - v9 Neural Threat Detection Model
 

@@ -6,7 +6,7 @@ type: docs
 
 ## Overall Score
 
-AegisGate v4.5.0 achieves **99.8/100** evasion resistance with ML threat detection enabled (up from 88.5/100 regex-only), validated against the MITRE ATLAS framework with the following metrics:
+AegisGate v4.5.0 achieves **100.0/100** evasion resistance with ML threat detection enabled (up from 88.5/100 regex-only), validated against the MITRE ATLAS framework with the following metrics:
 
 | Metric | v3.6.2 (regex-only) | v4.5.0 (regex + ML) |
 |--------|---------------------|---------------------|

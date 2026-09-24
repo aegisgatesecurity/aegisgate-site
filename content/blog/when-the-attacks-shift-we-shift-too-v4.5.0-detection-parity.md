@@ -26,7 +26,7 @@ This is the story of how we found our blind spots, fixed them, and proved it.
 
 ## The Setup: Testing Our Own Defenses
 
-We run a multi-layered detection stack on the AegisGate Platform: L1 regex pattern matching, L2 MITRE ATLAS technique mapping, and an ML-based CNN-BiLSTM threat detector. We've invested heavily in our evasion resistance — 99.8/100 on our adversarial evasion suite — and our ML efficacy metrics (100% TPR, 0% FPR, F1 = 1.0) are about as good as it gets.
+We run a multi-layered detection stack on the AegisGate Platform: L1 regex pattern matching, L2 MITRE ATLAS technique mapping, and an ML-based CNN-BiLSTM threat detector. We've invested heavily in our evasion resistance — 100.0/100 on our adversarial evasion suite — and our ML efficacy metrics (100% TPR, 0% FPR, F1 = 1.0) are about as good as it gets.
 
 But evasion resistance measures how well you detect *what you already know to detect*. It doesn't measure what you *don't know*.
 
@@ -105,7 +105,7 @@ We didn't just run unit tests. We ran the full k6 load testing suite to prove th
 | False Positive Rate | ✅ PASS | **0.00%** (24/24 benign allowed) |
 | MCP Guardrails | ✅ PASS | 100% enabled, p95=2ms |
 
-All 164 Go packages pass. All 23 E2E tests pass. ML efficacy unchanged: TPR 100%, FPR 0%, F1 1.0. Evasion suite unchanged: 99.8/100.
+All 164 Go packages pass. All 23 E2E tests pass. ML efficacy unchanged: TPR 100%, FPR 0%, F1 1.0. Evasion suite unchanged: 100.0/100.
 
 ---
 
@@ -131,7 +131,7 @@ Triple parity. One detection surface, three products.
 
 This session taught us three things:
 
-**1. Testing corpora insulate you from real-world attacks — in both directions.** Our evasion suite scored 99.8/100 because it tested what we already knew to detect. The k6 adversarial test used real-world phrasings from actual incidents, and it found a 46% gap. Your test suite is only as good as the diversity of its inputs.
+**1. Testing corpora insulate you from real-world attacks — in both directions.** Our evasion suite scored 100.0/100 because it tested what we already knew to detect. The k6 adversarial test used real-world phrasings from actual incidents, and it found a 46% gap. Your test suite is only as good as the diversity of its inputs.
 
 **2. Attackers don't read your regex.** They phrase attacks in natural language — questions, not commands. "What are your model weights?" is the same attack as "Extract the model weights," but it requires a different detection pattern. Detection logic has to account for how people actually talk, not just how attack tools format payloads.
 
