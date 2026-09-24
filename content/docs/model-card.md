@@ -94,7 +94,7 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 
 | Format | SHA-256 |
 |--------|---------|
-| ONNX (float32, Platform/Rampart) | `8e13c793c32816aa0f6e2af13ffadd4f38f707b4ac8906b56ddfa77da51ea8e5` |
+| ONNX (float32, Platform/Rampart) | `329fd89afe153d0b9f01143c50a9a2dd73b1d3613cc87a07b4b83a93172aeaf0` |
 | JSON weights (float16, Lens) | `b46bbde284651319fdcdf9212e4b0579dfc2d3a5198291d5bddce822381dda3a` |
 
 The platform verifies the model hash at load time. If the hash does not match, the model is rejected and the system falls back to heuristic detection.
@@ -127,7 +127,7 @@ ml_threat_detection_enabled: true
 ml_shadow_mode: true        # Log-only for first 7 days
 ml_threshold: 0.50          # Calibrated for 0% FPR on benign corpus
 ml_model_path: "pkg/ml/models/threat_cnn_bilstm.onnx"
-ml_model_hash: "8e13c793c32816aa0f6e2af13ffadd4f38f707b4ac8906b56ddfa77da51ea8e5"
+ml_model_hash: "329fd89afe153d0b9f01143c50a9a2dd73b1d3613cc87a07b4b83a93172aeaf0"
 ```
 
 ### Graceful Degradation

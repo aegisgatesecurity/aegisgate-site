@@ -499,7 +499,7 @@ curl -X POST -H "X-API-Key: your-key" \
     "name": "v4.4-evaluation",
     "description": "Compare current vs new model",
     "variants": [
-      {"name": "champion", "weight": 90, "model_ref": "model-v11b"},
+      {"name": "champion", "weight": 90, "model_ref": "model-v13"},
       {"name": "challenger", "weight": 10, "model_ref": "model-v12"}
     ]
   }' \

@@ -501,9 +501,9 @@ POST /api/v1/abtest/tests
 ```json
 {
   "name": "v4.4-detection-comparison",
-  "description": "Compare v11b vs v12 detection model",
+  "description": "Compare v13 vs v12 detection model",
   "variants": [
-    {"name": "champion", "weight": 50, "model_ref": "model-v11b"},
+    {"name": "champion", "weight": 50, "model_ref": "model-v13"},
     {"name": "challenger", "weight": 50, "model_ref": "model-v12"}
   ]
 }
@@ -839,7 +839,7 @@ test, err := client.ABTestV4.CreateTest(ctx, &aegisgate.ABTestV4CreateRequest{
     Name:        "v4.4-comparison",
     Description: "Compare models",
     Variants: []aegisgate.ABTestV4Variant{
-        {Name: "champion", Weight: 50, ModelRef: "model-v11b"},
+        {Name: "champion", Weight: 50, ModelRef: "model-v13"},
         {Name: "challenger", Weight: 50, ModelRef: "model-v12"},
     },
 })
