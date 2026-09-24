@@ -52,3 +52,4 @@ hugo_server.log
 # Local env overrides
 .env
 .env.local
+content/blog/devto-anthropic-openai-models-unsafe.md
