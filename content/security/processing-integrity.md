@@ -114,7 +114,7 @@ If any step fails, encounters an error, or produces unexpected output, the reque
 | Audit log chain integrity | Every 1,000 entries | SHA-256 chain verification | Alert + quarantine affected entries |
 | Compliance engine state | On startup + every 5 minutes | Framework registration count vs expected | Alert + fail-closed |
 | License validation | Every request | ECDSA P-256 signature verification | 7-day grace period, then fail-closed |
-| Scanner pattern count | On startup | Pattern count vs expected (223) | Alert + degraded mode |
+| Scanner pattern count | On startup | Pattern count vs expected (216) | Alert + degraded mode |
 | Rate limit counter accuracy | Every request | Atomic counter increment | Over-limit → 429 |
 
 ---

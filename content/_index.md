@@ -62,7 +62,7 @@ flowchart LR
     end
 
     subgraph Core["🔐 Core Detection Engine"]
-        D[223+ Patterns]
+        D[216+ Patterns]
         D1[PII + Secrets]
         D2[XSS + Compliance]
         D3[ML Adversarial]

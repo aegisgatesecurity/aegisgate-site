@@ -52,7 +52,7 @@ This is the closest analogy. AegisGate is EDR for AI API traffic. Seven detectio
 
 | Layer | What It Detects | Status |
 |-------|----------------|--------|
-| **L1 — Regex Scanner** | 223 known attack patterns (prompt injection, SSTI, XSS, data exfil, system prompt extraction) | ✅ Blocking |
+| **L1 — Regex Scanner** | 216 known attack patterns (prompt injection, SSTI, XSS, data exfil, system prompt extraction) | ✅ Blocking |
 | **L2 — ATLAS/Compliance** | 52+ MITRE ATLAS techniques, OWASP LLM Top 10, compliance violations (GDPR/HIPAA/PCI) | ✅ Blocking |
 | **L3 — CharCNN-BiLSTM Neural Net** | Adversarial prompt injection via ~1.6M param ONNX model — catches what regex can't | ✅ Blocking |
 | **P2 — Chain Analyzer** | Multi-turn escalation, exfiltration, and reconnaissance chains across tool calls | ✅ Blocking |

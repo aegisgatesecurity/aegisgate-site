@@ -96,7 +96,7 @@ T+15:30   Full service restoration confirmed
 | Audit log chain | SHA-256 sequential hash verification | ✅ No breaks detected |
 | Configuration integrity | YAML schema validation | ✅ All fields valid |
 | License validity | ECDSA P-256 signature verification | ✅ Valid |
-| Detection patterns | Pattern count vs. expected (223) | ✅ 216 patterns loaded |
+| Detection patterns | Pattern count vs. expected (216) | ✅ 216 patterns loaded |
 | Compliance frameworks | Registration count vs. expected (31) | ✅ 31 frameworks registered |
 
 ### 3.3 Functional Verification

@@ -18,7 +18,7 @@ mermaid: true
 <li><strong>11 SIEM integrations</strong>: Splunk, Elastic, Datadog, Sumo Logic, Chronicle, Loki, Fluentd, Logstash, Cribl, Kafka, Graylog, syslog</li>
 <li><strong>4 SOAR integrations</strong>: PagerDuty, Jira, ServiceNow, Custom webhook</li>
 <li><strong>ML threat detection</strong>: CharCNN-BiLSTM (1.58M params), 100/100 evasion resistance, 0% FPR, ~5ms</li>
-<li><strong>223+ detection patterns</strong>, MITRE ATLAS 66 techniques</li>
+<li><strong>216+ detection patterns</strong>, MITRE ATLAS 66 techniques</li>
 <li><strong>Web UI</strong>: 7-page dashboard at <code>/ui/</code></li>
 <li><strong>Single 19.1MB Go binary</strong>, zero external dependencies, air-gapped deployment</li>
 <li><strong>10,883+ tests passing</strong>, 81% coverage</li>
@@ -85,7 +85,7 @@ Platform v4.5.0 protects every AI interaction across six attack surfaces:
 <div class="card">
 <h3>🌐 HTTP API Security</h3>
 <ul>
-<li>223+ detection patterns</li>
+<li>216+ detection patterns</li>
 <li>MITRE ATLAS 66 techniques</li>
 <li>PII, secrets, API key detection</li>
 <li>Bidirectional request/response scanning</li>
@@ -152,7 +152,7 @@ flowchart TD
         direction TB
         
         subgraph Pillar1["🌐 HTTP API Security"]
-            P1[223+ Detection Patterns]
+            P1[216+ Detection Patterns]
             P1a[PII & Secrets Detection]
             P1b[Bidirectional Scanning]
         end
@@ -257,7 +257,7 @@ sequenceDiagram
     end
 
     Note over Proxy,Trust: Every action cryptographically signed
-    Note over Scanner: 223+ patterns + ML model (~5ms)
+    Note over Scanner: 216+ patterns + ML model (~5ms)
 {{< /mermaid >}}
 
 ---
@@ -405,7 +405,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 
 | Tier | Price | Key Features |
 |------|-------|--------------|
-| **Community** | Free | HTTP proxy, MCP, A2A, 223+ patterns, MITRE ATLAS, basic compliance |
+| **Community** | Free | HTTP proxy, MCP, A2A, 216+ patterns, MITRE ATLAS, basic compliance |
 | **Developer** | $79/mo | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
 | **Professional** | $499/mo | + Trust Framework, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
 | **Enterprise** | Custom | + Air-gapped deployment, custom compliance modules, dedicated SE, SLA |

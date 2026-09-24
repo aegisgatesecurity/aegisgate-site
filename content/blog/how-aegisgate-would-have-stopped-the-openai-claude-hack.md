@@ -48,7 +48,7 @@ This is exactly the pattern single-request security scanners miss. And it's the 
 
 We've written about our [detection gap analysis](/blog/when-the-attacks-shift-we-shift-too-v4.5.0-detection-parity/) and our [8.5M request validation run](/blog/from-shadow-to-shield-8-5m-requests-blocking-mode/). Now let's show what each layer does against a real attack — not synthetic test payloads, but the actual OpenAI hack chain.
 
-### Layer 1: Regex Scanner (223 Patterns)
+### Layer 1: Regex Scanner (216 Patterns)
 
 L1 scans every request for known attack patterns — prompt injection templates, credential harvesting syntax, PII, secrets. It's fast and it's our first line of defense.
 

@@ -12,7 +12,7 @@ Choose the coverage that matches your compliance needs.
 |---------|:---------:|:---------:|:---------:|:------------:|
 | **Price** | Free | $79/mo | $499/mo | Custom |
 | **MCP Guardrails** | 8 | 8 | 8 | 8 |
-| **Detection Patterns** | 223+ | 223+ | 223+ | 223+|
+| **Detection Patterns** | 216+ | 216+ | 216+ | 216+|
 | **Proxy Rate Limit** | Soft-throttle (no hard cap) | 1,000 RPM | 10,000 RPM | Unlimited |
 | **MCP Rate Limit** | Soft-throttle (no hard cap) | 500 RPM | 5,000 RPM | Unlimited |
 | **Max Users** | 5 | 25 | 100 | Unlimited |
@@ -67,7 +67,7 @@ Choose the coverage that matches your compliance needs.
 
 ### Tier Details
 
-**Community** — Free forever. For individuals and small teams getting started with AI security. Includes core proxy, 223+ detection patterns, and 4 community frameworks: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF.
+**Community** — Free forever. For individuals and small teams getting started with AI security. Includes core proxy, 216+ detection patterns, and 4 community frameworks: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF.
 
 **Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, code execution sandbox, advanced ML anomaly detection, and Grafana integration. 6 compliance frameworks included (HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR). Additional frameworks available as add-ons.
 

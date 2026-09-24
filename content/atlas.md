@@ -95,7 +95,7 @@ ATLAS organizes 66 techniques into 14 tactics. AegisGate provides comprehensive 
 | Technique | Coverage |
 |-----------|----------|
 | Supply Chain Compromise | mTLS, signature verification, MCP/ACP server validation |
-| Exploit Public-Facing Application | Input validation, 223 threat patterns |
+| Exploit Public-Facing Application | Input validation, 216 threat patterns |
 | Phishing (AI-specific) | Prompt injection detection across all pillars |
 
 ### Execution

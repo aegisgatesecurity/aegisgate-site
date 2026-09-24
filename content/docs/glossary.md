@@ -14,7 +14,7 @@ A reference for terms used throughout AegisGate documentation. Organized by cate
 |------|-----------|
 | **A2A** | Agent-to-Agent protocol. AegisGate secures A2A communication with mTLS, HMAC integrity, and capability enforcement. See `pkg/a2a/`. |
 | **ACP** | Agent Capability Policy. Controls which actions an AI agent is permitted to perform. See `pkg/acp/`. |
-| **Adversarial Pattern** | A prompt or content pattern designed to bypass security controls (prompt injection, jailbreak, encoding evasion). AegisGate detects 223 such patterns. |
+| **Adversarial Pattern** | A prompt or content pattern designed to bypass security controls (prompt injection, jailbreak, encoding evasion). AegisGate detects 216 such patterns. |
 | **ATLAS** | MITRE ATLAS (Adversarial Threat Landscape for AI Systems). A framework cataloging attacks against AI systems. AegisGate maps detections to ATLAS techniques. |
 | **CheckFunc** | The Go type for an automated compliance control check. Each `CheckFunc` evaluates a specific control and returns compliant/partial/non-compliant status. |
 | **Fail-Closed** | A security principle where the system blocks traffic if it cannot scan or verify it. AegisGate is fail-closed by default — if scanning fails, the request is blocked, not allowed through. |
