@@ -152,7 +152,7 @@ AegisGate's 7-layer detection pipeline maps directly to the failure modes in the
 
 | Layer | What It Does | Failure Mode Addressed |
 |-------|-------------|----------------------|
-| L1: Regex Scanning | 223 patterns for known injection signatures | Obvious injection attempts |
+| L1: Regex Scanning | 216 patterns for known injection signatures | Obvious injection attempts |
 | L2: ATLAS Compliance | Maps to MITRE ATT&CK + ATLAS techniques | Technique-based detection |
 | L3: Neural Net | CharCNN-BiLSTM v13 (1.6M params, 99.57% TPR) | Novel injection patterns |
 | P2: Chain Analysis | 20-turn window, blocks on 2nd call of escalation/exfil/recon chain | Multi-turn manipulation |

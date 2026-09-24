@@ -118,7 +118,7 @@ Each Management Review receives the following inputs, prepared by Compliance & S
 ### 4.7 Threat Intelligence
 
 - Emerging threats relevant to AegisGate's risk profile
-- Threat intelligence feed updates (223 detection patterns)
+- Threat intelligence feed updates (216 detection patterns)
 - Industry threat advisories and vulnerability disclosures
 
 ### 4.8 Continuous Improvement Status

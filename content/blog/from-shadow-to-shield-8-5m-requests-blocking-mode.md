@@ -104,7 +104,7 @@ After this validation, the AegisGate detection stack looks like this:
 Incoming Request
        │
        ▼
-  L1: Regex Pattern Matching (223 patterns)
+  L1: Regex Pattern Matching (216 patterns)
        │  → SSTI, obfuscated code, model theft, system prompt extraction,
        │    safety bypass, data exfiltration, OWASP Top 10 for LLMs
        ▼
