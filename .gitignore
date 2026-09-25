@@ -53,3 +53,6 @@ hugo_server.log
 .env
 .env.local
 content/blog/devto-anthropic-openai-models-unsafe.md
+
+# Internal planning documents
+plans/
