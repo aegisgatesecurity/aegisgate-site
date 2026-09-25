@@ -24,12 +24,11 @@
     <link rel="apple-touch-icon" href="{{ "favicon-64.png" | relURL }}">
     
     <!-- Font Preloading -->
-    <link rel="preload" as="font" href="/fonts/inter-400.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="/fonts/space-grotesk-700.woff2" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/fonts/fonts.css">
+    {{ if .Params.mermaid }}<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>{{ end }}
     
     <!-- CSS -->
-    {{ $styles := resources.Get "css/main.css" }}
+    {{ $styles := resources.Get "css/main.css" | minify }}
     {{ if $styles }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{ end }}
@@ -168,12 +167,12 @@
     {{ partial "footer.html" . }}
     
     <!-- JavaScript -->
-    {{ $scripts := resources.Get "js/main.js" }}
+    {{ $scripts := resources.Get "js/main.js" | minify }}
     {{ if $scripts }}
     <script src="{{ $scripts.RelPermalink }}" defer></script>
     {{ end }}
     
-    {{ $cookieConsent := resources.Get "js/cookie-consent.js" }}
+    {{ $cookieConsent := resources.Get "js/cookie-consent.js" | minify }}
     {{ if $cookieConsent }}
     <script src="{{ $cookieConsent.RelPermalink }}" defer></script>
     {{ end }}
