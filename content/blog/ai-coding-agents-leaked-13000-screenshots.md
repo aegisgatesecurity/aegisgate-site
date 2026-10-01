@@ -3,7 +3,7 @@ title: "13,000 Internal Screenshots, Leaked by Coding Agents That Were Just Doin
 slug: ai-coding-agents-leaked-13000-screenshots
 description: "Glow found 13,000 internal company images — billing records, treasury consoles, withdrawal screens — in public GitHub repositories across 300+ organizations. The agents weren't compromised. They weren't injected. They were doing what their developers asked. That's the entire problem."
 date: 2026-09-30T18:30:00-05:00
-draft: true
+draft: false
 author: Josh Colvin
 tags:
   - ai-security
