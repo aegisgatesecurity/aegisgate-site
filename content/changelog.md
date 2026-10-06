@@ -8,6 +8,43 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.5.2 - 2026-10-06 - Federated IOC Hardening (Phase 4) 🔒
+
+> **v4.5.2** hardens the federated IOC threat intelligence component with four production-readiness layers: per-IP rate limiting on gossip endpoints, bearer token authentication for the IOC admin API, AES-256-GCM encryption for keyring files at rest, and soft quarantine for IOCs from low-reputation peers. This completes the 4-phase IOC production readiness initiative (Phases 1–4).
+
+**Phase 4 — Hardening:**
+- **IOC Gossip Rate Limiting**: Per-IP token bucket on manifest and health endpoints (60/min default), CIDR allow-list bypass for trusted partner networks
+- **IOC Admin API Token Auth**: Bearer token middleware with `crypto/subtle.ConstantTimeCompare` — defense-in-depth on top of existing dashboard auth
+- **Keyring Encryption at Rest**: AES-256-GCM encryption for keyring JSON files, auto-detection on load, backward compatible with plaintext, automatic migration on next rotation
+- **Soft Quarantine**: IOCs from below-threshold peers stored with `Quarantined=true` instead of rejected — checker excludes them, `PromoteQuarantined` un-quarantines by source prefix, trusted IOCs never downgraded
+
+**IOC Production Readiness Initiative (Complete):**
+- Phase 1: IOC→Detection Feedback Loop — peer corroboration escalates local detections to blocks
+- Phase 2: External TAXII Feed Integration — per-feed pull loops, reputation weighting, severity floor
+- Phase 3: Metrics & Observability — Prometheus metrics, Grafana dashboard, alert rules
+- Phase 4: Hardening — rate limiting, admin auth, key encryption, soft quarantine
+
+**New Environment Variables:** `AEGISGATE_IOC_RATE_LIMIT`, `AEGISGATE_IOC_PEER_ALLOWLIST`, `AEGISGATE_IOC_ADMIN_TOKEN`, `AEGISGATE_IOC_KEY_PASSPHRASE`
+
+**Testing:** 37 new tests (20 unit + 10 in-process + 7 Docker-gated). All 362 `pkg/ioc` tests pass, 11,573+ total tests across 127 packages. `go vet` clean, `gofmt` clean.
+
+**Compatibility:** ✅ No breaking changes — drop-in replacement for v4.5.1
+
+---
+
+### v4.5.1 - 2026-09-22 - Security Hardening 🔒
+
+> **v4.5.1** adds session DoS protection (MaxSessions=10000 with LRU eviction), model update process documentation, and publishes the threat model (38 STRIDE findings, 9.5/10 security score). No breaking changes — drop-in replacement for v4.5.0.
+
+**Security Improvements:**
+- **Session DoS Protection**: Hard memory limit on session tracker (MaxSessions=10000), LRU eviction when limit exceeded, ~100MB max memory footprint
+- **Model Update Process**: Manual deployment only, SHA-256 hash verification on startup, restart required to load new model — prevents supply chain attacks
+- **Threat Model Publication**: THREAT-MODEL.md with 38 STRIDE findings, architecture diagrams (request flow, DFD, ML pipeline)
+
+**Compatibility:** ✅ No breaking changes — drop-in replacement for v4.5.0
+
+---
+
 ### v4.5.0 - 2026-09-19 - Threat Detection Enhancement Release
 
 > **v4.5.0** adds five new detection capabilities (P1-P5), two new ATLAS techniques (T1110 Brute Force, T1552 Unsecured Credentials), four distillation attack detectors (GAP-DIST2-5), and seven new L1 scanner patterns closing real-world attack gaps identified through internal adversarial testing. 100% detection rate on 24 real-world attack payloads, 0% false positives. Full 10-phase regression passed.
