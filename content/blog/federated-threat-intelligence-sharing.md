@@ -172,3 +172,9 @@ If you're interested in joining the federation or want to evaluate AegisGate for
 ---
 
 **v4.5.2 is live.** [Release notes](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.5.2) · [CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md) · [Docker image](https://github.com/aegisgatesecurity/aegisgate-platform/pkgs/container/aegisgate-platform)
+
+**Secure Every AI Interaction.**
+
+---
+
+*Josh Colvin is the founder of [AegisGate Security](https://aegisgatesecurity.io), building open-source, self-hosted AI security. Apache 2.0. No telemetry. No data egress. [GitHub](https://github.com/aegisgatesecurity/aegisgate-platform).*
