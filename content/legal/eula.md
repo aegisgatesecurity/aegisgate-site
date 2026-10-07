@@ -181,7 +181,7 @@ This Agreement does not transfer any ownership rights to you. You receive only a
 If you provide feedback, suggestions, recommendations, or ideas regarding the Software ("Feedback"), Company may use such Feedback without obligation to you and without compensating you. You hereby grant Company a perpetual, irrevocable, worldwide, royalty-free, sublicensable license to use, modify, and incorporate Feedback into the Software or any other products or services.
 
 ### 4.4 Trademarks
-"AegisGate," "AegisGate Security Platform," and associated logos, marks, and trade dress are trademarks or registered trademarks of Company. No license to use these trademarks is granted under this Agreement. You may not use Company's trademarks without Company's prior written consent.
+"AegisGate™," "AegisGate Security Platform™," and associated logos, marks, and trade dress are trademarks of Company. No license to use these trademarks is granted under this Agreement. You may not use Company's trademarks without Company's prior written consent.
 
 You may, however, identify yourself as a user of the Software in accordance with standard industry practice (e.g., customer lists, case studies with prior written approval).
 
