@@ -46,7 +46,7 @@ It runs 100% on-device. No account. No telemetry. No data collection. Nothing ev
 
 ---
 
-## ⚡ AegisGate Rampart v0.7.1 — Local Proxy + IDE Plugin for Developers
+## ⚡ AegisGate Rampart v0.8.0 — Local Proxy + IDE Plugin for Developers
 
 Rampart protects the AI tools that Lens can't reach — your IDE, your terminal, your API calls. It runs as a local proxy or as an IDE plugin, intercepting AI traffic from Copilot, Cursor, local LLMs (Ollama, LM Studio), and direct API calls to OpenAI/Anthropic.
 
@@ -55,7 +55,7 @@ Rampart protects the AI tools that Lens can't reach — your IDE, your terminal,
 2. **Local Proxy** — runs on `localhost:8443`, intercepts all AI HTTP traffic. MITM block mode stops malicious prompts before they reach the model. CA keys encrypted at rest. Audit logs redacted.
 
 **Key stats:**
-- 1,318 test functions, 80.7% coverage
+- 1,412 test functions, 81.3% coverage
 - 13 release assets (macOS, Linux, Windows, Docker — cosign-signed)
 - Same detection engine as Lens: PII, secrets, XSS, compliance, adversarial ML
 - Apache 2.0, zero external dependencies for core functionality

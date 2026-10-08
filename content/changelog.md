@@ -8,6 +8,18 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v0.8.0 (Rampart) - 2026-10-08 - Detection Parity + v13 Model + 100.0/100 Evasion Resistance
+
+> **v0.8.0** achieves full detection parity with AegisGate Platform. The v13 ONNX model ships with CGO-enabled Docker builds, full text normalization in production, config-sourced detector initialization, and a calibrated threshold (0.5). Evasion resistance jumps from 12.8/100 to **100.0/100** across 4,050 adversarial test cases. 26 regex patterns synced from Platform (185→211).
+
+**Key changes:**
+- v13 ONNX model (replaces v11b), SHA-256 verified at load time
+- Detection parity fix: CGO enabled, model in Docker, config-sourced init, threshold 0.7→0.5, NormalizeAllVariants in production
+- 26 regex patterns synced (185→211): Slack, Azure, Cloudflare, Docker, GCP, Kubernetes, SSTI, eval/atob, model theft, data exfil, safety bypass
+- Dockerfile rewritten for CGO + ONNX Runtime v1.29.0 (Debian bookworm-slim)
+- CI: CGO-enabled Linux build, ml-test job, conformance infrastructure
+- 95 test files, 29 packages, 1,412 test functions, 81.3% filtered coverage
+
 ### v4.5.2 - 2026-10-06 - Federated IOC Hardening (Phase 4) 🔒
 
 > **v4.5.2** hardens the federated IOC threat intelligence component with four production-readiness layers: per-IP rate limiting on gossip endpoints, bearer token authentication for the IOC admin API, AES-256-GCM encryption for keyring files at rest, and soft quarantine for IOCs from low-reputation peers. This completes the 4-phase IOC production readiness initiative (Phases 1–4).

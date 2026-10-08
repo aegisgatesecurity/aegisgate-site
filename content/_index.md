@@ -14,7 +14,7 @@ mermaid: true
 <div class="project-badges">
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.5.2" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg" alt="Platform Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg" alt="Lens Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
 </div>
 </div>
@@ -119,7 +119,7 @@ flowchart LR
 <li>Free and open source (Apache 2.0). No account needed. No data collected.</li>
 </ul>
 <p>
-<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
 <a href="/rampart/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
@@ -464,7 +464,7 @@ flowchart LR
 <div class="card text-center" style="border-color:#f59e0b;">
 <h3>⚡ Download Rampart</h3>
 <p>Free local proxy + IDE plugin. macOS, Linux, Windows.</p>
-<p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
 <p style="font-size:0.85rem; color:#888;">VS Code, JetBrains, Neovim, any LSP editor</p>
 </div>
 
