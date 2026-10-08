@@ -13,6 +13,7 @@ mermaid: true
 <div class="hero-badges-wrapper">
 <div class="project-badges">
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.5.2" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.3.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg" alt="MCP Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg" alt="Lens Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
@@ -506,6 +507,7 @@ flowchart LR
 <ul>
 <li><a href="/lens/">Lens</a> — browser extension for AI chat protection</li>
 <li><a href="/rampart/">Rampart</a> — local proxy + IDE plugin for developers</li>
+<li><a href="/mcp/">MCP</a> — secure MCP server framework with 22 security layers</li>
 <li><a href="/platform/">Platform</a> — enterprise gateway with verifiable security</li>
 <li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
 <li><a href="/docs/comparison/">Competitive comparison</a> — 7 competitors, 31 frameworks</li>
