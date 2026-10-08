@@ -31,34 +31,39 @@ title = "AegisGate — Secure Every AI Interaction"
     weight = 1
 
   [[menu.main]]
+    name = "MCP"
+    url = "/mcp/"
+    weight = 2
+
+  [[menu.main]]
     name = "Rampart"
     url = "/rampart/"
-    weight = 2
+    weight = 3
 
   [[menu.main]]
     name = "Platform"
     url = "/platform/"
-    weight = 3
+    weight = 4
 
   [[menu.main]]
     name = "Docs"
     url = "/docs/"
-    weight = 4
+    weight = 5
 
   [[menu.main]]
     name = "Pricing"
     url = "/pricing/"
-    weight = 5
+    weight = 6
 
   [[menu.main]]
     name = "Partners"
     url = "/partners/"
-    weight = 6
+    weight = 7
 
   [[menu.main]]
     name = "🚀 Live Demo"
     url = "https://demo.aegisgatesecurity.io/"
-    weight = 7
+    weight = 8
 
   [[menu.main]]
     name = "Blog"
