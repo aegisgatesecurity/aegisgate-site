@@ -92,6 +92,7 @@ jobs:
             --exclude 'x.com/aegisgate'
             --exclude 'cloudsecurityalliance.org'
             --exclude 'linkedin.com'
+            --exclude 'eur-lex.europa.eu'
             --include-fragments
             --no-progress
             public/**/*.html
