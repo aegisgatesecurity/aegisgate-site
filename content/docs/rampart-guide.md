@@ -10,12 +10,12 @@ weight: 440
 
 | | |
 |---|---|
-| **Version** | v0.7.1 |
+| **Version** | v0.8.0 |
 | **License** | Apache 2.0 |
 | **Language** | Go (single static binary, zero runtime dependencies) |
 | **Detection latency** | ~5 ms per request |
 | **Throughput** | 235 requests/second |
-| **Test functions** | 1,318 (80.7% coverage) |
+| **Test functions** | 1,412 (81.3% coverage) |
 | **AI endpoints intercepted** | 27 |
 | **LLM presets** | 10 |
 | **Crash rate** | 0.0000% |
@@ -43,11 +43,11 @@ Rampart ships as a single static binary with no runtime dependencies. Pre-built 
 | macOS | `rampart-darwin-arm64` | Apple Silicon |
 | Linux | `rampart-linux-amd64` | x86-64 |
 | Linux | `rampart-linux-arm64` | ARM64 |
-| Linux (deb) | `rampart_0.7.1_amd64.deb` | x86-64 |
-| Linux (rpm) | `rampart-0.7.1.x86_64.rpm` | x86-64 |
+| Linux (deb) | `rampart_0.8.0_amd64.deb` | x86-64 |
+| Linux (rpm) | `rampart-0.8.0.x86_64.rpm` | x86-64 |
 | Windows | `rampart-windows-amd64.exe` | x86-64 |
 | Windows | `rampart-windows-arm64.exe` | ARM64 |
-| Docker | `ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.7.1` | Multi-arch |
+| Docker | `ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.8.0` | Multi-arch |
 
 Download from the [releases page](https://github.com/AegisGateSecurity/rampart/releases), verify the cosign signature, and place the binary on your `PATH`:
 
@@ -64,14 +64,14 @@ rampart verify
 ### Docker
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.7.1
+docker pull ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.8.0
 
 # Run in proxy mode on port 8080
 docker run -d \
   --name rampart \
   -p 8080:8080 \
   -v rampart-config:/config \
-  ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.7.1 \
+  ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.8.0 \
   --port=8080 --config=/config --mode=block
 ```
 
@@ -1105,4 +1105,4 @@ go build -o rampart ./cmd/rampart
 go test ./... -cover
 ```
 
-With 1,318 test functions and 80.7% coverage, the test suite ensures reliability across all detection layers.
+With 1,412 test functions and 81.3% coverage, the test suite ensures reliability across all detection layers.

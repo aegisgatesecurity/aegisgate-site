@@ -96,7 +96,7 @@ SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NI
 | False positive rate | 0.0% |
 | Evasion resistance | 100/100 |
 | Binary size | 19.1 MB |
-| Test count | ~11,000 (Platform) + 538 (Lens) + 1,318 (Rampart) |
+| Test count | ~11,000 (Platform) + 538 (Lens) + 1,412 (Rampart) |
 
 ### What's Needed Before Enterprise Procurement
 

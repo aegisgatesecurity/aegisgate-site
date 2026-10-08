@@ -147,7 +147,7 @@ Sarah surveyed the team after 90 days:
 
 ## Try It Yourself
 
-- ⚡ [Download Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1) — free for all editors
+- ⚡ [Download Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.8.0) — free for all editors
 - 🏢 [Deploy Platform](https://github.com/aegisgatesecurity/aegisgate-platform) — free tier or $79/mo Developer
 - 📊 [See Pricing](/pricing/) — compare all tiers
 - 🔧 [IDE Integration Guide](/docs/ide-integration/) — setup for VS Code, JetBrains, Neovim
