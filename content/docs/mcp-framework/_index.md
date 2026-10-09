@@ -30,13 +30,13 @@ go build -o mcp-server ./cmd/mcp-server
 Or via Docker:
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.0
-docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.0 --demo
+docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1
+docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1 --demo
 ```
 
 ## Links
 
 - **GitHub:** [aegisgatesecurity/aegisgate-mcp](https://github.com/aegisgatesecurity/aegisgate-mcp)
 - **MCP Registry:** `io.github.aegisgatesecurity/aegisgate-mcp`
-- **Latest Release:** [v1.4.0](https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.4.0)
+- **Latest Release:** [v1.4.1](https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.4.1)
 - **License:** Apache 2.0
