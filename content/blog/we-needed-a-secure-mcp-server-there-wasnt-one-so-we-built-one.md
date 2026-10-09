@@ -100,7 +100,7 @@ AegisGate MCP is now listed in the [official MCP Registry](https://registry.mode
 curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=aegisgate"
 ```
 
-You'll find us at `io.github.aegisgatesecurity/aegisgate-mcp`, version 1.3.0, with the OCI package at `ghcr.io/aegisgatesecurity/aegisgate-mcp:1.3.0`.
+You'll find us at `io.github.aegisgatesecurity/aegisgate-mcp`, version 1.4.0, with the OCI package at `ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.0`.
 
 This means any MCP client that supports registry-based discovery can now find and install AegisGate MCP. That's the first real distribution channel — and it's the official one.
 
@@ -110,10 +110,10 @@ This means any MCP client that supports registry-based discovery can now find an
 
 ```bash
 # Pull the Docker image
-docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.3.0
+docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.0
 
 # Run it
-docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.3.0
+docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.0
 
 # Or build from source (zero external deps, air-gapped compatible)
 git clone https://github.com/aegisgatesecurity/aegisgate-mcp.git
