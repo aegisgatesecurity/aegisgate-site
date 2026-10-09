@@ -7,7 +7,7 @@ weight: 51
 
 # Getting Started with AegisGate MCP
 
-> **License:** Apache-2.0 &nbsp;|&nbsp; **Version:** 1.4.0 &nbsp;|&nbsp; **Go:** 1.26+ &nbsp;|&nbsp; **Dependencies:** Zero external runtime dependencies
+> **License:** Apache-2.0 &nbsp;|&nbsp; **Version:** 1.4.1 &nbsp;|&nbsp; **Go:** 1.26+ &nbsp;|&nbsp; **Dependencies:** Zero external runtime dependencies
 
 AegisGate MCP is a security-first Model Context Protocol (MCP) server designed for secure AI agent tool use across any environment. It provides tool execution, role-based access control (RBAC), policy enforcement, audit logging, and neural threat detection out of the box — all in a single Go binary with zero external module dependencies.
 
@@ -91,7 +91,7 @@ echo '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-1
     "protocolVersion": "2024-11-05",
     "serverInfo": {
       "name": "aegisgate-mcp",
-      "version": "1.4.0"
+      "version": "1.4.1"
     },
     "capabilities": {
       "tools": {}
