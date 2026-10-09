@@ -67,7 +67,7 @@ Plus: session management with 256-bit IDs and 30-minute expiry, SSE streaming vi
 
 | Metric | Value |
 |--------|-------|
-| Tests | 412 |
+| Tests | 429 |
 | Coverage | 91.3% |
 | External dependencies | 0 |
 | CI checks | 17 |
@@ -100,7 +100,7 @@ AegisGate MCP is now listed in the [official MCP Registry](https://registry.mode
 curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=aegisgate"
 ```
 
-You'll find us at `io.github.aegisgatesecurity/aegisgate-mcp`, version 1.4.1, with the OCI package at `ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1`.
+You'll find us at `io.github.aegisgatesecurity/aegisgate-mcp`, version 1.4.2, with the OCI package at `ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2`.
 
 This means any MCP client that supports registry-based discovery can now find and install AegisGate MCP. That's the first real distribution channel — and it's the official one.
 
@@ -110,10 +110,10 @@ This means any MCP client that supports registry-based discovery can now find an
 
 ```bash
 # Pull the Docker image
-docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1
+docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2
 
 # Run it
-docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1
+docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2
 
 # Or build from source (zero external deps, air-gapped compatible)
 git clone https://github.com/aegisgatesecurity/aegisgate-mcp.git
@@ -145,7 +145,7 @@ The MCP ecosystem is growing fast. Every week, new servers appear — database c
 
 The official SDK gives you the protocol. It doesn't give you a firewall.
 
-AegisGate MCP is that firewall. 22 layers of detection. Zero dependencies. Signed releases. 412 tests. Now discoverable in the official registry.
+AegisGate MCP is that firewall. 22 layers of detection. Zero dependencies. Signed releases. 429 tests. Now discoverable in the official registry.
 
 The challenge was presented: secure MCP servers don't exist. We built one.
 

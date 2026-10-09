@@ -7,7 +7,7 @@ weight: 54
 
 # Deployment Guide
 
-> **License:** Apache-2.0 &nbsp;|&nbsp; **Version:** 1.4.1 &nbsp;|&nbsp; **Go:** 1.26+ &nbsp;|&nbsp; **Dependencies:** Zero external runtime dependencies
+> **License:** Apache-2.0 &nbsp;|&nbsp; **Version:** 1.4.2 &nbsp;|&nbsp; **Go:** 1.26+ &nbsp;|&nbsp; **Dependencies:** Zero external runtime dependencies
 
 ---
 
@@ -34,10 +34,10 @@ docker run -d --name aegisgate-mcp \
 ### Pre-built Image from GHCR
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1
+docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2
 docker run -d --name aegisgate-mcp \
   -p 8081:8081 \
-  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1 \
+  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2 \
   --transport http --demo
 ```
 
@@ -47,7 +47,7 @@ docker run -d --name aegisgate-mcp \
 version: '3.8'
 services:
   aegisgate-mcp:
-    image: ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1
+    image: ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2
     ports:
       - "8081:8081"
       - "8082:8082"  # health checks

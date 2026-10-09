@@ -8,14 +8,14 @@ type: "landing"
      MCP STANDALONE SERVER FRAMEWORK
      ============================================================ -->
 
-> **🛡️ AegisGate MCP v1.4.1 is LIVE** — 22 security layers, Streamable HTTP transport with SSE streaming, server-initiated notifications, resource subscriptions, resource templates, tool poisoning detection, ML threat detection, zero dependencies. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-mcp) (free, open source, Apache 2.0).
+> **🛡️ AegisGate MCP v1.4.2 is LIVE** — 22 security layers, Streamable HTTP transport with SSE streaming, server-initiated notifications, resource subscriptions, resource templates, tool poisoning detection, ML threat detection, zero dependencies. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-mcp) (free, open source, Apache 2.0).
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate MCP</strong> is a <strong>free, open-source MCP server framework</strong> built for security-first AI agent deployments.
 22 layers of defense, zero external dependencies, signed releases.
 <br><br>
 <a href="https://github.com/aegisgatesecurity/aegisgate-mcp" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.4.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download v1.4.1 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.4.2" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download v1.4.2 →</a>
 </div>
 
 ---
@@ -57,14 +57,14 @@ AegisGate MCP is a standalone MCP server framework that applies **22 security la
 
 ```bash
 # Download signed binary
-wget https://github.com/aegisgatesecurity/aegisgate-mcp/releases/download/v1.4.1/mcp-server-linux-amd64
+wget https://github.com/aegisgatesecurity/aegisgate-mcp/releases/download/v1.4.2/mcp-server-linux-amd64
 chmod +x mcp-server-linux-amd64
 
 # Run with demo tools
 ./mcp-server-linux-amd64 --demo --addr :8081
 
 # Or use Docker
-docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.1
+docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2
 ```
 
 ## Use as a Go Library
