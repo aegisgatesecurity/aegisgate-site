@@ -49,6 +49,12 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Badge SVGs change between releases — must not be cached as immutable
+[[headers]]
+  for = "/img/badges/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
 [[headers]]
   for = "/*.svg"
   [headers.values]
