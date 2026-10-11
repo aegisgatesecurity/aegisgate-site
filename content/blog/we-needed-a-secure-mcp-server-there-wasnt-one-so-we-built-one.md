@@ -1,7 +1,7 @@
 ---
 title: "We Needed a Secure MCP Server. There Wasn't One. So We Built One."
 slug: we-needed-a-secure-mcp-server-there-wasnt-one-so-we-built-one
-description: "The Model Context Protocol is the future of AI tool integration — and it ships with zero security. We audited the ecosystem, found nothing that met the bar, and built AegisGate MCP: 22 security layers, zero dependencies, now in the official MCP Registry."
+description: "The Model Context Protocol is the future of AI tool integration — and it ships with zero security. We audited the ecosystem, found nothing that met the bar, and built AegisGate MCP: 23 security layers, zero dependencies, now in the official MCP Registry."
 date: 2026-10-08
 author: Josh Colvin
 tags:
@@ -46,7 +46,7 @@ The constraints were harder:
 
 ## What We Built
 
-AegisGate MCP is a standalone MCP server framework with 22 security layers across 8 detection categories:
+AegisGate MCP is a standalone MCP server framework with 23 security layers across 8 detection categories:
 
 | Category | What It Does |
 |----------|-------------|
@@ -100,7 +100,7 @@ AegisGate MCP is now listed in the [official MCP Registry](https://registry.mode
 curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=aegisgate"
 ```
 
-You'll find us at `io.github.aegisgatesecurity/aegisgate-mcp`, version 1.4.2, with the OCI package at `ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2`.
+You'll find us at `io.github.aegisgatesecurity/aegisgate-mcp`, version 1.5.0, with the OCI package at `ghcr.io/aegisgatesecurity/aegisgate-mcp:1.5.0`.
 
 This means any MCP client that supports registry-based discovery can now find and install AegisGate MCP. That's the first real distribution channel — and it's the official one.
 
@@ -110,10 +110,10 @@ This means any MCP client that supports registry-based discovery can now find an
 
 ```bash
 # Pull the Docker image
-docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2
+docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.5.0
 
 # Run it
-docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2
+docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.5.0
 
 # Or build from source (zero external deps, air-gapped compatible)
 git clone https://github.com/aegisgatesecurity/aegisgate-mcp.git
@@ -151,7 +151,7 @@ The challenge was presented: secure MCP servers don't exist. We built one.
 
 ---
 
-**[AegisGate MCP](https://github.com/aegisgatesecurity/aegisgate-mcp)** — Open-source MCP server framework with 22 security layers. Zero dependencies. Apache 2.0.
+**[AegisGate MCP](https://github.com/aegisgatesecurity/aegisgate-mcp)** — Open-source MCP server framework with 23 security layers. Zero dependencies. Apache 2.0.
 
 **[MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=aegisgate)** | **[GitHub](https://github.com/aegisgatesecurity/aegisgate-mcp)** | **[Docker](https://github.com/aegisgatesecurity/aegisgate-mcp/pkgs/container/aegisgate-mcp)**
 
