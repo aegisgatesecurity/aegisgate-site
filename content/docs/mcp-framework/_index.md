@@ -1,13 +1,13 @@
 ---
 title: "MCP Framework"
-description: "Documentation for AegisGate MCP — the open-source, security-first MCP server framework with 22 security layers"
+description: "Documentation for AegisGate MCP — the open-source, security-first MCP server framework with 23 security layers"
 type: docs
 weight: 50
 ---
 
 # AegisGate MCP Framework
 
-AegisGate MCP is a free, open-source MCP server framework with 22 security layers, zero external dependencies, and SSE streaming. Apache 2.0 licensed.
+AegisGate MCP is a free, open-source MCP server framework with 23 security layers, zero external dependencies, and SSE streaming. Apache 2.0 licensed.
 
 ## Documentation
 
@@ -30,13 +30,13 @@ go build -o mcp-server ./cmd/mcp-server
 Or via Docker:
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2
-docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.4.2 --demo
+docker pull ghcr.io/aegisgatesecurity/aegisgate-mcp:1.5.0
+docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.5.0 --demo
 ```
 
 ## Links
 
 - **GitHub:** [aegisgatesecurity/aegisgate-mcp](https://github.com/aegisgatesecurity/aegisgate-mcp)
 - **MCP Registry:** `io.github.aegisgatesecurity/aegisgate-mcp`
-- **Latest Release:** [v1.4.2](https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.4.2)
+- **Latest Release:** [v1.5.0](https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.5.0)
 - **License:** Apache 2.0

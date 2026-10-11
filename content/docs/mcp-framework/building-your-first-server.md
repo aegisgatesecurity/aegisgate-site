@@ -1,18 +1,18 @@
 ---
 title: "Build Your First Secure MCP Server"
-description: "Complete tutorial — build a production-ready MCP server with custom tools, RBAC, policies, and all 22 security layers"
+description: "Complete tutorial — build a production-ready MCP server with custom tools, RBAC, policies, and all 23 security layers"
 type: docs
 weight: 52
 ---
 
 # Building Your First Secure MCP Server
 
-> **License:** Apache-2.0 &nbsp;|&nbsp; **Version:** 1.4.2 &nbsp;|&nbsp; **Go:** 1.26+ &nbsp;|&nbsp; **Dependencies:** Zero external runtime dependencies
+> **License:** Apache-2.0 &nbsp;|&nbsp; **Version:** 1.5.0 &nbsp;|&nbsp; **Go:** 1.26+ &nbsp;|&nbsp; **Dependencies:** Zero external runtime dependencies
 
 This tutorial walks you through building a complete, production-ready MCP server with AegisGate MCP — from registering custom tools to enrolling agents with RBAC, configuring security policies, and connecting a real MCP client.
 
 **Time to complete:** 15 minutes  
-**What you'll build:** A secure MCP server with a custom "weather lookup" tool, RBAC-enrolled agents, policy rules, and all 22 security layers active
+**What you'll build:** A secure MCP server with a custom "weather lookup" tool, RBAC-enrolled agents, policy rules, and all 23 security layers active
 
 ---
 
@@ -194,7 +194,7 @@ In Cursor Settings → MCP Servers → Add: URL `http://localhost:8081/mcp`
 
 ## What's Happening Under the Hood
 
-Every request passes through 22 security layers before reaching your tool handler:
+Every request passes through 23 security layers before reaching your tool handler:
 
 ```
 Client Request
