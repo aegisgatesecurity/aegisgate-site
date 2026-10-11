@@ -12,7 +12,7 @@ type: "landing"
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate MCP</strong> is a <strong>free, open-source MCP server framework</strong> built for security-first AI agent deployments.
-22 layers of defense, zero external dependencies, signed releases.
+23 layers of defense, zero external dependencies, signed releases.
 <br><br>
 <a href="https://github.com/aegisgatesecurity/aegisgate-mcp" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub →</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.5.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download v1.5.0 →</a>
@@ -25,17 +25,17 @@ type: "landing"
 AegisGate MCP is a standalone MCP server framework that applies **23 security layers** to every JSON-RPC request — from prompt injection detection to tool poisoning prevention to response scanning. It's the security-hardened alternative to the official MCP SDKs, designed for teams that can't afford to treat MCP security as an afterthought.
 
 - **Protocol:** MCP 2025-06-18
-- **Language:** Go 1.26.6
+- **Language:** Go 1.26.9
 - **License:** Apache 2.0
 - **Dependencies:** Zero (no `require` directives in go.mod)
 
-## 22 Security Layers
+## 23 Security Layers
 
 | # | Layer | What It Does |
 |---|-------|-------------|
 | 1 | Regex Pattern Matching | 30 patterns detect known injection vectors |
 | 2 | ATLAS Compliance | Maps to ATLAS threat framework |
-| 3 | Neural ML Detection | CharCNN-BiLSTM v13 model, 94.2% accuracy |
+| 3 | Neural ML Detection | CharCNN-BiLSTM v13, 1.6M params, <1ms CPU inference |
 | 4 | Tool Poisoning Detection | Scans tool descriptions and schemas at registration |
 | 5 | RBAC | Role-based access control per tool |
 | 6 | Policy Engine | Configurable allow/deny rules |
@@ -43,7 +43,7 @@ AegisGate MCP is a standalone MCP server framework that applies **23 security la
 | 8 | Response Scanning | Scans tool outputs before returning to client |
 | 9 | Rate Limiting | Per-session, per-tool, per-client |
 | 10 | Session Management | 256-bit session IDs, 30-min expiry |
-| 11-22 | Additional layers | Signature verification, guardrails, chain analysis, and more |
+| 11-23 | Additional layers | Signature verification, guardrails, chain analysis, evasion detection (L2.5), elicitation support, and more |
 
 ## Transports
 
@@ -52,6 +52,17 @@ AegisGate MCP is a standalone MCP server framework that applies **23 security la
 | TCP | `--transport tcp` (default) | TCP listener, supports TLS/mTLS |
 | stdio | `--transport stdio` | Standard MCP stdin/stdout for local clients |
 | HTTP | `--transport http` | Streamable HTTP (MCP 2025-06-18) with `Mcp-Session-Id` session management and SSE streaming |
+
+## What's New in v1.5.0
+
+- **Evasion Detection (L2.5)** — 15 regex patterns detecting encoding (base64, URL, unicode, HTML entities), splitting (zero-width chars, interleaving), obfuscation (leet speak, padding, markup), and semantic evasion (role-play framing, instruction override)
+- **Elicitation Support** — Server-asks-client across all 3 transports (async HTTP, sync TCP+stdio) via `elicitation/create`
+- **Per-Tool Rate Limiting** — `MaxCallsPerToolPerSession` with per-tool overrides
+- **JSON-RPC 2.0 Batch Support** — Array requests across all transports
+- **SSE Reconnection** — `Last-Event-ID` header with ring buffer replay
+- **Per-Session SSE Multiplexing** — Multiple concurrent SSE streams per session
+- **643 tests** (611 unit/integration + 32 load/stress), 14 benchmarks, 3 fuzz targets, 92.0% coverage
+- **Race detector clean** — CI runs `go test -race` on every PR
 
 ## Quick Start
 
@@ -91,7 +102,7 @@ Every release includes 12 Cosign-signed assets:
 
 | Feature | AegisGate MCP | Official MCP SDK | mcpgate | mcp-shield |
 |---------|--------------|-----------------|---------|------------|
-| Security layers | 22 | 0 | ~5 | ~3 |
+| Security layers | 23 | 0 | ~5 | ~3 |
 | Tool poisoning detection | ✅ | ❌ | ❌ | ❌ |
 | ML threat detection | ✅ | ❌ | ❌ | ❌ |
 | SSE streaming | ✅ | ❌ | ❌ | ❌ |
@@ -107,7 +118,7 @@ AegisGate MCP is free and standalone. When you need enterprise scale (unlimited 
 
 | Need | AegisGate MCP (free) | AegisGate Platform |
 |------|---------------------|-------------------|
-| Secure MCP server | ✅ 22 layers | ✅ Embedded |
+| Secure MCP server | ✅ 23 layers | ✅ Embedded |
 | ML threat detection | ✅ 100 inf/min | ✅ Unlimited |
 | OAuth/SAML/SSO | ❌ Bearer tokens | ✅ Full SSO |
 | SIEM integration | ❌ File + Prometheus | ✅ 11 platforms |

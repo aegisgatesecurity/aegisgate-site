@@ -1515,6 +1515,26 @@ ul li::before {
   margin-right: auto;
 }
 
+/* Make cards in 2x2 grid flex columns so buttons pin to bottom */
+.card-grid-2x2 .card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button row — push to bottom of card, wrap nicely */
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.card-actions .btn {
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .card-grid-2x2 {
     grid-template-columns: 1fr;

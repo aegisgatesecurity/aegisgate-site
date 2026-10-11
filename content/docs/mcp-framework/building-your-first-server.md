@@ -110,7 +110,7 @@ func main() {
 		Policies: []string{"default"},
 	})
 
-	// 6. Load default security policies (22 layers)
+	// 6. Load default security policies (23 layers)
 	srv.LoadDefaultPolicies()
 
 	// 7. Add a custom policy rule
@@ -135,7 +135,7 @@ func main() {
 
 	fmt.Printf("Secure MCP server running on %s\n", *addr)
 	fmt.Println("Tools: get_weather, ping, echo")
-	fmt.Println("Security: 22 layers active (regex, ML, RBAC, policy, audit)")
+	fmt.Println("Security: 23 layers active (regex, ML, RBAC, policy, audit)")
 	fmt.Println("Press Ctrl+C to stop")
 
 	// Graceful shutdown

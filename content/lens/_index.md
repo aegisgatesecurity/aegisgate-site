@@ -80,7 +80,7 @@ flowchart LR
         A[AI Chat Input]
     end
 
-    subgraph Lens["AegisGate Lens v0.3.2"]
+    subgraph Lens["AegisGate Lens v0.4.1"]
         direction TB
         
         subgraph Facet1["PII Detection (55 patterns)"]
