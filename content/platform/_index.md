@@ -148,7 +148,7 @@ flowchart TD
         C[Applications]
     end
 
-    subgraph Platform["AegisGate Platform v4.3.3"]
+    subgraph Platform["AegisGate Platform v4.5.2"]
         direction TB
         
         subgraph Pillar1["🌐 HTTP API Security"]

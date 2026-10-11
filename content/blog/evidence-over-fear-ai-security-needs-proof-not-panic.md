@@ -144,4 +144,4 @@ That's what evidence-based AI security looks like. Not fear. Proof.
 
 ---
 
-*AegisGate is an open-source AI security suite: Lens (free browser extension), Rampart (free local proxy), and Platform (enterprise AI security gateway). Three products, one mission: secure every AI interaction. [Explore the code](https://github.com/aegisgatesecurity).*
+*AegisGate is an open-source AI security suite: Lens (free browser extension), Rampart (free local proxy), MCP (free server security framework), and Platform (enterprise AI security gateway). Four products, one mission: secure every AI interaction. [Explore the code](https://github.com/aegisgatesecurity).*

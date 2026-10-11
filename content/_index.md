@@ -1,6 +1,6 @@
 ---
 title: "Secure Every AI Interaction"
-description: "Free browser protection, developer-grade local proxy, and enterprise AI security gateway. Three products that protect you before you press send on any AI tool — from ChatGPT to Copilot to custom LLMs."
+description: "Free browser protection, developer-grade local proxy, standalone MCP server security framework, and enterprise AI security gateway. Four products that protect you before you press send on any AI tool — from ChatGPT to Copilot to custom LLMs to MCP agents."
 type: "landing"
 mermaid: true
 ---
@@ -20,7 +20,7 @@ mermaid: true
 </div>
 </div>
 
-<p class="hero-description">Every time you type a prompt into an AI tool, you might be leaking sensitive data — passwords, API keys, personal information, trade secrets. <strong>AegisGate catches those risks before you press send.</strong> Three products, one mission: secure every AI interaction.</p>
+<p class="hero-description">Every time you type a prompt into an AI tool, you might be leaking sensitive data — passwords, API keys, personal information, trade secrets. <strong>AegisGate catches those risks before you press send.</strong> Four products, one mission: secure every AI interaction.</p>
 
 <div class="alert alert-success alert-center">
 <strong>Open-core.</strong> Apache 2.0 community + commercial enterprise modules. No data collection. No vendor lock-in. Self-hosted only. Deploy in 60 seconds.
@@ -32,7 +32,7 @@ mermaid: true
 
 <!-- ============================================================
      AEGISGATE SUITE ARCHITECTURE
-     Visual overview of how all three products work together
+     Visual overview of how all four products work together
      ============================================================ -->
 
 <h2 style="text-align:center; margin-top:60px;">Complete AI Security Suite</h2>
@@ -55,6 +55,13 @@ flowchart LR
         B3[Real-time Detection]
     end
 
+    subgraph MCPServer["🔌 MCP Server Devs"]
+        E[MCP Framework]
+        E1[AegisGate MCP]
+        E2[23 Security Layers]
+        E3[Zero Dependencies]
+    end
+
     subgraph Enterprise["🏢 Enterprise"]
         C[Security Gateway]
         C1[Platform]
@@ -71,23 +78,25 @@ flowchart LR
 
     Individual --> Core
     Developer --> Core
+    MCPServer --> Core
     Enterprise --> Core
 
     style Individual fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
     style Developer fill:#1a1f2e,stroke:#f59e0b,stroke-width:2px
+    style MCPServer fill:#1a1f2e,stroke:#06b6d4,stroke-width:2px
     style Enterprise fill:#1a1f2e,stroke:#10b981,stroke-width:2px
     style Core fill:#1a1f2e,stroke:#8b5cf6,stroke-width:2px
 {{< /mermaid >}}
 
 <!-- ============================================================
-     THREE PRODUCTS — Audience Paths (MOVED TO TOP)
+     FOUR PRODUCTS — Audience Paths (MOVED TO TOP)
      ============================================================ -->
 
-<h2 style="text-align:center; margin-top:60px;">Three Products, One Mission</h2>
+<h2 style="text-align:center; margin-top:60px;">Four Products, One Mission</h2>
 
 <p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">Pick your path — we'll meet you where you are.</p>
 
-<div class="card-grid card-grid-3">
+<div class="card-grid-2x2">
 
 <!-- ── BEGINNER PATH: LENS ────────────────────────────────── -->
 <div class="card" style="border-color:#38bdf8;">
@@ -100,7 +109,7 @@ flowchart LR
 <li>100% on-device — nothing ever leaves your browser</li>
 <li>Free forever. No account needed. No data collected.</li>
 </ul>
-<p>
+<p class="card-actions">
 <a href="https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip" class="btn btn-primary">Install for Chrome →</a>
 <a href="https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/" class="btn btn-primary">Install for Firefox →</a>
 <a href="/lens/" class="btn btn-secondary">Learn more →</a>
@@ -119,9 +128,27 @@ flowchart LR
 <li>Catches secrets, PII, injection attacks before they reach the AI model</li>
 <li>Free and open source (Apache 2.0). No account needed. No data collected.</li>
 </ul>
-<p>
+<p class="card-actions">
 <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
 <a href="/rampart/" class="btn btn-secondary">Learn more →</a>
+</p>
+</div>
+
+<!-- ── MCP SERVER DEVS: AEGISGATE MCP ─────────────────────── -->
+<div class="card" style="border-color:#06b6d4;">
+<h3>🔌 MCP — For MCP Server Developers <span class="badge">FREE</span></h3>
+<p><strong>You build or run MCP servers and need to secure them.</strong></p>
+<p>AegisGate MCP is a standalone MCP server framework that applies 23 security layers to every JSON-RPC request — prompt injection detection, tool poisoning prevention, evasion detection, ML threat detection, and response scanning. Zero external dependencies. Works with any MCP client.</p>
+<ul>
+<li>23 security layers: regex, ATLAS compliance, ML neural detection, evasion, tool poisoning, RBAC, rate limiting, audit logging</li>
+<li>Streamable HTTP, TCP, and stdio transports with SSE streaming and elicitation support</li>
+<li>Zero dependencies — air-gapped deployment, no supply chain CVEs, single Go binary</li>
+<li>Published to MCP Registry: <code>io.github.aegisgatesecurity/aegisgate-mcp</code></li>
+<li>Free and open source (Apache 2.0). No telemetry. No data egress.</li>
+</ul>
+<p class="card-actions">
+<a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.5.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download MCP v1.5.0 →</a>
+<a href="/mcp/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
 
@@ -136,7 +163,7 @@ flowchart LR
 <li>SIEM integration (11 platforms), SOAR integration (4 platforms)</li>
 <li>Web UI, multi-tenant, air-gapped deployment, single 19.1MB Go binary</li>
 </ul>
-<p>
+<p class="card-actions">
 <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🚀 Try the Live Demo</a>
 <a href="/platform/" class="btn btn-secondary">Learn more →</a>
 </p>
@@ -250,7 +277,7 @@ flowchart LR
      PRODUCT COMPARISON AT A GLANCE
      ============================================================ -->
 
-<h2 style="text-align:center; margin-top:60px;">Three products, one mission</h2>
+<h2 style="text-align:center; margin-top:60px;">Four products, one mission</h2>
 
 <table class="comparison-table">
 <thead>
@@ -258,6 +285,7 @@ flowchart LR
 <th></th>
 <th>🛡️ Lens</th>
 <th>⚡ Rampart</th>
+<th>🔌 MCP</th>
 <th>🏢 Platform</th>
 </tr>
 </thead>
@@ -266,36 +294,42 @@ flowchart LR
 <td class="metric-label"><strong>Who it's for</strong></td>
 <td>Everyone</td>
 <td>Developers</td>
+<td>MCP server devs</td>
 <td>Teams & Enterprises</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>What it protects</strong></td>
 <td>Browser AI chat</td>
 <td>IDE + local proxy</td>
+<td>MCP JSON-RPC requests</td>
 <td>All AI traffic</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>Deployment</strong></td>
 <td>Browser extension</td>
 <td>Local proxy + IDE plugin</td>
+<td>Standalone binary / Docker</td>
 <td>Self-hosted server</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>AI tools covered</strong></td>
 <td>10 chat tools</td>
 <td>Copilot, Cursor, any LLM</td>
+<td>Any MCP client</td>
 <td>Any HTTP/MCP/A2A traffic</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>Price</strong></td>
 <td>Free forever</td>
 <td>Free / open source</td>
+<td>Free / open source</td>
 <td>Free tier + paid tiers</td>
 </tr>
 <tr>
-<td class="metric-label"><strong>Compliance frameworks</strong></td>
+<td class="metric-label"><strong>Security layers</strong></td>
 <td>5 facets (PII, secrets, XSS, compliance, ML)</td>
 <td>Same detection engine</td>
+<td>23 security layers</td>
 <td>31 frameworks</td>
 </tr>
 <tr>
@@ -303,9 +337,11 @@ flowchart LR
 <td>Zero</td>
 <td>Zero</td>
 <td>Zero (self-hosted)</td>
+<td>Zero (self-hosted)</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>Open source</strong></td>
+<td>✅ Apache 2.0</td>
 <td>✅ Apache 2.0</td>
 <td>✅ Apache 2.0</td>
 <td>✅ Apache 2.0</td>
@@ -453,7 +489,7 @@ flowchart LR
 
 <h2 style="text-align:center; margin-top:60px;">Get started in 60 seconds</h2>
 
-<div class="card-grid card-grid-3">
+<div class="card-grid-2x2">
 
 <div class="card text-center" style="border-color:#38bdf8;">
 <h3>🛡️ Install Lens</h3>
@@ -467,6 +503,18 @@ flowchart LR
 <p>Free local proxy + IDE plugin. macOS, Linux, Windows.</p>
 <p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
 <p style="font-size:0.85rem; color:#888;">VS Code, JetBrains, Neovim, any LSP editor</p>
+</div>
+
+<div class="card text-center" style="border-color:#06b6d4;">
+<h3>🔌 Run MCP Server</h3>
+<p>Single Go binary. Docker or bare metal. Zero dependencies.</p>
+<div class="command-box">
+<button class="copy-btn">Copy</button>
+<pre>docker run -d -p 3000:3000 \
+  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.5.0</pre>
+</div>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.5.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
+<p style="font-size:0.85rem; color:#888;">Streamable HTTP, TCP, or stdio transport</p>
 </div>
 
 <div class="card text-center" style="border-color:#10b981;">
