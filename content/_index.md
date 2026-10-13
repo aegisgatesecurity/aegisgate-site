@@ -555,15 +555,16 @@ flowchart LR
 <p style="font-size:0.85rem; color:#888;">Streamable HTTP, TCP, or stdio transport</p>
 </div>
 
-<div class="card text-center" style="border-color:#10b981;">
-<h3>🏢 Deploy Platform</h3>
-<p>Single binary. Docker or bare metal.</p>
+<div class="card text-center" style="border-color:#007ec6;">
+<h3>🔬 Run Scanner</h3>
+<p>Static analysis for AI artifacts. CLI, GitHub Action, or Docker.</p>
 <div class="command-box">
 <button class="copy-btn">Copy</button>
-<pre>docker run -d -p 8080:8080 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.5.2</pre>
+<pre>aegisgate-scanner scan ./training-data/</pre>
 </div>
-<p><a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try Live Demo →</a></p>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.3.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a>
+<a href="/scanner/" class="btn btn-secondary">Quick start guide →</a></p>
+<p style="font-size:0.85rem; color:#888;">268 patterns · SARIF output · CI/CD ready</p>
 </div>
 
 </div>
@@ -594,6 +595,7 @@ flowchart LR
 <li><a href="/lens/">Lens</a> — browser extension for AI chat protection</li>
 <li><a href="/rampart/">Rampart</a> — local proxy + IDE plugin for developers</li>
 <li><a href="/mcp/">MCP</a> — secure MCP server framework with 23 security layers</li>
+<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (268 patterns, ML + regex)</li>
 <li><a href="/platform/">Platform</a> — enterprise gateway with verifiable security</li>
 <li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
 <li><a href="/docs/comparison/">Competitive comparison</a> — 7 competitors, 31 frameworks</li>
