@@ -7,7 +7,7 @@ type: pricing
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
 
 <div class="alert alert-info alert-center" style="margin-bottom:16px;font-size:0.9rem;">
-<strong>Patent Pending</strong> &mdash; AegisGate technologies are patent pending (US Provisional App. Nos. 64/153,573–64/153,577).
+<strong>Patent Pending</strong> &mdash; AegisGate technologies are patent pending (US Provisional App. Nos. 64/153,573–64/153,577 and 64/174,824).
 </div>
 
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#38bdf8;color:#fff;margin-bottom:16px;">
