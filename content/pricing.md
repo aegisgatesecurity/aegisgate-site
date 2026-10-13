@@ -18,6 +18,10 @@ Simple, transparent pricing. No hidden fees. Start free, upgrade when you are re
 <strong>⚡ AegisGate Rampart — Free, forever.</strong> Local proxy + IDE plugin for developers. Works with VS Code, JetBrains, Neovim, and any LSP editor. No account needed. <a href="/rampart/" style="color:#f59e0b;">Learn more</a> · <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases" style="color:#f59e0b;">Download</a>
 </div>
 
+<div class="alert alert-success alert-center" style="background:#0d2538;border-color:#ec4899;color:#fff;margin-bottom:24px;">
+<strong>🔬 AegisGate Scanner — Free, forever.</strong> Static analysis scanner for AI artifacts. 268 regex patterns + ML detection across 9 security categories. SARIF, SBOM, GitHub Action, Docker. Patent pending. <a href="/scanner/" style="color:#ec4899;">Learn more</a> · <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases" style="color:#ec4899;">Download</a>
+</div>
+
 ## 📚 Customer 1-pagers
 
 These 1-pagers explain the technical depth behind each tier and module for sales engineers, security architects, and procurement teams. They follow the established pattern of being self-attested (we engineer the scanner; a Notary Body or counsel provides the certification / legal opinion).

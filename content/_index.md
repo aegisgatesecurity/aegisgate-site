@@ -1,6 +1,6 @@
 ---
 title: "Secure Every AI Interaction"
-description: "Free browser protection, developer-grade local proxy, standalone MCP server security framework, and enterprise AI security gateway. Four products that protect you before you press send on any AI tool — from ChatGPT to Copilot to custom LLMs to MCP agents."
+description: "Free browser protection, developer-grade local proxy, standalone MCP server security framework, AI artifact static analysis scanner, and enterprise AI security gateway. Five products that protect you before you press send on any AI tool — from ChatGPT to Copilot to custom LLMs to MCP agents to training data."
 type: "landing"
 mermaid: true
 ---
@@ -16,23 +16,24 @@ mermaid: true
     <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.5.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.5.1" alt="MCP Version" width="97" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.4.1" alt="Lens Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.8.0" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.3.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.3.0" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
 </div>
 </div>
 
-<p class="hero-description">Every time you type a prompt into an AI tool, you might be leaking sensitive data — passwords, API keys, personal information, trade secrets. <strong>AegisGate catches those risks before you press send.</strong> Four products, one mission: secure every AI interaction.</p>
+<p class="hero-description">Every time you type a prompt into an AI tool, you might be leaking sensitive data — passwords, API keys, personal information, trade secrets. <strong>AegisGate catches those risks before you press send.</strong> Five products, one mission: secure every AI interaction.</p>
 
 <div class="alert alert-success alert-center">
 <strong>Open-core.</strong> Apache 2.0 community + commercial enterprise modules. No data collection. No vendor lock-in. Self-hosted only. Deploy in 60 seconds.
 </div>
 
 <div class="alert alert-info alert-center" style="font-size:0.9rem;">
-<strong>Patent Pending.</strong> AegisGate technologies are patent pending — including cryptographic identity, capability contracts, trust scoring, multi-layered detection, compliance mapping, and AI response scanning.
+<strong>Patent Pending.</strong> AegisGate technologies are patent pending — including cryptographic identity, capability contracts, trust scoring, multi-layered detection, compliance mapping, AI response scanning, and AI artifact static analysis.
 </div>
 
 <!-- ============================================================
      AEGISGATE SUITE ARCHITECTURE
-     Visual overview of how all four products work together
+     Visual overview of how all five products work together
      ============================================================ -->
 
 <h2 style="text-align:center; margin-top:60px;">Complete AI Security Suite</h2>
@@ -62,6 +63,13 @@ flowchart LR
         E3[Zero Dependencies]
     end
 
+    subgraph MLOps["🔬 ML/Ops Teams"]
+        F[Static Analysis Scanner]
+        F1[AegisGate Scanner]
+        F2[268 Patterns + ML]
+        F3[SARIF / SBOM / CI]
+    end
+
     subgraph Enterprise["🏢 Enterprise"]
         C[Security Gateway]
         C1[Platform]
@@ -70,7 +78,7 @@ flowchart LR
     end
 
     subgraph Core["🔐 Core Detection Engine"]
-        D[216+ Patterns]
+        D[268+ Patterns]
         D1[PII + Secrets]
         D2[XSS + Compliance]
         D3[ML Adversarial]
@@ -79,20 +87,22 @@ flowchart LR
     Individual --> Core
     Developer --> Core
     MCPServer --> Core
+    MLOps --> Core
     Enterprise --> Core
 
     style Individual fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
     style Developer fill:#1a1f2e,stroke:#f59e0b,stroke-width:2px
     style MCPServer fill:#1a1f2e,stroke:#06b6d4,stroke-width:2px
+    style MLOps fill:#1a1f2e,stroke:#ec4899,stroke-width:2px
     style Enterprise fill:#1a1f2e,stroke:#10b981,stroke-width:2px
     style Core fill:#1a1f2e,stroke:#8b5cf6,stroke-width:2px
 {{< /mermaid >}}
 
 <!-- ============================================================
-     FOUR PRODUCTS — Audience Paths (MOVED TO TOP)
+     FIVE PRODUCTS — Audience Paths (MOVED TO TOP)
      ============================================================ -->
 
-<h2 style="text-align:center; margin-top:60px;">Four Products, One Mission</h2>
+<h2 style="text-align:center; margin-top:60px;">Five Products, One Mission</h2>
 
 <p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">Pick your path — we'll meet you where you are.</p>
 
@@ -149,6 +159,25 @@ flowchart LR
 <p class="card-actions">
 <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.5.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download MCP v1.5.1 →</a>
 <a href="/mcp/" class="btn btn-secondary">Learn more →</a>
+</p>
+</div>
+
+<!-- ── ML/OPS: AEGISGATE SCANNER ──────────────────────────── -->
+<div class="card" style="border-color:#ec4899;">
+<h3>🔬 Scanner — For ML/Ops Teams <span class="badge">FREE</span></h3>
+<p><strong>You build AI pipelines and need to secure training data, RAG docs, and model artifacts.</strong></p>
+<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 268 regex patterns + CharCNN-BiLSTM ML detection. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
+<ul>
+<li>9 security categories: secrets, PII, prompt injection, compliance, dangerous code, web, OT/ICS, AI/ML, metadata</li>
+<li>268 regex patterns + ML neural detection (CharCNN-BiLSTM, &lt;1ms CPU inference)</li>
+<li>8 output formats including SARIF for GitHub Code Scanning, SBOM generation</li>
+<li>Zero runtime dependencies — air-gapped capable, no supply chain CVEs</li>
+<li>GitHub Action for one-step CI integration. Docker images (ML + Lite).</li>
+<li>Patent pending — US Provisional App. No. 64/174,824</li>
+</ul>
+<p class="card-actions">
+<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.3.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Scanner v0.3.0 →</a>
+<a href="/scanner/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
 
@@ -277,7 +306,7 @@ flowchart LR
      PRODUCT COMPARISON AT A GLANCE
      ============================================================ -->
 
-<h2 style="text-align:center; margin-top:60px;">Four products, one mission</h2>
+<h2 style="text-align:center; margin-top:60px;">Five products, one mission</h2>
 
 <table class="comparison-table">
 <thead>
@@ -286,6 +315,7 @@ flowchart LR
 <th>🛡️ Lens</th>
 <th>⚡ Rampart</th>
 <th>🔌 MCP</th>
+<th>🔬 Scanner</th>
 <th>🏢 Platform</th>
 </tr>
 </thead>
@@ -295,6 +325,7 @@ flowchart LR
 <td>Everyone</td>
 <td>Developers</td>
 <td>MCP server devs</td>
+<td>ML/Ops teams</td>
 <td>Teams & Enterprises</td>
 </tr>
 <tr>
@@ -302,6 +333,7 @@ flowchart LR
 <td>Browser AI chat</td>
 <td>IDE + local proxy</td>
 <td>MCP JSON-RPC requests</td>
+<td>AI artifacts & training data</td>
 <td>All AI traffic</td>
 </tr>
 <tr>
@@ -309,6 +341,7 @@ flowchart LR
 <td>Browser extension</td>
 <td>Local proxy + IDE plugin</td>
 <td>Standalone binary / Docker</td>
+<td>CLI / GitHub Action / Docker</td>
 <td>Self-hosted server</td>
 </tr>
 <tr>
@@ -316,11 +349,13 @@ flowchart LR
 <td>10 chat tools</td>
 <td>Copilot, Cursor, any LLM</td>
 <td>Any MCP client</td>
+<td>RAG docs, training data, models</td>
 <td>Any HTTP/MCP/A2A traffic</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>Price</strong></td>
 <td>Free forever</td>
+<td>Free / open source</td>
 <td>Free / open source</td>
 <td>Free / open source</td>
 <td>Free tier + paid tiers</td>
@@ -330,6 +365,7 @@ flowchart LR
 <td>5 facets (PII, secrets, XSS, compliance, ML)</td>
 <td>Same detection engine</td>
 <td>23 security layers</td>
+<td>268 patterns + ML (9 categories)</td>
 <td>31 frameworks</td>
 </tr>
 <tr>
@@ -337,10 +373,12 @@ flowchart LR
 <td>Zero</td>
 <td>Zero</td>
 <td>Zero (self-hosted)</td>
+<td>Zero (air-gapped)</td>
 <td>Zero (self-hosted)</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>Open source</strong></td>
+<td>✅ Apache 2.0</td>
 <td>✅ Apache 2.0</td>
 <td>✅ Apache 2.0</td>
 <td>✅ Apache 2.0</td>
