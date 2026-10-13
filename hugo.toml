@@ -5,7 +5,7 @@ title = "AegisGate — Secure Every AI Interaction"
 
 # Site params
 [params]
-  description = "Free browser protection (Lens), developer-grade local proxy (Rampart), and enterprise AI security gateway (Platform). Three products that secure every AI interaction — from ChatGPT to Copilot to custom LLMs. 100% open source."
+  description = "Free browser protection (Lens), developer-grade local proxy (Rampart), standalone MCP server security framework (MCP), AI artifact static analysis scanner (Scanner), and enterprise AI security gateway (Platform). Five products that secure every AI interaction — from ChatGPT to Copilot to custom LLMs to training data. 100% open source."
   version = "v4.5.2"
   goVersion = "1.27.0"
   dockerSize = "34.7MB"
@@ -23,7 +23,7 @@ title = "AegisGate — Secure Every AI Interaction"
   twitter = "aegisgate"
   mastodon = "https://mastodon.social/@aegisgate"
 
-# Main nav menu — 3-product suite structure
+# Main nav menu — 5-product suite structure
 [menu]
   [[menu.main]]
     name = "Lens"
@@ -41,39 +41,44 @@ title = "AegisGate — Secure Every AI Interaction"
     weight = 3
 
   [[menu.main]]
+    name = "Scanner"
+    url = "/scanner/"
+    weight = 4
+
+  [[menu.main]]
     name = "Platform"
     url = "/platform/"
-    weight = 4
+    weight = 5
 
   [[menu.main]]
     name = "Docs"
     url = "/docs/"
-    weight = 5
+    weight = 6
 
   [[menu.main]]
     name = "Pricing"
     url = "/pricing/"
-    weight = 6
+    weight = 7
 
   [[menu.main]]
     name = "Partners"
     url = "/partners/"
-    weight = 7
+    weight = 8
 
   [[menu.main]]
     name = "🚀 Live Demo"
     url = "https://demo.aegisgatesecurity.io/"
-    weight = 8
+    weight = 9
 
   [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 8
+    weight = 10
 
   [[menu.main]]
     name = "GitHub"
     url = "https://github.com/aegisgatesecurity/aegisgate-platform"
-    weight = 9
+    weight = 11
 # Enable features
 enableRobotsTXT = true
 enableGitInfo = true
