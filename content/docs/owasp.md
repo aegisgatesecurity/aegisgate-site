@@ -14,7 +14,7 @@ AegisGate provides comprehensive, multi-layer coverage against the [OWASP Top 10
 |---|-----------|----------|----------|----------|---------|
 | LLM01 | Prompt Injection | ✅ Full | Scanner, MCP, Rampart, Lens, Platform | 50+ | [See below](#llm01-prompt-injection) |
 | LLM02 | Insecure Output Handling | ✅ Full | Scanner, MCP, Platform | 40+ | [See below](#llm02-insecure-output-handling) |
-| LLM03 | Training Data Poisoning | ✅ Partial | Platform, Scanner | 17 | [See below](#llm03-training-data-poisoning) |
+| LLM03 | Training Data Poisoning | ✅ Partial | Platform, Scanner, Rampart | 17 | [See below](#llm03-training-data-poisoning) |
 | LLM04 | Model Denial of Service | ✅ Full | Platform, Rampart | 5 | [See below](#llm04-model-denial-of-service) |
 | LLM05 | Supply Chain Vulnerabilities | ✅ Full | Platform, Scanner, MCP | 30+ | [See below](#llm05-supply-chain-vulnerabilities) |
 | LLM06 | Sensitive Information Disclosure | ✅ Full | Scanner, MCP, Rampart, Lens, Platform | 80+ | [See below](#llm06-sensitive-information-disclosure) |
@@ -37,7 +37,7 @@ Prompt injection is the #1 risk in the OWASP LLM Top 10 and the most active atta
 | **MCP** | 11 prompt injection patterns in the standalone scanner + 34 tool description screening patterns that detect prompt injection hidden in MCP tool metadata (tool poisoning). |
 | **Rampart** | Real-time HTTP inspection of prompts en route to LLM APIs. Blocks injection attempts before they reach the model. |
 | **Lens** | Browser-layer detection of prompt injection in web-based chat interfaces. Catches injection attempts before they're submitted to the LLM. |
-| **Platform** | Centralized pattern management with 640+ canonical patterns. Cross-source IOC corroboration detects coordinated injection campaigns across organizations. |
+| **Platform** | Centralized pattern management with 256 canonical patterns. Cross-source IOC corroboration detects coordinated injection campaigns across organizations. |
 
 **Detection categories**: direct injection (ignore instructions, role-play, delimiter abuse), indirect injection (embedded in retrieved content), RAG poisoning (conditional instructions triggered by retrieval), encoded payloads (base64, unicode escapes), and system prompt leakage.
 
@@ -66,7 +66,8 @@ Training data poisoning corrupts model behavior from the inside. While runtime d
 | Product | Contribution |
 |---------|-------------|
 | **Scanner** | 17 RAG poisoning patterns detecting conditional instructions embedded in documents (e.g., "when this document is retrieved, respond with..."), vector store injection, embedding manipulation, and retrieval bypass. |
-| **Platform** | Model integrity verification, AIBOM (AI Bill of Materials) generation for supply chain provenance, and training data audit trails. |
+| **Rampart** | 17 RAG poisoning patterns synced from Scanner — real-time HTTP inspection detects RAG-injected content in transit to LLM APIs. |
+| **Platform** | 17 RAG poisoning patterns synced from Scanner, model integrity verification, AIBOM (AI Bill of Materials) generation for supply chain provenance, and training data audit trails. |
 
 ---
 
@@ -105,11 +106,11 @@ The broadest category — covering PII leakage, secret exposure, and system prom
 
 | Product | Contribution |
 |---------|-------------|
-| **Scanner** | 80+ PII patterns (SSN, email, phone, credit card, healthcare codes, financial codes, OT protocols), 20+ secret/credential patterns, 17 system prompt leakage patterns. |
+| **Scanner** | 80+ PII patterns (SSN, email, phone, credit card, healthcare codes, financial codes, OT protocols), 20+ secret/credential patterns, 16 system prompt leakage patterns. |
 | **MCP** | PII, credential, financial, and cryptographic pattern sets for both request and response scanning. |
-| **Rampart** | Real-time PII redaction and secret detection in HTTP traffic. Blocks sensitive data before it reaches external LLM APIs. |
+| **Rampart** | Real-time PII redaction and secret detection in HTTP traffic. 16 prompt leakage patterns synced from Scanner detect system prompt disclosure in responses. Blocks sensitive data before it reaches external LLM APIs. |
 | **Lens** | Browser-layer detection of PII in chat inputs. Prevents sensitive data from being submitted to web-based AI tools. |
-| **Platform** | Response-side PII scanner, secret detector, redaction pipeline, and DSAR (Data Subject Access Request) handling. Privacy-by-design: only hashed domains and metadata are stored. |
+| **Platform** | Response-side PII scanner, secret detector, redaction pipeline, 16 prompt leakage patterns synced from Scanner, and DSAR (Data Subject Access Request) handling. Privacy-by-design: only hashed domains and metadata are stored. |
 
 ---
 
@@ -201,11 +202,11 @@ AegisGate maps every detection to multiple compliance frameworks:
 
 | Product | Type | Layer | OWASP Coverage |
 |---------|------|-------|---------------|
-| **Platform** | Proprietary | Central control plane | All 10 categories — pattern management, IOC corroboration, compliance evidence, AIBOM |
-| **Scanner** | Open Source (Apache 2.0) | CI/CD + static analysis | LLM01, LLM02, LLM03, LLM05, LLM06 — 303 detection patterns |
-| **MCP** | Open Source (Apache 2.0) | MCP protocol layer | LLM01, LLM02, LLM05, LLM06, LLM07 — 272 detection patterns + tool poisoning defense |
-| **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM04, LLM06, LLM10 — real-time HTTP inspection |
-| **Lens** | Open Source (Apache 2.0) | Browser extension | LLM01, LLM06, LLM10 — client-side detection in web chat interfaces |
+| **Platform** | Proprietary | Central control plane | All 10 categories — 256 canonical patterns, IOC corroboration, compliance evidence, AIBOM |
+| **Scanner** | Open Source (Apache 2.0) | CI/CD + static analysis | LLM01, LLM02, LLM03, LLM05, LLM06, LLM08 — 301 detection patterns |
+| **MCP** | Open Source (Apache 2.0) | MCP protocol layer | LLM01, LLM02, LLM05, LLM06, LLM07, LLM08 — 91 detection patterns + tool poisoning defense |
+| **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM03, LLM04, LLM06, LLM10 — 256 detection patterns, real-time HTTP inspection |
+| **Lens** | Open Source (Apache 2.0) | Browser extension | LLM01, LLM06, LLM10 — 223 detection patterns, client-side detection in web chat interfaces |
 
 All products are air-gap capable — zero external communications required for full functionality. Interoperability is opt-in, outbound, and config-driven.
 
