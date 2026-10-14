@@ -37,7 +37,7 @@ Prompt injection is the #1 risk in the OWASP LLM Top 10 and the most active atta
 | **MCP** | 11 prompt injection patterns in the standalone scanner + 34 tool description screening patterns that detect prompt injection hidden in MCP tool metadata (tool poisoning). |
 | **Rampart** | Real-time HTTP inspection of prompts en route to LLM APIs. Blocks injection attempts before they reach the model. |
 | **Lens** | Browser-layer detection of prompt injection in web-based chat interfaces. Catches injection attempts before they're submitted to the LLM. |
-| **Platform** | Centralized pattern management with 575+ canonical patterns. Cross-source IOC corroboration detects coordinated injection campaigns across organizations. |
+| **Platform** | Centralized pattern management with 640+ canonical patterns. Cross-source IOC corroboration detects coordinated injection campaigns across organizations. |
 
 **Detection categories**: direct injection (ignore instructions, role-play, delimiter abuse), indirect injection (embedded in retrieved content), RAG poisoning (conditional instructions triggered by retrieval), encoded payloads (base64, unicode escapes), and system prompt leakage.
 
