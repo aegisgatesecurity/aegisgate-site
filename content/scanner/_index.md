@@ -67,7 +67,7 @@ flowchart LR
     end
 
     subgraph Layer1["🔍 Layer 1: Keyword Pre-Filter"]
-        B[O(log n) Lookup]
+        B["O(log n) Lookup"]
         B1[214 Keywords]
         B2[Fast Reject]
     end
@@ -81,7 +81,7 @@ flowchart LR
     subgraph Layer3["🧠 Layer 3: ML Detection"]
         D[CharCNN-BiLSTM]
         D1[1.6M Params]
-        D2[<1ms CPU]
+        D2["&lt;1ms CPU"]
     end
 
     subgraph Output["📤 Output"]
