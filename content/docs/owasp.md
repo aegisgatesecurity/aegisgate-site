@@ -13,15 +13,15 @@ AegisGate provides comprehensive, multi-layer coverage against the [OWASP Top 10
 | # | OWASP Risk | Coverage | Products | Patterns | Details |
 |---|-----------|----------|----------|----------|---------|
 | LLM01 | Prompt Injection | ✅ Full | Scanner, MCP, Rampart, Lens, Platform | 50+ | [See below](#llm01-prompt-injection) |
-| LLM02 | Insecure Output Handling | ✅ Full | Scanner, MCP, Platform | 40+ | [See below](#llm02-insecure-output-handling) |
-| LLM03 | Training Data Poisoning | ✅ Partial | Platform, Scanner, Rampart | 17 | [See below](#llm03-training-data-poisoning) |
-| LLM04 | Model Denial of Service | ✅ Full | Platform, Rampart | 5 | [See below](#llm04-model-denial-of-service) |
-| LLM05 | Supply Chain Vulnerabilities | ✅ Full | Platform, Scanner, MCP | 30+ | [See below](#llm05-supply-chain-vulnerabilities) |
-| LLM06 | Sensitive Information Disclosure | ✅ Full | Scanner, MCP, Rampart, Lens, Platform | 80+ | [See below](#llm06-sensitive-information-disclosure) |
-| LLM07 | Insecure Plugin Design | ✅ Full | MCP, Platform | 34 | [See below](#llm07-insecure-plugin-design) |
-| LLM08 | Excessive Agency | ✅ Full | Platform, MCP | 20+ | [See below](#llm08-excessive-agency) |
-| LLM09 | Overreliance | ⚠️ Advisory | Platform | 5 | [See below](#llm09-overreliance) |
-| LLM10 | Model Theft | ✅ Full | Platform, Rampart, Lens | 15+ | [See below](#llm10-model-theft) |
+| LLM02 | Sensitive Information Disclosure | ✅ Full | Scanner, MCP, Rampart, Lens, Platform | 80+ | [See below](#llm02-sensitive-information-disclosure) |
+| LLM03 | Supply Chain Vulnerabilities | ✅ Full | Scanner, MCP, Platform | 60+ | [See below](#llm03-supply-chain-vulnerabilities) |
+| LLM04 | Data and Model Poisoning | ⚠️ Partial | Platform, Scanner | 5 | [See below](#llm04-data-and-model-poisoning) |
+| LLM05 | Insecure Output Handling | ✅ Full | Scanner, MCP, Platform | 40+ | [See below](#llm05-insecure-output-handling) |
+| LLM06 | Excessive Agency | ✅ Full | Platform, MCP | 20+ | [See below](#llm06-excessive-agency) |
+| LLM07 | System Prompt Leakage | ✅ Full | Scanner, Rampart, Platform | 16 | [See below](#llm07-system-prompt-leakage) |
+| LLM08 | Vector and Embedding Weaknesses | ✅ Full | Scanner, Rampart, Platform | 17 | [See below](#llm08-vector-and-embedding-weaknesses) |
+| LLM09 | Misinformation | ⚠️ Advisory | Platform | 5 | [See below](#llm09-misinformation) |
+| LLM10 | Unbounded Consumption | ✅ Full | Platform, Rampart, Lens | 15+ | [See below](#llm10-unbounded-consumption) |
 
 ---
 
@@ -33,17 +33,60 @@ Prompt injection is the #1 risk in the OWASP LLM Top 10 and the most active atta
 
 | Product | Contribution |
 |---------|-------------|
-| **Scanner** | 17 prompt injection patterns + 17 prompt leakage patterns for static analysis of code that constructs prompts. Detects injection in source code, configuration files, and CI pipelines. |
+| **Scanner** | 17 prompt injection patterns for static analysis of code that constructs prompts. Detects injection in source code, configuration files, and CI pipelines. |
 | **MCP** | 11 prompt injection patterns in the standalone scanner + 34 tool description screening patterns that detect prompt injection hidden in MCP tool metadata (tool poisoning). |
 | **Rampart** | Real-time HTTP inspection of prompts en route to LLM APIs. Blocks injection attempts before they reach the model. |
 | **Lens** | Browser-layer detection of prompt injection in web-based chat interfaces. Catches injection attempts before they're submitted to the LLM. |
 | **Platform** | Centralized pattern management with 256 canonical patterns. Cross-source IOC corroboration detects coordinated injection campaigns across organizations. |
 
-**Detection categories**: direct injection (ignore instructions, role-play, delimiter abuse), indirect injection (embedded in retrieved content), RAG poisoning (conditional instructions triggered by retrieval), encoded payloads (base64, unicode escapes), and system prompt leakage.
+**Detection categories**: direct injection (ignore instructions, role-play, delimiter abuse), indirect injection (embedded in retrieved content), encoded payloads (base64, unicode escapes), and tool poisoning vectors.
 
 ---
 
-### LLM02: Insecure Output Handling
+### LLM02: Sensitive Information Disclosure
+
+**CWE-200** · NIST AI RMF: Measure 2.6, Identify 2.4 · EU AI Act: Art. 10, 52
+
+The broadest category — covering PII leakage, secret exposure, and sensitive data disclosure. AegisGate has the deepest coverage here.
+
+| Product | Contribution |
+|---------|-------------|
+| **Scanner** | 80+ PII patterns (SSN, email, phone, credit card, healthcare codes, financial codes, OT protocols), 20+ secret/credential patterns. |
+| **MCP** | PII, credential, financial, and cryptographic pattern sets for both request and response scanning. |
+| **Rampart** | Real-time PII redaction and secret detection in HTTP traffic. Blocks sensitive data before it reaches external LLM APIs. |
+| **Lens** | Browser-layer detection of PII in chat inputs. Prevents sensitive data from being submitted to web-based AI tools. |
+| **Platform** | Response-side PII scanner, secret detector, redaction pipeline, and DSAR (Data Subject Access Request) handling. Privacy-by-design: only hashed domains and metadata are stored. |
+
+---
+
+### LLM03: Supply Chain Vulnerabilities
+
+**CWE-1357** · NIST AI RMF: Map 1.3, Manage 2.2 · EU AI Act: Art. 16
+
+AI supply chains include models, datasets, MCP servers, tool definitions, and dependencies. Each is a potential attack surface. Tool poisoning attacks embed prompt injection in tool descriptions, turning trusted MCP integrations into attack vectors.
+
+| Product | Contribution |
+|---------|-------------|
+| **Scanner** | Dependency scanning with 30+ patterns for dangerous functions, hardcoded credentials, and suspicious URLs. Detects supply chain risks in source code. |
+| **MCP** | 28 dangerous function patterns (eval, exec, os.system, child_process, pickle.loads, etc.) screened in tool descriptions and code. Tool description scanner with 34 patterns that screen MCP tool descriptions for prompt injection, dangerous functions, secrets, PII, XSS, and OWASP compliance violations at registration time. Tool poisoning defense. |
+| **Platform** | Federated IOC library with peer reputation. AIBOM generation. CVE feed integration. Dependency vulnerability scanning. |
+
+---
+
+### LLM04: Data and Model Poisoning
+
+**CWE-1395** · NIST AI RMF: Map 1.2, Measure 2.2 · EU AI Act: Art. 10
+
+Training data poisoning corrupts model behavior from the inside. While runtime detection can't prevent poisoned training, AegisGate can detect poisoned data artifacts and verify model integrity.
+
+| Product | Contribution |
+|---------|-------------|
+| **Scanner** | Static analysis patterns for detecting suspicious data artifacts and poisoning indicators in training data pipelines and model code. |
+| **Platform** | Model integrity verification and training data audit trails. |
+
+---
+
+### LLM05: Insecure Output Handling
 
 **CWE-78** · NIST AI RMF: Measure 2.8 · EU AI Act: Art. 14
 
@@ -57,77 +100,7 @@ LLM outputs can contain XSS, SQL injection, command injection, and other downstr
 
 ---
 
-### LLM03: Training Data Poisoning
-
-**CWE-1395** · NIST AI RMF: Map 1.2, Measure 2.2 · EU AI Act: Art. 10
-
-Training data poisoning corrupts model behavior from the inside. While runtime detection can't prevent poisoned training, AegisGate can detect poisoned data artifacts and RAG-injected content that behaves like poisoning.
-
-| Product | Contribution |
-|---------|-------------|
-| **Scanner** | 17 RAG poisoning patterns detecting conditional instructions embedded in documents (e.g., "when this document is retrieved, respond with..."), vector store injection, embedding manipulation, and retrieval bypass. |
-| **Rampart** | 17 RAG poisoning patterns synced from Scanner — real-time HTTP inspection detects RAG-injected content in transit to LLM APIs. |
-| **Platform** | 17 RAG poisoning patterns synced from Scanner, model integrity verification, AIBOM (AI Bill of Materials) generation for supply chain provenance, and training data audit trails. |
-
----
-
-### LLM04: Model Denial of Service
-
-**CWE-400** · NIST AI RMF: Measure 2.9 · EU AI Act: Art. 15
-
-Resource exhaustion attacks against LLMs can take the form of extremely long prompts, recursive tool calls, or rapid-fire requests. AegisGate provides multi-layer DoS protection.
-
-| Product | Contribution |
-|---------|-------------|
-| **Platform** | Rate limiting, token budget enforcement, and anomaly detection for usage spikes. Per-tenant quotas. |
-| **Rampart** | HTTP-level rate limiting and request size limits at the proxy layer. Blocks oversized prompts before they reach the model. |
-
----
-
-### LLM05: Supply Chain Vulnerabilities
-
-**CWE-1357** · NIST AI RMF: Map 1.3, Manage 2.2 · EU AI Act: Art. 16
-
-AI supply chains include models, datasets, MCP servers, tool definitions, and dependencies. Each is a potential attack surface.
-
-| Product | Contribution |
-|---------|-------------|
-| **Scanner** | Dependency scanning with 30+ patterns for dangerous functions, hardcoded credentials, and suspicious URLs. Detects supply chain risks in source code. |
-| **MCP** | 28 dangerous function patterns (eval, exec, os.system, child_process, pickle.loads, etc.) screened in tool descriptions and code. |
-| **Platform** | Federated IOC library with peer reputation. AIBOM generation. CVE feed integration. Dependency vulnerability scanning. |
-
----
-
-### LLM06: Sensitive Information Disclosure
-
-**CWE-200** · NIST AI RMF: Measure 2.6, Identify 2.4 · EU AI Act: Art. 10, 52
-
-The broadest category — covering PII leakage, secret exposure, and system prompt disclosure. AegisGate has the deepest coverage here.
-
-| Product | Contribution |
-|---------|-------------|
-| **Scanner** | 80+ PII patterns (SSN, email, phone, credit card, healthcare codes, financial codes, OT protocols), 20+ secret/credential patterns, 16 system prompt leakage patterns. |
-| **MCP** | PII, credential, financial, and cryptographic pattern sets for both request and response scanning. |
-| **Rampart** | Real-time PII redaction and secret detection in HTTP traffic. 16 prompt leakage patterns synced from Scanner detect system prompt disclosure in responses. Blocks sensitive data before it reaches external LLM APIs. |
-| **Lens** | Browser-layer detection of PII in chat inputs. Prevents sensitive data from being submitted to web-based AI tools. |
-| **Platform** | Response-side PII scanner, secret detector, redaction pipeline, 16 prompt leakage patterns synced from Scanner, and DSAR (Data Subject Access Request) handling. Privacy-by-design: only hashed domains and metadata are stored. |
-
----
-
-### LLM07: Insecure Plugin Design
-
-**CWE-918** · NIST AI RMF: Map 1.4, Manage 2.4 · EU AI Act: Art. 14
-
-MCP servers, ACP agents, A2A participants, and ANP networks all expose plugin-like interfaces to LLMs. AegisGate secures these at the protocol level.
-
-| Product | Contribution |
-|---------|-------------|
-| **MCP** | Tool description scanner with 34 patterns that screen MCP tool descriptions for prompt injection, dangerous functions, secrets, PII, XSS, and OWASP compliance violations at registration time. Tool poisoning defense. |
-| **Platform** | MCP server guardrails, ACP capability enforcement, A2A response guards, ANP policy enforcement. Cross-protocol security for all AI agent communication standards. |
-
----
-
-### LLM08: Excessive Agency
+### LLM06: Excessive Agency
 
 **CWE-250** · NIST AI RMF: Manage 2.5, Map 1.5 · EU AI Act: Art. 14
 
@@ -140,11 +113,39 @@ AI agents with too much autonomy can cause real-world damage. AegisGate enforces
 
 ---
 
-### LLM09: Overreliance
+### LLM07: System Prompt Leakage
+
+**CWE-200** · NIST AI RMF: Measure 2.6, Identify 2.4 · EU AI Act: Art. 10, 52
+
+System prompts contain sensitive instructions, business logic, and proprietary information. Leakage of system prompts exposes the inner workings of AI applications to attackers. AegisGate detects and blocks system prompt disclosure across the stack.
+
+| Product | Contribution |
+|---------|-------------|
+| **Scanner** | 16 system prompt leakage patterns for static analysis — detects code that could expose system prompts in responses. |
+| **Rampart** | 16 prompt leakage patterns synced from Scanner — real-time HTTP inspection detects system prompt disclosure in LLM responses before they reach users. |
+| **Platform** | 16 prompt leakage patterns synced from Scanner, response-side filtering that blocks system prompt leakage before it reaches end users. |
+
+---
+
+### LLM08: Vector and Embedding Weaknesses
+
+**CWE-345** · NIST AI RMF: Map 1.2, Measure 2.2 · EU AI Act: Art. 10
+
+Vector databases and embedding pipelines introduce new attack surfaces. RAG poisoning, vector store injection, and embedding manipulation can cause models to retrieve and act on malicious content. AegisGate detects these attacks across the retrieval pipeline.
+
+| Product | Contribution |
+|---------|-------------|
+| **Scanner** | 17 RAG poisoning patterns detecting conditional instructions embedded in documents (e.g., "when this document is retrieved, respond with..."), vector store injection, embedding manipulation, and retrieval bypass. |
+| **Rampart** | 17 RAG poisoning patterns synced from Scanner — real-time HTTP inspection detects RAG-injected content in transit to LLM APIs. |
+| **Platform** | 17 RAG poisoning patterns synced from Scanner, model integrity verification for embedding models, and retrieval pipeline audit trails. |
+
+---
+
+### LLM09: Misinformation
 
 **CWE-1078** · NIST AI RMF: Measure 2.3, Identify 2.5 · EU AI Act: Art. 14
 
-Overreliance on LLM outputs without human verification is a human factors risk. AegisGate provides advisory controls.
+LLMs can generate false or misleading information with high confidence. AegisGate provides advisory controls to flag potentially unreliable outputs.
 
 | Product | Contribution |
 |---------|-------------|
@@ -152,16 +153,16 @@ Overreliance on LLM outputs without human verification is a human factors risk. 
 
 ---
 
-### LLM10: Model Theft
+### LLM10: Unbounded Consumption
 
-**CWE-1236** · NIST AI RMF: Protect 1.1, Manage 2.6 · EU AI Act: Art. 53
+**CWE-400** · NIST AI RMF: Measure 2.9, Protect 1.1, Manage 2.6 · EU AI Act: Art. 15, 53
 
-Model exfiltration through repeated queries, API abuse, or distillation attacks. AegisGate detects extraction patterns.
+Unbounded consumption covers resource exhaustion attacks against LLMs — extremely long prompts, recursive tool calls, rapid-fire requests — as well as model extraction through repeated queries and distillation attacks. AegisGate provides multi-layer protection.
 
 | Product | Contribution |
 |---------|-------------|
-| **Platform** | Distillation detection — identifies systematic querying patterns that suggest model extraction. Rate anomaly detection. Access controls and per-tenant isolation. |
-| **Rampart** | HTTP-level rate limiting and request monitoring at the proxy. Detects high-volume API usage patterns. |
+| **Platform** | Rate limiting, token budget enforcement, anomaly detection for usage spikes, distillation detection for model extraction, per-tenant quotas, access controls and per-tenant isolation. |
+| **Rampart** | HTTP-level rate limiting, request size limits, and request monitoring at the proxy. Detects high-volume API usage patterns. |
 | **Lens** | Browser-layer detection of data exfiltration attempts in chat interfaces. Cross-correlates with Rampart detections for multi-layer signal escalation. |
 
 ---
@@ -203,10 +204,10 @@ AegisGate maps every detection to multiple compliance frameworks:
 | Product | Type | Layer | OWASP Coverage |
 |---------|------|-------|---------------|
 | **Platform** | Proprietary | Central control plane | All 10 categories — 256 canonical patterns, IOC corroboration, compliance evidence, AIBOM |
-| **Scanner** | Open Source (Apache 2.0) | CI/CD + static analysis | LLM01, LLM02, LLM03, LLM05, LLM06, LLM08 — 301 detection patterns |
-| **MCP** | Open Source (Apache 2.0) | MCP protocol layer | LLM01, LLM02, LLM05, LLM06, LLM07, LLM08 — 91 detection patterns + tool poisoning defense |
-| **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM03, LLM04, LLM06, LLM10 — 256 detection patterns, real-time HTTP inspection |
-| **Lens** | Open Source (Apache 2.0) | Browser extension | LLM01, LLM06, LLM10 — 223 detection patterns, client-side detection in web chat interfaces |
+| **Scanner** | Open Source (Apache 2.0) | CI/CD + static analysis | LLM01, LLM02, LLM03, LLM04, LLM05, LLM07, LLM08 — 301 detection patterns |
+| **MCP** | Open Source (Apache 2.0) | MCP protocol layer | LLM01, LLM02, LLM03, LLM05, LLM06 — 91 detection patterns + tool poisoning defense |
+| **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM02, LLM07, LLM08, LLM10 — 256 detection patterns, real-time HTTP inspection |
+| **Lens** | Open Source (Apache 2.0) | Browser extension | LLM01, LLM02, LLM10 — 223 detection patterns, client-side detection in web chat interfaces |
 
 All products are air-gap capable — zero external communications required for full functionality. Interoperability is opt-in, outbound, and config-driven.
 
