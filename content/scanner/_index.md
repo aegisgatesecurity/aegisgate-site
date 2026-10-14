@@ -57,39 +57,32 @@ Scanner uses a three-layer detection pipeline: keyword pre-filter → regex patt
 ## Three-Layer Detection Pipeline
 
 {{< mermaid >}}
-flowchart LR
-    subgraph Input["📥 Input"]
-        A[AI Artifacts]
-        A1[RAG Documents]
-        A2[Training Data]
-        A3[Model Configs]
-        A4[Agent Skills]
+flowchart TD
+    subgraph Input["📥 Input — AI Artifacts"]
+        A[RAG Documents]
+        B[Training Data]
+        C[Model Configs]
+        D[Agent Skills]
     end
 
     subgraph Layer1["🔍 Layer 1: Keyword Pre-Filter"]
-        B["O(log n) Lookup"]
-        B1[214 Keywords]
-        B2[Fast Reject]
+        L1A["214 Keywords · O(log n) Lookup"]
+        L1B[Fast Reject]
     end
 
     subgraph Layer2["🔎 Layer 2: Regex Detection"]
-        C[268 Patterns]
-        C1[9 Categories]
-        C2[Compiled Regex]
+        L2A["268 Patterns · 9 Categories"]
+        L2B[Compiled Regex Engine]
     end
 
     subgraph Layer3["🧠 Layer 3: ML Detection"]
-        D[CharCNN-BiLSTM]
-        D1[1.6M Params]
-        D2["&lt;1ms CPU"]
+        L3A["CharCNN-BiLSTM · 1.6M Params"]
+        L3B["&lt;1ms CPU Inference"]
     end
 
-    subgraph Output["📤 Output"]
-        E[8 Formats]
-        E1[SARIF]
-        E2[JSON/JSONL]
-        E3[CSV/HTML]
-        E4[Text/Binary]
+    subgraph Output["📤 Output — 8 Formats"]
+        O1[SARIF · JSON · JSONL]
+        O2[CSV · HTML · Text · Binary]
     end
 
     Input --> Layer1
