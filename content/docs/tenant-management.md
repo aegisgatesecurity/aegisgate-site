@@ -16,7 +16,7 @@ Multi-tenant support operates at three layers:
 |-------|-----------|--------|
 | **Data isolation** | PostgreSQL Row-Level Security (RLS) on 6 tenant-scoped tables | ✅ Migration 008 |
 | **Application filtering** | `tenant_id` columns + application-level query filtering | ✅ Existing |
-| **Management API** | REST CRUD for tenant metadata with PostgreSQL persistence | ✅ v4.5.3 |
+| **Management API** | REST CRUD for tenant metadata with PostgreSQL persistence | ✅ v4.6.0 |
 
 ### API Endpoints
 

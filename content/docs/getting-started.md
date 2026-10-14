@@ -49,7 +49,7 @@ The wizard will show you:
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║           AegisGate Setup Wizard — v4.5.3                    ║
+║           AegisGate Setup Wizard — v4.6.0                    ║
 ╚══════════════════════════════════════════════════════════════╝
 
 Environment Detection:

@@ -8,6 +8,26 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.6.0 - 2026-10-14 - Moat Deepening: Shared Contracts, Telemetry, SARIF, Remediation, LLM Presets, MCP Tool Screening
+
+> **v4.6.0** extends Platform's defensive moat with six new packages and enhanced MCP tool poisoning detection. Adds canonical pattern contracts for cross-product interoperability, a unified telemetry receiver, SARIF output support, remediation guidance, LLM security presets, and an enhanced MCP tool description scanner with 34 dangerous function patterns. All new packages are air-gap compatible.
+
+**New Packages:**
+- **Canonical Contracts** (`pkg/contracts`) — Pattern and event contracts with JSON schemas, SHA-256 content hashing
+- **Unified Telemetry** (`pkg/telemetry`) — HTTP receiver serving patterns and IOCs to FOSS products via pull endpoints
+- **SARIF Output** (`pkg/sarifoutput`) — SARIF 2.1.0 output for CI/CD integration with GitHub Code Scanning
+- **Remediation Guidance** (`pkg/remediation`) — Actionable fix descriptions with OWASP/MCP Top 10 references
+- **LLM Security Presets** (`pkg/llmpresets`) — Curated system prompt hardening templates and output guardrails
+- **Enhanced MCP Tool Screening** (`pkg/mcpserver`) — 34 dangerous function patterns, maps to OWASP MCP03
+
+**Cross-Product Interop:** Pattern pull, IOC pull, event ingestion, Lens signal correlation — all air-gap compatible.
+
+**Testing:** 81 new tests. Coverage: llmpresets 100%, remediation 81.6%, sarifoutput 98.6%, telemetry 84.3%, mcpserver 88%.
+
+---
+
+---
+
 ### v4.5.3 - 2026-10-14 - Near-Threshold ML Logging & Build Fixes
 
 > **v4.5.3** fixes a critical observability gap in the ML threat detector: in block mode, payloads that scored just below the threshold were completely invisible. The fix decouples near-threshold logging from the shadow-mode gate, making the boundary population visible in production for the first time.
@@ -42,7 +62,6 @@ All notable changes to AegisGate Security Platform are documented here. For the 
 - Dockerfile rewritten for CGO + ONNX Runtime v1.29.0 (Debian bookworm-slim)
 - CI: CGO-enabled Linux build, ml-test job, conformance infrastructure
 - 95 test files, 29 packages, 1,412 test functions, 81.3% filtered coverage
-
 ### v4.5.2 - 2026-10-06 - Federated IOC Hardening (Phase 4) 🔒
 
 > **v4.5.2** hardens the federated IOC threat intelligence component with four production-readiness layers: per-IP rate limiting on gossip endpoints, bearer token authentication for the IOC admin API, AES-256-GCM encryption for keyring files at rest, and soft quarantine for IOCs from low-reputation peers. This completes the 4-phase IOC production readiness initiative (Phases 1–4).

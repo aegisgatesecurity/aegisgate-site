@@ -10,7 +10,7 @@ weight: 440
 
 | | |
 |---|---|
-| **Version** | v0.8.0 |
+| **Version** | v0.9.0 |
 | **License** | Apache 2.0 |
 | **Language** | Go (single static binary, zero runtime dependencies) |
 | **Detection latency** | ~5 ms per request |
@@ -47,7 +47,7 @@ Rampart ships as a single static binary with no runtime dependencies. Pre-built 
 | Linux (rpm) | `rampart-0.8.0.x86_64.rpm` | x86-64 |
 | Windows | `rampart-windows-amd64.exe` | x86-64 |
 | Windows | `rampart-windows-arm64.exe` | ARM64 |
-| Docker | `ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.8.0` | Multi-arch |
+| Docker | `ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.9.0` | Multi-arch |
 
 Download from the [releases page](https://github.com/AegisGateSecurity/rampart/releases), verify the cosign signature, and place the binary on your `PATH`:
 
@@ -64,14 +64,14 @@ rampart verify
 ### Docker
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.8.0
+docker pull ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.9.0
 
 # Run in proxy mode on port 8080
 docker run -d \
   --name rampart \
   -p 8080:8080 \
   -v rampart-config:/config \
-  ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.8.0 \
+  ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.9.0 \
   --port=8080 --config=/config --mode=block
 ```
 
