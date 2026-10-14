@@ -8,6 +8,29 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.5.3 - 2026-10-14 - Near-Threshold ML Logging & Build Fixes
+
+> **v4.5.3** fixes a critical observability gap in the ML threat detector: in block mode, payloads that scored just below the threshold were completely invisible. The fix decouples near-threshold logging from the shadow-mode gate, making the boundary population visible in production for the first time.
+
+#### ML Threat Detection
+
+- **Near-Threshold Logging in Block Mode**: Added `NearThresholdMargin` to `DetectorConfig` (default: 0.10). In block mode, any payload whose L3 score falls within `[threshold-margin, threshold)` is now logged with `log_reason: "near_threshold"`. ([PR #145](https://github.com/aegisgatesecurity/aegisgate-platform/pull/145))
+- **Renamed `LogShadowPrediction` → `LogPrediction`**: Now accepts a `reason` parameter to distinguish entry origins in the JSONL log.
+- **`LogReason` Field in `ShadowLogEntry`**: New JSON field makes log entries self-documenting.
+- **Backward Compatible**: Setting `NearThresholdMargin=0` disables near-threshold logging.
+
+#### Build Fixes
+
+- go.mod sync, Go 1.27.2 bump, 3 gosec fixes
+- .trivyignore for 68 unfixable Debian/Go CVEs
+- Helm chart appVersion updated to v4.5.3
+
+#### Security Acknowledgments
+
+- **@analista_83** ([dev.to](https://dev.to/analista_83)): Identified the near-threshold observability gap during public methodology review.
+
+---
+
 ### v0.8.0 (Rampart) - 2026-10-08 - Detection Parity + v13 Model + 100.0/100 Evasion Resistance
 
 > **v0.8.0** achieves full detection parity with AegisGate Platform. The v13 ONNX model ships with CGO-enabled Docker builds, full text normalization in production, config-sourced detector initialization, and a calibrated threshold (0.5). Evasion resistance jumps from 12.8/100 to **100.0/100** across 4,050 adversarial test cases. 26 regex patterns synced from Platform (185→211).
