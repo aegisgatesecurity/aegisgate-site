@@ -189,7 +189,7 @@ To enable the EU AI Act Compliance Module:
    - Not on Professional yet? [Upgrade at /pricing/](/pricing/) or [contact sales](mailto:sales@aegisgatesecurity.io)
 2. **Pull the latest image**:
    ```bash
-   docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.5.2
+   docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v4.5.3
    ```
 3. **Run the compliance scan**:
    ```bash
