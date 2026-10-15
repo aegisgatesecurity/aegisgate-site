@@ -204,7 +204,7 @@ AegisGate maps every detection to multiple compliance frameworks:
 | Product | Type | Layer | OWASP Coverage |
 |---------|------|-------|---------------|
 | **Platform** | Proprietary | Central control plane | All 10 categories — 256 canonical patterns, IOC corroboration, compliance evidence, AIBOM |
-| **Scanner** | Open Source (Apache 2.0) | CI/CD + static analysis | LLM01, LLM02, LLM03, LLM04, LLM05, LLM07, LLM08 — 301 detection patterns |
+| **Scanner** | Open Source (Apache 2.0) | CI/CD + static analysis | LLM01, LLM02, LLM03, LLM04, LLM05, LLM07, LLM08 — 322 detection patterns |
 | **MCP** | Open Source (Apache 2.0) | MCP protocol layer | LLM01, LLM02, LLM03, LLM05, LLM06 — 91 detection patterns + tool poisoning defense |
 | **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM02, LLM07, LLM08, LLM10 — 256 detection patterns, real-time HTTP inspection |
 | **Lens** | Open Source (Apache 2.0) | Browser extension | LLM01, LLM02, LLM10 — 223 detection patterns, client-side detection in web chat interfaces |

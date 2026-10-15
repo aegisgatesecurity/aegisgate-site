@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Scanner — Antivirus for AI Artifacts"
-description: "Free, open-source static analysis scanner for AI artifacts. 301 regex patterns + CharCNN-BiLSTM ML detection across 9 security categories. Detects prompt injection, secrets, PII, dangerous code, compliance violations, and OT/ICS exposure in RAG docs, training data, model configs, and agent skills."
+description: "Free, open-source static analysis scanner for AI artifacts. 322 regex patterns + CharCNN-BiLSTM ML detection across 12 security categories. Detects prompt injection, secrets, PII, dangerous code, compliance violations, and OT/ICS exposure in RAG docs, training data, model configs, and agent skills."
 type: "landing"
 mermaid: true
 ---
@@ -9,7 +9,7 @@ mermaid: true
      AEGISGATE SCANNER — AI ARTIFACT STATIC ANALYSIS
      ============================================================ -->
 
-> **🛡️ AegisGate Scanner v0.4.0 is LIVE** — 301 regex patterns, CharCNN-BiLSTM ML detection, 8 output formats, SARIF, SBOM, GitHub Action, dual Docker images. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-scanner) (free, open source, Apache 2.0).
+> **🛡️ AegisGate Scanner v0.4.0 is LIVE** — 322 regex patterns, CharCNN-BiLSTM ML detection, 8 output formats, SARIF, SBOM, GitHub Action, dual Docker images. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-scanner) (free, open source, Apache 2.0).
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate Scanner</strong> is a <strong>free, open-source static analysis scanner</strong> for AI artifacts. It detects prompt injection, secrets, PII, dangerous code, compliance violations, and OT/ICS exposure — before they reach production.
@@ -50,7 +50,7 @@ Scanner uses a three-layer detection pipeline: keyword pre-filter → regex patt
 | 🤖 AI/ML Security | 18 | Model poisoning, data exfiltration, membership inference, model inversion, adversarial examples |
 | 📊 Metadata Rules | 21+247 | Explicit + fallback rules for artifact classification (HuggingFace, PyTorch, ONNX, etc.) |
 
-**Total: 301 regex patterns across 9 categories + CharCNN-BiLSTM ML detection**
+**Total: 322 regex patterns across 12 categories + CharCNN-BiLSTM ML detection**
 
 ---
 
@@ -71,7 +71,7 @@ flowchart TD
     end
 
     subgraph Layer2["🔎 Layer 2: Regex Detection"]
-        L2A["301 Patterns · 9 Categories"]
+        L2A["322 Patterns · 12 Categories"]
         L2B[Compiled Regex Engine]
     end
 
@@ -206,7 +206,7 @@ docker run --rm -v $(pwd):/data aegisgatesecurity/scanner:lite scan /data/
 
 | Tier | Price | Features |
 |------|-------|----------|
-| **Community** | Free forever | All 301 patterns, ML detection, 8 output formats, SARIF, GitHub Action |
+| **Community** | Free forever | All 322 patterns, ML detection, 8 output formats, SARIF, GitHub Action |
 | **Professional** | Contact us | Baseline management, custom rules, priority support |
 | **Enterprise** | Contact us | SIEM integration, custom compliance frameworks, on-premise support |
 

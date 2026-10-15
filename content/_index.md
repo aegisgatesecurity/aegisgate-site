@@ -66,7 +66,7 @@ flowchart LR
     subgraph MLOps["🔬 ML/Ops Teams"]
         F[Static Analysis Scanner]
         F1[AegisGate Scanner]
-        F2[301 Patterns + ML]
+        F2[322 Patterns + ML]
         F3[SARIF / SBOM / CI]
     end
 
@@ -78,7 +78,7 @@ flowchart LR
     end
 
     subgraph Core["🔐 Core Detection Engine"]
-        D[301+ Patterns]
+        D[322+ Patterns]
         D1[PII + Secrets]
         D2[XSS + Compliance]
         D3[ML Adversarial]
@@ -166,10 +166,10 @@ flowchart LR
 <div class="card" style="border-color:#ec4899;">
 <h3>🔬 Scanner — For ML/Ops Teams <span class="badge">FREE</span></h3>
 <p><strong>You build AI pipelines and need to secure training data, RAG docs, and model artifacts.</strong></p>
-<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 301 regex patterns + CharCNN-BiLSTM ML detection. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
+<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 322 regex patterns + CharCNN-BiLSTM ML detection. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
 <ul>
 <li>9 security categories: secrets, PII, prompt injection, compliance, dangerous code, web, OT/ICS, AI/ML, metadata</li>
-<li>301 regex patterns + ML neural detection (CharCNN-BiLSTM, &lt;1ms CPU inference)</li>
+<li>322 regex patterns + ML neural detection (CharCNN-BiLSTM, &lt;1ms CPU inference)</li>
 <li>8 output formats including SARIF for GitHub Code Scanning, SBOM generation</li>
 <li>Zero runtime dependencies — air-gapped capable, no supply chain CVEs</li>
 <li>GitHub Action for one-step CI integration. Docker images (ML + Lite).</li>
@@ -365,7 +365,7 @@ flowchart LR
 <td>5 facets (PII, secrets, XSS, compliance, ML)</td>
 <td>Same detection engine</td>
 <td>23 security layers</td>
-<td>301 patterns + ML (9 categories)</td>
+<td>322 patterns + ML (12 categories)</td>
 <td>31 frameworks</td>
 </tr>
 <tr>
@@ -564,7 +564,7 @@ flowchart LR
 </div>
 <p><a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a>
 <a href="/scanner/" class="btn btn-secondary">Quick start guide →</a></p>
-<p style="font-size:0.85rem; color:#888;">301 patterns · SARIF output · CI/CD ready</p>
+<p style="font-size:0.85rem; color:#888;">322 patterns · SARIF output · CI/CD ready</p>
 </div>
 
 </div>
@@ -595,7 +595,7 @@ flowchart LR
 <li><a href="/lens/">Lens</a> — browser extension for AI chat protection</li>
 <li><a href="/rampart/">Rampart</a> — local proxy + IDE plugin for developers</li>
 <li><a href="/mcp/">MCP</a> — secure MCP server framework with 23 security layers</li>
-<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (301 patterns, ML + regex)</li>
+<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (322 patterns, ML + regex)</li>
 <li><a href="/platform/">Platform</a> — enterprise gateway with verifiable security</li>
 <li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
 <li><a href="/docs/comparison/">Competitive comparison</a> — 7 competitors, 31 frameworks</li>
