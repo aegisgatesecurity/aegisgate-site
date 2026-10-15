@@ -1081,10 +1081,10 @@ rampart verify   # Verify integrity of the new binary
 For Docker:
 
 ```bash
-docker pull ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.7.2
+docker pull ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.9.0
 docker stop rampart && docker rm rampart
 docker run -d --name rampart -p 8080:8080 -v rampart-config:/config \
-  ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.7.2 --mode=block
+  ghcr.io/aegisgatesecurity/aegisgate-rampart:v0.9.0 --mode=block
 ```
 
 ### Is Rampart FIPS compliant?

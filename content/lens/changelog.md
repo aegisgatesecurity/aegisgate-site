@@ -9,11 +9,11 @@ weight: 4
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.4.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.5.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
-<li><strong>5 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (61), ML adversarial (1 model)</li>
+<li><strong>5 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (61), IOC + Rampart (54), ML adversarial (1 model)</li>
 <li><strong>504 automated tests</strong>: 492/492 Node + 12/12 ML perf/stress</li>
 <li><strong>100% adversarial detection</strong> (10/10 prompt injection patterns caught by ML model)</li>
 <li><strong>100% on-device</strong>, zero network egress by default, ML inference included</li>
@@ -25,7 +25,16 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.4.1/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.4.1/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/CHANGELOG.md). This page mirrors the recent versions.
+
+---
+
+## [v0.5.0] - 2026-10-14
+
+- **Rampart Bridge** — Cross-product signal correlation with AegisGate Rampart. Lens detections can now be correlated with Rampart proxy events for enhanced threat intelligence.
+- **IOC Pull** — Fetches IOC (Indicator of Compromise) updates from Platform or Cloudflare Worker community endpoint. SHA-256 fingerprints, air-gap compatible, opt-in.
+- **Pattern expansion** — 151 → 223 total detection patterns (regex + IOC + Rampart bridge).
+- **OWASP 2025 alignment** — Detection patterns mapped to OWASP LLM Top 10 2025 categories.
 
 ---
 
@@ -92,7 +101,7 @@ The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate
 
 ### Added
 - Initial public release on CWS.
-- 120 regex patterns across 4 facets.
+- 173 regex patterns across 5 facets.
 - 8 AI provider integrations.
 - In-page banner with PII/secrets/XSS/compliance detection.
 - Chrome Manifest V3 extension.
@@ -111,8 +120,8 @@ Pre-1.0 versions (0.x.y) may include breaking changes in MINOR versions (per the
 ## See Also
 
 - [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-lens/releases) — full version history with signed artifacts
-- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.4.1/docs/SECURITY.md) — vulnerability disclosure policy
+- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/docs/SECURITY.md) — vulnerability disclosure policy
 - [Architecture](/lens/architecture/) — how the 5-facet detection system works
-- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.4.1/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
+- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
 
 Report issues at the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues).

@@ -98,7 +98,7 @@ flowchart TD
         end
         
         subgraph Engine["Detection Engine"]
-            E1[216+ Patterns]
+            E1[256 Patterns]
             E2[PII + Secrets]
             E3[XSS + Compliance]
             E4[ML Adversarial]

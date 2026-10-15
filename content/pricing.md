@@ -19,7 +19,7 @@ Simple, transparent pricing. No hidden fees. Start free, upgrade when you are re
 </div>
 
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#ec4899;color:#fff;margin-bottom:24px;">
-<strong>🔬 AegisGate Scanner — Free, forever.</strong> Static analysis scanner for AI artifacts. 268 regex patterns + ML detection across 9 security categories. SARIF, SBOM, GitHub Action, Docker. Patent pending. <a href="/scanner/" style="color:#ec4899;">Learn more</a> · <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases" style="color:#ec4899;">Download</a>
+<strong>🔬 AegisGate Scanner — Free, forever.</strong> Static analysis scanner for AI artifacts. 301 regex patterns + ML detection across 9 security categories. SARIF, SBOM, GitHub Action, Docker. Patent pending. <a href="/scanner/" style="color:#ec4899;">Learn more</a> · <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases" style="color:#ec4899;">Download</a>
 </div>
 
 ## 📚 Customer 1-pagers
@@ -55,7 +55,7 @@ The case study is **representative**, not a real customer. It is built from anon
 <ul>
 <li>Unlimited proxy RPM (soft-throttle)</li>
 <li>5 concurrent users</li>
-<li>216+ security detection patterns</li>
+<li>256 security detection patterns</li>
 <li>8 MCP guardrails</li>
 <li>8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)</li>
 <li>MITRE ATLAS (66 techniques)</li>

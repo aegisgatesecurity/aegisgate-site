@@ -10,7 +10,7 @@ mermaid: true
      Plain language. No jargon. Install buttons.
      ============================================================ -->
 
-> **🆕 AegisGate Lens v0.4.1 is LIVE** — Now with AI-powered injection detection. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/).
+> **🆕 AegisGate Lens v0.5.0 is LIVE** — Now with AI-powered injection detection. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/).
 
 <div class="alert alert-info alert-center" style="font-size:0.9rem;">
 <strong>Patent pending</strong> &mdash; detection pipeline technology (US Provisional App. No. 64/153,576).
@@ -80,7 +80,7 @@ flowchart LR
         A[AI Chat Input]
     end
 
-    subgraph Lens["AegisGate Lens v0.4.1"]
+    subgraph Lens["AegisGate Lens v0.5.0"]
         direction TB
         
         subgraph Facet1["PII Detection (55 patterns)"]
@@ -255,12 +255,12 @@ The banner is **non-blocking** — it doesn't prevent you from sending. It just 
 The content below is for developers, security engineers, and anyone who wants to understand how Lens works under the hood.
 
 <details>
-<summary><strong>📖 Canonical facts (v0.4.1)</strong></summary>
+<summary><strong>📖 Canonical facts (v0.5.0)</strong></summary>
 
 Source: [aegisgate-lens repo](https://github.com/aegisgatesecurity/aegisgate-lens)
 
 - **10 AI providers**: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI
-- **5 detection facets**: PII (55 patterns), secrets (41), XSS (12), compliance (43), ML adversarial (1 model) — 151 regex patterns + Char CNN-BiLSTM
+- **5 detection facets**: PII (55 patterns), secrets (41), XSS (12), compliance (43), ML adversarial (1 model) — 223 detection patterns (regex + IOC + Rampart bridge) + Char CNN-BiLSTM
 - **504 automated tests**: 492/492 Node + 12/12 ML perf/stress
 - **100% adversarial detection** (10/10 prompt injection patterns caught by ML model)
 - **2.31% regex FPR** on 6,500 WildChat prompts; **81.8% ML benign pass-through**
@@ -310,19 +310,21 @@ Lens **never** sends or stores:
 12. ❌ IP addresses (when self-hosted) — only the Gateway server IP if you use the optional opt-in telemetry
 
 If we ever change any of these, the change will be:
-- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.4.1/docs/SECURITY.md)
+- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/docs/SECURITY.md)
 - Disclosed in the release notes
 - Announced via the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 
 </details>
 
 <details>
-<summary><strong>🧪 What's new in v0.4.1</strong></summary>
+<summary><strong>🧪 What's new in v0.5.0</strong></summary>
 
-- **🧠 ML threat detector** — Char CNN-BiLSTM with Attention catches adversarial prompt injections that regex can't. Pure JavaScript inference (~5ms in Chrome). No WASM, no onnxruntime, no remote server. Lazy-loaded on first detection.
-- **🔍 DeepSeek + Meta AI** — two new AI provider integrations (10 total).
-- **📦 6× smaller** — extension reduced from 25MB (WASM) to 4.2MB (pure JS). Stricter CSP: `script-src 'self'` only.
-- **🧪 504 tests** — 492 unit + 12 ML performance/stress tests.
+- **🔗 Rampart Bridge** — Cross-product signal correlation with AegisGate Rampart. Lens detections can now be correlated with Rampart proxy events for enhanced threat intelligence.
+- **📡 IOC Pull** — Fetches Indicator of Compromise (IOC) updates from Platform or the Cloudflare Worker community endpoint. SHA-256 fingerprints of known threats, air-gap compatible, opt-in only.
+- **🔍 223 detection patterns** — Expanded from 151 to 223 patterns including IOC and Rampart bridge signals.
+- **🧠 ML threat detector** — Char CNN-BiLSTM with Attention catches adversarial prompt injections. Pure JavaScript inference (~5ms in Chrome).
+- **🔍 10 AI providers** — ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI.
+- **📦 4.2MB** — Pure JS, no WASM, strict CSP: `script-src 'self'` only.
 
 </details>
 

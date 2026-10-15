@@ -12,11 +12,11 @@ mermaid: true
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.5.3" alt="Platform Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.5.1" alt="MCP Version" width="97" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.5.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.4.1" alt="Lens Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.8.0" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.3.0" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.6.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.6.0" alt="MCP Version" width="97" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.5.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.5.0" alt="Lens Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.9.0" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.4.0" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
 </div>
 </div>
@@ -66,7 +66,7 @@ flowchart LR
     subgraph MLOps["🔬 ML/Ops Teams"]
         F[Static Analysis Scanner]
         F1[AegisGate Scanner]
-        F2[268 Patterns + ML]
+        F2[301 Patterns + ML]
         F3[SARIF / SBOM / CI]
     end
 
@@ -78,7 +78,7 @@ flowchart LR
     end
 
     subgraph Core["🔐 Core Detection Engine"]
-        D[268+ Patterns]
+        D[301+ Patterns]
         D1[PII + Secrets]
         D2[XSS + Compliance]
         D3[ML Adversarial]
@@ -166,10 +166,10 @@ flowchart LR
 <div class="card" style="border-color:#ec4899;">
 <h3>🔬 Scanner — For ML/Ops Teams <span class="badge">FREE</span></h3>
 <p><strong>You build AI pipelines and need to secure training data, RAG docs, and model artifacts.</strong></p>
-<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 268 regex patterns + CharCNN-BiLSTM ML detection. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
+<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 301 regex patterns + CharCNN-BiLSTM ML detection. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
 <ul>
 <li>9 security categories: secrets, PII, prompt injection, compliance, dangerous code, web, OT/ICS, AI/ML, metadata</li>
-<li>268 regex patterns + ML neural detection (CharCNN-BiLSTM, &lt;1ms CPU inference)</li>
+<li>301 regex patterns + ML neural detection (CharCNN-BiLSTM, &lt;1ms CPU inference)</li>
 <li>8 output formats including SARIF for GitHub Code Scanning, SBOM generation</li>
 <li>Zero runtime dependencies — air-gapped capable, no supply chain CVEs</li>
 <li>GitHub Action for one-step CI integration. Docker images (ML + Lite).</li>
@@ -365,7 +365,7 @@ flowchart LR
 <td>5 facets (PII, secrets, XSS, compliance, ML)</td>
 <td>Same detection engine</td>
 <td>23 security layers</td>
-<td>268 patterns + ML (9 categories)</td>
+<td>301 patterns + ML (9 categories)</td>
 <td>31 frameworks</td>
 </tr>
 <tr>
@@ -564,7 +564,7 @@ flowchart LR
 </div>
 <p><a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a>
 <a href="/scanner/" class="btn btn-secondary">Quick start guide →</a></p>
-<p style="font-size:0.85rem; color:#888;">268 patterns · SARIF output · CI/CD ready</p>
+<p style="font-size:0.85rem; color:#888;">301 patterns · SARIF output · CI/CD ready</p>
 </div>
 
 </div>
@@ -595,7 +595,7 @@ flowchart LR
 <li><a href="/lens/">Lens</a> — browser extension for AI chat protection</li>
 <li><a href="/rampart/">Rampart</a> — local proxy + IDE plugin for developers</li>
 <li><a href="/mcp/">MCP</a> — secure MCP server framework with 23 security layers</li>
-<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (268 patterns, ML + regex)</li>
+<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (301 patterns, ML + regex)</li>
 <li><a href="/platform/">Platform</a> — enterprise gateway with verifiable security</li>
 <li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
 <li><a href="/docs/comparison/">Competitive comparison</a> — 7 competitors, 31 frameworks</li>
