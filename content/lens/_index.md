@@ -10,7 +10,7 @@ mermaid: true
      Plain language. No jargon. Install buttons.
      ============================================================ -->
 
-> **🆕 AegisGate Lens v0.5.0 is LIVE** — Now with AI-powered injection detection. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/).
+> **🆕 AegisGate Lens v0.5.1 is LIVE** — Now with AI-powered injection detection. [Install on the Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) (free, forever) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/).
 
 <div class="alert alert-info alert-center" style="font-size:0.9rem;">
 <strong>Patent pending</strong> &mdash; detection pipeline technology (US Provisional App. No. 64/153,576).
@@ -80,7 +80,7 @@ flowchart LR
         A[AI Chat Input]
     end
 
-    subgraph Lens["AegisGate Lens v0.5.0"]
+    subgraph Lens["AegisGate Lens v0.5.1"]
         direction TB
         
         subgraph Facet1["PII Detection (55 patterns)"]
@@ -255,7 +255,7 @@ The banner is **non-blocking** — it doesn't prevent you from sending. It just 
 The content below is for developers, security engineers, and anyone who wants to understand how Lens works under the hood.
 
 <details>
-<summary><strong>📖 Canonical facts (v0.5.0)</strong></summary>
+<summary><strong>📖 Canonical facts (v0.5.1)</strong></summary>
 
 Source: [aegisgate-lens repo](https://github.com/aegisgatesecurity/aegisgate-lens)
 
@@ -310,14 +310,14 @@ Lens **never** sends or stores:
 12. ❌ IP addresses (when self-hosted) — only the Gateway server IP if you use the optional opt-in telemetry
 
 If we ever change any of these, the change will be:
-- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/docs/SECURITY.md)
+- Documented in [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.1/docs/SECURITY.md)
 - Disclosed in the release notes
 - Announced via the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues)
 
 </details>
 
 <details>
-<summary><strong>🧪 What's new in v0.5.0</strong></summary>
+<summary><strong>🧪 What's new in v0.5.1</strong></summary>
 
 - **🔗 Rampart Bridge** — Cross-product signal correlation with AegisGate Rampart. Lens detections can now be correlated with Rampart proxy events for enhanced threat intelligence.
 - **📡 IOC Pull** — Fetches Indicator of Compromise (IOC) updates from Platform or the Cloudflare Worker community endpoint. SHA-256 fingerprints of known threats, air-gap compatible, opt-in only.

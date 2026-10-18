@@ -9,7 +9,7 @@ weight: 4
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.5.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.5.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -25,7 +25,7 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.1/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.1/CHANGELOG.md). This page mirrors the recent versions.
 
 ---
 
