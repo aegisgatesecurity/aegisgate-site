@@ -35,7 +35,7 @@ AegisGate MCP is a standalone MCP server framework that applies **23 security la
 |---|-------|-------------|
 | 1 | Regex Pattern Matching | 79 patterns detect known injection vectors |
 | 2 | ATLAS Compliance | Maps to ATLAS threat framework |
-| 3 | Neural ML Detection | CharCNN-BiLSTM v13, 1.6M params, <1ms CPU inference |
+| 3 | Neural ML Detection | CharCNN-BiLSTM v15, 1.6M params, <1ms CPU inference |
 | 4 | Tool Poisoning Detection | Scans tool descriptions and schemas at registration |
 | 5 | RBAC | Role-based access control per tool |
 | 6 | Policy Engine | Configurable allow/deny rules |

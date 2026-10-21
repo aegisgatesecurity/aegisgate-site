@@ -1,10 +1,10 @@
 ---
 title: "Model Card"
-description: "AegisGate Char CNN-BiLSTM Threat Detection Model v13 — architecture, training data, evaluation metrics, and deployment guidance."
+description: "AegisGate Char CNN-BiLSTM Threat Detection Model v15 — architecture, training data, evaluation metrics, and deployment guidance."
 weight: 380
 ---
 
-## Model Card — AegisGate Threat Detector v13
+## Model Card — AegisGate Threat Detector v15
 
 This model card follows the ML Model Card framework (Mitchell et al., 2019) and provides transparency into the AegisGate threat detection model.
 
@@ -14,10 +14,10 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 
 | Field | Value |
 |-------|-------|
-| **Model name** | AegisGate Threat Detector v13 |
+| **Model name** | AegisGate Threat Detector v15 |
 | **Model type** | Character CNN-BiLSTM with Attention |
-| **Version** | v13 (char-cnn-bilstm-v13) |
-| **Release date** | 2026-09-09 |
+| **Version** | v15 (char-cnn-bilstm-v15) |
+| **Release date** | 2026-10-20 |
 | **License** | Apache 2.0 |
 | **Parameters** | 1,596,034 |
 | **Input** | Character-level, 256 chars max, Latin-1 vocabulary (256 tokens) |
@@ -54,11 +54,12 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 | HH-RLHF (red team) | 494 | Adversarial |
 | Security education | 517 | Benign |
 | WikiText | 409 | Benign |
+| Hard-negative proverbs (v14) | 257 | Benign |
 | Prompt injection (various) | ~1,905 | Adversarial |
 | Other | ~2,892 | Mixed |
-| **Total** | **70,572** | |
+| **Total** | **70,830** | |
 
-- **Split**: 80% train (56,457) / 10% val (7,057) / 10% test (7,058)
+- **Split**: 80% train (56,664) / 10% val (7,083) / 10% test (7,083)
 - **Data collection**: All synthetic or publicly available datasets. No real user data. Seeds derived from publicly documented ATLAS techniques.
 - **Augmentation**: 52 ATLAS payload seeds × 50 transforms (character substitution, encoding, linguistic, whitespace, fragmentation)
 - **Preprocessing**: Character-level normalization to Latin-1 (PAD=0, UNK=1)
@@ -71,14 +72,14 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 
 | Metric | Value |
 |--------|-------|
-| Accuracy | 98.27% |
-| Precision | 97.71% |
-| Recall (TPR) | 94.49% (1,492/1,579 detected) |
-| F1 Score | 96.07% |
-| False Positive Rate | 0.64% (35/5,479 benign flagged) |
-| False Negative Rate | 5.51% (87 missed) |
+| Accuracy | 98.22% |
+| Precision | 98.04% |
+| Recall (TPR) | 94.00% (1,504/1,600 detected) |
+| F1 Score | 95.98% |
+| False Positive Rate | 0.55% (30/5,483 benign flagged) |
+| False Negative Rate | 6.00% (96 missed) |
 
-**Confusion Matrix**: TP=1,492, FP=35, FN=87, TN=5,444
+**Confusion Matrix**: TP=1,504, FP=30, FN=96, TN=5,453
 
 ### Evasion Suite Results
 
@@ -94,8 +95,8 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 
 | Format | SHA-256 |
 |--------|---------|
-| ONNX (float32, Platform/Rampart) | `329fd89afe153d0b9f01143c50a9a2dd73b1d3613cc87a07b4b83a93172aeaf0` |
-| JSON weights (float16, Lens) | `b46bbde284651319fdcdf9212e4b0579dfc2d3a5198291d5bddce822381dda3a` |
+| ONNX (float32, Platform/Rampart) | `146f336ed38cc47772e58f51d9632b851b8015edec080e2a9eaed91f696caba0` |
+| JSON weights (float16, Lens) | `3ff1d00f200b4ca189c20e56a3b65060c790fd404e1035e066890d179084296c` |
 
 The platform verifies the model hash at load time. If the hash does not match, the model is rejected and the system falls back to heuristic detection.
 
@@ -113,7 +114,7 @@ The platform verifies the model hash at load time. If the hash does not match, t
 ## Ethical Considerations
 
 - **No user profiling**: The model detects attack patterns, not attackers. It should not be used for user profiling or discrimination
-- **False positive management**: 0.64% FPR on test set. CalibrationManager provides zero-FPR threshold tuning. Shadow mode provides a safety net
+- **False positive management**: 0.55% FPR on test set. CalibrationManager provides zero-FPR threshold tuning. Shadow mode provides a safety net
 - **No real user data**: Training uses only synthetic and public datasets
 - **Transparency**: This model card, the architecture, training methodology, and evaluation metrics are published openly
 
@@ -127,7 +128,7 @@ ml_threat_detection_enabled: true
 ml_shadow_mode: true        # Log-only for first 7 days
 ml_threshold: 0.50          # Calibrated for 0% FPR on benign corpus
 ml_model_path: "pkg/ml/models/threat_cnn_bilstm.onnx"
-ml_model_hash: "329fd89afe153d0b9f01143c50a9a2dd73b1d3613cc87a07b4b83a93172aeaf0"
+ml_model_hash: "146f336ed38cc47772e58f51d9632b851b8015edec080e2a9eaed91f696caba0"
 ```
 
 ### Graceful Degradation
@@ -144,10 +145,10 @@ AegisGate includes a built-in A/B testing framework for comparing model variants
 ```bash
 # Create test
 curl -X POST -H "X-API-Key: your-key" -d '{
-  "name": "v13-vs-v12",
+  "name": "v15-vs-v14",
   "variants": [
-    {"name": "champion", "weight": 90, "model_ref": "model-v13"},
-    {"name": "challenger", "weight": 10, "model_ref": "model-v12"}
+    {"name": "champion", "weight": 90, "model_ref": "model-v15"},
+    {"name": "challenger", "weight": 10, "model_ref": "model-v14"}
   ]
 }' https://aegisgate.yourcompany.com/api/v1/abtest/tests
 
@@ -162,15 +163,17 @@ curl -X POST -H "X-API-Key: your-key" -d '{
 |---------|------|-------------|---------|----------|
 | v9 | 2026-09-08 | Initial ATLAS-focused training, 66K samples | 95.5% | 0.7% |
 | v11 | 2026-09-09 | Expanded corpus to 70K, added evasion augmentation | 96.0% | 0.7% |
-| **v13** | **2026-09-23** | **Cross-product parity, 100.0/100 Platform/Rampart, 99.975/100 Lens (float16)** | **99.57%** | **0% (calibrated)** |
+| v13 | 2026-09-23 | Cross-product parity, 100.0/100 Platform/Rampart, 99.975/100 Lens (float16) | 99.57% | 0% (calibrated) |
+| v14 | 2026-10-20 | 257 hard-negative proverbs, MaxSeqLen 128, ASCII vocab (reverted) | 95.10% | 0.67% |
+| **v15** | **2026-10-20** | **256-char Latin-1 restored, 257 hard-negatives retained, all metrics improved** | **95.98%** | **0.55%** |
 
 ---
 
 ## Citation
 
 ```
-AegisGate Platform v4.6.0
-Char CNN-BiLSTM with Attention — Threat Detection Model v13
+AegisGate Platform v4.7.0
+Char CNN-BiLSTM with Attention — Threat Detection Model v15
 Apache License 2.0
 https://github.com/aegisgatesecurity/aegisgate-platform
 ```

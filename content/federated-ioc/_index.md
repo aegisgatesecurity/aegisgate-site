@@ -14,6 +14,10 @@ type: "landing"
 >
 > **AegisGate Federated IOC Store changes this.** Detected threats are packaged into cryptographically signed bundles and distributed to all customers. The network grows stronger with every detection.
 
+<div class="alert alert-info" style="margin-bottom:24px;">
+<strong>Patent Pending</strong> &mdash; Federated detection gap analysis and self-improving AI security posture assessment. US Provisional App. No. 64/180,722.
+</div>
+
 <div class="alert alert-success alert-center">
 <strong>Federated IOC Store</strong> is available in <strong>Professional tier and above</strong>.
 <br><br>

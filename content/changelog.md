@@ -8,6 +8,27 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.7.0 - 2026-10-20 - ML Model v14 Retrain, Policy Engine Seeding, MaxSeqLen Fix, Coverage Campaign
+
+> **v4.7.0** is a cross-product release that retrains the shared CharCNN-BiLSTM threat model from v13 to v15 (256-char Latin-1 restored), seeds the Platform compliance policy engine with 7 built-in Rego policies, fixes a critical MaxSeqLen dimension mismatch in the active ONNX inference code path, and drives compliance test coverage to ≥98% across FIPS, ISO 27001, ISO 42001, and HITRUST frameworks.
+
+**ML Model v14:**
+- Training corpus expanded to 70,830 examples. Added 257 hard-negative proverbs and common phrases that were false positives in v13.
+- Performance: FPR 0.67%, Recall 92.75%, F1 0.9510. All 7 known false positives eliminated.
+- MaxSeqLen fixed from 256→128 across all products. ASCII vocabulary (128 tokens).
+- All four Go-based products share the same v14 ONNX model (SHA-256: `f26793b8…`).
+
+**Policy Engine Seeding:**
+- 7 built-in Rego policies loaded at boot (no-secrets, no-pii, no-prompt-leakage, content-filter, no-jailbreak, max-response-length, no-tool-abuse).
+
+**Coverage Campaign:**
+- FIPS 140-3: 41%→98%, ISO 27001: 72%→100%, ISO 42001: 59%→99%, HITRUST: 82%→100%.
+
+**Patent:**
+- US Provisional App. No. 64/180,722 filed — Federated detection gap analysis and self-improving AI security posture assessment.
+
+---
+
 ### v4.6.0 - 2026-10-14 - Moat Deepening: Shared Contracts, Telemetry, SARIF, Remediation, LLM Presets, MCP Tool Screening
 
 > **v4.6.0** extends Platform's defensive moat with six new packages and enhanced MCP tool poisoning detection. Adds canonical pattern contracts for cross-product interoperability, a unified telemetry receiver, SARIF output support, remediation guidance, LLM security presets, and an enhanced MCP tool description scanner with 34 dangerous function patterns. All new packages are air-gap compatible.

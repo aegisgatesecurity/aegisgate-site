@@ -1,10 +1,10 @@
 ---
 title: "API Reference"
-description: "AegisGate Security Platform API Reference v4.6.0 — all REST endpoints for health, scanning, compliance, trust, DSAR, legal hold, A/B testing, SIEM, and SOAR."
+description: "AegisGate Security Platform API Reference v4.7.0 — all REST endpoints for health, scanning, compliance, trust, DSAR, legal hold, A/B testing, SIEM, and SOAR."
 weight: 100
 ---
 
-## API Reference — v4.6.0
+## API Reference — v4.7.0
 
 AegisGate provides a comprehensive REST API for integration with your applications, CI/CD pipelines, and monitoring systems.
 
@@ -45,7 +45,7 @@ Returns system health status including dependency checks.
 ```json
 {
   "status": "healthy",
-  "version": "4.5.3",
+  "version": "4.7.0",
   "dependencies": {
     "proxy": "up",
     "persistence": "up",
@@ -59,7 +59,7 @@ Returns system health status including dependency checks.
 ```json
 {
   "status": "degraded",
-  "version": "4.5.3",
+  "version": "4.7.0",
   "dependencies": {
     "proxy": "up",
     "persistence": "down",
@@ -81,7 +81,7 @@ Extended health check that also verifies scanner and A2A subsystems.
 ```json
 {
   "status": "healthy",
-  "version": "4.5.3",
+  "version": "4.7.0",
   "dependencies": {
     "proxy": "up",
     "persistence": "up",
@@ -110,7 +110,7 @@ GET /version
 **Response:**
 ```json
 {
-  "version": "4.5.3",
+  "version": "4.7.0",
   "commit": "eebe132",
   "build_date": "2026-09-09T00:00:00Z"
 }
@@ -501,10 +501,10 @@ POST /api/v1/abtest/tests
 ```json
 {
   "name": "v4.4-detection-comparison",
-  "description": "Compare v13 vs v12 detection model",
+  "description": "Compare v15 vs v14 detection model",
   "variants": [
-    {"name": "champion", "weight": 50, "model_ref": "model-v13"},
-    {"name": "challenger", "weight": 50, "model_ref": "model-v12"}
+    {"name": "champion", "weight": 50, "model_ref": "model-v15"},
+    {"name": "challenger", "weight": 50, "model_ref": "model-v14"}
   ]
 }
 ```
@@ -839,8 +839,8 @@ test, err := client.ABTestV4.CreateTest(ctx, &aegisgate.ABTestV4CreateRequest{
     Name:        "v4.4-comparison",
     Description: "Compare models",
     Variants: []aegisgate.ABTestV4Variant{
-        {Name: "champion", Weight: 50, ModelRef: "model-v13"},
-        {Name: "challenger", Weight: 50, ModelRef: "model-v12"},
+        {Name: "champion", Weight: 50, ModelRef: "model-v15"},
+        {Name: "challenger", Weight: 50, ModelRef: "model-v14"},
     },
 })
 err = client.ABTestV4.StartTest(ctx, test.ID)

@@ -182,7 +182,7 @@ docker run --rm -v $(pwd):/data aegisgatesecurity/scanner:lite scan /data/
 - **Baseline suppression** — silence known/accepted findings
 
 ### ML Detection
-- **CharCNN-BiLSTM v13** — 1.6M parameters
+- **CharCNN-BiLSTM v15** — 1.6M parameters
 - **< 1ms inference** on CPU
 - **No GPU required** — runs on any machine
 - **Heuristic fallback** — works without model file

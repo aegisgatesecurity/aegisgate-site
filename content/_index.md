@@ -12,7 +12,7 @@ mermaid: true
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.6.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.7.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.7.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.6.0" alt="MCP Version" width="97" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.5.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.5.1" alt="Lens Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.9.0" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
@@ -28,7 +28,7 @@ mermaid: true
 </div>
 
 <div class="alert alert-info alert-center" style="font-size:0.9rem;">
-<strong>Patent Pending.</strong> AegisGate technologies are patent pending — including cryptographic identity, capability contracts, trust scoring, multi-layered detection, compliance mapping, AI response scanning, and AI artifact static analysis.
+<strong>Patent Pending.</strong> AegisGate technologies are patent pending (7 provisional applications) — including cryptographic identity, capability contracts, trust scoring, multi-layered detection, compliance mapping, AI response scanning, AI artifact static analysis, and federated detection gap analysis.
 </div>
 
 <!-- ============================================================
@@ -549,7 +549,7 @@ flowchart LR
 <div class="command-box">
 <button class="copy-btn">Copy</button>
 <pre>docker run -d -p 3000:3000 \
-  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.5.1</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.6.0</pre>
 </div>
 <p><a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
 <p style="font-size:0.85rem; color:#888;">Streamable HTTP, TCP, or stdio transport</p>
