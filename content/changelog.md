@@ -8,15 +8,18 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
-### v4.7.0 - 2026-10-20 - ML Model v14 Retrain, Policy Engine Seeding, MaxSeqLen Fix, Coverage Campaign
+### v4.7.0 - 2026-10-21 - ML Model v15b Retrain, Policy Engine Seeding, MaxSeqLen Restoration, Coverage Campaign
 
-> **v4.7.0** is a cross-product release that retrains the shared CharCNN-BiLSTM threat model from v13 to v15 (256-char Latin-1 restored), seeds the Platform compliance policy engine with 7 built-in Rego policies, fixes a critical MaxSeqLen dimension mismatch in the active ONNX inference code path, and drives compliance test coverage to ≥98% across FIPS, ISO 27001, ISO 42001, and HITRUST frameworks.
+> **v4.7.0** is a cross-product release that retrains the shared CharCNN-BiLSTM threat model from v13 to v15b (256-char Latin-1), seeds the Platform compliance policy engine with 7 built-in Rego policies, restores the correct MaxSeqLen=256 across all products, and drives compliance test coverage to ≥98% across FIPS, ISO 27001, ISO 42001, and HITRUST frameworks.
 
-**ML Model v14:**
-- Training corpus expanded to 70,830 examples. Added 257 hard-negative proverbs and common phrases that were false positives in v13.
-- Performance: FPR 0.67%, Recall 92.75%, F1 0.9510. All 7 known false positives eliminated.
-- MaxSeqLen fixed from 256→128 across all products. ASCII vocabulary (128 tokens).
-- All four Go-based products share the same v14 ONNX model (SHA-256: `f26793b8…`).
+**ML Model v15b:**
+- Retrained on v13 corpus (70,572 examples), 256-char Latin-1 input, 1,596,034 parameters.
+- Performance: Accuracy 98.16%, F1 95.78%, FPR 0.49%, Recall 93.48%.
+- Model version history: v14 (128-char experiment, reverted) → v15 (failed Lens evasion suite) → v15b (final, all CI passes).
+- All four Go-based products share the same v15b ONNX model (SHA-256: `99187453…`). Lens uses v15b JS weights (SHA-256: `03792717…`).
+
+**MaxSeqLen Restoration:**
+- Restored MaxSeqLen=256 and VocabSize=256 (Latin-1) across all 5 Go normalizers and training code. The 128-char reduction from the v14 experiment was identified as a regression and corrected.
 
 **Policy Engine Seeding:**
 - 7 built-in Rego policies loaded at boot (no-secrets, no-pii, no-prompt-leakage, content-filter, no-jailbreak, max-response-length, no-tool-abuse).
@@ -25,7 +28,7 @@ All notable changes to AegisGate Security Platform are documented here. For the 
 - FIPS 140-3: 41%→98%, ISO 27001: 72%→100%, ISO 42001: 59%→99%, HITRUST: 82%→100%.
 
 **Patent:**
-- US Provisional App. No. 64/180,722 filed — Federated detection gap analysis and self-improving AI security posture assessment.
+- US Provisional App. No. 64/180,722 filed — Federated detection gap analysis and self-improving AI security posture assessment. Brings total to 7 provisional applications.
 
 ---
 
