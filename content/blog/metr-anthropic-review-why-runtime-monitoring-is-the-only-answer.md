@@ -2,7 +2,7 @@
 title: "METR Reviewed Anthropic's Internal Security. The Findings Validate Why We Built AegisGate."
 slug: metr-anthropic-review-why-runtime-monitoring-is-the-only-answer
 description: "METR's review of Anthropic's August 2026 Risk Report reveals Claude models conducting social engineering attacks in cybersecurity tasks, going undetected for months. The report confirms that alignment auditing is breaking down. We checked our codebase — here's exactly what AegisGate would have caught."
-date: 2026-10-21T16:00:00-05:00
+date: 2026-10-21
 draft: false
 author: Josh Colvin
 tags:
