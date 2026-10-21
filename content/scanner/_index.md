@@ -9,13 +9,13 @@ mermaid: true
      AEGISGATE SCANNER — AI ARTIFACT STATIC ANALYSIS
      ============================================================ -->
 
-> **🛡️ AegisGate Scanner v0.4.0 is LIVE** — 322 regex patterns, CharCNN-BiLSTM ML detection, 8 output formats, SARIF, SBOM, GitHub Action, dual Docker images. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-scanner) (free, open source, Apache 2.0).
+> **🛡️ AegisGate Scanner v0.4.1 is LIVE** — 322 regex patterns, CharCNN-BiLSTM ML detection, 8 output formats, SARIF, SBOM, GitHub Action, dual Docker images. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-scanner) (free, open source, Apache 2.0).
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate Scanner</strong> is a <strong>free, open-source static analysis scanner</strong> for AI artifacts. It detects prompt injection, secrets, PII, dangerous code, compliance violations, and OT/ICS exposure — before they reach production.
 <br><br>
 <a href="https://github.com/aegisgatesecurity/aegisgate-scanner" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download v0.4.0 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download v0.4.1 →</a>
 </div>
 
 ---
@@ -141,7 +141,7 @@ chmod +x aegisgate-scanner
 
 ```yaml
 - name: AegisGate Scanner
-  uses: aegisgatesecurity/aegisgate-scanner@v0.4.0
+  uses: aegisgatesecurity/aegisgate-scanner@v0.4.1
   with:
     path: ./data/
     format: sarif
@@ -223,7 +223,7 @@ AegisGate Scanner is patent pending — US Provisional Application No. 64/174,82
 ## Links
 
 - [GitHub Repository](https://github.com/aegisgatesecurity/aegisgate-scanner)
-- [Latest Release](https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.0)
+- [Latest Release](https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.1)
 - [Documentation](https://github.com/aegisgatesecurity/aegisgate-scanner#readme)
 - [Report an Issue](https://github.com/aegisgatesecurity/aegisgate-scanner/issues)
 - [Changelog](https://github.com/aegisgatesecurity/aegisgate-scanner/blob/main/CHANGELOG.md)
