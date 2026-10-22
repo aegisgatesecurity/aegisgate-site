@@ -13,7 +13,7 @@ mermaid: true
 <div class="hero-badges-wrapper">
 <div class="project-badges">
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.7.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.7.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.6.0" alt="MCP Version" width="97" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.6.1" alt="MCP Version" width="97" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.5.2" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.5.2" alt="Lens Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.9.1" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.4.1" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
@@ -553,7 +553,7 @@ flowchart LR
 <div class="command-box">
 <button class="copy-btn">Copy</button>
 <pre>docker run -d -p 3000:3000 \
-  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.6.0</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.6.1</pre>
 </div>
 <p><a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
 <p style="font-size:0.85rem; color:#888;">Streamable HTTP, TCP, or stdio transport</p>
