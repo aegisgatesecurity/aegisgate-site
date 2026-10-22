@@ -31,6 +31,10 @@ mermaid: true
 <strong>Patent Pending.</strong> AegisGate technologies are patent pending (7 provisional applications) — including cryptographic identity, capability contracts, trust scoring, multi-layered detection, compliance mapping, AI response scanning, AI artifact static analysis, and federated detection gap analysis.
 </div>
 
+<div class="alert alert-success alert-center" style="font-size:0.9rem;">
+<strong>📚 Published Research.</strong> Our whitepaper, <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em>, is now live on SSRN — covering our three-layer detection pipeline, 285 regex patterns, CharCNN-BiLSTM neural model (1.6M params), and federated IOC architecture. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">Read the paper →</a>
+</div>
+
 <!-- ============================================================
      AEGISGATE SUITE ARCHITECTURE
      Visual overview of how all five products work together
@@ -402,7 +406,7 @@ flowchart LR
 
 <div class="card">
 <h3>🧠 ML Threat Detection</h3>
-<p>CharCNN-BiLSTM neural network (1.58M params) runs in pure JavaScript in your browser. 100/100 evasion resistance, 0% false positive rate, ~5ms inference. No cloud calls.</p>
+<p>CharCNN-BiLSTM neural network (1.6M params) runs in pure JavaScript in your browser. 100/100 evasion resistance, 0% false positive rate, ~5ms inference. No cloud calls.</p>
 </div>
 
 <div class="card">
@@ -412,7 +416,7 @@ flowchart LR
 
 <div class="card">
 <h3>📊 Proven at Scale</h3>
-<p>5,000 concurrent virtual users, 23,578 requests per second, 0% errors. 10,883+ tests passing. 31 compliance frameworks. 11 SIEM platforms. 4 SOAR integrations.</p>
+<p>5,000 concurrent virtual users, 28,000 requests per second, 0% errors. 11,654+ tests passing. 31 compliance frameworks. 11 SIEM platforms. 4 SOAR integrations.</p>
 </div>
 
 </div>
@@ -512,7 +516,7 @@ flowchart LR
 <p>Compliance frameworks mapped</p>
 </div>
 <div class="card text-center">
-<h3 style="font-size:2.5rem; color:#f59e0b;">23,578</h3>
+<h3 style="font-size:2.5rem; color:#f59e0b;">28,000</h3>
 <p>Requests per second sustained</p>
 </div>
 <div class="card text-center">
@@ -603,6 +607,17 @@ flowchart LR
 </div>
 
 <div class="card">
+<h3>📚 Research & Publications</h3>
+<ul>
+<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">SSRN Whitepaper</a> — <em>AegisGate: A Multi-Layered Security Architecture for AI Agent Communication</em></li>
+<li><a href="/blog/">Blog</a> — case studies, technical deep dives, threat analysis</li>
+<li><a href="/case-studies/">Case studies</a> — real-world scenarios across industries</li>
+<li><a href="/tech/">Technical architecture</a> — six-pillar deep dive</li>
+<li><a href="/docs/executive-brief/">Executive brief</a> — one-page overview for CISOs and CIOs</li>
+</ul>
+</div>
+
+<div class="card">
 <h3>🛡️ Security & Compliance</h3>
 <ul>
 <li><a href="/cve/">CVE Feed</a> — AegisGate vulnerability disclosures</li>
@@ -619,8 +634,7 @@ flowchart LR
 <li><a href="https://github.com/aegisgatesecurity" target="_blank" rel="noopener noreferrer">GitHub</a> — all 6 repos, Apache 2.0</li>
 <li><a href="https://x.com/aegisgate" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
 <li><a href="https://mastodon.social/@aegisgate" target="_blank" rel="noopener noreferrer">Mastodon</a></li>
-<li><a href="/blog/">Blog</a> — case studies, technical deep dives</li>
-<li><a href="/case-studies/">Case studies</a> — real-world scenarios across industries</li>
+<li><a href="https://github.com/aegisgatesecurity/aegisgate-platform/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a></li>
 <li><a href="mailto:security@aegisgatesecurity.io">security@aegisgatesecurity.io</a></li>
 <li><a href="mailto:sales@aegisgatesecurity.io">sales@aegisgatesecurity.io</a></li>
 </ul>

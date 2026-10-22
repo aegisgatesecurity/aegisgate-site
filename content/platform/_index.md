@@ -17,17 +17,20 @@ mermaid: true
 <li><strong>31 compliance frameworks</strong> (2,043 controls, 1,457 automated): HIPAA, SOC 2, EU AI Act, FedRAMP, ISO 27001, ISO 42001, NIST AI RMF, OWASP LLM Top 10, and more</li>
 <li><strong>11 SIEM integrations</strong>: Splunk, Elastic, Datadog, Sumo Logic, Chronicle, Loki, Fluentd, Logstash, Cribl, Kafka, Graylog, syslog</li>
 <li><strong>4 SOAR integrations</strong>: PagerDuty, Jira, ServiceNow, Custom webhook</li>
-<li><strong>ML threat detection</strong>: CharCNN-BiLSTM (1.58M params), 100/100 evasion resistance, 0% FPR, ~5ms</li>
-<li><strong>256 detection patterns</strong>, MITRE ATLAS 66 techniques</li>
+<li><strong>ML threat detection</strong>: CharCNN-BiLSTM (1.6M params), 100/100 evasion resistance, 0% FPR, ~5ms</li>
+<li><strong>285 detection patterns</strong>, MITRE ATLAS 66 techniques</li>
 <li><strong>Web UI</strong>: 7-page dashboard at <code>/ui/</code></li>
 <li><strong>Single 19.1MB Go binary</strong>, zero external dependencies, air-gapped deployment</li>
-<li><strong>10,883+ tests passing</strong>, 81% coverage</li>
-<li><strong>Load tested</strong>: 5,000 VUs, 23,578 RPS, 0% errors</li>
+<li><strong>11,654+ tests passing</strong>, 81% coverage</li>
+<li><strong>Load tested</strong>: 5,000 VUs, 28,000 RPS, 0% errors</li>
 <li><strong>Apache 2.0 community edition</strong>, self-hosted, zero data collection</li>
 </ul>
 
 <p style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(0,173,216,0.2);">
-<strong>Patent Pending</strong> &mdash; Multi-layered detection, compliance mapping, response scanning, and federated detection gap analysis technologies. US Provisional App. Nos. 64/153,574; 64/153,575; 64/153,576; 64/153,577; 64/180,722.
+<strong>Patent Pending</strong> &mdash; 7 U.S. provisional patent applications covering cryptographic identity, multi-protocol interception, compliance mapping, three-layered detection, response scanning, AI artifact static analysis, and federated detection gap analysis. USPTO App. Nos.~64/153,573; 64/153,574; 64/153,575; 64/153,576; 64/153,577; 64/174,824; 64/180,722.
+</p>
+<p style="margin-top:8px;">
+<strong>📚 Published Research</strong> &mdash; <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em> is live on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">SSRN</a>. Covers the three-layer detection pipeline, 285 regex patterns, CharCNN-BiLSTM neural model (1.6M params), federated IOC architecture, and 27+ compliance frameworks.
 </p>
 </div>
 
@@ -85,7 +88,7 @@ Platform v4.7.0 protects every AI interaction across six attack surfaces:
 <div class="card">
 <h3>🌐 HTTP API Security</h3>
 <ul>
-<li>256 detection patterns</li>
+<li>285 detection patterns</li>
 <li>MITRE ATLAS 66 techniques</li>
 <li>PII, secrets, API key detection</li>
 <li>Bidirectional request/response scanning</li>
@@ -130,7 +133,7 @@ Platform v4.7.0 protects every AI interaction across six attack surfaces:
 <div class="card" style="border-color:#22c55e;">
 <h3>🧠 ML Threat Detection <span class="badge">NEW v4.4.0+</span></h3>
 <ul>
-<li>CharCNN-BiLSTM (1.58M params)</li>
+<li>CharCNN-BiLSTM (1.6M params)</li>
 <li>100/100 evasion resistance</li>
 <li>0% false positive rate</li>
 <li>~5ms inference (pure Go)</li>
@@ -152,7 +155,7 @@ flowchart TD
         direction TB
         
         subgraph Pillar1["🌐 HTTP API Security"]
-            P1[256 Detection Patterns]
+            P1[285 Detection Patterns]
             P1a[PII & Secrets Detection]
             P1b[Bidirectional Scanning]
         end
@@ -182,7 +185,7 @@ flowchart TD
         end
         
         subgraph Pillar6["🧠 ML Detection"]
-            P6[CharCNN-BiLSTM 1.58M]
+            P6[CharCNN-BiLSTM 1.6M]
             P6a[100/100 Evasion Resistance]
             P6b[~5ms Inference]
         end
@@ -257,7 +260,7 @@ sequenceDiagram
     end
 
     Note over Proxy,Trust: Every action cryptographically signed
-    Note over Scanner: 256 patterns + ML model (~5ms)
+    Note over Scanner: 285 patterns + ML model (~5ms)
 {{< /mermaid >}}
 
 ---
@@ -405,7 +408,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 
 | Tier | Price | Key Features |
 |------|-------|--------------|
-| **Community** | Free | HTTP proxy, MCP, A2A, 256 patterns, MITRE ATLAS, basic compliance |
+| **Community** | Free | HTTP proxy, MCP, A2A, 285 patterns, MITRE ATLAS, basic compliance |
 | **Developer** | $79/mo | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
 | **Professional** | $499/mo | + Trust Framework, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
 | **Enterprise** | Custom | + Air-gapped deployment, custom compliance modules, dedicated SE, SLA |
@@ -418,7 +421,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 
 | Metric | Value |
 |--------|-------|
-| Sustained RPS | 23,578 |
+| Sustained RPS | 28,000 |
 | Concurrent VUs tested | 5,000 |
 | Error rate | 0% |
 | Proxy overhead p99 | 2.8ms |
@@ -428,7 +431,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | Binary size | 19.1 MB |
 | Docker image size | 19.1 MB |
 | Test coverage | 83.1% |
-| Tests passing | 10,883+ |
+| Tests passing | 11,654+ |
 
 ---
 
