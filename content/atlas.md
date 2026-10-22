@@ -95,7 +95,7 @@ ATLAS organizes 66 techniques into 14 tactics. AegisGate provides comprehensive 
 | Technique | Coverage |
 |-----------|----------|
 | Supply Chain Compromise | mTLS, signature verification, MCP/ACP server validation |
-| Exploit Public-Facing Application | Input validation, 216 threat patterns |
+| Exploit Public-Facing Application | Input validation, 285 threat patterns |
 | Phishing (AI-specific) | Prompt injection detection across all pillars |
 
 ### Execution
@@ -182,7 +182,7 @@ ATLAS organizes 66 techniques into 14 tactics. AegisGate provides comprehensive 
 
 | Feature | Community | Developer | Professional | Enterprise |
 |---------|-----------|-----------|-------------|-----------|
-| HTTP threat scanning (216 patterns) | ✅ | ✅ | ✅ | ✅ |
+| HTTP threat scanning (285 patterns) | ✅ | ✅ | ✅ | ✅ |
 | MCP 8 guardrails | ✅ | ✅ | ✅ | ✅ |
 | A2A 8 guardrails | — | ✅ | ✅ | ✅ |
 | ACP protocol security | ✅ | ✅ | ✅ | ✅ |
@@ -242,3 +242,5 @@ The `/api/v1/sla` endpoint includes current SLO measurements that track defense 
 - **AegisGate Security Architecture**: [/docs/security/](/docs/security/)
 - **GitHub Repository**: [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
 
+
+> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).

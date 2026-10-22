@@ -25,7 +25,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 | Capability | AegisGate | Nightfall | Prompt Security | Cisco | Purview | Lakera | Rebuff |
 |-----------|-----------|-----------|----------------|-------|---------|--------|--------|
 | **Detection Patterns** | 154 regex + ML | ~50 DLP | ~30 | ~40 | ~60 DLP | ~20 | ~10 |
-| **ML Model** | CharCNN-BiLSTM (1.58M params, ONNX) | Proprietary | Proprietary | Rule-based | DLP rules | ML | Regex+ML |
+| **ML Model** | CharCNN-BiLSTM (1.6M params, ONNX) | Proprietary | Proprietary | Rule-based | DLP rules | ML | Regex+ML |
 | **Evasion Resistance** | **100/100** (verified) | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
 | **False Positive Rate** | **0.0%** (verified, 10K+ test cases) | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
 | **Latency** | **~4.6ms** per scan | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
@@ -97,7 +97,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 
 | Capability | AegisGate | Nightfall | Prompt Security | Cisco | Purview | Lakera | Rebuff |
 |-----------|-----------|-----------|----------------|-------|---------|--------|--------|
-| **Scale (verified)** | 5K VUs, 23,578 RPS, 0% errors | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
+| **Scale (verified)** | 5K VUs, 28,000 RPS, 0% errors | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
 | **Binary Size** | 19.1 MB | N/A (SaaS) | N/A | N/A | N/A | N/A | N/A |
 | **Deployment** | Single binary, zero-config | SaaS signup | SaaS signup | Hardware install | M365 license | SaaS signup | SaaS/signup |
 
@@ -123,7 +123,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 6. **Air-gapped deployment** — Full capability (UI, SOAR, SIEM, evidence) with zero outbound connectivity. No competitor offers this.
 7. **SOAR integration** — PagerDuty, Jira, ServiceNow out of the box. No competitor offers SOAR.
 8. **IDE integration** — VS Code, Cursor, JetBrains, Neovim, Emacs, Helix, Sublime. No competitor offers IDE integration.
-9. **Verified scale** — 5,000 concurrent VUs, 23,578 RPS, 0.00% errors on bare metal. No competitor publishes scale data.
+9. **Verified scale** — 5,000 concurrent VUs, 28,000 RPS, 0.00% errors on bare metal. No competitor publishes scale data.
 10. **Open-core** — Apache 2.0 community edition + commercial enterprise modules. Self-hosted, no vendor lock-in, full community code auditability. Only Rebuff is also open source (MIT), but with ~10 patterns vs AegisGate's 154+ML.
 
 ### Where Competitors Still Lead
@@ -139,3 +139,5 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 ### Conclusion
 
 AegisGate ties or wins on every technical dimension. The only areas where competitors lead are **business maturity** (certifications, support infrastructure) — not product capability. For organizations that prioritize verified detection accuracy, multi-protocol coverage, compliance breadth, air-gapped deployment, and open-source auditability, AegisGate is the clear choice.
+
+> **Patent Pending** (7 U.S. provisional applications). Published research: [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).

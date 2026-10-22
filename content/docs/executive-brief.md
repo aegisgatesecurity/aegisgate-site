@@ -32,7 +32,7 @@ AegisGate is the only full-suite, open-source AI security platform that protects
 | **Evasion resistance** | 100/100 verified | Not published |
 | **False positive rate** | 0.0% verified (10K+ test cases) | 1-7% (estimated) |
 | **Detection latency** | ~4.6ms per scan | Not published |
-| **Scale (verified)** | 5,000 concurrent users, 23,578 RPS, 0% errors | Not published |
+| **Scale (verified)** | 5,000 concurrent users, 28,000 RPS, 0% errors | Not published |
 | **Compliance frameworks** | 31 | 1-5 |
 | **AI protocols secured** | 5 (HTTP, MCP, A2A, ACP, ANP) | 1 (HTTP only) |
 | **Deployment** | Single 19.1MB binary, zero-config, air-gapped | SaaS-only or appliance |
@@ -89,7 +89,7 @@ SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NI
 | Metric | Result |
 |--------|--------|
 | Concurrent users (zero errors) | 5,000 |
-| Sustained throughput | 23,578 RPS |
+| Sustained throughput | 28,000 RPS |
 | Error rate at max load | 0.00% |
 | Recovery after crush | Full |
 | Detection latency | ~4.6ms |
@@ -101,6 +101,8 @@ SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NI
 ### What's Needed Before Enterprise Procurement
 
 1. **SOC 2 Type II** — Independent audit (self-attestation Type I + controls exist)
+> **Patent Pending** (7 U.S. provisional applications) and [published research on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
+
 2. **Third-party pentest** — Independent lab (self-pentest v3.3.0 exists)
 3. **Legal review** — DPA, MSA, BAA, SLA (all drafts exist, ~$5-15K legal review)
 4. **Scale test** — Already done (5K VUs, 23.5K RPS, 0% errors, published)

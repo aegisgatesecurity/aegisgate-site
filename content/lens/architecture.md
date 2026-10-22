@@ -17,7 +17,7 @@ weight: 2
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
-<li><strong>169 regex patterns</strong> across <strong>4 regex facets</strong>: PII (55), secrets (45), XSS (12), compliance (57) + <strong>1 ML facet</strong> (Char CNN-BiLSTM adversarial detection)</li>
+<li><strong>151 regex patterns</strong> across <strong>5 regex facets</strong>: PII (65), secrets (41), XSS (12), compliance (24) + <strong>1 ML facet</strong> (Char CNN-BiLSTM adversarial detection)</li>
 <li><strong>504 automated tests</strong>: 492/492 Node + 12/12 ML perf/stress (5/5 stable runs)</li>
 <li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
 <li><strong>Sub-millisecond regex detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts) + async ML enrichment (~5ms)</li>
@@ -38,19 +38,19 @@ Lens runs **5 detection facets** — 4 synchronous regex facets and 1 async ML f
 
 | Facet | What it catches | Example |
 |-------|----------------|---------|
-| **PII** | Email, phone, SSN, credit card, bank account, DOB, address, driver's license, passport, tax ID, IP address, MRN, ICD-10, NPI, SSN last-4 (55 patterns) | `john.doe@example.com`, `4111-1111-1111-1111` |
-| **Secrets** | API keys (AWS, GitHub, OpenAI, Stripe, Slack, Anthropic, Cursor, Vercel, Groq, Replicate), OAuth tokens, database credentials, RSA private keys (45 patterns) | `ghp_abc123...`, `AKIA...`, `-----BEGIN RSA PRIVATE KEY-----` |
+| **PII** | Email, phone, SSN, credit card, bank account, DOB, address, driver's license, passport, tax ID, IP address, MRN, ICD-10, NPI, SSN last-4, SWIFT/BIC, CPT/HCPCS (65 patterns) | `john.doe@example.com`, `4111-1111-1111-1111` |
+| **Secrets** | API keys (AWS, GitHub, OpenAI, Stripe, Slack, Anthropic, Cursor, Vercel, Groq, Replicate), OAuth tokens, database credentials, RSA private keys (41 patterns) | `ghp_abc123...`, `AKIA...`, `-----BEGIN RSA PRIVATE KEY-----` |
 | **XSS** | Cross-site scripting payloads (12 patterns) | ``&lt;script&gt;alert(1)&lt;/script&gt;`` |
-| **Compliance** | OWASP LLM Top 10, MITRE ATLAS, EU AI Act, NIST CSF, ISO 27001, CCPA, LGPD, PIPEDA, POPIA (57 patterns) | "patient SSN:", "credit card:" |
-| **ML Adversarial** | Prompt injection, jailbreak attempts, adversarial instructions (Char CNN-BiLSTM, 1.58M params, ~5ms inference) | "ignore previous instructions and..." |
+| **Compliance** | OWASP LLM Top 10, MITRE ATLAS, EU AI Act, NIST CSF, ISO 27001, CCPA, LGPD, PIPEDA, POPIA (24 patterns) | "patient SSN:", "credit card:" |
+| **ML Adversarial** | Prompt injection, jailbreak attempts, adversarial instructions (Char CNN-BiLSTM, 1.6M params, ~5ms inference) | "ignore previous instructions and..." |
 
-The 4 regex facets run **synchronously** (fast, deterministic, on-device). The ML facet runs **asynchronously** as an enrichment layer — the user gets regex results immediately, and ML results arrive ~5ms later if the ML model is enabled.
+The 5 regex facets run **synchronously** (fast, deterministic, on-device). The ML facet runs **asynchronously** as an enrichment layer — the user gets regex results immediately, and ML results arrive ~5ms later if the ML model is enabled.
 
 ## Regex + ML Approach
 
 v0.5.2 combines regex and ML for complementary coverage:
 
-- **Regex (4 facets)**: Fast (<1ms), deterministic, auditable, zero false negatives for known patterns. 169 patterns = ~60KB.
+- **Regex (4 facets)**: Fast (<1ms), deterministic, auditable, zero false negatives for known patterns. 151 patterns = ~60KB.
 - **ML (1 facet)**: Char CNN-BiLSTM catches novel/zero-day adversarial prompts that regex misses. 3.7MB float16 JSON weights, pure JS inference (no WASM, no onnxruntime). ~5ms async inference.
 - **Privacy**: Both regex and ML run 100% on-device. No network calls. The ML model is bundled with the extension — no model download.
 - **Determinism**: Regex is deterministic. ML adds probabilistic enrichment but never blocks alone (ML results supplement, never override regex).
@@ -73,7 +73,7 @@ v0.5.2 combines regex and ML for complementary coverage:
 │  │  ┌──────────────────────────────────────┐    │   │
 │  │  │  4-Facet Regex Detection (parallel)  │    │   │
 │  │  │  All regex patterns                   │    │   │
-│  │  │  - PII (55)                           │    │   │
+│  │  │  - PII (65)                           │    │   │
 │  │  │  - Secrets (45)                       │    │   │
 │  │  │  - XSS (12)                            │    │   │
 │  │  │  - Compliance (57)                    │    │   │
@@ -121,7 +121,7 @@ Regex detection is **synchronous** — the user gets the result before they can 
 
 Starting in v0.3.0, Lens includes a Char CNN-BiLSTM adversarial prompt detection model:
 
-- **Architecture**: Character-level CNN + BiLSTM, 1.58M parameters
+- **Architecture**: Character-level CNN + BiLSTM, 1.6M parameters
 - **Size**: 3.7MB (float16 JSON weights)
 - **Inference**: Pure JavaScript (no WASM, no onnxruntime — removed in v0.3.0)
 - **Latency**: ~5ms per prompt (async, non-blocking)

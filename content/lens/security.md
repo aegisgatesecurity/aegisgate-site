@@ -85,7 +85,7 @@ Starting in v0.3.0, Lens includes an on-device ML threat detector. This introduc
 
 ### Model architecture and inference
 
-- **Architecture**: Char CNN-BiLSTM with Attention (1.58M parameters)
+- **Architecture**: Char CNN-BiLSTM with Attention (1.6M parameters)
 - **Weight format**: float16 JSON (3.7MB, gzip-compressed)
 - **Inference**: Pure JavaScript — no WASM, no onnxruntime, no external runtime
 - **Loading**: Lazy-loaded on first `classify()` call. Not fetched on page load.

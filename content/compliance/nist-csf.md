@@ -141,7 +141,7 @@ The IDENTIFY function ensures assets are managed, risks are assessed, and improv
 | ID.RA-02 | Threat sources are identified | 216 detection patterns covering: secrets exposure, PII/PHI leakage, prompt injection attacks, data exfiltration attempts, and tool-use abuse. Detection patterns are continuously updated and validated against emerging threat intelligence. | 3 | ✅ Implemented |
 | ID.RA-03 | Vulnerabilities and their likelihood are assessed | Compliance engine continuously evaluates configuration vulnerabilities and policy violations. Each of the 38 AG-* platform controls includes severity classification and risk scoring. | 3 | ✅ Implemented |
 | ID.RA-04 | Potential impact is identified | Impact assessment is automated: data classification via PII/PHI detection, secrets exposure severity grading, and prompt injection risk scoring. Impact thresholds are customer-configurable. | 3 | ✅ Implemented |
-| ID.RA-05 | Threat and vulnerability information is used | Detection patterns are informed by real-world threat data. 216 patterns reflect known attack vectors in AI infrastructure, including OWASP LLM Top 10 coverage. | 3 | ✅ Implemented |
+| ID.RA-05 | Threat and vulnerability information is used | Detection patterns are informed by real-world threat data. 285 patterns reflect known attack vectors in AI infrastructure, including OWASP LLM Top 10 coverage. | 3 | ✅ Implemented |
 | ID.RA-06 | Risk responses are selected | Automated risk response via the compliance engine: block, redact, alert, or rate-limit based on detection severity. Response actions are policy-driven and fully auditable. | 3 | ✅ Implemented |
 | ID.RA-07 | Risk assessment results are communicated | Audit logs with hash-chained integrity provide tamper-evident risk assessment records. Compliance dashboards communicate findings to stakeholders via 31 framework reports, including 6 NIST CSF controls (NIST-CSF-GOVERN through NIST-CSF-RECOVER). | 3 | ✅ Implemented |
 
@@ -175,7 +175,7 @@ The PROTECT function encompasses access control, awareness training, data securi
 
 | NIST ID | Subcategory | AegisGate Implementation | Tier | Status |
 |---|---|---|---|---|
-| PR.AT-01 | Personnel are trained on cybersecurity awareness | Security awareness training program documented ([/security/training/](/security/training/)) with role-based modules, quarterly phishing simulations, and completion tracking. AegisGate's compliance dashboard provides continuous visibility into security posture. Threat detection capabilities (216 patterns) serve as real-time security awareness signals. | 3 | ⚠️ Partial → ✅ Addressed |
+| PR.AT-01 | Personnel are trained on cybersecurity awareness | Security awareness training program documented ([/security/training/](/security/training/)) with role-based modules, quarterly phishing simulations, and completion tracking. AegisGate's compliance dashboard provides continuous visibility into security posture. Threat detection capabilities (285 patterns) serve as real-time security awareness signals. | 3 | ⚠️ Partial → ✅ Addressed |
 | PR.AT-02 | Personnel are trained on their role-specific duties | Role-based training program documented ([/security/training/](/security/training/)) with 8 modules mapped to roles (Engineering, Management, Compliance, Contractors). Training content maps to RBAC model and access levels. | 3 | ⚠️ Partial → ✅ Addressed |
 
 #### PR.DS — Data Security

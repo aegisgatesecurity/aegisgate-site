@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Lens — Terms of Service"
-description: "Terms of Service for AegisGate Lens browser extension. Last updated 2026-07-29. Applies to v0.2.0 and later."
+description: "Terms of Service for AegisGate Lens browser extension. Last updated 2026-07-29. Applies to v0.5.2 and later."
 type: "docs"
 weight: 4
 ---
@@ -8,7 +8,7 @@ weight: 4
 # AegisGate Lens — Terms of Service
 
 **Last updated**: 2026-07-29
-**Effective for**: AegisGate Lens v0.2.0 and later
+**Effective for**: AegisGate Lens v0.5.2 and later
 **Licensor:** AegisGate Security, LLC ("AegisGate", "we", "us")
 **Licensee:** End user of the AegisGate Lens browser extension ("you", "your")
 
@@ -36,7 +36,7 @@ You may not:
 
 ## 3. Privacy
 
-Your privacy is paramount. The Lens's privacy commitments are documented in our [Privacy Policy](/lens/privacy/) and in the [12 Privacy Non-Negotiables](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.2.0/docs/PRIVACY-POLICY.md).
+Your privacy is paramount. The Lens's privacy commitments are documented in our [Privacy Policy](/lens/privacy/) and in the [12 Privacy Non-Negotiables](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.2/docs/PRIVACY-POLICY.md).
 
 **Key commitments:**
 - The Lens never sends prompt text, URLs, or page content to any server by default

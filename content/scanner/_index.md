@@ -31,6 +31,7 @@ Every file you feed into an LLM is a potential attack vector. A training dataset
 - **Dependencies:** Zero runtime dependencies
 - **Performance:** 1.88s per MB
 - **Patent Pending:** US Provisional App. No. 64/174,824
+> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
 ---
 

@@ -16,6 +16,7 @@ type: "landing"
 
 <div class="alert alert-info" style="margin-bottom:24px;">
 <strong>Patent Pending</strong> &mdash; Federated detection gap analysis and self-improving AI security posture assessment. US Provisional App. No. 64/180,722.
+> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 </div>
 
 <div class="alert alert-success alert-center">

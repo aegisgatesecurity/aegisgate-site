@@ -484,6 +484,8 @@ CycloneDX is recognized by EU regulators as an acceptable format for technical d
 
 ## Ready to Document Your AI Systems?
 
+> **Patent Pending** (7 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
+
 AIBOM Generator is available in **Developer tier and above**.
 
 <a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>

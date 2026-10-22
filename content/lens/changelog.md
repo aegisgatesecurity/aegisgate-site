@@ -9,7 +9,7 @@ weight: 4
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.5.1</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.5.2</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -25,7 +25,27 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.1/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.1/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.2/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.2/CHANGELOG.md). This page mirrors the recent versions.
+
+---
+
+## [v0.5.2] - 2026-10-21 - ML Model v15b Update
+
+> **v0.5.2** updates the ML threat detection model to v15b (256-char Latin-1), synchronized with the cross-product v4.7.0 release.
+
+- **ML Model v15b**: Updated weights (SHA-256: `03792717…`), 256-char Latin-1 input, evasion suite passes (95.0+ threshold).
+- Model version history: v14 (128-char experiment, reverted) → v15 (failed Lens evasion suite) → v15b (final, all CI passes).
+- `char-normalizer.js` already had `MAX_SEQ_LEN=256` (no change needed).
+- **Cross-product sync**: All 5 Go-based products share the same v15b ONNX model. Lens uses v15b JS weights.
+
+---
+
+## [v0.5.1] - 2026-10-18 - AWS STS Session Token & JWT Near-Expiry Detection
+
+> **v0.5.1** adds context-aware AWS STS session token detection and JWT near-expiry warning.
+
+- **AWS STS Session Token Heuristic**: Context-aware detection of AWS STS temporary session tokens (400+ char base64 strings). Requires explicit variable name context (`aws_session_token`, `SessionToken`, `SecurityToken`). Handles env var, config, and JSON formats. FPR-safe: long strings without context are NOT matched. Also detects STS temporary secret access keys with context.
+- **JWT Near-Expiry Detection (parser-based)**: Decodes JWT payload, extracts `exp` claim. Expired tokens and tokens expiring within 24 hours are flagged with a warning. No external validation — purely client-side decode and timestamp check.
 
 ---
 
@@ -120,8 +140,8 @@ Pre-1.0 versions (0.x.y) may include breaking changes in MINOR versions (per the
 ## See Also
 
 - [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-lens/releases) — full version history with signed artifacts
-- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/docs/SECURITY.md) — vulnerability disclosure policy
+- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.2/docs/SECURITY.md) — vulnerability disclosure policy
 - [Architecture](/lens/architecture/) — how the 5-facet detection system works
-- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.0/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
+- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.5.2/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
 
 Report issues at the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues).

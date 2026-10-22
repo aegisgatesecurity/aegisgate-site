@@ -14,6 +14,7 @@ mermaid: true
 
 <div class="alert alert-info alert-center" style="font-size:0.9rem;">
 <strong>Patent pending</strong> &mdash; detection pipeline technology (US Provisional App. No. 64/153,576).
+> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 </div>
 
 <div class="alert alert-success alert-center">
@@ -83,7 +84,7 @@ flowchart LR
     subgraph Lens["AegisGate Lens v0.5.2"]
         direction TB
         
-        subgraph Facet1["PII Detection (55 patterns)"]
+        subgraph Facet1["PII Detection (65 patterns)"]
             F1[SSN, Email, Phone]
             F1a[Credit Card + Luhn]
             F1b[Passport, Tax ID]
@@ -101,7 +102,7 @@ flowchart LR
             F3b[Polyglot Payloads]
         end
         
-        subgraph Facet4["Compliance (43 patterns)"]
+        subgraph Facet4["Compliance (24 patterns)"]
             F4[HIPAA, GDPR]
             F4a[PCI-DSS, EU AI Act]
             F4b[OWASP LLM Top 10]
@@ -109,7 +110,7 @@ flowchart LR
         
         subgraph Facet5["ML Adversarial"]
             F5[CharCNN-BiLSTM]
-            F5a[1.58M Parameters]
+            F5a[1.6M Parameters]
             F5b[~5ms Inference]
         end
     end
@@ -260,7 +261,7 @@ The content below is for developers, security engineers, and anyone who wants to
 Source: [aegisgate-lens repo](https://github.com/aegisgatesecurity/aegisgate-lens)
 
 - **10 AI providers**: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI
-- **5 detection facets**: PII (55 patterns), secrets (41), XSS (12), compliance (43), ML adversarial (1 model) — 223 detection patterns (regex + IOC + Rampart bridge) + Char CNN-BiLSTM
+- **5 detection facets**: PII (65), secrets (41), XSS (12), compliance (24), OT/ICS (9), ML adversarial (1 model) — 223 detection patterns (regex + IOC + Rampart bridge) + Char CNN-BiLSTM
 - **504 automated tests**: 492/492 Node + 12/12 ML perf/stress
 - **100% adversarial detection** (10/10 prompt injection patterns caught by ML model)
 - **2.31% regex FPR** on 6,500 WildChat prompts; **81.8% ML benign pass-through**

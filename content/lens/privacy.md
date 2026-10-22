@@ -66,7 +66,7 @@ If we ever change any of these, the change will be:
 
 ## ML Detection Disclosure (v0.3.0)
 
-Starting in v0.3.0, the Lens includes an on-device ML threat detector (Char CNN-BiLSTM with Attention, 1.58M parameters). This section discloses how the ML model handles user data:
+Starting in v0.3.0, the Lens includes an on-device ML threat detector (Char CNN-BiLSTM with Attention, 1.6M parameters). This section discloses how the ML model handles user data:
 
 - **The ML model runs entirely on-device.** No prompt content, no ML inference scores, and no model outputs are sent to any server.
 - **The model weights are bundled in the extension package** (3.7MB float16 JSON). They are not downloaded at runtime and cannot be updated remotely.

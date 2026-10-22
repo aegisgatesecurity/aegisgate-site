@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Platform — Enterprise AI Security Gateway"
-description: "Self-hosted AI security gateway. Six pillars of protection: HTTP API, MCP, A2A, ACP, Response scanning, and Trust Framework. 31 compliance frameworks, 11 SIEM integrations, 4 SOAR integrations. Single 19.1MB Go binary. Deploy in 60 seconds."
+description: "Self-hosted AI security gateway. Seven pillars of protection: HTTP API, MCP, A2A, ACP, ANP, Response scanning, and Trust Framework. 31 compliance frameworks, 11 SIEM integrations, 4 SOAR integrations. Single 19.1MB Go binary. Deploy in 60 seconds."
 type: "landing"
 mermaid: true
 ---
@@ -13,7 +13,7 @@ mermaid: true
 <strong>🏢 AegisGate Platform v4.7.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-platform">aegisgate-platform repo</a>)</em>
 
 <ul>
-<li><strong>6 attack surfaces</strong>: HTTP API, MCP, A2A, ACP, Response, Trust Framework</li>
+<li><strong>7 attack surfaces: HTTP API, MCP, A2A, ACP, ANP, Response, Trust Framework</li>
 <li><strong>31 compliance frameworks</strong> (2,043 controls, 1,457 automated): HIPAA, SOC 2, EU AI Act, FedRAMP, ISO 27001, ISO 42001, NIST AI RMF, OWASP LLM Top 10, and more</li>
 <li><strong>11 SIEM integrations</strong>: Splunk, Elastic, Datadog, Sumo Logic, Chronicle, Loki, Fluentd, Logstash, Cribl, Kafka, Graylog, syslog</li>
 <li><strong>4 SOAR integrations</strong>: PagerDuty, Jira, ServiceNow, Custom webhook</li>
@@ -21,7 +21,7 @@ mermaid: true
 <li><strong>285 detection patterns</strong>, MITRE ATLAS 66 techniques</li>
 <li><strong>Web UI</strong>: 7-page dashboard at <code>/ui/</code></li>
 <li><strong>Single 19.1MB Go binary</strong>, zero external dependencies, air-gapped deployment</li>
-<li><strong>11,654+ tests passing</strong>, 81% coverage</li>
+<li><strong>11,654+ tests passing</strong>, 83.1% coverage</li>
 <li><strong>Load tested</strong>: 5,000 VUs, 28,000 RPS, 0% errors</li>
 <li><strong>Apache 2.0 community edition</strong>, self-hosted, zero data collection</li>
 </ul>
@@ -82,7 +82,7 @@ Your browser does not support the video tag.
 
 ## Six Pillars of AI Security
 
-Platform v4.7.0 protects every AI interaction across six attack surfaces:
+Platform v4.7.0 protects every AI interaction across seven attack surfaces:
 
 <div class="card-grid card-grid-2x2">
 <div class="card">
@@ -443,6 +443,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | MCP protocol protection | ✅ | ❌ | ❌ | ❌ |
 | A2A protocol protection | ✅ | ❌ | ❌ | ❌ |
 | ACP protocol protection | ✅ | ❌ | ❌ | ❌ |
+| ANP protocol protection | ✅ | ❌ | ❌ | ❌ |
 | Response scanning | ✅ | ❌ | ⚠️ | ⚠️ |
 | Trust attestation | ✅ | ❌ | ❌ | ❌ |
 | ML threat detection | ✅ | ⚠️ | ❌ | ⚠️ |

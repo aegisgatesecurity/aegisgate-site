@@ -8,6 +8,7 @@ Simple, transparent pricing. No hidden fees. Start free, upgrade when you are re
 
 <div class="alert alert-info alert-center" style="margin-bottom:16px;font-size:0.9rem;">
 <strong>Patent Pending</strong> &mdash; AegisGate technologies are patent pending (7 provisional applications). US Provisional App. Nos. 64/153,573–64/153,577, 64/174,824, and 64/180,722.
+> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 </div>
 
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#38bdf8;color:#fff;margin-bottom:16px;">
@@ -55,9 +56,11 @@ The case study is **representative**, not a real customer. It is built from anon
 <ul>
 <li>Unlimited proxy RPM (soft-throttle)</li>
 <li>5 concurrent users</li>
-<li>256 security detection patterns</li>
+<li>285 security detection patterns</li>
 <li>8 MCP guardrails</li>
 <li>8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)</li>
+<li>ACP guardrails (capability verification, message integrity)</li>
+<li>ANP guardrails (agent admission, service discovery verification)</li>
 <li>MITRE ATLAS (66 techniques)</li>
 <li>NIST AI RMF support</li>
 <li>OWASP LLM Top 10</li>
@@ -132,6 +135,11 @@ The case study is **representative**, not a real customer. It is built from anon
 <li>Everything in Professional, plus:</li>
 <li>A2A notification verification</li>
 <li>A2A cross-agent attack detection</li>
+<li>ACP & ANP protocol protection</li>
+<li>Guided Setup wizard (30-second deployment)</li>
+<li>gRPC v4 API (7 services, 50 RPCs)</li>
+<li>Row-Level Security (RLS) enforcement</li>
+<li>Security event categorization & correlation</li>
 <li>Custom ML models and zero-day detection</li>
 <li>HSM and LDAP integration</li>
 <li>High availability and air-gapped deployment</li>

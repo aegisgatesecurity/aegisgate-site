@@ -13,7 +13,7 @@ weight: 10
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
-<li><strong>5 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (61), ML adversarial (1 Char CNN-BiLSTM model) — 169 regex patterns + on-device ML</li>
+<li><strong>6 detection facets</strong>: PII (65), secrets (41), XSS (12), compliance (24), ML adversarial (1 Char CNN-BiLSTM model) — 151 regex patterns + on-device ML</li>
 <li><strong>504 automated tests</strong>: 492/492 Node + 12/12 ML perf/stress</li>
 <li><strong>100% adversarial detection</strong> (10/10 prompt injections caught by ML model); <strong>2.31% regex FPR</strong> on 6,500 WildChat prompts</li>
 <li><strong>~0.3ms regex + ~5ms ML</strong> (regex p50 0.076ms; ML ~5ms in Chrome, pure JS, no WASM)</li>
@@ -55,7 +55,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Team-wide policy** (one rule applies to all users) | ❌ | ✅ |
 | **Team-wide analytics dashboard** | ❌ | ✅ |
 | **Central audit log** (who saw what, when) | ❌ | ✅ |
-| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (216 patterns) |
+| **Server-side AI protection** (HTTP API scanning for AI services) | ❌ | ✅ (285 patterns) |
 | **MCP protocol protection** (Model Context Protocol) | ❌ | ✅ (8 guardrails) |
 | **A2A agent-to-agent security** (mTLS, capabilities, rate limiting) | ❌ | ✅ |
 | **ACP (Agent Communication Protocol) security** | ❌ | ✅ |
@@ -112,7 +112,7 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 
 ### Test coverage
 - **Lens**: 504 automated tests (492/492 Node + 12/12 ML perf/stress). Zero external dependencies, zero WASM binaries.
-- **Platform**: 8,000+ tests, 83.1% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
+- **Platform**: 11,654+ tests, 83.1% coverage. Zero external dependencies. All tests in `go test` (Go 1.26+ stdlib).
 
 ### Source code
 - **Lens**: [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens) — Apache 2.0

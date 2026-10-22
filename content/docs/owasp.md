@@ -37,7 +37,7 @@ Prompt injection is the #1 risk in the OWASP LLM Top 10 and the most active atta
 | **MCP** | 11 prompt injection patterns in the standalone scanner + 34 tool description screening patterns that detect prompt injection hidden in MCP tool metadata (tool poisoning). |
 | **Rampart** | Real-time HTTP inspection of prompts en route to LLM APIs. Blocks injection attempts before they reach the model. |
 | **Lens** | Browser-layer detection of prompt injection in web-based chat interfaces. Catches injection attempts before they're submitted to the LLM. |
-| **Platform** | Centralized pattern management with 256 canonical patterns. Cross-source IOC corroboration detects coordinated injection campaigns across organizations. |
+| **Platform** | Centralized pattern management with 285 canonical patterns. Cross-source IOC corroboration detects coordinated injection campaigns across organizations. |
 
 **Detection categories**: direct injection (ignore instructions, role-play, delimiter abuse), indirect injection (embedded in retrieved content), encoded payloads (base64, unicode escapes), and tool poisoning vectors.
 
@@ -203,10 +203,10 @@ AegisGate maps every detection to multiple compliance frameworks:
 
 | Product | Type | Layer | OWASP Coverage |
 |---------|------|-------|---------------|
-| **Platform** | Proprietary | Central control plane | All 10 categories — 256 canonical patterns, IOC corroboration, compliance evidence, AIBOM |
+| **Platform** | Proprietary | Central control plane | All 10 categories — 285 canonical patterns, IOC corroboration, compliance evidence, AIBOM |
 | **Scanner** | Open Source (Apache 2.0) | CI/CD + static analysis | LLM01, LLM02, LLM03, LLM04, LLM05, LLM07, LLM08 — 322 detection patterns |
 | **MCP** | Open Source (Apache 2.0) | MCP protocol layer | LLM01, LLM02, LLM03, LLM05, LLM06 — 79 detection patterns + tool poisoning defense |
-| **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM02, LLM07, LLM08, LLM10 — 256 detection patterns, real-time HTTP inspection |
+| **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM02, LLM07, LLM08, LLM10 — 285 detection patterns, real-time HTTP inspection |
 | **Lens** | Open Source (Apache 2.0) | Browser extension | LLM01, LLM02, LLM10 — 223 detection patterns, client-side detection in web chat interfaces |
 
 All products are air-gap capable — zero external communications required for full functionality. Interoperability is opt-in, outbound, and config-driven.

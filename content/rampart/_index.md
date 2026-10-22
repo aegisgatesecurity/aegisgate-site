@@ -98,7 +98,7 @@ flowchart TD
         end
         
         subgraph Engine["Detection Engine"]
-            E1[256 Patterns]
+            E1[285 Patterns]
             E2[PII + Secrets]
             E3[XSS + Compliance]
             E4[ML Adversarial]
@@ -178,6 +178,7 @@ sequenceDiagram
 | Stay free and open source | Require an account or subscription |
 
 Open source (Apache 2.0): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
+> **Patent Pending** (7 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
 ---
 

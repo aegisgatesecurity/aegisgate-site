@@ -182,7 +182,7 @@ Ensure appropriate security controls are in place on email and web browser clien
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
 | 44 | 9.1 | **Ensure Use of Standard Secure Configuration for Web Browsers** | AegisGate Lens enforces security headers (CSP, HSTS, X-Content-Type-Options) on AI chat interfaces. Content Security Policy prevents XSS and injection attacks in browser-based AI interactions. Browser hardening for general web browsing is the customer's responsibility. | ⚠️ Partial |
-| 45 | 9.2 | **Ensure Use of Standard Secure Configuration for Email Clients** | AegisGate is an AI infrastructure security product and does not manage email client configurations. Email client security is the customer's responsibility. AegisGate's threat detection patterns (216 patterns including phishing indicators) can be integrated into email security workflows. | N/A |
+| 45 | 9.2 | **Ensure Use of Standard Secure Configuration for Email Clients** | AegisGate is an AI infrastructure security product and does not manage email client configurations. Email client security is the customer's responsibility. AegisGate's threat detection patterns (285 patterns including phishing indicators) can be integrated into email security workflows. | N/A |
 
 ### Control 10: Malware Defenses
 
@@ -242,7 +242,7 @@ Maintain a plan to rapidly respond to an attack with the appropriate resources a
 
 | # | Safeguard | Description | AegisGate Implementation | Status |
 |---|-----------|-------------|--------------------------|--------|
-| 63 | 17.1 | **Establish and Maintain an Incident Response Process** | AegisGate's compliance engine continuously monitors for control failures and configuration drift. Threat detection identifies security incidents in real time (216 patterns). Hash-chained audit logs provide irrefutable forensic evidence. Rate limiting and MCP guardrails provide automated incident containment. Formal incident response planning for the customer's organization is the customer's responsibility. | ⚠️ Partial |
+| 63 | 17.1 | **Establish and Maintain an Incident Response Process** | AegisGate's compliance engine continuously monitors for control failures and configuration drift. Threat detection identifies security incidents in real time (285 patterns). Hash-chained audit logs provide irrefutable forensic evidence. Rate limiting and MCP guardrails provide automated incident containment. Formal incident response planning for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 | 64 | 17.2 | **Assign Incident Response Roles** | AegisGate's RBAC system includes defined incident response roles (Security Officer, Operator). Role assignments are audited. SSO-based role assignment enables integration with the customer's IR team structure. Formal IR role assignment for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 | 65 | 17.3 | **Establish and Maintain Contact Lists for Incident Response** | AegisGate provides configurable alerting and notification channels for incident response. SIEM integration enables automated incident escalation. IR contact management for the customer's organization is the customer's responsibility. | ⚠️ Partial |
 
@@ -263,7 +263,7 @@ The following table maps AegisGate's built-in CIS compliance checks to the CIS v
 | CIS-7 | Vulnerability Management | Control 7 | Confirms govulncheck, Trivy, SBOM, and patch process configuration |
 | CIS-8 | Audit Log Management | Control 8 | Verifies audit log collection, hash-chain integrity, retention, and review/alert process |
 | CIS-9 | Email and Web Browser | Control 9 | Validates AegisGate Lens extension, telemetry bridge, and CSP headers |
-| CIS-10 | Malware Defenses | Control 10 | Confirms scanner (216 patterns), pattern auto-updates, and scheduled scans |
+| CIS-10 | Malware Defenses | Control 10 | Confirms scanner (285 patterns), pattern auto-updates, and scheduled scans |
 | CIS-11 | Data Recovery | Control 11 | Verifies backup, hash-chain integrity for verifiable restore, and retention policy |
 | CIS-12 | Network Infrastructure | Control 12 | Validates TLS 1.2+ on all protocol pillars, mTLS, segmentation, and allowlists |
 | CIS-13 | Network Monitoring | Control 13 | Confirms IOC store, anomaly detection, and IDS integration |

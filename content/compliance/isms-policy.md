@@ -47,7 +47,7 @@ The AegisGate ISMS covers:
 2. **Software development lifecycle** — source code management (GPG-signed commits), CI/CD pipelines, release signing (ECDSA P-256 license keys), secure development practices.
 3. **Compliance engine** — 1,457 automated controls across 31 compliance frameworks, including the ISO 27001 module with dedicated control checks.
 4. **Trust and attestation services** — hash-chained audit logging, cryptographic attestation generation, evidence collection.
-5. **Customer-facing security operations** — threat detection (216 patterns), RBAC with MFA, OIDC/SAML SSO integration, TLS 1.3 transport encryption, AES-256 encryption at rest with customer-managed keys.
+5. **Customer-facing security operations** — threat detection (285 patterns), RBAC with MFA, OIDC/SAML SSO integration, TLS 1.3 transport encryption, AES-256 encryption at rest with customer-managed keys.
 6. **Organizational processes** — information security policy, risk management, incident response, business continuity, management review, and internal audit.
 7. **Supporting infrastructure** — AegisGate's development environments, internal systems, and third-party services used in platform delivery.
 

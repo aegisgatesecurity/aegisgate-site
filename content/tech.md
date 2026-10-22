@@ -28,7 +28,7 @@ flowchart TB
         L["RESPONSE Guard"]
         TR["Trust Framework\nPkg/trust/\n(v4.7.0)"]
 
-        M["Scanner - 216 patterns"]
+        M["Scanner - 285 patterns"]
         N["ATLAS - 66 techniques"]
         O["Rate Limiter"]
         P["Audit Logger - RFC 5424"]
@@ -256,3 +256,5 @@ The Helm chart includes HPA autoscaling (1-10 replicas), NetworkPolicy, ServiceM
 ---
 
 _For API documentation, see [docs/API.md](/docs/api/)._
+
+> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138). Patent pending (7 U.S. provisional applications).

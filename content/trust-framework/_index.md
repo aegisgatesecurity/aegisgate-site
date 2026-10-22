@@ -16,6 +16,7 @@ type: "landing"
 
 <div class="alert alert-info alert-center" style="margin-bottom:24px;">
 <strong>Patent Pending</strong> (US Provisional App. No. 64/153,573) &mdash; Cryptographic identity, capability contracts, and trust scoring technologies.
+> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 </div>
 
 <div class="alert alert-success alert-center">
