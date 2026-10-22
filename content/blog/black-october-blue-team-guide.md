@@ -23,6 +23,8 @@ tags:
 
 ---
 
+> **Update (Oct 22):** ARTEX-specific detections are now shipped across all four products. [Read the technical follow-up →](/blog/artex-detections-shipped/)
+
 ## TL;DR
 
 The internet is under coordinated attack. Six critical vulnerabilities dropped in 48 hours — two in the PHP runtime itself, one in a TLS certificate authority, one in GitLab, a supply chain compromise in an AI gateway, and a Chinese APT using AI autonomous pentesting tools against 2,250+ Microsoft 365 tenants. **Patch everything. Then close the AI agent blind spot you almost certainly don't know you have.** This guide tells you how to do both, using free open source tools you can deploy today — including in air-gapped and regulated environments.
