@@ -1,7 +1,7 @@
 ---
-title: "v4.7.0: Retraining the Brain, Seeding the Policy Engine, and the 50% Regression We Almost Shipped"
+title: "v4.8.0: Retraining the Brain, Seeding the Policy Engine, and the 50% Regression We Almost Shipped"
 slug: v4-7-0-retraining-the-brain-seeding-the-policy-engine
-description: "Inside AegisGate v4.7.0: a CharCNN-BiLSTM model retrain from v13 to v15b, a MaxSeqLen regression we caught before it shipped, 7 built-in Rego policies, compliance coverage driven to 98%+, a security posture assessment that now tells the truth, and cross-product detection parity across 284 patterns."
+description: "Inside AegisGate v4.8.0: a CharCNN-BiLSTM model retrain from v13 to v15b, a MaxSeqLen regression we caught before it shipped, 7 built-in Rego policies, compliance coverage driven to 98%+, a security posture assessment that now tells the truth, and cross-product detection parity across 297 patterns."
 date: 2026-10-21
 author: Josh Colvin
 tags:
@@ -14,7 +14,7 @@ tags:
   - posture-assessment
 ---
 
-Today we're shipping AegisGate v4.7.0 across all five products — Platform, Scanner, MCP, Rampart, and Lens. This release retrains our shared CharCNN-BiLSTM threat detection model, seeds the Platform's compliance policy engine with 7 built-in Rego policies, restores the correct 256-character input window across all products, drives compliance test coverage to industry-leading levels, and — critically — transforms the Security Posture Assessment from an aspirational dashboard into a verified, trustworthy signal.
+Today we're shipping AegisGate v4.8.0 across all five products — Platform, Scanner, MCP, Rampart, and Lens. This release retrains our shared CharCNN-BiLSTM threat detection model, seeds the Platform's compliance policy engine with 7 built-in Rego policies, restores the correct 256-character input window across all products, drives compliance test coverage to industry-leading levels, and — critically — transforms the Security Posture Assessment from an aspirational dashboard into a verified, trustworthy signal.
 
 It's also the story of a regression we almost shipped — a 50% reduction in our ML detection window that was caught by our own CI gates and fixed before it reached production.
 
@@ -90,9 +90,9 @@ The v15b ONNX model expects input shape `[batch, 256]`. The normalizers were pro
 
 ## Policy Engine Seeding: 7 Built-In Rego Policies
 
-Before v4.7.0, the Platform's compliance policy engine initialized empty. Operators had to manually add Rego policies via the Admin API. That's fine for a controlled enterprise deployment — but it means the Platform shipped with no default security policies.
+Before v4.8.0, the Platform's compliance policy engine initialized empty. Operators had to manually add Rego policies via the Admin API. That's fine for a controlled enterprise deployment — but it means the Platform shipped with no default security policies.
 
-v4.7.0 changes that. The Platform now loads 7 built-in Rego policies at boot:
+v4.8.0 changes that. The Platform now loads 7 built-in Rego policies at boot:
 
 1. **`no_secrets_in_response`** — blocks API keys, tokens, and credentials in LLM responses
 2. **`no_pii_in_response`** — blocks PII leakage (SSNs, credit cards, email addresses)
@@ -112,7 +112,7 @@ AegisGate runs across five products, each with a different deployment context. P
 
 All five should detect the same threats. If a prompt injection bypasses Rampart but gets caught by Platform, that's a gap — an attacker who moves from local to server-side gets a free pass.
 
-v4.7.0 enforces detection parity via a CI gate that compares pattern names and regex content across products on every push. 284 patterns are synchronized across Platform, Rampart, and Scanner. This release synced 9 new detection patterns and added 19 new path traversal & sensitive file access patterns to Scanner and Rampart.
+v4.8.0 enforces detection parity via a CI gate that compares pattern names and regex content across products on every push. 297 patterns are synchronized across Platform, Rampart, and Scanner. This release synced 9 new detection patterns and added 19 new path traversal & sensitive file access patterns to Scanner and Rampart.
 
 The parity CI gate fails on any mismatch. No drift, no gaps, no "it works on Platform but not on Rampart."
 
@@ -146,16 +146,16 @@ AegisGate ships a Security Posture Assessment — `aegisgate status` on the CLI,
 
 The posture check is read-only, fail-closed, and designed for non-technical operators. It reports per-subsystem health (uptime, license, compliance) with a clear emoji verdict: ✅ healthy, ⚠️ degraded, ❌ unhealthy, ❔ unknown. It can be wired into Kubernetes liveness probes, cron-based monitoring, or pre-deploy CI gates. Exit code 0 means healthy, 1 means unhealthy, 2 means the check itself failed.
 
-### The Problem Before v4.7.0
+### The Problem Before v4.8.0
 
-The posture check's compliance subsystem evaluates each framework against its required tier and reports whether it's enforced. But "enforced" only means something if the underlying implementation actually works. Before v4.7.0:
+The posture check's compliance subsystem evaluates each framework against its required tier and reports whether it's enforced. But "enforced" only means something if the underlying implementation actually works. Before v4.8.0:
 
 - **FIPS 140-3** had 41% test coverage. The posture check could report "enforced" — but 59% of the FIPS code path was untested. Was it actually enforcing FIPS requirements? We didn't know.
 - **ISO 27001** had 72% coverage. **ISO 42001** had 59%. **HITRUST** had 82%.
 
 The posture check was honest — it would report "degraded" when frameworks lacked implementation. But the operator seeing "degraded" had no way to know whether that was a minor gap or a fundamental hole. The signal was technically correct but practically useless.
 
-### What v4.7.0 Changed
+### What v4.8.0 Changed
 
 The coverage campaign drove every major framework to 98%+:
 
@@ -176,7 +176,7 @@ This is also the subject of our Provisional Patent #7 (64/180,722) — "Systems 
 
 The idea: when Rampart detects a threat that Platform missed, that gap is federated back to the Platform. When the posture check reports "degraded" on a framework, the coverage campaign targets that framework. The posture assessment isn't just a dashboard — it's the feedback loop that drives the next release.
 
-v4.7.0 is the first release where that loop is fully visible: posture identified gaps → coverage campaign closed them → posture now reports healthy.
+v4.8.0 is the first release where that loop is fully visible: posture identified gaps → coverage campaign closed them → posture now reports healthy.
 
 ---
 
@@ -186,13 +186,13 @@ v4.7.0 is the first release where that loop is fully visible: posture identified
 - **Incident tag filtering**: Fixed tag filtering logic in incident management.
 - **FeedManager race condition**: Resolved concurrent access data race.
 - **Go 1.27.3**: All Go repos bumped to fix GO-2026-6809 (crypto/x509 vulnerability).
-- **Lens Headless Smoke**: Fixed 15→25 minute timeout, eliminated duplicate test runs, updated model weights reference to v0.5.2.
+- **Lens Headless Smoke**: Fixed 15→25 minute timeout, eliminated duplicate test runs, updated model weights reference to v0.5.3.
 
 ---
 
 ## The Philosophy
 
-v4.7.0 is a maintenance release. No new protocols, no flashy features. It's the unglamorous work of retraining models, fixing regressions, driving test coverage, enforcing parity, and making the posture assessment tell the truth.
+v4.8.0 is a maintenance release. No new protocols, no flashy features. It's the unglamorous work of retraining models, fixing regressions, driving test coverage, enforcing parity, and making the posture assessment tell the truth.
 
 But this is the work that matters. The v14 regression could have shipped. A 50% detection window reduction would have been a silent degradation that attackers could exploit. Our CI gates caught it — and that's the real story of this release.
 
@@ -202,10 +202,10 @@ But this is the work that matters. The v14 regression could have shipped. A 50% 
 
 ## Get Started
 
-- **Platform**: [GitHub Release v4.7.0](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.7.0)
-- **Scanner**: [GitHub Release v0.4.1](https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.1)
+- **Platform**: [GitHub Release v4.8.0](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.8.0)
+- **Scanner**: [GitHub Release v0.4.2](https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.2)
 - **MCP**: [GitHub Release v1.6.1](https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1)
-- **Rampart**: [GitHub Release v0.9.1](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.1)
+- **Rampart**: [GitHub Release v0.9.2](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2)
 - **Lens**: [Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens)
 
 All Go repos share the same v15b ONNX model (SHA-256: `99187453...`). Lens uses v15b JS weights (SHA-256: `03792717...`).

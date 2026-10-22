@@ -20,7 +20,7 @@ Simple, transparent pricing. No hidden fees. Start free, upgrade when you are re
 </div>
 
 <div class="alert alert-success alert-center" style="background:#0d2538;border-color:#ec4899;color:#fff;margin-bottom:24px;">
-<strong>🔬 AegisGate Scanner — Free, forever.</strong> Static analysis scanner for AI artifacts. 322 regex patterns + ML detection across 12 security categories. SARIF, SBOM, GitHub Action, Docker. Patent pending. <a href="/scanner/" style="color:#ec4899;">Learn more</a> · <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases" style="color:#ec4899;">Download</a>
+<strong>🔬 AegisGate Scanner — Free, forever.</strong> Static analysis scanner for AI artifacts. 348 regex patterns + ML detection across 12 security categories. SARIF, SBOM, GitHub Action, Docker. Patent pending. <a href="/scanner/" style="color:#ec4899;">Learn more</a> · <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases" style="color:#ec4899;">Download</a>
 </div>
 
 ## 📚 Customer 1-pagers

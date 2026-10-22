@@ -233,12 +233,12 @@ That's it. Install it. It warns you before you hit send if you're about to leak 
 
 If your developers use GitHub Copilot, Cursor, Claude Code, or local LLMs (Ollama, LM Studio) — Rampart sits between their editor and the AI model. It's a local HTTPS MITM (Man-in-the-Middle) proxy that scans everything going out and everything coming back.
 
-211 regex patterns + CharCNN-BiLSTM ML detection. Monitor mode (just watch and log) or Block mode (stop sensitive data from leaving). Zero npm dependencies. Zero telemetry by default. Runs fully air-gapped.
+297 regex patterns + CharCNN-BiLSTM ML detection. Monitor mode (just watch and log) or Block mode (stop sensitive data from leaving). Zero npm dependencies. Zero telemetry by default. Runs fully air-gapped.
 
 **Quick start:**
 ```bash
 # Option 1: Download pre-built binary from GitHub Releases
-# https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.1
+# https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2
 
 # Option 2: Build from source
 git clone https://github.com/aegisgatesecurity/aegisgate-rampart
@@ -266,7 +266,7 @@ There's also a VS Code / Cursor extension and a JetBrains plugin (IntelliJ, PyCh
 
 **Tool**: [AegisGate Scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
 
-322 regex patterns + CharCNN-BiLSTM ML. Scans AI artifacts — RAG documents, training data, model configs, agent skills, prompt templates — for prompt injection (30 patterns), secrets (64), PII (85), dangerous code (34), compliance violations (64), OT/ICS (9), RAG attacks (17), and prompt leakage (16). Outputs SARIF, SBOM (SPDX), JSON, and 5 other formats.
+348 regex patterns + CharCNN-BiLSTM ML. Scans AI artifacts — RAG documents, training data, model configs, agent skills, prompt templates — for prompt injection (30 patterns), secrets (64), PII (85), dangerous code (34), compliance violations (64), OT/ICS (9), RAG attacks (17), and prompt leakage (16). Outputs SARIF, SBOM (SPDX), JSON, and 5 other formats.
 
 **Quick start — one-line installer:**
 ```bash
@@ -296,7 +296,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aegisgatesecurity/aegisgate-scanner@v0.4.1
+      - uses: aegisgatesecurity/aegisgate-scanner@v0.4.2
         with:
           path: ./ai-artifacts/
           format: sarif
@@ -306,7 +306,7 @@ The SARIF output integrates directly with GitHub Security tab, so findings show 
 
 **Who this is for**: Teams building AI applications, maintaining RAG pipelines, or deploying AI agents. If you're shipping AI artifacts, scan them before they reach production.
 
-**Black October relevance**: The LiteLLM attack was a supply chain compromise. Scanner catches malicious patterns in AI artifacts before they reach production. If you're pulling AI configs, prompt templates, or agent skills from third parties, scan them. The 322 patterns include prompt injection, credential exfiltration, and dangerous code execution — exactly the techniques ARTEX automates.
+**Black October relevance**: The LiteLLM attack was a supply chain compromise. Scanner catches malicious patterns in AI artifacts before they reach production. If you're pulling AI configs, prompt templates, or agent skills from third parties, scan them. The 348 patterns include prompt injection, credential exfiltration, and dangerous code execution — exactly the techniques ARTEX automates.
 
 > **For AI developers**: If you're ingesting third-party documents into a RAG pipeline, a poisoned document can inject malicious prompts that exfiltrate secrets or manipulate model behavior. Scanner's 17 RAG attack patterns catch this before ingestion. If your agents talk to each other (A2A), an attacker who compromises one agent can use it to attack the others — just like ARTEX did. Scan agent skills and configs before deployment.
 
@@ -346,7 +346,7 @@ go build -o aegisgate-mcp ./cmd/server
 This is the full system. A self-hosted gateway that sits between your organization and any AI service. Every request and every response is scanned — across 6 protection pillars: HTTP, MCP, A2A (Agent-to-Agent), ACP (Agent Communication Protocol), Response, and Trust.
 
 **What's included in the free Community tier:**
-- 256 canonical regex detection patterns (L1): secrets, XSS, PII, compliance violations
+- 297 canonical regex detection patterns (L1): secrets, XSS, PII, compliance violations
 - HTTP / MCP / A2A / ACP / Response protocol scanning
 - 4 community compliance frameworks (OWASP LLM Top 10, MITRE ATLAS, NIST AI RMF, ISO 27001)
 - In-memory and file persistence
@@ -381,9 +381,9 @@ The setup wizard auto-detects Docker, Kubernetes, systemd, or bare metal. It rec
 
 **Who this is for**: Security teams that need enterprise-wide visibility and control over AI traffic. If you have 50+ users hitting AI services, or you're running production AI agents, or you need audit logs for compliance — this is your layer.
 
-**Black October relevance**: Platform's 256 regex patterns scan every AI API request and response for credential exfiltration, PII leakage, and prompt injection in real-time. The free Community tier gives you protocol-level visibility into HTTP, MCP, and A2A traffic — the exact channels ARTEX and compromised AI agents use. If an attacker — or a compromised internal agent — starts exhibiting ARTEX-like behavior (rapid reconnaissance across endpoints, credential attacks through API calls), Platform's regex detection catches the exfiltration patterns. The Pro+ ML anomaly detection adds behavioral detection for novel attacks that don't match known patterns — but even without it, the 256 regex patterns provide substantial coverage.
+**Black October relevance**: Platform's 297 regex patterns scan every AI API request and response for credential exfiltration, PII leakage, and prompt injection in real-time. The free Community tier gives you protocol-level visibility into HTTP, MCP, and A2A traffic — the exact channels ARTEX and compromised AI agents use. If an attacker — or a compromised internal agent — starts exhibiting ARTEX-like behavior (rapid reconnaissance across endpoints, credential attacks through API calls), Platform's regex detection catches the exfiltration patterns. The Pro+ ML anomaly detection adds behavioral detection for novel attacks that don't match known patterns — but even without it, the 297 regex patterns provide substantial coverage.
 
-> **Honest note on pricing**: Levels 1–4 are 100% free with no paid tiers, no feature gating, no "contact us for the real version." Platform's Community tier is also free and includes the 256 regex patterns and protocol scanning. The ML anomaly detection and SIEM integration are Pro+ features. If you need those during Black October and can't wait for a procurement cycle, reach out — but the regex detection in the free tier is the most important part for this crisis.
+> **Honest note on pricing**: Levels 1–4 are 100% free with no paid tiers, no feature gating, no "contact us for the real version." Platform's Community tier is also free and includes the 297 regex patterns and protocol scanning. The ML anomaly detection and SIEM integration are Pro+ features. If you need those during Black October and can't wait for a procurement cycle, reach out — but the regex detection in the free tier is the most important part for this crisis.
 
 > **Air-gap note**: Most AI security tools are SaaS — they require your AI traffic to route through their cloud. If you're in OT, defense, government, or regulated environments, that's a non-starter. AegisGate Platform, Rampart, Scanner, and MCP all run fully air-gapped. All detection is local. No cloud dependency, no phone-home, no telemetry by default. This is not a feature — it's a requirement for the environments we serve.
 
@@ -411,11 +411,11 @@ Here's where to find them:
 - OT/ICS: 9 patterns (Modbus, DNP3, OPC-UA)
 - Additional patterns: 54 (prompt injection indicators, suspicious content, edge-case variants)
 
-**Platform patterns** (256 canonical regex patterns): `aegisgate-platform/pkg/scanner/patterns.go` and `pkg/contracts/pattern.go`
+**Platform patterns** (297 canonical regex patterns): `aegisgate-platform/pkg/scanner/patterns.go` and `pkg/contracts/pattern.go`
 - All of the above plus agent-specific patterns: prompt injection, agent impersonation, tool abuse, trust boundary violations
 - Pattern contracts defined in `pkg/contracts/pattern_v1.json` (machine-readable JSON format)
 
-**Scanner patterns** (322 regex patterns + ML): `aegisgate-scanner/pkg/detectors/`
+**Scanner patterns** (348 regex patterns + ML): `aegisgate-scanner/pkg/detectors/`
 - Prompt injection: 30 patterns
 - Secrets: 64 patterns
 - PII: 85 patterns (US + International)
@@ -527,7 +527,7 @@ ARTEX automates the full attack chain — reconnaissance, credential attacks, la
 
 **What to do:**
 - If AI touches your OT environment — even indirectly (developers using AI tools that can access OT network diagrams, PLC code, or SCADA configs) — deploy Rampart on those developer machines. It runs locally with zero network dependency.
-- If you're running AI agents that interact with OT systems, route them through Platform. The 256 regex patterns include Modbus, DNP3, and OPC-UA protocol manipulation detection.
+- If you're running AI agents that interact with OT systems, route them through Platform. The 297 regex patterns include Modbus, DNP3, and OPC-UA protocol manipulation detection.
 - Scan any AI training data, model configs, or agent skills that will touch OT-adjacent systems with Scanner before deployment.
 - Install Lens on HMI workstations. If anyone uses a browser-based AI chat on an HMI machine (and they do), Lens prevents OT data from leaking.
 
@@ -538,7 +538,7 @@ ARTEX automates the full attack chain — reconnaissance, credential attacks, la
 Storm-0940 is a Chinese APT. Defense contractors and federal agencies are prime targets for exactly this kind of attack — AI-accelerated, multi-agent, credential-focused. NIST 800-171 3.13.1 requires network isolation for CUI environments. SaaS AI security tools that route traffic through their cloud violate this requirement. CMMC Level 2 assessment is now required for many defense contracts.
 
 **What to do:**
-- Deploy Platform air-gapped within your security boundary. The Community tier (free) provides 256 regex patterns and protocol-level scanning with zero external dependencies. Platform's Pro+ tier includes CMMC L2, NIST 800-171, and FedRAMP framework mappings for compliance documentation.
+- Deploy Platform air-gapped within your security boundary. The Community tier (free) provides 297 regex patterns and protocol-level scanning with zero external dependencies. Platform's Pro+ tier includes CMMC L2, NIST 800-171, and FedRAMP framework mappings for compliance documentation.
 - MCP's distroless Docker image (zero CVEs, zero external dependencies) aligns with STIG-style hardening expectations. Deploy it to secure any MCP-based agent infrastructure.
 - Rampart runs locally on developer workstations with zero network dependency. If developers use AI coding tools on CUI-adjacent systems, Rampart prevents source code and credential exfiltration.
 - Rotate any credentials that were accessible to ConnectWise integrations. Storm-0940's primary attack vector was stolen ConnectWise credentials — if your agency or contractor used ConnectWise, treat all associated credentials as compromised.
@@ -596,7 +596,7 @@ State and local governments run PHP for citizen-facing services, use Microsoft 3
 
 ### If you have 30 minutes:
 1. All of the above
-2. Download [AegisGate Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.1) for your dev team
+2. Download [AegisGate Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2) for your dev team
 3. Pull AegisGate detection patterns from our repos and import into your SIEM (see Step 4)
 4. Audit your Microsoft Graph logs for Storm-0940 indicators (rapid auth, credential changes, new OAuth apps)
 
@@ -640,7 +640,7 @@ I'm not going to pretend one tool solves Black October. Here's what AegisGate do
 - **Fix Microsoft's SharePoint patches.** That's on Microsoft. Restrict access and wait for the out-of-band fix.
 - **Replace your SIEM.** AegisGate is a detection and prevention layer for AI agent traffic. It doesn't replace Splunk, Sentinel, or ELK. In the free tiers, you can extract our patterns and feed them into your SIEM manually (see Step 4). Platform's built-in SIEM forwarding is a Pro+ feature.
 - **Stop ARTEX running on someone else's machine.** ARTEX is an offensive tool running on the attacker's side. AegisGate detects the *effects* of ARTEX in your traffic — the reconnaissance patterns, the credential attacks, the lateral movement. It can't reach out and disable the attacker's tooling.
-- **Detect novel AI attack patterns without ML (free tier).** The 256 regex patterns in Platform's Community tier catch known patterns — credential exfiltration, PII leakage, prompt injection. The ML anomaly detection that catches *novel* attacks is a Pro+ feature. Lens and Rampart include ML detection for free in their respective layers.
+- **Detect novel AI attack patterns without ML (free tier).** The 297 regex patterns in Platform's Community tier catch known patterns — credential exfiltration, PII leakage, prompt injection. The ML anomaly detection that catches *novel* attacks is a Pro+ feature. Lens and Rampart include ML detection for free in their respective layers.
 
 What AegisGate DOES do: it gives you visibility into a layer of traffic that you almost certainly have zero visibility into right now — the AI agent layer. And Black October just proved that layer is being actively exploited.
 
@@ -648,14 +648,14 @@ What AegisGate DOES do: it gives you visibility into a layer of traffic that you
 
 ## About This Guide
 
-This guide was written by a blue teamer who built AegisGate because they saw the AI agent blind spot coming. Everything in Levels 1–4 is free and open source (Apache 2.0) with no paid tiers, no feature gating, and no "contact sales for the real version." Level 5 (Platform) has a free Community tier that includes 256 regex patterns and protocol-level scanning — the ML anomaly detection and SIEM integration are Pro+ features, and I've been upfront about that.
+This guide was written by a blue teamer who built AegisGate because they saw the AI agent blind spot coming. Everything in Levels 1–4 is free and open source (Apache 2.0) with no paid tiers, no feature gating, and no "contact sales for the real version." Level 5 (Platform) has a free Community tier that includes 297 regex patterns and protocol-level scanning — the ML anomaly detection and SIEM integration are Pro+ features, and I've been upfront about that.
 
 There is no upsell here. There is no "schedule a demo." There are repos you can clone and tools you can deploy in minutes — including in air-gapped, regulated, and classified-adjacent environments where SaaS tools can't go.
 
 The repos:
 - **Lens** (browser extension, 209 regex + ML): [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens)
 - **Rampart** (local proxy, 211 regex + ML): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
-- **Scanner** (static analysis, 322 regex + ML): [github.com/aegisgatesecurity/aegisgate-scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
+- **Scanner** (static analysis, 348 regex + ML): [github.com/aegisgatesecurity/aegisgate-scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
 - **MCP** (secure MCP framework, 79 regex + ML): [github.com/aegisgatesecurity/aegisgate-mcp](https://github.com/aegisgatesecurity/aegisgate-mcp)
 - **Platform** (enterprise gateway, 256 regex Community / +ML Pro+): [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
 

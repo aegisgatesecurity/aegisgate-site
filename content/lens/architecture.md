@@ -1,19 +1,19 @@
 ---
 title: "AegisGate Lens — Architecture"
-description: "How AegisGate Lens works: 5-facet detection (4 regex + ML), Ed25519-signed bundle, Apache 2.0. The full technical architecture of v0.5.2."
+description: "How AegisGate Lens works: 5-facet detection (4 regex + ML), Ed25519-signed bundle, Apache 2.0. The full technical architecture of v0.5.3."
 type: "docs"
 weight: 2
 ---
 
-> **🆕 AegisGate Lens v0.5.2 is LIVE** — CWS approved, AMO approved.
-> This page documents the **v0.5.2** architecture.
+> **🆕 AegisGate Lens v0.5.3 is LIVE** — CWS approved, AMO approved.
+> This page documents the **v0.5.3** architecture.
 
 
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens -->
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.5.2</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.5.3</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -30,7 +30,7 @@ weight: 2
 
 # AegisGate Lens — Architecture
 
-The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the architecture of v0.5.2.
+The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the architecture of v0.5.3.
 
 ## 5-Facet Detection System
 
@@ -48,7 +48,7 @@ The 5 regex facets run **synchronously** (fast, deterministic, on-device). The M
 
 ## Regex + ML Approach
 
-v0.5.2 combines regex and ML for complementary coverage:
+v0.5.3 combines regex and ML for complementary coverage:
 
 - **Regex (4 facets)**: Fast (<1ms), deterministic, auditable, zero false negatives for known patterns. 151 patterns = ~60KB.
 - **ML (1 facet)**: Char CNN-BiLSTM catches novel/zero-day adversarial prompts that regex misses. 3.7MB float16 JSON weights, pure JS inference (no WASM, no onnxruntime). ~5ms async inference.

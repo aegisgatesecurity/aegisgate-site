@@ -8,6 +8,28 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v4.8.0 - 2026-10-22 - ARTEX / LiteLLM Threat Intelligence Detections
+
+> **v4.8.0** adds 13 new regex detection patterns, 5 correlation engine patterns, 5 incident rules, and 10 event indicators for the ARTEX autonomous pentesting framework and LiteLLM supply chain compromise, based on Black October 2026 threat intelligence research.
+
+**ARTEX / LiteLLM Threat Intelligence (13 new regex patterns):**
+- ARTEX traffic signatures (8): artex_tool_reference, artex_model_deepseek, artex_model_glm, artex_model_grok, artex_mcp_external, artex_compat_gateway_probe, artex_multi_agent_attack, artex_repo_reference
+- LiteLLM supply chain indicators (5): litellm_init_pth, litellm_ssrf_metadata, litellm_admin_abuse, litellm_cred_exfil, litellm_rat_deploy
+- Pattern count: 284 → 297 (Platform & Rampart), 335 → 348 (Scanner), 54 → 62 compliance (Lens)
+
+**ARTEX Behavioral Correlation (5 new patterns + 10 indicators):**
+- artex_rapid_recon (High) — rapid endpoint probing + multi-endpoint scanning
+- artex_credential_spray (Critical, auto-block) — auth failure bursts + credential stuffing
+- artex_multi_agent_coord (High) — parallel agent activity + cross-agent handoffs
+- artex_ai_accelerated (Medium) — rapid lateral movement + fast privilege escalation
+- artex_graph_anomaly (High) — graph reconnaissance + OAuth app registration
+
+**ARTEX Incident Rules (5 new rules):**
+- Compliance mappings: FedRAMP IR-4/IR-5, SOC2 CC6.1, NIST CSF DE.AE-2/3/4, MITRE ATLAS T0029/T0050
+
+**Cross-Product Parity:**
+- All parity checks PASS (14/14). Detection parity check: 14/14 PASS.
+
 ### v4.7.0 - 2026-10-21 - ML Model v15b Retrain, Policy Engine Seeding, MaxSeqLen Restoration, Coverage Campaign
 
 > **v4.7.0** is a cross-product release that retrains the shared CharCNN-BiLSTM threat model from v13 to v15b (256-char Latin-1), seeds the Platform compliance policy engine with 7 built-in Rego policies, restores the correct MaxSeqLen=256 across all products, and drives compliance test coverage to ≥98% across FIPS, ISO 27001, ISO 42001, and HITRUST frameworks.

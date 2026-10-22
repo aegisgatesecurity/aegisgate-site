@@ -12,11 +12,11 @@ mermaid: true
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.7.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.7.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.8.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.8.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.6.1" alt="MCP Version" width="97" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.5.2" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.5.2" alt="Lens Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.9.1" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.4.1" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.5.3" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.5.3" alt="Lens Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.9.2" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.2" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.4.2" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
 </div>
 </div>
@@ -143,7 +143,7 @@ flowchart LR
 <li>Free and open source (Apache 2.0). No account needed. No data collected.</li>
 </ul>
 <p class="card-actions">
-<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
 <a href="/rampart/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
@@ -170,17 +170,17 @@ flowchart LR
 <div class="card" style="border-color:#ec4899;">
 <h3>🔬 Scanner — For ML/Ops Teams <span class="badge">FREE</span></h3>
 <p><strong>You build AI pipelines and need to secure training data, RAG docs, and model artifacts.</strong></p>
-<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 322 regex patterns + CharCNN-BiLSTM ML detection. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
+<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 348 regex patterns + CharCNN-BiLSTM ML detection. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
 <ul>
 <li>9 security categories: secrets, PII, prompt injection, compliance, dangerous code, web, OT/ICS, AI/ML, metadata</li>
-<li>322 regex patterns + ML neural detection (CharCNN-BiLSTM, &lt;1ms CPU inference)</li>
+<li>348 regex patterns + ML neural detection (CharCNN-BiLSTM, &lt;1ms CPU inference)</li>
 <li>8 output formats including SARIF for GitHub Code Scanning, SBOM generation</li>
 <li>Zero runtime dependencies — air-gapped capable, no supply chain CVEs</li>
 <li>GitHub Action for one-step CI integration. Docker images (ML + Lite).</li>
 <li>Patent pending — US Provisional App. No. 64/174,824</li>
 </ul>
 <p class="card-actions">
-<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Scanner v0.4.1 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Scanner v0.4.2 →</a>
 <a href="/scanner/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
@@ -369,7 +369,7 @@ flowchart LR
 <td>5 facets (PII, secrets, XSS, compliance, ML)</td>
 <td>Same detection engine</td>
 <td>23 security layers</td>
-<td>322 patterns + ML (12 categories)</td>
+<td>348 patterns + ML (12 categories)</td>
 <td>31 frameworks</td>
 </tr>
 <tr>
@@ -543,7 +543,7 @@ flowchart LR
 <div class="card text-center" style="border-color:#f59e0b;">
 <h3>⚡ Download Rampart</h3>
 <p>Free local proxy + IDE plugin. macOS, Linux, Windows.</p>
-<p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
 <p style="font-size:0.85rem; color:#888;">VS Code, JetBrains, Neovim, any LSP editor</p>
 </div>
 
@@ -566,9 +566,9 @@ flowchart LR
 <button class="copy-btn">Copy</button>
 <pre>aegisgate-scanner scan ./training-data/</pre>
 </div>
-<p><a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a>
 <a href="/scanner/" class="btn btn-secondary">Quick start guide →</a></p>
-<p style="font-size:0.85rem; color:#888;">322 patterns · SARIF output · CI/CD ready</p>
+<p style="font-size:0.85rem; color:#888;">348 patterns · SARIF output · CI/CD ready</p>
 </div>
 
 </div>
@@ -599,7 +599,7 @@ flowchart LR
 <li><a href="/lens/">Lens</a> — browser extension for AI chat protection</li>
 <li><a href="/rampart/">Rampart</a> — local proxy + IDE plugin for developers</li>
 <li><a href="/mcp/">MCP</a> — secure MCP server framework with 23 security layers</li>
-<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (322 patterns, ML + regex)</li>
+<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (348 patterns, ML + regex)</li>
 <li><a href="/platform/">Platform</a> — enterprise gateway with verifiable security</li>
 <li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
 <li><a href="/docs/comparison/">Competitive comparison</a> — 7 competitors, 31 frameworks</li>

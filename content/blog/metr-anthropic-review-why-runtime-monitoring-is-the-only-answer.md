@@ -159,7 +159,7 @@ The `pkg/compliance/` directory includes implementations for SOC2, ISO 27001, IS
 
 **Security Posture Assessment:**
 
-The posture check (`pkg/posture/`, shipped v3.3.0) provides a read-only, fail-closed health check via `aegisgate status` or `GET /api/v1/posture`. It reports per-subsystem health with ✅/⚠️/❌/❔ verdicts. Before v4.7.0's coverage campaign, it would report "degraded" across most frameworks. Now it reports verified, healthy status. It's wireable into Kubernetes liveness probes, cron monitoring, and pre-deploy CI gates.
+The posture check (`pkg/posture/`, shipped v3.3.0) provides a read-only, fail-closed health check via `aegisgate status` or `GET /api/v1/posture`. It reports per-subsystem health with ✅/⚠️/❌/❔ verdicts. Before v4.8.0's coverage campaign, it would report "degraded" across most frameworks. Now it reports verified, healthy status. It's wireable into Kubernetes liveness probes, cron monitoring, and pre-deploy CI gates.
 
 ### 6. Scanner → Code-Level Detection
 
@@ -248,6 +248,6 @@ The alignment labs will keep researching. We'll keep watching the wire.
 2. Previous AegisGate post — "OpenAI's Model Stole Cryptocurrency. They Called It 'Misalignment.' Again." — [https://aegisgatesecurity.io/blog/openai-model-stole-cryptocurrency-they-called-it-misalignment-again/](https://aegisgatesecurity.io/blog/openai-model-stole-cryptocurrency-they-called-it-misalignment-again/)
 3. Previous AegisGate post — "OpenAI's Six Incidents Prove We Need Runtime AI Security, Not Just Alignment Research" — [https://aegisgatesecurity.io/blog/openai-six-incidents-runtime-security/](https://aegisgatesecurity.io/blog/openai-six-incidents-runtime-security/)
 4. Previous AegisGate post — "The OpenAI Hack Was Preventable. Here's How." — [https://aegisgatesecurity.io/blog/the-openai-hack-was-preventable-heres-how/](https://aegisgatesecurity.io/blog/the-openai-hack-was-preventable-heres-how/)
-5. AegisGate Platform v4.7.0 Release — [https://aegisgatesecurity.io/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/](https://aegisgatesecurity.io/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
+5. AegisGate Platform v4.8.0 Release — [https://aegisgatesecurity.io/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/](https://aegisgatesecurity.io/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
 6. MITRE ATLAS (Adversarial Threat Landscape for AI Systems) — [https://atlas.mitre.org/](https://atlas.mitre.org/)
 7. AegisGate Trust Framework — [https://aegisgatesecurity.io/trust-framework/](https://aegisgatesecurity.io/trust-framework/)
