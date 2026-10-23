@@ -159,6 +159,7 @@ If you are interested in a paid bounty program, please contact security@aegisgat
 | **AegisGate Platform** | v3.3.x | ⛔ End of life |
 | **AegisGate Rampart** | v0.9.2 | ✅ Current release |
 | **AegisGate Lens** | v0.5.3 | ✅ Current release |
+| **AegisGate Lens** | v0.5.2 | ✅ Active support |
 | **AegisGate Lens** | v0.4.1 | ⚠️ Critical fixes only |
 | **AegisGate Lens** | v0.1.x | ⛔ End of life |
 

@@ -215,7 +215,7 @@ If you're using ChatGPT, Claude, Gemini, or any AI chat in your browser — inst
 - **OT/ICS**: Modbus, DNP3, OPC-UA control manipulation (9 patterns)
 - **Prompt injection**: ML-based detection (CharCNN-BiLSTM) for adversarial attacks that regex can't catch
 
-**209 regex patterns + ML detection.** Sub-millisecond regex. ~5–50ms ML inference. All in your browser.
+**217 regex patterns + ML detection.** Sub-millisecond regex. ~5–50ms ML inference. All in your browser.
 
 **How to install:**
 - **Chrome**: [Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) — requires Chrome 116+
@@ -405,7 +405,7 @@ Our regex patterns are defined in Go source files, but the patterns themselves a
 
 Here's where to find them:
 
-**Lens patterns** (209 regex patterns + ML): `aegisgate-lens/src/bootstrap.js`
+**Lens patterns** (217 regex patterns + ML): `aegisgate-lens/src/bootstrap.js`
 - PII: 69 patterns (SSN, credit cards, emails, phones, addresses, passports, tax IDs, bank accounts)
 - Secrets: 41 patterns (AWS, GitHub, OpenAI, Stripe, Slack, RSA private keys, JWTs, OAuth tokens)
 - XSS: 12 patterns
@@ -655,7 +655,7 @@ This guide was written by a blue teamer who built AegisGate because they saw the
 There is no upsell here. There is no "schedule a demo." There are repos you can clone and tools you can deploy in minutes — including in air-gapped, regulated, and classified-adjacent environments where SaaS tools can't go.
 
 The repos:
-- **Lens** (browser extension, 209 regex + ML): [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens)
+- **Lens** (browser extension, 217 regex + ML): [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens)
 - **Rampart** (local proxy, 211 regex + ML): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
 - **Scanner** (static analysis, 348 regex + ML): [github.com/aegisgatesecurity/aegisgate-scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
 - **MCP** (secure MCP framework, 79 regex + ML): [github.com/aegisgatesecurity/aegisgate-mcp](https://github.com/aegisgatesecurity/aegisgate-mcp)
