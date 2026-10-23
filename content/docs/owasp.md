@@ -206,7 +206,7 @@ AegisGate maps every detection to multiple compliance frameworks:
 | **Platform** | Proprietary | Central control plane | All 10 categories — 303 canonical patterns, IOC corroboration, compliance evidence, AIBOM |
 | **Scanner** | Open Source (Apache 2.0) | CI/CD + static analysis | LLM01, LLM02, LLM03, LLM04, LLM05, LLM07, LLM08 — 353 detection patterns |
 | **MCP** | Open Source (Apache 2.0) | MCP protocol layer | LLM01, LLM02, LLM03, LLM05, LLM06 — 79 detection patterns + tool poisoning defense |
-| **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM02, LLM07, LLM08, LLM10 — 303 detection patterns, real-time HTTP inspection |
+| **Rampart** | Open Source (Apache 2.0) | Network proxy | LLM01, LLM02, LLM07, LLM08, LLM10 — 302 detection patterns, real-time HTTP inspection |
 | **Lens** | Open Source (Apache 2.0) | Browser extension | LLM01, LLM02, LLM10 — 223 detection patterns, client-side detection in web chat interfaces |
 
 All products are air-gap capable — zero external communications required for full functionality. Interoperability is opt-in, outbound, and config-driven.
