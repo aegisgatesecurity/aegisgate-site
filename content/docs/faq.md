@@ -13,7 +13,7 @@ AegisGate is an AI security platform that acts as a gateway for your AI infrastr
 - **Bidirectional scanning** of every API request and response
 - **MCP protocol protection** for AI agent tool execution
 - **A2A protocol protection** for agent-to-agent communication
-- **Threat detection** across 285 patterns with ML-based adversarial detection
+- **Threat detection** across 303 patterns with ML-based adversarial detection
 - **Compliance reporting** for 31 frameworks (SOC 2, HIPAA, EU AI Act, FedRAMP, and more)
 - **Trust Framework** with per-session trust scoring and signed attestations
 
@@ -43,7 +43,7 @@ Yes. AegisGate runs entirely on your infrastructure with **zero external depende
 
 ### What's the performance impact?
 
-AegisGate adds effectively zero overhead — the proxy is **-2.8ms p99** (faster than direct) due to zero-cost proxy optimization for benign traffic. Blocked requests resolve in 7.2ms p50. The scanning is optimized for speed and scales horizontally to 28,000+ RPS.
+AegisGate adds effectively zero overhead — the proxy is **-2.8ms p99** (faster than direct) due to zero-cost proxy optimization for benign traffic. Blocked requests resolve in 7.2ms p50. The scanning is optimized for speed and scales horizontally to 23,578+ RPS.
 
 ### How do I upgrade my tier?
 

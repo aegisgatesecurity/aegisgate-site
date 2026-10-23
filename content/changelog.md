@@ -8,6 +8,29 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+---
+
+### v4.9.0 - 2026-10-23 - Agent Instruction Poisoning Detection
+
+> **v4.9.0** adds 5 new regex detection patterns in a new `AgentPoisoning` category, targeting Warden Stealer and similar malware that poisons AI agent instruction files (CLAUDE.md, AGENTS.md, .codex/config.toml). Cross-product parity with Scanner v0.4.3 and Rampart v0.9.3. Pattern count: 297 → 303.
+
+**New AgentPoisoning Patterns (5):**
+- **agent_poisoning_anthropic_redirect** (HIGH): ANTHROPIC_BASE_URL redirected to attacker server
+- **agent_poisoning_install_instruction** (HIGH): npm/pip install commands in agent instruction context
+- **agent_poisoning_codex_config** (MEDIUM): .codex/config.toml references (OpenAI Codex config manipulation)
+- **agent_poisoning_env_exfil** (MEDIUM): Environment variable exfiltration instructions
+- **agent_poisoning_function_color** (LOW): function-color npm package IOC (Warden Stealer)
+
+**Threat intelligence source:** Black October 2026 Warden Stealer campaign. Verified against Warden Stealer test artifacts.
+
+---
+
+### v0.9.3 (Rampart) / v0.4.3 (Scanner) - 2026-10-23 - Agent Instruction Poisoning Detection
+
+> **Rampart v0.9.3** and **Scanner v0.4.3** add 5 new agent-poisoning detection patterns matching Platform v4.9.0. Scanner v0.4.3 also fixes pii_phone false positives on API key digit sequences. Scanner: 348 → 353 patterns. Rampart: 297 → 302 patterns.
+
+---
+
 ### v4.8.0 - 2026-10-22 - ARTEX / LiteLLM Threat Intelligence Detections
 
 > **v4.8.0** adds 13 new regex detection patterns, 5 correlation engine patterns, 5 incident rules, and 10 event indicators for the ARTEX autonomous pentesting framework and LiteLLM supply chain compromise, based on Black October 2026 threat intelligence research.
@@ -51,6 +74,12 @@ All notable changes to AegisGate Security Platform are documented here. For the 
 
 **Patent:**
 - US Provisional App. No. 64/180,722 filed — Federated detection gap analysis and self-improving AI security posture assessment. Brings total to 7 provisional applications.
+
+---
+
+### v0.9.2 (Rampart) / v0.4.2 (Scanner) - 2026-10-22 - ARTEX / LiteLLM Threat Intelligence
+
+> **Rampart v0.9.2** and **Scanner v0.4.2** add 13 new regex detection patterns for ARTEX and LiteLLM supply chain compromise indicators.
 
 ---
 

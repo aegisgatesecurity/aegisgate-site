@@ -10,9 +10,9 @@ AegisGate Rampart provides real-time PII, secrets, XSS, compliance, and adversar
 
 | Editor | Plugin | Type | Status |
 |--------|--------|------|--------|
-| **VS Code / Cursor** | [aegisgate-rampart-ext](https://github.com/aegisgatesecurity/aegisgate-rampart-ext) | Native extension | ✅ v0.9.2 |
-| **JetBrains** (IntelliJ, PyCharm, WebStorm, GoLand, etc.) | [aegisgate-rampart-jetbrains](https://github.com/aegisgatesecurity/aegisgate-rampart-jetbrains) | Native plugin | ✅ v0.9.2 |
-| **Any LSP editor** (Neovim, Emacs, Helix, Sublime) | `rampart-lsp` | Language Server Protocol | ✅ v0.9.2 |
+| **VS Code / Cursor** | [aegisgate-rampart-ext](https://github.com/aegisgatesecurity/aegisgate-rampart-ext) | Native extension | ✅ v0.9.3 |
+| **JetBrains** (IntelliJ, PyCharm, WebStorm, GoLand, etc.) | [aegisgate-rampart-jetbrains](https://github.com/aegisgatesecurity/aegisgate-rampart-jetbrains) | Native plugin | ✅ v0.9.3 |
+| **Any LSP editor** (Neovim, Emacs, Helix, Sublime) | `rampart-lsp` | Language Server Protocol | ✅ v0.9.3 |
 
 All three connect to a local Rampart proxy running on your machine. **Zero external communication. Zero data retention. localhost only.**
 

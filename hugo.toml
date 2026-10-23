@@ -6,7 +6,7 @@ title = "AegisGate — Secure Every AI Interaction"
 # Site params
 [params]
   description = "Free browser protection (Lens), developer-grade local proxy (Rampart), standalone MCP server security framework (MCP), AI artifact static analysis scanner (Scanner), and enterprise AI security gateway (Platform). Five products that secure every AI interaction — from ChatGPT to Copilot to custom LLMs to training data. 100% open source."
-  version = "v4.8.0"
+  version = "v4.9.0"
   goVersion = "1.27.0"
   dockerSize = "34.7MB"
   coverage = "81%"
