@@ -23,7 +23,7 @@ tags:
 
 ---
 
-> **Update (Oct 22):** ARTEX-specific detections are now shipped across all four products. [Read the technical follow-up →](/blog/artex-detections-shipped/)
+> **Update (Oct 22):** ARTEX-specific detections are now shipped across all four products — 13 regex patterns, 5 correlation rules, 5 incident rules. [See the v4.8.0 release notes for full technical details →](/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
 
 ## TL;DR
 

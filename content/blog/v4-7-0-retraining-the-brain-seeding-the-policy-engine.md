@@ -1,7 +1,7 @@
 ---
 title: "v4.8.0: Retraining the Brain, Seeding the Policy Engine, and the 50% Regression We Almost Shipped"
 slug: v4-7-0-retraining-the-brain-seeding-the-policy-engine
-description: "Inside AegisGate v4.8.0: a CharCNN-BiLSTM model retrain from v13 to v15b, a MaxSeqLen regression we caught before it shipped, 7 built-in Rego policies, compliance coverage driven to 98%+, a security posture assessment that now tells the truth, and cross-product detection parity across 297 patterns."
+description: "Inside AegisGate v4.8.0: a CharCNN-BiLSTM model retrain from v13 to v15b, a MaxSeqLen regression we caught before it shipped, 7 built-in Rego policies, compliance coverage driven to 98%+, a security posture assessment that now tells the truth, ARTEX/LiteLLM threat intelligence detections (13 patterns, 5 correlation rules, 5 incident rules), and cross-product detection parity across 297 patterns."
 date: 2026-10-21
 author: Josh Colvin
 tags:
@@ -12,9 +12,12 @@ tags:
   - compliance
   - detection-parity
   - posture-assessment
+  - artex
+  - threat-intelligence
+  - supply-chain
 ---
 
-Today we're shipping AegisGate v4.8.0 across all five products — Platform, Scanner, MCP, Rampart, and Lens. This release retrains our shared CharCNN-BiLSTM threat detection model, seeds the Platform's compliance policy engine with 7 built-in Rego policies, restores the correct 256-character input window across all products, drives compliance test coverage to industry-leading levels, and — critically — transforms the Security Posture Assessment from an aspirational dashboard into a verified, trustworthy signal.
+Today we're shipping AegisGate v4.8.0 across all five products — Platform, Scanner, MCP, Rampart, and Lens. This release retrains our shared CharCNN-BiLSTM threat detection model, seeds the Platform's compliance policy engine with 7 built-in Rego policies, restores the correct 256-character input window across all products, drives compliance test coverage to industry-leading levels, ships ARTEX-specific threat intelligence detections across all four detection products, and — critically — transforms the Security Posture Assessment from an aspirational dashboard into a verified, trustworthy signal.
 
 It's also the story of a regression we almost shipped — a 50% reduction in our ML detection window that was caught by our own CI gates and fixed before it reached production.
 
@@ -106,15 +109,95 @@ Docker validation confirmed: `[COMPLIANCE] Loaded 7 default Rego policies into p
 
 ---
 
-## Cross-Product Detection Parity: 284 Patterns
+## Cross-Product Detection Parity: 297 Patterns
 
 AegisGate runs across five products, each with a different deployment context. Platform is the server-side gateway. Rampart is the local proxy. Scanner is the CI/CD tool. MCP is the server framework. Lens is the browser extension.
 
 All five should detect the same threats. If a prompt injection bypasses Rampart but gets caught by Platform, that's a gap — an attacker who moves from local to server-side gets a free pass.
 
-v4.8.0 enforces detection parity via a CI gate that compares pattern names and regex content across products on every push. 297 patterns are synchronized across Platform, Rampart, and Scanner. This release synced 9 new detection patterns and added 19 new path traversal & sensitive file access patterns to Scanner and Rampart.
+v4.8.0 enforces detection parity via a CI gate that compares pattern names and regex content across products on every push. 297 patterns are synchronized across Platform, Rampart, and Scanner. This release synced 9 new detection patterns, added 19 new path traversal & sensitive file access patterns to Scanner and Rampart, and shipped 13 new ARTEX/LiteLLM threat intelligence patterns (detailed below).
 
 The parity CI gate fails on any mismatch. No drift, no gaps, no "it works on Platform but not on Rampart."
+
+---
+
+## ARTEX Threat Intelligence Detections: 13 Patterns, 5 Correlation Rules, 5 Incident Rules
+
+Following our [Black October Blue Team Field Guide](/blog/black-october-blue-team-guide/), we shipped ARTEX-specific detections across all four AegisGate products. Two threats from Black October required dedicated detection coverage:
+
+**ARTEX** — an open-source AI autonomous pentesting framework (Go + Next.js, AGPL-3.0) that coordinates multiple LLM agents for reconnaissance, exploitation, and lateral movement. Chinese APT Storm-0940 used it against Microsoft 365 tenants: 2,900 authentication attempts per minute across 327 accounts in 8 organizations, with 151,000+ failed sign-ins. Initial targeting to privileged cloud access in under 3 hours.
+
+**LiteLLM** — an AI gateway compromised via a malicious `litellm_init.pth` credential stealer, with SSRF to cloud metadata services, admin endpoint privilege escalation, and RAT deployment.
+
+### 13 Regex Patterns
+
+**ARTEX Traffic Signatures (8 patterns):**
+
+| Pattern | Severity | What It Catches |
+|---------|----------|-----------------|
+| `artex_tool_reference` | High | ARTEX / Autumn-27 tool name references |
+| `artex_model_deepseek` | Low | DeepSeek model configuration |
+| `artex_model_glm` | Low | GLM / Zhipu model configuration |
+| `artex_model_grok` | Low | Grok model configuration |
+| `artex_mcp_external` | Medium | MCP Streamable HTTP/SSE to external servers |
+| `artex_compat_gateway_probe` | Medium | OpenAI-compatible API probes with non-standard models |
+| `artex_multi_agent_attack` | High | Multi-agent orchestration + attack context |
+| `artex_repo_reference` | Medium | ARTEX repository clone/fork references |
+
+Model config patterns are Low severity — DeepSeek, GLM, and Grok are legitimate models. But when combined with other signals (multi-agent orchestration, rapid endpoint probing), they form a pattern matching ARTEX's known TTPs.
+
+**LiteLLM Supply Chain Indicators (5 patterns):**
+
+| Pattern | Severity | What It Catches |
+|---------|----------|-----------------|
+| `litellm_init_pth` | Critical | Known credential stealer file |
+| `litellm_ssrf_metadata` | Critical | SSRF targeting cloud metadata endpoints |
+| `litellm_admin_abuse` | High | Admin endpoint privilege escalation |
+| `litellm_cred_exfil` | Critical | Credential exfiltration via LiteLLM proxy |
+| `litellm_rat_deploy` | Critical | RAT/malware deployment via supply chain |
+
+### 5 Correlation Patterns (Platform)
+
+Regex catches known signatures. ARTEX's real danger is behavioral — AI-accelerated, multi-agent attacks that don't match any single signature. We added 5 correlation patterns to the Platform's correlation engine:
+
+| Pattern | Severity | Window | What It Catches |
+|---------|----------|--------|-----------------|
+| `artex_rapid_recon` | High | 60s | Rapid endpoint probing + multi-endpoint scanning |
+| `artex_credential_spray` | Critical | 5min | Auth failure bursts + credential stuffing (Storm-0940's 2,900 auth/min) |
+| `artex_multi_agent_coord` | High | 10min | Parallel agent activity + cross-agent handoffs |
+| `artex_ai_accelerated` | Medium | 3hrs | Rapid lateral movement + fast privilege escalation |
+| `artex_graph_anomaly` | High | 30min | Graph API reconnaissance + OAuth app registration |
+
+### 5 Incident Rules with Compliance Mappings
+
+Each correlation pattern maps to an incident rule with compliance framework mappings:
+
+| Rule | Auto-Execute | Compliance |
+|------|-------------|------------|
+| `artex_rapid_recon` | No (triage) | NIST CSF DE.AE-2, MITRE ATLAS T0029 |
+| `artex_credential_spray` | **Yes (auto-block)** | FedRAMP IR-4, SOC2 CC6.1, NIST CSF DE.AE-3 |
+| `artex_multi_agent_coord` | No (triage) | NIST CSF DE.AE-2, MITRE ATLAS T0050 |
+| `artex_ai_accelerated` | No (triage) | NIST CSF DE.AE-4, FedRAMP IR-5 |
+| `artex_graph_anomaly` | No (triage) | NIST CSF DE.AE-2, SOC2 CC6.1 |
+
+Only `artex_credential_spray` auto-executes — it blocks the attacking agent automatically. The others require triage; they could be legitimate activity (load testing, admin operations, authorized multi-agent workflows).
+
+### Cross-Product Distribution
+
+All 13 regex patterns were cloned across products via the parity gate:
+
+| Product | Before | After | Parity |
+|---------|--------|-------|--------|
+| Platform | 284 | 297 | FULL (canonical) |
+| Rampart | 284 | 297 | FULL |
+| Scanner | 335 | 348 | SUPERSET |
+| Lens (compliance) | 54 | 62 | SUBSET (compliance only) |
+
+14/14 parity checks pass. The Platform also gained 5 correlation patterns and 5 incident rules — these are Platform-specific features; Rampart, Scanner, and Lens receive the regex patterns only.
+
+### Testing
+
+Before pushing, we ran 5+ consecutive test runs across all repos, full test suites, `go vet` clean across all 4 Go repos, Lens 271 tests with 0 failures, 14/14 parity checks, and 28/28 normalization conformance checks. Two test-side issues were found and fixed (hardcoded pattern/rule counts in tests). This is why we run 5+ consecutive runs before claiming green.
 
 ---
 
