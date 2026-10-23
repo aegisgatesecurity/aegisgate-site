@@ -632,9 +632,12 @@ flowchart LR
 <h3>💬 Community</h3>
 <ul>
 <li><a href="https://github.com/aegisgatesecurity" target="_blank" rel="noopener noreferrer">GitHub</a> — all 6 repos, Apache 2.0</li>
+<li><a href="https://discord.gg/cvJ4QcY9B" target="_blank" rel="noopener noreferrer">Discord</a> — live community & crisis support</li>
+<li><a href="https://t.me/+imsWrOY4QpcxYzIx" target="_blank" rel="noopener noreferrer">Telegram</a></li>
 <li><a href="https://x.com/aegisgate" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
 <li><a href="https://mastodon.social/@aegisgate" target="_blank" rel="noopener noreferrer">Mastodon</a></li>
 <li><a href="https://github.com/aegisgatesecurity/aegisgate-platform/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a></li>
+<li><a href="mailto:support@aegisgatesecurity.io">support@aegisgatesecurity.io</a></li>
 <li><a href="mailto:security@aegisgatesecurity.io">security@aegisgatesecurity.io</a></li>
 <li><a href="mailto:sales@aegisgatesecurity.io">sales@aegisgatesecurity.io</a></li>
 </ul>
