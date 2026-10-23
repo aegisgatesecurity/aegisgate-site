@@ -1,7 +1,7 @@
 ---
 title: "Black October: A Blue Team Field Guide"
 slug: black-october-blue-team-guide
-description: "Six critical vulnerabilities in 48 hours. AI is now both the weapon and the target. A practical field guide for blue teamers — patch guidance, AI agent blind spot explanation, free open source detection tools, ARTEX-specific indicators, and sector-specific guidance for OT/ICS, defense, healthcare, financial services, and cloud."
+description: "Nine critical vulnerabilities in 72 hours. AI is now both the weapon and the target. A practical field guide for blue teamers — patch guidance, AI agent blind spot explanation, free open source detection tools, ARTEX-specific indicators, and sector-specific guidance for OT/ICS, defense, healthcare, financial services, and cloud."
 date: 2026-10-22
 author: Josh Colvin
 tags:
@@ -15,6 +15,8 @@ tags:
   - emudhra
   - litellm
   - supply-chain
+  - nodejs
+  - ksmbd
 ---
 
 > **📄 Download the PDF version (no registration required):**  
@@ -23,30 +25,33 @@ tags:
 
 ---
 
-> **Update (Oct 22):** ARTEX-specific detections are now shipped across all four products — 13 regex patterns, 5 correlation rules, 5 incident rules. [See the v4.8.0 release notes for full technical details →](/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
+> **Update (Oct 23):** Black October is expanding — now 9+ critical vulnerabilities across 72 hours. New: Node.js Brotli RCE with Node2Shell PoC, Linux KSMBD RCEs (no fix yet), Railway PaaS secrets breach. eMudhra is exiting the SSL/TLS business entirely (Chrome deadline Oct 27). LiteLLM attack vector confirmed as GitHub token leak with novel dual `.pth` + `sitecustomize.py` technique (first in the wild). ARTEX-specific detections shipped across all four products — 13 regex patterns, 5 correlation rules, 5 incident rules. [See the v4.8.0 release notes →](/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
 
 ## TL;DR
 
-The internet is under coordinated attack. Six critical vulnerabilities dropped in 48 hours — two in the PHP runtime itself, one in a TLS certificate authority, one in GitLab, a supply chain compromise in an AI gateway, and a Chinese APT using AI autonomous pentesting tools against 2,250+ Microsoft 365 tenants. **Patch everything. Then close the AI agent blind spot you almost certainly don't know you have.** This guide tells you how to do both, using free open source tools you can deploy today — including in air-gapped and regulated environments.
+The internet is under coordinated attack. What started as six critical vulnerabilities in 48 hours has become **nine+ across 72 hours** — two in the PHP runtime itself, a TLS certificate authority collapsing entirely, one in GitLab, a supply chain compromise in an AI gateway, a Chinese APT using AI autonomous pentesting tools, a Node.js RCE with a working exploit, two Linux kernel RCEs with no fix, and a PaaS provider breach exposing customer secrets. **Patch everything. Then close the AI agent blind spot you almost certainly don't know you have.** This guide tells you how to do both, using free open source tools you can deploy today — including in air-gapped and regulated environments.
 
 ---
 
 ## What Is Happening
 
-If you're reading this, you already know. The cybersecurity community is calling it "Black October" — a 48-hour window where the internet's foundational technologies started falling like dominoes. Here's the situation as of right now:
+If you're reading this, you already know. The cybersecurity community is calling it "Black October" — a 72-hour window where the internet's foundational technologies started falling like dominoes. Here's the situation as of right now:
 
 | Incident | What Broke | How Bad |
 |----------|-----------|---------|
-| **PHP2Shell** | Two critical RCE (Remote Code Execution) flaws in the PHP runtime itself (not a plugin — the language) | CVSS 9.2 × 2. PHP runs ~80% of all websites. 5.1M hosts exposed. Attackers were exploiting it **4 days before patches existed.** |
-| **eMudhra CA** | Indian certificate authority had 8 intermediate TLS certs with private keys so weak one was literally the number **4** | Anyone could forge trusted HTTPS certificates since April 2025. Node.js and Bun are **still unpatched** as of this writing. |
+| **PHP2Shell** | Two critical RCE (Remote Code Execution) flaws in the PHP runtime itself (not a plugin — the language) | CVSS 9.2 × 2. PHP runs ~80% of all websites. 5.1M hosts exposed. Amazon detected exploits **4 days before disclosure.** Millions of attempts now observed. Attackers trying to deploy Mirai botnet variant "Potassium" (unsuccessful so far). |
+| **eMudhra CA** | Indian certificate authority had 8 intermediate TLS certs with private keys so weak one was literally the number **4** | Anyone could forge trusted HTTPS certificates since April 2025. **eMudhra is now exiting the SSL/TLS business entirely.** Chrome drops trust Oct 27. ~30,800 certs affected (99.9% via InCommon/Internet2 higher-ed). Node.js and Bun were **still unpatched** as of Oct 22. |
 | **ConnectWise / Storm-0940** | Chinese APT used stolen ConnectWise credentials + AI autonomous pentesting tool (ARTEX) to hit 2,250+ Microsoft 365 tenants | Initial targeting to **privileged cloud access in under 3 hours.** AI models divided tasks and reviewed each other's attack work. |
 | **GitLab RCE** | Integer overflow in the Regex Compiler — unauthenticated RCE | CVSS 10.0. 2,700+ exposed Community Edition instances. No login required to exploit. |
-| **LiteLLM Supply Chain** | AI gateway/proxy compromised — steals passwords, secrets, deploys a RAT (Remote Access Trojan) | This is AI infrastructure being attacked. Your AI gateway could be exfiltrating your credentials right now. |
+| **LiteLLM Supply Chain** | AI gateway/proxy compromised — steals passwords, secrets, deploys a RAT (Remote Access Trojan) | Attackers compromised LiteLLM's release pipeline via suspected GitHub token leak. Used novel dual `.pth` + `sitecustomize.py` technique — **first documented case in the wild.** Stolen AWS credentials validated within 4.5 hours. |
 | **SharePoint Zero-Day** | Microsoft's October patches didn't fix it — now under active attack | On-prem SharePoint, zero-day, in the wild. Microsoft's fix failed. |
+| **Node.js Brotli RCE** | Out-of-bounds write in Brotli decoder — RCE when apps decompress attacker-controlled data via `fetch()` or `node:zlib` | **NEW (Oct 21).** All supported versions affected. Node2Shell PoC demonstrated by Imperva. Node.js 20.x and earlier: **EOL, no fix.** |
+| **Linux KSMBD RCE** | Two RCE flaws in the kernel's built-in SMB server | **NEW (Oct 22).** CVSS 9.0 × 2. Disclosed on public mailing lists **before kernel fixes exist.** No patch yet. |
+| **Railway PaaS Breach** | PaaS provider — customer environment variables (secrets) accessed | **NEW (Oct 22).** Railway urges all customers to rotate credentials. Relevant to AI/ML deployments storing API keys in env vars. |
 
 > **What is CVSS?** Common Vulnerability Scoring System. A 0–10 scale. 9.0+ is "Critical." 10.0 is "as bad as it gets."
 
-This is not a drill. This is not a "watch and see." If you run PHP servers, Microsoft 365 tenants, GitLab instances, or AI tooling — you are in the blast radius.
+This is not a drill. This is not a "watch and see." If you run PHP servers, Microsoft 365 tenants, GitLab instances, Node.js applications, Linux servers with KSMBD, or AI tooling — you are in the blast radius.
 
 ---
 
@@ -75,13 +80,16 @@ Running PHP 7.4, 8.0, or 8.1? The PHP team provided source backports. Contact yo
 
 **Already patched? You're not done.**
 - Check your logs going back to **at least October 17**. Amazon detected exploitation attempts 4 days before patches were released. If you were running PHP before October 21, assume you were a target.
+- **Millions of exploit attempts** are now being observed in the wild. Attackers are attempting to deploy a Mirai botnet variant called "Potassium" via PHP2Shell, though weaponization has proven harder than expected and attempts have been unsuccessful so far. Do not interpret lack of successful mass exploitation as safety — the attempts are ongoing and adapting.
 - Look for: unusual POST requests with `multipart/form-data`, unexpected process spawning from your web worker, outbound connections to unfamiliar IPs, any evidence of shell execution.
 
 **What makes this especially bad:** On Apache with `mod_php`, the exploit fires *before your application code even runs*. Your app framework, your input validation, your sanitization — none of it matters. The vulnerability is in the language runtime itself.
 
 **Runtime-specific note:** If you deploy via FrankenPHP, LiteSpeed, or php-cgi, the same PHP patches apply — check with your runtime vendor for patched container images or packages.
 
-### eMudhra CA Compromise (CVE-2026-111943)
+### eMudhra CA Compromise (CVE-2026-111943) — CA Exiting SSL/TLS Business
+
+> **⚠️ UPDATE (Oct 22):** eMudhra's board has decided to **exit the global SSL/TLS certificate business entirely.** Chrome will stop trusting `emSign ECC Root CA - G3` on **October 27** (morning Pacific). Mozilla/Firefox already stopped trusting it on October 20. Approximately **30,800 unexpired certificates** are affected — 99.9% issued through InCommon (Internet2's higher-ed certificate service). If your organization uses InCommon certificates, you must reissue before Oct 27. eMudhra's G1 RSA root continues temporarily, but Chrome is still deciding whether to keep it.
 
 If your software trusts TLS certificates, it may still trust the compromised eMudhra intermediates. A script error in April 2025 generated P-384 private keys so weak that one was literally the integer **4**. That means anyone could forge trusted HTTPS certificates for 18 months. Update your trust stores:
 
@@ -119,6 +127,30 @@ Microsoft's October patches were supposed to fix this. They didn't. Watch for Mi
 - Monitor IIS logs for anomalous requests
 - If possible, require VPN for SharePoint access until a patch ships
 
+### Node.js Brotli RCE (NEW — Oct 21)
+
+Node.js released security updates fixing 10 flaws, the most serious being an out-of-bounds write in the Brotli decompression code that can allow **remote code execution**.
+
+Patch to: **22.23.4**, **24.22.1**, or **26.12.1**.
+
+**Node.js 20.x and earlier are EOL — no fix available. Upgrade to a supported line.**
+
+The flaw triggers when Node.js decompresses Brotli data — either directly via `node:zlib` or automatically when `fetch()` receives a Brotli-compressed response. Any application that decompresses attacker-controlled data is exposed. Imperva researchers have demonstrated a working exploit (Node2Shell) on an official Node.js build.
+
+> **Why this matters for AI security:** Node.js runs many AI gateways, LLM serving frameworks, and API proxies. A `fetch()` call to a compromised endpoint can trigger RCE without any user interaction beyond the HTTP request.
+
+### Linux KSMBD RCE (NEW — Oct 22)
+
+Two CVSS 9.0 RCE flaws in KSMBD (the Linux kernel's built-in SMB server) were disclosed on public mailing lists **before kernel fixes are available.** No patch exists in the mainline kernel yet.
+
+**If you're running KSMBD:** Disable it (`modprobe -r ksmbd` or set `CONFIG_SMB_SERVER=n`) until patches ship. Use Samba's userspace `smbd` instead.
+
+### Railway PaaS Breach (NEW — Oct 22)
+
+PaaS provider Railway disclosed that an intruder may have accessed systems storing customer **environment variables** — typically containing API keys, database credentials, and secrets.
+
+**If you use Railway:** Rotate ALL credentials stored in environment variables immediately. Assume any secret in your Railway env vars is compromised.
+
 ### ConnectWise / Storm-0940
 
 If you use or used ConnectWise services (Cloud Backup, SaaS Security, Cloud Management):
@@ -154,7 +186,7 @@ The AI models **divided investigation tasks and reviewed each other's findings**
 
 They went from initial targeting to **privileged cloud access in under 3 hours.**
 
-This is not a theoretical future threat. This is happening right now. The original ARTEX repository has been deleted, but there are 800+ forks with 1,600+ stars across copies. The tool is freely available. Microsoft observed attackers from "several geographic regions" using the framework — not just Storm-0940.
+This is not a theoretical future threat. This is happening right now. The original ARTEX repository has been deleted, but there are 878+ forks with 1,782+ stars across copies (and growing — 6 new stars per hour). The tool is freely available. Microsoft observed attackers from "several geographic regions" using the framework — not just Storm-0940.
 
 > **What is an APT?** Advanced Persistent Threat — typically a nation-state or well-resourced cybercrime group that maintains long-term access to targets. Storm-0940 is a Chinese APT tracked by Microsoft.
 
@@ -162,7 +194,15 @@ This is not a theoretical future threat. This is happening right now. The origin
 
 ### The Target: AI Infrastructure
 
-LiteLLM — an AI gateway used to route calls to 100+ LLM APIs — was compromised via supply chain attack. It was stealing passwords, secrets, and deploying a RAT. This wasn't LiteLLM's first incident: a malicious `litellm_init.pth` credential stealer appeared in June 2026, followed by an SSRF vulnerability in August and a privilege escalation in September.
+LiteLLM — an AI gateway used to route calls to 100+ LLM APIs — was compromised via supply chain attack. On October 21, attackers compromised LiteLLM's release pipeline (suspected GitHub token leak in AI gateway logs) to push version 1.107.0 containing a credential stealer and backdoor.
+
+**The attack used a novel dual-technique approach** — Wiz researchers called it the **"first documented case in the wild"** of simultaneously using both `.pth` files and `sitecustomize.py`:
+- `cook.pth` → imports `cook.py` → runs `privcollect` stealer (harvests system, browser, developer, cloud, and AI tool secrets)
+- Exfiltrates via HTTP POST to `litellm[.]dev/healthcheck`
+- `sitecustomize.py` (Linux/macOS only) → fetches C2 domain from GitHub dead drop every hour → downloads and executes arbitrary Python payloads
+- Stolen AWS instance role credentials were validated within **4.5 hours** of exfiltration
+
+This wasn't LiteLLM's first incident: a malicious `litellm_init.pth` credential stealer appeared in June 2026, followed by an SSRF vulnerability in August and a privilege escalation in September.
 
 Your AI gateway, your AI proxy, your MCP server — these are now attack targets. And most teams don't even know they have them, let alone monitor them.
 
