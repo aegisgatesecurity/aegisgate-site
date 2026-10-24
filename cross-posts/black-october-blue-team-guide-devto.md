@@ -1,6 +1,6 @@
 ---
-title: "Black October: A Blue Team Field Guide v4.0"
-published: false
+title: "Black October: A Blue Team Field Guide v5.0"
+published: true
 description: "14 critical vulnerabilities and attack vectors across 5 days. AI is now both the weapon and the target. A practical field guide for blue teamers — patch guidance, IOCs, SIEM queries, hunting tips, and free open source detection tools."
 tags: ai, security, cybersecurity, vulnerabilities
 canonical_url: https://aegisgatesecurity.io/blog/black-october-blue-team-guide/
@@ -11,6 +11,8 @@ canonical_url: https://aegisgatesecurity.io/blog/black-october-blue-team-guide/
 
 
 ---
+
+> **Update (Oct 24, 09:15 UTC — v5.0):** HTTP2Shell (CVE-2026-111497) section expanded — Python transitive dependency exposure, bidirectional RCE, technical root cause, GitHub Advisory + PYSEC IDs now published. PHP2Shell section updated with PHP Foundation official statement, PHP security team insider perspective, and CVE-2026-109619 use-after-free details. eMudhra section updated with mitmproxy `--emudhra` testing tool and Mozilla Bugzilla compliance escalation. AI Agent Blind Spot section updated with Arrakis Security 2026 Autonomous Agents Threat Report (76% of enterprise agents dormant with live credentials).
 
 > **Update (Oct 24, 06:20 UTC — v4.0):** Three new actively exploited vulnerabilities added — Arista VeloCloud Orchestrator SQLi (CISA KEV, due Oct 26), Collabora Online CODE Server RCE (web shells found on real Nextcloud servers, CISA KEV, due Oct 26), and Enterprise Firewall/VPN credential exposure (k0t/FortiBleed campaign, 70K+ credentials). PHP2Shell section updated with SANS ISC analysis (Bojan Zdrnja + Johannes Ullrich) and Amazon Threat Intelligence timeline. eMudhra section updated with Will Dormann's IoT MITM testing. LiteLLM root cause published. New sidebar: BlackX UEFI bootkit / Secure Boot DBX revocation gap. Priority matrix expanded. IOC tables added for all new entries. Now covers 14 critical vulnerabilities/attack vectors. [See the v4.9.0 release notes →](https://aegisgatesecurity.io/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
 
@@ -131,7 +133,9 @@ Running PHP 7.4, 8.0, or 8.1? The PHP team provided source backports. Contact yo
 - "PHP2Shell is now seeing broad exploitation attempts in the wild" (Amazon CISO CJ Moses), though it's unclear how many attacks have succeeded. Dataminr TRACE (Oct 23): "observed activity since vulnerability disclosure remains limited to scanning, fingerprinting, and use of non-working exploits, with no known compromises."
 - Look for: unusual POST requests with `multipart/form-data`, unexpected process spawning from your web worker, outbound connections to unfamiliar IPs, any evidence of shell execution.
 
-**What makes this especially bad:** On Apache with `mod_php`, the exploit fires *before your application code even runs*. Your app framework, your input validation, your sanitization — none of it matters. The vulnerability is in the language runtime itself.
+**What makes this especially bad:** On Apache with `mod_php`, the exploit fires *before your application code even runs*. Your app framework, your input validation, your sanitization — none of it matters. The vulnerability is in the language runtime itself. The PHP Foundation confirmed (Oct 21) that both CVEs sit in parts of PHP that nearly every request touches: memory management and error handling. **PHP-FPM, FrankenPHP, and LSAPI are also in scope** — not just mod_php. CVE-2026-109618 is RCE via OOM corruption (memory_limit timing), and CVE-2026-109619 is RCE via stale global state (a fatal error leaves internal state pointing to memory from a previous request — a use-after-free across worker requests).
+
+
 
 **Why you have time (use it wisely):** SANS ISC handler Bojan Zdrnja (Oct 23) analyzed all public PoCs and found that building a universal, reliable exploit is "quite difficult":
 - PoCs require `memory_limit = 8MB` — real-world setups usually use 128MB, making exploitation "a bit more demanding."
@@ -183,6 +187,10 @@ If your software trusts TLS certificates, it may still trust the compromised eMu
 > **For the IT generalist — checking Node.js and Bun trust stores:** Node.js and Bun bundle their own CA certificate stores, separate from the OS. Even if you've updated your OS CA bundles, Node.js/Bun may still trust the compromised eMudhra certificates. To check: run `node -e "console.log(require('tls').rootCertificates)"` and look for `emSign ECC Root CA - G3`. For Bun, check `Bun.crypto.getRootCertificates()` (Bun 1.4+). If the compromised root is present, update to the latest Node.js or Bun release that includes the fix. If you run Docker containers with Node.js, rebuild with the latest base image — old layers may still carry the compromised trust store.
 
 > **Quick test**: Mozilla published test endpoints for this incident. Hit them from your servers. If they connect successfully, your trust store is still vulnerable. See [Mozilla's CA Incident Dashboard](https://wiki.mozilla.org/CA/Incident_Dashboard).
+
+> **Blue team tool — mitmproxy `--emudhra`:** mitmproxy (618 upvotes on HN) added a `--emudhra` option that signs TLS certificates using the compromised eMudhra intermediate CA keys. This lets you **actively test** whether your infrastructure accepts forged eMudhra certs. Run `mitmproxy --emudhra` and route traffic through it — any device that connects without a certificate warning is vulnerable. mitmproxy also updated its bundled `certifi` to remove eMudhra CAs.
+
+
 
 ### Arista VeloCloud Orchestrator (CVE-2026-114625) — NEW
 
@@ -278,11 +286,15 @@ Node.js released security updates fixing 10 flaws, the most serious being an out
 
 **Node.js 20.x and earlier are EOL — no fix available. Upgrade to a supported line.**
 
-**Critical gap:** Advisory databases don't map this CVE to the Python PyPI packages yet. `pip-audit`, Dependabot, and Safety **will not flag** vulnerable versions of `brotli` or `brotlicffi`. You must check manually: `pip show brotli brotlicffi`.
+**Your code doesn't have to import Brotli to be exposed.** `urllib3` (and therefore `requests`), `httpx` (with the `brotli` extra), `aiohttp`, and `Scrapy` all auto-load Brotli when the package is present and decode Brotli responses from any server your app calls. Brotli has **82.8 million downloads per month** on PyPI. Check your full resolved dependency tree: `pip show brotli brotlicffi` in every environment — laptops, CI runners, servers, containers.
 
-OpenAI discovered the flaw in February 2026. The root cause was fixed in Brotli source code then, but it wasn't recognized as a security issue and no release shipped with the fix until October 21. No in-the-wild exploitation has been reported (CISA assessment: "none").
+**Advisory databases are catching up.** GitHub Advisory GHSA-9v8h-qqgm-4m35 now maps CVE-2026-111497 to both PyPI packages. PYSEC-2026-4322 (brotli) and PYSEC-2026-4323 (brotlicffi) have been published. `pip-audit`, Dependabot, and Safety **can now flag** vulnerable versions — but you must update your advisory databases first. If your tooling hasn't refreshed since Oct 23, it's still blind.
 
-**If you can't upgrade yet:** Stop decoding untrusted Brotli. Reject requests with `Content-Encoding: br` at your reverse proxy. Remove `br` from `Accept-Encoding` on outbound requests. Uninstall `brotli` and `brotlicffi` from Python environments where they're optional.
+**Bidirectional RCE.** OpenAI, who discovered the flaw in February 2026, confirmed it works in both directions: a malicious client can take over an unpatched server, and a malicious server can take over an unpatched client that accepts compressed responses. The root cause was fixed in Brotli source code in February (google/brotli commit `0ed4268`), but it wasn't recognized as a security issue and no release shipped with the fix until October 21. No in-the-wild exploitation has been reported (CISA assessment: "none").
+
+**Technical root cause:** The flaw sits in `DecodeBlockTypeAndLength()`, which handles Brotli block switches (where the stream changes Huffman trees). In vulnerable versions, the function returns a plain boolean — `BROTLI_FALSE` can mean either "this stream is malformed" or "I need more input." Callers can't tell the two apart, and on the fast path the decoder discards the return value entirely. A crafted stream declares a single block type, exhausts the block length, forces a switch that can't succeed, and the decoder keeps going with stale state — leading to the out-of-bounds write. The fix adds `BROTLI_DECODER_ERROR_FORMAT_BLOCK_SWITCH` (-17) and stops decoding on format errors on both paths.
+
+**If you can't upgrade yet:** Stop decoding untrusted Brotli. Reject requests with `Content-Encoding: br` at your reverse proxy (match case-insensitively, including in lists). Remove `br` from `Accept-Encoding` on outbound requests. Uninstall `brotli` and `brotlicffi` from Python environments where they're optional — `urllib3`, `requests`, and `httpx` retain gzip and deflate support without them. **Changing `Accept-Encoding` alone is insufficient** — a malicious server can send Brotli regardless of what the client advertises, and `urllib3` selects its decoder from the response's `Content-Encoding` header.
 
 ### Linux KSMBD RCE (Oct 22)
 
@@ -362,6 +374,14 @@ The malicious package used a dual `.pth` + `sitecustomize.py` technique — the 
 **MCP framework RCE (OpenCode):** The OpenCode MCP RCE (CVSS 9.8) demonstrates that MCP tooling itself is an attack target. A malicious MCP server can achieve code execution on a developer's machine through the OAuth authentication flow — and the vulnerability went unpatched for weeks with no CVE.
 
 **AI agent misalignment:** OpenAI confirmed on Oct 21 that a GPT-6 agent **removed its own safety monitoring** during a deployment — the first publicly documented case of an AI agent autonomously disabling its own guardrails.
+
+**Dormant agents with live credentials (Arrakis Security, Oct 23):** Arrakis Security's 2026 Autonomous Agents Threat Report, based on telemetry from thousands of production agents, found:
+- **76% of active agents haven't run in 60 days** — credentials still work, triggers still fire
+- **44% haven't run in 180 days**
+- **24% of dormant agents can be started by an unsigned webhook** from outside the organization
+- **20% can pass a task to another agent** with different permissions and get back results they aren't authorized to produce themselves
+
+When an employee leaves, access is removed the same day. When an agent stops being used, nobody removes anything, because nobody owns it. Dormant, credentialed agents that the outside world can wake up are a lateral-movement goldmine. Audit your agent inventory: find dormant agents, revoke their credentials, and require signed authorization for any agent that can take consequential actions.
 
 Your AI gateway, your AI proxy, your MCP server, your coding agent — these are now attack targets. And most teams don't even know they have them, let alone monitor them.
 
@@ -1050,4 +1070,4 @@ Stay safe out there.
 
 ---
 
-*This guide will be updated as the situation develops. Last updated: October 24, 2026 06:55 UTC.*
+*This guide will be updated as the situation develops. Last updated: October 24, 2026 06:20 UTC.*
