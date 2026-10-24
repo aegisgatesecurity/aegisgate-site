@@ -202,6 +202,8 @@ If your software trusts TLS certificates, it may still trust the compromised eMu
 | **Docker images** | Rebuild with updated base images. Old `ca-certificates` packages in your base layers still trust the compromised CA. |
 | **IoT/embedded devices** | **NEW:** Check if devices trust eMudhra roots. If yes, treat TLS connections as potentially compromised until trust is removed. |
 
+> **For the IT generalist — checking Node.js and Bun trust stores:** Node.js and Bun bundle their own CA certificate stores, separate from the OS. Even if you've updated your OS CA bundles, Node.js/Bun may still trust the compromised eMudhra certificates. To check: run `node -e "console.log(require('tls').rootCertificates)"` and look for `emSign ECC Root CA - G3`. For Bun, check `Bun.crypto.getRootCertificates()` (Bun 1.4+). If the compromised root is present, update to the latest Node.js or Bun release that includes the fix. If you run Docker containers with Node.js, rebuild with the latest base image — old layers may still carry the compromised trust store.
+
 > **Quick test**: Mozilla published test endpoints for this incident. Hit them from your servers. If they connect successfully, your trust store is still vulnerable. See [Mozilla's CA Incident Dashboard](https://wiki.mozilla.org/CA/Incident_Dashboard).
 
 ### Arista VeloCloud Orchestrator (CVE-2026-114625) — NEW
@@ -332,6 +334,8 @@ If you use or used ConnectWise services (Cloud Backup, SaaS Security, Cloud Mana
 - Check for persistent access that may have been established before credentials were revoked: new OAuth app registrations, service principals, mailbox forwarding rules, federation trust modifications
 - Review OAuth app permissions across your M365 tenant — remove anything you don't recognize
 
+> **For DBAs and IT admins — credential rotation through AI gateways:** If your service accounts or database credentials flow through any AI gateway (LiteLLM, OpenRouter, AegisGate Platform, or a custom proxy), those credentials may have been intercepted. Rotate ALL credentials that touched an AI gateway since May 2026 (when the LiteLLM master key was first committed). This includes database connection strings, service account passwords, and API tokens. Don't just rotate ConnectWise credentials — rotate anything that was proxied through an AI tool during this window. Prioritize credentials with database write access or cloud admin roles.
+
 ---
 
 ## Step 2: Understand the AI Agent Blind Spot
@@ -415,6 +419,8 @@ Most SOC teams have **zero visibility** into AI agent traffic. You can see netwo
 
 If the answer is "no" to any of those — you have a blind spot. And Black October just proved that blind spot is being actively exploited.
 
+> **For the IT generalist — what are AI tools sending out?** When a developer uses GitHub Copilot, Cursor, or Claude Code, the tool sends your source code, file contents, and sometimes entire repository context to external AI servers (OpenAI, Anthropic, Google). MCP (Model Context Protocol) servers are plugins that give AI agents access to your internal systems — databases, file shares, APIs. If an attacker compromises an MCP server, they get whatever the agent can access. And if a coding agent runs in the Downloads folder, a planted `AGENTS.md` or `CLAUDE.md` file can instruct it to send credentials, modify configs, or redirect traffic — all by design. Your DLP tools probably don't see any of this traffic because it looks like normal HTTPS to an AI API endpoint.
+
 ---
 
 ## Two Paths to Close the AI Agent Gap
@@ -437,6 +443,10 @@ If you don't have a SIEM (or aren't sure what that means), go straight to **Step
 ## Step 3: Use Detection Patterns in Your Existing Stack (Option B — No Install Required)
 
 **Already have a SIEM or WAF? This is your fastest path to detection.** No tools to install. No eval cycle. No procurement. Copy the regex patterns below into the platform you already run and start hunting in 5 minutes.
+
+> **For the IT generalist — what is a SIEM?** A SIEM (Security Information and Event Management) is a tool that collects logs from all your systems — firewalls, servers, proxies, endpoints — and lets you search across them all at once. Think of it as a search engine for security events. Splunk, ELK/Elasticsearch, and Microsoft Sentinel are the most common. If you don't have one, you're not alone — many smaller orgs don't. Skip to Step 4 (Option A) for free tools you can install instead.
+>
+> **For the IT generalist — what is a WAF?** A WAF (Web Application Firewall) inspects HTTP traffic to your web servers and blocks malicious requests — SQL injection, XSS, known attack patterns. Cloudflare, AWS WAF, and F5 are common WAFs. If your PHP servers sit behind Cloudflare or AWS, you already have one. The regex patterns below can be imported as custom WAF rules to block credential exfiltration attempts in real time.
 
 ### Where to Find the Patterns
 
@@ -465,7 +475,7 @@ index=proxy_or_firewall
 | table _time, src_ip, dest_host, _raw
 ```
 
-> **Tune for your environment:** CI/CD pipelines (GitHub Actions, Jenkins) legitimately send API keys to AI APIs. Filter out known CI/CD source IPs.
+> **Tune for your environment:** CI/CD pipelines (GitHub Actions, Jenkins) legitimately send API keys to AI APIs. Filter out known CI/CD source IPs — add `| where src_ip NOT IN ("10.0.1.50", "10.0.1.51")` for your build runner IPs, or `| where NOT match(src_host, "jenkins-*|runner-*|github-actions-*")` to exclude by hostname. Also filter QA/staging environments that legitimately use test API keys: `| where _raw NOT LIKE "%test_key%" AND _raw NOT LIKE "%dummy%"`. Start with block mode in monitor-only, review hits for a 24-hour window, then promote to alerting once false positive rate is acceptable.
 
 ### Splunk — ARTEX Behavioral Indicators (Rapid API Reconnaissance)
 
@@ -520,6 +530,8 @@ index=web_logs uri="*proxy.php*"
 }
 ```
 
+> **Tune for your environment:** The `must_not` filter excludes known CI/CD source IPs — populate the `source.ip` array with your build runner IPs. Add additional `must_not` entries for test environments: `{"match": {"request.body": "test_key"}}` and `{"match": {"request.body": "dummy"}}` to filter out QA traffic using placeholder credentials. Consider adding `"minimum_should_match": 1` to the `must` block if you combine multiple detection patterns. Filter by `event.category: "network"` to scope to proxy/egress logs only, excluding endpoint telemetry that may generate noise. If you run an egress proxy that decrypts TLS (e.g., mitmproxy, Squid with SSL bump), ensure the `request.body` field is populated — encrypted traffic will not match.
+
 ### Microsoft Sentinel — Credential Exfiltration to AI APIs (KQL)
 
 ```kql
@@ -532,6 +544,8 @@ CommonSecurityLog
 | project TimeGenerated, SourceIP, DestinationHostName, RequestURL, DeviceAction
 | order by TimeGenerated desc
 ```
+
+> **Tune for your environment:** Populate the `cicd_ips` array with your actual CI/CD runner IPs — GitHub Actions, Jenkins, GitLab CI. Check the `DeviceAction` field: `"blocked"` entries from your firewall are already handled; focus on `"allowed"` connections where credentials reached the AI API. If you use Azure DevOps hosted agents, their IPs rotate — consider excluding by service tag `AzureDevOps` instead of static IPs. Also filter test environments: add `| where RequestURL !contains "test_key" and RequestURL !contains "dummy"` to reduce noise from QA traffic.
 
 ### Sigma Rule — AI API Credential Exfiltration (Cross-Platform)
 
@@ -564,6 +578,20 @@ falsepositives:
     - Legitimate API key rotation scripts (verify with dev team)
 level: high
 ```
+
+### WAF Rules — Blocking Credential Exfiltration at the Edge
+
+If your traffic flows through Cloudflare, AWS WAF, Akamai, or any WAF that supports custom regex rules, import the same patterns to block in real time rather than just detect:
+
+```
+# Cloudflare WAF custom rule (expression editor)
+(http.request.body matches "AKIA[0-9A-Z]{16}") or
+(http.request.body matches "gh[pousr]_[A-Za-z0-9]{36}") or
+(http.request.body matches "sk-[A-Za-z0-9]{20}") or
+(http.request.body matches "-----BEGIN RSA PRIVATE KEY-----")
+```
+
+> **Which patterns matter most:** The AWS key (`AKIA...`), GitHub token (`ghp_...`), and OpenAI key (`sk-...`) patterns are the highest-signal rules for credential exfiltration to AI APIs. The private key pattern catches broader exfiltration. Deploy in log-only mode first, review hits for 24 hours, then switch to block mode. Cloudflare Workers can also inspect response bodies — useful for detecting AI API responses that echo back credentials in error messages.
 
 This gives you AegisGate's detection capability in the tools you already own, without deploying anything new. For the full 353-pattern set, clone the scanner repo and extract the regex strings from the detector files.
 
@@ -605,6 +633,8 @@ If you're using ChatGPT, Claude, Gemini, or any AI chat in your browser — inst
 
 If your developers use GitHub Copilot, Cursor, Claude Code, or local LLMs — Rampart sits between their editor and the AI model. 302 regex patterns + ML detection. Monitor mode or Block mode. Zero telemetry. Runs fully air-gapped.
 
+> **For the IT generalist — what is a MITM proxy?** MITM stands for "man in the middle." In this context, it's a local proxy — a small program running on the developer's machine that intercepts traffic between their editor and the AI model. Think of it as a security checkpoint: every request the editor sends to OpenAI or Anthropic passes through Rampart first. Rampart scans it for secrets, PII, prompt injection, and other risks. In monitor mode, it logs alerts. In block mode, it stops the request before it reaches the AI server. The developer's workflow doesn't change — Rampart is transparent to the editor.
+
 ```bash
 # Download pre-built binary from GitHub Releases
 # https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.3
@@ -623,6 +653,8 @@ go build -o rampart ./cmd/rampart
 **Tool**: [AegisGate Scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
 
 353 regex patterns + ML. Scans AI artifacts for prompt injection, secrets, PII, XSS, dangerous code, compliance violations, path traversal, OT/ICS, RAG attacks, and prompt leakage. Outputs SARIF, SBOM, JSON, and 5 other formats.
+
+> **For AI developers — RAG pipeline poisoning:** If your AI application uses RAG (Retrieval-Augmented Generation), the documents in your vector database are an attack surface. An attacker who can inject content into your knowledge base — through a compromised document, a poisoned web scrape, or a supply chain attack on a data source — can embed prompt injection payloads that execute when users query the system. Scanner's 19 RAG attack patterns detect injected instructions in retrieved chunks before they reach the model. Scan all documents before ingestion, and scan retrieved chunks at query time. The same applies to A2A (agent-to-agent) communication — agents receiving instructions from other agents should validate those instructions the same way you validate user input.
 
 ```bash
 # One-line installer
@@ -738,6 +770,16 @@ If you're hunting for ARTEX-like activity in your environment, here's what we kn
 ### Establish Your Baseline First
 
 Before hunting for anomalies, establish what normal AI API traffic looks like in your environment. Which hosts legitimately call AI APIs? What's your baseline volume and timing? Anything outside that baseline since October 17 is your hunting ground.
+
+### What ARTEX Means for You
+
+ARTEX is open source. It's been forked 878+ times. The original repo was deleted, but the code is everywhere. Multiple threat groups are using it, not just Storm-0940. Microsoft observed attackers from "several geographic regions" using the framework.
+
+The implication: AI-accelerated attacks are no longer the exclusive domain of nation-states. The tooling is freely available. Expect to see it used by cybercrime groups, ransomware operators, and opportunistic attackers.
+
+This is why machine-speed attacks require machine-speed detection — it's not a marketing tagline, it's a survival requirement. Human-paced incident response cannot keep up with AI agents that go from reconnaissance to privileged access in under 3 hours.
+
+Your detection needs to be automated, not manual. Your response needs to be scripted, not ad-hoc. And your AI traffic needs to be visible, not invisible.
 
 ---
 
