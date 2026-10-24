@@ -157,7 +157,7 @@ Running PHP 7.4, 8.0, or 8.1? The PHP team provided source backports. Contact yo
 
 **What makes this especially bad:** On Apache with `mod_php`, the exploit fires *before your application code even runs*. Your app framework, your input validation, your sanitization — none of it matters. The vulnerability is in the language runtime itself. The PHP Foundation confirmed (Oct 21) that both CVEs sit in parts of PHP that nearly every request touches: memory management and error handling. **PHP-FPM, FrankenPHP, and LSAPI are also in scope** — not just mod_php. CVE-2026-109618 is RCE via OOM corruption (memory_limit timing), and CVE-2026-109619 is RCE via stale global state (a fatal error leaves internal state pointing to memory from a previous request — a use-after-free across worker requests).
 
-> **From inside the PHP security team** (Alexandre Daubois, Oct 21): "The PHP2Shell leak got the severity right and most details wrong." The embargo broke when an anonymous HN post citing a reliable source was screenshotted to X and Mastodon, and watchTowr publicly confirmed both CVE numbers before the release. PHP moved the release a day earlier because of the leaks. The real stopgap (`session.upload_progress.enabled = 0`) "went unmentioned" in most coverage.
+
 
 **Why you have time (use it wisely):** SANS ISC handler Bojan Zdrnja (Oct 23) analyzed all public PoCs and found that building a universal, reliable exploit is "quite difficult":
 - PoCs require `memory_limit = 8MB` — real-world setups usually use 128MB, making exploitation "a bit more demanding."
@@ -212,7 +212,7 @@ If your software trusts TLS certificates, it may still trust the compromised eMu
 
 > **Blue team tool — mitmproxy `--emudhra`:** mitmproxy (618 upvotes on HN) added a `--emudhra` option that signs TLS certificates using the compromised eMudhra intermediate CA keys. This lets you **actively test** whether your infrastructure accepts forged eMudhra certs. Run `mitmproxy --emudhra` and route traffic through it — any device that connects without a certificate warning is vulnerable. mitmproxy also updated its bundled `certifi` to remove eMudhra CAs.
 
-> **Mozilla compliance escalation (Bugzilla 2083449, Oct 23):** eMudhra ignored Mozilla's Root investigation deadline. The bug is P1 priority, ASSIGNED status, with 89 people CC'd. eMudhra's response reportedly blamed social media for the controversy rather than addressing the key compromise. Mozilla's CA Program team is actively pursuing compliance action.
+
 
 ### Arista VeloCloud Orchestrator (CVE-2026-114625) — NEW
 
