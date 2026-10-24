@@ -52,7 +52,7 @@ This document describes the processing integrity controls implemented in AegisGa
 | Fail-closed default | If any security check fails, encounters an error, or receives unexpected input, the request is rejected | Test coverage: nil handler recovery + deny |
 | Compliance engine | 1,457 automated controls validate processing against 31 frameworks at runtime | Compliance status API endpoint |
 | MCP guardrails | 8 guardrails validate MCP protocol interactions | Guardrail metrics per session |
-| Threat detection | 285 patterns scanned per request/response pair | Detection metrics dashboard |
+| Threat detection | 303 patterns scanned per request/response pair | Detection metrics dashboard |
 | PII/PHI scanning | Regex and pattern-based detection of 8 PHI identifiers and 12 PII categories | Scanner hit rates and false positive metrics |
 
 ### 3.3 Output Validation

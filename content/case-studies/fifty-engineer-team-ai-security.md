@@ -74,7 +74,7 @@ Sarah deployed AegisGate Platform on a single Docker container:
 ```bash
 docker run -d -p 8080:8080 \
   -v ./aegisgate-data:/data \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.8.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.9.0
 ```
 
 She configured:

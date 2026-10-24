@@ -12,7 +12,7 @@ mermaid: true
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.8.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.8.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.9.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=4.9.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.6.1" alt="MCP Version" width="97" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.5.3" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.5.3" alt="Lens Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.9.2" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
@@ -32,7 +32,7 @@ mermaid: true
 </div>
 
 <div class="alert alert-success alert-center" style="font-size:0.9rem;">
-<strong>📚 Published Research.</strong> Our whitepaper, <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em>, is now live on SSRN — covering our three-layer detection pipeline, 285 regex patterns, CharCNN-BiLSTM neural model (1.6M params), and federated IOC architecture. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">Read the paper →</a>
+<strong>📚 Published Research.</strong> Our whitepaper, <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em>, is now live on SSRN — covering our three-layer detection pipeline, 303 regex patterns, CharCNN-BiLSTM neural model (1.6M params), and federated IOC architecture. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">Read the paper →</a>
 </div>
 
 <!-- ============================================================

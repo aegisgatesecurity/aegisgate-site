@@ -5,12 +5,12 @@ type: "landing"
 mermaid: true
 ---
 
-> **🏢 AegisGate Platform v4.8.0 is LIVE** — Production hardening, security event categorization, RLS enforcement, gRPC v4 services, 31 compliance frameworks (2,043 total controls, 1,457 automated), 11 SIEM + 4 SOAR integrations, web UI, air-gapped deployment, Guided Setup. [Try the Live Demo](https://demo.aegisgatesecurity.io/) or [Download v4.8.0](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.8.0).
+> **🏢 AegisGate Platform v4.9.0 is LIVE** — Production hardening, security event categorization, RLS enforcement, gRPC v4 services, 31 compliance frameworks (2,043 total controls, 1,457 automated), 11 SIEM + 4 SOAR integrations, web UI, air-gapped deployment, Guided Setup. [Try the Live Demo](https://demo.aegisgatesecurity.io/) or [Download v4.9.0](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.9.0).
 
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
 <div class="alert alert-info">
-<strong>🏢 AegisGate Platform v4.8.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-platform">aegisgate-platform repo</a>)</em>
+<strong>🏢 AegisGate Platform v4.9.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-platform">aegisgate-platform repo</a>)</em>
 
 <ul>
 <li><strong>7 attack surfaces: HTTP API, MCP, A2A, ACP, ANP, Response, Trust Framework</li>
@@ -18,7 +18,7 @@ mermaid: true
 <li><strong>11 SIEM integrations</strong>: Splunk, Elastic, Datadog, Sumo Logic, Chronicle, Loki, Fluentd, Logstash, Cribl, Kafka, Graylog, syslog</li>
 <li><strong>4 SOAR integrations</strong>: PagerDuty, Jira, ServiceNow, Custom webhook</li>
 <li><strong>ML threat detection</strong>: CharCNN-BiLSTM (1.6M params), 100/100 evasion resistance, 0% FPR, ~5ms</li>
-<li><strong>285 detection patterns</strong>, MITRE ATLAS 66 techniques</li>
+<li><strong>303 detection patterns</strong>, MITRE ATLAS 66 techniques</li>
 <li><strong>Web UI</strong>: 7-page dashboard at <code>/ui/</code></li>
 <li><strong>Single 19.1MB Go binary</strong>, zero external dependencies, air-gapped deployment</li>
 <li><strong>11,654+ tests passing</strong>, 83.1% coverage</li>
@@ -30,13 +30,13 @@ mermaid: true
 <strong>Patent Pending</strong> &mdash; 7 U.S. provisional patent applications covering cryptographic identity, multi-protocol interception, compliance mapping, three-layered detection, response scanning, AI artifact static analysis, and federated detection gap analysis. USPTO App. Nos.~64/153,573; 64/153,574; 64/153,575; 64/153,576; 64/153,577; 64/174,824; 64/180,722.
 </p>
 <p style="margin-top:8px;">
-<strong>📚 Published Research</strong> &mdash; <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em> is live on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">SSRN</a>. Covers the three-layer detection pipeline, 285 regex patterns, CharCNN-BiLSTM neural model (1.6M params), federated IOC architecture, and 27+ compliance frameworks.
+<strong>📚 Published Research</strong> &mdash; <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em> is live on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">SSRN</a>. Covers the three-layer detection pipeline, 303 regex patterns, CharCNN-BiLSTM neural model (1.6M params), federated IOC architecture, and 27+ compliance frameworks.
 </p>
 </div>
 
 <div class="alert alert-success alert-center">
 <strong>🏢 AegisGate Platform</strong> is <strong>open-source</strong> (Apache 2.0 community edition + commercial Enterprise modules). Free Community tier. Self-hosted. No vendor lock-in. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.8.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v4.8.0 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.9.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v4.9.0 →</a>
 </div>
 
 ---
@@ -82,13 +82,13 @@ Your browser does not support the video tag.
 
 ## Six Pillars of AI Security
 
-Platform v4.8.0 protects every AI interaction across seven attack surfaces:
+Platform v4.9.0 protects every AI interaction across seven attack surfaces:
 
 <div class="card-grid card-grid-2x2">
 <div class="card">
 <h3>🌐 HTTP API Security</h3>
 <ul>
-<li>285 detection patterns</li>
+<li>303 detection patterns</li>
 <li>MITRE ATLAS 66 techniques</li>
 <li>PII, secrets, API key detection</li>
 <li>Bidirectional request/response scanning</li>
@@ -151,7 +151,7 @@ flowchart TD
         C[Applications]
     end
 
-    subgraph Platform["AegisGate Platform v4.8.0"]
+    subgraph Platform["AegisGate Platform v4.9.0"]
         direction TB
         
         subgraph Pillar1["🌐 HTTP API Security"]
@@ -260,7 +260,7 @@ sequenceDiagram
     end
 
     Note over Proxy,Trust: Every action cryptographically signed
-    Note over Scanner: 285 patterns + ML model (~5ms)
+    Note over Scanner: 303 patterns + ML model (~5ms)
 {{< /mermaid >}}
 
 ---
@@ -377,7 +377,7 @@ docker run -d \
   -p 8082:8082 \
   -p 8083:8083 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.8.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.9.0
 ```
 
 ### Bare Metal
@@ -408,7 +408,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 
 | Tier | Price | Key Features |
 |------|-------|--------------|
-| **Community** | Free | HTTP proxy, MCP, A2A, 285 patterns, MITRE ATLAS, basic compliance |
+| **Community** | Free | HTTP proxy, MCP, A2A, 303 patterns, MITRE ATLAS, basic compliance |
 | **Developer** | $79/mo | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
 | **Professional** | $499/mo | + Trust Framework, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
 | **Enterprise** | Custom | + Air-gapped deployment, custom compliance modules, dedicated SE, SLA |
@@ -467,7 +467,7 @@ For the full technical architecture — six-pillar internals, Trust Framework AP
 
 <p>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source code →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.8.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v4.9.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
 <a href="/docs/" class="btn btn-secondary">Documentation →</a>
 <a href="/pricing/" class="btn btn-secondary">Pricing →</a>
 <a href="/compliance/" class="btn btn-secondary">Compliance →</a>

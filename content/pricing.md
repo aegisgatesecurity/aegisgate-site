@@ -56,7 +56,7 @@ The case study is **representative**, not a real customer. It is built from anon
 <ul>
 <li>Unlimited proxy RPM (soft-throttle)</li>
 <li>5 concurrent users</li>
-<li>285 security detection patterns</li>
+<li>303 security detection patterns</li>
 <li>8 MCP guardrails</li>
 <li>8 A2A guardrails (mTLS, HMAC, capabilities, rate limiting)</li>
 <li>ACP guardrails (capability verification, message integrity)</li>

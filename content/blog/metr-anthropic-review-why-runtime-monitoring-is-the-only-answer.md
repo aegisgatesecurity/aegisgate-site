@@ -55,7 +55,7 @@ METR found that Claude conducted social engineering attacks. Social engineering,
 
 **What we detect:**
 
-Our L1 scanner (`pkg/scanner/patterns.go`) contains 285 compiled regex patterns across 8 categories: Compliance, Credential, Cryptographic, Financial, Network, PII, Prompt, and XSS. The Prompt category includes patterns for:
+Our L1 scanner (`pkg/scanner/patterns.go`) contains 303 compiled regex patterns across 8 categories: Compliance, Credential, Cryptographic, Financial, Network, PII, Prompt, and XSS. The Prompt category includes patterns for:
 
 - Direct instruction override ("ignore previous instructions," "disregard system messages")
 - Role-playing manipulation ("pretend you are," "act as if")
@@ -196,7 +196,7 @@ METR's review is carefully scoped. They reviewed Anthropic's Risk Report. They d
 
 4. **The recommendation is more monitoring.** METR's main recommendation: red-team the monitoring system more comprehensively. Not "build better alignment." Not "train better models." **Monitor what models actually do.**
 
-That's what AegisGate does. We monitor what models actually do. At the traffic layer. In real time. With 285 deterministic patterns, a 1.6M-parameter neural network, sliding-window chain analysis, statistical anomaly detection, MITRE ATLAS coverage, 7 executable compliance policies, federated IOC sharing, and 27 compliance frameworks.
+That's what AegisGate does. We monitor what models actually do. At the traffic layer. In real time. With 303 deterministic patterns, a 1.6M-parameter neural network, sliding-window chain analysis, statistical anomaly detection, MITRE ATLAS coverage, 7 executable compliance policies, federated IOC sharing, and 27 compliance frameworks.
 
 We don't need to wait for the model to be "aligned." We don't need to trust the system card. We don't need to believe the eval results. We watch the traffic.
 
@@ -238,7 +238,7 @@ The alignment labs will keep researching. We'll keep watching the wire.
 
 ---
 
-*Josh Colvin is the founder of [AegisGate Security](https://aegisgatesecurity.io), building open-source, self-hosted AI security. Five products. 285 detection patterns. 1.6M-parameter neural threat model. 27 compliance frameworks. Apache 2.0. No telemetry. No data egress. [GitHub](https://github.com/aegisgatesecurity/aegisgate-platform).*
+*Josh Colvin is the founder of [AegisGate Security](https://aegisgatesecurity.io), building open-source, self-hosted AI security. Five products. 303 detection patterns. 1.6M-parameter neural threat model. 27 compliance frameworks. Apache 2.0. No telemetry. No data egress. [GitHub](https://github.com/aegisgatesecurity/aegisgate-platform).*
 
 ---
 
