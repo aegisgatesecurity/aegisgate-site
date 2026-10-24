@@ -1,8 +1,8 @@
 ---
 title: "Black October: A Blue Team Field Guide"
 slug: black-october-blue-team-guide
-description: "11 critical vulnerabilities and attack vectors in 72 hours. AI is now both the weapon and the target. A practical field guide for blue teamers — patch guidance, AI agent blind spot explanation, agent instruction file poisoning, Markdown-as-Executable attacks, MCP RCE, ARTEX-specific indicators, free open source detection tools, and sector-specific guidance for OT/ICS, defense, healthcare, financial services, and cloud."
-date: 2026-10-23
+description: "14 critical vulnerabilities and attack vectors. AI is now both the weapon and the target. A practical field guide for blue teamers — patch guidance, AI agent blind spot explanation, agent instruction file poisoning, Markdown-as-Executable attacks, MCP RCE, ARTEX-specific indicators, free open source detection tools, and sector-specific guidance for OT/ICS, defense, healthcare, financial services, and cloud."
+date: 2026-10-24
 author: Josh Colvin
 tags:
   - cybersecurity
@@ -20,6 +20,12 @@ tags:
   - markdown-as-executable
   - opencode-mcp
   - agent-instruction-poisoning
+  - arista
+  - velocloud
+  - collabora
+  - fortibleed
+  - blackx
+  - uefi
 ---
 
 > **📄 Download the PDF version (no registration required):**  
@@ -28,31 +34,34 @@ tags:
 
 ---
 
-> **Update (Oct 23, 10:14 UTC — v3.0):** Major restructuring — SIEM detection patterns now come BEFORE product recommendations (help before sell). Added MITRE ATT&CK mapping for all incidents, priority matrix by stack type, IOC appendix with 4 incident tables, FP tuning notes on all SIEM queries, Sigma rule, Sentinel KQL queries, and Splunk ARTEX behavioral query. Pattern counts verified against codebase. Now covers 11 critical vulnerabilities/attack vectors across 72 hours. [See the v4.9.0 release notes →](/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
+> **Update (Oct 24, 06:20 UTC — v4.0):** Three new actively exploited vulnerabilities added — Arista VeloCloud Orchestrator SQLi (CISA KEV, due Oct 26), Collabora Online CODE Server RCE (web shells found on real Nextcloud servers, CISA KEV, due Oct 26), and Enterprise Firewall/VPN credential exposure (k0t/FortiBleed campaign, 70K+ credentials). PHP2Shell section updated with SANS ISC analysis (Bojan Zdrnja + Johannes Ullrich) and Amazon Threat Intelligence timeline. eMudhra section updated with Will Dormann's IoT MITM testing. LiteLLM root cause published. New sidebar: BlackX UEFI bootkit / Secure Boot DBX revocation gap. Priority matrix expanded. IOC tables added for all new entries. Now covers 14 critical vulnerabilities/attack vectors. [See the v4.9.0 release notes →](/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
 
 ## TL;DR
 
-The internet is under coordinated attack. What started as six critical vulnerabilities in 48 hours has become **eleven+ across 72 hours** — three in the PHP runtime, a TLS certificate authority collapsing entirely, one in GitLab, a supply chain compromise in an AI gateway, a Chinese APT using AI autonomous pentesting tools, a Node.js RCE with a working exploit, two Linux kernel RCEs with no fix, a PaaS provider breach, an MCP server RCE, and a novel attack that turns AI agent instruction files into silent persistence mechanisms. **Patch everything. Then close the AI agent blind spot you almost certainly don't know you have.** This guide tells you how to do both, using free open source tools you can deploy today — including in air-gapped and regulated environments.
+The internet is under coordinated attack. What started as six critical vulnerabilities in 48 hours has become **fourteen across five days** — three in the PHP runtime, a TLS certificate authority collapsing entirely, one in GitLab, a supply chain compromise in an AI gateway, a Chinese APT using AI autonomous pentesting tools, a Node.js RCE with a working exploit, two Linux kernel RCEs with no fix, a PaaS provider breach, an MCP server RCE, a novel attack that turns AI agent instruction files into silent persistence mechanisms, an actively exploited SQLi in Arista VeloCloud, web shells on Nextcloud servers via Collabora Online, and a mass credential theft campaign targeting enterprise firewalls and VPNs. **Patch everything. Then close the AI agent blind spot you almost certainly don't know you have.** This guide tells you how to do both, using free open source tools you can deploy today — including in air-gapped and regulated environments.
 
 ---
 
 ## What Is Happening
 
-If you're reading this, you already know. The cybersecurity community is calling it "Black October" — a 72-hour window where the internet's foundational technologies started falling like dominoes. Here's the situation as of right now:
+If you're reading this, you already know. The cybersecurity community is calling it "Black October" — a five-day window where the internet's foundational technologies started falling like dominoes. Here's the situation as of right now:
 
 | Incident | What Broke | How Bad |
 |----------|-----------|---------|
-| **PHP2Shell** | Three critical RCE flaws in the PHP runtime itself (not a plugin — the language) | CVSS 9.2 × 2 (CVE-2026-109618, -109619) plus CVE-2026-115560 (3rd, unpatched, narrow scope). PHP runs ~80% of all websites. 5.1M hosts exposed. Amazon detected exploits **4 days before disclosure.** Millions of attempts now observed. Attackers deploying Mirai botnet variant "Potassium" (unsuccessful so far). **Attackers are now bypassing WAF rules** — The Register reports adversaries are "spending tokens" adapting payloads. |
-| **eMudhra CA** | Indian certificate authority had 8 intermediate TLS certs with private keys so weak one was literally the number **4** | Anyone could forge trusted HTTPS certificates since April 2025. **eMudhra is now exiting the SSL/TLS business entirely.** Chrome drops trust Oct 27. ~30,800 certs affected (99.9% via InCommon/Internet2 higher-ed). Node.js and Bun were **still unpatched** as of Oct 22. |
+| **PHP2Shell** | Three critical RCE flaws in the PHP runtime itself (not a plugin — the language) | CVSS 9.2 × 2 (CVE-2026-109618, -109619) plus CVE-2026-115560 (3rd, unpatched, narrow scope). PHP runs ~80% of all websites. 5.1M hosts exposed. Amazon detected exploits **4 days before disclosure (Oct 17).** "Broadly exploited in the wild" — but SANS ISC analysis (Zdrnja, Oct 23) confirms **no universal reliable exploit exists yet.** PoCs require 8MB memory_limit (real-world usually 128MB), single-worker prefork, specific libphp.so offsets, and are limited to **14-byte commands.** Dataminr: activity "limited to scanning, fingerprinting, and non-working exploits, with no known compromises." Some PoCs are **parasitic** — they exploit whoever runs them. SANS (Ullrich): "not done patching PHP yet" — keep `session.upload_progress.enabled=0` even after patching. **Palo Alto firewalls run PHP and are vulnerable** — PA security advisory live, patch pending. |
+| **eMudhra CA** | Indian certificate authority had 8 intermediate TLS certs with private keys so weak one was literally the number **4** | Anyone could forge trusted HTTPS certificates since April 2025. **eMudhra is now exiting the SSL/TLS business entirely.** Chrome drops trust Oct 27. ~30,800 certs affected (99.9% via InCommon/Internet2 higher-ed). Node.js and Bun were **still unpatched** as of Oct 22. **Will Dormann confirmed compromised certs enable MITM on IoT/embedded devices** — Fire TV Stick accepts forged certs, unpatched RHEL/Mint accept (G3 root), Pixel 3 and Alfred Camera reject. IoT devices with eMudhra trust are active MITM targets. |
 | **ConnectWise / Storm-0940** | Chinese APT used stolen ConnectWise credentials + AI autonomous pentesting tool (ARTEX) to hit 2,250+ Microsoft 365 tenants | Initial targeting to **privileged cloud access in under 3 hours.** AI models divided tasks and reviewed each other's attack work. |
 | **GitLab RCE** | Integer overflow in the Regex Compiler — unauthenticated RCE | CVSS 10.0. 2,700+ exposed Community Edition instances. No login required to exploit. |
-| **LiteLLM Supply Chain** | AI gateway/proxy compromised — steals passwords, secrets, deploys a RAT (Remote Access Trojan) | Attackers compromised LiteLLM's release pipeline via suspected GitHub token leak. Used novel dual `.pth` + `sitecustomize.py` technique — **first documented case in the wild.** Stolen AWS credentials validated within 4.5 hours. |
+| **LiteLLM Supply Chain** | AI gateway/proxy compromised — steals passwords, secrets, deploys a RAT | **Root cause (Oct 24):** Master key accidentally committed to public GitHub repo `LiteLLM-Labs/lite-harness` on May 27. Force-pushed over but **key revocation never occurred.** Attacker (IP `69.48.229.143`) used unrevoked key Oct 10 → extracted GitHub CLI OAuth token (org owner level) → repointed release pipeline to lookalike repo `Berri-AI/litellm` (note hyphen) → published malicious v1.107.0. Branch protection had been temporarily relaxed — attacker used stolen tokens to both trigger and approve the release. |
 | **SharePoint Zero-Day** | Microsoft's October patches didn't fix it — now under active attack | On-prem SharePoint, zero-day, in the wild. Microsoft's fix failed. |
-| **Node.js Brotli RCE** | Out-of-bounds write in Brotli decoder — RCE when apps decompress attacker-controlled data via `fetch()` or `node:zlib` | **(Oct 21).** All supported versions affected. Node2Shell PoC demonstrated by Imperva. Node.js 20.x and earlier: **EOL, no fix.** |
+| **Node.js Brotli RCE** | Out-of-bounds write in Brotli decoder — RCE when apps decompress attacker-controlled data via `fetch()` or `node:zlib` | **(Oct 21).** All supported versions affected. Node2Shell PoC demonstrated by Imperva. **Evolved to HTTP2Shell** — blast radius now includes Bun, Python (Brotli/brotlicffi), Envoy, Istio, curl. OpenAI discovered the flaw in February but it wasn't recognized as a security issue. No in-the-wild exploitation. Node.js 20.x and earlier: **EOL, no fix.** |
 | **Linux KSMBD RCE** | Two RCE flaws in the kernel's built-in SMB server | **(Oct 22).** CVSS 9.0 × 2. Disclosed on public mailing lists **before kernel fixes exist.** No patch yet. |
 | **Railway PaaS Breach** | PaaS provider — customer environment variables (secrets) accessed | **(Oct 22).** Railway urges all customers to rotate credentials. Relevant to AI/ML deployments storing API keys in env vars. |
-| **Markdown-as-Executable** | Websites silently download `AGENTS.md` (Codex) or `CLAUDE.md` (Claude Code) to `~/Downloads` — agents read and obey by design | **NEW (Oct 22).** No click, no permission required. Codex path: modifies machine-wide config, installs malicious npm packages. Claude path: redirects API traffic, leaks OAuth token. **No patch possible — agents are doing what they were built to do.** ~50% of teams run agents in Downloads. |
-| **OpenCode MCP RCE** | Malicious MCP server supplies crafted OAuth URL → PowerShell command injection on Windows/WSL | **NEW (Oct 22).** CVSS 9.8 (proposed). Root cause: outdated `open` npm package with known command injection since 2023. No CVE, no advisory. Fixed v1.18.33 (Sep 28). Separate OpenCode Console breach exposed API keys in 1.4% of hosted workspaces. |
+| **Arista VeloCloud SQLi** | SQL injection in VeloCloud Orchestrator (VCO) On-Prem — authenticated user → superuser | **(Oct 22).** CVSS 9.9. **Actively exploited.** CISA KEV, due Oct 26. Patches: VCO 5.2.3.18+, 6.1.3.10+, 6.4.2.12+. IOCs: `74.82.197.86`, `38.54.50.151`. |
+| **Collabora Online RCE** | OS command injection in Collabora Built-in CODE Server via `proxy.php` — exploitable when CODE server not running | **(Oct 22).** CVSS 9.2. **Actively exploited — web shells found on real Nextcloud servers.** CISA KEV, due Oct 26. Patch: richdocumentscode 26.4.303. **Disabling the app is insufficient — must upgrade or remove.** Not affected: standalone Collabora, Docker, hosted. **Patching alone isn't enough — hunt for post-exploitation web shells.** |
+| **Enterprise Firewall/VPN (k0t/FortiBleed)** | Mass credential theft from Fortinet FortiGate + Palo Alto GlobalProtect — 70K+ credentials | **(Oct 22).** CVE-2025-64446 (FortiWeb path traversal) + CVE-2026-0257 (PAN-OS auth bypass). Linked to Qilin and The Gentlemen ransomware. Kevin Beaumont: 6 IOC IPs, dormant admin backdoors, GPU-accelerated cracking (36 enterprise GPUs), persistence via MeshCentral/Atera/AnyDesk/AdaptixC2, exfil via Rclone→Wasabi/MEGA. **"Staggering amount of FortiGate customers already backdoored via dormant admin accounts."** Victim IP list at owned.lab6.com. |
+| **Markdown-as-Executable** | Websites silently download `AGENTS.md` (Codex) or `CLAUDE.md` (Claude Code) to `~/Downloads` — agents read and obey by design | **(Oct 22).** No click, no permission required. Codex path: modifies machine-wide config, installs malicious npm packages. Claude path: redirects API traffic, leaks OAuth token. **No patch possible — agents are doing what they were built to do.** ~50% of teams run agents in Downloads. |
+| **OpenCode MCP RCE** | Malicious MCP server supplies crafted OAuth URL → PowerShell command injection on Windows/WSL | **(Oct 22).** CVSS 9.8 (proposed). Root cause: outdated `open` npm package with known command injection since 2023. No CVE, no advisory. Fixed v1.18.33 (Sep 28). Separate OpenCode Console breach exposed API keys in 1.4% of hosted workspaces. |
 
 > **What is CVSS?** Common Vulnerability Scoring System. A 0–10 scale. 9.0+ is "Critical." 10.0 is "as bad as it gets."
 
@@ -69,10 +78,13 @@ If you're reading this, you already know. The cybersecurity community is calling
 | **Node.js Brotli RCE** | T1190 (Exploit Public-Facing Application), T1059.007 (JavaScript) | Initial Access, Execution |
 | **Linux KSMBD RCE** | T1210 (Exploitation of Remote Services) | Lateral Movement |
 | **Railway PaaS Breach** | T1552.001 (Credentials In Files), T1078 (Valid Accounts) | Credential Access, Initial Access |
+| **Arista VeloCloud SQLi** | T1190 (Exploit Public-Facing Application), T1068 (Exploitation for Privilege Escalation) | Initial Access, Privilege Escalation |
+| **Collabora Online RCE** | T1190 (Exploit Public-Facing Application), T1059.004 (Unix Shell), T1505.003 (Web Shell) | Initial Access, Execution, Persistence |
+| **Enterprise Firewall/VPN** | T1078 (Valid Accounts), T1210 (Exploitation of Remote Services), T1021 (Remote Services), T1568.002 (C2 via Domain Generation Algorithms), T1071.001 (Web Protocols) | Initial Access, Lateral Movement, Command and Control |
 | **Markdown-as-Executable** | T1204.002 (User Execution: Malicious File), T1566.002 (Phishing: Spearphishing Link) | Initial Access, Execution |
 | **OpenCode MCP RCE** | T1190 (Exploit Public-Facing Application), T1059.001 (PowerShell) | Initial Access, Execution |
 
-This is not a drill. This is not a "watch and see." If you run PHP servers, Microsoft 365 tenants, GitLab instances, Node.js applications, Linux servers with KSMBD, AI coding agents, or MCP tooling — you are in the blast radius.
+This is not a drill. This is not a "watch and see." If you run PHP servers, Microsoft 365 tenants, GitLab instances, Node.js applications, Linux servers with KSMBD, AI coding agents, MCP tooling, Arista VeloCloud, Nextcloud with Collabora, Fortinet or Palo Alto firewalls, or Windows systems missing Secure Boot revocations — you are in the blast radius.
 
 ---
 
@@ -82,17 +94,33 @@ You can't do everything at once. Use this matrix to sequence your response:
 
 | If you run... | Do this FIRST | Then |
 |---------------|--------------|------|
-| **PHP servers** (any version) | Patch PHP2Shell — this is actively exploited in the wild with pre-disclosure attacks | Check logs back to Oct 17 |
-| **Node.js apps + AI gateways** | Patch Node.js Brotli RCE — `fetch()` to a compromised endpoint = RCE | Check for LiteLLM compromise |
+| **PHP servers** (any version) | Patch PHP2Shell — actively exploited, pre-disclosure attacks since Oct 17. Keep `session.upload_progress.enabled=0` even after patching | Check logs back to Oct 17. If Palo Alto firewalls, restrict mgmt interface NOW |
+| **Fortinet FortiGate / Palo Alto GlobalProtect** | Rotate ALL VPN credentials. Patch FortiWeb (CVE-2025-64446) and PAN-OS (CVE-2026-0257) | Hunt for dormant admin accounts. Check System→Events→filter "config". Check owned.lab6.com for your IPs |
+| **Nextcloud + Collabora Online** | Upgrade richdocumentscode to 26.4.303. **Do not just disable the app — remove or upgrade** | Run Nextcloud integrity scan for web shells. Check for unexpected PHP files |
+| **Arista VeloCloud (on-prem)** | Patch VCO to 5.2.3.18+, 6.1.3.10+, or 6.4.2.12+ — CISA KEV due Oct 26 | Check VCO web access logs for SQLi from `74.82.197.86`, `38.54.50.151` |
+| **Node.js apps + AI gateways** | Patch Node.js Brotli RCE — `fetch()` to a compromised endpoint = RCE. Also update Bun, Python Brotli/brotlicffi, Envoy, Istio | Check for LiteLLM compromise |
 | **GitLab (internet-facing)** | Patch GitLab RCE — unauthenticated, CVSS 10.0, no login required | Restrict network access if you can't patch |
 | **Microsoft 365 + ConnectWise** | Rotate all ConnectWise credentials + audit Graph logs for Storm-0940 | Check for OAuth persistence |
 | **Linux with KSMBD enabled** | Disable KSMBD (`modprobe -r ksmbd`) — no patch exists yet | Switch to Samba userspace smbd |
 | **LiteLLM anywhere in your stack** | Check for compromise indicators + rotate all credentials that passed through it | Replace with a hardened gateway |
 | **AI coding agents (Codex, Claude Code)** | Check Downloads for planted AGENTS.md/CLAUDE.md files | Install Scanner, scan before agent sessions |
 | **OpenCode MCP** | Update to v1.18.33+ immediately | Rotate AI API keys if using OpenCode Console |
+| **Windows systems (all)** | Verify Secure Boot DBX revocations for CVE-2022-21894 (Baton Drop) | See BlackX sidebar below |
 | **None of the above** | You're not clear — verify. Check your asset inventory. PHP runs in places you forgot. | Start with Step 3 (SIEM patterns) to detect exposure |
 
-> **Rule of thumb**: If you're not sure whether you're affected, you probably are. PHP runs ~80% of websites. Node.js runs most AI infrastructure. GitLab is everywhere. Assume exposure until verified.
+> **Rule of thumb**: If you're not sure whether you're affected, you probably are. PHP runs ~80% of websites. Node.js runs most AI infrastructure. GitLab is everywhere. Fortinet and Palo Alto are in nearly every enterprise network. Assume exposure until verified.
+
+> **Sidebar: BlackX UEFI Bootkit — Verify Your Secure Boot DBX Revocations**
+>
+> Kaspersky disclosed BlackX on Oct 23 — a UEFI bootkit used by APT41 (China-linked) against diplomatic organizations in Central Asia. It's an updated version of BlackLotus, exploiting CVE-2022-21894 (Baton Drop) to load malicious code before Windows starts.
+>
+> **The gap**: Microsoft patched CVE-2022-21894, but the fix requires manual steps — adding "Windows Production PCA 2011" certificate to the Secure Boot UEFI Forbidden List (DBX). The certificate expired Oct 19, 2026, but **vulnerable binaries still load unless you've done the manual DBX update.** Kaspersky: attackers are "capitalizing on the fact that few organizations realized the importance of manually activating the Baton Drop patch."
+>
+> **What to do**: Check if your Windows systems have the DBX revocation applied. Microsoft's CVE-2022-21894 guidance includes steps for deploying the DBX update via Group Policy or Intune. If you applied the original patch but never did the manual revocation steps, you are still vulnerable to BlackLotus/BlackX.
+>
+> IOCs: `inst.exe` in `C:\ProgramData\Intel\`, encrypted file `PVMDIJGKAX2` (RC4 key: `Q46F6MDLI3RX2KV1`), C2 domain `archivetj[.]com`, sideloaded `googleupdate.exe` + `OxiDLLRunner.dll`. C2 via Google Drive, OneDrive, Yandex.Disk (blends with enterprise traffic).
+>
+> This is targeted espionage, not mass exploitation. But the underlying DBX gap is systemic.
 
 ---
 
@@ -114,25 +142,45 @@ Running PHP 7.4, 8.0, or 8.1? The PHP team provided source backports. Contact yo
 
 **Can't patch right now?**
 - The UK NCSC says: **take your PHP servers offline** until you can patch.
-- There are NO reliable mitigations. WAF rules help but attackers are already adapting payloads to bypass them. Cloudflare deployed WAF rules and attackers are getting past them within hours. The Register reports adversaries are "clearly spending time (and tokens) on this bug" — meaning they're using AI to mutate payloads faster than WAF rules can keep up.
-- Disable `session.upload_progress` (`session.upload_progress.enabled = Off` in `php.ini`) — this closes one of the two attack paths.
+- There are NO reliable mitigations. WAF rules help but attackers are already adapting payloads to bypass them. Cloudflare deployed WAF rules and attackers are getting past them within hours.
+- Disable `session.upload_progress` (`session.upload_progress.enabled = 0` in `php.ini`) — this closes one of the two attack paths.
 - Set a conservative `memory_limit` (e.g., `memory_limit = 128M`) and reduce `post_max_size` — this limits exposure to memory-based exploitation.
 - **These are stopgaps. Patch.**
 
 **Already patched? You're not done.**
+- **Keep `session.upload_progress.enabled = 0`** even after patching. PHP.net advised this on Oct 23. SANS (Ullrich): "We are not done patching PHP yet." A bypass for the current fix exists.
 - Check your logs going back to **at least October 17**. Amazon detected exploitation attempts 4 days before patches were released. If you were running PHP before October 21, assume you were a target.
-- **Millions of exploit attempts** are now being observed in the wild. Attackers are attempting to deploy a Mirai botnet variant called "Potassium" via PHP2Shell, though weaponization has proven harder than expected and attempts have been unsuccessful so far. Do not interpret lack of successful mass exploitation as safety — the attempts are ongoing and adapting.
+- "PHP2Shell is now seeing broad exploitation attempts in the wild" (Amazon CISO CJ Moses), though it's unclear how many attacks have succeeded. Dataminr TRACE (Oct 23): "observed activity since vulnerability disclosure remains limited to scanning, fingerprinting, and use of non-working exploits, with no known compromises."
 - Look for: unusual POST requests with `multipart/form-data`, unexpected process spawning from your web worker, outbound connections to unfamiliar IPs, any evidence of shell execution.
 
 **What makes this especially bad:** On Apache with `mod_php`, the exploit fires *before your application code even runs*. Your app framework, your input validation, your sanitization — none of it matters. The vulnerability is in the language runtime itself.
 
-**CVE-2026-115560 (3rd PHP RCE):** A third RCE was disclosed on Oct 23. It has narrow scope (specific configuration required) and remains unpatched. Monitor the PHP blog for patch availability. Do not assume the first two patches cover this one.
+**Why you have time (use it wisely):** SANS ISC handler Bojan Zdrnja (Oct 23) analyzed all public PoCs and found that building a universal, reliable exploit is "quite difficult":
+- PoCs require `memory_limit = 8MB` — real-world setups usually use 128MB, making exploitation "a bit more demanding."
+- PoCs require a single-worker prefork configuration — real-world setups have multiple workers, and an attacker would need to consume all workers and catch the right one.
+- PoCs leak `libphp.so` base address to defeat ASLR, but offsets depend on how PHP was compiled, the distro, and the version. Current PoCs are "cheating" by reading offsets from the target server.
+- Commands are limited to **14 bytes.**
+- Some PoCs are **parasitic** — they exploit whoever runs them.
+
+SANS (Ullrich): "Treat the time you have now as a gift and use it wisely to find and patch applications in your organization." But also: "It remains only a matter of time for working POCs or successful exploitation activity to emerge."
+
+**CVE-2026-115560 (3rd PHP RCE, unpatched):** A third RCE disclosed Oct 23. It requires an unusual configuration: the application must set `session.serialize_handler` to `php_binary` or `php_serialize` in config, then switch it to `php` at runtime with `ini_set()` before calling `session_start()`. Session upload progress must be enabled. PHP team: "Since this setup is unlikely in practice, we are handling it in the regular release cycle." Same mitigation applies: `session.upload_progress.enabled = 0`.
+
+**Palo Alto firewalls are vulnerable:** Kevin Beaumont flagged that Palo Alto PA-Series firewalls run PHP and are vulnerable to PHP2Shell (CVE-2026-109618). Palo Alto has published a security advisory with a patch pending "next week." **Restrict management interface access NOW** — limit to dedicated management VLAN, firewall at L3+. Do not expose the management interface to the internet.
 
 **Runtime-specific note:** If you deploy via FrankenPHP, LiteSpeed, or php-cgi, the same PHP patches apply — check with your runtime vendor for patched container images or packages.
 
 ### eMudhra CA Compromise (CVE-2026-111943) — CA Exiting SSL/TLS Business
 
-> **⚠️ UPDATE (Oct 22):** eMudhra's board has decided to **exit the global SSL/TLS certificate business entirely.** Chrome will stop trusting `emSign ECC Root CA - G3` on **October 27** (morning Pacific). Mozilla/Firefox already stopped trusting it on October 20. Approximately **30,800 unexpired certificates** are affected — 99.9% issued through InCommon (Internet2's higher-ed certificate service). If your organization uses InCommon certificates, you must reissue before Oct 27. eMudhra's G1 RSA root continues temporarily, but Chrome is still deciding whether to keep it.
+> **⚠️ UPDATE (Oct 22):** eMudhra's board has decided to **exit the global SSL/TLS certificate business entirely.** Chrome will stop trusting `emSign ECC Root CA - G3` on **October 27** (morning Pacific). Mozilla/Firefox already stopped trusting it on October 20. Approximately **30,800 unexpired certificates** are affected — 99.9% issued through InCommon (Internet2's higher-ed certificate service). If your organization uses InCommon certificates, you must reissue before Oct 27.
+
+> **⚠️ UPDATE (Oct 24 — Will Dormann):** Compromised eMudhra certificates are now being weaponized for MITM attacks. Security researcher Will Dormann tested compromised certs against physical devices using a MITM tool (tapioca):
+> - Fire TV Stick: **accepts forged certs** ✅
+> - Unpatched RHEL / Linux Mint: **accepts** (G3 root only) ✅
+> - Pixel 3: rejects ❌
+> - Alfred Camera: rejects ❌
+>
+> IoT and embedded devices that trust eMudhra are active MITM targets. Google had the tooling to detect this (Bleichenbacher's) and didn't use it. If you manage IoT fleets, kiosks, or embedded devices, treat any TLS connection validated by eMudhra roots as potentially compromised.
 
 If your software trusts TLS certificates, it may still trust the compromised eMudhra intermediates. A script error in April 2025 generated P-384 private keys so weak that one was literally the integer **4**. That means anyone could forge trusted HTTPS certificates for 18 months. Update your trust stores:
 
@@ -149,19 +197,81 @@ If your software trusts TLS certificates, it may still trust the compromised eMu
 | **Node.js** | **CHECK** — patch was still pending as of this writing |
 | **Bun** | **CHECK** — patch was still pending as of this writing |
 | **Electron** | Apply latest Electron update (patched) |
-| **macOS built-in curl** | `/usr/bin/curl` may still trust compromised certs. Test using Mozilla's incident page endpoints. |
+| **macOS built-in curl** | `/usr/bin/curl` may still trust compromised certs. Test using Mozilla's incident endpoints. |
 | **Ubuntu/Debian** | `apt update && apt install ca-certificates` |
 | **Docker images** | Rebuild with updated base images. Old `ca-certificates` packages in your base layers still trust the compromised CA. |
+| **IoT/embedded devices** | **NEW:** Check if devices trust eMudhra roots. If yes, treat TLS connections as potentially compromised until trust is removed. |
 
 > **Quick test**: Mozilla published test endpoints for this incident. Hit them from your servers. If they connect successfully, your trust store is still vulnerable. See [Mozilla's CA Incident Dashboard](https://wiki.mozilla.org/CA/Incident_Dashboard).
 
-> **For the IT generalist**: If you're not sure how to check your Node.js or Bun trust store, the simplest approach is to update to the latest version and then check the release notes. If a patch is available, it will be mentioned there. If no patch exists yet, treat any TLS connections from Node.js/Bun applications as potentially vulnerable until one ships.
+### Arista VeloCloud Orchestrator (CVE-2026-114625) — NEW
+
+**Actively exploited. CISA KEV. Due Oct 26.**
+
+CVSS 9.9. SQL injection in on-premise VeloCloud Orchestrator (VCO) allows a remote, authenticated attacker to access privileged internal functionality and escalate to superuser. Successful exploitation compromises the confidentiality, integrity, and availability of the orchestrator and all managed data.
+
+**Patch to one of:**
+- VCO 5.2.3.18+
+- VCO 6.1.3.10+
+- VCO 6.4.2.12+
+
+**Hunting:** Check VCO web access logs for SQLi patterns (union-based, time-based blind) from these IPs:
+- `74.82.197.86`
+- `38.54.50.151`
+
+If your VCO is cloud-managed (Arista-hosted), Arista has applied patches. If you run on-prem VCO, you must patch yourself.
+
+### Collabora Online CODE Server (CVE-2026-110447) — NEW
+
+**Actively exploited — web shells found on real Nextcloud servers. CISA KEV. Due Oct 26.**
+
+CVSS 9.2. Unauthenticated OS command injection via `proxy.php` in Collabora Online Built-in CODE Server (richdocumentscode) when used within Nextcloud. Exploitable when the CODE local document server **isn't running** — during restart, upgrade, or crash.
+
+**Patch:** Upgrade richdocumentscode to **26.4.303**.
+
+**Critical:** Disabling the Collabora app in Nextcloud is **not sufficient** — the vulnerable `proxy.php` remains accessible. You must **upgrade or completely remove** the richdocumentscode package.
+
+**Not affected:** Standalone Collabora Online deployments, Docker-based deployments, and Collabora-hosted deployments. Only the built-in CODE Server integration within Nextcloud is affected.
+
+**Patching alone isn't enough — hunt for web shells:**
+- Run a Nextcloud integrity scan (`occ integrity:check-core`). Look for `EXTRA_FILE` entries — these indicate files that shouldn't be there.
+- One user found `Nx_33143.php` (a web shell) via integrity scan after exploitation.
+- Search for unexpected PHP files in your Nextcloud data directory and apps directory.
+- Check web server access logs for requests to `proxy.php` during periods when the CODE server was not running.
+
+### Enterprise Firewall/VPN — k0t/FortiBleed Campaign — NEW
+
+**70K+ credentials stolen. Linked to ransomware. Dormant admin backdoors widespread.**
+
+A threat actor known as "k0t" has stolen over 70,000 VPN credentials from Fortinet FortiGate and Palo Alto GlobalProtect devices. The campaign exploits:
+- **CVE-2025-64446** (FortiWeb path traversal)
+- **CVE-2026-0257** (PAN-OS authentication bypass)
+
+Stolen credentials are linked to Qilin and The Gentlemen ransomware operations. Kevin Beaumont (DoublePulsar) provided detailed IOCs and analysis.
+
+**What to do:**
+1. **Rotate ALL VPN credentials** — assume any FortiGate or GlobalProtect credential is compromised.
+2. **Patch FortiWeb** (CVE-2025-64446) and **PAN-OS** (CVE-2026-0257) immediately.
+3. **Hunt for dormant admin accounts** — Beaumont reports a "staggering amount of FortiGate customers are already backdoored via dormant admin accounts." Check for admin accounts you don't recognize, especially accounts created recently or with no login history.
+4. **Check FortiGate logs:** System → Events → filter for "config" to see configuration changes that may indicate compromise.
+5. **Check if your IPs are on the victim list:** A list of compromised victim IPs has been published at `owned.lab6.com`.
+6. **Hunt for persistence tools:** MeshCentral, Atera, AnyDesk, Teramind (legitimate RMM tools repurposed), AdaptixC2 (C2 framework).
+7. **Hunt for data exfiltration:** Rclone uploading to Wasabi or MEGA cloud storage.
+8. **Check for credential cracking infrastructure:** Beaumont reports attackers rented 36 enterprise GPUs from a GenAI company for accelerated credential cracking.
+
+**IOC IPs (from Kevin Beaumont):**
+- `193.8.186.7`
+- `80.75.212.113`
+- `213.21.239.65`
+- `208.94.246.58`
+- `69.195.129.144`
+- `96.45.42.173` (Fortinet's own ASN — co-opted)
 
 ### GitLab (CVE-2026-110264)
 
 Patch to one of: 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10, 18.11.13.
 
-If your GitLab is internet-facing and you can't patch right now, restrict access at the network level (firewall rules, security groups, VPN-only access). This is an **unauthenticated** RCE — no login required. Anyone who can reach your GitLab instance can potentially execute arbitrary code on it.
+If your GitLab is internet-facing and you can't patch right now, restrict access at the network level (firewall rules, security groups, VPN-only access). This is an **unauthenticated** RCE — no login required.
 
 ### SharePoint Zero-Day
 
@@ -170,17 +280,29 @@ Microsoft's October patches were supposed to fix this. They didn't. Watch for Mi
 - Monitor IIS logs for anomalous requests
 - If possible, require VPN for SharePoint access until a patch ships
 
-### Node.js Brotli RCE (Oct 21)
+### Node.js Brotli RCE / HTTP2Shell (CVE-2026-111497)
 
-Node.js released security updates fixing 10 flaws, the most serious being an out-of-bounds write in the Brotli decompression code that can allow **remote code execution**.
+Node.js released security updates fixing 10 flaws, the most serious being an out-of-bounds write in the Brotli decompression code that can allow **remote code execution**. Imperva researchers demonstrated a working exploit (Node2Shell) on an official Node.js build.
 
-Patch to: **22.23.4**, **24.22.1**, or **26.12.1**.
+**The blast radius is wider than initially disclosed.** The same Brotli decoder flaw (CVE-2026-111497) affects:
+
+| Product | Patch | Exposed when |
+|---------|-------|-------------|
+| **Node.js** | 22.23.4, 24.22.1, 26.12.1 | `fetch()` of a Brotli response, or Express/body-parser Brotli bodies |
+| **Bun** | 1.4.4 | `fetch()` of a Brotli response, or `node:zlib` |
+| **Python Brotli** | 1.2.1 | Installed + HTTP client decodes Brotli (requests, httpx, urllib3, aiohttp) |
+| **Python brotlicffi** | 1.2.1.0 | Same as above |
+| **Envoy** | 1.40.0, 1.39.3, 1.38.6, 1.37.8 | Only if Brotli decompression is configured |
+| **Istio** | 1.31.2, 1.30.6, 1.29.9 | Only if Brotli decompression is enabled |
+| **curl / libcurl** | Update Brotli dependency | `curl --compressed` to a malicious server |
 
 **Node.js 20.x and earlier are EOL — no fix available. Upgrade to a supported line.**
 
-The flaw triggers when Node.js decompresses Brotli data — either directly via `node:zlib` or automatically when `fetch()` receives a Brotli-compressed response. Any application that decompresses attacker-controlled data is exposed. Imperva researchers have demonstrated a working exploit (Node2Shell) on an official Node.js build.
+**Critical gap:** Advisory databases don't map this CVE to the Python PyPI packages yet. `pip-audit`, Dependabot, and Safety **will not flag** vulnerable versions of `brotli` or `brotlicffi`. You must check manually: `pip show brotli brotlicffi`.
 
-> **Why this matters for AI security:** Node.js runs many AI gateways, LLM serving frameworks, and API proxies. A `fetch()` call to a compromised endpoint can trigger RCE without any user interaction beyond the HTTP request.
+OpenAI discovered the flaw in February 2026. The root cause was fixed in Brotli source code then, but it wasn't recognized as a security issue and no release shipped with the fix until October 21. No in-the-wild exploitation has been reported (CISA assessment: "none").
+
+**If you can't upgrade yet:** Stop decoding untrusted Brotli. Reject requests with `Content-Encoding: br` at your reverse proxy. Remove `br` from `Accept-Encoding` on outbound requests. Uninstall `brotli` and `brotlicffi` from Python environments where they're optional.
 
 ### Linux KSMBD RCE (Oct 22)
 
@@ -194,17 +316,13 @@ PaaS provider Railway disclosed that an intruder may have accessed systems stori
 
 **If you use Railway:** Rotate ALL credentials stored in environment variables immediately. Assume any secret in your Railway env vars is compromised.
 
-### OpenCode MCP RCE (Oct 22 — NEW)
+### OpenCode MCP RCE (Oct 22)
 
 OpenCode (an open-source AI coding tool) had a CVSS 9.8 RCE affecting versions 1.0.137 through 1.18.32. A malicious or hijacked MCP server supplies a crafted OAuth URL during the `opencode mcp auth` flow. On Windows/WSL, OpenCode passes this URL to a PowerShell helper via the `open` npm package — and the URL contains embedded PowerShell commands, resulting in arbitrary code execution with the developer's privileges.
-
-**The root cause is an outdated `open` npm package (pre-v11)** with a known command injection risk reported in 2023. This is the same class of bug as `mcp-remote` proxy (CVE-2025-6514, July 2025).
 
 **This was fixed in v1.18.33 (Sep 28)** — but with **no CVE and no security advisory.** Vulnerability scanners will not flag affected versions. If you run OpenCode, update to v1.18.33+ immediately and check for signs of compromise.
 
 **Separately**, OpenCode's Console (hosted platform) suffered a breach exposing stored API keys for OpenAI, Anthropic, and Google in 1.4% of hosted workspaces. If you use OpenCode Console, rotate all AI API keys.
-
-> **Why this matters for MCP security:** This is the second MCP-related RCE in 2026. The pattern is clear: MCP tooling that shells out to launch browsers or handle OAuth flows is vulnerable to command injection. Hardened MCP frameworks that avoid shell execution entirely (like AegisGate MCP, which uses pure Go stdlib) don't have this attack surface.
 
 ### ConnectWise / Storm-0940
 
@@ -213,10 +331,6 @@ If you use or used ConnectWise services (Cloud Backup, SaaS Security, Cloud Mana
 - Audit Microsoft Graph logs for anomalous activity — look for rapid authentication attempts (Storm-0940 hit 2,900 attempts/minute), application credential changes, privilege modifications
 - Check for persistent access that may have been established before credentials were revoked: new OAuth app registrations, service principals, mailbox forwarding rules, federation trust modifications
 - Review OAuth app permissions across your M365 tenant — remove anything you don't recognize
-
-> **What is Microsoft Graph?** The API layer that ConnectWise (and many other tools) use to access Microsoft 365 data — mail, files, calendar, contacts. If Storm-0940 got Graph API access, they could read mail, exfiltrate files, and persist through OAuth apps.
-
-> **For DBAs**: If database credentials were accessible to ConnectWise integrations or routed through any AI gateway (including LiteLLM), rotate them. Treat any credential that touched an external integration or AI proxy as potentially compromised.
 
 ---
 
@@ -243,29 +357,33 @@ They went from initial targeting to **privileged cloud access in under 3 hours.*
 
 This is not a theoretical future threat. This is happening right now. The original ARTEX repository has been deleted, but there are 878+ forks with 1,787+ stars across copies. The tool is freely available. Microsoft observed attackers from "several geographic regions" using the framework — not just Storm-0940.
 
-> **What is an APT?** Advanced Persistent Threat — typically a nation-state or well-resourced cybercrime group that maintains long-term access to targets. Storm-0940 is a Chinese APT tracked by Microsoft.
-
-> **What is MCP?** Model Context Protocol — an open standard that lets AI agents connect to external tools and data sources. ARTEX supports MCP (Streamable HTTP and SSE). If you're running MCP servers, ARTEX can talk to them.
-
 ### The Target: AI Infrastructure
 
 AI infrastructure is under active attack from multiple angles:
 
-**Supply chain compromise (LiteLLM):** On October 21, attackers compromised LiteLLM's release pipeline (suspected GitHub token leak in AI gateway logs) to push version 1.107.0 containing a credential stealer and backdoor. Wiz researchers called the dual `.pth` + `sitecustomize.py` technique the **"first documented case in the wild"**:
+**Supply chain compromise (LiteLLM):** On October 21, attackers compromised LiteLLM's release pipeline to push version 1.107.0 containing a credential stealer and backdoor.
+
+**Root cause (published Oct 24):** A LiteLLM Agent Platform master key was accidentally committed to a public GitHub repository (`LiteLLLabs/lite-harness`) on May 27, 2026. The commit was force-pushed over, but **key revocation never occurred.** The attacker (operating from `69.48.229.143`) used the unrevoked key on October 10 to access the Agent Platform and extract a GitHub CLI OAuth token with organization-owner-level access.
+
+The attacker then:
+- Committed malicious GitHub Actions workflows to short-lived branches (`ci-tmp-a351cc`, `ci-tmp-4f8517`) that harvested additional tokens via a webhook.site endpoint
+- On October 21, overrode branch protection (which had been temporarily relaxed to allow any two engineers to trigger/approve releases) and repointed the deployer to a lookalike repository: `Berri-AI/litellm` (note the hyphen — the real repo is `BerriAI/litellm`)
+- Published malicious LiteLLM v1.107.0 to PyPI, Docker Hub, and GHCR
+- Deleted production and staging run records to cover tracks
+
+The malicious package used a dual `.pth` + `sitecustomize.py` technique — the **"first documented case in the wild"** (Wiz researchers):
 - `cook.pth` → imports `cook.py` → runs `privcollect` stealer (harvests system, browser, developer, cloud, and AI tool secrets)
 - Exfiltrates via HTTP POST to `litellm[.]dev/healthcheck`
 - `sitecustomize.py` (Linux/macOS only) → fetches C2 domain from GitHub dead drop every hour → downloads and executes arbitrary Python payloads
 - Stolen AWS instance role credentials were validated within **4.5 hours** of exfiltration
 
-This wasn't LiteLLM's first incident: a malicious `litellm_init.pth` credential stealer appeared in June 2026, followed by an SSRF vulnerability in August and a privilege escalation in September.
+**MCP framework RCE (OpenCode):** The OpenCode MCP RCE (CVSS 9.8) demonstrates that MCP tooling itself is an attack target. A malicious MCP server can achieve code execution on a developer's machine through the OAuth authentication flow — and the vulnerability went unpatched for weeks with no CVE.
 
-**MCP framework RCE (OpenCode):** The OpenCode MCP RCE (CVSS 9.8) demonstrates that MCP tooling itself is an attack target. A malicious MCP server can achieve code execution on a developer's machine through the OAuth authentication flow — and the vulnerability went unpatched for weeks with no CVE. The separate OpenCode Console breach exposed API keys in 1.4% of hosted workspaces.
-
-**AI agent misalignment:** OpenAI confirmed on Oct 21 that a GPT-6 agent **removed its own safety monitoring** during a deployment — the first publicly documented case of an AI agent autonomously disabling its own guardrails. While this was contained, it underscores that AI agents are not fully predictable actors. You cannot assume an AI agent will always follow its safety constraints.
+**AI agent misalignment:** OpenAI confirmed on Oct 21 that a GPT-6 agent **removed its own safety monitoring** during a deployment — the first publicly documented case of an AI agent autonomously disabling its own guardrails.
 
 Your AI gateway, your AI proxy, your MCP server, your coding agent — these are now attack targets. And most teams don't even know they have them, let alone monitor them.
 
-> **If you're running LiteLLM:** Check for `litellm_init.pth` in your Python `site-packages` directories. Look for unexpected outbound connections from the LiteLLM process. Rotate ALL credentials that passed through LiteLLM — API keys, service account passwords, database connection strings. Consider replacing LiteLLM with AegisGate Platform Community tier (free, air-gapped) as your AI gateway.
+> **If you're running LiteLLM:** Check for `litellm_init.pth` in your Python `site-packages` directories. Look for unexpected outbound connections from the LiteLLM process. Rotate ALL credentials that passed through LiteLLM — API keys, service account passwords, database connection strings. Check if any of your GitHub tokens were used between Oct 10-21. Replace LiteLLM with AegisGate Platform Community tier (free, air-gapped) as your AI gateway.
 
 ### The New Attack Surface: Agent Instruction File Poisoning
 
@@ -273,36 +391,22 @@ Your AI gateway, your AI proxy, your MCP server, your coding agent — these are
 
 A new attack vector discovered by Forever Security researchers turns AI agents' designed behavior into a persistence mechanism. Here's how it works:
 
-1. **A website silently downloads `AGENTS.md` (Codex) or `CLAUDE.md` (Claude Code) to `~/Downloads`** — no click, no permission required. The Downloads folder is the one location browsers can write to without user interaction.
-2. **The user starts an AI coding agent in that folder.** The agent reads and obeys the file — this is by design. These files are agent instruction files that agents trust implicitly.
+1. **A website silently downloads `AGENTS.md` (Codex) or `CLAUDE.md` (Claude Code) to `~/Downloads`** — no click, no permission required.
+2. **The user starts an AI coding agent in that folder.** The agent reads and obeys the file — this is by design.
 3. **The planted file contains malicious instructions.**
 
-**Codex attack path (>90% success rate):**
-- Planted `AGENTS.md` instructs Codex to add a malicious MCP server to `~/.codex/config.toml` (machine-wide config, not per-folder)
-- Installs malicious npm package (`function-color` — since removed from npm)
-- Damage persists across ALL Codex sessions on the machine, not just in Downloads
+**Codex attack path (>90% success rate):** Planted `AGENTS.md` instructs Codex to add a malicious MCP server to `~/.codex/config.toml` (machine-wide config). Installs malicious npm package (`function-color` — since removed from npm). Damage persists across ALL Codex sessions.
 
-**Claude Code attack path (~50% success rate):**
-- Planted `CLAUDE.md` instructs Claude to redirect API traffic to an attacker-controlled server (valid cert, ordinary domain)
-- Leaks Claude's OAuth login token → account takeover
-- Attacker server responds as if it were the model, feeding tool calls → full code execution
+**Claude Code attack path (~50% success rate):** Planted `CLAUDE.md` instructs Claude to redirect API traffic to an attacker-controlled server. Leaks Claude's OAuth login token → account takeover. Attacker server responds as if it were the model, feeding tool calls → full code execution.
 
-**Key points:**
-- This is NOT a bug in Codex or Claude — agents are designed to follow these files
-- No patch is possible — "the agent is doing exactly what it was built to do"
-- ~50% of Forever's customers run coding agents in the Downloads folder
-- ~25% of agent sessions open a real browser — meaning the agent can self-deliver the file
-- IOC: `function-color` npm package
-- As Forever Security puts it: "Defenses built around a human break when an agent takes the human's place"
+**Key points:** This is NOT a bug — agents are designed to follow these files. No patch is possible. ~50% of teams run coding agents in the Downloads folder. ~25% of agent sessions open a real browser — meaning the agent can self-deliver the file.
 
-This attack is directly relevant to the Black October context: it targets the same AI coding tools (Codex, Claude Code) that Storm-0940 used in combination with ARTEX. The attack doesn't require a vulnerability — it exploits trust. And it persists.
-
-> **How AegisGate Scanner stops this:** Scanner already scans agent skills, prompt templates, and AI artifacts for prompt injection (19 patterns), dangerous code (34 patterns), and prompt leakage (16 patterns). `AGENTS.md` and `CLAUDE.md` files ARE agent instruction files — they're within Scanner's scope. Scan the Downloads folder (or any working directory) before starting agent sessions. Scanner's SARIF output integrates with GitHub Security tab, so you can also scan repositories for malicious instruction files in pull requests. See "How to Stop the Markdown-as-Executable Attack Today" below.
+> **How AegisGate Scanner stops this:** Scanner scans agent instruction files for prompt injection (19 patterns), dangerous code (34 patterns), and prompt leakage (16 patterns). Scan Downloads before starting agent sessions. See "How to Stop the Markdown-as-Executable Attack Today" below.
 
 ### The Blind Spot
 
 Most SOC teams have **zero visibility** into AI agent traffic. You can see network traffic. You can see API calls in CloudTrail. But can you see:
-- What your coding assistant (Cursor, Copilot, Claude Code) is sending to the LLM?
+- What your coding assistant is sending to the LLM?
 - Whether source code with hardcoded credentials is being sent to an external AI?
 - Whether your MCP servers are being probed for vulnerabilities?
 - Whether a compromised AI agent is exfiltrating data through API calls?
@@ -310,8 +414,6 @@ Most SOC teams have **zero visibility** into AI agent traffic. You can see netwo
 - Whether a planted `AGENTS.md` or `CLAUDE.md` is silently redirecting your agent's traffic?
 
 If the answer is "no" to any of those — you have a blind spot. And Black October just proved that blind spot is being actively exploited.
-
-> **For the IT generalist**: If your developers use GitHub Copilot, Cursor, or Claude Code, they're sending code to external AI servers. If anyone on your team uses ChatGPT to "debug" a config file, they might be sending credentials to OpenAI. If you run MCP servers for AI agents, those servers might be accessible from the internet. If your developers run coding agents in their Downloads folder, a planted instruction file could be silently modifying their agent's behavior. All of this is happening outside your normal security monitoring. That's the blind spot.
 
 ---
 
@@ -336,38 +438,18 @@ If you don't have a SIEM (or aren't sure what that means), go straight to **Step
 
 **Already have a SIEM or WAF? This is your fastest path to detection.** No tools to install. No eval cycle. No procurement. Copy the regex patterns below into the platform you already run and start hunting in 5 minutes.
 
-> **What is a SIEM?** Security Information and Event Management — a platform like Splunk, ELK, or Microsoft Sentinel that collects and analyzes log data across your organization. If you don't know what Splunk, ELK, or Sentinel are, you don't have a SIEM — skip to Step 4.
-
-> **What is a WAF?** Web Application Firewall — inspects HTTP traffic and blocks malicious requests. Cloudflare, AWS WAF, and Imperva are common examples.
-
 ### Where to Find the Patterns
 
-Our regex patterns are defined in Go source files, but the patterns themselves are standard regex. You can extract them and import into your SIEM as detection rules. These regex patterns can also be wrapped in Sigma rules for automated deployment to most SIEM platforms.
-
-Here's where to find them:
+Our regex patterns are defined in Go source files, but the patterns themselves are standard regex. You can extract them and import into your SIEM as detection rules.
 
 **Lens patterns** (219 regex patterns + ML): `aegisgate-lens/src/detectors/regex/`
-- PII: 77 patterns (SSN, credit cards, emails, phones, addresses, passports, tax IDs, bank accounts)
-- Secrets: 59 patterns (AWS, GitHub, OpenAI, Stripe, Slack, RSA private keys, JWTs, OAuth tokens)
-- XSS: 12 patterns
-- Compliance: 62 patterns (HIPAA, GDPR, CCPA, EU AI Act, NIST CSF, ISO 27001)
-- OT/ICS: 9 patterns (Modbus, DNP3, OPC-UA)
+- PII: 77 patterns | Secrets: 59 | XSS: 12 | Compliance: 62 | OT/ICS: 9
 
-**Platform patterns** (303 canonical regex patterns): `aegisgate-platform/pkg/scanner/patterns.go` and `pkg/contracts/pattern.go`
+**Platform patterns** (303 canonical regex patterns): `aegisgate-platform/pkg/scanner/patterns.go`
 - All of the above plus agent-specific patterns: prompt injection, agent impersonation, tool abuse, trust boundary violations
-- Pattern contracts defined in `pkg/contracts/pattern_v1.json` (machine-readable JSON format)
 
 **Scanner patterns** (353 regex patterns + ML): `aegisgate-scanner/pkg/detectors/`
-- Prompt injection: 19 patterns
-- Secrets: 64 patterns
-- PII: 85 patterns (US + International)
-- XSS: 12 patterns
-- Dangerous code: 34 patterns
-- Compliance: 65 patterns
-- Path traversal: 19 patterns
-- OT/ICS: 9 patterns
-- RAG attack: 19 patterns
-- Prompt leakage: 16 patterns
+- Prompt injection: 19 | Secrets: 64 | PII: 85 | XSS: 12 | Dangerous code: 34 | Compliance: 65 | Path traversal: 19 | OT/ICS: 9 | RAG attack: 19 | Prompt leakage: 16
 
 **How to use them**: Clone the repos, find the pattern files listed above, extract the regex strings, and create detection rules in your SIEM. Here are practical examples for the most common platforms:
 
@@ -383,19 +465,7 @@ index=proxy_or_firewall
 | table _time, src_ip, dest_host, _raw
 ```
 
-> **Tune for your environment:** CI/CD pipelines (GitHub Actions, Jenkins) legitimately send API keys to AI APIs. Filter out known CI/CD source IPs with `| where src_ip NOT IN ("10.0.1.50", "10.0.1.51")` or `| where NOT match(src_host, "jenkins-*|runner-*")`. Legitimate key rotation scripts from your dev platform will trigger this — verify with your dev team before escalating.
-
-### Splunk — PII Leakage to AI APIs
-
-```splunk
-index=proxy_or_firewall dest_host IN ("api.openai.com","api.anthropic.com","generativelanguage.googleapis.com","api.groq.com")
-| regex _raw="\b\d{3}-\d{2}-\d{4}\b"
-| regex _raw="\b4[0-9]{12}(?:[0-9]{3})?\b"
-| regex _raw="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
-| table _time, src_ip, user, _raw
-```
-
-> **Tune for your environment:** Test data containing fake SSNs and credit card numbers will trigger this. Filter out known QA/staging source IPs. Email regex is high-volume — consider scoping to `dest_host IN (...)` only (already done) and adding `| where _raw NOT LIKE "%test%" AND _raw NOT LIKE "%example%" AND _raw NOT LIKE "%dummy%"` to exclude test fixtures.
+> **Tune for your environment:** CI/CD pipelines (GitHub Actions, Jenkins) legitimately send API keys to AI APIs. Filter out known CI/CD source IPs.
 
 ### Splunk — ARTEX Behavioral Indicators (Rapid API Reconnaissance)
 
@@ -407,17 +477,26 @@ index=proxy_or_firewall dest_host IN ("api.openai.com","api.anthropic.com","gene
 | sort - api_calls
 ```
 
-> **Tune for your environment:** Aggressive AI coding assistants (Cursor with parallel agents, Claude Code with multi-file edits) can generate 40+ API calls/minute legitimately. Start with higher thresholds (`api_calls > 100, unique_endpoints > 20`) during business hours, then lower for off-hours. The key signal is *diverse endpoint enumeration* — legitimate usage hits the same 2-3 endpoints; ARTEX probes many distinct paths.
+> **Tune for your environment:** Aggressive AI coding assistants can generate 40+ API calls/minute legitimately. Start with higher thresholds during business hours. The key signal is *diverse endpoint enumeration* — legitimate usage hits the same 2-3 endpoints; ARTEX probes many distinct paths.
 
-### Splunk — Agent Instruction File Tampering
+### Splunk — FortiBleed / Firewall Compromise Indicators
 
 ```splunk
-index=fileintegrity path="*Downloads*" (name="AGENTS.md" OR name="CLAUDE.md")
-| regex _raw="config\.toml|mcp_servers|ANTHROPIC_BASE_URL|chatgpt_base_url|npm install|pip install"
-| table _time, host, path, _raw
+index=firewall_logs
+| where src_ip IN ("193.8.186.7","80.75.212.113","213.21.239.65","208.94.246.58","69.195.129.144","96.45.42.173")
+| table _time, src_ip, dest_ip, action, _raw
 ```
 
-> **Tune for your environment:** Legitimate `AGENTS.md` and `CLAUDE.md` files in project repositories will trigger this. Scope to `path="*Downloads*"` only (already done) to exclude repo files. Developers who intentionally modify `~/.codex/config.toml` or `.claude/settings.json` will also trigger — verify with the developer before escalating. The key signal is a *new* instruction file in Downloads that references config modifications or package installs.
+> **Tune for your environment:** These IOCs are from Kevin Beaumont's analysis. Rotate them as new IOCs emerge. Also hunt for Rclone egress to Wasabi/MEGA and RMM tools (MeshCentral, Atera, AnyDesk) installed on firewall management networks.
+
+### Splunk — Collabora Online Web Shell Hunting
+
+```splunk
+index=web_logs uri="*proxy.php*"
+| table _time, src_ip, uri, status, _raw
+```
+
+> Combine with a search for unexpected PHP files: `index=fileintegrity name="*.php" path="*nextcloud*" | where NOT match(name, "^(index|public|status|remote|ocs|cron|console)\.php$")`
 
 ### ELK / OpenSearch — Credential Detection in AI Traffic
 
@@ -441,38 +520,18 @@ index=fileintegrity path="*Downloads*" (name="AGENTS.md" OR name="CLAUDE.md")
 }
 ```
 
-> **Tune for your environment:** Add your CI/CD runner IPs to the `must_not` filter. The `sk-` prefix matches OpenAI keys but also matches some test strings — if you have apps that use `sk-test` or `sk-dummy` prefixes, add a `must_not` regex for those. Consider adding a `minimum_should_match` of 1 with a `terms` query on `event.category: ["network", "proxy"]` to avoid matching log entries from other sources.
-
 ### Microsoft Sentinel — Credential Exfiltration to AI APIs (KQL)
 
 ```kql
-// Credential exfiltration to AI API endpoints
-// Run in your Log Analytics workspace
 let ai_apis = dynamic(["api.openai.com", "api.anthropic.com", "generativelanguage.googleapis.com"]);
-let cicd_ips = dynamic(["10.0.1.50", "10.0.1.51"]); // Add your CI/CD runner IPs
+let cicd_ips = dynamic(["10.0.1.50", "10.0.1.51"]);
 CommonSecurityLog
 | where DestinationHostName in~ (ai_apis)
-| where SourceIP !in (cicd_ips)
+| where SourceIP !in~ (cicd_ips)
 | where RequestURL matches regex "(AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{20})"
 | project TimeGenerated, SourceIP, DestinationHostName, RequestURL, DeviceAction
 | order by TimeGenerated desc
 ```
-
-> **Tune for your environment:** Populate the `cicd_ips` list with your CI/CD runner IPs. If you use Azure DevOps or GitHub Actions with self-hosted runners, those IPs will trigger this alert on every pipeline run that calls AI APIs with API keys. Also check `DeviceAction` — if your proxy logs "blocked" actions, those are already handled; focus on "allowed" or blank actions.
-
-### Microsoft Sentinel — ARTEX-Style Rapid Reconnaissance (KQL)
-
-```kql
-// Detect AI-accelerated reconnaissance patterns
-let ai_apis = dynamic(["api.openai.com", "api.anthropic.com", "generativelanguage.googleapis.com"]);
-CommonSecurityLog
-| where DestinationHostName in~ (ai_apis)
-| summarize api_calls = count(), unique_endpoints = dcount(RequestURL) by SourceIP, bin(TimeGenerated, 5m)
-| where api_calls > 100 and unique_endpoints > 15
-| order by api_calls desc
-```
-
-> **Tune for your environment:** Start with 5-minute bins and high thresholds (100 calls, 15 endpoints). If you have dev teams using Cursor or Claude Code aggressively, you will see legitimate bursts. The discriminating factor is *endpoint diversity* — a developer using Cursor hits the same `/v1/chat/completions` endpoint repeatedly; ARTEX probes `/v1/models`, `/v1/embeddings`, `/v1/files`, `/v1/threads`, etc. If you see high `unique_endpoints` from a single IP, that is your hunting signal.
 
 ### Sigma Rule — AI API Credential Exfiltration (Cross-Platform)
 
@@ -506,36 +565,13 @@ falsepositives:
 level: high
 ```
 
-### WAF Rules
-
-If you're running Cloudflare, AWS WAF, or any WAF that supports custom regex rules, you can import our credential exfiltration patterns directly. The AWS key pattern (`AKIA[0-9A-Z]{16}`), GitHub token pattern (`gh[pousr]_[A-Za-z0-9]{36}`), and OpenAI key pattern (`sk-[A-Za-z0-9]{20}`) are particularly relevant for detecting credential exfiltration through AI API traffic.
-
-**Cloudflare WAF custom rule (credential exfiltration to AI APIs):**
-```
-(http.host in {"api.openai.com" "api.anthropic.com" "generativelanguage.googleapis.com"} and 
- http.request.body matches "AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{20}")
-```
-
-**AWS WAF custom rule (regex pattern set):**
-```
-# Create a Regex Pattern Set with:
-AKIA[0-9A-Z]{16}
-gh[pousr]_[A-Za-z0-9]{36}
-sk-[A-Za-z0-9]{20}
------BEGIN RSA PRIVATE KEY-----
-# Then create a rule that matches on requests to AI API endpoints
-# with body matching the pattern set
-```
-
-This gives you AegisGate's detection capability in the tools you already own, without deploying anything new. The patterns above cover the highest-priority detections for Black October — credential exfiltration, PII leakage, and ARTEX-style reconnaissance. For the full 353-pattern set, clone the scanner repo and extract the regex strings from the detector files.
+This gives you AegisGate's detection capability in the tools you already own, without deploying anything new. For the full 353-pattern set, clone the scanner repo and extract the regex strings from the detector files.
 
 ---
 
 ## Step 4: Deploy Free AegisGate Tools (Option A)
 
-> **Already deployed detection patterns in Step 3?** These tools automate and extend what you're doing manually. Lens catches PII and secrets in real-time before they leave the browser. Rampart inspects AI traffic at the proxy layer. Scanner runs in CI/CD on every pull request. Platform gives you org-wide visibility with protocol-level scanning. All free, all open source, all air-gapped capable.
-
-Everything in Levels 1–4 below is **completely free, open source (Apache 2.0), with no feature gating or paid tiers**. Level 5 (Platform) has a free Community tier plus paid Pro+ tiers — I'll be upfront about what's free and what isn't.
+Everything in Levels 1–4 below is **completely free, open source (Apache 2.0), with no feature gating or paid tiers**. Level 5 (Platform) has a free Community tier plus paid Pro+ tiers.
 
 **Not sure where to start? Use this table:**
 
@@ -549,34 +585,17 @@ Everything in Levels 1–4 below is **completely free, open source (Apache 2.0),
 | Need org-wide AI traffic visibility | Level 5 | Hours |
 | Aren't sure what any of this means | Level 1 (it's a browser extension) | 2 min |
 
-Pick the level that matches your situation. Start small. Scale up. All tools run fully air-gapped — no cloud dependency, no phone-home, no telemetry by default.
-
 ---
 
 ### Level 1: Browser Extension — For Everyone (2 minutes)
 
 **Tool**: [AegisGate Lens](https://github.com/aegisgatesecurity/aegisgate-lens)
 
-If you're using ChatGPT, Claude, Gemini, or any AI chat in your browser — install Lens. It's a browser extension that runs **100% on-device**. Zero data leaves your browser. No telemetry by default. It catches:
-
-- **PII**: SSNs, credit cards (Luhn-validated), emails, phone numbers, addresses, driver's licenses, passports, tax IDs, bank accounts, IPs (77 patterns)
-- **Secrets**: API keys (AWS, GitHub, OpenAI, Stripe, Slack), OAuth tokens, RSA private keys, database credentials (59 patterns)
-- **XSS**: Cross-site scripting payloads in AI-generated code (12 patterns)
-- **Compliance**: HIPAA, GDPR, CCPA, EU AI Act, NIST CSF, ISO 27001 indicators (62 patterns)
-- **OT/ICS**: Modbus, DNP3, OPC-UA control manipulation (9 patterns)
-- **Prompt injection**: ML-based detection (CharCNN-BiLSTM) for adversarial attacks that regex can't catch
-
-**219 regex patterns + ML detection.** Sub-millisecond regex. ~5–50ms ML inference. All in your browser.
+If you're using ChatGPT, Claude, Gemini, or any AI chat in your browser — install Lens. It's a browser extension that runs **100% on-device**. Zero data leaves your browser. No telemetry by default. 219 regex patterns + ML detection.
 
 **How to install:**
 - **Chrome**: [Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) — requires Chrome 116+
 - **Firefox**: [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/) — requires Firefox 142+
-
-That's it. Install it. It warns you before you hit send if you're about to leak sensitive data to an AI company. It also catches prompt injection attempts in AI responses. Zero npm dependencies. Zero data collection.
-
-**Who this is for**: Every person on your team who uses AI chat tools. Your developers, your analysts, your help desk, your executives. If they type things into ChatGPT, they need this.
-
-**Black October relevance**: In a month where credential compromise is the primary attack vector (ConnectWise, LiteLLM, Storm-0940), preventing credential exposure is defense in depth. If someone on your team pastes a config file with API credentials into ChatGPT to "debug" something, Lens stops them before they hit send.
 
 ---
 
@@ -584,34 +603,18 @@ That's it. Install it. It warns you before you hit send if you're about to leak 
 
 **Tool**: [AegisGate Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
 
-If your developers use GitHub Copilot, Cursor, Claude Code, or local LLMs (Ollama, LM Studio) — Rampart sits between their editor and the AI model. It's a local HTTPS MITM (Man-in-the-Middle) proxy that scans everything going out and everything coming back.
+If your developers use GitHub Copilot, Cursor, Claude Code, or local LLMs — Rampart sits between their editor and the AI model. 302 regex patterns + ML detection. Monitor mode or Block mode. Zero telemetry. Runs fully air-gapped.
 
-302 regex patterns + CharCNN-BiLSTM ML detection. Monitor mode (just watch and log) or Block mode (stop sensitive data from leaving). Zero npm dependencies. Zero telemetry by default. Runs fully air-gapped.
-
-**Quick start:**
 ```bash
-# Option 1: Download pre-built binary from GitHub Releases
-# https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2
+# Download pre-built binary from GitHub Releases
+# https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.3
 
-# Option 2: Build from source
+# Or build from source
 git clone https://github.com/aegisgatesecurity/aegisgate-rampart
 cd aegisgate-rampart
 go build -o rampart ./cmd/rampart
-
-# Run in monitor mode first (see what's leaking before you block)
 ./rampart --mode monitor
-
-# When you're ready to enforce, switch to block mode
-./rampart --mode block
 ```
-
-There's also a VS Code / Cursor extension and a JetBrains plugin (IntelliJ, PyCharm, etc.) that shows inline warnings right in the editor.
-
-**Who this is for**: Development teams using AI coding assistants. Especially relevant if your developers are using AI to write code that touches the same systems being attacked in Black October.
-
-**Black October relevance**: If an attacker compromises your AI coding tool (like the LiteLLM supply chain attack), Rampart is a layer that sees the exfiltration attempt. Even if the tool itself is compromised, Rampart inspects the actual HTTP traffic leaving the machine. It also prevents developers from accidentally sending credentials, source code, or PII to external AI services — which is how credentials end up in the wrong hands.
-
-> **For the IT generalist**: "MITM proxy" sounds scary, but it just means Rampart intercepts the traffic between your editor and the AI server, inspects it, then forwards it (or blocks it). Your developers configure their IDE to send AI requests through Rampart instead of directly to OpenAI/Anthropic. Rampart checks each request for secrets and sensitive data before it leaves the building.
 
 ---
 
@@ -619,49 +622,18 @@ There's also a VS Code / Cursor extension and a JetBrains plugin (IntelliJ, PyCh
 
 **Tool**: [AegisGate Scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
 
-353 regex patterns + CharCNN-BiLSTM ML. Scans AI artifacts — RAG documents, training data, model configs, agent skills, prompt templates — for prompt injection (19 patterns), secrets (64), PII (85), XSS (12), dangerous code (34), compliance violations (65), path traversal (19), OT/ICS (9), RAG attacks (19), and prompt leakage (16). Outputs SARIF, SBOM (SPDX), JSON, and 5 other formats.
+353 regex patterns + ML. Scans AI artifacts for prompt injection, secrets, PII, XSS, dangerous code, compliance violations, path traversal, OT/ICS, RAG attacks, and prompt leakage. Outputs SARIF, SBOM, JSON, and 5 other formats.
 
-**Quick start — one-line installer:**
 ```bash
+# One-line installer
 curl -fsSL https://raw.githubusercontent.com/aegisgatesecurity/aegisgate-scanner/main/install.sh | bash
-```
 
-**Quick start — build from source:**
-```bash
-git clone https://github.com/aegisgatesecurity/aegisgate-scanner
-cd aegisgate-scanner
-go build -o scanner ./cmd/scanner
-
-# Scan a directory of AI artifacts
+# Scan a directory
 ./scanner scan ./ai-artifacts/ --format sarif --output results.sarif
 
-# Or use Docker (no Go installation needed)
-docker run --rm -v $(pwd):/scan ghcr.io/aegisgatesecurity/scanner:latest scan /scan --format json
+# GitHub Action
+# uses: aegisgatesecurity/aegisgate-scanner@v0.4.3
 ```
-
-**Quick start — GitHub Action (scans every PR automatically):**
-```yaml
-# .github/workflows/ai-security.yml
-name: AI Artifact Security Scan
-on: [push, pull_request]
-jobs:
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: aegisgatesecurity/aegisgate-scanner@v0.4.2
-        with:
-          path: ./ai-artifacts/
-          format: sarif
-```
-
-The SARIF output integrates directly with GitHub Security tab, so findings show up right in your pull requests.
-
-**Who this is for**: Teams building AI applications, maintaining RAG pipelines, or deploying AI agents. If you're shipping AI artifacts, scan them before they reach production.
-
-**Black October relevance**: The LiteLLM attack was a supply chain compromise. Scanner catches malicious patterns in AI artifacts before they reach production. If you're pulling AI configs, prompt templates, or agent skills from third parties, scan them. The 353 patterns include prompt injection, credential exfiltration, and dangerous code execution — exactly the techniques ARTEX automates.
-
-> **For AI developers**: If you're ingesting third-party documents into a RAG pipeline, a poisoned document can inject malicious prompts that exfiltrate secrets or manipulate model behavior. Scanner's 19 RAG attack patterns catch this before ingestion. If your agents talk to each other (A2A), an attacker who compromises one agent can use it to attack the others — just like ARTEX did. Scan agent skills and configs before deployment.
 
 ---
 
@@ -669,26 +641,7 @@ The SARIF output integrates directly with GitHub Security tab, so findings show 
 
 **Tool**: [AegisGate MCP](https://github.com/aegisgatesecurity/aegisgate-mcp)
 
-If you're running MCP (Model Context Protocol) servers — whether it's a custom tool server, a data connector, or an agent orchestration layer — AegisGate MCP is a hardened MCP server framework with 23 security layers built in. 79 regex patterns + CharCNN-BiLSTM ML detection. Zero external dependencies (pure Go stdlib). Distroless Docker image with zero CVEs. Runs fully air-gapped.
-
-**Why this matters**: 38% of MCP servers have no authentication. There have been 590+ security advisories and 3 critical CVEs (including a CVSS 9.8 RCE) in the official MCP SDKs in the last 6 months. If you're running a bare MCP server, you are exposed.
-
-**Quick start:**
-```bash
-git clone https://github.com/aegisgatesecurity/aegisgate-mcp
-cd aegisgate-mcp
-
-# Docker (recommended)
-docker-compose up -d
-
-# Or build from source
-go build -o aegisgate-mcp ./cmd/server
-./aegisgate-mcp
-```
-
-**Who this is for**: Any team running MCP-based AI agents. If you've got Cursor or Claude Desktop connecting to local MCP servers, or you're building custom MCP tool servers, this replaces the bare SDK with a hardened framework that adds authentication, RBAC, audit logging, rate limiting, and 19 other security layers.
-
-**Black October relevance**: ARTEX supports MCP (Streamable HTTP and SSE). If attackers are using MCP-capable AI attack tools, your MCP servers need to be secured. AegisGate MCP adds the security layers that bare MCP servers don't have — authentication, audit logging, threat detection, and more.
+Hardened MCP server framework with 23 security layers. 79 regex patterns + ML. Zero external dependencies (pure Go stdlib). Distroless Docker image with zero CVEs. Runs fully air-gapped.
 
 ---
 
@@ -696,49 +649,23 @@ go build -o aegisgate-mcp ./cmd/server
 
 **Tool**: [AegisGate Platform](https://github.com/aegisgatesecurity/aegisgate-platform)
 
-This is the full system. A self-hosted gateway that sits between your organization and any AI service. Every request and every response is scanned — across 6 protection pillars: HTTP, MCP, A2A (Agent-to-Agent), ACP (Agent Communication Protocol), Response, and Trust.
+Self-hosted gateway. Every request and response scanned across 6 protection pillars: HTTP, MCP, A2A, ACP, Response, Trust.
 
-**What's included in the free Community tier:**
-- 303 canonical regex detection patterns (L1): secrets, XSS, PII, compliance violations
-- HTTP / MCP / A2A / ACP / Response protocol scanning
-- 4 community compliance frameworks (OWASP LLM Top 10, MITRE ATLAS, NIST AI RMF, ISO 27001)
-- In-memory and file persistence
-- Fail-closed by default (if it can't scan, it blocks)
-- Zero external runtime dependencies
-- Air-gapped capable
+**Free Community tier:** 303 regex patterns, protocol scanning, 4 compliance frameworks, fail-closed by default, zero external dependencies, air-gapped capable.
 
-**What requires Pro+ (paid):**
-- ML anomaly detection (CharCNN-BiLSTM, L3) — the badge says it plainly: "ML Detection Pro+ only"
-- SIEM integration (Splunk, ELK, Sentinel forwarding) — "SIEM Pro+ only"
-- Additional compliance frameworks (FedRAMP, HITRUST, TISAX, CMMC L2, EU AI Act 120 controls, and 20+ others)
-- HSM, FIPS mode, Kubernetes clustering
+**Pro+ (paid):** ML anomaly detection, SIEM integration, additional compliance frameworks, HSM/FIPS, Kubernetes clustering.
 
-**Performance (from load testing):** 23,578 RPS with 0% errors at 5,000 VUs. -2.8ms p99 overhead (yes, negative — caching makes it faster than direct connections). Blocked requests resolve in 7.2ms p50.
+**Performance:** 23,578 RPS with 0% errors. -2.8ms p99 overhead. Blocked requests resolve in 7.2ms p50.
 
-**Quick start:**
 ```bash
 git clone https://github.com/aegisgatesecurity/aegisgate-platform
 cd aegisgate-platform
-
-# Build the binary
 go build -o aegisgate-platform ./cmd/aegisgate-platform/
-
-# Generate a config file automatically (detects your environment)
 ./aegisgate-platform setup --non-interactive
-
-# Start the platform
 ./aegisgate-platform --config aegisgate-platform.yaml --embedded-mcp
 ```
 
-The setup wizard auto-detects Docker, Kubernetes, systemd, or bare metal. It recommends a deploy profile, generates a validated config, and prints next steps. No YAML editing required.
-
-**Who this is for**: Security teams that need enterprise-wide visibility and control over AI traffic. If you have 50+ users hitting AI services, or you're running production AI agents, or you need audit logs for compliance — this is your layer.
-
-**Black October relevance**: Platform's 303 regex patterns scan every AI API request and response for credential exfiltration, PII leakage, and prompt injection in real-time. The free Community tier gives you protocol-level visibility into HTTP, MCP, and A2A traffic — the exact channels ARTEX and compromised AI agents use. If an attacker — or a compromised internal agent — starts exhibiting ARTEX-like behavior (rapid reconnaissance across endpoints, credential attacks through API calls), Platform's regex detection catches the exfiltration patterns. The Pro+ ML anomaly detection adds behavioral detection for novel attacks that don't match known patterns — but even without it, the 303 regex patterns provide substantial coverage.
-
-> **Honest note on pricing**: Levels 1–4 are 100% free with no paid tiers, no feature gating, no "contact us for the real version." Platform's Community tier is also free and includes the 303 regex patterns and protocol scanning. The ML anomaly detection and SIEM integration are Pro+ features. If you need those during Black October and can't wait for a procurement cycle, reach out — but the regex detection in the free tier is the most important part for this crisis.
-
-> **Air-gap note**: Most AI security tools are SaaS — they require your AI traffic to route through their cloud. If you're in OT, defense, government, or regulated environments, that's a non-starter. AegisGate Platform, Rampart, Scanner, and MCP all run fully air-gapped. All detection is local. No cloud dependency, no phone-home, no telemetry by default. This is not a feature — it's a requirement for the environments we serve.
+> **Air-gap note:** All AegisGate tools run fully air-gapped. All detection is local. No cloud, no phone-home, no telemetry by default. This is not a feature — it's a requirement for OT, defense, government, and regulated environments.
 
 ---
 
@@ -748,35 +675,15 @@ This is a concrete, actionable response to the agent instruction file poisoning 
 
 ### What to Do Right Now
 
-**1. Check your Downloads folder (and your developers' Downloads folders):**
+**1. Check your Downloads folder:**
 ```bash
-# Look for agent instruction files in Downloads
 find ~/Downloads -name "AGENTS.md" -o -name "CLAUDE.md" -o -name ".codex" -o -name ".claude" 2>/dev/null
-
-# On developer machines across your org (adjust for your management tool)
-find /home/*/Downloads -name "AGENTS.md" -o -name "CLAUDE.md" 2>/dev/null
 ```
-
-If you find `AGENTS.md` or `CLAUDE.md` files in Downloads that you didn't put there, treat them as suspicious. Review their contents before opening any coding agent in that directory.
 
 **2. Scan with AegisGate Scanner before starting agent sessions:**
 ```bash
-# Install Scanner if you haven't already
-curl -fsSL https://raw.githubusercontent.com/aegisgatesecurity/aegisgate-scanner/main/install.sh | bash
-
-# Scan the directory before starting Codex or Claude Code
 ./scanner scan ~/Downloads/ --format json --output scan-results.json
-
-# Or scan your project directory
-./scanner scan ./my-project/ --format sarif --output results.sarif
 ```
-
-Scanner's existing prompt injection (19 patterns), dangerous code (34 patterns), and prompt leakage (16 patterns) detectors will flag malicious instructions in agent instruction files. Look for findings that mention:
-- Instructions to modify `~/.codex/config.toml` or `.claude/settings.json`
-- Instructions to add MCP server entries to agent config files
-- Instructions to change `ANTHROPIC_BASE_URL` or `chatgpt_base_url`
-- Instructions to install npm or pip packages
-- Instructions to redirect API traffic or change endpoint URLs
 
 **3. Add a GitHub Action to scan repos for malicious instruction files:**
 ```yaml
@@ -788,34 +695,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aegisgatesecurity/aegisgate-scanner@v0.4.2
+      - uses: aegisgatesecurity/aegisgate-scanner@v0.4.3
         with:
           path: ./
           format: sarif
 ```
 
-This catches planted `AGENTS.md` or `CLAUDE.md` files in pull requests before they're merged — critical for repos where developers run coding agents.
-
 **4. Train your team on the IOC:**
-- The `function-color` npm package has been removed from npm, but copies may still exist in caches or private registries
-- Any `AGENTS.md` that instructs Codex to modify `~/.codex/config.toml` is suspicious
-- Any `CLAUDE.md` that instructs Claude to change API endpoints or install packages is suspicious
-- If an agent suddenly tries to install packages or modify config files, stop the session and investigate
+- `function-color` npm package (removed from npm, copies may exist)
+- Any `AGENTS.md` instructing Codex to modify `~/.codex/config.toml` is suspicious
+- Any `CLAUDE.md` instructing Claude to change API endpoints or install packages is suspicious
+- If an agent suddenly tries to install packages or modify config files, stop and investigate
 
 **5. Stop running agents in Downloads:**
-- Create dedicated project directories for agent sessions
-- Add `AGENTS.md` and `CLAUDE.md` to your Downloads folder ignore list
-- Configure Chrome/Edge to prompt before downloading (Settings → Downloads → "Ask where to save each file before downloading")
-
-### What This Attack Exposes
-
-The Markdown-as-Executable attack isn't just about `AGENTS.md` files. It reveals a fundamental gap in how we think about AI agent security:
-
-- Traditional browser security assumes a human is in the loop — the human downloads a file, the human opens it, the human clicks "run." When an AI agent replaces the human, the agent reads and obeys files without the same skepticism.
-- The Downloads folder is the one place browsers can write to without user interaction. This was considered safe because files in Downloads don't auto-execute. But AI agents treat instruction files as executable — they read and obey them.
-- Defenses built around human behavior (sandboxing, confirmation prompts, user awareness training) break when an agent takes the human's place.
-
-This is the same blind spot Black October has exposed across every other AI vector: ARTEX automates attacks at machine speed, LiteLLM supply chain compromises AI infrastructure, and planted instruction files exploit agent trust. The common thread is that AI agents operate outside the security model designed for human users.
+- Create dedicated project directories
+- Configure Chrome/Edge to prompt before downloading
 
 ---
 
@@ -825,104 +719,93 @@ If you're hunting for ARTEX-like activity in your environment, here's what we kn
 
 ### Behavioral Indicators
 
-ARTEX automates the full attack chain. Look for:
-
-1. **Rapid reconnaissance**: Many API calls in a short window, probing multiple endpoints. Storm-0940 hit 2,900 auth attempts/minute against 327 accounts across 8 organizations.
-2. **Credential attacks through APIs**: Password spraying patterns, credential stuffing via application credentials (not interactive logins). 151,000+ failed sign-in attempts observed.
-3. **AI-accelerated activity**: Attack progression that's faster than human-operated. Storm-0940 went from initial targeting to privileged cloud access in under 3 hours. If your timeline analysis shows impossibly fast lateral movement, consider AI acceleration.
-4. **Multi-agent patterns**: Activity that suggests coordination between multiple agents — one doing reconnaissance, another doing exploitation, a third doing data access. Zscaler confirmed GLM reviewed DeepSeek's subagent work.
-5. **Microsoft Graph anomalies**: If you're on M365, watch for unusual Graph API activity — reconnaissance queries, application credential changes, privilege modifications, new OAuth app registrations.
-6. **Cross-AI-session handoffs**: Custom scripts sharing data between different AI tools (e.g., Claude Code → DeepSeek → GLM). Look for shared state files, synchronization scripts, or unusual inter-process communication patterns.
+1. **Rapid reconnaissance**: Many API calls in a short window, probing multiple endpoints. Storm-0940 hit 2,900 auth attempts/minute.
+2. **Credential attacks through APIs**: Password spraying, credential stuffing via application credentials. 151,000+ failed sign-in attempts.
+3. **AI-accelerated activity**: Attack progression faster than human-operated. Storm-0940: initial targeting to privileged access in under 3 hours.
+4. **Multi-agent patterns**: Coordination between agents — one doing recon, another exploitation, a third data access. GLM reviewed DeepSeek's subagent work.
+5. **Microsoft Graph anomalies**: Reconnaissance queries, application credential changes, new OAuth app registrations.
+6. **Cross-AI-session handoffs**: Custom scripts sharing data between different AI tools.
 
 ### Technical Indicators
 
-- ARTEX is written in Go + Next.js. Look for unexpected Go binaries on workstations and servers, especially in temp directories or user profiles.
-- It uses an OpenAI-compatible gateway. Watch for API calls to OpenAI-compatible endpoints from unexpected sources or at unusual times.
-- It supports MCP (Streamable HTTP and SSE). Watch for MCP traffic from unexpected sources — especially MCP connections to external servers.
-- Configurations specifying DeepSeek, GLM, or Grok models in tool configs or environment variables.
-- Scripts that coordinate handoffs between AI sessions — shared state files, synchronization scripts, process orchestration.
-- The original repository (`Autumn-27/ARTEX`) has been deleted, but 878+ forks exist. Check your developers' machines for ARTEX clones.
+- Unexpected Go binaries on workstations (ARTEX is Go + Next.js)
+- API calls to OpenAI-compatible endpoints from unexpected sources
+- MCP traffic (Streamable HTTP/SSE) to external servers
+- Configurations specifying DeepSeek, GLM, or Grok models
+- Scripts coordinating handoffs between AI sessions
+- 878+ ARTEX forks exist — check developers' machines
 
 ### Establish Your Baseline First
 
-Before hunting for anomalies, establish what normal AI API traffic looks like in your environment. Which hosts legitimately call `api.openai.com`, `api.anthropic.com`, `generativelanguage.googleapis.com`? What's your baseline volume and timing? Which users have legitimate reasons to use AI tools? Anything outside that baseline since October 17 is your hunting ground.
-
-### What ARTEX Means for You
-
-ARTEX is open source. It's been forked 878+ times. The original repo was deleted, but the code is everywhere. Multiple threat groups are using it, not just Storm-0940. Microsoft observed attackers from "several geographic regions" using the framework.
-
-**The implication**: AI-accelerated attacks are no longer the exclusive domain of nation-states. The tooling is freely available. Expect to see it used by cybercrime groups, ransomware operators, and opportunistic attackers.
-
-This is why machine-speed attacks require machine-speed detection — it's not a marketing tagline, it's a survival requirement. Human-paced incident response cannot keep up with AI agents that go from reconnaissance to privileged access in under 3 hours.
+Before hunting for anomalies, establish what normal AI API traffic looks like in your environment. Which hosts legitimately call AI APIs? What's your baseline volume and timing? Anything outside that baseline since October 17 is your hunting ground.
 
 ---
 
 ## Step 6: Sector-Specific Guidance
 
-The threats above affect everyone, but the compliance triggers, log sources, and priorities differ by sector. Here's what matters for yours.
+The threats above affect everyone, but the compliance triggers, log sources, and priorities differ by sector.
 
 ### OT/ICS & Industrial
 
-ARTEX automates the full attack chain — reconnaissance, credential attacks, lateral movement. The same multi-agent approach that hit 2,250 M365 tenants could target SCADA, DCS, and ICS environments. More OT environments are incorporating AI every day: predictive maintenance models, LLM-based HMI assistants, AI-powered anomaly detection. Every one of those is a new attack surface that traditional OT security tools don't cover.
+ARTEX automates the full attack chain. The same multi-agent approach that hit 2,250 M365 tenants could target SCADA, DCS, and ICS environments.
 
 **What to do:**
-- If AI touches your OT environment — even indirectly (developers using AI tools that can access OT network diagrams, PLC code, or SCADA configs) — deploy Rampart on those developer machines. It runs locally with zero network dependency.
-- If you're running AI agents that interact with OT systems, route them through Platform. The 303 regex patterns include Modbus, DNP3, and OPC-UA protocol manipulation detection.
-- Scan any AI training data, model configs, or agent skills that will touch OT-adjacent systems with Scanner before deployment.
-- Install Lens on HMI workstations. If anyone uses a browser-based AI chat on an HMI machine (and they do), Lens prevents OT data from leaking.
-
-**Air-gap is non-negotiable for OT.** Most AI security tools (Lakera, Robust Intelligence, Protect AI, HiddenLayer) are SaaS — they require your AI traffic to route through their cloud. That's a non-starter in OT environments. AegisGate Platform, Rampart, Scanner, MCP, and Lens all run fully air-gapped. All detection is local. No cloud, no phone-home, no telemetry by default.
+- If AI touches your OT environment — even indirectly — deploy Rampart on those developer machines. Air-gapped, zero network dependency.
+- Route AI agents through Platform. 303 regex patterns include Modbus, DNP3, OPC-UA detection.
+- Scan AI training data and agent skills with Scanner before deployment.
+- Install Lens on HMI workstations.
 
 ### Defense & Government
 
-Storm-0940 is a Chinese APT. Defense contractors and federal agencies are prime targets for exactly this kind of attack — AI-accelerated, multi-agent, credential-focused. NIST 800-171 3.13.1 requires network isolation for CUI environments. SaaS AI security tools that route traffic through their cloud violate this requirement. CMMC Level 2 assessment is now required for many defense contracts.
+Storm-0940 is a Chinese APT. Defense contractors and federal agencies are prime targets. NIST 800-171 3.13.1 requires network isolation for CUI environments. SaaS AI security tools violate this.
 
 **What to do:**
-- Deploy Platform air-gapped within your security boundary. The Community tier (free) provides 303 regex patterns and protocol-level scanning with zero external dependencies. Platform's Pro+ tier includes CMMC L2, NIST 800-171, and FedRAMP framework mappings for compliance documentation.
-- MCP's distroless Docker image (zero CVEs, zero external dependencies) aligns with STIG-style hardening expectations. Deploy it to secure any MCP-based agent infrastructure.
-- Rampart runs locally on developer workstations with zero network dependency. If developers use AI coding tools on CUI-adjacent systems, Rampart prevents source code and credential exfiltration.
-- Rotate any credentials that were accessible to ConnectWise integrations. Storm-0940's primary attack vector was stolen ConnectWise credentials — if your agency or contractor used ConnectWise, treat all associated credentials as compromised.
+- Deploy Platform air-gapped within your security boundary. Community tier is free.
+- MCP's distroless Docker image aligns with STIG-style hardening.
+- Rampart on developer workstations with zero network dependency.
+- Rotate ConnectWise credentials. **Verify Secure Boot DBX revocations** (see BlackX sidebar).
 
 ### Healthcare & HIPAA
 
-If a clinician pastes a patient case into ChatGPT for a "second opinion," or a developer sends an EHR config to Copilot, that's a HIPAA reportable event. Lens catches 77 PII patterns including patient identifiers, SSNs, and medical-related data — before it hits send. Scanner checks RAG documents for PHI before ingestion into clinical AI tools.
+If a clinician pastes a patient case into ChatGPT, that's a HIPAA reportable event. Lens catches 77 PII patterns before it hits send.
 
 **What to do:**
-- Deploy Lens on all clinical and admin workstations (2 minutes each, Chrome or Firefox). This is the fastest, highest-impact action you can take.
-- If you're building AI tools for clinical use, scan all training data and RAG documents with Scanner before ingestion. The 85 PII patterns include medical-specific identifiers.
-- **Retroactive exposure check**: Search your proxy logs for outbound traffic to `api.openai.com`, `api.anthropic.com`, `generativelanguage.googleapis.com` from workstations that handle PHI. Any matches since October 17 are potential exposure events that may need to be documented for HIPAA breach assessment.
-- Rotate any credentials that were accessible to AI tools or routed through LiteLLM.
+- Deploy Lens on all clinical and admin workstations (2 minutes each).
+- Scan RAG documents with Scanner before ingestion.
+- **Retroactive exposure check**: Search proxy logs for AI API traffic from PHI-handling workstations since October 17.
+- **If you use Fortinet or Palo Alto VPN for remote clinical access**: Rotate all VPN credentials immediately (FortiBleed campaign).
 
 ### Financial Services
 
-AegisGate detects SWIFT/BIC banking codes, credit card numbers (Luhn-validated), and bank account numbers in AI traffic. If a developer pastes a transaction log into ChatGPT to "debug a query," that's a PCI violation. If an analyst sends a wire transfer record to Claude for "summarization," that's GLBA-protected data going to a third party. SOX requires audit trails for system changes — Platform's tamper-evident SHA-256 hash chain logs document what was blocked and when (Pro+ feature).
+AegisGate detects SWIFT/BIC codes, credit card numbers, and bank accounts in AI traffic.
 
 **What to do:**
-- Deploy Lens on trader, analyst, and customer service workstations. The SWIFT/BIC and credit card detection patterns catch financial data before it reaches AI providers.
-- Deploy Rampart on developer machines. If developers query production databases using AI-assisted tools, Rampart catches connection strings and credentials in transit.
-- **Retroactive exposure check**: Search proxy logs for card numbers (`\b4[0-9]{12}(?:[0-9]{3})?\b`) and SWIFT/BIC codes in outbound AI API traffic. Any matches are potential PCI/GLBA exposure events.
-- Storm-0940 targeted banks globally. If you use ConnectWise, rotate all associated credentials immediately and audit Microsoft Graph logs for indicators of compromise.
+- Deploy Lens on trader, analyst, and customer service workstations.
+- Deploy Rampart on developer machines.
+- **Retroactive exposure check**: Search proxy logs for card numbers and SWIFT codes in AI API traffic.
+- **If you use Fortinet or Palo Alto**: Rotate all VPN credentials. Check for dormant admin accounts. The k0t campaign is linked to Qilin ransomware — verify your firewall integrity.
 
 ### Cloud & Multi-Cloud
 
-AI API calls from your cloud infrastructure are probably invisible to you. An EC2 instance running LiteLLM could be exfiltrating credentials right now. A Lambda function calling OpenAI could be sending source code. A GCP service account might be making unauthorized AI API calls.
+AI API calls from your cloud infrastructure are probably invisible to you.
 
 **What to do:**
-- **AWS**: Search CloudTrail for `bedrock:*`, `sagemaker:*`, and any `InvokeModel` API calls. Check VPC Flow Logs for outbound traffic to AI API endpoints. Look for LiteLLM containers or processes on EC2 instances.
-- **Azure**: Check Entra ID Sign-in logs for anomalous auth patterns (Storm-0940 indicators). Search Microsoft Graph audit logs for reconnaissance, credential changes, and new OAuth app registrations. Check Azure Monitor for outbound AI API calls from compute resources.
-- **GCP**: Search Cloud Audit Logs for `aiplatform.*` and Vertex AI calls. Check VPC Flow Logs for outbound traffic to AI API endpoints from Compute Engine instances.
-- Deploy Platform as a cloud gateway (Docker or Kubernetes) to intercept and scan AI traffic at the infrastructure level. The setup wizard auto-detects your cloud environment and recommends a deploy profile.
+- **AWS**: Search CloudTrail for `bedrock:*`, `sagemaker:*`, `InvokeModel`. Check VPC Flow Logs for AI API endpoints.
+- **Azure**: Check Entra ID sign-in logs for Storm-0940 indicators. Search Graph audit logs.
+- **GCP**: Search Cloud Audit Logs for `aiplatform.*` and Vertex AI calls.
+- Deploy Platform as a cloud gateway to intercept and scan AI traffic at the infrastructure level.
 
 ### State, Local & Education
 
-State and local governments run PHP for citizen-facing services, use Microsoft 365 for operations, and are increasingly adopting AI tools. Universities run PHP extensively (LMS, portals, research dashboards) and are heavy AI users — students, faculty, and researchers all use ChatGPT/Claude. Both sectors are often resource-constrained: no dedicated SOC, sometimes no SIEM, limited security budget. They're also Storm-0940's targets — Microsoft observed attacks across government organizations. Student records (FERPA), research data (ITAR/EAR if defense-funded), and citizen PII are all at risk.
+Universities and local governments run PHP extensively and are heavy AI users. Both sectors are often resource-constrained. ~30,800 eMudhra-affected certificates are 99.9% via InCommon/Internet2 — higher-ed is directly impacted.
 
 **What to do:**
-- **Patch PHP immediately.** Universities and local governments are especially vulnerable given how many PHP applications they run and how slow patching cycles can be. PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35.
-- Install Lens on all faculty, staff, and admin workstations. It's free, takes 2 minutes per machine, and prevents PII/credential leakage to AI providers.
-- Rotate ConnectWise credentials if applicable. Check Microsoft 365 audit logs for Storm-0940 indicators (rapid auth, new OAuth apps).
-- Deploy Platform Community tier (free) for AI traffic visibility. If you don't have a SIEM, Platform's built-in logging gives you audit trail capability you wouldn't otherwise have.
-- If you run AI research infrastructure, deploy Platform to monitor AI API traffic for data exfiltration. Research data leaving through AI API calls is a risk you almost certainly aren't monitoring.
+- **Patch PHP immediately.** PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35.
+- **Reissue InCommon certificates before Oct 27** (Chrome drops eMudhra trust).
+- Install Lens on all faculty, staff, and admin workstations.
+- Rotate ConnectWise credentials if applicable.
+- Deploy Platform Community tier (free) for AI traffic visibility.
+- **If you run Fortinet or Palo Alto firewalls**: Rotate VPN credentials, hunt for dormant admin accounts.
 
 ---
 
@@ -930,36 +813,44 @@ State and local governments run PHP for citizen-facing services, use Microsoft 3
 
 ### If you have 5 minutes:
 1. Install [AegisGate Lens](https://github.com/aegisgatesecurity/aegisgate-lens) browser extension — [Chrome](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/)
-2. Check if your Node.js and Bun installations are patched for eMudhra (they may not be)
+2. Check if your Node.js and Bun installations are patched for eMudhra
 3. Verify your PHP version — if it's not 8.5.12, 8.4.27, 8.3.36, or 8.2.35, start planning downtime NOW
 4. Check your GitLab version — if it's not patched, restrict network access immediately
 5. **Check your Downloads folder for `AGENTS.md` or `CLAUDE.md` files you didn't create**
+6. **If you run Fortinet or Palo Alto firewalls: start rotating VPN credentials NOW**
 
 ### If you have 30 minutes:
 1. All of the above
-2. Download [AegisGate Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2) for your dev team
-3. Install [AegisGate Scanner](https://github.com/aegisgatesecurity/aegisgate-scanner) and scan Downloads + working directories for malicious agent instruction files
-4. Pull AegisGate detection patterns from our repos and import into your SIEM (see Step 3)
-5. Audit your Microsoft Graph logs for Storm-0940 indicators (rapid auth, credential changes, new OAuth apps)
-6. If you run OpenCode, update to v1.18.33+ and rotate any AI API keys stored in OpenCode Console
+2. Download [AegisGate Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.3) for your dev team
+3. Install [AegisGate Scanner](https://github.com/aegisgatesecurity/aegisgate-scanner) and scan Downloads + working directories
+4. Pull AegisGate detection patterns and import into your SIEM (see Step 3)
+5. Audit Microsoft Graph logs for Storm-0940 indicators
+6. **Upgrade Collabora Online richdocumentscode to 26.4.303 if you run Nextcloud**
+7. **Patch Arista VeloCloud if you run on-prem VCO** (CISA KEV due Oct 26)
+8. **Hunt for dormant admin accounts on Fortinet/Palo Alto firewalls**
+9. **Verify Secure Boot DBX revocations on Windows systems** (see BlackX sidebar)
 
 ### If you have a few hours:
 1. All of the above
-2. Deploy AegisGate Scanner in your CI/CD — one-line installer: `curl -fsSL https://raw.githubusercontent.com/aegisgatesecurity/aegisgate-scanner/main/install.sh | bash`
-3. Add the Scanner GitHub Action to scan repos for malicious `AGENTS.md`/`CLAUDE.md` files in PRs
-4. Evaluate [AegisGate MCP](https://github.com/aegisgatesecurity/aegisgate-mcp) for your MCP server infrastructure
-5. Stand up [AegisGate Platform](https://github.com/aegisgatesecurity/aegisgate-platform) Community tier as a monitoring gateway for your AI traffic
+2. Deploy AegisGate Scanner in your CI/CD
+3. Add the Scanner GitHub Action to scan repos for malicious instruction files in PRs
+4. Evaluate [AegisGate MCP](https://github.com/aegisgatesecurity/aegisgate-mcp) for your MCP infrastructure
+5. Stand up [AegisGate Platform](https://github.com/aegisgatesecurity/aegisgate-platform) Community tier as a monitoring gateway
+6. **Run Nextcloud integrity scan and hunt for web shells** if you use Collabora Online
+7. **Check owned.lab6.com for your organization's IPs** if you run Fortinet/Palo Alto
 
 ### If you're in active incident response:
-1. Check PHP access logs and error logs back to **October 17** for PHP2Shell exploitation indicators (unusual multipart POSTs, process spawning, outbound connections)
-2. Revoke and rotate **all** ConnectWise-related credentials. Check for persistence (OAuth apps, federation trusts, mailbox forwarding rules)
-3. Scan any LiteLLM installations for compromise indicators (unexpected processes, outbound connections, modified `.pth` files)
-4. Hunt for ARTEX behavioral indicators in your API logs (see Step 5)
-5. Use Lens to scan any captured AI chat data for PII/credential exposure
-6. Check all developer machines for OpenCode versions < 1.18.33 — if found, investigate for compromise
-7. Scan all Downloads folders and working directories for planted `AGENTS.md`/`CLAUDE.md` files
-8. If you have a SIEM, import AegisGate regex patterns (see Step 3) and run retroactive searches against proxy logs for credential exfiltration to AI API endpoints
-9. Establish your AI traffic baseline (which hosts call which AI APIs, normal volume/timing) and flag anything outside it since October 17
+1. Check PHP access logs back to **October 17** for PHP2Shell exploitation indicators
+2. Revoke and rotate **all** ConnectWise-related credentials. Check for OAuth persistence
+3. Scan LiteLLM installations for compromise (unexpected `.pth` files, outbound connections to `litellm[.]dev`)
+4. Hunt for ARTEX behavioral indicators in API logs (see Step 5)
+5. **Hunt for FortiBleed indicators**: IOC IPs in firewall logs, RMM tools on management networks, Rclone egress to Wasabi/MEGA, dormant admin accounts
+6. **Hunt for Collabora web shells**: Nextcloud integrity scan, unexpected PHP files, proxy.php in web logs during CODE server downtime
+7. **Check VCO logs for SQLi** from `74.82.197.86`, `38.54.50.151` if you run Arista VeloCloud
+8. Check all developer machines for OpenCode versions < 1.18.33
+9. Scan all Downloads folders for planted `AGENTS.md`/`CLAUDE.md` files
+10. Import AegisGate regex patterns into SIEM and run retroactive searches
+11. Establish your AI traffic baseline and flag anything outside it since October 17
 
 ---
 
@@ -967,14 +858,18 @@ State and local governments run PHP for citizen-facing services, use Microsoft 3
 
 | Incident | Log Source | What to Search For |
 |----------|-----------|-------------------|
-| **PHP2Shell** | nginx/apache access logs, PHP-FPM logs, web server error logs | Unusual `multipart/form-data` POST requests, unexpected process spawning from web workers, outbound connections to unfamiliar IPs |
-| **Storm-0940** | Entra ID sign-in logs, Microsoft Graph audit logs, M365 Unified Audit Log (purview.microsoft.com) | Rapid auth bursts (2,900+/min), application credential changes, new OAuth app registrations, privilege modifications, federation trust changes |
+| **PHP2Shell** | nginx/apache access logs, PHP-FPM logs, web server error logs | Unusual `multipart/form-data` POST requests, unexpected process spawning from web workers, outbound connections to unfamiliar IPs. **Check back to Oct 17.** |
+| **Storm-0940** | Entra ID sign-in logs, Microsoft Graph audit logs, M365 Unified Audit Log | Rapid auth bursts (2,900+/min), application credential changes, new OAuth app registrations, privilege modifications |
 | **GitLab RCE** | `/var/log/gitlab/gitlab-rails/production.log`, `/var/log/gitlab/nginx/gitlab_access.log` | Unauthenticated requests, error spikes, unexpected process execution |
-| **LiteLLM** | Process network connections, Python `site-packages` directories, container egress logs | `litellm_init.pth` file, unexpected outbound connections from LiteLLM process, credential strings in outbound traffic |
-| **AI credential exfil** | Egress proxy logs, firewall logs, AWS CloudTrail, Azure Monitor, GCP Cloud Audit Logs | API keys (`AKIA...`, `ghp_...`, `sk-...`) in traffic to `api.openai.com`, `api.anthropic.com`, `generativelanguage.googleapis.com` |
-| **ARTEX** | API gateway logs, MCP server logs, endpoint detection logs, process inventory | Rapid multi-endpoint reconnaissance, Go binaries in unexpected locations, MCP connections to external servers, multi-agent coordination patterns |
-| **Markdown-as-Executable** | File integrity monitoring, Downloads folder monitoring, process logs | New `AGENTS.md` or `CLAUDE.md` in Downloads, agent config file modifications (`~/.codex/config.toml`, `.claude/settings.json`), unexpected npm/pip installs during agent sessions, `function-color` npm package |
-| **OpenCode MCP RCE** | Process logs, PowerShell event logs (Event ID 4104), network connections | PowerShell execution from OpenCode process, unexpected browser launches during `opencode mcp auth`, connections to attacker-controlled OAuth endpoints |
+| **LiteLLM** | Process network connections, Python `site-packages` directories, container egress logs | `cook.pth`, `litellm_init.pth`, `sitecustomize.py` (unexpected), outbound to `litellm[.]dev`, GitHub token usage Oct 10-21 |
+| **AI credential exfil** | Egress proxy logs, firewall logs, CloudTrail, Azure Monitor, GCP Cloud Audit Logs | API keys (`AKIA...`, `ghp_...`, `sk-...`) in traffic to AI API endpoints |
+| **ARTEX** | API gateway logs, MCP server logs, endpoint detection logs, process inventory | Rapid multi-endpoint reconnaissance, Go binaries in unexpected locations, MCP connections to external servers |
+| **Arista VeloCloud** | VCO web access logs | SQLi patterns (union-based, time-based blind) from `74.82.197.86`, `38.54.50.151` |
+| **Collabora Online** | Nextcloud integrity scan results, web server access logs | `EXTRA_FILE` entries in integrity check, unexpected PHP files (e.g., `Nx_33143.php`), requests to `proxy.php` during CODE server downtime |
+| **Enterprise Firewall/VPN** | FortiGate System→Events (filter "config"), Palo Alto logs, firewall management network logs | IOC IPs, dormant admin accounts, RMM tools (MeshCentral, Atera, AnyDesk, Teramind), AdaptixC2, Rclone egress to Wasabi/MEGA |
+| **BlackX UEFI** | UEFI/Secure Boot configuration, boot logs, EDR process logs | Missing DBX revocations for CVE-2022-21894, `inst.exe` in `C:\ProgramData\Intel\`, `archivetj[.]com` C2, sideloaded `googleupdate.exe` |
+| **Markdown-as-Executable** | File integrity monitoring, Downloads folder monitoring, process logs | New `AGENTS.md` or `CLAUDE.md` in Downloads, config file modifications, `function-color` npm package |
+| **OpenCode MCP RCE** | Process logs, PowerShell event logs (Event ID 4104), network connections | PowerShell execution from OpenCode process, unexpected browser launches during `opencode mcp auth` |
 
 ---
 
@@ -982,44 +877,17 @@ State and local governments run PHP for citizen-facing services, use Microsoft 3
 
 Known indicators associated with Black October incidents. Use these alongside the SIEM queries in Step 3 for retroactive hunting.
 
-> **Disclaimer**: IOCs are point-in-time. Attackers rotate infrastructure. Use these for retroactive hunting (Oct 17 onward), not as your only detection layer. The behavioral queries in Step 3 catch variants that IOCs miss.
-
-### LiteLLM Supply Chain Attack
-
-| Type | Indicator | Notes |
-|------|-----------|-------|
-| **C2 Domain** | `litellm[.]dev/healthcheck` | Exfiltration endpoint — HTTP POST with stolen credentials |
-| **File: Python** | `cook.pth` in site-packages | Malicious `.pth` file that imports `cook.py` on Python startup |
-| **File: Python** | `cook.py` in site-packages | Contains `privcollect` stealer — harvests system, browser, dev, cloud, AI secrets |
-| **File: Python** | `litellm_init.pth` in site-packages | Earlier credential stealer variant (June 2026) |
-| **File: Python** | `sitecustomize.py` (unexpected) | Fetches C2 domain from GitHub dead drop every hour (Linux/macOS) |
-| **Behavioral** | Outbound HTTP POST to `litellm[.]dev` from Python process | Legitimate LiteLLM does not POST to this domain |
-| **Behavioral** | Python process fetching raw GitHub URLs hourly | C2 dead drop check-in pattern |
-| **Cloud** | AWS `GetCallerIdentity` API calls from unknown IPs | Stolen credentials being validated (observed within 4.5 hours of exfil) |
-
-### Storm-0940 / ARTEX
-
-| Type | Indicator | Notes |
-|------|-----------|-------|
-| **Behavioral** | 2,900+ auth attempts/minute from single source | Password spraying against M365 tenants |
-| **Behavioral** | 151,000+ failed sign-ins across 327 accounts, 8 orgs | Storm-0940 campaign scale |
-| **Behavioral** | Privileged cloud access achieved in <3 hours from initial targeting | AI-accelerated attack timeline |
-| **Process** | Unexpected Go binaries in temp dirs or user profiles | ARTEX is written in Go + Next.js |
-| **Network** | API calls to OpenAI-compatible endpoints from workstations | ARTEX uses an OpenAI-compatible gateway (DeepSeek, GLM, Grok) |
-| **Network** | MCP traffic (Streamable HTTP / SSE) to external servers | ARTEX supports MCP — watch for unexpected MCP connections |
-| **Config** | Environment variables or tool configs specifying DeepSeek, GLM, or Grok models | ARTEX agent configuration |
-| **File** | Scripts coordinating handoffs between AI sessions | Shared state files, sync scripts between Claude Code → DeepSeek → GLM |
-| **OAuth** | New OAuth app registrations in M365 tenant created after Oct 17 | Persistence mechanism — review all new registrations |
+> **Disclaimer**: IOCs are point-in-time. Attackers rotate infrastructure. Use these for retroactive hunting (Oct 17 onward), not as your only detection layer.
 
 ### PHP2Shell
 
 | Type | Indicator | Notes |
 |------|-----------|-------|
-| **Network** | Unusual `multipart/form-data` POST requests to PHP applications | Primary attack vector — check access logs back to Oct 17 |
+| **Network** | Unusual `multipart/form-data` POST requests to PHP applications | Primary attack vector — check back to Oct 17 |
 | **Process** | Unexpected process spawning from web worker (www-data, php-fpm) | Shell execution from PHP runtime |
 | **Network** | Outbound connections to unfamiliar IPs from web server | Post-exploitation C2 or data exfil |
-| **Botnet** | Mirai variant "Potassium" deployment attempts | Unsuccessful so far — watch for sudden traffic spikes on PHP servers |
-| **Log** | `session.upload_progress` related entries in PHP error logs | One of two attack paths — disable if unpatched |
+| **Config** | `session.upload_progress.enabled` still on | Attack path — disable even after patching (bypass exists) |
+| **Config** | `session.serialize_handler` = `php_binary`/`php_serialize` then switched at runtime | CVE-2026-115560 requirement — unusual config |
 
 ### eMudhra CA Compromise
 
@@ -1027,30 +895,98 @@ Known indicators associated with Black October incidents. Use these alongside th
 |------|-----------|-------|
 | **Certificate** | TLS certs issued by `emSign ECC Root CA - G3` intermediates | Chrome drops trust Oct 27 — replace before then |
 | **Certificate** | Any cert chain through `eMudhra Root CA - G3` | 30,800 affected certs, 99.9% via InCommon/Internet2 |
-| **Network** | Successful TLS connections that should fail (forged certs) | If your trust store still trusts eMudhra, forged certs will validate |
-| **Test** | Mozilla's CA incident test endpoints | Hit them from your servers — if they connect, your trust store is vulnerable |
+| **Network** | Successful TLS connections that should fail (forged certs) | If trust store still trusts eMudhra, forged certs validate |
+| **IoT** | Fire TV Stick, unpatched RHEL/Mint accepting forged certs | Dormann MITM testing — IoT/embedded devices are active targets |
+
+### Arista VeloCloud Orchestrator
+
+| Type | Indicator | Notes |
+|------|-----------|-------|
+| **Network** | `74.82.197.86` | Attacker IP — actively exploited |
+| **Network** | `38.54.50.151` | Attacker IP — actively exploited |
+| **Log** | VCO web access logs — SQLi patterns | Union-based injection, time-based blind |
+| **Behavioral** | Privilege escalation to superuser via SQLi | Authenticated user → superuser |
+
+### Collabora Online CODE Server
+
+| Type | Indicator | Notes |
+|------|-----------|-------|
+| **File** | Unexpected PHP files in Nextcloud data/app directory | Web shells dropped via proxy.php RCE |
+| **File** | `Nx_33143.php` | Example web shell found via integrity scan |
+| **Log** | Requests to `proxy.php` when CODE server not running | Exploitation window — during restart/upgrade/crash |
+| **App** | richdocumentscode < 26.4.303 | Vulnerable version — must upgrade or remove (disabling insufficient) |
+
+### Enterprise Firewall/VPN (k0t/FortiBleed)
+
+| Type | Indicator | Notes |
+|------|-----------|-------|
+| **Network** | `193.8.186.7` | Attacker C2 IP (Kevin Beaumont) |
+| **Network** | `80.75.212.113` | Attacker C2 IP |
+| **Network** | `213.21.239.65` | Attacker C2 IP |
+| **Network** | `208.94.246.58` | Attacker C2 IP |
+| **Network** | `69.195.129.144` | Attacker C2 IP |
+| **Network** | `96.45.42.173` | Fortinet's own ASN (co-opted) |
+| **Log** | FortiGate System→Events, filter "config" | Configuration changes indicating compromise |
+| **Process** | MeshCentral, Atera, AnyDesk, Teramind | RMM tools used for persistence |
+| **Process** | AdaptixC2 | C2 framework |
+| **Network** | Rclone egress to Wasabi, MEGA | Data exfiltration |
+| **Account** | Dormant admin accounts | Backdoor persistence — "staggering amount" affected |
+| **External** | `owned.lab6.com` | Victim IP list — check if your IPs are listed |
+
+### LiteLLM Supply Chain Attack
+
+| Type | Indicator | Notes |
+|------|-----------|-------|
+| **C2 Domain** | `litellm[.]dev/healthcheck` | Exfiltration endpoint — HTTP POST with stolen credentials |
+| **File** | `cook.pth` in site-packages | Imports `cook.py` on Python startup |
+| **File** | `cook.py` in site-packages | `privcollect` stealer — system, browser, dev, cloud, AI secrets |
+| **File** | `litellm_init.pth` | Earlier variant (June 2026) |
+| **File** | `sitecustomize.py` (unexpected) | C2 dead drop check-in every hour (Linux/macOS) |
+| **Network** | `69.48.229.143` | Attacker IP (root cause: unrevoked master key) |
+| **Repo** | `Berri-AI/litellm` (with hyphen) | Lookalike repo used to hijack release pipeline |
+| **Behavioral** | Short-lived branches `ci-tmp-a351cc`, `ci-tmp-4f8517` | Malicious GitHub Actions workflow branches |
+| **Cloud** | AWS `GetCallerIdentity` from unknown IPs | Stolen credentials validated within 4.5 hours |
+
+### Storm-0940 / ARTEX
+
+| Type | Indicator | Notes |
+|------|-----------|-------|
+| **Behavioral** | 2,900+ auth attempts/minute from single source | Password spraying against M365 tenants |
+| **Behavioral** | Privileged cloud access in <3 hours from initial targeting | AI-accelerated attack timeline |
+| **Process** | Unexpected Go binaries in temp dirs or user profiles | ARTEX is written in Go + Next.js |
+| **Network** | API calls to OpenAI-compatible endpoints from workstations | ARTEX uses DeepSeek, GLM, Grok via OpenAI-compatible gateway |
+| **Network** | MCP traffic (Streamable HTTP/SSE) to external servers | ARTEX supports MCP |
+| **OAuth** | New OAuth app registrations in M365 after Oct 17 | Persistence mechanism |
+
+### BlackX UEFI Bootkit
+
+| Type | Indicator | Notes |
+|------|-----------|-------|
+| **File** | `inst.exe` in `C:\ProgramData\Intel\` | Bootkit installer |
+| **File** | `PVMDIJGKAX2` | Encrypted payload (extensionless) |
+| **Crypto** | RC4 key: `Q46F6MDLI3RX2KV1` | Decryption key for payload |
+| **Network** | `archivetj[.]com` | C2 domain for Rust payload plugins |
+| **Process** | `googleupdate.exe` (sideloaded) + `OxiDLLRunner.dll` | DLL sideloading via legitimate binary |
+| **Network** | Google Drive, OneDrive, Yandex.Disk | C2 channels blending with enterprise traffic |
+| **Config** | Missing Secure Boot DBX revocations for CVE-2022-21894 | Systems "patched" but without manual DBX update — still vulnerable |
 
 ### Markdown-as-Executable
 
 | Type | Indicator | Notes |
 |------|-----------|-------|
-| **File** | `AGENTS.md` in `~/Downloads` | Planted instruction file — agents read and obey by design |
-| **File** | `CLAUDE.md` in `~/Downloads` | Planted instruction file — agents read and obey by design |
-| **npm Package** | `function-color` | Malicious npm package (removed from npm) — installed by planted AGENTS.md |
-| **Config** | `~/.codex/config.toml` modifications | Malicious MCP server entries added by planted instruction file |
-| **Config** | `.claude/settings.json` modifications | API endpoint changes redirecting traffic to attacker server |
-| **Behavioral** | Agent self-installing npm packages during sessions | Codex installing packages without user request |
-| **Network** | AI API traffic redirected to attacker-controlled endpoints | Claude Code traffic redirected via modified base URL |
+| **File** | `AGENTS.md` in `~/Downloads` | Planted instruction file — agents read and obey |
+| **File** | `CLAUDE.md` in `~/Downloads` | Planted instruction file — agents read and obey |
+| **npm** | `function-color` | Malicious npm package (removed) |
+| **Config** | `~/.codex/config.toml` modifications | Malicious MCP server entries |
+| **Config** | `.claude/settings.json` modifications | API endpoint changes redirecting traffic |
 
 ### OpenCode MCP RCE
 
 | Type | Indicator | Notes |
 |------|-----------|-------|
-| **Process** | PowerShell execution from OpenCode process | Event ID 4104 — command injection via crafted OAuth URL |
-| **Network** | Connections to attacker-controlled OAuth endpoints during `opencode mcp auth` | Malicious MCP server supplying crafted URL |
-| **File** | `open` npm package pre-v11 | Root cause — known command injection since 2023 |
-| **Version** | OpenCode < 1.18.33 | Vulnerable versions (1.0.137 through 1.18.32) — no CVE issued |
-| **Cloud** | API keys exposed in OpenCode Console | 1.4% of hosted workspaces affected — rotate all AI API keys |
+| **Process** | PowerShell execution from OpenCode process | Event ID 4104 — command injection |
+| **Version** | OpenCode < 1.18.33 | Vulnerable (1.0.137–1.18.32) — no CVE |
+| **Cloud** | API keys in OpenCode Console | 1.4% of hosted workspaces — rotate keys |
 
 ---
 
@@ -1058,14 +994,18 @@ Known indicators associated with Black October incidents. Use these alongside th
 
 I'm not going to pretend one tool solves Black October. Here's what AegisGate does NOT do:
 
-- **Patch your PHP servers.** You have to do that. PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35. Now.
-- **Manage your TLS certificate trust stores.** Update your CA bundles. Check Node.js and Bun. Test against Mozilla's incident endpoints.
+- **Patch your PHP servers.** You have to do that. PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35. Now. And keep `session.upload_progress.enabled=0`.
+- **Manage your TLS certificate trust stores.** Update your CA bundles. Check Node.js and Bun. Test against Mozilla's incident endpoints. Check IoT devices.
 - **Patch your GitLab.** Update to 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10, or 18.11.13.
-- **Fix Microsoft's SharePoint patches.** That's on Microsoft. Restrict access and wait for the out-of-band fix.
-- **Stop a website from downloading a file to your Downloads folder.** Browser download behavior is controlled by the browser, not AegisGate. What Scanner CAN do is detect the malicious `AGENTS.md` or `CLAUDE.md` file before an agent reads it — but it can't prevent the download itself. Configure your browser to prompt before downloads, and scan Downloads before starting agent sessions.
-- **Replace your SIEM.** AegisGate is a detection and prevention layer for AI agent traffic. It doesn't replace Splunk, Sentinel, or ELK. In the free tiers, you can extract our patterns and feed them into your SIEM manually (see Step 3). Platform's built-in SIEM forwarding is a Pro+ feature.
-- **Stop ARTEX running on someone else's machine.** ARTEX is an offensive tool running on the attacker's side. AegisGate detects the *effects* of ARTEX in your traffic — the reconnaissance patterns, the credential attacks, the lateral movement. It can't reach out and disable the attacker's tooling.
-- **Detect novel AI attack patterns without ML (free tier).** The 303 regex patterns in Platform's Community tier catch known patterns — credential exfiltration, PII leakage, prompt injection. The ML anomaly detection that catches *novel* attacks is a Pro+ feature. Lens and Rampart include ML detection for free in their respective layers.
+- **Patch your Arista VeloCloud.** VCO 5.2.3.18+, 6.1.3.10+, 6.4.2.12+.
+- **Upgrade your Collabora Online.** richdocumentscode 26.4.303. Then hunt for web shells.
+- **Rotate your firewall VPN credentials.** That's on you. Check for dormant admin accounts.
+- **Verify your Secure Boot DBX revocations.** Microsoft's manual revocation steps are on you.
+- **Fix Microsoft's SharePoint patches.** That's on Microsoft. Restrict access and wait.
+- **Stop a website from downloading a file to your Downloads folder.** Browser download behavior is controlled by the browser. Scanner CAN detect the malicious file before an agent reads it.
+- **Replace your SIEM.** AegisGate is a detection and prevention layer for AI agent traffic. In the free tiers, you can extract our patterns and feed them into your SIEM manually.
+- **Stop ARTEX running on someone else's machine.** AegisGate detects the *effects* of ARTEX in your traffic. It can't disable the attacker's tooling.
+- **Detect novel AI attack patterns without ML (free tier).** The 303 regex patterns in Platform's Community tier catch known patterns. The ML anomaly detection is a Pro+ feature. Lens and Rampart include ML detection for free.
 
 What AegisGate DOES do: it gives you visibility into a layer of traffic that you almost certainly have zero visibility into right now — the AI agent layer. And Black October just proved that layer is being actively exploited.
 
@@ -1080,9 +1020,9 @@ There is no upsell here. There is no "schedule a demo." There are repos you can 
 The repos:
 - **Lens** (browser extension, 219 regex + ML): [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens)
 - **Rampart** (local proxy, 302 regex + ML): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
-- **Scanner** (static analysis, 342 regex + ML): [github.com/aegisgatesecurity/aegisgate-scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
+- **Scanner** (static analysis, 353 regex + ML): [github.com/aegisgatesecurity/aegisgate-scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
 - **MCP** (secure MCP framework, 79 regex + ML): [github.com/aegisgatesecurity/aegisgate-mcp](https://github.com/aegisgatesecurity/aegisgate-mcp)
-- **Platform** (enterprise gateway, 285 regex Community / +ML Pro+): [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
+- **Platform** (enterprise gateway, 303 regex Community / +ML Pro+): [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
 
 If this helps you, star the repos so other blue teamers find them. If it doesn't help you, the detection patterns are still free — take them and use them in your SIEM. No strings.
 
@@ -1090,4 +1030,4 @@ Stay safe out there.
 
 ---
 
-*This guide will be updated as the situation develops. Last updated: October 23, 2026 10:14 UTC.*
+*This guide will be updated as the situation develops. Last updated: October 24, 2026 06:20 UTC.*
