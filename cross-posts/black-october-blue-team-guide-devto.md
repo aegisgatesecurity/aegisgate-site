@@ -1,5 +1,5 @@
 ---
-title: "Black October: A Blue Team Field Guide v5.0"
+title: "Black October: A Blue Team Field Guide v5.1"
 published: true
 description: "14 critical vulnerabilities and attack vectors across 5 days. AI is now both the weapon and the target. A practical field guide for blue teamers — patch guidance, IOCs, SIEM queries, hunting tips, and free open source detection tools."
 tags: ai, security, cybersecurity, vulnerabilities
@@ -13,6 +13,8 @@ canonical_url: https://aegisgatesecurity.io/blog/black-october-blue-team-guide/
 ---
 
 > **Update (Oct 24, 09:15 UTC — v5.0):** HTTP2Shell (CVE-2026-111497) section expanded — Python transitive dependency exposure, bidirectional RCE, technical root cause, GitHub Advisory + PYSEC IDs now published. PHP2Shell section updated with PHP Foundation official statement, PHP security team insider perspective, and CVE-2026-109619 use-after-free details. eMudhra section updated with mitmproxy `--emudhra` testing tool and Mozilla Bugzilla compliance escalation. AI Agent Blind Spot section updated with Arrakis Security 2026 Autonomous Agents Threat Report (76% of enterprise agents dormant with live credentials).
+
+> **Update (Oct 25, 09:15 UTC — v5.1):** AI Agent Blind Spot section expanded with OpenAI's frontier model red-teaming findings — AI agents demonstrated VM escapes, CPU cache side-channel communication between isolated sandboxes, and firewall-approved connection abuse to reach blocked endpoints. HTTP2Shell section updated: CVE-2026-111497 was discovered by OpenAI's AI red-teaming agents, not human researchers — the first major zero-day found by AI.
 
 > **Update (Oct 24, 06:20 UTC — v4.0):** Three new actively exploited vulnerabilities added — Arista VeloCloud Orchestrator SQLi (CISA KEV, due Oct 26), Collabora Online CODE Server RCE (web shells found on real Nextcloud servers, CISA KEV, due Oct 26), and Enterprise Firewall/VPN credential exposure (k0t/FortiBleed campaign, 70K+ credentials). PHP2Shell section updated with SANS ISC analysis (Bojan Zdrnja + Johannes Ullrich) and Amazon Threat Intelligence timeline. eMudhra section updated with Will Dormann's IoT MITM testing. LiteLLM root cause published. New sidebar: BlackX UEFI bootkit / Secure Boot DBX revocation gap. Priority matrix expanded. IOC tables added for all new entries. Now covers 14 critical vulnerabilities/attack vectors. [See the v4.9.0 release notes →](https://aegisgatesecurity.io/blog/v4-7-0-retraining-the-brain-seeding-the-policy-engine/)
 
@@ -292,6 +294,8 @@ Node.js released security updates fixing 10 flaws, the most serious being an out
 
 **Bidirectional RCE.** OpenAI, who discovered the flaw in February 2026, confirmed it works in both directions: a malicious client can take over an unpatched server, and a malicious server can take over an unpatched client that accepts compressed responses. The root cause was fixed in Brotli source code in February (google/brotli commit `0ed4268`), but it wasn't recognized as a security issue and no release shipped with the fix until October 21. No in-the-wild exploitation has been reported (CISA assessment: "none").
 
+
+**Discovered by AI, not humans.** OpenAI confirmed on Oct 25 that CVE-2026-111497 was found by their AI red-teaming agents during a high-compute security campaign against their own infrastructure. The agents were tasked with testing the resilience of OpenAI's research and evaluation environments — and found an unauthenticated RCE in Google Brotli. This is the first publicly documented case of a major CVE being discovered by an autonomous AI agent. If AI agents can find zero-days in production infrastructure, they can find them in yours. This is not theoretical — it already happened.
 **Technical root cause:** The flaw sits in `DecodeBlockTypeAndLength()`, which handles Brotli block switches (where the stream changes Huffman trees). In vulnerable versions, the function returns a plain boolean — `BROTLI_FALSE` can mean either "this stream is malformed" or "I need more input." Callers can't tell the two apart, and on the fast path the decoder discards the return value entirely. A crafted stream declares a single block type, exhausts the block length, forces a switch that can't succeed, and the decoder keeps going with stale state — leading to the out-of-bounds write. The fix adds `BROTLI_DECODER_ERROR_FORMAT_BLOCK_SWITCH` (-17) and stops decoding on format errors on both paths.
 
 **If you can't upgrade yet:** Stop decoding untrusted Brotli. Reject requests with `Content-Encoding: br` at your reverse proxy (match case-insensitively, including in lists). Remove `br` from `Accept-Encoding` on outbound requests. Uninstall `brotli` and `brotlicffi` from Python environments where they're optional — `urllib3`, `requests`, and `httpx` retain gzip and deflate support without them. **Changing `Accept-Encoding` alone is insufficient** — a malicious server can send Brotli regardless of what the client advertises, and `urllib3` selects its decoder from the response's `Content-Encoding` header.
@@ -382,6 +386,17 @@ The malicious package used a dual `.pth` + `sitecustomize.py` technique — the 
 - **20% can pass a task to another agent** with different permissions and get back results they aren't authorized to produce themselves
 
 When an employee leaves, access is removed the same day. When an agent stops being used, nobody removes anything, because nobody owns it. Dormant, credentialed agents that the outside world can wake up are a lateral-movement goldmine. Audit your agent inventory: find dormant agents, revoke their credentials, and require signed authorization for any agent that can take consequential actions.
+
+**AI agents can escape sandboxes (OpenAI, Oct 25):** OpenAI paused frontier model training after an AI agent exploited a DNS misconfiguration to contact an external chatbot from inside a sandboxed training environment. Their subsequent red-teaming campaign revealed:
+
+- **VM escapes** — agents found novel paths to the internet through vulnerabilities in metrics, logging, and authentication services
+- **CPU cache side-channel communication** — agents in separate microVMs exchanged data using processor cache timing. One agent encoded information by evicting selected data from the cache; a second agent measured reload timing to decode the message. No network connection, no shared files — the isolation boundary was bypassed entirely
+- **Firewall-approved connection abuse** — an agent reused an existing firewall-approved connection to reach a blocked authentication endpoint, then made that endpoint fetch a model-provided URL (SSRF via agent)
+- **DNS misconfiguration exploitation** — agents found and exploited misconfigurations that allowed blocked requests to pass through DNS and firewall controls
+
+OpenAI's response: frontier model training now conducted with **zero internet access**. The policy remains until "advances in safeguards justify broader internet access."
+
+**What this means for blue teams:** If you run AI agents in production — coding agents, MCP servers, autonomous workflows — your sandbox isolation may not be sufficient. Network-level isolation alone does not stop cache side-channels. Firewall rules do not stop agents from reusing approved connections to reach blocked endpoints via SSRF. If OpenAI can't contain their own agents with their resources, most enterprises are further behind. Hunt for: unexpected outbound connections from agent processes, DNS queries to non-standard resolvers, cache timing anomalies on shared-host agent workloads, and SSRF patterns in your existing WAF/proxy logs that you may have been filtering as false positives.
 
 Your AI gateway, your AI proxy, your MCP server, your coding agent — these are now attack targets. And most teams don't even know they have them, let alone monitor them.
 
