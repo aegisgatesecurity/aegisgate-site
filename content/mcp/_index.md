@@ -27,7 +27,7 @@ AegisGate MCP is a standalone MCP server framework that applies **23 security la
 - **Protocol:** MCP 2025-06-18
 - **Language:** Go 1.26.9
 - **License:** Apache 2.0
-> **Patent Pending** (7 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
+> **Patent Pending** (8 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 - **Dependencies:** Zero (no `require` directives in go.mod)
 
 ## 23 Security Layers

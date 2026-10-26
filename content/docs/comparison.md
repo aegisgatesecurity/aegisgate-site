@@ -140,4 +140,4 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 
 AegisGate ties or wins on every technical dimension. The only areas where competitors lead are **business maturity** (certifications, support infrastructure) — not product capability. For organizations that prioritize verified detection accuracy, multi-protocol coverage, compliance breadth, air-gapped deployment, and open-source auditability, AegisGate is the clear choice.
 
-> **Patent Pending** (7 U.S. provisional applications). Published research: [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
+> **Patent Pending** (8 U.S. provisional applications). Published research: [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).

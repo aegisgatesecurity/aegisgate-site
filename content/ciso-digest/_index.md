@@ -225,7 +225,7 @@ Other                   ██ 4% (9 events)
 ```
 Report ID: digest-2026q3-001
 Generated: 2026-10-01T09:00:00Z
-Platform Version: 4.9.0
+Platform Version: 5.0.0
 
 Report Hash: SHA256:a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2
 Signature: MEUCIQDvL8K9mN2pQ3rS4tU5vW6xY7zA8bC9dE0fG1hI2jK3lM4n
@@ -501,7 +501,7 @@ Yes. Enterprise tier supports JSON export for GRC integration. Contact support f
 
 ## Ready to Report AI Security Posture?
 
-> **Patent Pending** (7 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
+> **Patent Pending** (8 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
 CISO Posture Digest is available in **Professional tier and above**.
 

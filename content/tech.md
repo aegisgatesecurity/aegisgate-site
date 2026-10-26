@@ -7,7 +7,7 @@ mermaid: true
 
 ## Architecture Overview
 
-AegisGate v4.9.0 secures AI interactions across **six pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE) plus the **Trust Framework** — in a single 19.1 MB binary.
+AegisGate v5.0.0 secures AI interactions across **seven pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE), the **Trust Framework**, and the **Agent Registry** — in a single 19.1 MB binary.
 
 {{< mermaid >}}
 flowchart TB
@@ -19,14 +19,15 @@ flowchart TB
         E["ANP Client"]
     end
 
-    subgraph AegisGate["AegisGate Platform v4.9.0"]
+    subgraph AegisGate["AegisGate Platform v5.0.0"]
         G["HTTP Proxy :8080"]
         H["MCP Server :8081"]
         I["A2A Endpoint :8082"]
         J["ACP Gateway :8083"]
         K["ANP Router :8084"]
         L["RESPONSE Guard"]
-        TR["Trust Framework\nPkg/trust/\n(v4.9.0)"]
+        TR["Trust Framework\nPkg/trust/\n(v5.0.0)"]
+        AR["Agent Registry\nPkg/agentregistry/\n(v5.0.0)"]
 
         M["Scanner - 303 patterns"]
         N["ATLAS - 66 techniques"]
@@ -73,9 +74,9 @@ flowchart TB
 
 ---
 
-## Six Pillars of AI Security
+## Seven Pillars of AI Security
 
-AegisGate v4.9.0 protects every AI interaction with five protocol pillars and one cross-cutting trust pillar. The **Trust Framework** is the 6th pillar, and ties together the five protocol pillars with cryptographically-signed attestations and a per-session trust score.
+AegisGate v5.0.0 protects every AI interaction with six protocol pillars, the Trust Framework, and the Agent Registry. The **Trust Framework** is the 6th pillar, and ties together the protocol pillars with cryptographically-signed attestations and a per-session trust score.
 
 ### 1. HTTP API Security (v3.0+, port 8080)
 
@@ -133,7 +134,7 @@ AI response scanning for all protocols:
 | 7 | Compliance Reports | Auto-generates GDPR, HIPAA, PCI-DSS, SOC2 reports |
 | 8 | Response Guard Middleware | Unified scanning for HTTP, MCP, A2A, ACP, ANP |
 
-### 5. Trust Framework (v4.9.0)
+### 5. Trust Framework (v5.0.0)
 
 The 6th pillar. Continuous, per-session trust scoring with cryptographically-signed attestations. Ties the five protocol pillars together into a single, auditable trust story. Available on Professional+ tiers.
 
@@ -142,7 +143,7 @@ The 6th pillar. Continuous, per-session trust scoring with cryptographically-sig
 | 1 | Session Trust Score | 0–100 score accumulated per session from MCP, A2A, Proxy, and Response events |
 | 2 | Ed25519 Attestations | Every event emits a signed attestation (`pkg/trust/attestation/signer.go`) |
 | 3 | Attestation Verifier | Any party can verify a signed attestation offline (`pkg/trust/attestation/verifier.go`) |
-| 4 | Cross-Pillar Correlation | Findings from all 5 protocol pillars feed into a single trust score |
+| 4 | Cross-Pillar Correlation | Findings from all pillars feed into a single trust score |
 | 5 | Trust Score API | `GET /api/v1/trust/score?session=ID` returns the live score and component breakdown |
 | 6 | Attestations Feed | `GET /api/v1/trust/attestations?since=TIMESTAMP` returns the rolling event log |
 | 7 | Tier-Gated Activation | The `TRUST_PILLAR_ENABLED` feature flag gates the API behind Professional+ |
@@ -170,6 +171,23 @@ Each attestation is a JSON object signed with Ed25519. The signature is computed
 The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which is set automatically for Professional and Enterprise tiers. Developer and lower tiers receive HTTP 402 (Payment Required) from the trust API endpoints.
 
 ---
+
+### 6. Agent Registry (v5.0.0)
+
+The 7th pillar. A unified, live inventory of every AI agent across all AegisGate protocol layers, with dormancy detection, automated credential revocation, AIBOM drift detection, and cross-deployment federation. Combined with the Trust Framework, closes the governance loop. Available on Professional+ tiers.
+
+| # | Component | Description |
+|---|-----------|-------------|
+| 1 | Six-Source Discovery | Auto-discovers agents from RBAC, MCP, A2A, AIBOM, Correlation Engine, and Intent Signing |
+| 2 | Five-State Lifecycle | `provisioned → active → dormant → quarantined → revoked` with sticky quarantine/revoked states |
+| 3 | DormancyEngine | Waterfall threshold evaluation (24h → dormant, 7d → quarantined, 30d → revoked) |
+| 4 | PolicyEngine | Declarative lifecycle policies with SOAR integration (PagerDuty, Jira, ServiceNow) |
+| 5 | AIBOM Drift Detection | Reconciles static AI Bill of Materials against live runtime agents |
+| 6 | Federation | Cross-deployment inventory sharing via ECDSA P-256 signed attestation bundles |
+| 7 | HTTP API | 13 endpoints at `/api/v1/agents` with RBAC permission gating |
+| 8 | Dashboard UI | 5-tab interface (agent list, dormancy, AIBOM drift, policies, federation) |
+
+Addresses NIST AI RMF MEASURE-2.7: tracking AI system lifecycle states and ensuring credentials are revoked when decommissioned.
 
 ## Enterprise Authentication (v3.0+)
 
@@ -200,7 +218,7 @@ The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which
 
 ---
 
-## Performance (v4.9.0)
+## Performance (v5.0.0)
 
 | Metric | Target | Achieved |
 |--------|--------|----------|
@@ -225,7 +243,7 @@ docker run -d \
   -p 8081:8081 \
   -p 8082:8082 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v4.9.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.0.0
 ```
 
 ### Kubernetes (Helm)
@@ -257,4 +275,4 @@ The Helm chart includes HPA autoscaling (1-10 replicas), NetworkPolicy, ServiceM
 
 _For API documentation, see [docs/API.md](/docs/api/)._
 
-> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138). Patent pending (7 U.S. provisional applications).
+> **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138). Patent pending (8 U.S. provisional applications).

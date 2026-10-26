@@ -178,7 +178,7 @@ sequenceDiagram
 | Stay free and open source | Require an account or subscription |
 
 Open source (Apache 2.0): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
-> **Patent Pending** (7 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
+> **Patent Pending** (8 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
 ---
 

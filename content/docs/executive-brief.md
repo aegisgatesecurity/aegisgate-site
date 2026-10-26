@@ -101,7 +101,7 @@ SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NI
 ### What's Needed Before Enterprise Procurement
 
 1. **SOC 2 Type II** — Independent audit (self-attestation Type I + controls exist)
-> **Patent Pending** (7 U.S. provisional applications) and [published research on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
+> **Patent Pending** (8 U.S. provisional applications) and [published research on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
 2. **Third-party pentest** — Independent lab (self-pentest v3.3.0 exists)
 3. **Legal review** — DPA, MSA, BAA, SLA (all drafts exist, ~$5-15K legal review)

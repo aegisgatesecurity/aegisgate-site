@@ -427,7 +427,7 @@ flowchart LR
 
 <h2 style="text-align:center; margin-top:60px;">Verifiable Security vs. Competitors</h2>
 
-<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">The four pillars no competitor can replicate.</p>
+<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">The five pillars no competitor can replicate.</p>
 
 <table class="comparison-table">
 <thead>
@@ -612,7 +612,7 @@ flowchart LR
 <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">SSRN Whitepaper</a> — <em>AegisGate: A Multi-Layered Security Architecture for AI Agent Communication</em></li>
 <li><a href="/blog/">Blog</a> — case studies, technical deep dives, threat analysis</li>
 <li><a href="/case-studies/">Case studies</a> — real-world scenarios across industries</li>
-<li><a href="/tech/">Technical architecture</a> — six-pillar deep dive</li>
+<li><a href="/tech/">Technical architecture</a> — seven-pillar deep dive</li>
 <li><a href="/docs/executive-brief/">Executive brief</a> — one-page overview for CISOs and CIOs</li>
 </ul>
 </div>
@@ -624,7 +624,7 @@ flowchart LR
 <li><a href="/atlas/">ATLAS coverage</a> — MITRE ATLAS technique mapping</li>
 <li><a href="/compliance/">Compliance docs</a> — HIPAA, SOC 2, EU AI Act, FedRAMP</li>
 <li><a href="/changelog/">Changelog</a> — version history and release notes</li>
-<li><a href="/tech/">Technical architecture</a> — six-pillar deep dive</li>
+<li><a href="/tech/">Technical architecture</a> — seven-pillar deep dive</li>
 </ul>
 </div>
 

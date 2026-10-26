@@ -154,7 +154,7 @@ ATLAS organizes 66 techniques into 14 tactics. AegisGate provides comprehensive 
 | Technique | Coverage |
 |-----------|----------|
 | Resource Hijacking | Per-session/per-agent resource boundaries |
-| Denial of Service | Rate limiting across all six pillars |
+| Denial of Service | Rate limiting across all seven pillars |
 
 ---
 
@@ -197,7 +197,7 @@ ATLAS organizes 66 techniques into 14 tactics. AegisGate provides comprehensive 
 
 ## Getting Started with ATLAS Defense
 
-### 1. Enable All Six Pillars
+### 1. Enable All Seven Pillars
 
 ```yaml
 # aegisgate-platform.yaml
