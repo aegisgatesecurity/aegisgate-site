@@ -8,6 +8,15 @@ type: "changelog"
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
 
+### v5.0.0 - 2026-10-26 - Agent Registry: Unified AI Agent Inventory & Lifecycle Management
+
+- **Agent Registry**: Unified discovery, lifecycle management, and automated credential revocation for AI agents across HTTP, MCP, A2A, ACP, and ANP protocols. 6-source aggregation (RBAC, MCP, A2A, AIBOM, correlation, intent signing), 5-state lifecycle machine (provisioned → active → dormant → quarantined → revoked), configurable dormancy/quarantine/revoke thresholds, policy-driven enforcement, AIBOM drift detection, real-time SSE lifecycle events, PostgreSQL store with RLS, and cross-deployment federation with ECDSA P-256 signed attestation bundles.
+- **Dashboard UI**: Agent registry dashboard with live SSE, dormancy reports, AIBOM drift, policy CRUD, and federation status.
+- **Incident Playbook**: Dormant agent detection playbook (notify, collect evidence, quarantine, compliance attestation).
+- **Patent**: US Provisional App. No. 64/184,057 filed — unified agent lifecycle management. Brings total to **8 provisional patent applications**.
+
+---
+
 ---
 
 ### v4.9.0 - 2026-10-23 - Agent Instruction Poisoning Detection
@@ -73,7 +82,7 @@ All notable changes to AegisGate Security Platform are documented here. For the 
 - FIPS 140-3: 41%→98%, ISO 27001: 72%→100%, ISO 42001: 59%→99%, HITRUST: 82%→100%.
 
 **Patent:**
-- US Provisional App. No. 64/180,722 filed — Federated detection gap analysis and self-improving AI security posture assessment. Brings total to 7 provisional applications.
+- US Provisional App. No. 64/180,722 filed — Federated detection gap analysis and self-improving AI security posture assessment. Brings total to 8 provisional applications.
 
 ---
 

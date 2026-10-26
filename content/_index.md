@@ -28,7 +28,7 @@ mermaid: true
 </div>
 
 <div class="alert alert-info alert-center" style="font-size:0.9rem;">
-<strong>Patent Pending.</strong> AegisGate technologies are patent pending (7 provisional applications) — including cryptographic identity, capability contracts, trust scoring, multi-layered detection, compliance mapping, AI response scanning, AI artifact static analysis, and federated detection gap analysis.
+<strong>Patent Pending.</strong> AegisGate technologies are patent pending (8 provisional applications) — including cryptographic identity, capability contracts, trust scoring, multi-layered detection, compliance mapping, AI response scanning, AI artifact static analysis, and federated detection gap analysis, and unified AI agent lifecycle management with automated credential revocation.
 </div>
 
 <div class="alert alert-success alert-center" style="font-size:0.9rem;">

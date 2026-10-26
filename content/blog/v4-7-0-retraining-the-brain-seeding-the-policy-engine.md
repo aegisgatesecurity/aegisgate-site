@@ -295,4 +295,4 @@ All Go repos share the same v15b ONNX model (SHA-256: `99187453...`). Lens uses 
 
 ---
 
-*Josh Colvin is the founder and sole developer of AegisGate Security, LLC. 7 provisional patents filed. ~660K LOC across 5 products. Apache 2.0 licensed.*
+*Josh Colvin is the founder and sole developer of AegisGate Security, LLC. 8 provisional patents filed. ~660K LOC across 5 products. Apache 2.0 licensed.*

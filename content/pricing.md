@@ -7,7 +7,7 @@ type: pricing
 Simple, transparent pricing. No hidden fees. Start free, upgrade when you are ready.
 
 <div class="alert alert-info alert-center" style="margin-bottom:16px;font-size:0.9rem;">
-<strong>Patent Pending</strong> &mdash; AegisGate technologies are patent pending (7 provisional applications). US Provisional App. Nos. 64/153,573–64/153,577, 64/174,824, and 64/180,722.
+<strong>Patent Pending</strong> &mdash; AegisGate technologies are patent pending (8 provisional applications). US Provisional App. Nos. 64/153,573–64/153,577, 64/174,824, and 64/180,722, and 64/184,057.
 > **📚 Published Research** — _"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"_ is live on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 </div>
 
