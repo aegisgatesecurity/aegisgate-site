@@ -5,38 +5,10 @@ type: "landing"
 mermaid: true
 ---
 
-> **🏢 AegisGate Platform v5.0.0 is LIVE** — Agent Registry with six-source discovery, dormancy detection, automated credential revocation, AIBOM drift detection, cross-deployment federation, 5-tab dashboard UI, 31 compliance frameworks (2,043 total controls, 1,457 automated), 11 SIEM + 4 SOAR integrations, air-gapped deployment, Guided Setup. [Try the Live Demo](https://demo.aegisgatesecurity.io/) or [Download v5.0.0](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.0.0).
-
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
-<div class="alert alert-info">
-<strong>🏢 AegisGate Platform v5.0.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-platform">aegisgate-platform repo</a>)</em>
-
-<ul>
-<li><strong>8 attack surfaces: HTTP API, MCP, A2A, ACP, ANP, Response, Trust Framework, Agent Registry</li>
-<li><strong>31 compliance frameworks</strong> (2,043 controls, 1,457 automated): HIPAA, SOC 2, EU AI Act, FedRAMP, ISO 27001, ISO 42001, NIST AI RMF, OWASP LLM Top 10, and more</li>
-<li><strong>11 SIEM integrations</strong>: Splunk, Elastic, Datadog, Sumo Logic, Chronicle, Loki, Fluentd, Logstash, Cribl, Kafka, Graylog, syslog</li>
-<li><strong>4 SOAR integrations</strong>: PagerDuty, Jira, ServiceNow, Custom webhook</li>
-<li><strong>Agent Registry</strong>: 6-source discovery, 5-state lifecycle, dormancy detection, automated credential revocation, AIBOM drift detection, cross-deployment federation, 5-tab dashboard</li>
-<li><strong>ML threat detection</strong>: CharCNN-BiLSTM (1.6M params), 100/100 evasion resistance, 0% FPR, ~5ms</li>
-<li><strong>303 detection patterns</strong>, MITRE ATLAS 66 techniques</li>
-<li><strong>Web UI</strong>: 8-page dashboard at <code>/ui/</code> (incl. Agent Registry)</li>
-<li><strong>Single 19.1MB Go binary</strong>, zero external dependencies, air-gapped deployment</li>
-<li><strong>11,654+ tests passing</strong>, 85%+ coverage</li>
-<li><strong>Load tested</strong>: 5,000 VUs, 28,000 RPS, 0% errors</li>
-<li><strong>Apache 2.0 community edition</strong>, self-hosted, zero data collection</li>
-</ul>
-
-<p style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(0,173,216,0.2);">
-<strong>Patent Pending</strong> &mdash; 8 U.S. provisional patent applications covering cryptographic identity, multi-protocol interception, compliance mapping, three-layered detection, response scanning, AI artifact static analysis, federated detection gap analysis, and agent registry lifecycle management. USPTO App. Nos.~64/153,573; 64/153,574; 64/153,575; 64/153,576; 64/153,577; 64/174,824; 64/180,722; 64/184,057.
-</p>
-<p style="margin-top:8px;">
-<strong>📚 Published Research</strong> &mdash; <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em> is live on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">SSRN</a>. Covers the three-layer detection pipeline, 303 regex patterns, CharCNN-BiLSTM neural model (1.6M params), federated IOC architecture, and 31+ compliance frameworks.
-</p>
-</div>
-
 <div class="alert alert-success alert-center">
-<strong>🏢 AegisGate Platform</strong> is <strong>open-source</strong> (Apache 2.0 community edition + commercial Enterprise modules). Free Community tier. Self-hosted. No vendor lock-in. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
+<strong>🏢 AegisGate Platform v5.0.0</strong> — open-source (Apache 2.0) + commercial Enterprise modules. Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.0.0 →</a>
 </div>
 
@@ -83,7 +55,7 @@ Your browser does not support the video tag.
 
 ## Seven Pillars of AI Security
 
-Platform v5.0.0 protects every AI interaction across eight attack surfaces:
+Platform v5.0.0 protects every AI interaction across seven security pillars:
 
 <div class="card-grid card-grid-2x2">
 <div class="card">
@@ -163,42 +135,12 @@ flowchart TD
 
     subgraph Platform["AegisGate Platform v5.0.0"]
         direction TB
-        
-        subgraph Pillar1["🌐 HTTP API Security"]
-            P1[303 Detection Patterns]
-            P1a[PII & Secrets Detection]
-            P1b[Bidirectional Scanning]
-        end
-        
-        subgraph Pillar2["🔗 MCP Protocol"]
-            P2[Session Auth + Isolation]
-            P2a[8 Guardrails Active]
-            P2b[Tool Authorization]
-        end
-        
-        subgraph Pillar3["🤝 A2A Security"]
-            P3[mTLS + HMAC-SHA256]
-            P3a[Capability Enforcement]
-            P3b[Rate Limiting]
-        end
-        
-        subgraph Pillar4["🛡️ Response Security"]
-            P4[PII Scanner]
-            P4a[Secret Detector]
-            P4b[Response Redaction]
-        end
-        
-        subgraph Pillar5["🔐 Trust Framework"]
-            P5[Trust Scoring 0-100]
-            P5a[Ed25519 Attestations]
-            P5b[Offline Verification]
-        end
-        
-        subgraph Pillar6["🧠 ML Detection"]
-            P6[CharCNN-BiLSTM 1.6M]
-            P6a[100/100 Evasion Resistance]
-            P6b[~5ms Inference]
-        end
+        P1["🌐 HTTP API — 303 patterns, PII, Secrets"]
+        P2["🔗 MCP — Session auth, 8 guardrails"]
+        P3["🤝 A2A — mTLS, HMAC, Rate limiting"]
+        P4["🛡️ Response — PII, Secrets, Redaction"]
+        P5["🔐 Trust — Scoring, Ed25519 attestation"]
+        P6["🧠 ML — CharCNN-BiLSTM, 100/100 evasion"]
     end
 
     subgraph Output["AI Services"]
@@ -212,23 +154,23 @@ flowchart TD
     B --> Platform
     C --> Platform
     
-    Pillar1 --> Output
-    Pillar2 --> Output
-    Pillar3 --> Output
-    Pillar4 --> Output
+    P1 --> Output
+    P2 --> Output
+    P3 --> Output
+    P4 --> Output
     
-    Pillar5 -.->|Attestations| Pillar1
-    Pillar5 -.->|Attestations| Pillar2
-    Pillar5 -.->|Attestations| Pillar3
-    Pillar6 -.->|Threat Scores| Pillar1
-    Pillar6 -.->|Threat Scores| Pillar4
+    P5 -.->|Attestations| P1
+    P5 -.->|Attestations| P2
+    P5 -.->|Attestations| P3
+    P6 -.->|Threat Scores| P1
+    P6 -.->|Threat Scores| P4
 
-    style Pillar1 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
-    style Pillar2 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
-    style Pillar3 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
-    style Pillar4 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
-    style Pillar5 fill:#1a1f2e,stroke:#00ADD8,stroke-width:2px
-    style Pillar6 fill:#1a1f2e,stroke:#22c55e,stroke-width:2px
+    style P1 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style P2 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style P3 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style P4 fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
+    style P5 fill:#1a1f2e,stroke:#00ADD8,stroke-width:2px
+    style P6 fill:#1a1f2e,stroke:#22c55e,stroke-width:2px
 {{< /mermaid >}}
 
 ### Detection Flow
