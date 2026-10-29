@@ -149,7 +149,7 @@ POST /api/v1/maintenance     # Enable/disable/schedule
 - [Getting Started Guide](/docs/getting-started/) - Step-by-step setup, configuration, and first-request walkthrough
 - [Configuration Reference](/docs/configuration/) - Full config file format, environment variables, and precedence rules
 - [Compliance Frameworks](/docs/compliance/) - 31 frameworks, 2,043 controls, 1,457 automated
-- [Tier Comparison](/docs/tiers/) - Community, Developer, Professional, and Enterprise editions
+- [Enterprise Support](/pricing/) - Enterprise support, compliance modules, and custom integrations
 - [Detection Coverage Matrix](/docs/detection-coverage/) - Per-category detection rates and evasion resistance scores
 - [Graceful Degradation](/docs/graceful-degradation/) - How AegisGate maintains security when ML is unavailable
 - [Distributed Tracing](/docs/distributed-tracing/) - OpenTelemetry integration with Jaeger, Tempo, and OTLP collectors

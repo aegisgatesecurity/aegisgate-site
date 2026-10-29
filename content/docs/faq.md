@@ -136,7 +136,7 @@ This checks port conflicts, TLS certificate paths, log levels, rate limits, SIEM
 - **Enterprise support (continued)**: ISO 42001, EU AI Act, FIPS, CIS, NIST CSF, CSA STAR, NIST AI 600-1, SOX, GLBA, CJIS, NERC CIP, FERPA, HITECH, FFIEC, TSA SD, ISO 21434 (16 frameworks)
 - **Enterprise** (custom): FedRAMP, CMMC L2, NIST 800-171, HITRUST, TISAX (5 frameworks)
 
-See [Compliance Frameworks](/docs/compliance/) for the full list and [Tier Comparison](/docs/tiers/) for pricing.
+See [Compliance Frameworks](/docs/compliance/) for the full list. Contact sales@aegisgatesecurity.io for enterprise support details.
 
 ---
 

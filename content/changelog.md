@@ -630,7 +630,7 @@ Modules are purchased via enterprise support onboarding and activated instantly 
 
 enterprise deployments consolidated. All features available under Apache 2.0 (community) or enterprise support agreement.
 
-The Pro tier also picked up the **Trust Framework** and the **Compliance Scan API** as enterprise features in v3.2.0 — see the [Tier Comparison](/docs/tiers/) page for the updated matrix.
+The Pro tier also picked up the **Trust Framework** and the **Compliance Scan API** as enterprise features in v3.2.0 — see the [Enterprise page](/pricing/) for details.
 
 #### Compliance Scan Engine (Phase 3) — _Completed 2026-06-05_
 
@@ -656,7 +656,7 @@ The marketing site has been updated to reflect the v3.2.0 5-pillar architecture:
 - [Homepage](/) — the hero card grid now lists the four protocol pillars plus a highlighted **Trust Framework** card (new in v3.2.0).
 - [Tech page](/tech/) — the "Five Pillars" section is reordered (HTTP API, MCP, A2A, RESPONSE, Trust) and the Trust Framework gets its own detail table (8 components, 2 API endpoints, attestation format, tier gating).
 - [Enterprise page](/pricing/) — 27 compliance frameworks available with enterprise support.
-- [Tier Comparison](/docs/tiers/) — Pro price updated, new "Trust Framework" and "Compliance Scan API" rows added.
+- [Enterprise page](/pricing/) — Trust Framework and Compliance Scan API details.
 
 #### Upcoming in v3.2.0
 - **Release engineering** — `VERSION` bump, GPG-signed annotated tag `v3.2.0`, GitHub Release with notes, SBOM re-generation, cosign signing, container image push to GHCR. (Phase 6.)
