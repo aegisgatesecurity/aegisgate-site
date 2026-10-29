@@ -293,16 +293,7 @@ Accept: application/json
 
 ---
 
-## Tier & Availability
-
-| Tier | Trust Framework Features |
-|------|-------------------------|
-| **Free** | ❌ Not available |
-| **Professional** | ✅ Per-agent identity, capability contracts, trust scoring |
-| **Enterprise** | ✅ All Professional features + signed attestations, audit export, SIEM integration |
-| **Air-Gap** | ✅ All Enterprise features + offline verification, FIPS 140-2 validated crypto |
-
-**Minimum Version:** Platform v4.2.0+
+**Available in all deployments.** Per-agent identity, capability contracts, trust scoring, signed attestations, audit export, SIEM integration, and FIPS 140-2 validated crypto for air-gapped environments.
 
 ---
 
@@ -315,7 +306,7 @@ Accept: application/json
 | Trust scoring | ✅ Real-time, 4-factor | ❌ None | ⚠️ Binary (allowed/blocked) | ❌ None |
 | Signed attestations | ✅ Self-verifying | ❌ Server-dependent logs | ❌ Unsigned JSON | ❌ None |
 | Offline verification | ✅ Yes (openssl) | ❌ Requires server access | ❌ Requires server access | ❌ N/A |
-| FIPS 140-2 crypto | ✅ Available (Enterprise+) | ⚠️ Enterprise only | ❌ No | ❌ No |
+| FIPS 140-2 crypto | ✅ Available | ⚠️ Enterprise only | ❌ No | ❌ No |
 | Air-gap compatible | ✅ Yes | ❌ Cloud-only | ❌ Cloud-only | ⚠️ Limited |
 
 **Bottom line:** No competitor provides cryptographic proof of agent identity and behavior. Trust Framework is a **category-defining capability**, not a feature checkbox.
@@ -345,7 +336,7 @@ Default retention is 365 days (configurable). Attestations are stored in immutab
 <details>
 <summary><strong>Does Trust Framework work in air-gapped environments?</strong></summary>
 
-Yes. Attestations are self-verifying — no server round-trip required. Auditors can verify attestations offline using the agent's public key. FIPS 140-2 validated crypto is available in Enterprise Air-Gap tier.
+Yes. Attestations are self-verifying — no server round-trip required. Auditors can verify attestations offline using the agent's public key. FIPS 140-2 validated crypto is available for air-gapped deployments.
 </details>
 
 <details>

@@ -11,13 +11,13 @@ Deploy profiles are predefined configuration presets that eliminate the need to 
 
 ### The 5 Profiles
 
-| Profile | Tier | TLS | Rate Limit | Persistence | Best For |
-|---------|------|-----|-----------|-------------|----------|
-| **quickstart** | Community | Off | 60 RPM | In-memory | First run, demos, evaluation |
-| **small-team** | Community | Auto-gen | 300 RPM | File-backed | 5-50 users, small orgs |
-| **production** | Developer | 1.3 (bring certs) | 1,000 RPM | File-backed | Production deployment |
-| **high-security** | Enterprise | mTLS + FIPS | 5,000 RPM | File-backed + FIPS | Regulated industries |
-| **air-gapped** | Enterprise | 1.3 (bring certs) | 1,000 RPM | File-backed | Isolated networks, no internet |
+| Profile | TLS | Rate Limit | Persistence | Best For |
+|---------|-----|------------|-------------|----------|
+| **quickstart** | Off | 60 RPM | In-memory | First run, demos, evaluation |
+| **small-team** | Auto-gen | 300 RPM | File-backed | 5-50 users, small orgs |
+| **production** | TLS 1.3 (bring certs) | 1,000 RPM | File-backed | Production deployment |
+| **high-security** | mTLS + FIPS | 5,000 RPM | File-backed + FIPS | Regulated industries |
+| **air-gapped** | TLS 1.3 (bring certs) | 1,000 RPM | File-backed | Isolated networks, no internet |
 
 ---
 
@@ -107,7 +107,6 @@ if err != nil {
 
 | Setting | Value |
 |---------|-------|
-| Tier | Community |
 | TLS | Disabled |
 | Rate limit | 60 RPM |
 | Persistence | In-memory (not persisted) |
@@ -126,7 +125,6 @@ if err != nil {
 
 | Setting | Value |
 |---------|-------|
-| Tier | Community |
 | TLS | Enabled, auto-generate |
 | Rate limit | 300 RPM |
 | Persistence | File-backed (`./data`) |
@@ -147,7 +145,6 @@ if err != nil {
 
 | Setting | Value |
 |---------|-------|
-| Tier | Developer |
 | TLS | Enabled, min 1.3, bring your own certs |
 | Rate limit | 1,000 RPM |
 | Persistence | File-backed (`/data`) |
@@ -172,7 +169,6 @@ if err != nil {
 
 | Setting | Value |
 |---------|-------|
-| Tier | Enterprise |
 | TLS | Enabled, min 1.3, mTLS required |
 | Rate limit | 5,000 RPM |
 | Persistence | File-backed (`/data`) with FIPS 140-2 |
@@ -200,7 +196,6 @@ if err != nil {
 
 | Setting | Value |
 |---------|-------|
-| Tier | Enterprise |
 | TLS | Enabled, min 1.3, bring your own certs |
 | Rate limit | 1,000 RPM |
 | Persistence | File-backed (`/data`) |

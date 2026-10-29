@@ -386,16 +386,7 @@ Content-Type: application/json
 
 ---
 
-## Tier & Availability
-
-| Tier | Federated IOC Store Features |
-|------|-----------------------------|
-| **Community** | ❌ Not available |
-| **Developer** | ❌ Not available |
-| **Professional** | ✅ Real-time IOC feed, TAXII 2.1 integration, STIX 2.1 export |
-| **Enterprise** | ✅ All Professional features + manual bundle import for air-gap, segmented feeds, redistribution rights |
-
-**Minimum Version:** Platform v4.2.0+
+**Available in all deployments.** Real-time IOC feed, TAXII 2.1 integration, STIX 2.1 export, manual bundle import for air-gap, segmented feeds, and redistribution rights.
 
 ---
 
@@ -440,7 +431,7 @@ Content-Type: application/json
 <details>
 <summary><strong>Can I opt out of sharing IOCs?</strong></summary>
 
-Yes. Enterprise customers can choose to receive IOCs without contributing. However, we encourage participation — the network effect only works when customers contribute detections.
+Yes. Organizations can choose to receive IOCs without contributing. However, we encourage participation — the network effect only works when customers contribute detections.
 </details>
 
 <details>

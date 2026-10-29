@@ -398,16 +398,7 @@ Authorization: Bearer <api_key>
 
 ---
 
-## Tier & Availability
-
-| Tier | AIBOM Generator Features |
-|------|-------------------------|
-| **Community** | ❌ Not available |
-| **Developer** | ✅ AIBOM generation (JSON), basic component tracking |
-| **Professional** | ✅ All Developer features + PDF export, cryptographic signature, historical tracking |
-| **Enterprise** | ✅ All Professional features + FIPS 140-2 crypto, offline generation |
-
-**Minimum Version:** Platform v4.2.0+
+**Available in all deployments.** AIBOM generation (JSON), basic component tracking, PDF export, cryptographic signature, historical tracking, FIPS 140-2 crypto, and offline generation for air-gapped environments.
 
 ---
 
