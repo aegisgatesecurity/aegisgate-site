@@ -1,6 +1,6 @@
 ---
 title: "Enterprise"
-description: "AegisGate is open-source AI security software. Community tier is free forever. Enterprise support, compliance modules, and custom integrations available by contact."
+description: "AegisGate is open-source AI security software. All five products are free under Apache 2.0. Enterprise support, compliance modules, and custom integrations available by contact."
 weight: 7
 ---
 
@@ -20,9 +20,9 @@ All five products — **Platform**, **Rampart**, **Lens**, **Scanner**, and **MC
 
 ---
 
-### Community Tier — Free Forever
+### Free Forever — Apache 2.0
 
-The Community tier gives you the full detection engine with no time limits:
+All five products are free to download, self-host, and use in production:
 
 - **1,248 detection patterns** across five products
 - Three-layer AI threat detection (regex, ATLAS, ML/ONNX)
@@ -31,7 +31,7 @@ The Community tier gives you the full detection engine with no time limits:
 - Built-in Certificate Authority
 - Community support via GitHub Issues
 
-Everything you need to secure AI interactions in a development or small-team environment.
+Everything you need to secure AI interactions — no tiers, no license keys, no feature gates.
 
 ---
 

@@ -47,7 +47,7 @@ AegisGate adds effectively zero overhead — the proxy is **-2.8ms p99** (faster
 
 ### How do I get enterprise support?
 
-Contact [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io) for Developer, Professional, or enterprise deploymentss. Community tier is free forever.
+All AegisGate products are free and open-source (Apache 2.0). Contact [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io) for enterprise support, compliance modules, and custom integrations.
 
 ### Does AegisGate support Kubernetes?
 
@@ -59,7 +59,7 @@ Yes. Deploy via:
 
 ### Can I try AegisGate before buying?
 
-Start with the **Community tier** (free, Apache 2.0) to evaluate the platform. Upgrade when you're ready for SSO, RBAC, and compliance features.
+Download and deploy AegisGate — it's free and open-source (Apache 2.0) with no time limits. Contact us for enterprise support, SSO, RBAC, and compliance module integration.
 
 ---
 

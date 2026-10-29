@@ -149,10 +149,10 @@ If any step fails, encounters an error, or produces unexpected output, the reque
 
 | Report | Frequency | Available To |
 |--------|-----------|-------------|
-| Compliance status summary | On demand via API | All tiers |
-| Processing volume and error rates | Daily | Developer+ |
-| Detailed processing integrity audit | Monthly | enterprise |
-| Custom processing integrity metrics | On demand | Enterprise |
+| Compliance status summary | On demand via API | All deployments |
+| Processing volume and error rates | Daily | All deployments |
+| Detailed processing integrity audit | Monthly | All deployments |
+| Custom processing integrity metrics | On demand | All deployments |
 
 ---
 

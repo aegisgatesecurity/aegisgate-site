@@ -125,9 +125,9 @@ A2A guardrails map directly to MITRE ATLAS adversarial techniques:
 
 ## Compliance Frameworks
 
-AegisGate provides automated compliance mapping across **31 security and AI governance frameworks** — 4 at the free Community tier, 6 at Developer, 16 at Professional, and 5 at Enterprise. No competitor covers more than 5.
+AegisGate provides automated compliance mapping across **31 security and AI governance frameworks** (2,043 total controls, 1,457 automated). No competitor covers more than 5.
 
-### Community (Free, Apache 2.0) — 4 frameworks
+### Core Frameworks (Free, Apache 2.0) — 4 frameworks
 
 | Framework | Coverage |
 |-----------|----------|
@@ -136,7 +136,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | OWASP Web Top 10 | Web application security risks (10 categories) |
 | NIST AI RMF 1.0 | AI risk management framework (50 controls) |
 
-### Enterprise Support — 6 compliance frameworks
+### Compliance Frameworks — 6 frameworks
 
 | Framework | Coverage |
 |-----------|----------|
@@ -147,7 +147,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | CCPA/CPRA | California consumer privacy (26 controls) |
 | GDPR | EU data protection regulation (99 controls) |
 
-### Enterprise Support — Security Foundation + Industry-Specific frameworks
+### Compliance Frameworks — Security Foundation + Industry-Specific frameworks
 
 **Security Foundation:**
 

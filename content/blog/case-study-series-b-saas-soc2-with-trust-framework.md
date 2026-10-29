@@ -162,13 +162,13 @@ queried these directly during the audit window.
 | Framework | Status | Notes |
 |-----------|:------:|-------|
 | **SOC 2 Type II** | ✅ PASSED | 0 findings on AI controls |
-| **MITRE ATLAS** | ✅ All 66 techniques | Built-in, Community tier |
-| **NIST AI RMF** | ✅ Full framework | Built-in, Community tier |
-| **OWASP LLM Top 10** | ✅ All categories | Built-in, Community tier |
+| **MITRE ATLAS** | ✅ All 66 techniques | Built-in, free (Apache 2.0) |
+| **NIST AI RMF** | ✅ Full framework | Built-in, free (Apache 2.0) |
+| **OWASP LLM Top 10** | ✅ All categories | Built-in, free (Apache 2.0) |
 | **EU AI Act** | ✅ Module purchased | Ready for August 2026 deadline |
 | **HIPAA** | 🟡 Not purchased | Available with enterprise support |
 | **PCI-DSS** | 🟡 Not applicable | Company doesn't process card data |
-| **GDPR** | ✅ Built-in | Community tier |
+| **GDPR** | ✅ Built-in | Free (Apache 2.0) |
 
 ## Customer Quote (Composite)
 

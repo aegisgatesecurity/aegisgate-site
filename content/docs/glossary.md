@@ -65,7 +65,7 @@ A reference for terms used throughout AegisGate documentation. Organized by cate
 | **ML Threat Detection** | CNN-BiLSTM neural network (1.58M params) for adversarial pattern detection with 100/100 evasion resistance. enterprise deployments. |
 | **ONNX Runtime** | Open Neural Network Exchange runtime. Optional dependency for ML threat detection. Without it, AegisGate uses regex-only mode. |
 | **Open-Source** | AegisGate's licensing model: all products are Apache 2.0 open source. Enterprise support available by contact. |
-| **RBAC** | Role-Based Access Control. Developer+ tier feature for managing user permissions. |
+| **RBAC** | Role-Based Access Control. Available for enterprise deployments. |
 | **SIEM** | Security Information and Event Management. AegisGate forwards audit events to 11 SIEM platforms (Splunk, Elasticsearch, QRadar, etc.). enterprise deployments. |
 | **SOAR** | Security Orchestration, Automation, and Response. AegisGate integrates with 4 SOAR platforms (PagerDuty, Jira, ServiceNow). |
 | **Trust Score** | A per-session trust rating computed by the Trust Framework based on agent identity, behavior, and posture. |

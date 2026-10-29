@@ -301,7 +301,7 @@ The Trust Framework provides the cryptographic evidence that the customer's risk
 - **Background checks on agent developers**: We verify the agent's identity (cryptographic keypair), not the human's identity behind the agent
 - **AI model risk scoring**: The Trust Framework scores the *agent* (behavior, contracts), not the underlying LLM model. Model risk is the customer's responsibility
 - **Federated trust across organizations**: Current version is single-organization. Cross-org trust federation is on the roadmap
-- **PKI / certificate authority integration**: AegisGate generates its own ECDSA keypairs. Integration with enterprise PKI (HashiCorp Vault, Microsoft AD CS) is on the Enterprise+ roadmap
+- **PKI / certificate authority integration**: AegisGate generates its own ECDSA keypairs. Integration with enterprise PKI (HashiCorp Vault, Microsoft AD CS) is on the roadmap
 
 ---
 

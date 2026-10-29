@@ -86,8 +86,8 @@ The Software is open-source and freely available. Commercial use, enterprise sup
 - (b) **Downgrades** take effect at the start of the next billing period
 - (c) Downgrades may result in loss of features, capacity, or compliance capabilities; Company is not liable for any such loss
 
-### 2.5 Free / Community Tier
-The Community tier is free of charge but is subject to Section 3.5 below. Community tier users agree to the limitations stated therein, including non-commercial use, "as is" provision, and best-effort support.
+### 2.5 Open-Source License
+All AegisGate products are licensed under the Apache 2.0 open-source license. There is no separate "Community tier" — all features are available to all users at no cost. Enterprise support is available via separate engagement.
 
 ---
 
@@ -98,19 +98,14 @@ Subject to the terms and conditions of this Agreement and your payment of applic
 
 | Component | Rights Granted |
 |-----------|----------------|
-| **Software Installation** | Install and run one instance of the Software per license key |
-| **Access Rights** | Access and use the Software according to your subscription tier |
-| **Updates** | Receive and install updates during the subscription term (see Section 9) |
-| **Support** | Access support services as provided for your tier |
+| **Software Installation** | Install and run the Software (Apache 2.0) |
+| **Access Rights** | Full access to all features (no tier restrictions) |
+| **Updates** | Receive and install updates (see Section 9) |
+| **Support** | Community support via GitHub Issues; enterprise support via separate engagement |
 
-### 3.2 License Scope by Tier
+### 3.2 License Scope
 
-| Tier | License Type | Users | Usage Limits |
-|------|--------------|-------|-------------|
-| **Community** | Non-commercial | 5 users | soft-throttle |
-| **Developer** | Commercial | Up to 25 users | 1,000 RPM |
-| **Professional** | Commercial | Up to 100 users | 10,000 RPM |
-| **Enterprise** | Commercial | Unlimited | Unlimited |
+All AegisGate software is licensed under Apache 2.0. There are no tiers, no user limits, and no rate limits enforced by license. The software is fully functional in all deployments.
 
 ### 3.3 License Restrictions
 You shall NOT:
@@ -120,10 +115,7 @@ You shall NOT:
 - (d) Use the Software for illegal purposes or in violation of applicable law
 - (e) Attempt to circumvent license enforcement, rate limiting, or feature restriction mechanisms
 - (f) Remove or alter proprietary notices, labels, or markings
-- (g) Use the Software beyond the scope of your subscription tier
-- (h) Grant access to users beyond your licensed user count
-- (i) Use the Software to develop a competing product or service
-- (j) Publish benchmarks or performance comparisons without Company's prior written consent
+- (g) Use the Software in violation of the Apache 2.0 license terms
 
 ### 3.4 License Key and Activation
 
@@ -149,16 +141,8 @@ You shall NOT:
 - You must resolve the issue within the grace period
 - Access may be suspended after the grace period
 
-### 3.5 Community Tier Limitations
-The Community tier license is:
-- (a) Limited to **non-commercial use only** (personal, educational, research, open-source, evaluation)
-- (b) Provided on an "as is" basis (see Section 10)
-- (c) Subject to **best-effort support only** (no SLA, no guaranteed response time)
-- (d) Revocable at Company's discretion
-- (e) Subject to rate limits and feature restrictions as documented in the Software
-- (f) Not eligible for PHI / PCI-DSS / GDPR processing under Company-held agreements (Subscriber must execute a BAA and/or DPA for such processing)
-
-**Commercial use of the Community tier is strictly prohibited and constitutes a material breach of this Agreement.**
+### 3.5 Open-Source License Terms
+The Apache 2.0 license grants commercial and non-commercial use, modification, and distribution rights. There are no additional restrictions beyond those in the Apache 2.0 license. Enterprise support engagements are governed by separate agreement.
 
 ---
 
@@ -270,13 +254,13 @@ You are responsible for:
 ### 6.3 Compliance Frameworks — Tier Requirements
 The Software supports certain compliance frameworks, but **support is not equivalent to certification**. Specific framework usage requires:
 
-| Framework | Tier Required | Additional Agreement |
-|-----------|---------------|---------------------|
-| **HIPAA** | Professional or Enterprise | Business Associate Agreement (BAA) |
-| **GDPR** (EU/UK) | Developer or above | Data Processing Agreement (DPA) |
-| **PCI-DSS** | Professional or Enterprise | PCI-DSS Vendor Agreement |
-| **SOC 2** | Enterprise | Enterprise subscription + audit cooperation |
-| **EU AI Act** | All tiers | Article 50 transparency disclosure (see §6.5) |
+| Framework | Additional Agreement |
+|-----------|---------------------|
+| **HIPAA** | Business Associate Agreement (BAA) |
+| **GDPR** (EU/UK) | Data Processing Agreement (DPA) |
+| **PCI-DSS** | PCI-DSS Vendor Agreement |
+| **SOC 2** | Enterprise engagement + audit cooperation |
+| **EU AI Act** | Article 50 transparency disclosure (see §6.5) |
 
 ### 6.4 Subprocessors
 You acknowledge that Company uses subprocessors to provide the Software, as listed in the Subprocessor List at aegisgatesecurity.io/legal/subprocessors.html. Company shall update the Subprocessor List at least **30 days** before adding a new subprocessor, and you may object in writing within that period. Material objections that cannot be resolved may be grounds for termination with refund of prepaid fees.

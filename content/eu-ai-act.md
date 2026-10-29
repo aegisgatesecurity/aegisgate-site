@@ -185,8 +185,8 @@ When counsel sign-off is complete (target: v4.2.0), we'll:
 
 To enable the EU AI Act Compliance Module:
 
-1. **Verify your tier** — Professional or Enterprise (Module is included)
-   - Not on Professional yet? [Upgrade at /pricing/](/pricing/) or [contact sales](mailto:sales@aegisgatesecurity.io)
+1. **Enable the module** — Included in all deployments
+   - Need help? [Contact us](mailto:sales@aegisgatesecurity.io)
 2. **Pull the latest image**:
    ```bash
    docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v5.0.0

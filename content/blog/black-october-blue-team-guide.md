@@ -422,7 +422,7 @@ OpenAI's response: frontier model training now conducted with **zero internet ac
 
 Your AI gateway, your AI proxy, your MCP server, your coding agent — these are now attack targets. And most teams don't even know they have them, let alone monitor them.
 
-> **If you're running LiteLLM:** Check for `litellm_init.pth` in your Python `site-packages` directories. Look for unexpected outbound connections from the LiteLLM process. Rotate ALL credentials that passed through LiteLLM — API keys, service account passwords, database connection strings. Check if any of your GitHub tokens were used between Oct 10-21. Replace LiteLLM with AegisGate Platform Community tier (free, air-gapped) as your AI gateway.
+> **If you're running LiteLLM:** Check for `litellm_init.pth` in your Python `site-packages` directories. Look for unexpected outbound connections from the LiteLLM process. Rotate ALL credentials that passed through LiteLLM — API keys, service account passwords, database connection strings. Check if any of your GitHub tokens were used between Oct 10-21. Replace LiteLLM with AegisGate Platform (free, open-source, air-gapped) as your AI gateway.
 
 ### The New Attack Surface: Agent Instruction File Poisoning
 
@@ -467,7 +467,7 @@ You have two options. Most teams should do both — but if you can only do one r
 | **What it is** | Install AegisGate Lens, Rampart, Scanner, MCP, or Platform | Import AegisGate regex detection patterns into Splunk, ELK, Sentinel, or your WAF |
 | **Install required?** | Yes (2 min to hours, depending on level) | No — copy-paste into tools you already own |
 | **Best for** | Teams that want automated, real-time scanning of AI traffic | Teams with an existing SIEM/WAF who need detection rules right now |
-| **Cost** | Free (Apache 2.0); Platform Community tier free, ML/SIEM is enterprise | Free — patterns are open source. No strings. |
+| **Cost** | Free (Apache 2.0); Platform free, ML/SIEM included | Free — patterns are open source. No strings. |
 
 If you already have a SIEM, go to **Step 3** (Option B) first. You can have detection rules running in 5 minutes. Then come back to **Step 4** (Option A) when you're ready for automated tooling.
 
@@ -634,7 +634,7 @@ This gives you AegisGate's detection capability in the tools you already own, wi
 
 ## Step 4: Deploy Free AegisGate Tools (Option A)
 
-Everything in Levels 1–4 below is **completely free, open source (Apache 2.0), with no feature gating or enterprise supports**. Level 5 (Platform) has a free Community tier plus paid enterprise deploymentss.
+Everything in Levels 1–4 below is **completely free, open source (Apache 2.0), with no feature gating or enterprise support**. Level 5 (Platform) has a free, open-source (Apache 2.0) with enterprise support available.
 
 **Not sure where to start? Use this table:**
 
@@ -718,7 +718,7 @@ Hardened MCP server framework with 23 security layers. 79 regex patterns + ML. Z
 
 Self-hosted gateway. Every request and response scanned across 6 protection pillars: HTTP, MCP, A2A, ACP, Response, Trust.
 
-**Free Community tier:** 303 regex patterns, protocol scanning, 4 compliance frameworks, fail-closed by default, zero external dependencies, air-gapped capable.
+**Free and open-source:** 303 regex patterns, protocol scanning, 4 compliance frameworks, fail-closed by default, zero external dependencies, air-gapped capable.
 
 **enterprise (paid):** ML anomaly detection, SIEM integration, additional compliance frameworks, HSM/FIPS, Kubernetes clustering.
 
@@ -837,7 +837,7 @@ ARTEX automates the full attack chain. The same multi-agent approach that hit 2,
 Storm-0940 is a Chinese APT. Defense contractors and federal agencies are prime targets. NIST 800-171 3.13.1 requires network isolation for CUI environments. SaaS AI security tools violate this.
 
 **What to do:**
-- Deploy Platform air-gapped within your security boundary. Community tier is free.
+- Deploy Platform air-gapped within your security boundary. it is free and open-source.
 - MCP's distroless Docker image aligns with STIG-style hardening.
 - Rampart on developer workstations with zero network dependency.
 - Rotate ConnectWise credentials. **Verify Secure Boot DBX revocations** (see BlackX sidebar).
@@ -881,7 +881,7 @@ Universities and local governments run PHP extensively and are heavy AI users. B
 - **Reissue InCommon certificates before Oct 27** (Chrome drops eMudhra trust).
 - Install Lens on all faculty, staff, and admin workstations.
 - Rotate ConnectWise credentials if applicable.
-- Deploy Platform Community tier (free) for AI traffic visibility.
+- Deploy Platform (free, open-source) for AI traffic visibility.
 - **If you run Fortinet or Palo Alto firewalls**: Rotate VPN credentials, hunt for dormant admin accounts.
 
 ---
@@ -912,7 +912,7 @@ Universities and local governments run PHP extensively and are heavy AI users. B
 2. Deploy AegisGate Scanner in your CI/CD
 3. Add the Scanner GitHub Action to scan repos for malicious instruction files in PRs
 4. Evaluate [AegisGate MCP](https://github.com/aegisgatesecurity/aegisgate-mcp) for your MCP infrastructure
-5. Stand up [AegisGate Platform](https://github.com/aegisgatesecurity/aegisgate-platform) Community tier as a monitoring gateway
+5. Stand up [AegisGate Platform](https://github.com/aegisgatesecurity/aegisgate-platform) (free, open-source) as a monitoring gateway
 6. **Run Nextcloud integrity scan and hunt for web shells** if you use Collabora Online
 7. **Check owned.lab6.com for your organization's IPs** if you run Fortinet/Palo Alto
 
@@ -1080,9 +1080,9 @@ I'm not going to pretend one tool solves Black October. Here's what AegisGate do
 - **Verify your Secure Boot DBX revocations.** Microsoft's manual revocation steps are on you.
 - **Fix Microsoft's SharePoint patches.** That's on Microsoft. Restrict access and wait.
 - **Stop a website from downloading a file to your Downloads folder.** Browser download behavior is controlled by the browser. Scanner CAN detect the malicious file before an agent reads it.
-- **Replace your SIEM.** AegisGate is a detection and prevention layer for AI agent traffic. In the free tiers, you can extract our patterns and feed them into your SIEM manually.
+- **Replace your SIEM.** AegisGate is a detection and prevention layer for AI agent traffic. In the free, open-source versions, you can extract our patterns and feed them into your SIEM manually.
 - **Stop ARTEX running on someone else's machine.** AegisGate detects the *effects* of ARTEX in your traffic. It can't disable the attacker's tooling.
-- **Detect novel AI attack patterns without ML (free tier).** The 303 regex patterns in Platform's Community tier catch known patterns. The ML anomaly detection is a enterprise feature. Lens and Rampart include ML detection for free.
+- **Detect novel AI attack patterns without ML (free, open-source version).** The 303 regex patterns in Platform's free, open-source version catch known patterns. The ML anomaly detection is included in all deployments. Lens and Rampart include ML detection for free.
 
 What AegisGate DOES do: it gives you visibility into a layer of traffic that you almost certainly have zero visibility into right now — the AI agent layer. And Black October just proved that layer is being actively exploited.
 
@@ -1090,7 +1090,7 @@ What AegisGate DOES do: it gives you visibility into a layer of traffic that you
 
 ## About This Guide
 
-This guide was written by a blue teamer who built AegisGate because they saw the AI agent blind spot coming. Everything in Levels 1–4 is free and open source (Apache 2.0) with no enterprise supports, no feature gating, and no "contact sales for the real version." Level 5 (Platform) has a free Community tier that includes 303 regex patterns and protocol-level scanning — the ML anomaly detection and SIEM integration are enterprise features, and I've been upfront about that.
+This guide was written by a blue teamer who built AegisGate because they saw the AI agent blind spot coming. Everything in Levels 1–4 is free and open source (Apache 2.0) with no enterprise support, no feature gating, and no "contact sales for the real version." Level 5 (Platform) has a free, open-source version that includes 303 regex patterns and protocol-level scanning — the ML anomaly detection and SIEM integration are included in all deployments, and I've been upfront about that.
 
 There is no upsell here. There is no "schedule a demo." There are repos you can clone and tools you can deploy in minutes — including in air-gapped, regulated, and classified-adjacent environments where SaaS tools can't go.
 

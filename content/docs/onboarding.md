@@ -97,14 +97,14 @@ scanning:
       action: mask
 ```
 
-#### Enable Compliance Frameworks (Developer+)
+#### Enable Compliance Frameworks
 
 ```bash
 # Check which frameworks are available for your tier
 curl http://localhost:8443/api/v1/compliance/status | jq .
 ```
 
-#### Set Up SSO (Developer+)
+#### Set Up SSO
 
 1. Navigate to Dashboard → Settings → SSO
 2. Select your identity provider (Okta, Azure AD, Google Workspace)
