@@ -56,7 +56,7 @@ title = "AegisGate — Secure Every AI Interaction"
     weight = 6
 
   [[menu.main]]
-    name = "Pricing"
+    name = "Enterprise"
     url = "/pricing/"
     weight = 7
 
