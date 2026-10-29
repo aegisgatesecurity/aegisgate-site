@@ -15,7 +15,7 @@ Every AegisGate license key is a **base64-encoded JSON structure** containing:
 | Field | Description |
 |-------|-------------|
 | `license_id` | Unique license identifier (UUID) |
-| `tier` | License tier: `community`, `developer`, `professional`, or `enterprise` |
+| `tier` | License tier: `community` or `enterprise` |
 | `customer` | Customer identifier |
 | `issued_at` | RFC3339 timestamp |
 | `expires_at` | RFC3339 timestamp or `"never"` for perpetual licenses |
@@ -60,7 +60,7 @@ If a license **expires** or fails validation:
 - A **7-day grace period** is automatically applied
 - During grace, all features continue to work
 - A warning banner appears in the dashboard
-- After grace period expires, the platform **falls back to Community tier**
+- After grace period expires, the platform **falls back to community defaults**
 
 ### Generating License Keys
 
@@ -70,7 +70,7 @@ License keys are generated using the `licensegen` CLI tool:
 # Generate a enterprise deployments license for 365 days
 licensegen generate \
   --customer "Acme Corp" \
-  --tier professional \
+  --tier enterprise \
   --duration 365d \
   --key secrets/aegisgate-private.pem \
   --output license.key
@@ -90,7 +90,7 @@ licensegen generate \
 | Flag | Description | Default |
 |------|-------------|---------|
 | `--customer` | Customer name or identifier (required) | — |
-| `--tier` | License tier: `community`, `developer`, `professional`, `enterprise` | `professional` |
+| `--tier` | License tier: `community`, `enterprise` | `enterprise` |
 | `--duration` | License duration (e.g., `30d`, `365d`, `never`) | `365d` |
 | `--key` | Path to ECDSA P-256 private key PEM file (required) | — |
 | `--output` | Output file path (default: stdout) | stdout |
@@ -106,7 +106,7 @@ When the platform validates a license, the following JSON is returned:
 {
   "valid": true,
   "license_id": "550e8400-e29b-41d4-a716-446655440000",
-  "tier": "professional",
+  "tier": "enterprise",
   "customer": "Acme Corp",
   "issued_at": "2026-04-15T10:30:00Z",
   "expires_at": "2027-04-15T10:30:00Z",
@@ -114,18 +114,6 @@ When the platform validates a license, the following JSON is returned:
   "grace_period": false
 }
 ```
-
-### Tier Feature Matrix
-
-| Feature | Community | Developer | Professional | Enterprise |
-|---------|-----------|-----------|--------------|------------|
-| API Rate Limit | 120 RPM | 1,000 RPM | 10,000 RPM | Unlimited |
-| MCP Rate Limit | 60 RPM | 500 RPM | 5,000 RPM | Unlimited |
-| Max Users | 5 | 25 | 100 | Unlimited |
-| SSO (OIDC/SAML) | — | ✅ | ✅ | ✅ |
-| RBAC | — | ✅ | ✅ | ✅ |
-| Compliance Reports | — | Basic | Advanced | Full |
-| Audit Log Retention | 7 days | 30 days | 90 days | 1 year |
 
 ### Troubleshooting
 
@@ -142,7 +130,7 @@ If your license has expired, AegisGate will:
 
 1. Enter a **7-day grace period** with full functionality
 2. Display a warning in the dashboard and logs
-3. After the grace period, **fall back to Community tier**
+3. After the grace period, **fall back to community defaults**
 
 Contact [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io) to renew or upgrade your license.
 

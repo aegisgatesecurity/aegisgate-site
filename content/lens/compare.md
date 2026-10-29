@@ -62,7 +62,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Response scanning** (catches bad AI outputs before they reach the user) | ❌ | ✅ |
 | **Trust Framework** (continuous cryptographically-signed trust scoring) | ❌ | ✅ |
 | **EU AI Act Compliance Module** (120 controls, enterprise deployments) | ❌ | ✅ |
-| **OWASP compliance module** | ❌ | ✅ (Developer+) |
+| **OWASP compliance module** | ❌ | ✅ |
 | **GDPR / HIPAA / PCI / SOC 2 compliance modules** | ❌ | ✅ (enterprise) |
 | **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ (enterprise) |
 | **Custom detection rules per team** | ❌ | ✅ |
@@ -126,14 +126,10 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 - **Free**, forever. No "Pro" tier. No credit card. No account.
 
 ### AegisGate Platform
-| Tier | Price | Best for |
-|------|-------|----------|
-| Community | Free | Solo developers, getting started |
-| Enterprise | Contact us | Small teams, custom rules |
-| Enterprise+ | Contact us | Compliance (HIPAA, PCI, SOC 2, EU AI Act) |
-| Enterprise | Custom | Self-hosted, SLA, 24/7 support |
 
-See [enterprise details](/pricing/) for details.
+**Free (open-source, Apache 2.0).** Self-host. Enterprise support by contact (sales@aegisgatesecurity.io).
+
+See [Enterprise](/pricing/) for details.
 
 ---
 

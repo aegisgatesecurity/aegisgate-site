@@ -57,7 +57,7 @@ curl http://localhost:8443/health
 open http://localhost:8443/ui/
 ```
 
-Zero-config. All defaults embedded. No database required (Community tier). No external API calls. No phone-home.
+Zero-config. All defaults embedded. No database required (default config). No external API calls. No phone-home.
 
 ### Air-Gapped / ITAR / Classified
 
@@ -73,9 +73,9 @@ AegisGate runs fully air-gapped with no outbound connectivity:
 
 SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NIST AI 600-1 · FedRAMP · HIPAA · PCI-DSS · EU AI Act (120 controls) · CMMC L2 · CIS Controls · HITRUST · FIPS 140-2/3 · CCPA/CPRA · GDPR · SOX · GLBA · FERPA · CJIS · NERC CIP · TISAX · CSA STAR · OWASP Web · MITRE ATLAS · HITECH · FFIEC · TSA SD · ISO 21434
 
-### Pricing
+### Availability
 
-Community tier is free forever. Contact sales@aegisgatesecurity.io for enterprise support, compliance modules, and custom integrations.
+Free and open-source (Apache 2.0). Contact sales@aegisgatesecurity.io for enterprise support, compliance modules, and custom integrations.
 
 **No per-request fees. No data egress. No vendor lock-in.**
 

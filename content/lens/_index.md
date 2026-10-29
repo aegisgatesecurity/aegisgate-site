@@ -349,7 +349,7 @@ AegisGate Lens is the consumer-facing layer. The same team builds [AegisGate Pla
 |----------|----------------|
 | Individual developers, security researchers, journalists, privacy-conscious users | **Lens alone** (free) |
 | Teams of 2-10 who need a shared detection policy | **Lens + Platform** (free, self-hosted) |
-| Enterprises needing SIEM, compliance modules, central policy | **Platform Professional or Enterprise** (custom) |
+| Enterprises needing SIEM, compliance modules, central policy | **Platform** (self-hosted, free) |
 
 See [pricing](/pricing/) for details.
 

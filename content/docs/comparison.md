@@ -89,7 +89,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 | Capability | AegisGate | Nightfall | Prompt Security | Cisco | Purview | Lakera | Rebuff |
 |-----------|-----------|-----------|----------------|-------|---------|--------|--------|
 | **Browser Extension** | ✅ Lens (free, CWS, 10 providers) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Local Proxy** | ✅ Rampart (free Community) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Local Proxy** | ✅ Rampart (free, open-source) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **IDE Integration** | ✅ VS Code, Cursor, JetBrains, LSP | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **API Gateway** | ✅ Platform | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ |
 
@@ -100,16 +100,6 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 | **Scale (verified)** | 5K VUs, 28,000 RPS, 0% errors | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
 | **Binary Size** | 19.1 MB | N/A (SaaS) | N/A | N/A | N/A | N/A | N/A |
 | **Deployment** | Single binary, zero-config | SaaS signup | SaaS signup | Hardware install | M365 license | SaaS signup | SaaS/signup |
-
-#### Pricing
-
-| Tier | AegisGate | Nightfall | Prompt Security | Cisco | Purview | Lakera | Rebuff |
-|------|-----------|-----------|----------------|-------|---------|--------|--------|
-| **Free** | ✅ Community | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ Limited |
-| **Entry** | Free (open-source) | ~$2K/mo | ~$1.5K/mo | ~$5K/mo | M365 bundle | ~$1K/mo | Free/limited |
-| **Mid** | Enterprise support (contact) | ~$5K/mo | ~$3K/mo | ~$10K/mo | M365 E5 | ~$3K/mo | Custom |
-| **Enterprise** | Enterprise support (contact) | ~$10-20K/mo | ~$5-10K/mo | ~$20K+/mo | M365 E5 | ~$5K+/mo | Custom |
-| **3-Yr TCO (10K req/day)** | **Low (infra only)** | ~$180K-540K | ~$108K-360K | ~$360K+ | ~$180K+ | ~$108K+ | ~$36K+ |
 
 ---
 
@@ -124,7 +114,7 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 7. **SOAR integration** — PagerDuty, Jira, ServiceNow out of the box. No competitor offers SOAR.
 8. **IDE integration** — VS Code, Cursor, JetBrains, Neovim, Emacs, Helix, Sublime. No competitor offers IDE integration.
 9. **Verified scale** — 5,000 concurrent VUs, 28,000 RPS, 0.00% errors on bare metal. No competitor publishes scale data.
-10. **Open-core** — Apache 2.0 community edition + commercial enterprise modules. Self-hosted, no vendor lock-in, full community code auditability. Only Rebuff is also open source (MIT), but with ~10 patterns vs AegisGate's 154+ML.
+10. **Open-source** — Apache 2.0, fully self-hosted, no vendor lock-in, full community code auditability. Only Rebuff is also open source (MIT), but with ~10 patterns vs AegisGate's 154+ML.
 
 ### Where Competitors Still Lead
 
