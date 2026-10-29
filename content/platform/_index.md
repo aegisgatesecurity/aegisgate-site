@@ -8,7 +8,7 @@ mermaid: true
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
 <div class="alert alert-success alert-center">
-<strong>🏢 AegisGate Platform v5.0.0</strong> — open-source (Apache 2.0) + commercial Enterprise modules. Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
+<strong>🏢 AegisGate Platform v5.0.0</strong> — open-source (Apache 2.0). Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.0.0 →</a>
 </div>
 
@@ -221,23 +221,23 @@ sequenceDiagram
 
 Platform includes 31 compliance frameworks (2,043 total controls, 1,457 automated) — the most comprehensive AI compliance coverage available:
 
-| Framework | Tier | Coverage |
-|-----------|------|----------|
-| OWASP LLM Top 10 | Community | 49 patterns |
-| OWASP Web Top 10 | Community | 10 categories |
-| MITRE ATLAS | Community | 66 techniques |
-| NIST AI RMF 1.0 | Community | 50 controls |
-| HIPAA | Developer | PHI detection (54 controls) |
-| PCI-DSS v4.0 | Developer | Card data (152 controls) |
-| SOC 2 Type II | Developer | 64 controls |
-| ISO/IEC 27001:2022 | Developer | 116 controls |
-| CCPA/CPRA | Developer | 26 controls |
-| GDPR | Developer | PII detection (99 controls) |
-| EU AI Act | Professional | 120 controls, 8 categories |
-| ISO/IEC 42001:2023 | Professional | AI management (38 controls) |
-| NIST CSF 2.0 | Professional | 131 controls |
-| CIS Controls v8 | Professional | 50 controls |
-| FedRAMP Moderate | Enterprise | 170 controls |
+| Framework | Coverage |
+|-----------|----------|
+| OWASP LLM Top 10 | 49 patterns |
+| OWASP Web Top 10 | 10 categories |
+| MITRE ATLAS | 66 techniques |
+| NIST AI RMF 1.0 | 50 controls |
+| HIPAA | PHI detection (54 controls) |
+| PCI-DSS v4.0 | Card data (152 controls) |
+| SOC 2 Type II | 64 controls |
+| ISO/IEC 27001:2022 | 116 controls |
+| CCPA/CPRA | 26 controls |
+| GDPR | PII detection (99 controls) |
+| EU AI Act | 120 controls, 8 categories |
+| ISO/IEC 42001:2023 | AI management (38 controls) |
+| NIST CSF 2.0 | 131 controls |
+| CIS Controls v8 | 50 controls |
+| FedRAMP Moderate | 170 controls |
 
 <p style="font-size:0.9rem; color:#888;">...and 16 more frameworks. <a href="/docs/compliance/">View all compliance documentation →</a></p>
 
@@ -357,19 +357,6 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 
 ---
 
-## Pricing Tiers
-
-| Tier | Price | Key Features |
-|------|-------|--------------|
-| **Community** | Free | HTTP proxy, MCP, A2A, 303 patterns, MITRE ATLAS, basic compliance |
-| **Enterprise** | Contact us | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
-| **Enterprise+** | Contact us | + Trust Framework, Agent Registry, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
-| **Enterprise** | Custom | + Air-gapped deployment, custom compliance modules, dedicated SE, SLA |
-
-<p><a href="/pricing/" class="btn btn-secondary">Full pricing details →</a></p>
-
----
-
 ## Performance
 
 | Metric | Value |
@@ -405,7 +392,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | 11 SIEM integrations | ✅ | ❌ | ❌ | ⚠️ |
 | 4 SOAR integrations | ✅ | ❌ | ❌ | ❌ |
 | Air-gapped deployment | ✅ | ❌ | ❌ | ❌ |
-| Open-core (Apache 2.0 community + commercial enterprise) | ✅ | ❌ | ✅ (Apache) | ❌ |
+| Open-source (Apache 2.0) | ✅ | ❌ | ✅ (Apache) | ❌ |
 
 <p><a href="/docs/comparison/" class="btn btn-secondary">Full competitive analysis →</a></p>
 

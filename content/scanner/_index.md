@@ -9,13 +9,13 @@ mermaid: true
      AEGISGATE SCANNER — AI ARTIFACT STATIC ANALYSIS
      ============================================================ -->
 
-> **🛡️ AegisGate Scanner v0.4.2 is LIVE** — 348 regex patterns, CharCNN-BiLSTM ML detection, 8 output formats, SARIF, SBOM, GitHub Action, dual Docker images. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-scanner) (free, open source, Apache 2.0).
+> **🛡️ AegisGate Scanner v0.4.3 is LIVE** — 348 regex patterns, CharCNN-BiLSTM ML detection, 8 output formats, SARIF, SBOM, GitHub Action, dual Docker images. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-scanner) (free, open source, Apache 2.0).
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate Scanner</strong> is a <strong>free, open-source static analysis scanner</strong> for AI artifacts. It detects prompt injection, secrets, PII, dangerous code, compliance violations, and OT/ICS exposure — before they reach production.
 <br><br>
 <a href="https://github.com/aegisgatesecurity/aegisgate-scanner" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.2" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download v0.4.2 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download v0.4.3 →</a>
 </div>
 
 ---
@@ -142,7 +142,7 @@ chmod +x aegisgate-scanner
 
 ```yaml
 - name: AegisGate Scanner
-  uses: aegisgatesecurity/aegisgate-scanner@v0.4.2
+  uses: aegisgatesecurity/aegisgate-scanner@v0.4.3
   with:
     path: ./data/
     format: sarif
@@ -203,15 +203,7 @@ docker run --rm -v $(pwd):/data aegisgatesecurity/scanner:lite scan /data/
 
 ---
 
-## Pricing
-
-| Tier | Price | Features |
-|------|-------|----------|
-| **Community** | Free forever | All 348 patterns, ML detection, 8 output formats, SARIF, GitHub Action |
-| **Professional** | Contact us | Baseline management, custom rules, priority support |
-| **Enterprise** | Contact us | SIEM integration, custom compliance frameworks, on-premise support |
-
-Scanner is **free and open source** (Apache 2.0). All detection capabilities are available in the community edition.
+**Free, forever.** All patterns, ML detection, all output formats, GitHub Action — no tiers, no paid plans.
 
 ---
 
@@ -224,7 +216,7 @@ AegisGate Scanner is patent pending — US Provisional Application No. 64/174,82
 ## Links
 
 - [GitHub Repository](https://github.com/aegisgatesecurity/aegisgate-scanner)
-- [Latest Release](https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.2)
+- [Latest Release](https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.3)
 - [Documentation](https://github.com/aegisgatesecurity/aegisgate-scanner#readme)
 - [Report an Issue](https://github.com/aegisgatesecurity/aegisgate-scanner/issues)
 - [Changelog](https://github.com/aegisgatesecurity/aegisgate-scanner/blob/main/CHANGELOG.md)
