@@ -2688,6 +2688,7 @@ table.comparison-table img[src*="europeanunion"],
     height: 200%;
     background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
     animation: alertGlow 3s ease-in-out infinite;
+    pointer-events: none;
 }
 
 @keyframes alertGlow {
