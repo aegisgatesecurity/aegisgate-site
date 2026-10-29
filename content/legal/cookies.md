@@ -67,14 +67,9 @@ The AegisGate platform's source code is hosted on GitHub. Visiting github.com is
 
 - **Privacy Policy:** https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement
 
-### 4.4 Stripe (pricing page, only when interacting with a Buy Button)
+### 4.4 Payment Processing
 
-When you click a "Buy" button on the pricing page, Stripe's payment widget loads in an iframe or popup. Stripe may set its own cookies for fraud detection and payment processing during the buy interaction. These cookies are set by Stripe, not by AegisGate, and are governed by Stripe's privacy policy.
-
-- **Privacy Policy:** https://stripe.com/privacy
-- **Cookie details:** https://stripe.com/legal/cookies-policy
-
-**Note:** The AegisGate platform itself does **not** embed Stripe.js. Stripe integration is limited to the marketing site's Buy Buttons and the post-purchase webhook (server-side).
+The AegisGate platform and website do not use third-party payment processing cookies.
 
 ## 5. Your Choices Regarding Cookies
 

@@ -106,10 +106,10 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 | Tier | AegisGate | Nightfall | Prompt Security | Cisco | Purview | Lakera | Rebuff |
 |------|-----------|-----------|----------------|-------|---------|--------|--------|
 | **Free** | ✅ Community | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ Limited |
-| **Entry** | $79/mo (Developer) | ~$2K/mo | ~$1.5K/mo | ~$5K/mo | M365 bundle | ~$1K/mo | Free/limited |
-| **Mid** | $499/mo (Professional) | ~$5K/mo | ~$3K/mo | ~$10K/mo | M365 E5 | ~$3K/mo | Custom |
-| **Enterprise** | Custom | ~$10-20K/mo | ~$5-10K/mo | ~$20K+/mo | M365 E5 | ~$5K+/mo | Custom |
-| **3-Yr TCO (10K req/day)** | **$10K-50K** | ~$180K-540K | ~$108K-360K | ~$360K+ | ~$180K+ | ~$108K+ | ~$36K+ |
+| **Entry** | Free (open-source) | ~$2K/mo | ~$1.5K/mo | ~$5K/mo | M365 bundle | ~$1K/mo | Free/limited |
+| **Mid** | Enterprise support (contact) | ~$5K/mo | ~$3K/mo | ~$10K/mo | M365 E5 | ~$3K/mo | Custom |
+| **Enterprise** | Enterprise support (contact) | ~$10-20K/mo | ~$5-10K/mo | ~$20K+/mo | M365 E5 | ~$5K+/mo | Custom |
+| **3-Yr TCO (10K req/day)** | **Low (infra only)** | ~$180K-540K | ~$108K-360K | ~$360K+ | ~$180K+ | ~$108K+ | ~$36K+ |
 
 ---
 

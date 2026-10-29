@@ -26,7 +26,7 @@ These flags are available on the main command and apply to the running platform:
 | `--embedded-mcp` | `false` | Start embedded MCP server (standalone mode) |
 | `--version` | `false` | Show version information and exit |
 | `--ioc-share` | `false` | Opt in to serving IOC manifests to peers |
-| `--ioc-receive` | `false` | Opt in to fetching IOC manifests from peers (Professional+) |
+| `--ioc-receive` | `false` | Opt in to fetching IOC manifests from peers (enterprise) |
 | `--ioc-peers <urls>` | _(none)_ | Comma-separated peer base URLs for IOC gossip |
 | `--lens-enabled` | `false` | Enable Lens telemetry backend |
 | `--siem-enabled` | `false` | Enable SIEM dispatcher to forward audit events |

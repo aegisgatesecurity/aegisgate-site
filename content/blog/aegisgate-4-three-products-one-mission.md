@@ -133,4 +133,4 @@ We believe security tools should not require trust. Our code is open. Our detect
 
 *Built by a solo founder. Proven at scale. Open source forever.*
 
-[Website](https://aegisgatesecurity.io) · [GitHub](https://github.com/aegisgatesecurity) · [Documentation](https://aegisgatesecurity.io/docs/) · [Pricing](https://aegisgatesecurity.io/pricing/)
+[Website](https://aegisgatesecurity.io) · [GitHub](https://github.com/aegisgatesecurity) · [Documentation](https://aegisgatesecurity.io/docs/) · [Enterprise](https://aegisgatesecurity.io/pricing/)

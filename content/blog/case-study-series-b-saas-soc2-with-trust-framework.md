@@ -23,7 +23,7 @@ author: "AegisGate Security"
 |-------|-------|
 | **Customer segment** | Series-B SaaS, 200 employees, B2B fintech-adjacent |
 | **Industry** | Financial Technology (B2B SaaS for SMB lending) |
-| **Tier deployed** | **Professional** ($499/mo) + **EU AI Act** module ($99/mo) |
+| **Deployment** | **Enterprise** + **EU AI Act** module |
 | **Time to SOC 2 Type II audit** | **90 days** (vs. industry average of 6–12 months) |
 | **Audit outcome** | **PASSED** with 0 findings on AI controls |
 | **Primary evidence source** | AegisGate **Trust Framework** (signed attestations) |
@@ -77,11 +77,11 @@ curl -L https://aegisgatesecurity.io/install.sh | sh
 #    (proxy.*, dashboard.*, tls.*, etc.) and is committed to the
 #    customer's private git repo
 
-# 3. Activate the Professional tier license (signed JSON license key)
+# 3. Activate the enterprise deployments license (signed JSON license key)
 #    via AEGISGATE_LICENSE_KEY env var
 export AEGISGATE_LICENSE_KEY="<signed-license>"
 
-# 4. Enable the Trust Framework (Professional+ tier feature)
+# 4. Enable the Trust Framework (enterprise deployments feature)
 export AEGISGATE_TRUST_ENABLED=true
 export AEGISGATE_TRUST_REQUIRE_LICENSE=true
 ```
@@ -90,7 +90,7 @@ The platform binary is a **single self-hosted binary** with three
 listeners: 8080 (proxy), 8081 (MCP), 8443 (dashboard). The customer
 deployed it in their existing Kubernetes cluster (Helm chart
 available) with the existing PostgreSQL database for audit log
-retention (90 days, Professional tier default).
+retention (90 days, enterprise deployments default).
 
 ### Configuration (Day 7–14)
 
@@ -166,7 +166,7 @@ queried these directly during the audit window.
 | **NIST AI RMF** | ✅ Full framework | Built-in, Community tier |
 | **OWASP LLM Top 10** | ✅ All categories | Built-in, Community tier |
 | **EU AI Act** | ✅ Module purchased | Ready for August 2026 deadline |
-| **HIPAA** | 🟡 Not purchased | Available as $99/mo add-on |
+| **HIPAA** | 🟡 Not purchased | Available with enterprise support |
 | **PCI-DSS** | 🟡 Not applicable | Company doesn't process card data |
 | **GDPR** | ✅ Built-in | Community tier |
 
@@ -223,7 +223,7 @@ studies** (with explicit written consent from a single customer).
 - Published with explicit written consent from a single customer
 - Real names, real numbers, real quotes
 - The customer approves the final case study before publication
-- Available for Enterprise tier customers who consent
+- Available for enterprise deployments customers who consent
 
 If you're a current AegisGate customer interested in a named case
 study, please contact [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io).
@@ -247,7 +247,7 @@ trust scoring, and signed attestations for compliance evidence.
 - **Federated IOC library** (12,902 LOC, ECDSA-signed, opt-in, serverless)
 
 **Website:** [https://aegisgatesecurity.io](https://aegisgatesecurity.io)
-**Pricing:** [https://aegisgatesecurity.io/pricing](https://aegisgatesecurity.io/pricing)
+**Enterprise:** [https://aegisgatesecurity.io/pricing](https://aegisgatesecurity.io/pricing)
 **Trust Framework 1-pager:** See [trust-framework](/trust-framework/) (the AegisGate Platform repo)
 **Contact:** [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io)
 

@@ -1,6 +1,6 @@
 ---
 title: "Security Addendum"
-description: "Security Addendum for AegisGate Professional and Enterprise tier customers. Describes security controls, infrastructure, and compliance posture."
+description: "Security Addendum for AegisGate Professional and enterprise deployments customers. Describes security controls, infrastructure, and compliance posture."
 type: "legal-doc"
 ---
 
@@ -18,7 +18,7 @@ This document is self-drafted by AegisGate Security, LLC for the v4.2.0 release.
 
 ## RECITALS
 
-This Security Addendum ("Addendum") is incorporated into and made part of the Master Service Agreement between AegisGate Security, LLC ("Company") and Subscriber. This Addendum establishes additional security requirements applicable to Professional and Enterprise tier services.
+This Security Addendum ("Addendum") is incorporated into and made part of the Master Service Agreement between AegisGate Security, LLC ("Company") and Subscriber. This Addendum establishes additional security requirements applicable to Professional and enterprise deployments services.
 
 ---
 
@@ -27,7 +27,7 @@ This Security Addendum ("Addendum") is incorporated into and made part of the Ma
 ### 1.1 Compliance Standards
 Company maintains security controls aligned with:
 - NIST Cybersecurity Framework
-- SOC 2 Type 1 preparation (targeting Enterprise tier)
+- SOC 2 Type 1 preparation (targeting enterprise deployments)
 - ISO 27001 principles
 - HIPAA Security Rule (when HIPAA module is active)
 - PCI-DSS requirements (when PCI-DSS module is active)

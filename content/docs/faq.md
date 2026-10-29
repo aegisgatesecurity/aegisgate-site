@@ -45,9 +45,9 @@ Yes. AegisGate runs entirely on your infrastructure with **zero external depende
 
 AegisGate adds effectively zero overhead — the proxy is **-2.8ms p99** (faster than direct) due to zero-cost proxy optimization for benign traffic. Blocked requests resolve in 7.2ms p50. The scanning is optimized for speed and scales horizontally to 23,578+ RPS.
 
-### How do I upgrade my tier?
+### How do I get enterprise support?
 
-Contact [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io) for Developer, Professional, or Enterprise tiers. Community tier is free forever.
+Contact [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io) for Developer, Professional, or enterprise deploymentss. Community tier is free forever.
 
 ### Does AegisGate support Kubernetes?
 
@@ -126,14 +126,14 @@ This checks port conflicts, TLS certificate paths, log levels, rate limits, SIEM
 3. **Detection Engine State** — checks that detection rules and scanners are active
 4. **Cross-Framework Mapping** — maps evidence from one framework to satisfy another's requirements
 
-### Which compliance frameworks are free (Community tier)?
+### Which compliance frameworks are included?
 
-4 frameworks are free under the Apache 2.0 Community tier: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF 1.0.
+4 frameworks are included with the open-source Community edition: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF 1.0.
 
-### Which frameworks need a paid tier?
+### Which frameworks need a enterprise support?
 
-- **Developer** ($79/mo): HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR (6 frameworks)
-- **Professional** ($499/mo): ISO 42001, EU AI Act, FIPS, CIS, NIST CSF, CSA STAR, NIST AI 600-1, SOX, GLBA, CJIS, NERC CIP, FERPA, HITECH, FFIEC, TSA SD, ISO 21434 (16 frameworks)
+- **Enterprise support**: HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR (6 frameworks)
+- **Enterprise support (continued)**: ISO 42001, EU AI Act, FIPS, CIS, NIST CSF, CSA STAR, NIST AI 600-1, SOX, GLBA, CJIS, NERC CIP, FERPA, HITECH, FFIEC, TSA SD, ISO 21434 (16 frameworks)
 - **Enterprise** (custom): FedRAMP, CMMC L2, NIST 800-171, HITRUST, TISAX (5 frameworks)
 
 See [Compliance Frameworks](/docs/compliance/) for the full list and [Tier Comparison](/docs/tiers/) for pricing.

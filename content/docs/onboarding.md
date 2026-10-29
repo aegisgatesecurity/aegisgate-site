@@ -112,7 +112,7 @@ curl http://localhost:8443/api/v1/compliance/status | jq .
 4. Configure user attribute mapping
 5. Test connection
 
-#### Enable SIEM Integration (Professional+)
+#### Enable SIEM Integration (enterprise)
 
 ```yaml
 siem:

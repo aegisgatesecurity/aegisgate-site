@@ -15,9 +15,9 @@ type: "landing"
 > **AegisGate CISO Posture Digest solves this.** Automatically generated, cryptographically signed PDF reports that summarize AI security posture in executive-friendly language with multi-framework compliance mapping.
 
 <div class="alert alert-success alert-center">
-<strong>CISO Posture Digest</strong> is available in <strong>Professional tier and above</strong>.
+<strong>CISO Posture Digest</strong> is available in <strong>enterprise deployments</strong>.
 <br><br>
-<a href="/pricing/" class="btn btn-primary">View Pricing &rarr;</a>
+<a href="/pricing/" class="btn btn-primary">Get Started &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
@@ -214,7 +214,7 @@ Other                   ██ 4% (9 events)
 **Resource Requirements:**
 - 20 hours developer time (training deployment)
 - 10 hours legal review (EU AI Act compliance)
-- Budget: $0 (all capabilities available in current Platform deployment)
+- Budget: no additional cost (all capabilities available in current Platform deployment)
 
 ---
 
@@ -305,7 +305,7 @@ Or use OpenSSL:
 ```
 "Q3 digest shows 234 detection events, 3 critical incidents prevented.
  Without AegisGate, these would have required manual investigation
- (estimated 40 hours) and potential regulatory fines ($50K+)."
+ (estimated 40 hours) and potential regulatory fines (significant)."
 ```
 
 ---
@@ -470,7 +470,7 @@ Authorization: Bearer <api_key>
 <details>
 <summary><strong>Can I customize the digest template?</strong></summary>
 
-Yes. Enterprise tier supports custom branding (logo, colors, company name). Contact support for template customization.
+Yes. enterprise deployments supports custom branding (logo, colors, company name). Contact support for template customization.
 </details>
 
 <details>
@@ -494,7 +494,7 @@ You can specify frameworks when generating: `POST /api/v1/digest/generate` with 
 <details>
 <summary><strong>Can I integrate digests with our GRC platform?</strong></summary>
 
-Yes. Enterprise tier supports JSON export for GRC integration. Contact support for API documentation.
+Yes. enterprise deployments supports JSON export for GRC integration. Contact support for API documentation.
 </details>
 
 ---
@@ -503,8 +503,8 @@ Yes. Enterprise tier supports JSON export for GRC integration. Contact support f
 
 > **Patent Pending** (8 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
-CISO Posture Digest is available in **Professional tier and above**.
+CISO Posture Digest is available in **enterprise deployments**.
 
-<a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>
+<a href="/pricing/" class="btn btn-primary">Download &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/pricing/" class="btn btn-secondary">Contact Sales &rarr;</a>
+<a href="/pricing/" class="btn btn-secondary">Contact Us &rarr;</a>

@@ -65,7 +65,7 @@ A2A guardrails protect inter-agent communication — the newest attack surface f
 1. **mTLS Authentication** — Mutual TLS verifies both caller and callee identities via client certificates
 2. **HMAC-SHA256 Integrity** — Every request body is signed; tampering is detected and rejected
 3. **Capability Enforcement** — Each agent can only exercise explicitly declared capabilities
-4. **License-Aware Gating** — Advanced capabilities require the appropriate license tier
+4. **License-Aware Gating** — Advanced capabilities require enterprise deployment configuration
 5. **Per-Agent Rate Limiting** — Token bucket limits prevent any single agent from overwhelming the system
 6. **Structured Error Codes** — 14 diagnostic `A2A_*` error codes for fast debugging
 7. **Panic Recovery** — If the middleware panics, the request is denied (never allowed through)
@@ -88,7 +88,7 @@ Quick reference:
 | Code | Why |
 |------|-----|
 | `A2A_AUTH_FAILED` | Bad or missing client certificate |
-| `A2A_LICENSE_MISSING` | No license key for paid-tier capability |
+| `A2A_LICENSE_MISSING` | No license key for enterprise capability |
 | `A2A_LICENSE_INVALID` | Invalid or expired license |
 | `A2A_RATE_LIMITED` | Too many requests from this agent |
 | `A2A_INTEGRITY_MISSING` | No HMAC signature |
@@ -136,7 +136,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | OWASP Web Top 10 | Web application security risks (10 categories) |
 | NIST AI RMF 1.0 | AI risk management framework (50 controls) |
 
-### Developer — 6 frameworks ($149/mo each, add-on)
+### Enterprise Support — 6 compliance frameworks
 
 | Framework | Coverage |
 |-----------|----------|
@@ -147,7 +147,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | CCPA/CPRA | California consumer privacy (26 controls) |
 | GDPR | EU data protection regulation (99 controls) |
 
-### Professional — 4 Security Foundation ($79/mo each) + 12 Industry-Specific ($199/mo each)
+### Enterprise Support — Security Foundation + Industry-Specific frameworks
 
 **Security Foundation:**
 
@@ -175,7 +175,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | TSA SD | Transportation security (35 controls) |
 | ISO 21434 | Automotive cybersecurity (42 controls) |
 
-### Enterprise — 5 frameworks ($499/mo each)
+### Enterprise Support — 5 additional frameworks
 
 | Framework | Coverage |
 |-----------|----------|

@@ -214,7 +214,7 @@ GET /api/v1/sla
   "tier": "enterprise",
   "sla": {
     "uptime_target": "99.9%",
-    "description": "Enterprise tier SLA"
+    "description": "enterprise deployments SLA"
   },
   "slos": [
     {
@@ -608,11 +608,11 @@ The Trust Framework provides cryptographic agent identity, capability contracts,
 
 | Endpoint | Method | Description | Auth |
 |----------|--------|-------------|------|
-| `/api/v1/trust/score?agent=ID` | GET | Lifetime trust score for an agent | Professional+ |
-| `/api/v1/trust/score?session=ID` | GET | Current session trust score | Professional+ |
-| `/api/v1/trust/sessions?active=true&agent=ID` | GET | Active sessions for an agent | Professional+ |
-| `/api/v1/trust/attestations?agent=ID&since=TS` | GET | Signed attestations since timestamp | Professional+ |
-| `/api/v1/trust/attestations/latest?agent=ID` | GET | Most recent attestation | Professional+ |
+| `/api/v1/trust/score?agent=ID` | GET | Lifetime trust score for an agent | enterprise |
+| `/api/v1/trust/score?session=ID` | GET | Current session trust score | enterprise |
+| `/api/v1/trust/sessions?active=true&agent=ID` | GET | Active sessions for an agent | enterprise |
+| `/api/v1/trust/attestations?agent=ID&since=TS` | GET | Signed attestations since timestamp | enterprise |
+| `/api/v1/trust/attestations/latest?agent=ID` | GET | Most recent attestation | enterprise |
 | `/api/v1/trust/health` | GET | Liveness check | Public |
 
 ### Example: Get Trust Score
@@ -753,7 +753,7 @@ A2A guardrails are enforced on all requests to A2A-enabled routes. Requests must
 | `X-A2A-Agent-ID` | Yes | Identifies the calling agent |
 | `A2A-Capability` | Yes | Declares the capability being exercised |
 | `A2A-Signature` | Yes | HMAC-SHA256 of the request body |
-| `X-A2A-License-Key` | For paid tiers | License key for tier-gated capabilities |
+| `X-A2A-License-Key` | For enterprise supports | License key for enterprise-grade capabilities |
 
 ### A2A Error Codes
 
@@ -761,8 +761,8 @@ A2A guardrails are enforced on all requests to A2A-enabled routes. Requests must
 |------|------|---------|
 | `A2A_AUTH_FAILED` | 403 | mTLS client certificate authentication failed |
 | `A2A_AUTH_NO_CERT` | 403 | No client certificate presented |
-| `A2A_LICENSE_MISSING` | 403 | No license key for paid-tier capability |
-| `A2A_LICENSE_INVALID` | 403 | License key invalid or wrong tier |
+| `A2A_LICENSE_MISSING` | 403 | No license key for enterprise capability |
+| `A2A_LICENSE_INVALID` | 403 | License key invalid |
 | `A2A_RATE_LIMITED` | 429 | Agent exceeded rate limit |
 | `A2A_INTEGRITY_MISSING` | 403 | No HMAC signature provided |
 | `A2A_INTEGRITY_INVALID` | 403 | HMAC signature mismatch |

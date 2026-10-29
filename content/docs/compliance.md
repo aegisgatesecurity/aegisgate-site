@@ -17,7 +17,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | OWASP Web Top 10 | Web application security risks (10 categories) |
 | NIST AI RMF 1.0 | AI system governance and risk management (50 controls) |
 
-### Developer — 6 frameworks ($149/mo each, add-on)
+### Enterprise Support — 6 compliance frameworks
 
 | Framework | Scope |
 |-----------|-------|
@@ -28,7 +28,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | CCPA/CPRA | California consumer privacy (26 controls) |
 | GDPR | EU data protection regulation (99 controls) |
 
-### Professional — 4 Security Foundation ($79/mo each) + 12 Industry-Specific ($199/mo each)
+### Enterprise Support — Security Foundation + Industry-Specific frameworks
 
 **Security Foundation:**
 
@@ -56,7 +56,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | TSA SD | Transportation security (35 controls) |
 | ISO 21434 | Automotive cybersecurity (42 controls) |
 
-### Enterprise — 5 frameworks ($499/mo each)
+### Enterprise Support — 5 additional frameworks
 
 | Framework | Scope |
 |-----------|-------|

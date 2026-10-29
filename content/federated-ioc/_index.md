@@ -20,9 +20,9 @@ type: "landing"
 </div>
 
 <div class="alert alert-success alert-center">
-<strong>Federated IOC Store</strong> is available in <strong>Professional tier and above</strong>.
+<strong>Federated IOC Store</strong> is available in <strong>enterprise deployments</strong>.
 <br><br>
-<a href="/pricing/" class="btn btn-primary">View Pricing &rarr;</a>
+<a href="/pricing/" class="btn btn-primary">Get Started &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
@@ -458,7 +458,7 @@ Bundles include an ECDSA P-256 signature. Use OpenSSL or any cryptographic libra
 <details>
 <summary><strong>Can I share IOCs with my own customers?</strong></summary>
 
-Yes. Enterprise tier includes redistribution rights. You can integrate AegisGate IOCs into your own threat intelligence platform or MSSP offerings.
+Yes. enterprise deployments includes redistribution rights. You can integrate AegisGate IOCs into your own threat intelligence platform or MSSP offerings.
 </details>
 
 <details>
@@ -471,8 +471,8 @@ Platform continues operating with locally cached IOCs. When connectivity is rest
 
 ## Ready to Join the Network?
 
-Federated IOC Store is available in **Professional tier and above**.
+Federated IOC Store is available in **enterprise deployments**.
 
-<a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>
+<a href="/pricing/" class="btn btn-primary">Download &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/pricing/" class="btn btn-secondary">Contact Sales &rarr;</a>
+<a href="/pricing/" class="btn btn-secondary">Contact Us &rarr;</a>

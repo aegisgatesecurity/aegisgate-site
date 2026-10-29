@@ -64,7 +64,7 @@ AegisGate has been tested and verified against the following providers. Any SAML
 
 ### Tier Requirement
 
-SSO is available on the **Developer tier and above**. See the [pricing page](https://aegisgate.dev/pricing) for details.
+SSO is available in enterprise deployments. Contact sales@aegisgatesecurity.io for details.
 
 ---
 

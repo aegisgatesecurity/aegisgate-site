@@ -67,7 +67,7 @@ If a license **expires** or fails validation:
 License keys are generated using the `licensegen` CLI tool:
 
 ```bash
-# Generate a Professional tier license for 365 days
+# Generate a enterprise deployments license for 365 days
 licensegen generate \
   --customer "Acme Corp" \
   --tier professional \

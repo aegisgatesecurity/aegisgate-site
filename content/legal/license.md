@@ -50,7 +50,7 @@ The full text of the Apache 2.0 license is available in the [LICENSE](https://gi
 - ❌ **No warranty** — the software is provided "as is", with no guarantee that it will work, that it will be secure, or that it will meet your needs
 - ❌ **No liability** — AegisGate Security, LLC is not liable for any damages, including lost profits, data loss, or security breaches, arising from your use of AegisGate
 - ❌ **No support obligation** — while we do offer support contracts (see [pricing](https://aegisgatesecurity.io/pricing/)), these are separate from the Apache 2.0 license. The license itself does not obligate us to provide support
-- ❌ **No indemnification** — if a third party sues you for using AegisGate, AegisGate Security, LLC is not obligated to defend or indemnify you. (For paid tiers, some indemnification may be available under separate [commercial agreements](/legal/terms/).)
+- ❌ **No indemnification** — if a third party sues you for using AegisGate, AegisGate Security, LLC is not obligated to defend or indemnify you. (For enterprise supports, some indemnification may be available under separate [commercial agreements](/legal/terms/).)
 
 ## Disclaimer (from the actual Apache 2.0 License)
 

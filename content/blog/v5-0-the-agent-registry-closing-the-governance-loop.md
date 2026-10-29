@@ -50,7 +50,7 @@ The result: 76% of AI agents are dormant with live credentials. And nobody knows
 
 ## What We Built: The Agent Registry
 
-The Agent Registry is a unified, live inventory of every AI agent across all AegisGate protocol layers. It's gated behind the Professional tier and available as both an in-memory store (for air-gap deployments) and a PostgreSQL store with row-level security for tenant isolation.
+The Agent Registry is a unified, live inventory of every AI agent across all AegisGate protocol layers. It's gated behind the enterprise deployments and available as both an in-memory store (for air-gap deployments) and a PostgreSQL store with row-level security for tenant isolation.
 
 ### Six-Source Discovery
 

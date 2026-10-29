@@ -50,10 +50,10 @@ security:       # Security middleware (headers, CSRF, XSS, ML detection)
 logging:        # Log level and format
 a2a:            # Agent-to-Agent guardrails
 acp:            # Agent Communication Protocol
-trust:          # Trust Framework (Professional+)
+trust:          # Trust Framework (enterprise)
 persistence:    # Audit log storage
-siem:           # SIEM integration (Professional+)
-soar:           # SOAR integration (Professional+)
+siem:           # SIEM integration (enterprise)
+soar:           # SOAR integration (enterprise)
 ```
 
 ### Full Example (Production Profile)
@@ -121,7 +121,7 @@ acp:
 
 trust:
   enabled: false
-  require_license: true      # Professional+ tier required
+  require_license: true      # enterprise deployments required
 
 persistence:
   enabled: true
@@ -227,7 +227,7 @@ soar:
 | `prune_interval` | duration | `24h` | How often to prune old audit files |
 | `max_file_size` | int64 | `52428800` | Max audit file size (50 MB) |
 
-### SIEM (Professional+)
+### SIEM (enterprise)
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
@@ -239,7 +239,7 @@ soar:
 
 Supported SIEM platforms: Splunk, Elasticsearch, QRadar, Sentinel, Sumo Logic, LogRhythm, CloudWatch, Security Hub, ArcSight, syslog, custom.
 
-### SOAR (Professional+)
+### SOAR (enterprise)
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|

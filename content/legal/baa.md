@@ -1,6 +1,6 @@
 ---
 title: "Business Associate Agreement"
-description: "HIPAA Business Associate Agreement for AegisGate Security, LLC customers. Required for Professional tier subscribers handling Protected Health Information (PHI)."
+description: "HIPAA Business Associate Agreement for AegisGate Security, LLC customers. Required for enterprise deployments subscribers handling Protected Health Information (PHI)."
 type: "legal-doc"
 ---
 

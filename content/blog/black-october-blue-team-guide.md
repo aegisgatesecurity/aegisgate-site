@@ -467,7 +467,7 @@ You have two options. Most teams should do both — but if you can only do one r
 | **What it is** | Install AegisGate Lens, Rampart, Scanner, MCP, or Platform | Import AegisGate regex detection patterns into Splunk, ELK, Sentinel, or your WAF |
 | **Install required?** | Yes (2 min to hours, depending on level) | No — copy-paste into tools you already own |
 | **Best for** | Teams that want automated, real-time scanning of AI traffic | Teams with an existing SIEM/WAF who need detection rules right now |
-| **Cost** | Free (Apache 2.0); Platform Community tier free, ML/SIEM is Pro+ | Free — patterns are open source. No strings. |
+| **Cost** | Free (Apache 2.0); Platform Community tier free, ML/SIEM is enterprise | Free — patterns are open source. No strings. |
 
 If you already have a SIEM, go to **Step 3** (Option B) first. You can have detection rules running in 5 minutes. Then come back to **Step 4** (Option A) when you're ready for automated tooling.
 
@@ -634,7 +634,7 @@ This gives you AegisGate's detection capability in the tools you already own, wi
 
 ## Step 4: Deploy Free AegisGate Tools (Option A)
 
-Everything in Levels 1–4 below is **completely free, open source (Apache 2.0), with no feature gating or paid tiers**. Level 5 (Platform) has a free Community tier plus paid Pro+ tiers.
+Everything in Levels 1–4 below is **completely free, open source (Apache 2.0), with no feature gating or enterprise supports**. Level 5 (Platform) has a free Community tier plus paid enterprise deploymentss.
 
 **Not sure where to start? Use this table:**
 
@@ -720,7 +720,7 @@ Self-hosted gateway. Every request and response scanned across 6 protection pill
 
 **Free Community tier:** 303 regex patterns, protocol scanning, 4 compliance frameworks, fail-closed by default, zero external dependencies, air-gapped capable.
 
-**Pro+ (paid):** ML anomaly detection, SIEM integration, additional compliance frameworks, HSM/FIPS, Kubernetes clustering.
+**enterprise (paid):** ML anomaly detection, SIEM integration, additional compliance frameworks, HSM/FIPS, Kubernetes clustering.
 
 **Performance:** 23,578 RPS with 0% errors. -2.8ms p99 overhead. Blocked requests resolve in 7.2ms p50.
 
@@ -1082,7 +1082,7 @@ I'm not going to pretend one tool solves Black October. Here's what AegisGate do
 - **Stop a website from downloading a file to your Downloads folder.** Browser download behavior is controlled by the browser. Scanner CAN detect the malicious file before an agent reads it.
 - **Replace your SIEM.** AegisGate is a detection and prevention layer for AI agent traffic. In the free tiers, you can extract our patterns and feed them into your SIEM manually.
 - **Stop ARTEX running on someone else's machine.** AegisGate detects the *effects* of ARTEX in your traffic. It can't disable the attacker's tooling.
-- **Detect novel AI attack patterns without ML (free tier).** The 303 regex patterns in Platform's Community tier catch known patterns. The ML anomaly detection is a Pro+ feature. Lens and Rampart include ML detection for free.
+- **Detect novel AI attack patterns without ML (free tier).** The 303 regex patterns in Platform's Community tier catch known patterns. The ML anomaly detection is a enterprise feature. Lens and Rampart include ML detection for free.
 
 What AegisGate DOES do: it gives you visibility into a layer of traffic that you almost certainly have zero visibility into right now — the AI agent layer. And Black October just proved that layer is being actively exploited.
 
@@ -1090,7 +1090,7 @@ What AegisGate DOES do: it gives you visibility into a layer of traffic that you
 
 ## About This Guide
 
-This guide was written by a blue teamer who built AegisGate because they saw the AI agent blind spot coming. Everything in Levels 1–4 is free and open source (Apache 2.0) with no paid tiers, no feature gating, and no "contact sales for the real version." Level 5 (Platform) has a free Community tier that includes 303 regex patterns and protocol-level scanning — the ML anomaly detection and SIEM integration are Pro+ features, and I've been upfront about that.
+This guide was written by a blue teamer who built AegisGate because they saw the AI agent blind spot coming. Everything in Levels 1–4 is free and open source (Apache 2.0) with no enterprise supports, no feature gating, and no "contact sales for the real version." Level 5 (Platform) has a free Community tier that includes 303 regex patterns and protocol-level scanning — the ML anomaly detection and SIEM integration are enterprise features, and I've been upfront about that.
 
 There is no upsell here. There is no "schedule a demo." There are repos you can clone and tools you can deploy in minutes — including in air-gapped, regulated, and classified-adjacent environments where SaaS tools can't go.
 
@@ -1099,7 +1099,7 @@ The repos:
 - **Rampart** (local proxy, 302 regex + ML): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
 - **Scanner** (static analysis, 353 regex + ML): [github.com/aegisgatesecurity/aegisgate-scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
 - **MCP** (secure MCP framework, 79 regex + ML): [github.com/aegisgatesecurity/aegisgate-mcp](https://github.com/aegisgatesecurity/aegisgate-mcp)
-- **Platform** (enterprise gateway, 303 regex Community / +ML Pro+): [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
+- **Platform** (enterprise gateway, 303 regex Community / +ML enterprise): [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
 
 If this helps you, star the repos so other blue teamers find them. If it doesn't help you, the detection patterns are still free — take them and use them in your SIEM. No strings.
 

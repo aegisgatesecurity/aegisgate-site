@@ -16,7 +16,7 @@ This is not a sales funnel. It's a structured feedback program with clear scope,
 
 ## What You Get
 
-- **Free Enterprise tier access** — full platform capabilities, no license fees for the duration of the partnership
+- **Free enterprise deployments access** — full platform capabilities, no license fees for the duration of the partnership
 - **Direct roadmap input** — your use cases inform what we build next
 - **Priority support** — direct email and Slack access to the founder (not a ticket queue)
 - **Co-marketing option** — optional case study and joint content (only with explicit permission)

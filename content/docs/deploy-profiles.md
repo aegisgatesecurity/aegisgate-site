@@ -156,7 +156,7 @@ if err != nil {
 | Audit middleware | On |
 | A2A | Enabled |
 | ACP | Enabled |
-| Trust | Enabled (requires Professional+ license) |
+| Trust | Enabled (requires enterprise license) |
 | SIEM | Off (enable when ready) |
 | SOAR | Off (enable when ready) |
 | Security headers | On |
@@ -194,7 +194,7 @@ if err != nil {
 - TLS certificate and key files
 - mTLS client CA certificate
 - SIEM platform endpoint and credentials
-- Enterprise tier license
+- enterprise deployments license
 
 ### air-gapped
 
@@ -221,7 +221,7 @@ if err != nil {
 **Prerequisites:**
 - TLS certificate and key files (cannot auto-generate in air-gapped mode)
 - Local LLM service running (e.g., Ollama, vLLM, text-generation-webui)
-- Enterprise tier license
+- enterprise deployments license
 
 ---
 

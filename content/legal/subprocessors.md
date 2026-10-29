@@ -31,11 +31,7 @@ As of the Effective Date, the following Subprocessors process personal data on o
 
 ### 1.1 Payment Processing
 
-| Subprocessor | Purpose | Data Processed | Safeguards |
-|---|---|---|---|
-| **Stripe, Inc.** | Payment processing and subscription billing | Cardholder data, billing address, email | PCI-DSS Level 1 certified; DPA executed; SOC 2 Type II; data is tokenized — cardholder data does not touch AegisGate servers |
-
-**Privacy Policy:** https://stripe.com/privacy
+No payment processing subprocessor is currently used.
 
 ### 1.2 Marketing Site Hosting and CDN
 
@@ -70,7 +66,7 @@ AegisGate Security Platform is self-hosted and on-premises by design. AegisGate 
 |---|---|---|---|
 | **None** | — | — | — |
 
-**Explanation:** We do not currently use a third-party email service for transactional email. Receipts and payment confirmations are delivered by **Stripe** (via Stripe's built-in receipt system). License key delivery, support communications, and account notifications are delivered via direct SMTP from our internal systems; we will update this list before engaging any third-party email subprocessor.
+**Explanation:** We do not currently use a third-party email service for transactional email. License key delivery, support communications, and account notifications are delivered via direct SMTP from our internal systems; we will update this list before engaging any third-party email subprocessor.
 
 ## 2. Future Subprocessors
 

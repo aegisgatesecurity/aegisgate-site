@@ -27,13 +27,13 @@ tags:
 | Field | Value |
 |-------|-------|
 | **Customer segment** | Regional healthcare provider, 1,200 employees, 3 hospitals |
-| **Products deployed** | AegisGate **Platform Professional** ($499/mo) + **Lens** (all staff browsers) |
+| **Products deployed** | AegisGate **Platform** (self-hosted) + **Lens** (all staff browsers) |
 | **Compliance framework** | HIPAA (Health Insurance Portability and Accountability Act) |
 | **AI tools in use** | ChatGPT (clinical staff), Copilot (IT team), custom AI API (research) |
 | **PHI leaks prevented** (first 6 months) | 134 |
 | **Audit outcome** | **PASSED** with 0 findings on AI interaction controls |
 | **Audit prep time saved** | ~40 hours (automated evidence via Trust Framework) |
-| **Monthly cost** | $499 (Platform Professional) — Lens free for all staff |
+| **Monthly cost** | $0 (Platform self-hosted, open-source) — Lens free for all staff |
 
 ---
 
@@ -173,17 +173,17 @@ The auditor reviewed:
 3. **Audit logs without PHI are critical** — the Platform's PII redaction meant the audit trail itself was not a PHI repository. This was essential for HIPAA compliance.
 4. **The Trust Framework is a game-changer for audits** — cryptographic attestation that controls were active and enforced is far more compelling than policy documents alone.
 5. **Air-gapped deployment is feasible** — the research team's data residency requirements were met with a single binary on an isolated server.
-6. **Cost is minimal compared to a breach** — $499/month for Platform Professional vs. potential HIPAA penalties of $100-$50,000 per violation, up to $1.5 million per year for repeat violations.
+6. **Cost is minimal compared to a breach** — free open-source Platform vs. potential HIPAA penalties of $100-$50,000 per violation, up to $1.5 million per year for repeat violations.
 
 ---
 
 ## Try It Yourself
 
-- 🏢 [Deploy Platform](https://github.com/aegisgatesecurity/aegisgate-platform) — 30-day free trial, then $499/mo Professional
+- 🏢 [Deploy Platform](https://github.com/aegisgatesecurity/aegisgate-platform) — free and open-source
 - 🛡️ [Install Lens for Chrome](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) — free, force-installable via enterprise policy
 - 🛡️ [Install Lens for Firefox](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/) — free
 - 📋 [HIPAA Compliance Module](/compliance/hipaa/) — see the 43 HIPAA detection patterns
-- 📊 [See Pricing](/pricing/) — compare all tiers
+- 📊 [Learn More](/pricing/) — compare all tiers
 - 🔒 [Security Overview](/security/) — Trust Framework, audit logging, PII redaction
 - 🏥 [Live Demo](https://demo.aegisgatesecurity.io/) — try Platform with HIPAA compliance enabled
 

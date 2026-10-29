@@ -21,9 +21,9 @@ AegisGate is the only full-suite, open-source AI security platform that protects
 
 | Product | What It Does | Where It Runs | Price |
 |---------|-------------|---------------|-------|
-| **Platform** | Enterprise AI gateway — inspects all AI API traffic, 40 guardrails across 6 attack surfaces, 31 compliance frameworks | Server / cloud / on-prem / air-gapped | Free → $499/mo → Custom |
+| **Platform** | Enterprise AI gateway — inspects all AI API traffic, 40 guardrails across 6 attack surfaces, 31 compliance frameworks | Server / cloud / on-prem / air-gapped | Free (open-source) · Enterprise support by contact |
 | **Lens** | Browser extension — real-time PII/secrets/XSS/prompt injection detection in AI chat inputs | Chrome / Edge | Free |
-| **Rampart** | Local proxy — MITM interception of AI API calls, block mode, encrypted audit log | Desktop (macOS, Windows, Linux) | Free → $79/mo |
+| **Rampart** | Local proxy — MITM interception of AI API calls, block mode, encrypted audit log | Desktop (macOS, Windows, Linux) | Free (open-source) |
 
 ### Why AegisGate
 
@@ -41,7 +41,7 @@ AegisGate is the only full-suite, open-source AI security platform that protects
 | **Browser extension** | Lens (free, CWS, 10 AI providers) | None |
 | **SIEM integration** | 12 platforms (Splunk, QRadar, Datadog, Sentinel, etc.) | 0-1 |
 | **SOAR integration** | PagerDuty, Jira, ServiceNow | None |
-| **3-Year TCO (10K req/day)** | $10K-50K | $108K-540K |
+| **3-Year TCO (10K req/day)** | Self-hosted (open-source) | Vendor pricing varies |
 
 ### Deployment in 5 Minutes
 
@@ -75,12 +75,7 @@ SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NI
 
 ### Pricing
 
-| Tier | Price | Key Features |
-|------|-------|-------------|
-| **Community** | Free | 4 compliance frameworks, Lens, Rampart, all detection |
-| **Developer** | $79/mo | 10 frameworks (4 community + 6 add-ons), SIEM, API access |
-| **Professional** | $499/mo | 26 frameworks (4 community + 6 + 16 add-ons), SOAR, evidence packages, attestation |
-| **Enterprise** | Custom | 31 frameworks, all features, priority support |
+Community tier is free forever. Contact sales@aegisgatesecurity.io for enterprise support, compliance modules, and custom integrations.
 
 **No per-request fees. No data egress. No vendor lock-in.**
 
@@ -104,7 +99,7 @@ SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NI
 > **Patent Pending** (8 U.S. provisional applications) and [published research on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
 2. **Third-party pentest** — Independent lab (self-pentest v3.3.0 exists)
-3. **Legal review** — DPA, MSA, BAA, SLA (all drafts exist, ~$5-15K legal review)
+3. **Legal review** — DPA, MSA, BAA, SLA (drafts available)
 4. **Scale test** — Already done (5K VUs, 23.5K RPS, 0% errors, published)
 
 ### Contact

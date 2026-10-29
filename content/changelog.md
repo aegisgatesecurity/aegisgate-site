@@ -343,14 +343,14 @@ aegisgate-platform --profile <name>        # Deploy profile selector
 
 ### v4.1.0 - 2026-08-16 - Open-Core, Pricing, CI Fixes
 
-> **v4.1.0** completes the open-core split. Community edition is Apache 2.0 (CGO_ENABLED=0, no ONNX Runtime). Enterprise features gated by `//go:build enterprise` tags and tier checks in `pkg/tier/tier.go`.
+> **v4.1.0** completes the build tag separation. Community edition is Apache 2.0 (CGO_ENABLED=0, no ONNX Runtime). Enterprise features use `//go:build enterprise` tags in `pkg/tier/tier.go`.
 
-- Open-core model: Community (Apache 2.0), Developer ($79/mo), Professional ($499/mo), Enterprise (custom)
+- Open-core model: Community (Apache 2.0, free) and Enterprise (contact for support)
 - 31 compliance frameworks with tier-based gating (Community=4, Developer=10, Professional=26, Enterprise=31)
 - 176 detection patterns (secrets, XSS, PII, compliance, OT/ICS)
-- Trust Framework: Professional+ (per-agent identity, trust scoring, signed attestations)
-- SIEM integration: Professional+ (11 platforms)
-- ML threat detection: Professional+ (Char CNN-BiLSTM, ONNX)
+- Trust Framework: enterprise (per-agent identity, trust scoring, signed attestations)
+- SIEM integration: enterprise (11 platforms)
+- ML threat detection: enterprise (Char CNN-BiLSTM, ONNX)
 - HSM, FIPS, air-gapped, K8s clustering: Enterprise only
 - Go 1.26.6, 8,000+ tests, 83.1% coverage
 - Single branch (main), tag-based releases
@@ -495,7 +495,7 @@ The Tier 3 features (PDF + SOC):
 
 The Tier 4 features (CISO Digest + reporting pipeline):
 
-- **CISO Posture Digest** (81.8% coverage after v0.2 wiring) — branded PDF digest with real IOC + audit-log breakdowns, signed envelope, Professional+ tier gated
+- **CISO Posture Digest** (81.8% coverage after v0.2 wiring) — branded PDF digest with real IOC + audit-log breakdowns, signed envelope, enterprise deployments gated
 - **Reporting Pipeline** — `Source` interface + 4 adapters (PostureSource, IOCSource, AuditLogSource, AuditSource) wired into the platform's real dependencies
 
 #### 7 self-review files (`docs/reviews/`)
@@ -565,23 +565,23 @@ _Released 2026-06-08. This is a code-content fix, not a security fix. v3.3.0-bet
 
 #### Breaking Changes
 
-- Starter tier removed from billing. Community is free, Developer ($79/mo) is first paid tier.
+- Community tier established as free forever. Enterprise support available by contact.
 
 
-_Released 2026-06-08. This is a BETA release, not a commercial launch. Professional+ tier and module buy buttons are intentionally hidden pending counsel review and the v3.4.0 paid pentest. Starter and Developer tiers remain live and sellable._
+_Released 2026-06-08. This is a BETA release, not a commercial launch. enterprise deployments and module enterprise support options are intentionally hidden pending counsel review and the v3.4.0 paid pentest. Starter and self-hosted deploymentss remain live and sellable._
 
 **Highlights:**
-- **EU AI Act Compliance Module (NEW)** — 82 controls across 8 categories of the EU AI Act, gated by the existing license + module framework. Available to Professional+ tier via the (hidden) module buy button.
+- **EU AI Act Compliance Module (NEW)** — 82 controls across 8 categories of the EU AI Act, gated by the existing license + module framework. Available with enterprise support.
 - **7-tool security self-attestation** — gosec, govulncheck, golangci-lint, gitleaks (837→0 findings via allowlist), trivy, syft, nmap. Self-attested as production-ready for beta; full pentest planned for v3.4.0+.
 - **v3.3.1 hardening pass** — Dockerfile base images pinned to SHA256 digests, K8s seccompProfile.RuntimeDefault added, all 16 P1+P2 golangci-lint findings fixed.
 - **Minimum-viable legal kit** — 6 v2.0 customer-facing docs + 1 Beta User Agreement, all published at `/legal/`. Self-drafted, not legal advice; counsel review deferred to v3.4.0+.
-- **Buy-Button Visibility** — Professional tier (2 buttons) and all 6 module buy buttons are hidden in the v3.3.0-beta.2 web UI with a "coming-soon" placeholder. The 4 Starter + Developer buttons remain live.
+- **Buy-Button Visibility** — enterprise deployments (2 buttons) and all 6 module enterprise support options are hidden in the v3.3.0-beta.2 web UI with a "coming-soon" placeholder. The 4 Starter + Developer buttons remain live.
 
 **Available tiers in this beta:**
 - Community (free) — unchanged
-- Starter ($29/mo or $290/yr) — Buy Button live
-- Developer ($79/mo or $790/yr) — Buy Button live
-- Professional ($499/mo or $4990/yr) — hidden pending v3.3.0-GA
+- Starter — removed (consolidated into Community)
+- Developer — removed (consolidated into Community)
+- Professional — removed (consolidated into Enterprise)
 - Enterprise (custom) — contact sales
 
 **Module availability:**
@@ -608,29 +608,29 @@ The newest architectural pillar: continuous, per-agent cryptographic trust scori
 - **Per-session trust score** — `GET /api/v1/trust/score?session=ID` returns a 0–100 score with a component breakdown (threat blocks, tool risk average, A2A capabilities used, response findings).
 - **Signed attestations** — every event emits an Ed25519-signed attestation. Verify offline with the public key.
 - **Attestations feed** — `GET /api/v1/trust/attestations?since=TIMESTAMP&limit=100` returns the rolling event log.
-- **Professional+ gate** — the `TRUST_PILLAR_ENABLED` feature flag activates the API for Professional and Enterprise tiers. Lower tiers receive HTTP 402.
+- **enterprise gate** — the `TRUST_PILLAR_ENABLED` feature flag activates the API for Professional and enterprise deploymentss. Lower tiers receive HTTP 402.
 - **Powers the Compliance Scan Engine** — the trust layer is the substrate that the `/api/v1/compliance/scan` and `/api/v1/compliance/report` endpoints query.
 
 #### Compliance Modules (Phase 1, Module Extraction) — _Completed 2026-06-05_
 
-Six billable compliance modules are now available as add-ons to any paid tier. Prices are locked from the pricing-table decision (2026-06-04) and will not change for existing customers (Q2: lock-in at purchase price forever).
+Six billable compliance modules are now available as add-ons to any enterprise support. Prices are locked from the pricing-table decision (2026-06-04) and will not change for existing customers (Q2: enterprise support agreement terms).
 
 | Module | Price | Required Tier | Description |
 |---|---|---|---|
-| HIPAA | $99/mo | Developer+ | HIPAA-compliant logging, PHI detection, BAA support |
-| PCI-DSS | $99/mo | Developer+ | Payment card data detection, PCI-scoped audit logs |
-| SOC 2 | $149/mo | Developer+ | SOC 2 control mapping and evidence collection |
-| ISO 42001 | $79/mo | Professional+ | ISO/IEC 42001 AI management system controls |
-| FedRAMP | $499/mo | Professional+ | FedRAMP Moderate/High control mapping, continuous monitoring |
-| FIPS 140-2/140-3 | $299/mo | Professional+ | FIPS-validated cryptography enforcement, HSM integration |
+| HIPAA | Enterprise | HIPAA-compliant logging, PHI detection, BAA support |
+| PCI-DSS | Enterprise | Payment card data detection, PCI-scoped audit logs |
+| SOC 2 | Enterprise | SOC 2 control mapping and evidence collection |
+| ISO 42001 | Enterprise | ISO/IEC 42001 AI management system controls |
+| FedRAMP | Enterprise | FedRAMP Moderate/High control mapping, continuous monitoring |
+| FIPS 140-2/140-3 | Enterprise | FIPS-validated cryptography enforcement, HSM integration |
 
-Modules are purchased via Stripe checkout and activated instantly on the customer's license via the existing webhook (Q1: instant via Stripe webhook). All 6 module products are live in the Stripe dashboard and rendered on the [Pricing page](/pricing/).
+Modules are purchased via enterprise support onboarding and activated instantly on the customer's license via the existing webhook (Q1: instant via activation webhook). All 6 module products are live in the admin dashboard and rendered on the [Pricing page](/pricing/).
 
 #### Pro Tier Price Change (Phase 2) — _Completed 2026-06-05_
 
-Pro tier is now **$499/mo** (was $249/mo) and **$4,990/yr** (was $2,490/yr). The change is in the Stripe dashboard, billing-config.json, the pricing page, and the tier-comparison docs. Existing Pro customers would be grandfathered at $249/mo per the locked decision Q2 (lock-in at purchase price forever); however, no Pro customers exist at the time of this release, so the grandfathering code path is unexercised.
+enterprise deployments consolidated. All features available under Apache 2.0 (community) or enterprise support agreement.
 
-The Pro tier also picked up the **Trust Framework** and the **Compliance Scan API** as Professional+ features in v3.2.0 — see the [Tier Comparison](/docs/tiers/) page for the updated matrix.
+The Pro tier also picked up the **Trust Framework** and the **Compliance Scan API** as enterprise features in v3.2.0 — see the [Tier Comparison](/docs/tiers/) page for the updated matrix.
 
 #### Compliance Scan Engine (Phase 3) — _Completed 2026-06-05_
 
@@ -655,7 +655,7 @@ The marketing site has been updated to reflect the v3.2.0 5-pillar architecture:
 
 - [Homepage](/) — the hero card grid now lists the four protocol pillars plus a highlighted **Trust Framework** card (new in v3.2.0).
 - [Tech page](/tech/) — the "Five Pillars" section is reordered (HTTP API, MCP, A2A, RESPONSE, Trust) and the Trust Framework gets its own detail table (8 components, 2 API endpoints, attestation format, tier gating).
-- [Pricing page](/pricing/) — Pro tier is now $499/mo and 27 compliance frameworks are listed with tier requirements and Stripe buy buttons.
+- [Enterprise page](/pricing/) — 27 compliance frameworks available with enterprise support.
 - [Tier Comparison](/docs/tiers/) — Pro price updated, new "Trust Framework" and "Compliance Scan API" rows added.
 
 #### Upcoming in v3.2.0
@@ -670,13 +670,13 @@ _Released 2026-06-05_
 This release fixes a critical drift between the website-promised tier limits and the code-enforced tier limits. Customers who paid for Starter, Developer, or Professional were silently receiving 40–70% underdelivery on rate limits and concurrent users/agents.
 
 #### Tier Rate Limit Corrections
-- **Starter tier** — modeled as a first-class tier for the first time (was faked via a `starter_mode` feature flag with 50% underdelivery)
-- **Developer tier** — proxy 600 → 1000 RPM, MCP 300 → 500 RPM, users 10 → 25, agents 5 → 25
-- **Professional tier** — proxy 3000 → 10000 RPM, MCP 1500 → 5000 RPM, users 50 → 100, agents 25 → 100
-- **Enterprise tier** — unchanged (-1/-1, unlimited)
+- **Starter configuration** — removed (consolidated into Community tier)
+- **self-hosted deployments** — proxy 600 → 1000 RPM, MCP 300 → 500 RPM, users 10 → 25, agents 5 → 25
+- **enterprise deployments** — proxy 3000 → 10000 RPM, MCP 1500 → 5000 RPM, users 50 → 100, agents 25 → 100
+- **enterprise deployments** — unchanged (-1/-1, unlimited)
 
 #### Webhook Hardening
-- Tier validation in the Stripe checkout webhook: unknown values are now rejected with a structured `invalid_tier` error instead of silently generating a license for an arbitrary string
+- Tier validation in the enterprise support onboarding webhook: unknown values are now rejected with a structured `invalid_tier` error instead of silently generating a license for an arbitrary string
 - Tier alias normalization (e.g., `"pro"` → `"professional"`, `"free"` → `"community"`) for consistent downstream behavior
 
 #### Tooling

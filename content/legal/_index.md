@@ -22,9 +22,9 @@ AegisGate Security, LLC's legal documents are listed below. Each document is a *
 | [Cookie Policy](/legal/cookies/) | The cookies and tracking technologies we use | 2026-06-07 |
 | [End-User License Agreement](/legal/eula/) | Software license for AegisGate Security Platform | 2026-07-29 |
 | [Data Processing Agreement](/legal/dpa/) | GDPR Article 28 agreement for customers processing personal data through the Platform | 2026-06-07 |
-| [Business Associate Agreement](/legal/baa/) | HIPAA Business Associate Agreement for Professional tier subscribers handling PHI | 2026-07-29 |
+| [Business Associate Agreement](/legal/baa/) | HIPAA Business Associate Agreement for enterprise deployments subscribers handling PHI | 2026-07-29 |
 | [Subprocessor List](/legal/subprocessors/) | Third-party service providers that process personal data on our behalf | 2026-06-07 |
-| [Security Addendum](/legal/security-addendum/) | Security controls, infrastructure, and compliance posture for Professional and Enterprise tiers | 2026-07-29 |
+| [Security Addendum](/legal/security-addendum/) | Security controls, infrastructure, and compliance posture for Professional and enterprise deploymentss | 2026-07-29 |
 | [Acceptable Use Policy](/legal/acceptable-use/) | Defines permitted and prohibited uses of the service | 2026-07-29 |
 | [Mutual NDA](/legal/nda/) | Mutual non-disclosure agreement for business discussions | 2026-07-29 |
 | [Beta User Agreement](/legal/beta-agreement/) | Supplemental terms for v4.2.0 program participants | 2026-06-07 |

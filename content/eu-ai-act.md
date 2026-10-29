@@ -1,6 +1,6 @@
 ---
 title: "EU AI Act Compliance Module"
-description: "AegisGate's EU AI Act Module gives you 120 controls across 8 categories of EU Regulation 2024/1689, included with Professional+ tier."
+description: "AegisGate's EU AI Act Module gives you 120 controls across 8 categories of EU Regulation 2024/1689, included with enterprise deployments."
 type: "landing"
 ---
 
@@ -151,10 +151,10 @@ If you fall into one of the above categories, you may not need this Module. Cont
 
 ## Pricing & Tier
 
-- **Tier gate**: **Professional+** (Professional and Enterprise tiers)
+- **Tier gate**: **enterprise** (Professional and enterprise deploymentss)
 - **Pricing**: **Included** with Professional and Enterprise at no extra cost
-- **Add-on**: Not available as a separate module — it's part of the Professional+ tier
-- **Migration**: If you're on a Community or Developer tier, [upgrade to Professional](/pricing/) to enable the EU AI Act Module
+- **Add-on**: Not available as a separate module — it's part of the enterprise deployments
+- **Migration**: If you're on a Community or self-hosted deployments, [upgrade to Professional](/pricing/) to enable the EU AI Act Module
 
 ## Documentation
 
@@ -179,7 +179,7 @@ When counsel sign-off is complete (target: v4.2.0), we'll:
 - Update the Module to v1.0-GA
 - Publish the counsel-reviewed mapping
 - Issue updated audit reports for all beta users
-- Notify all Professional+ customers via email
+- Notify all enterprise customers via email
 
 ## Get Started
 
@@ -214,4 +214,4 @@ To enable the EU AI Act Compliance Module:
 
 ---
 
-**Related**: [Pricing](/pricing/) · [Documentation](/docs/) · [Legal](/legal/) · [Changelog](/changelog/) · [GitHub](https://github.com/aegisgatesecurity/aegisgate-platform)
+**Related**: [Enterprise](/pricing/) · [Documentation](/docs/) · [Legal](/legal/) · [Changelog](/changelog/) · [GitHub](https://github.com/aegisgatesecurity/aegisgate-platform)

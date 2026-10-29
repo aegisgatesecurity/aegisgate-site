@@ -46,7 +46,7 @@ If you believe your personal data has been compromised through an AegisGate prod
 
 ### HIPAA Breach Notification (45 C.F.R. § 164.400-414)
 
-For Professional and Enterprise tier customers who have executed a Business Associate Agreement (BAA):
+For Professional and enterprise deployments customers who have executed a Business Associate Agreement (BAA):
 
 | Requirement | Commitment |
 |-------------|-----------|

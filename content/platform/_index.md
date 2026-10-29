@@ -362,8 +362,8 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | Tier | Price | Key Features |
 |------|-------|--------------|
 | **Community** | Free | HTTP proxy, MCP, A2A, 303 patterns, MITRE ATLAS, basic compliance |
-| **Developer** | $79/mo | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
-| **Professional** | $499/mo | + Trust Framework, Agent Registry, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
+| **Enterprise** | Contact us | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
+| **Enterprise+** | Contact us | + Trust Framework, Agent Registry, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
 | **Enterprise** | Custom | + Air-gapped deployment, custom compliance modules, dedicated SE, SLA |
 
 <p><a href="/pricing/" class="btn btn-secondary">Full pricing details →</a></p>

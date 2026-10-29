@@ -151,7 +151,7 @@ If any step fails, encounters an error, or produces unexpected output, the reque
 |--------|-----------|-------------|
 | Compliance status summary | On demand via API | All tiers |
 | Processing volume and error rates | Daily | Developer+ |
-| Detailed processing integrity audit | Monthly | Professional+ |
+| Detailed processing integrity audit | Monthly | enterprise |
 | Custom processing integrity metrics | On demand | Enterprise |
 
 ---

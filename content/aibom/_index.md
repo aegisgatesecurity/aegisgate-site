@@ -15,9 +15,9 @@ type: "landing"
 > **AegisGate AIBOM Generator fills this gap.** Automatically generate CycloneDX 1.6+ compliant AI Bill of Materials that tracks every AI component in your systems.
 
 <div class="alert alert-success alert-center">
-<strong>AIBOM Generator</strong> is available in <strong>Developer tier and above</strong>.
+<strong>AIBOM Generator</strong> is available in <strong>self-hosted deployments</strong>.
 <br><br>
-<a href="/pricing/" class="btn btn-primary">View Pricing &rarr;</a>
+<a href="/pricing/" class="btn btn-primary">Get Started &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
@@ -459,13 +459,13 @@ AIBOMs are automatically generated from Platform's inventory. Manual edits will 
 <details>
 <summary><strong>How often should I generate AIBOMs?</strong></summary>
 
-We recommend generating AIBOMs on every production deployment. Enterprise tier supports automated generation via CI/CD integration.
+We recommend generating AIBOMs on every production deployment. enterprise deployments supports automated generation via CI/CD integration.
 </details>
 
 <details>
 <summary><strong>Can I export AIBOMs for multiple systems at once?</strong></summary>
 
-Yes. Enterprise tier supports batch export: `GET /api/v1/aibom/export?system_ids=system1,system2,system3`
+Yes. enterprise deployments supports batch export: `GET /api/v1/aibom/export?system_ids=system1,system2,system3`
 </details>
 
 <details>
@@ -486,8 +486,8 @@ CycloneDX is recognized by EU regulators as an acceptable format for technical d
 
 > **Patent Pending** (8 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
-AIBOM Generator is available in **Developer tier and above**.
+AIBOM Generator is available in **self-hosted deployments**.
 
-<a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>
+<a href="/pricing/" class="btn btn-primary">Download &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/pricing/" class="btn btn-secondary">Contact Sales &rarr;</a>
+<a href="/pricing/" class="btn btn-secondary">Contact Us &rarr;</a>

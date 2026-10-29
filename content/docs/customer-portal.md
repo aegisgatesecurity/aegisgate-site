@@ -1,6 +1,6 @@
 ---
 title: "Customer Portal"
-description: "Self-service account management, billing, and usage analytics"
+description: "Self-service account management and usage analytics"
 type: docs
 ---
 
@@ -14,7 +14,7 @@ The Customer Portal is a lightweight Go HTTP server that provides:
 
 - **Profile management** — Organization details, plan information, and renewal dates
 - **License information** — Current tier, feature access, and expiration status
-- **Subscription management** — Billing details, payment methods, and next billing date
+- **Support management** — Enterprise support details and contact information
 - **Usage analytics** — API and MCP request counts against tier caps
 - **Invoice access** — Download past invoices and receipts
 - **Compliance documents** — BAA, DPA, and SOC2 reports
@@ -196,7 +196,7 @@ The Customer Portal includes built-in security hardening:
 
 ### Pricing
 
-See our [pricing page](/pricing/) for tier details, rate limits, and feature comparison.
+Contact sales@aegisgatesecurity.io for enterprise support details.
 
 ### Integration with Main Platform
 

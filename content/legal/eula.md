@@ -52,7 +52,7 @@ To accept this Agreement, you must be at least 18 years old and have the legal c
 
 ### 1.4 Acceptance Method
 This Agreement is accepted by:
-- **Buy Button checkout:** Clicking "Buy" on aegisgatesecurity.io/pricing constitutes acceptance. The EULA version hash is recorded at purchase for audit purposes.
+- **Acceptance:** Using AegisGate software in production constitutes acceptance of this EULA.
 - **Self-service signup:** Checking the "I agree to the End-User License Agreement" checkbox on the signup form constitutes acceptance. The form's submission timestamp and the checked-state are recorded in the audit log.
 - **Click-through installer:** Clicking "I agree" in the CLI installer or first-run setup wizard constitutes acceptance. The acceptance event is logged locally and may be transmitted to Company's servers.
 - **Enterprise agreements:** Acceptance is recorded in the executed Order Form.
@@ -68,8 +68,8 @@ This acknowledgment is required to satisfy enforceability concerns under uniform
 
 ## 2. SUBSCRIPTION AND FEES
 
-### 2.1 Subscription Required
-Commercial use of the Software requires a paid subscription. By purchasing a subscription, you agree to pay all applicable fees set forth at aegisgatesecurity.io/pricing or as otherwise agreed in an Order Form.
+### 2.1 Enterprise Support
+The Software is open-source and freely available. Commercial use, enterprise support, and compliance modules are available by contacting sales@aegisgatesecurity.io. Fees for enterprise support are as agreed in an executed Order Form.
 
 ### 2.2 Fee Structure
 - (a) Fees are based on the subscription tier selected
@@ -155,7 +155,7 @@ The Community tier license is:
 - (b) Provided on an "as is" basis (see Section 10)
 - (c) Subject to **best-effort support only** (no SLA, no guaranteed response time)
 - (d) Revocable at Company's discretion
-- (e) Subject to rate limits and feature restrictions as set forth at aegisgatesecurity.io/pricing
+- (e) Subject to rate limits and feature restrictions as documented in the Software
 - (f) Not eligible for PHI / PCI-DSS / GDPR processing under Company-held agreements (Subscriber must execute a BAA and/or DPA for such processing)
 
 **Commercial use of the Community tier is strictly prohibited and constitutes a material breach of this Agreement.**

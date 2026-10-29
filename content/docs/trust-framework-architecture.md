@@ -204,11 +204,11 @@ The Trust Framework exposes an HTTP API at `/api/v1/trust/*`:
 
 | Endpoint | Method | What it returns | Auth |
 |----------|--------|-----------------|------|
-| `/api/v1/trust/score?agent=ID` | GET | Lifetime trust score for an agent | License (Professional+) |
-| `/api/v1/trust/score?session=ID` | GET | Current session trust score | License (Professional+) |
-| `/api/v1/trust/sessions?active=true&agent=ID` | GET | Active sessions for an agent | License (Professional+) |
-| `/api/v1/trust/attestations?agent=ID&since=TS` | GET | Signed attestations since timestamp | License (Professional+) |
-| `/api/v1/trust/attestations/latest?agent=ID` | GET | Most recent attestation | License (Professional+) |
+| `/api/v1/trust/score?agent=ID` | GET | Lifetime trust score for an agent | License (enterprise) |
+| `/api/v1/trust/score?session=ID` | GET | Current session trust score | License (enterprise) |
+| `/api/v1/trust/sessions?active=true&agent=ID` | GET | Active sessions for an agent | License (enterprise) |
+| `/api/v1/trust/attestations?agent=ID&since=TS` | GET | Signed attestations since timestamp | License (enterprise) |
+| `/api/v1/trust/attestations/latest?agent=ID` | GET | Most recent attestation | License (enterprise) |
 | `/api/v1/trust/health` | GET | Liveness check | Public |
 
 ### Example: Get Trust Score
@@ -320,7 +320,7 @@ Enable the Trust Framework in `configs/aegisgate-platform.yaml`:
 ```yaml
 trust:
   enabled: true
-  require_license: true  # Gate API behind Professional+ license (default: true)
+  require_license: true  # Gate API behind enterprise license (default: true)
   score_threshold_suspicious: 50  # Below this = SUSPICIOUS
   score_threshold_blocked: 50     # Below this = BLOCKED
   anomaly_sensitivity: 0.3        # 0-1, higher = more sensitive to anomalies
@@ -333,7 +333,7 @@ Or via environment variable: `AEGISGATE_TRUST_ENABLED=true`
 
 ## Tier & Pricing
 
-- **Tier required**: Professional+ (Professional $499/mo, Enterprise $2,000/mo)
+- **Deployment**: enterprise (contact for support)
 - **Pricing model**: Included in the tier — not a separately-billable module. The Trust Framework is a platform capability, not a compliance add-on.
 - **Custom Enterprise SLAs**: Available for customers who need deeper trust-score analytics than the tier provides
 
@@ -346,5 +346,5 @@ Or via environment variable: `AEGISGATE_TRUST_ENABLED=true`
 | v3.0.0 and earlier | Not present (HTTP/MCP/A2A/RESPONSE only — 4 pillars) |
 | v3.1.0 – v3.2.0 | Trust packages pre-built but not first-class |
 | v3.3.0 | Trust packages available as opt-in; not yet wired into main |
-| **v3.6.0+** | **Trust Framework promoted to 6th pillar; HTTP API at `/api/v1/trust/*`; tier-gated to Professional+** |
+| **v3.6.0+** | **Trust Framework promoted to 6th pillar; HTTP API at `/api/v1/trust/*`; enterprise-grade to enterprise** |
 | v4.0+ (planned) | Cross-organization trust federation; PKI integration; ML-based anomaly detection |

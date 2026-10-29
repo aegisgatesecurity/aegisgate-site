@@ -26,12 +26,12 @@ tags:
 | Field | Value |
 |-------|-------|
 | **Customer segment** | Series-A SaaS, 50 engineers, B2B developer tools |
-| **Products deployed** | AegisGate **Rampart** (all engineers) + **Platform Developer** ($79/mo) |
+| **Products deployed** | AegisGate **Rampart** (all engineers) + **Platform** (self-hosted) |
 | **Deployment time** | 2 hours (Rampart) + 30 minutes (Platform) |
 | **AI tools in use** | GitHub Copilot (35 engineers), Cursor (10 engineers), ChatGPT (all), local LLMs (5 engineers) |
 | **Secret leaks prevented** (first 90 days) | 47 |
 | **Compliance reporting** | Automated via Platform audit logs |
-| **Monthly cost** | $79 (Platform Developer tier) — Rampart free for all engineers |
+| **Monthly cost** | $0 (Platform self-hosted, open-source) — Rampart free for all engineers |
 
 ---
 
@@ -104,7 +104,7 @@ The 5 engineers using local LLMs and direct API calls configured Rampart's proxy
 | **Prompt injection detections** | Unknown | **4** (caught by ML model) |
 | **Engineer productivity** | Baseline | **No change** (~5ms detection, imperceptible) |
 | **Compliance audit prep time** | 2 days/quarter | **0** (automated via Platform logs) |
-| **Monthly cost** | $0 (but untracked risk) | **$79** |
+| **Monthly cost** | $0 (but untracked risk) | **$0** |
 
 ### Breakdown of 47 caught incidents:
 
@@ -139,8 +139,8 @@ Sarah surveyed the team after 90 days:
 
 1. **Multi-tool coverage is essential** — a team using Copilot, Cursor, ChatGPT, and local LLMs needs protection at every surface. Browser-only tools miss 60% of AI interactions.
 2. **Invisible security works** — engineers adopted Rampart because it didn't change their workflow. ~5ms detection is imperceptible.
-3. **Centralized reporting changes the conversation** — instead of "I think we're okay," Sarah can show the CTO exact numbers: 47 caught incidents, 0 leaks, $79/month.
-4. **Free + low-cost is viable** — Rampart is free for all 50 engineers. Platform Developer at $79/mo provides centralized policy and audit. Total cost is less than one engineer's coffee budget.
+3. **Centralized reporting changes the conversation** — instead of "I think we're okay," Sarah can show the CTO exact numbers: 47 caught incidents, 0 leaks, zero cost.
+4. **Free + low-cost is viable** — Rampart is free for all 50 engineers. Platform is free and open-source, providing centralized policy and audit.
 5. **Open source builds trust** — the security team audited the detection patterns and confirmed they matched the company's secret scanning policy.
 
 ---
@@ -148,8 +148,8 @@ Sarah surveyed the team after 90 days:
 ## Try It Yourself
 
 - ⚡ [Download Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2) — free for all editors
-- 🏢 [Deploy Platform](https://github.com/aegisgatesecurity/aegisgate-platform) — free tier or $79/mo Developer
-- 📊 [See Pricing](/pricing/) — compare all tiers
+- 🏢 [Deploy Platform](https://github.com/aegisgatesecurity/aegisgate-platform) — free and open-source
+- 📊 [Learn More](/pricing/) — compare all tiers
 - 🔧 [IDE Integration Guide](/docs/ide-integration/) — setup for VS Code, JetBrains, Neovim
 
 ---

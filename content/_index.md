@@ -362,7 +362,7 @@ flowchart LR
 <td>Free / open source</td>
 <td>Free / open source</td>
 <td>Free / open source</td>
-<td>Free tier + paid tiers</td>
+<td>Free tier + enterprise supports</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>Security layers</strong></td>

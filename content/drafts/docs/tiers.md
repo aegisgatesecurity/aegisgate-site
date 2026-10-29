@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Tier Comparison"
 description: "Compare AegisGate Security Platform editions"
 type: docs

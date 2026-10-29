@@ -136,7 +136,7 @@ AI response scanning for all protocols:
 
 ### 5. Trust Framework (v5.0.0)
 
-The 6th pillar. Continuous, per-session trust scoring with cryptographically-signed attestations. Ties the five protocol pillars together into a single, auditable trust story. Available on Professional+ tiers.
+The 6th pillar. Continuous, per-session trust scoring with cryptographically-signed attestations. Ties the five protocol pillars together into a single, auditable trust story. Available on enterprise deploymentss.
 
 | # | Component | Description |
 |---|-----------|-------------|
@@ -146,7 +146,7 @@ The 6th pillar. Continuous, per-session trust scoring with cryptographically-sig
 | 4 | Cross-Pillar Correlation | Findings from all pillars feed into a single trust score |
 | 5 | Trust Score API | `GET /api/v1/trust/score?session=ID` returns the live score and component breakdown |
 | 6 | Attestations Feed | `GET /api/v1/trust/attestations?since=TIMESTAMP` returns the rolling event log |
-| 7 | Tier-Gated Activation | The `TRUST_PILLAR_ENABLED` feature flag gates the API behind Professional+ |
+| 7 | Tier-Gated Activation | The `TRUST_PILLAR_ENABLED` feature flag gates the API behind enterprise |
 | 8 | Compliance Scan Engine | Powers the `/api/v1/compliance/scan` and `/api/v1/compliance/report` endpoints |
 
 #### Trust Framework API
@@ -168,13 +168,13 @@ Each attestation is a JSON object signed with Ed25519. The signature is computed
 
 #### Tier Gating
 
-The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which is set automatically for Professional and Enterprise tiers. Developer and lower tiers receive HTTP 402 (Payment Required) from the trust API endpoints.
+The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which is set automatically for Professional and enterprise deploymentss. Developer and lower tiers receive HTTP 402 (Payment Required) from the trust API endpoints.
 
 ---
 
 ### 6. Agent Registry (v5.0.0)
 
-The 7th pillar. A unified, live inventory of every AI agent across all AegisGate protocol layers, with dormancy detection, automated credential revocation, AIBOM drift detection, and cross-deployment federation. Combined with the Trust Framework, closes the governance loop. Available on Professional+ tiers.
+The 7th pillar. A unified, live inventory of every AI agent across all AegisGate protocol layers, with dormancy detection, automated credential revocation, AIBOM drift detection, and cross-deployment federation. Combined with the Trust Framework, closes the governance loop. Available on enterprise deploymentss.
 
 | # | Component | Description |
 |---|-----------|-------------|

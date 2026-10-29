@@ -36,7 +36,7 @@ To accept these Terms, you must be at least 18 years old and have the legal capa
 
 ### 1.4 Acceptance Method
 These Terms are accepted by:
-- **Buy Button checkout:** Clicking "Buy" on aegisgatesecurity.io/pricing constitutes acceptance. The ToS version hash is recorded at purchase for audit purposes.
+- **Acceptance:** Using AegisGate software in production constitutes acceptance of these Terms.
 - **Self-service signup:** Checking the "I agree to the Terms of Service" checkbox on the signup form constitutes acceptance. The form's submission timestamp and the checked-state are recorded in the audit log.
 - **Enterprise agreements:** Acceptance is recorded in the executed Order Form.
 
@@ -54,14 +54,8 @@ The AegisGate Security Platform provides AI-aware API security, including:
 - **Response Security:** PII detection, secret detection, and hallucination detection in AI model responses
 - **Trust Framework:** Identity, authentication, and authorization for AI services
 
-**Seven Compliance Modules (purchased as add-ons, Professional+ tier required for most):**
-- HIPAA — HIPAA-compliant logging, PHI detection, BAA support
-- PCI-DSS — Payment card data detection, PCI-scoped audit logs
-- SOC 2 — SOC 2 control mapping and evidence collection
-- ISO 42001 — ISO/IEC 42001 AI management system controls
-- FedRAMP — FedRAMP Moderate/High control mapping and continuous monitoring
-- FIPS 140-2/140-3 — FIPS-validated cryptography enforcement and HSM integration
-- EU AI Act — 120 controls across 8 categories of the EU AI Act (v3.3.0+)
+**Compliance Modules:**
+Compliance modules for 31 frameworks are available with enterprise support. Contact sales@aegisgatesecurity.io for details.
 
 **Core Capabilities:**
 - Role-based access control (RBAC)
@@ -69,64 +63,7 @@ The AegisGate Security Platform provides AI-aware API security, including:
 - Audit logging and compliance reporting
 - API gateway and policy enforcement point
 
-### 2.2 Subscription Tiers
 
-Services are provided according to the subscription tier you select:
-
-| Tier | Monthly Rate | RPM Limit | Key Features |
-|---|---|---|---|
-| **Community** | Free | soft-throttle | Best-effort protection, 7-day audit log retention, community support |
-| **Developer** | $79/mo | 1,000 RPM | Email support, 30-day audit log retention, SSO/RBAC, code exec sandbox |
-| **Professional** | $499/mo | 10,000 RPM | 90-day audit log retention, 99.95% SLA, priority support, Trust Framework, SIEM, SOAR |
-| **Enterprise** | Contact sales | Unlimited | Custom SLA (up to 99.99%), custom compliance modules, dedicated CSM, custom audit log retention, air-gapped |
-
-Compliance module add-on prices (per the v4.2.0 pricing decision, locked at purchase):
-
-**Developer tier add-ons ($149/mo each):**
-- HIPAA: $149/mo
-- PCI-DSS: $149/mo
-- SOC 2: $149/mo
-- ISO 27001: $149/mo
-- CCPA/CPRA: $149/mo
-- GDPR: $149/mo
-
-**Professional tier — Security Foundation ($79/mo each):**
-- CIS Controls v8: $79/mo
-- NIST CSF 2.0: $79/mo
-- CSA STAR: $79/mo
-- NIST AI 600-1: $79/mo
-
-**Professional tier — Industry-Specific ($199/mo each):**
-- ISO 42001: $199/mo
-- EU AI Act: $199/mo
-- FIPS 140-2/3: $199/mo
-- SOX: $199/mo
-- GLBA: $199/mo
-- CJIS: $199/mo
-- NERC CIP: $199/mo
-- FERPA: $199/mo
-- HITECH: $199/mo
-- FFIEC: $199/mo
-- TSA SD: $199/mo
-- ISO 21434: $199/mo
-
-**Enterprise tier add-ons ($499/mo each):**
-- FedRAMP: $499/mo
-- CMMC Level 2: $499/mo
-- NIST 800-171: $499/mo
-- HITRUST CSF: $499/mo
-- TISAX AL2: $499/mo
-
-**Vertical Accelerator Bundles:**
-- Privacy & Data Protection: $149/mo
-- SaaS / B2B Technology: $199/mo
-- Financial Services: $249/mo
-- Healthcare: $199/mo
-- EU Compliance: $149/mo
-- Energy & Critical Infrastructure: $299/mo
-- Defense & Government: $1,199/mo
-
-### 2.3 Service Availability
 We strive to maintain high availability but do not guarantee uninterrupted access. See Section 7 for service level commitments by tier.
 
 ## 3. ACCOUNT REGISTRATION AND ACCESS
@@ -150,25 +87,16 @@ We may suspend or terminate your account if:
 ## 4. PAYMENT TERMS
 
 ### 4.1 Fees
-You agree to pay all fees associated with your subscription tier and any add-on modules you select. Fees are stated in US Dollars and are exclusive of taxes.
+Fees for enterprise support and services are as agreed in an executed Order Form. Fees are stated in US Dollars and are exclusive of taxes.
 
-### 4.2 Payment Processing
-Payments are processed by **Stripe, Inc.** We do not store your full payment card number, CVV, or expiration date on our servers. Stripe's privacy policy and security practices govern the processing of your payment data.
+### 4.2 Billing
+Billing terms are as set forth in the executed Order Form or as otherwise agreed in writing.
 
-### 4.3 Billing Cycle
-Subscriptions are billed in advance on a monthly or annual basis. Annual subscriptions receive a 15% discount.
+### 4.3 Price Changes
+We may change pricing for new enterprise agreements with at least **30 calendar days' notice** before the change takes effect. Existing agreements will not be repriced during their term.
 
-### 4.4 Auto-Renewal
-Subscriptions automatically renew for successive periods equal to the original subscription term unless you cancel before the renewal date.
-
-### 4.5 Price Changes
-We may change subscription prices with at least **30 calendar days' notice** before the change takes effect. The new price applies to the next renewal period. If you do not agree to a price change, your sole remedy is to cancel your subscription before the renewal date.
-
-### 4.6 Late Payment
-If your payment method fails, we may suspend or terminate your account after a **7-day grace period**. We will make reasonable efforts to notify you before suspension.
-
-### 4.7 Refunds
-Subscription fees are generally non-refundable, except:
+### 4.4 Refunds
+Fees are generally non-refundable, except:
 - As required by law
 - For documented billing errors
 - For pro-rated refunds upon termination due to a material breach by us
@@ -246,7 +174,7 @@ Rate limits are enforced per tier to ensure fair usage and platform stability:
 
 When a rate limit is exceeded, the Platform returns HTTP 429 (Too Many Requests) with a `Retry-After` header indicating when the client may retry. Persistent abuse of rate limits (sustained traffic exceeding 200% of the tier limit for more than 5 minutes) may result in temporary request throttling or, for repeated violations, account suspension under Section 5 (Acceptable Use).
 
-Rate limits are measured at the license key level. If you require higher limits, contact **sales@aegisgatesecurity.io** for Enterprise tier pricing.
+Rate limits are measured at the license key level. If you require higher limits, contact **sales@aegisgatesecurity.io** for enterprise deployments pricing.
 
 ## 8. CONFIDENTIALITY
 
@@ -377,7 +305,7 @@ The Parties are independent contractors. These Terms do not create a partnership
 These Terms do not create any third-party beneficiary rights.
 
 ### 14.10 Counterparts and Electronic Acceptance
-These Terms may be accepted electronically. Electronic acceptance (via Buy Button click, signup-form checkbox, or e-signature) has the same legal effect as a handwritten signature.
+These Terms may be accepted electronically. Electronic acceptance (via signup-form checkbox, e-signature, or production use) has the same legal effect as a handwritten signature.
 
 ## 15. CONTACT INFORMATION
 
@@ -393,11 +321,11 @@ Wisconsin, USA
 
 ## EXHIBITS
 
-The following exhibits are incorporated by reference and form part of these Terms. Exhibits A–C are conditional on your purchase of the relevant add-on module or your request for the relevant agreement.
+The following exhibits are incorporated by reference and form part of these Terms. Exhibits A–C are available on request for enterprise customers.
 
-- **Exhibit A — Business Associate Agreement (BAA):** Required if you purchase the HIPAA compliance module. Available at https://aegisgatesecurity.io/legal/baa (deferred to v4.2.0+ for production-grade review).
-- **Exhibit B — PCI-DSS Vendor Agreement:** Required if you purchase the PCI-DSS compliance module. Available on request.
-- **Exhibit C — Master Services Agreement (MSA):** Required for Enterprise customers. Available on request.
+- **Exhibit A — Business Associate Agreement (BAA):** Available on request for enterprise customers requiring HIPAA compliance. Available at https://aegisgatesecurity.io/legal/baa (deferred to v4.2.0+ for production-grade review).
+- **Exhibit B — PCI-DSS Vendor Agreement:** Available on request for enterprise customers requiring PCI-DSS compliance.
+- **Exhibit C — Master Services Agreement (MSA):** Available on request for enterprise customers.
 
 ---
 
@@ -405,7 +333,7 @@ The following exhibits are incorporated by reference and form part of these Term
 
 *This document is a 2.0 DRAFT for the v4.2.0 release. The 17-clause vendor-favorability framework applied to these Terms is documented in the internal legal review framework (a confidential document not published on this site). When budget is available, AegisGate Security, LLC will engage qualified counsel to review these Terms and convert them from a self-drafted DRAFT to a production-grade legal agreement. Until then, customers and counterparties should rely on these Terms at their own risk and consult their own legal counsel.*
 
-*Tier names, RPMs, SLA commitments, and pricing reflect the platform's documented behavior as of v3.3.0 (2026-06-07). Consult the most recent version of these Terms and the live pricing page at https://aegisgatesecurity.io/pricing for current values.*
+*Configuration and capabilities reflect the platform's documented behavior as of v3.3.0 (2026-06-07). Consult the most recent version of these Terms for current values.*
 
 **Version:** 2.0 DRAFT (v4.2.0)
 **Last Updated:** 2026-06-07

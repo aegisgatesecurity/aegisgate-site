@@ -62,11 +62,11 @@ A reference for terms used throughout AegisGate documentation. Organized by cate
 | **6 Pillars** | AegisGate's six protection domains: HTTP API, MCP, A2A, ACP (Agent Capability Policy), Response, and Trust. |
 | **Detection Pattern** | A regex or ML-based pattern that identifies a specific threat type (secret, XSS, PII, prompt injection, etc.). 303 patterns are wired into every request/response. |
 | **Graceful Degradation** | When ML detection is unavailable (no ONNX Runtime), AegisGate falls back to regex-only detection (83.1% coverage) instead of failing. |
-| **ML Threat Detection** | CNN-BiLSTM neural network (1.58M params) for adversarial pattern detection with 100/100 evasion resistance. Professional+ tier. |
+| **ML Threat Detection** | CNN-BiLSTM neural network (1.58M params) for adversarial pattern detection with 100/100 evasion resistance. enterprise deployments. |
 | **ONNX Runtime** | Open Neural Network Exchange runtime. Optional dependency for ML threat detection. Without it, AegisGate uses regex-only mode. |
 | **Open-Core** | AegisGate's licensing model: Community edition is Apache 2.0 open source; Developer/Professional/Enterprise features are proprietary. |
 | **RBAC** | Role-Based Access Control. Developer+ tier feature for managing user permissions. |
-| **SIEM** | Security Information and Event Management. AegisGate forwards audit events to 11 SIEM platforms (Splunk, Elasticsearch, QRadar, etc.). Professional+ tier. |
+| **SIEM** | Security Information and Event Management. AegisGate forwards audit events to 11 SIEM platforms (Splunk, Elasticsearch, QRadar, etc.). enterprise deployments. |
 | **SOAR** | Security Orchestration, Automation, and Response. AegisGate integrates with 4 SOAR platforms (PagerDuty, Jira, ServiceNow). |
 | **Trust Score** | A per-session trust rating computed by the Trust Framework based on agent identity, behavior, and posture. |
 

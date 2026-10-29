@@ -66,7 +66,7 @@ graph TB
 
 | Component | Requirement | Purpose |
 |-----------|-------------|---------|
-| **PostgreSQL 14+** | Required for Enterprise tier | Persistent sessions, audit logs, RBAC, multi-tenant isolation |
+| **PostgreSQL 14+** | Required for enterprise deployments | Persistent sessions, audit logs, RBAC, multi-tenant isolation |
 | **TLS certificate** | X.509 cert + private key | HTTPS for proxy and dashboard |
 | **Reverse proxy** | nginx, HAProxy, or cloud load balancer | TLS termination, load balancing, WAF |
 | **DNS** | A/AAAA record for platform | e.g., `aegisgate.yourcompany.com` |
@@ -558,7 +558,7 @@ Configure your load balancer with:
 | SIEM forwarding enabled | ☐ | Forward all audit events to your SIEM |
 | SOAR alerts configured | ☐ | At minimum, critical severity → PagerDuty |
 | ML threat detection enabled | ☐ | Start with shadow mode for 7 days |
-| Trust Framework enabled | ☐ | Required for Professional+ tier |
+| Trust Framework enabled | ☐ | Required for enterprise deployments |
 | Multi-tenant RLS enabled | ☐ | If serving multiple tenants |
 | RBAC roles configured | ☐ | Map IdP groups to AegisGate roles |
 | Allowed domains restricted | ☐ | Only your corporate domains |

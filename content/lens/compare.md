@@ -41,7 +41,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 
 | Feature | **Lens** (free browser ext) | **Platform** (enterprise gateway) |
 |---------|:---------------------------:|:----------------------------------:|
-| **Price** | Free, forever | Free (Community) / $79/mo (Developer) / custom (Enterprise) |
+| **Price** | Free, forever | Free (open-source) / Enterprise support by contact |
 | **Account required** | ❌ No | ✅ Yes |
 | **Browser-side AI provider protection** (PII, secrets, XSS, compliance, adversarial ML in ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI) | ✅ All 5 facets | ✅ All 5 facets (same corpus) |
 | **5-facet detection** (PII / Secrets / XSS / Compliance / ML Adversarial). v0.5.3 adds on-device ML. | ✅ | ✅ |
@@ -61,15 +61,15 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **ACP (Agent Communication Protocol) security** | ❌ | ✅ |
 | **Response scanning** (catches bad AI outputs before they reach the user) | ❌ | ✅ |
 | **Trust Framework** (continuous cryptographically-signed trust scoring) | ❌ | ✅ |
-| **EU AI Act Compliance Module** (120 controls, Professional+ tier) | ❌ | ✅ |
+| **EU AI Act Compliance Module** (120 controls, enterprise deployments) | ❌ | ✅ |
 | **OWASP compliance module** | ❌ | ✅ (Developer+) |
-| **GDPR / HIPAA / PCI / SOC 2 compliance modules** | ❌ | ✅ (Professional+) |
-| **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ (Professional+) |
+| **GDPR / HIPAA / PCI / SOC 2 compliance modules** | ❌ | ✅ (enterprise) |
+| **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ (enterprise) |
 | **Custom detection rules per team** | ❌ | ✅ |
 | **Slack / Teams / Jira integration** | ❌ | ✅ (Enterprise) |
 | **Self-hosted option** | N/A (already client-side) | ✅ (Enterprise) |
 | **Multi-region deployment** | N/A | ✅ (Enterprise) |
-| **SLA / 24/7 support** | ❌ | ✅ (Professional+) |
+| **SLA / 24/7 support** | ❌ | ✅ (enterprise) |
 
 ---
 
@@ -108,7 +108,7 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 
 ### Privacy model
 - **Lens**: Privacy-by-default. No telemetry unless explicitly opted in. 12 non-negotiables (see [Lens homepage](/lens/)).
-- **Platform**: Privacy-by-default for detection. Logging is opt-in (Enterprise tier).
+- **Platform**: Privacy-by-default for detection. Logging is opt-in (enterprise deployments).
 
 ### Test coverage
 - **Lens**: 504 automated tests (492/492 Node + 12/12 ML perf/stress). Zero external dependencies, zero WASM binaries.
@@ -129,11 +129,11 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 | Tier | Price | Best for |
 |------|-------|----------|
 | Community | Free | Solo developers, getting started |
-| Developer | $79/mo | Small teams, custom rules |
-| Professional | $499/mo | Compliance (HIPAA, PCI, SOC 2, EU AI Act) |
+| Enterprise | Contact us | Small teams, custom rules |
+| Enterprise+ | Contact us | Compliance (HIPAA, PCI, SOC 2, EU AI Act) |
 | Enterprise | Custom | Self-hosted, SLA, 24/7 support |
 
-See [full pricing](/pricing/) for details.
+See [enterprise details](/pricing/) for details.
 
 ---
 

@@ -20,9 +20,9 @@ type: "landing"
 </div>
 
 <div class="alert alert-success alert-center">
-<strong>Trust Framework</strong> is available in <strong>Professional tier and above</strong>.
+<strong>Trust Framework</strong> is available in <strong>enterprise deployments</strong>.
 <br><br>
-<a href="/pricing/" class="btn btn-primary">View Pricing &rarr;</a>
+<a href="/pricing/" class="btn btn-primary">Get Started &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
@@ -339,7 +339,7 @@ No. Attestations are signed with ECDSA P-256. Without the agent's private key, a
 <details>
 <summary><strong>How long are attestations retained?</strong></summary>
 
-Default retention is 365 days (configurable). Attestations are stored in immutable storage. Enterprise tier supports export to SIEM/SOAR for long-term retention.
+Default retention is 365 days (configurable). Attestations are stored in immutable storage. enterprise deployments supports export to SIEM/SOAR for long-term retention.
 </details>
 
 <details>
@@ -351,15 +351,15 @@ Yes. Attestations are self-verifying — no server round-trip required. Auditors
 <details>
 <summary><strong>Can I integrate trust scores with my SIEM?</strong></summary>
 
-Yes. Enterprise tier includes SIEM integration (Splunk, QRadar, Sentinel). Trust score changes are emitted as CEF/LEEF events. Custom webhooks available for other SIEMs.
+Yes. enterprise deployments includes SIEM integration (Splunk, QRadar, Sentinel). Trust score changes are emitted as CEF/LEEF events. Custom webhooks available for other SIEMs.
 </details>
 
 ---
 
 ## Ready to Deploy Verifiable AI Security?
 
-Trust Framework is available in **Professional tier and above**.
+Trust Framework is available in **enterprise deployments**.
 
-<a href="/pricing/" class="btn btn-primary">Start Free Trial &rarr;</a>
+<a href="/pricing/" class="btn btn-primary">Download &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/pricing/" class="btn btn-secondary">Contact Sales &rarr;</a>
+<a href="/pricing/" class="btn btn-secondary">Contact Us &rarr;</a>
