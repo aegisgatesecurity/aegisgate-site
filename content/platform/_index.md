@@ -8,8 +8,8 @@ mermaid: true
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
 <div class="alert alert-success alert-center">
-<strong>🏢 AegisGate Platform v5.0.0</strong> — open-source (Apache 2.0). Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.0.0 →</a>
+<strong>🏢 AegisGate Platform v5.1.0</strong> — open-source (Apache 2.0) + commercial Enterprise modules. Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.1.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.1.0 →</a>
 </div>
 
 ---
@@ -55,7 +55,7 @@ Your browser does not support the video tag.
 
 ## Seven Pillars of AI Security
 
-Platform v5.0.0 protects every AI interaction across seven security pillars:
+Platform v5.1.0 protects every AI interaction across seven security pillars:
 
 <div class="card-grid card-grid-2x2">
 <div class="card">
@@ -104,7 +104,7 @@ Platform v5.0.0 protects every AI interaction across seven security pillars:
 </ul>
 </div>
 <div class="card" style="border-color:#a855f7;">
-<h3>📋 Agent Registry <span class="badge">NEW v5.0.0</span></h3>
+<h3>📋 Agent Registry <span class="badge">NEW v5.1.0</span></h3>
 <ul>
 <li>6-source agent discovery (RBAC, MCP, A2A, AIBOM, Correlation, Intent Signing)</li>
 <li>5-state lifecycle: provisioned → active → dormant → quarantined → revoked</li>
@@ -133,7 +133,7 @@ flowchart TD
         C[Applications]
     end
 
-    subgraph Platform["AegisGate Platform v5.0.0"]
+    subgraph Platform["AegisGate Platform v5.1.0"]
         direction TB
         P1["🌐 HTTP API — 303 patterns, PII, Secrets"]
         P2["🔗 MCP — Session auth, 8 guardrails"]
@@ -221,23 +221,23 @@ sequenceDiagram
 
 Platform includes 31 compliance frameworks (2,043 total controls, 1,457 automated) — the most comprehensive AI compliance coverage available:
 
-| Framework | Coverage |
-|-----------|----------|
-| OWASP LLM Top 10 | 49 patterns |
-| OWASP Web Top 10 | 10 categories |
-| MITRE ATLAS | 66 techniques |
-| NIST AI RMF 1.0 | 50 controls |
-| HIPAA | PHI detection (54 controls) |
-| PCI-DSS v4.0 | Card data (152 controls) |
-| SOC 2 Type II | 64 controls |
-| ISO/IEC 27001:2022 | 116 controls |
-| CCPA/CPRA | 26 controls |
-| GDPR | PII detection (99 controls) |
-| EU AI Act | 120 controls, 8 categories |
-| ISO/IEC 42001:2023 | AI management (38 controls) |
-| NIST CSF 2.0 | 131 controls |
-| CIS Controls v8 | 50 controls |
-| FedRAMP Moderate | 170 controls |
+| Framework | Tier | Coverage |
+|-----------|------|----------|
+| OWASP LLM Top 10 | Community | 49 patterns |
+| OWASP Web Top 10 | Community | 10 categories |
+| MITRE ATLAS | Community | 66 techniques |
+| NIST AI RMF 1.0 | Community | 50 controls |
+| HIPAA | Developer | PHI detection (54 controls) |
+| PCI-DSS v4.0 | Developer | Card data (152 controls) |
+| SOC 2 Type II | Developer | 64 controls |
+| ISO/IEC 27001:2022 | Developer | 116 controls |
+| CCPA/CPRA | Developer | 26 controls |
+| GDPR | Developer | PII detection (99 controls) |
+| EU AI Act | Professional | 120 controls, 8 categories |
+| ISO/IEC 42001:2023 | Professional | AI management (38 controls) |
+| NIST CSF 2.0 | Professional | 131 controls |
+| CIS Controls v8 | Professional | 50 controls |
+| FedRAMP Moderate | Enterprise | 170 controls |
 
 <p style="font-size:0.9rem; color:#888;">...and 16 more frameworks. <a href="/docs/compliance/">View all compliance documentation →</a></p>
 
@@ -330,7 +330,7 @@ docker run -d \
   -p 8082:8082 \
   -p 8083:8083 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.0.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.1.0
 ```
 
 ### Bare Metal
@@ -354,6 +354,19 @@ Includes HPA autoscaling (1-10 replicas), NetworkPolicy, ServiceMonitor, and rol
 ### Air-Gapped Deployment
 
 Platform runs fully offline. No external dependencies. No phone-home. No telemetry. The binary, Docker image, and Helm chart can all be transferred to air-gapped environments via offline media.
+
+---
+
+## Pricing Tiers
+
+| Tier | Price | Key Features |
+|------|-------|--------------|
+| **Community** | Free | HTTP proxy, MCP, A2A, 303 patterns, MITRE ATLAS, basic compliance |
+| **Developer** | $79/mo | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
+| **Professional** | $499/mo | + Trust Framework, Agent Registry, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
+| **Enterprise** | Custom | + Air-gapped deployment, custom compliance modules, dedicated SE, SLA |
+
+<p><a href="/pricing/" class="btn btn-secondary">Full pricing details →</a></p>
 
 ---
 
@@ -392,7 +405,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | 11 SIEM integrations | ✅ | ❌ | ❌ | ⚠️ |
 | 4 SOAR integrations | ✅ | ❌ | ❌ | ❌ |
 | Air-gapped deployment | ✅ | ❌ | ❌ | ❌ |
-| Open-source (Apache 2.0) | ✅ | ❌ | ✅ (Apache) | ❌ |
+| Open-core (Apache 2.0 community + commercial enterprise) | ✅ | ❌ | ✅ (Apache) | ❌ |
 
 <p><a href="/docs/comparison/" class="btn btn-secondary">Full competitive analysis →</a></p>
 
@@ -408,7 +421,7 @@ For the full technical architecture — six-pillar internals, Trust Framework AP
 
 <p>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source code →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.1.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
 <a href="/docs/" class="btn btn-secondary">Documentation →</a>
 <a href="/pricing/" class="btn btn-secondary">Pricing →</a>
 <a href="/compliance/" class="btn btn-secondary">Compliance →</a>
