@@ -6,7 +6,27 @@ type: "changelog"
 
 ## Changelog
 
+
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).
+
+### v5.1.0 - 2026-11-08 - Model v22b, NFKC Normalization, ATLAS L2 Expansion, MaxSeqLen 512
+
+- **Model v22b**: Attack-only fine-tuned CharCNN-BiLSTM-Attention (LR 5e-5, epoch 3, F1 0.9998). Benign supplements proven dangerous at this scale — attack-only is optimal.
+- **NFKC Unicode Normalization**: Full-width characters, compatibility forms, superscripts, and confusables normalized before inference. Closes Unicode evasion gap.
+- **MapRegionalIndicators**: Flag emoji (U+1F1E6–U+1F1FF) → ASCII A-Z. Applied post-NFKC, pre-lowercase.
+- **MAX_SEQ_LEN 256→512**: Doubles prompt coverage for longer inputs.
+- **Latin-1 Vocab**: VOCAB_SIZE=256, UNK_ID=1 for chars >127.
+- **ATLAS L2 Expansion**: 62 compliance patterns (6 new: T1552.005 credential harvesting, T1648.002 server-side execution, etc.)
+- **L2 Regex Fixes**: T1552.005 ordinal extraction ("first digit of"), T1648.002 "create" verb alongside "write".
+- **Two-Tier ML Threshold**: ≥0.985 = independent block (Tier 1), ≥0.50 = block with L1/L2 corroboration (Tier 2). Short-text <20 chars exempted.
+- **Cross-Product Parity**: Model v22b deployed to all 5 products (Platform, Rampart, Scanner, MCP, Lens). NFKC + MapRegionalIndicators in all products.
+- **Security**: klauspost/compress v1.20.2 (GO-2026-6865), OPSEC scan whitelists, all secret scans pass.
+- **Metrics (v22b-l2v7)**: 10K catch 98.0%, FP 0.45%, Red Team catch 98.1% (4 missed).
+
+**Cross-Product Releases**: Rampart v0.10.0, Scanner v0.5.0, MCP v1.7.0, Lens v0.6.0 — all synced to Model v22b.
+
+---
+
 
 ### v5.0.0 - 2026-10-26 - Agent Registry: Unified AI Agent Inventory & Lifecycle Management
 
