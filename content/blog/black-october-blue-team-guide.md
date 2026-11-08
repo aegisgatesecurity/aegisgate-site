@@ -672,7 +672,7 @@ If your developers use GitHub Copilot, Cursor, Claude Code, or local LLMs — Ra
 
 ```bash
 # Download pre-built binary from GitHub Releases
-# https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.3
+# https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.10.0
 
 # Or build from source
 git clone https://github.com/aegisgatesecurity/aegisgate-rampart
@@ -699,7 +699,7 @@ curl -fsSL https://raw.githubusercontent.com/aegisgatesecurity/aegisgate-scanner
 ./scanner scan ./ai-artifacts/ --format sarif --output results.sarif
 
 # GitHub Action
-# uses: aegisgatesecurity/aegisgate-scanner@v0.4.3
+# uses: aegisgatesecurity/aegisgate-scanner@v0.5.0
 ```
 
 ---
@@ -762,7 +762,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aegisgatesecurity/aegisgate-scanner@v0.4.3
+      - uses: aegisgatesecurity/aegisgate-scanner@v0.5.0
         with:
           path: ./
           format: sarif
@@ -898,7 +898,7 @@ Universities and local governments run PHP extensively and are heavy AI users. B
 
 ### If you have 30 minutes:
 1. All of the above
-2. Download [AegisGate Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.3) for your dev team
+2. Download [AegisGate Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.10.0) for your dev team
 3. Install [AegisGate Scanner](https://github.com/aegisgatesecurity/aegisgate-scanner) and scan Downloads + working directories
 4. Pull AegisGate detection patterns and import into your SIEM (see Step 3)
 5. Audit Microsoft Graph logs for Storm-0940 indicators

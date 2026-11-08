@@ -151,15 +151,15 @@ If you are interested in a paid bounty program, please contact security@aegisgat
 
 | Product | Version | Support Status |
 |---------|---------|---------------|
-| **AegisGate Platform** | v5.0.0 | ✅ Current release |
+| **AegisGate Platform** | v5.1.0 | ✅ Current release |
 | **AegisGate Platform** | v4.5.x | ✅ Active support |
 | **AegisGate Platform** | v4.1.x | ⚠️ Critical fixes only |
 | **AegisGate Platform** | v3.5.x | ⛔ End of life |
 | **AegisGate Platform** | v3.4.x | ⛔ End of life |
 | **AegisGate Platform** | v3.3.x | ⛔ End of life |
-| **AegisGate Rampart** | v0.9.2 | ✅ Current release |
-| **AegisGate Lens** | v0.5.3 | ✅ Current release |
-| **AegisGate Lens** | v0.5.2 | ✅ Active support |
+| **AegisGate Rampart** | v0.10.0 | ✅ Current release |
+| **AegisGate Lens** | v0.6.0 | ✅ Current release |
+| **AegisGate Lens** | v0.6.0 | ✅ Active support |
 | **AegisGate Lens** | v0.4.1 | ⚠️ Critical fixes only |
 | **AegisGate Lens** | v0.1.x | ⛔ End of life |
 

@@ -12,11 +12,11 @@ mermaid: true
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.0.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=5.0.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.6.1" alt="MCP Version" width="97" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.5.3" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.5.3" alt="Lens Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.3" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.9.3" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.3" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.4.3" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.1.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=5.1.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.7.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.7.0" alt="MCP Version" width="97" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.6.0" alt="Lens Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.10.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.10.0" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.5.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.5.0" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
 </div>
 </div>
@@ -143,7 +143,7 @@ flowchart LR
 <li>Free and open source (Apache 2.0). No account needed. No data collected.</li>
 </ul>
 <p class="card-actions">
-<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.10.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Rampart →</a>
 <a href="/rampart/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
@@ -161,7 +161,7 @@ flowchart LR
 <li>Free and open source (Apache 2.0). No telemetry. No data egress.</li>
 </ul>
 <p class="card-actions">
-<a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download MCP v1.6.1 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.7.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download MCP v1.7.0 →</a>
 <a href="/mcp/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
@@ -180,7 +180,7 @@ flowchart LR
 <li>Patent pending — US Provisional App. No. 64/174,824</li>
 </ul>
 <p class="card-actions">
-<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Scanner v0.4.2 →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.5.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Scanner v0.5.0 →</a>
 <a href="/scanner/" class="btn btn-secondary">Learn more →</a>
 </p>
 </div>
@@ -543,7 +543,7 @@ flowchart LR
 <div class="card text-center" style="border-color:#f59e0b;">
 <h3>⚡ Download Rampart</h3>
 <p>Free local proxy + IDE plugin. macOS, Linux, Windows.</p>
-<p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.9.2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.10.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
 <p style="font-size:0.85rem; color:#888;">VS Code, JetBrains, Neovim, any LSP editor</p>
 </div>
 
@@ -553,9 +553,9 @@ flowchart LR
 <div class="command-box">
 <button class="copy-btn">Copy</button>
 <pre>docker run -d -p 3000:3000 \
-  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.6.1</pre>
+  ghcr.io/aegisgatesecurity/aegisgate-mcp:1.7.0</pre>
 </div>
-<p><a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.6.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.7.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a></p>
 <p style="font-size:0.85rem; color:#888;">Streamable HTTP, TCP, or stdio transport</p>
 </div>
 
@@ -566,7 +566,7 @@ flowchart LR
 <button class="copy-btn">Copy</button>
 <pre>aegisgate-scanner scan ./training-data/</pre>
 </div>
-<p><a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.4.2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a>
+<p><a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.5.0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Releases →</a>
 <a href="/scanner/" class="btn btn-secondary">Quick start guide →</a></p>
 <p style="font-size:0.85rem; color:#888;">348 patterns · SARIF output · CI/CD ready</p>
 </div>

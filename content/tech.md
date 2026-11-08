@@ -7,7 +7,7 @@ mermaid: true
 
 ## Architecture Overview
 
-AegisGate v5.0.0 secures AI interactions across **seven pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE), the **Trust Framework**, and the **Agent Registry** — in a single 19.1 MB binary.
+AegisGate v5.1.0 secures AI interactions across **seven pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE), the **Trust Framework**, and the **Agent Registry** — in a single 19.1 MB binary.
 
 {{< mermaid >}}
 flowchart TB
@@ -19,15 +19,15 @@ flowchart TB
         E["ANP Client"]
     end
 
-    subgraph AegisGate["AegisGate Platform v5.0.0"]
+    subgraph AegisGate["AegisGate Platform v5.1.0"]
         G["HTTP Proxy :8080"]
         H["MCP Server :8081"]
         I["A2A Endpoint :8082"]
         J["ACP Gateway :8083"]
         K["ANP Router :8084"]
         L["RESPONSE Guard"]
-        TR["Trust Framework\nPkg/trust/\n(v5.0.0)"]
-        AR["Agent Registry\nPkg/agentregistry/\n(v5.0.0)"]
+        TR["Trust Framework\nPkg/trust/\n(v5.1.0)"]
+        AR["Agent Registry\nPkg/agentregistry/\n(v5.1.0)"]
 
         M["Scanner - 303 patterns"]
         N["ATLAS - 66 techniques"]
@@ -76,7 +76,7 @@ flowchart TB
 
 ## Seven Pillars of AI Security
 
-AegisGate v5.0.0 protects every AI interaction with six protocol pillars, the Trust Framework, and the Agent Registry. The **Trust Framework** is the 6th pillar, and ties together the protocol pillars with cryptographically-signed attestations and a per-session trust score.
+AegisGate v5.1.0 protects every AI interaction with six protocol pillars, the Trust Framework, and the Agent Registry. The **Trust Framework** is the 6th pillar, and ties together the protocol pillars with cryptographically-signed attestations and a per-session trust score.
 
 ### 1. HTTP API Security (v3.0+, port 8080)
 
@@ -134,7 +134,7 @@ AI response scanning for all protocols:
 | 7 | Compliance Reports | Auto-generates GDPR, HIPAA, PCI-DSS, SOC2 reports |
 | 8 | Response Guard Middleware | Unified scanning for HTTP, MCP, A2A, ACP, ANP |
 
-### 5. Trust Framework (v5.0.0)
+### 5. Trust Framework (v5.1.0)
 
 The 6th pillar. Continuous, per-session trust scoring with cryptographically-signed attestations. Ties the five protocol pillars together into a single, auditable trust story. Available on enterprise deploymentss.
 
@@ -172,7 +172,7 @@ The Trust Framework is enabled by the `TRUST_PILLAR_ENABLED` feature flag, which
 
 ---
 
-### 6. Agent Registry (v5.0.0)
+### 6. Agent Registry (v5.1.0)
 
 The 7th pillar. A unified, live inventory of every AI agent across all AegisGate protocol layers, with dormancy detection, automated credential revocation, AIBOM drift detection, and cross-deployment federation. Combined with the Trust Framework, closes the governance loop. Available on enterprise deploymentss.
 
@@ -218,7 +218,7 @@ Addresses NIST AI RMF MEASURE-2.7: tracking AI system lifecycle states and ensur
 
 ---
 
-## Performance (v5.0.0)
+## Performance (v5.1.0)
 
 | Metric | Target | Achieved |
 |--------|--------|----------|
@@ -243,7 +243,7 @@ docker run -d \
   -p 8081:8081 \
   -p 8082:8082 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.0.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.1.0
 ```
 
 ### Kubernetes (Helm)
