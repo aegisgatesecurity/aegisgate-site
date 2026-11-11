@@ -8,8 +8,8 @@ mermaid: true
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
 <div class="alert alert-success alert-center">
-<strong>🏢 AegisGate Platform v5.2.0</strong> — open-source (Apache 2.0) + commercial Enterprise modules. Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.2.0 →</a>
+<strong>🏢 AegisGate Platform v5.2.1</strong> — open-source (Apache 2.0) + commercial Enterprise modules. Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.2.1 →</a>
 </div>
 
 ---
@@ -55,7 +55,7 @@ Your browser does not support the video tag.
 
 ## Seven Pillars of AI Security
 
-Platform v5.2.0 protects every AI interaction across seven security pillars:
+Platform v5.2.1 protects every AI interaction across seven security pillars:
 
 <div class="card-grid card-grid-2x2">
 <div class="card">
@@ -133,7 +133,7 @@ flowchart TD
         C[Applications]
     end
 
-    subgraph Platform["AegisGate Platform v5.2.0"]
+    subgraph Platform["AegisGate Platform v5.2.1"]
         direction TB
         P1["🌐 HTTP API — 820 patterns, PII, Secrets"]
         P2["🔗 MCP — Session auth, 8 guardrails"]
@@ -330,7 +330,7 @@ docker run -d \
   -p 8082:8082 \
   -p 8083:8083 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.1
 ```
 
 ### Bare Metal
@@ -421,7 +421,7 @@ For the full technical architecture — six-pillar internals, Trust Framework AP
 
 <p>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source code →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
 <a href="/docs/" class="btn btn-secondary">Documentation →</a>
 <a href="/pricing/" class="btn btn-secondary">Pricing →</a>
 <a href="/compliance/" class="btn btn-secondary">Compliance →</a>

@@ -1,10 +1,10 @@
 ---
 title: "API Reference"
-description: "AegisGate Security Platform API Reference v5.2.0 — all REST endpoints for health, scanning, compliance, trust, DSAR, legal hold, A/B testing, SIEM, and SOAR."
+description: "AegisGate Security Platform API Reference v5.2.1 — all REST endpoints for health, scanning, compliance, trust, DSAR, legal hold, A/B testing, SIEM, and SOAR."
 weight: 100
 ---
 
-## API Reference — v5.2.0
+## API Reference — v5.2.1
 
 AegisGate provides a comprehensive REST API for integration with your applications, CI/CD pipelines, and monitoring systems.
 

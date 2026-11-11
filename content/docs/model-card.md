@@ -171,7 +171,7 @@ curl -X POST -H "X-API-Key: your-key" -d '{
 ## Citation
 
 ```
-AegisGate Platform v5.2.0
+AegisGate Platform v5.2.1
 Char CNN-BiLSTM with Attention — Threat Detection Model v15
 Apache License 2.0
 https://github.com/aegisgatesecurity/aegisgate-platform

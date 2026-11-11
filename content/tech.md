@@ -7,7 +7,7 @@ mermaid: true
 
 ## Architecture Overview
 
-AegisGate v5.2.0 secures AI interactions across **seven pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE), the **Trust Framework**, and the **Agent Registry** — in a single 19.1 MB binary.
+AegisGate v5.2.1 secures AI interactions across **seven pillars** — five protocol layers (HTTP API, MCP, A2A, **ACP**, RESPONSE), the **Trust Framework**, and the **Agent Registry** — in a single 19.1 MB binary.
 
 {{< mermaid >}}
 flowchart TB
@@ -19,7 +19,7 @@ flowchart TB
         E["ANP Client"]
     end
 
-    subgraph AegisGate["AegisGate Platform v5.2.0"]
+    subgraph AegisGate["AegisGate Platform v5.2.1"]
         G["HTTP Proxy :8080"]
         H["MCP Server :8081"]
         I["A2A Endpoint :8082"]
@@ -76,7 +76,7 @@ flowchart TB
 
 ## Seven Pillars of AI Security
 
-AegisGate v5.2.0 protects every AI interaction with six protocol pillars, the Trust Framework, and the Agent Registry. The **Trust Framework** is the 6th pillar, and ties together the protocol pillars with cryptographically-signed attestations and a per-session trust score.
+AegisGate v5.2.1 protects every AI interaction with six protocol pillars, the Trust Framework, and the Agent Registry. The **Trust Framework** is the 6th pillar, and ties together the protocol pillars with cryptographically-signed attestations and a per-session trust score.
 
 ### 1. HTTP API Security (v3.0+, port 8080)
 
@@ -218,7 +218,7 @@ Addresses NIST AI RMF MEASURE-2.7: tracking AI system lifecycle states and ensur
 
 ---
 
-## Performance (v5.2.0)
+## Performance (v5.2.1)
 
 | Metric | Target | Achieved |
 |--------|--------|----------|
@@ -243,7 +243,7 @@ docker run -d \
   -p 8081:8081 \
   -p 8082:8082 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.1
 ```
 
 ### Kubernetes (Helm)

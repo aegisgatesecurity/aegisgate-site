@@ -74,7 +74,7 @@ Sarah deployed AegisGate Platform on a single Docker container:
 ```bash
 docker run -d -p 8080:8080 \
   -v ./aegisgate-data:/data \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.1
 ```
 
 She configured:
@@ -147,7 +147,7 @@ Sarah surveyed the team after 90 days:
 
 ## Try It Yourself
 
-- ⚡ [Download Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.11.0) — free for all editors
+- ⚡ [Download Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.11.1) — free for all editors
 - 🏢 [Deploy Platform](https://github.com/aegisgatesecurity/aegisgate-platform) — free and open-source
 - 📊 [Learn More](/pricing/) — compare all tiers
 - 🔧 [IDE Integration Guide](/docs/ide-integration/) — setup for VS Code, JetBrains, Neovim
