@@ -12,11 +12,11 @@ mermaid: true
 
 <div class="hero-badges-wrapper">
 <div class="project-badges">
-    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=5.2.0" alt="Platform Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.8.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.8.0" alt="MCP Version" width="97" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.7.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.7.0" alt="Lens Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.11.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.11.0" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
-    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.6.0" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/platform-version.svg?v=5.2.0r" alt="Platform Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.8.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/mcp-version.svg?v=1.8.0r" alt="MCP Version" width="97" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-lens/releases/tag/v0.7.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/lens-version.svg?v=0.7.0r" alt="Lens Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.11.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/rampart-version.svg?v=0.11.0r" alt="Rampart Version" width="119" height="20" loading="lazy"></a>
+    <a href="https://github.com/aegisgatesecurity/aegisgate-scanner/releases/tag/v0.6.0" target="_blank" rel="noopener noreferrer"><img src="/img/badges/scanner-version.svg?v=0.6.0r" alt="Scanner Version" width="119" height="20" loading="lazy"></a>
     <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer"><img src="/img/badges/license.svg" alt="License" width="108" height="20" loading="lazy"></a>
 </div>
 </div>
