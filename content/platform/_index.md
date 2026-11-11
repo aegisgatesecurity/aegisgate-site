@@ -8,8 +8,8 @@ mermaid: true
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
 <div class="alert alert-success alert-center">
-<strong>🏢 AegisGate Platform v5.1.0</strong> — open-source (Apache 2.0) + commercial Enterprise modules. Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.1.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.1.0 →</a>
+<strong>🏢 AegisGate Platform v5.2.0</strong> — open-source (Apache 2.0) + commercial Enterprise modules. Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.2.0 →</a>
 </div>
 
 ---
@@ -55,13 +55,13 @@ Your browser does not support the video tag.
 
 ## Seven Pillars of AI Security
 
-Platform v5.1.0 protects every AI interaction across seven security pillars:
+Platform v5.2.0 protects every AI interaction across seven security pillars:
 
 <div class="card-grid card-grid-2x2">
 <div class="card">
 <h3>🌐 HTTP API Security</h3>
 <ul>
-<li>303 detection patterns</li>
+<li>820 detection patterns</li>
 <li>MITRE ATLAS 66 techniques</li>
 <li>PII, secrets, API key detection</li>
 <li>Bidirectional request/response scanning</li>
@@ -104,7 +104,7 @@ Platform v5.1.0 protects every AI interaction across seven security pillars:
 </ul>
 </div>
 <div class="card" style="border-color:#a855f7;">
-<h3>📋 Agent Registry <span class="badge">NEW v5.1.0</span></h3>
+<h3>📋 Agent Registry <span class="badge">NEW v5.2.0</span></h3>
 <ul>
 <li>6-source agent discovery (RBAC, MCP, A2A, AIBOM, Correlation, Intent Signing)</li>
 <li>5-state lifecycle: provisioned → active → dormant → quarantined → revoked</li>
@@ -133,9 +133,9 @@ flowchart TD
         C[Applications]
     end
 
-    subgraph Platform["AegisGate Platform v5.1.0"]
+    subgraph Platform["AegisGate Platform v5.2.0"]
         direction TB
-        P1["🌐 HTTP API — 303 patterns, PII, Secrets"]
+        P1["🌐 HTTP API — 820 patterns, PII, Secrets"]
         P2["🔗 MCP — Session auth, 8 guardrails"]
         P3["🤝 A2A — mTLS, HMAC, Rate limiting"]
         P4["🛡️ Response — PII, Secrets, Redaction"]
@@ -212,7 +212,7 @@ sequenceDiagram
     end
 
     Note over Proxy,Trust: Every action cryptographically signed
-    Note over Scanner: 303 patterns + ML model (~5ms)
+    Note over Scanner: 820 patterns + ML model (~5ms)
 {{< /mermaid >}}
 
 ---
@@ -330,7 +330,7 @@ docker run -d \
   -p 8082:8082 \
   -p 8083:8083 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.1.0
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.0
 ```
 
 ### Bare Metal
@@ -361,7 +361,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 
 | Tier | Price | Key Features |
 |------|-------|--------------|
-| **Community** | Free | HTTP proxy, MCP, A2A, 303 patterns, MITRE ATLAS, basic compliance |
+| **Community** | Free | HTTP proxy, MCP, A2A, 820 patterns, MITRE ATLAS, basic compliance |
 | **Developer** | $79/mo | + mTLS, OIDC/SAML, RBAC, code exec sandbox, advanced ML |
 | **Professional** | $499/mo | + Trust Framework, Agent Registry, SIEM/SOAR, gRPC API, K8s/Helm, policy engine |
 | **Enterprise** | Custom | + Air-gapped deployment, custom compliance modules, dedicated SE, SLA |
@@ -421,7 +421,7 @@ For the full technical architecture — six-pillar internals, Trust Framework AP
 
 <p>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source code →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.1.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
 <a href="/docs/" class="btn btn-secondary">Documentation →</a>
 <a href="/pricing/" class="btn btn-secondary">Pricing →</a>
 <a href="/compliance/" class="btn btn-secondary">Compliance →</a>

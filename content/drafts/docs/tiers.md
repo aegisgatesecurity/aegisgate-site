@@ -68,7 +68,7 @@ Choose the coverage that matches your compliance needs.
 
 ### Tier Details
 
-**Community** — Free forever. For individuals and small teams getting started with AI security. Includes core proxy, 303 detection patterns, and 4 community frameworks: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF.
+**Community** — Free forever. For individuals and small teams getting started with AI security. Includes core proxy, 820 detection patterns, and 4 community frameworks: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF.
 
 **Developer** — $79/month. For teams building AI-powered applications. Adds mTLS, code execution sandbox, advanced ML anomaly detection, and Grafana integration. 6 compliance frameworks included (HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR). Additional frameworks available as add-ons.
 
