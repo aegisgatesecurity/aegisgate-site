@@ -9,7 +9,7 @@ weight: 4
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.6.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.7.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -25,7 +25,7 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.6.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.6.0/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.7.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.7.0/CHANGELOG.md). This page mirrors the recent versions.
 
 ---
 
@@ -159,8 +159,8 @@ Pre-1.0 versions (0.x.y) may include breaking changes in MINOR versions (per the
 ## See Also
 
 - [GitHub Releases](https://github.com/aegisgatesecurity/aegisgate-lens/releases) — full version history with signed artifacts
-- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.6.0/docs/SECURITY.md) — vulnerability disclosure policy
+- [SECURITY.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.7.0/docs/SECURITY.md) — vulnerability disclosure policy
 - [Architecture](/lens/architecture/) — how the 5-facet detection system works
-- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.6.0/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
+- [ML Model Card](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.7.0/docs/MODEL-CARD.md) — ML architecture, evaluation, limitations
 
 Report issues at the [Lens GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-lens/issues).

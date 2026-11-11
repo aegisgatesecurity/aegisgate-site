@@ -38,5 +38,5 @@ docker run -p 8081:8081 ghcr.io/aegisgatesecurity/aegisgate-mcp:1.5.1 --demo
 
 - **GitHub:** [aegisgatesecurity/aegisgate-mcp](https://github.com/aegisgatesecurity/aegisgate-mcp)
 - **MCP Registry:** `io.github.aegisgatesecurity/aegisgate-mcp`
-- **Latest Release:** [v1.7.0](https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.7.0)
+- **Latest Release:** [v1.8.0](https://github.com/aegisgatesecurity/aegisgate-mcp/releases/tag/v1.8.0)
 - **License:** Apache 2.0

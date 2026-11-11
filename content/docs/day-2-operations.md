@@ -22,7 +22,7 @@ curl http://localhost:8443/health | jq .
 {
   "status": "healthy",
   "tier": "professional",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "checks": {
     "proxy": {"enabled": true, "healthy": true},
     "persistence": {"enabled": true, "started": true, "healthy": true},

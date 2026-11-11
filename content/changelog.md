@@ -23,7 +23,7 @@ All notable changes to AegisGate Security Platform are documented here. For the 
 - **Security**: klauspost/compress v1.20.2 (GO-2026-6865), OPSEC scan whitelists, all secret scans pass.
 - **Metrics (v22b-l2v7)**: 10K catch 98.0%, FP 0.45%, Red Team catch 98.1% (4 missed).
 
-**Cross-Product Releases**: Rampart v0.10.0, Scanner v0.5.0, MCP v1.7.0, Lens v0.6.0 — all synced to Model v22b.
+**Cross-Product Releases**: Rampart v0.11.0, Scanner v0.6.0, MCP v1.8.0, Lens v0.7.0 — all synced to Model v22b.
 
 ---
 
