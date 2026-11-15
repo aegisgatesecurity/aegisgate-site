@@ -172,11 +172,6 @@
     <script src="{{ $scripts.RelPermalink }}" defer></script>
     {{ end }}
     
-    {{ $cookieConsent := resources.Get "js/cookie-consent.js" | minify }}
-    {{ if $cookieConsent }}
-    <script src="{{ $cookieConsent.RelPermalink }}" defer></script>
-    {{ end }}
-    
     {{ block "scripts_extra" . }}{{ end }}
 </body>
 </html>
