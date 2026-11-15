@@ -83,4 +83,4 @@ Clients should:
 
 ## Contact
 
-For API versioning questions, open an issue at [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform) or email security@aegisgate.dev
+For API versioning questions, open an issue at [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform) or email security@aegisgatesecurity.io

@@ -203,7 +203,7 @@ curl -H "A2A-Capability: send_message" ...
 
 ### `A2A_LICENSE_MISSING` / `A2A_LICENSE_INVALID`
 
-**Meaning:** A paid-tier capability was requested without a valid license.
+**Meaning:** A gated feature was requested without proper configuration.
 
 **Fix:**
 

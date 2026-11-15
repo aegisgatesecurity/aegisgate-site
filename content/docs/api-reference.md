@@ -214,7 +214,7 @@ GET /api/v1/sla
   "tier": "enterprise",
   "sla": {
     "uptime_target": "99.9%",
-    "description": "enterprise deployments SLA"
+    "description": "self-hosted deployment"
   },
   "slos": [
     {
@@ -753,7 +753,7 @@ A2A guardrails are enforced on all requests to A2A-enabled routes. Requests must
 | `X-A2A-Agent-ID` | Yes | Identifies the calling agent |
 | `A2A-Capability` | Yes | Declares the capability being exercised |
 | `A2A-Signature` | Yes | HMAC-SHA256 of the request body |
-| `X-A2A-License-Key` | For enterprise supports | License key for enterprise-grade capabilities |
+| `X-A2A-License-Key` | For gated features | License key for gated features |
 
 ### A2A Error Codes
 

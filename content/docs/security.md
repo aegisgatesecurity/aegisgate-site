@@ -175,7 +175,7 @@ AegisGate provides automated compliance mapping across **31 security and AI gove
 | TSA SD | Transportation security (35 controls) |
 | ISO 21434 | Automotive cybersecurity (42 controls) |
 
-### Enterprise Support — 5 additional frameworks
+### Advanced Compliance Frameworks
 
 | Framework | Coverage |
 |-----------|----------|

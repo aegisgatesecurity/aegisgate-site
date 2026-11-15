@@ -15,9 +15,9 @@ type: "landing"
 > **AegisGate CISO Posture Digest solves this.** Automatically generated, cryptographically signed PDF reports that summarize AI security posture in executive-friendly language with multi-framework compliance mapping.
 
 <div class="alert alert-success alert-center">
-<strong>CISO Posture Digest</strong> is available in <strong>enterprise deployments</strong>.
+<strong>CISO Posture Digest</strong> is available in <strong>self-hosted deployments</strong>.
 <br><br>
-<a href="/pricing/" class="btn btn-primary">Get Started &rarr;</a>
+<a href="/docs/getting-started/" class="btn btn-primary">Get Started &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
@@ -503,8 +503,7 @@ Yes. enterprise deployments supports JSON export for GRC integration. Contact su
 
 > **Patent Pending** (8 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
-CISO Posture Digest is available in **enterprise deployments**.
+CISO Posture Digest is available in **self-hosted deployments** (Apache 2.0).
 
-<a href="/pricing/" class="btn btn-primary">Download &rarr;</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases" class="btn btn-primary">Download &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/pricing/" class="btn btn-secondary">Contact Us &rarr;</a>

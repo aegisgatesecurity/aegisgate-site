@@ -26,7 +26,7 @@ This policy defines how AegisGate Security, LLC classifies, retains, and dispose
 | Classification | Description | Examples | Retention |
 |---------------|-------------|----------|-----------|
 | **Critical** | Data whose loss or unauthorized access would cause severe harm | Encryption keys, license signing keys, audit log chains | Indefinite (until customer deletion request) |
-| **Confidential** | Data protected by regulation or contract | PHI, PII, payment data, authentication credentials | Duration of contract + regulatory minimum |
+| **Confidential** | Data protected by regulation or contract | PHI, PII, authentication credentials | Duration of contract + regulatory minimum |
 | **Internal** | Data for internal operations, not public | Configuration files, session state, performance metrics | 90 days (default) to 1 year (configurable) |
 | **Public** | Data intended for public access | Documentation, website content, open-source code | Indefinite (version-controlled) |
 
@@ -63,18 +63,6 @@ This policy defines how AegisGate Security, LLC classifies, retains, and dispose
 | CI/CD artifacts | Internal | GitHub Actions | Automatic purge | 90 days |
 | Issue tracking | Internal | GitHub Issues | Issue closure | Indefinite (public) |
 | Release signing keys | Critical | Local HSM | Key ceremony destruction | Indefinite |
-
-### 3.4 Payment Processing
-
-| Data Type | Classification | Storage Location | Disposal Method | Retention |
-|-----------|---------------|-----------------|-----------------|-----------|
-| Payment card data | Confidential | Stripe (tokenized) | Stripe-managed per PCI-DSS | Per Stripe policy |
-| Transaction records | Confidential | Stripe | Stripe-managed | 7 years (tax requirement) |
-| Customer billing records | Confidential | Stripe Dashboard | Manual deletion on request | Duration of account + 7 years |
-
-**AegisGate never stores full payment card numbers.** All payment processing is handled by Stripe, a PCI-DSS Level 1 service provider. AegisGate receives only tokenized references.
-
----
 
 ## 4. Disposal Methods
 

@@ -19,11 +19,11 @@ AI tools (ChatGPT, Claude, Copilot, Gemini, etc.) are now used by 80%+ of knowle
 
 AegisGate is the only full-suite, open-source AI security platform that protects every AI interaction surface:
 
-| Product | What It Does | Where It Runs | Price |
-|---------|-------------|---------------|-------|
-| **Platform** | Enterprise AI gateway — inspects all AI API traffic, 40 guardrails across 6 attack surfaces, 31 compliance frameworks | Server / cloud / on-prem / air-gapped | Free (open-source) · Enterprise support by contact |
-| **Lens** | Browser extension — real-time PII/secrets/XSS/prompt injection detection in AI chat inputs | Chrome / Edge | Free |
-| **Rampart** | Local proxy — MITM interception of AI API calls, block mode, encrypted audit log | Desktop (macOS, Windows, Linux) | Free (open-source) |
+| Product | What It Does | Where It Runs | License |
+|---------|-------------|---------------|---------|
+| **Platform** | Enterprise AI gateway — inspects all AI API traffic, 40 guardrails across 6 attack surfaces, 31 compliance frameworks | Server / cloud / on-prem / air-gapped | Apache 2.0 |
+| **Lens** | Browser extension — real-time PII/secrets/XSS/prompt injection detection in AI chat inputs | Chrome / Edge | Apache 2.0 |
+| **Rampart** | Local proxy — MITM interception of AI API calls, block mode, encrypted audit log | Desktop (macOS, Windows, Linux) | Apache 2.0 |
 
 ### Why AegisGate
 
@@ -41,7 +41,7 @@ AegisGate is the only full-suite, open-source AI security platform that protects
 | **Browser extension** | Lens (free, CWS, 10 AI providers) | None |
 | **SIEM integration** | 12 platforms (Splunk, QRadar, Datadog, Sentinel, etc.) | 0-1 |
 | **SOAR integration** | PagerDuty, Jira, ServiceNow | None |
-| **3-Year TCO (10K req/day)** | Self-hosted (open-source) | Vendor pricing varies |
+| **3-Year TCO (10K req/day)** | Self-hosted (open-source) | SaaS-only (vendor lock-in) |
 
 ### Deployment in 5 Minutes
 
@@ -75,7 +75,7 @@ SOC 2 · ISO 27001 · ISO 42001 · NIST CSF · NIST AI RMF · NIST 800-171 · NI
 
 ### Availability
 
-Free and open-source (Apache 2.0). Contact sales@aegisgatesecurity.io for enterprise support, compliance modules, and custom integrations.
+Free and open-source (Apache 2.0). Community support via [GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-platform/discussions).
 
 **No per-request fees. No data egress. No vendor lock-in.**
 
@@ -105,6 +105,6 @@ Free and open-source (Apache 2.0). Contact sales@aegisgatesecurity.io for enterp
 ### Contact
 
 - **Website:** [aegisgatesecurity.io](https://aegisgatesecurity.io)
-- **Sales:** sales@aegisgatesecurity.io
+
 - **GitHub:** [github.com/aegisgatesecurity](https://github.com/aegisgatesecurity)
 - **Docs:** [aegisgatesecurity.io/docs](https://aegisgatesecurity.io/docs/)

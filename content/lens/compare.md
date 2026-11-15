@@ -31,7 +31,7 @@ Two products from the same security team, designed for different deployment poin
 ## TL;DR
 
 - **[AegisGate Lens](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** is a **free browser extension** ([also on Firefox](https://addons.mozilla.org/en-US/firefox/addon/aegisgate-lens/)) that protects **end users** browsing AI tools. Browser-level. No account. Privacy-first.
-- **[AegisGate Platform](/platform/)** is an **enterprise gateway** that protects **servers and teams** running AI tools. Server-level. Per-team pricing. Central policy + analytics.
+- **[AegisGate Platform](/platform/)** is an **enterprise gateway** that protects **servers and teams** running AI tools. Server-level. Self-hosted, free and open source. Central policy + analytics.
 
 Use **Lens alone** if you're an individual developer, security researcher, journalist, or privacy-conscious user. Use **Platform alone** if you're running AI in production at a company and need central policy + audit + compliance. Use **both** if you want every layer protected (Lens for users, Platform for servers).
 
@@ -41,7 +41,7 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 
 | Feature | **Lens** (free browser ext) | **Platform** (enterprise gateway) |
 |---------|:---------------------------:|:----------------------------------:|
-| **Price** | Free, forever | Free (open-source) / Enterprise support by contact |
+| **Price** | Free, forever | Free (open-source, Apache 2.0) |
 | **Account required** | ❌ No | ✅ Yes |
 | **Browser-side AI provider protection** (PII, secrets, XSS, compliance, adversarial ML in ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI) | ✅ All 5 facets | ✅ All 5 facets (same corpus) |
 | **5-facet detection** (PII / Secrets / XSS / Compliance / ML Adversarial). v0.6.0 adds on-device ML. | ✅ | ✅ |
@@ -63,13 +63,12 @@ Use **Lens alone** if you're an individual developer, security researcher, journ
 | **Trust Framework** (continuous cryptographically-signed trust scoring) | ❌ | ✅ |
 | **EU AI Act Compliance Module** (120 controls, enterprise deployments) | ❌ | ✅ |
 | **OWASP compliance module** | ❌ | ✅ |
-| **GDPR / HIPAA / PCI / SOC 2 compliance modules** | ❌ | ✅ (enterprise) |
-| **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ (enterprise) |
+| **GDPR / HIPAA / PCI / SOC 2 compliance modules** | ❌ | ✅ |
+| **SIEM export** (Splunk, Datadog, Elastic, etc.) | ❌ | ✅ |
 | **Custom detection rules per team** | ❌ | ✅ |
-| **Slack / Teams / Jira integration** | ❌ | ✅ (Enterprise) |
-| **Self-hosted option** | N/A (already client-side) | ✅ (Enterprise) |
-| **Multi-region deployment** | N/A | ✅ (Enterprise) |
-| **SLA / 24/7 support** | ❌ | ✅ (enterprise) |
+| **Slack / Teams / Jira integration** | ❌ | ✅ |
+| **Self-hosted option** | N/A (already client-side) | ✅ |
+| **Multi-region deployment** | N/A | ✅ |
 
 ---
 
@@ -108,7 +107,7 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 
 ### Privacy model
 - **Lens**: Privacy-by-default. No telemetry unless explicitly opted in. 12 non-negotiables (see [Lens homepage](/lens/)).
-- **Platform**: Privacy-by-default for detection. Logging is opt-in (enterprise deployments).
+- **Platform**: Privacy-by-default for detection. Logging is opt-in.
 
 ### Test coverage
 - **Lens**: 504 automated tests (492/492 Node + 12/12 ML perf/stress). Zero external dependencies, zero WASM binaries.
@@ -120,16 +119,9 @@ Both products share the same detection corpus (the 5-facet taxonomy: PII, secret
 
 ---
 
-## Pricing
+## Cost
 
-### AegisGate Lens
-- **Free**, forever. No "Pro" tier. No credit card. No account.
-
-### AegisGate Platform
-
-**Free (open-source, Apache 2.0).** Self-host. Enterprise support by contact (sales@aegisgatesecurity.io).
-
-See [Enterprise](/pricing/) for details.
+All AegisGate tools are free and open source, Apache 2.0.
 
 ---
 
@@ -137,8 +129,6 @@ See [Enterprise](/pricing/) for details.
 
 - 🛡️ **[Install Lens from Chrome Web Store](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip)** — one click, no account
 - 🐙 **[Deploy Platform](/docs/getting-started/)** — `docker run` in 60 seconds
-- ⚖️ **[Compare side-by-side](/pricing/)** — pricing details
-- 📧 **[Contact sales](mailto:sales@aegisgatesecurity.io)** for Enterprise questions
 
 ---
 

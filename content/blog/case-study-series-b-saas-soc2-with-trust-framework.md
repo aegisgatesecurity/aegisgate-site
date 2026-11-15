@@ -165,8 +165,8 @@ queried these directly during the audit window.
 | **MITRE ATLAS** | ✅ All 66 techniques | Built-in, free (Apache 2.0) |
 | **NIST AI RMF** | ✅ Full framework | Built-in, free (Apache 2.0) |
 | **OWASP LLM Top 10** | ✅ All categories | Built-in, free (Apache 2.0) |
-| **EU AI Act** | ✅ Module purchased | Ready for August 2026 deadline |
-| **HIPAA** | 🟡 Not purchased | Available with enterprise support |
+| **EU AI Act** | ✅ Module enabled | Ready for August 2026 deadline |
+| **HIPAA** | 🟡 Not enabled | Available in the open-source build |
 | **PCI-DSS** | 🟡 Not applicable | Company doesn't process card data |
 | **GDPR** | ✅ Built-in | Free (Apache 2.0) |
 
@@ -225,8 +225,8 @@ studies** (with explicit written consent from a single customer).
 - The customer approves the final case study before publication
 - Available for enterprise deployments customers who consent
 
-If you're a current AegisGate customer interested in a named case
-study, please contact [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io).
+If you're interested in a named case
+study, please open a [GitHub Discussion](https://github.com/aegisgatesecurity/aegisgate-platform/discussions).
 
 ## About AegisGate Security Platform
 
@@ -247,9 +247,9 @@ trust scoring, and signed attestations for compliance evidence.
 - **Federated IOC library** (12,902 LOC, ECDSA-signed, opt-in, serverless)
 
 **Website:** [https://aegisgatesecurity.io](https://aegisgatesecurity.io)
-**Enterprise:** [https://aegisgatesecurity.io/pricing](https://aegisgatesecurity.io/pricing)
+**Enterprise:** [https://aegisgatesecurity.io/docs/](https://aegisgatesecurity.io/docs/)
 **Trust Framework 1-pager:** See [trust-framework](/trust-framework/) (the AegisGate Platform repo)
-**Contact:** [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io)
+**Contact:** [security@aegisgatesecurity.io](mailto:security@aegisgatesecurity.io)
 
 ---
 

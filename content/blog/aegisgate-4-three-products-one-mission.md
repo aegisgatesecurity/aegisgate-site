@@ -125,7 +125,7 @@ We believe security tools should not require trust. Our code is open. Our detect
 |------------|-----------------|------|------|
 | Anyone who uses ChatGPT/Claude/etc. | [Lens](https://chromewebstore.google.com/detail/aegisgate-lens/lkioinepjpjfdhiggaomoafnhagfcjip) | 10 seconds | Free |
 | Developer using Copilot/Cursor | [Rampart](https://github.com/aegisgatesecurity/aegisgate-rampart/releases/tag/v0.7.1) | 2 minutes | Free |
-| Team or enterprise running AI infrastructure | [Platform](https://github.com/aegisgatesecurity/aegisgate-platform) | 5 minutes | Free tier + paid |
+| Team or enterprise running AI infrastructure | [Platform](https://github.com/aegisgatesecurity/aegisgate-platform) | 5 minutes | Free, Apache 2.0 |
 
 **All three products are Apache 2.0. No vendor lock-in. No proprietary formats. No hidden behavior.**
 
@@ -133,4 +133,4 @@ We believe security tools should not require trust. Our code is open. Our detect
 
 *Built by a solo founder. Proven at scale. Open source forever.*
 
-[Website](https://aegisgatesecurity.io) · [GitHub](https://github.com/aegisgatesecurity) · [Documentation](https://aegisgatesecurity.io/docs/) · [Enterprise](https://aegisgatesecurity.io/pricing/)
+[Website](https://aegisgatesecurity.io) · [GitHub](https://github.com/aegisgatesecurity) · [Documentation](https://aegisgatesecurity.io/docs/)

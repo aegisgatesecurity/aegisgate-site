@@ -116,7 +116,7 @@ See [full comparison](https://github.com/aegisgatesecurity/aegisgate-mcp/blob/ma
 
 ## When to Upgrade to Platform
 
-AegisGate MCP is free and standalone. When you need enterprise scale (unlimited ML inference, OAuth/SAML/SSO, SIEM integration, 31 compliance frameworks, multi-protocol support), upgrade to [AegisGate Platform](/platform).
+AegisGate MCP is free and standalone. When you need broader coverage (unlimited ML inference, OAuth/SAML/SSO, SIEM integration, 31 compliance frameworks, multi-protocol support), see [AegisGate Platform](/platform).
 
 | Need | AegisGate MCP (free) | AegisGate Platform |
 |------|---------------------|-------------------|

@@ -976,7 +976,7 @@ This checks:
 
 ### Is Rampart really free?
 
-Yes. Rampart is 100% free and open source under the Apache 2.0 license. There is no freemium model, no telemetry, and no vendor lock-in. The optional AegisGate Platform integration is a separate paid product, but Rampart itself is and will always be free.
+Yes. Rampart is 100% free and open source under the Apache 2.0 license. There is no freemium model, no telemetry, and no vendor lock-in. The optional AegisGate Platform integration is a separate open-source project, but Rampart itself is and will always be free.
 
 ### Does Rampart send my data anywhere?
 

@@ -1,6 +1,6 @@
 ---
 title: "Federated IOC Store — Crowdsourced AI Threat Intelligence"
-description: "Real-time sharing of AI-specific indicators of compromise via cryptographically signed bundles. One customer's attack becomes everyone's protection. TAXII 2.1 compatible."
+description: "Real-time sharing of AI-specific indicators of compromise via cryptographically signed bundles. One deployment's attack becomes everyone's protection. TAXII 2.1 compatible."
 type: "landing"
 ---
 
@@ -8,11 +8,11 @@ type: "landing"
      HERO: The Network Effect Moat
      ============================================================ -->
 
-> **🛡️ When one AegisGate customer detects a new AI attack, every customer is protected within minutes.**
+> **🛡️ When one AegisGate deployment detects a new AI attack, every deployment is protected within minutes.**
 >
 > Traditional security tools operate in isolation. When Company A detects a novel prompt injection attack, Company B learns nothing. Attackers exploit this fragmentation repeatedly.
 >
-> **AegisGate Federated IOC Store changes this.** Detected threats are packaged into cryptographically signed bundles and distributed to all customers. The network grows stronger with every detection.
+> **AegisGate Federated IOC Store changes this.** Detected threats are packaged into cryptographically signed bundles and distributed to all deployments. The network grows stronger with every detection.
 
 <div class="alert alert-info" style="margin-bottom:24px;">
 <strong>Patent Pending</strong> &mdash; Federated detection gap analysis and self-improving AI security posture assessment. US Provisional App. No. 64/180,722.
@@ -20,9 +20,9 @@ type: "landing"
 </div>
 
 <div class="alert alert-success alert-center">
-<strong>Federated IOC Store</strong> is available in <strong>enterprise deployments</strong>.
+<strong>Federated IOC Store</strong> is available in <strong>self-hosted deployments</strong>.
 <br><br>
-<a href="/pricing/" class="btn btn-primary">Get Started &rarr;</a>
+<a href="/docs/getting-started/" class="btn btn-primary">Get Started &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
@@ -41,7 +41,7 @@ Company C detects same attack → Logs stored locally → Attackers continue exp
 **Result:** The same attack succeeds against multiple organizations because threat intelligence doesn't flow.
 
 **Why this happens:**
-- Vendors treat threat intel as a premium add-on (separate subscription)
+- Vendors treat threat intel as a premium add-on
 - Intelligence is delayed (weekly digests, not real-time)
 - Formats are incompatible (STIX/TAXII requires separate tooling)
 - Trust is unclear (who generated this IOC? can I trust it?)
@@ -53,7 +53,7 @@ Company C detects same attack → Logs stored locally → Attackers continue exp
 AegisGate Federated IOC Store creates a **network effect**:
 
 ```
-Customer detects attack → Platform generates signed IOC bundle → All customers receive within 5 minutes
+Deployment detects attack → Platform generates signed IOC bundle → All deployments receive within 5 minutes
                           ↓
                           Automatic protection (no manual update required)
 ```
@@ -62,11 +62,11 @@ Customer detects attack → Platform generates signed IOC bundle → All custome
 
 | Property | Implementation | Why It Matters |
 |----------|----------------|----------------|
-| **Cryptographic Trust** | Every bundle signed with ECDSA P-256 | Customers verify bundle integrity before applying |
+| **Cryptographic Trust** | Every bundle signed with ECDSA P-256 | Deployments verify bundle integrity before applying |
 | **Real-Time Distribution** | Push-based (not pull) | Protection arrives in minutes, not days |
 | **AI-Specific IOCs** | Prompt patterns, injection signatures, adversarial examples | Generic IOC stores miss AI-specific attacks |
 | **TAXII 2.1 Compatible** | Standard protocol integration | Works with existing SIEM/SOAR investments |
-| **Privacy-Preserving** | IOCs contain patterns, not customer data | No sensitive information leaves your environment |
+| **Privacy-Preserving** | IOCs contain patterns, not user data | No sensitive information leaves your environment |
 
 ---
 
@@ -83,7 +83,7 @@ When Platform detects a novel attack (e.g., new prompt injection technique):
   "technique": "prompt_injection",
   "pattern": "ignore previous instructions.*output system prompt",
   "severity": "high",
-  "customer_id": "[REDACTED]",
+  "instance_id": "[REDACTED]",
   "timestamp": "2026-08-14T09:23:45Z"
 }
 ```
@@ -121,7 +121,7 @@ Platform automatically generates an IOC bundle:
 
 ### Step 3: Distribution
 
-Bundle is pushed to all connected customers:
+Bundle is pushed to all connected instances:
 
 ```bash
 # Platform pushes to TAXII 2.1 server
@@ -139,10 +139,10 @@ Content-Type: application/taxii+json
 
 ### Step 4: Automatic Protection
 
-Customer Platform instances receive and apply the bundle:
+Platform instances receive and apply the bundle:
 
 ```bash
-# Customer Platform verifies signature
+# Platform verifies signature
 openssl dgst -sha256 -verify aegisgate-ioc.pub \
   -signature bundle.sig \
   bundle.json
@@ -229,14 +229,14 @@ IOCs are packaged in **STIX 2.1** (Structured Threat Information Expression):
 - Timestamp (when detected)
 
 **What is NEVER shared:**
-- Customer identity (anonymized)
+- Instance identity (anonymized)
 - Actual prompts or responses (only patterns)
 - Sensitive data (PII, secrets, proprietary code)
 - Internal system details
 
 **Technical Guarantee:**
 - IOCs are generated from detection patterns, not raw data
-- Customer IDs are redacted before bundle creation
+- Instance IDs are redacted before bundle creation
 - Bundles are signed — tampering is detectable
 
 ---
@@ -248,9 +248,9 @@ IOCs are packaged in **STIX 2.1** (Structured Threat Information Expression):
 **Problem:** Coordinated attacks targeting banking AI assistants (prompt injection to bypass transaction limits).
 
 **Federated IOC Solution:**
-- Customer A detects attack → IOC bundle generated
-- Customers B, C, D receive bundle within 5 minutes
-- All customers protected before attackers can scale
+- Instance A detects attack → IOC bundle generated
+- Instances B, C, D receive bundle within 5 minutes
+- All deployments protected before attackers can scale
 
 **Compliance Mapping:**
 - FFIEC CAT: TI.A.1 (Threat intelligence received)
@@ -264,7 +264,7 @@ IOCs are packaged in **STIX 2.1** (Structured Threat Information Expression):
 
 **Federated IOC Solution:**
 - Hospital system A detects PHI extraction attempt
-- IOC pattern shared with all healthcare customers
+- IOC pattern shared with all healthcare deployments
 - Pattern added to HIPAA compliance reporting
 
 **Compliance Mapping:**
@@ -279,7 +279,7 @@ IOCs are packaged in **STIX 2.1** (Structured Threat Information Expression):
 
 **Federated IOC Solution:**
 - Agency A detects classified data extraction attempt
-- IOC shared with cleared government customers only (segmented feed)
+- IOC shared with cleared government deployments only (segmented feed)
 - Pattern integrated with CISA reporting
 
 **Compliance Mapping:**
@@ -294,7 +294,7 @@ IOCs are packaged in **STIX 2.1** (Structured Threat Information Expression):
 
 **Federated IOC Solution:**
 - Tech company A detects model extraction attack
-- IOC pattern shared with all tech sector customers
+- IOC pattern shared with all tech sector deployments
 - Attack technique added to threat intelligence briefing
 
 **Compliance Mapping:**
@@ -392,19 +392,19 @@ Content-Type: application/json
 
 ## Network Effect: The Moat
 
-**Traditional Security:** Every customer starts from zero. Threat intelligence is siloed.
+**Traditional Security:** Every deployment starts from zero. Threat intelligence is siloed.
 
-**AegisGate Federated IOC:** Every customer benefits from every other customer's detections.
+**AegisGate Federated IOC:** Every deployment benefits from every other deployment's detections.
 
 ```
-1 customer detects attack → 100 customers protected
-10 customers detect attacks → 1,000 customers protected
-100 customers detect attacks → 10,000 customers protected
+1 deployment detects attack → 100 deployments protected
+10 deployments detect attacks → 1,000 deployments protected
+100 deployments detect attacks → 10,000 deployments protected
 ```
 
 **Competitive Advantage:**
 - Competitors cannot replicate network effects (requires installed base)
-- Value increases with every customer (positive feedback loop)
+- Value increases with every deployment (positive feedback loop)
 - Switching costs increase over time (historical IOC data retained)
 
 ---
@@ -431,7 +431,7 @@ Content-Type: application/json
 <details>
 <summary><strong>Can I opt out of sharing IOCs?</strong></summary>
 
-Yes. Organizations can choose to receive IOCs without contributing. However, we encourage participation — the network effect only works when customers contribute detections.
+Yes. Organizations can choose to receive IOCs without contributing. However, we encourage participation — the network effect only works when deployments contribute detections.
 </details>
 
 <details>
@@ -447,7 +447,7 @@ Bundles include an ECDSA P-256 signature. Use OpenSSL or any cryptographic libra
 </details>
 
 <details>
-<summary><strong>Can I share IOCs with my own customers?</strong></summary>
+<summary><strong>Can I share IOCs within my own organization?</strong></summary>
 
 Yes. enterprise deployments includes redistribution rights. You can integrate AegisGate IOCs into your own threat intelligence platform or MSSP offerings.
 </details>
@@ -462,8 +462,7 @@ Platform continues operating with locally cached IOCs. When connectivity is rest
 
 ## Ready to Join the Network?
 
-Federated IOC Store is available in **enterprise deployments**.
+Federated IOC Store is available in **self-hosted deployments** (Apache 2.0).
 
-<a href="/pricing/" class="btn btn-primary">Download &rarr;</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases" class="btn btn-primary">Download &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/pricing/" class="btn btn-secondary">Contact Us &rarr;</a>

@@ -82,7 +82,7 @@ Please include as much of the following as possible:
 - Social engineering attacks against AegisGate employees or contractors
 - Physical attacks against AegisGate infrastructure
 - Denial of service attacks (we ask that you do not test these without prior authorization)
-- Vulnerabilities in third-party services (Stripe, Cloudflare, Netlify, GitHub) — report these to the respective providers
+- Vulnerabilities in third-party services (Cloudflare, Netlify, GitHub) — report these to the respective providers
 - Issues in dependencies that are already known and have available patches
 - Best practice issues (missing headers, verbose errors) without demonstrable security impact
 

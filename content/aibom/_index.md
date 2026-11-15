@@ -17,7 +17,7 @@ type: "landing"
 <div class="alert alert-success alert-center">
 <strong>AIBOM Generator</strong> is available in <strong>self-hosted deployments</strong>.
 <br><br>
-<a href="/pricing/" class="btn btn-primary">Get Started &rarr;</a>
+<a href="/docs/getting-started/" class="btn btn-primary">Get Started &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
@@ -477,8 +477,7 @@ CycloneDX is recognized by EU regulators as an acceptable format for technical d
 
 > **Patent Pending** (8 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
 
-AIBOM Generator is available in **self-hosted deployments**.
+AIBOM Generator is available in **self-hosted deployments** (Apache 2.0).
 
-<a href="/pricing/" class="btn btn-primary">Download &rarr;</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases" class="btn btn-primary">Download &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/pricing/" class="btn btn-secondary">Contact Us &rarr;</a>

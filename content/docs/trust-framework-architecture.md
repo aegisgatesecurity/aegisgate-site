@@ -331,11 +331,9 @@ Or via environment variable: `AEGISGATE_TRUST_ENABLED=true`
 
 ---
 
-## Tier & Pricing
+## Availability
 
-- **Deployment**: enterprise (contact for support)
-- **Pricing model**: Included in the tier — not a separately-billable module. The Trust Framework is a platform capability, not a compliance add-on.
-- **Custom Enterprise SLAs**: Available for customers who need deeper trust-score analytics than the tier provides
+Included in the open-source platform. The Trust Framework is a platform capability, not a compliance add-on.
 
 ---
 

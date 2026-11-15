@@ -15,7 +15,7 @@ AegisGate Platform provides two distinct integration pathways for external secur
 
 **In short:** SIEM says "log this event for analysis." SOAR says "alert this platform so action is taken."
 
-Both require enterprise deployments.
+Both are available in self-hosted deployments.
 
 ---
 

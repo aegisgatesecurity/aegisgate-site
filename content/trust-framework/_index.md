@@ -22,7 +22,7 @@ type: "landing"
 <div class="alert alert-success alert-center">
 <strong>Trust Framework</strong> is available in <strong>enterprise deployments</strong>.
 <br><br>
-<a href="/pricing/" class="btn btn-primary">Get Started &rarr;</a>
+<a href="/docs/getting-started/" class="btn btn-primary">Get Started &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
 </div>
 
@@ -351,6 +351,6 @@ Yes. enterprise deployments includes SIEM integration (Splunk, QRadar, Sentinel)
 
 Trust Framework is available in **enterprise deployments**.
 
-<a href="/pricing/" class="btn btn-primary">Download &rarr;</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download &rarr;</a>
 <a href="/docs/" class="btn btn-secondary">Technical Documentation &rarr;</a>
-<a href="/pricing/" class="btn btn-secondary">Contact Us &rarr;</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/discussions" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Community Support &rarr;</a>

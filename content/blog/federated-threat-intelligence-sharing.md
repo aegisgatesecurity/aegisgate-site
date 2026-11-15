@@ -167,7 +167,7 @@ v4.5.2 completes the IOC production readiness initiative. The next steps are ope
 3. **STIX 2.1 export** — standardized output for SIEM and TI platform integration
 4. **Community feed** — exploring a public, opt-in IOC feed for the broader AegisGate community
 
-If you're interested in joining the federation or want to evaluate AegisGate for your organization, [get in touch](https://aegisgatesecurity.io/partners/) or [try the live demo](https://demo.aegisgatesecurity.io/).
+If you're interested in joining the federation or want to evaluate AegisGate for your organization, [open a GitHub Discussion](https://github.com/aegisgatesecurity/aegisgate-platform/discussions) or [try the live demo](https://demo.aegisgatesecurity.io/).
 
 ---
 

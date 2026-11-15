@@ -1,11 +1,11 @@
 baseURL = "https://aegisgatesecurity.io/"
 languageCode = "en-us"
-title = "AegisGate — Secure Every AI Interaction"
+title = "AegisGate — Open-Source AI Security Research Project"
 # theme = "aegisgate" (deprecated)
 
 # Site params
 [params]
-  description = "Free browser protection (Lens), developer-grade local proxy (Rampart), standalone MCP server security framework (MCP), AI artifact static analysis scanner (Scanner), and enterprise AI security gateway (Platform). Five products that secure every AI interaction — from ChatGPT to Copilot to custom LLMs to training data. 100% open source."
+  description = "Open-source AI security research project. Free browser protection (Lens), developer-grade local proxy (Rampart), standalone MCP server security framework (MCP), AI artifact static analysis scanner (Scanner), and AI security gateway (Platform). Five tools that secure every AI interaction — from ChatGPT to Copilot to custom LLMs to training data. 100% open source, Apache 2.0."
   version = "v5.2.0"
   goVersion = "1.27.0"
   dockerSize = "34.7MB"
@@ -14,7 +14,6 @@ title = "AegisGate — Secure Every AI Interaction"
   twitter = "https://x.com/aegisgate"
   mastodon = "https://mastodon.social/@aegisgate"
   email = "security@aegisgatesecurity.io"
-  salesEmail = "sales@aegisgatesecurity.io"
   copyrightStartYear = 2024
   currentYear = 2026
 
@@ -23,7 +22,7 @@ title = "AegisGate — Secure Every AI Interaction"
   twitter = "aegisgate"
   mastodon = "https://mastodon.social/@aegisgate"
 
-# Main nav menu — 5-product suite structure
+# Main nav menu — 5-tool suite structure
 [menu]
   [[menu.main]]
     name = "Lens"
@@ -56,29 +55,19 @@ title = "AegisGate — Secure Every AI Interaction"
     weight = 6
 
   [[menu.main]]
-    name = "Enterprise"
-    url = "/pricing/"
+    name = "Compliance"
+    url = "/compliance/"
     weight = 7
-
-  [[menu.main]]
-    name = "Partners"
-    url = "/partners/"
-    weight = 8
-
-  [[menu.main]]
-    name = "🚀 Live Demo"
-    url = "https://demo.aegisgatesecurity.io/"
-    weight = 9
 
   [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 10
+    weight = 8
 
   [[menu.main]]
-    name = "GitHub"
+    name = "GitHub ↗"
     url = "https://github.com/aegisgatesecurity/aegisgate-platform"
-    weight = 11
+    weight = 9
 # Enable features
 enableRobotsTXT = true
 enableGitInfo = true

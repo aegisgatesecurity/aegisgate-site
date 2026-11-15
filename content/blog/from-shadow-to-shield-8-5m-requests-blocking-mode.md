@@ -266,7 +266,7 @@ If your organization runs AI APIs in production and wants to be part of validati
 - P4 and DIST2-5 TPR validation against your real-world traffic
 - Blocking mode flip for validated detectors in your environment
 
-[Contact us →](https://aegisgatesecurity.io/#contact)
+[GitHub →](https://github.com/aegisgatesecurity)
 
 **Secure Every AI Interaction.**
 

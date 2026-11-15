@@ -1,7 +1,7 @@
 ---
 title: 'AegisGate v3.3: EU AI Act Framework Alignment, and a Live Demo You Can Actually Touch'
 slug: eu-ai-framework-live-demo
-description: AegisGate v3.3 ships the EU AI Act Compliance Module — 82 controls across 8 categories spanning Articles 5, 9, 10, 11, 12, 13, 14, 15, and 51–55, available with enterprise support. And as of today, anyone can see the platform running — for real, not a marketing mock — at https://demo.aegisgatesecurity.io.
+description: AegisGate v3.3 ships the EU AI Act Compliance Module — 82 controls across 8 categories spanning Articles 5, 9, 10, 11, 12, 13, 14, 15, and 51–55. And as of today, anyone can see the platform running — for real, not a marketing mock — at https://demo.aegisgatesecurity.io.
 date: 2026-06-11
 author: AegisGate Security
 tags:
@@ -44,7 +44,7 @@ AegisGate v3.3 is built to be a different kind of compliance tool — one that d
 
 ## What's New in v3.3: The EU AI Act Compliance Module
 
-The v3.3 release adds a dedicated **EU AI Act Compliance Module** to the AegisGate platform. It's available with enterprise support — and it ships with the implementation that the documentation-only tools don't have.
+The v3.3 release adds a dedicated **EU AI Act Compliance Module** to the AegisGate platform. It's available in the open-source build — and it ships with the implementation that the documentation-only tools don't have.
 
 The module is part of the **27 compliance frameworks** in the platform, joining HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, and FIPS 140-2/140-3. It's wired into the existing Compliance Scan Engine — the same engine that runs your HIPAA and PCI scans today.
 
@@ -63,7 +63,7 @@ The module is part of the **27 compliance frameworks** in the platform, joining 
 
 **Of the 82 controls, 9 are automated** — the prohibited practice pattern detection, risk management evidence collection, technical documentation generation, automatic logging, transparency reporting, human oversight audit, accuracy/robustness checks, data poisoning detection, and prompt injection correlation. The remaining 73 are manual review items for your compliance team.
 
-A note on the gating: **EU AI Act compliance is required for the high-risk AI systems in scope.** The EU AI Act compliance module is available with enterprise support. This is a deliberate decision — a compliance module that ships "free" is a compliance module that nobody else can sustain, and a compliance module that ships paid-but-included-forever is a compliance module that will get deprioritized when budgets tighten. Funding the module through enterprise support is the only way we know to keep the implementation current with each new Commission guidance and delegated act.
+A note on the gating: **EU AI Act compliance is required for the high-risk AI systems in scope.** The EU AI Act compliance module is included in the open-source build. Keeping the implementation current with each new Commission guidance and delegated act is a community commitment.
 
 ***
 
@@ -136,9 +136,9 @@ Three things, depending on who you are.
 
 **If you're evaluating AI security tools:** You can now see the actual product, running, without scheduling a sales call. Spend 20 minutes with the playground. Try the prompt injection examples. Try the jailbreak examples. Try the Article 5 prohibition examples. See for yourself.
 
-**If you're building AI in the EU:** The compliance module is a real, enforceable compliance posture — not a documentation framework. Available with enterprise support. If you have an August 2026 deadline, v3.3 is what you deploy.
+**If you're building AI in the EU:** The compliance module is a real, enforceable compliance posture — not a documentation framework. Available in the open-source build. If you have an August 2026 deadline, v3.3 is what you deploy.
 
-**If you're an existing AegisGate user:** v3.3 is a free upgrade. The EU AI Act module is available with enterprise support. The 82 controls are wired into your existing detection pipeline. No migration, no reconfiguration. The upgrade is one command: `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:latest && docker compose up -d`.
+**If you're an existing AegisGate user:** v3.3 is a free upgrade. The EU AI Act module is included in the open-source build. The 82 controls are wired into your existing detection pipeline. No migration, no reconfiguration. The upgrade is one command: `docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:latest && docker compose up -d`.
 
 ***
 
@@ -178,7 +178,7 @@ https://demo.aegisgatesecurity.io
 
 \`\`\`
 
-**19.1 MB. 60 seconds. All five AI attack surfaces, including the EU AI Act module for enterprise.**
+**19.1 MB. 60 seconds. All five AI attack surfaces, including the EU AI Act module.**
 
 ***
 

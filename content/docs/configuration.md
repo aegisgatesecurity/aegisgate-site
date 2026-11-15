@@ -121,7 +121,7 @@ acp:
 
 trust:
   enabled: false
-  require_license: true      # enterprise deployments required
+  require_license: true      # production deployments required
 
 persistence:
   enabled: true

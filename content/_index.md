@@ -1,6 +1,6 @@
 ---
-title: "Secure Every AI Interaction"
-description: "Free browser protection, developer-grade local proxy, standalone MCP server security framework, AI artifact static analysis scanner, and enterprise AI security gateway. Five products that protect you before you press send on any AI tool — from ChatGPT to Copilot to custom LLMs to MCP agents to training data."
+title: "AegisGate — Open-Source AI Security Research Project"
+description: "Open-source AI security research project. Browser protection, developer-grade local proxy, standalone MCP server security framework, AI artifact static analysis scanner, and self-hosted AI security gateway. Five tools that protect you before you press send on any AI tool — from ChatGPT to Copilot to custom LLMs to MCP agents to training data."
 type: "landing"
 mermaid: true
 ---
@@ -21,10 +21,10 @@ mermaid: true
 </div>
 </div>
 
-<p class="hero-description">Every time you type a prompt into an AI tool, you might be leaking sensitive data — passwords, API keys, personal information, trade secrets. <strong>AegisGate catches those risks before you press send.</strong> Five products, one mission: secure every AI interaction.</p>
+<p class="hero-description">Every time you type a prompt into an AI tool, you might be leaking sensitive data — passwords, API keys, personal information, trade secrets. <strong>AegisGate catches those risks before you press send.</strong> Five tools, one mission: secure every AI interaction.</p>
 
 <div class="alert alert-success alert-center">
-<strong>Open-core.</strong> Apache 2.0 community + commercial enterprise modules. No data collection. No vendor lock-in. Self-hosted only. Deploy in 60 seconds.
+<strong>Apache 2.0 Licensed.</strong> 100% open-source. No data collection. No vendor lock-in. Self-hosted only. Deploy in 60 seconds.
 </div>
 
 <div class="alert alert-info alert-center" style="font-size:0.9rem;">
@@ -42,7 +42,7 @@ mermaid: true
 
 <h2 style="text-align:center; margin-top:60px;">Complete AI Security Suite</h2>
 
-<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">From individual users to enterprise teams — comprehensive protection at every layer.</p>
+<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">From individual users to research teams — comprehensive protection at every layer.</p>
 
 {{< mermaid >}}
 flowchart LR
@@ -108,7 +108,7 @@ flowchart LR
 
 <h2 style="text-align:center; margin-top:60px;">Five Products, One Mission</h2>
 
-<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">Pick your path — we'll meet you where you are.</p>
+<p style="text-align:center; color:#888; font-size:1.1rem; margin-bottom:40px;">Pick your path — we'll meet you where you are. All Apache 2.0, all free, all open source.</p>
 
 <div class="card-grid-2x2">
 
@@ -189,7 +189,7 @@ flowchart LR
 <div class="card" style="border-color:#10b981;">
 <h3>🏢 Platform — For Teams & Organizations</h3>
 <p><strong>You need to secure AI usage across your entire organization.</strong></p>
-<p>Platform is an enterprise gateway that sits between your users and any AI service. It scans all AI traffic — HTTP APIs, MCP, agent-to-agent protocols, and AI responses — with 31 compliance frameworks, SIEM/SOAR integration, and a web UI.</p>
+<p>Platform is a self-hosted AI security gateway that sits between your users and any AI service. It scans all AI traffic — HTTP APIs, MCP, agent-to-agent protocols, and AI responses — with 31 compliance frameworks, SIEM/SOAR integration, and a web UI.</p>
 <ul>
 <li>6 attack surfaces: HTTP API, MCP, A2A, ACP, Response, Trust Framework</li>
 <li>31 compliance frameworks (HIPAA, SOC 2, EU AI Act, FedRAMP, and more)</li>
@@ -232,7 +232,7 @@ flowchart LR
 
 <div class="card">
 <h3>📋 Compliance Risks</h3>
-<p>Text that violates HIPAA, GDPR, PCI-DSS, EU AI Act, or 27 other regulatory frameworks. Enterprise teams get automatic compliance scanning on every AI interaction.</p>
+<p>Text that violates HIPAA, GDPR, PCI-DSS, EU AI Act, or 27 other regulatory frameworks. Teams get automatic compliance scanning on every AI interaction.</p>
 </div>
 
 </div>
@@ -357,12 +357,12 @@ flowchart LR
 <td>Any HTTP/MCP/A2A traffic</td>
 </tr>
 <tr>
-<td class="metric-label"><strong>Price</strong></td>
-<td>Free forever</td>
-<td>Free / open source</td>
-<td>Free / open source</td>
-<td>Free / open source</td>
-<td>Free tier + enterprise supports</td>
+<td class="metric-label"><strong>Cost</strong></td>
+<td>Free, open source (Apache 2.0)</td>
+<td>Free, open source (Apache 2.0)</td>
+<td>Free, open source (Apache 2.0)</td>
+<td>Free, open source (Apache 2.0)</td>
+<td>Free, open source (Apache 2.0)</td>
 </tr>
 <tr>
 <td class="metric-label"><strong>Security layers</strong></td>
@@ -411,7 +411,7 @@ flowchart LR
 
 <div class="card">
 <h3>🏗️ Self-Hosted, No Lock-In</h3>
-<p>Platform is a single 19.1MB Go binary. Deploy in 60 seconds with Docker. Air-gapped deployment supported. No SaaS dependency, no vendor lock-in, no subscription required.</p>
+<p>Platform is a single 19.1MB Go binary. Deploy in 60 seconds with Docker. Air-gapped deployment supported. No SaaS dependency, no vendor lock-in.</p>
 </div>
 
 <div class="card">
@@ -601,7 +601,6 @@ flowchart LR
 <li><a href="/mcp/">MCP</a> — secure MCP server framework with 23 security layers</li>
 <li><a href="/scanner/">Scanner</a> — AI artifact static analysis (523 patterns, ML + regex)</li>
 <li><a href="/platform/">Platform</a> — enterprise gateway with verifiable security</li>
-<li><a href="/pricing/">Pricing</a> — 5 tiers from free to enterprise</li>
 <li><a href="/docs/comparison/">Competitive comparison</a> — 7 competitors, 31 frameworks</li>
 </ul>
 </div>
@@ -611,7 +610,7 @@ flowchart LR
 <ul>
 <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">SSRN Whitepaper</a> — <em>AegisGate: A Multi-Layered Security Architecture for AI Agent Communication</em></li>
 <li><a href="/blog/">Blog</a> — case studies, technical deep dives, threat analysis</li>
-<li><a href="/case-studies/">Case studies</a> — real-world scenarios across industries</li>
+<li><a href="/blog/">Case studies</a> — real-world scenarios across industries</li>
 <li><a href="/tech/">Technical architecture</a> — seven-pillar deep dive</li>
 <li><a href="/docs/executive-brief/">Executive brief</a> — one-page overview for CISOs and CIOs</li>
 </ul>
@@ -639,7 +638,7 @@ flowchart LR
 <li><a href="https://github.com/aegisgatesecurity/aegisgate-platform/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a></li>
 <li><a href="mailto:support@aegisgatesecurity.io">support@aegisgatesecurity.io</a></li>
 <li><a href="mailto:security@aegisgatesecurity.io">security@aegisgatesecurity.io</a></li>
-<li><a href="mailto:sales@aegisgatesecurity.io">sales@aegisgatesecurity.io</a></li>
+
 </ul>
 </div>
 

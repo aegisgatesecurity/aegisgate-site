@@ -203,7 +203,7 @@ docker run --rm -v $(pwd):/data aegisgatesecurity/scanner:lite scan /data/
 
 ---
 
-**Free, forever.** All patterns, ML detection, all output formats, GitHub Action — no tiers, no paid plans.
+**Free, forever.** All patterns, ML detection, all output formats, GitHub Action — no tiers, no plans — free and open source.
 
 ---
 

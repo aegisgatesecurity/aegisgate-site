@@ -361,7 +361,7 @@ aegisgate-platform --profile <name>        # Deploy profile selector
 
 ---
 
-### v4.1.0 - 2026-08-16 - Open-Core, Pricing, CI Fixes
+### v4.1.0 - 2026-08-16 - Open-Core, CI Fixes
 
 > **v4.1.0** completes the build tag separation. Community edition is Apache 2.0 (CGO_ENABLED=0, no ONNX Runtime). Enterprise features use `//go:build enterprise` tags in `pkg/tier/tier.go`.
 
@@ -485,7 +485,7 @@ aegisgate-platform --profile <name>        # Deploy profile selector
 
 ### Unreleased - 2026-06-18 - v3.4.0+ Engineering-Complete (Awaiting v3.4.0 GA)
 
-> **Not a version bump.** The work below is committed to `main` and engineering-complete. The v3.4.0 GA is gated on **legal review (H1) + the v3.4.0 paid pentest (H4)**, per the [Beta User Agreement](/legal/beta-agreement/). The version stays at v3.4.0-beta.1 (a forward-looking label for the in-progress work) until those gates are cleared. The public release remains **v3.3.0-beta.2**.
+> **Not a version bump.** The work below is committed to `main` and engineering-complete. The v3.4.0 GA is gated on **legal review (H1) + the v3.4.0 security audit (H4)**. The version stays at v3.4.0-beta.1 (a forward-looking label for the in-progress work) until those gates are cleared. The public release remains **v3.3.0-beta.2**.
 
 #### The envelope primitive (the v3.4.0+ cryptographic backbone)
 
@@ -538,7 +538,7 @@ Every feature has a self-review documenting the issues found and fixed. **Cumula
 
 #### What's still on the roadmap (not in v3.4.0+)
 
-- **v3.4.0 GA** — gated on H1 (legal review) + H4 (paid pentest); expected Q3 2026
+- **v3.4.0 GA** — gated on H1 (legal review) + H4 (security audit); expected Q3 2026
 - **The v0.2 → v1.0 transition** (multi-tenant, scheduled digests, custom branding per customer) — deferred to v0.5/v1.0
 - **The static CVE portal** — the Go package + the website portal are both shipped. The curated CVE entry browser (v0.3) and the auto-publish workflow are deferred
 - **The Tier 6+ roadmap** (speculative): real-time SOC analyst AI copilot, PentestGPT, AI-specific SOAR, CNA with MITRE
@@ -551,7 +551,7 @@ _Released 2026-06-08. This is a code-content fix, not a security fix. v3.3.0-bet
 - ✅ **EU AI Act sub-package** (`pkg/compliance/eu-ai-act/`, 82 controls) — **NOW ACTUALLY INCLUDED** (was missing from beta.1)
 - ✅ **EU AI Act customer 1-pager** (`docs/compliance/eu-ai-act.md`, 104 lines) — **NOW INCLUDED**
 - ✅ **EU AI Act full control mapping** (`docs/compliance/eu-ai-act-mapping.md`, 438 lines) — **NOW INCLUDED**
-- ✅ **Marketing content files** (`content/pricing.md`, `content/tech.md`, `content/changelog.md`) — **NOW INCLUDED**
+- ✅ **Marketing content files** (`content/docs.md`, `content/tech.md`, `content/changelog.md`) — **NOW INCLUDED**
 - ✅ **Website update** (`docs/website/index.html`, EU AI Act section) — **NOW INCLUDED**
 - ✅ **Pre-commit guard rail** (`.githooks/pre-commit` blocks `plans/` + `legal-docs/` staging) — **NOW ACTIVE**
 - ✅ **`.gitignore` policy header** (12-line "no force-add" directive) — **NOW IN EFFECT**
@@ -560,7 +560,7 @@ _Released 2026-06-08. This is a code-content fix, not a security fix. v3.3.0-bet
 - ✅ **gitleaks CI re-enabled** — free OSS license configured as `GITLEAKS_LICENSE` GitHub secret (was disabled in beta.1 due to paid license requirement)
 - ✅ **15 P3/P4 golangci-lint issues fixed** (in commit `8b69aa2`, pre-beta.2)
 
-**Tiers, modules, and pricing** — unchanged from beta.1.
+**Tiers and modules** — unchanged from beta.1.
 
 **For full release notes see [CHANGELOG.md in the GitHub repo](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md) and the [v3.3.0-beta.2 release page](https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v3.3.0-beta.2).**
 
@@ -585,24 +585,24 @@ _Released 2026-06-08. This is a code-content fix, not a security fix. v3.3.0-bet
 
 #### Breaking Changes
 
-- Community tier established as free forever. Enterprise support available by contact.
+- Community tier established as free forever. All features available in the open-source build.
 
 
-_Released 2026-06-08. This is a BETA release, not a commercial launch. enterprise deployments and module enterprise support options are intentionally hidden pending counsel review and the v3.4.0 paid pentest. Starter and self-hosted deploymentss remain live and sellable._
+_Released 2026-06-08. This is a BETA release, not a commercial launch. Advanced features are intentionally hidden pending counsel review and the v3.4.0 security audit._
 
 **Highlights:**
-- **EU AI Act Compliance Module (NEW)** — 82 controls across 8 categories of the EU AI Act, gated by the existing license + module framework. Available with enterprise support.
+- **EU AI Act Compliance Module (NEW)** — 82 controls across 8 categories of the EU AI Act, gated by the existing license + module framework. Available in the open-source build.
 - **7-tool security self-attestation** — gosec, govulncheck, golangci-lint, gitleaks (837→0 findings via allowlist), trivy, syft, nmap. Self-attested as production-ready for beta; full pentest planned for v3.4.0+.
 - **v3.3.1 hardening pass** — Dockerfile base images pinned to SHA256 digests, K8s seccompProfile.RuntimeDefault added, all 16 P1+P2 golangci-lint findings fixed.
-- **Minimum-viable legal kit** — 6 v2.0 customer-facing docs + 1 Beta User Agreement, all published at `/legal/`. Self-drafted, not legal advice; counsel review deferred to v3.4.0+.
-- **Buy-Button Visibility** — enterprise deployments (2 buttons) and all 6 module enterprise support options are hidden in the v3.3.0-beta.2 web UI with a "coming-soon" placeholder. The 4 Starter + Developer buttons remain live.
+- **Minimum-viable docs** — 6 v2.0 docs + 1 Beta User Agreement. Self-drafted, not legal advice; counsel review deferred to v3.4.0+.
+- **Advanced feature visibility** — advanced deployment features and all 6 module options are hidden in the v3.3.0-beta.2 web UI with a "coming-soon" placeholder.
 
 **Available tiers in this beta:**
 - Community (free) — unchanged
 - Starter — removed (consolidated into Community)
 - Developer — removed (consolidated into Community)
 - Professional — removed (consolidated into Enterprise)
-- Enterprise (custom) — contact sales
+- Enterprise (self-hosted) — all features included
 
 **Module availability:**
 - All 6 modules (HIPAA, PCI-DSS, SOC 2, ISO 42001, FedRAMP, FIPS 140-2/140-3) are hidden in this beta. EU AI Act is the only new module addition; the other 6 were already available in v3.2.0 but are now gated behind the same hidden placeholder.
@@ -633,10 +633,10 @@ The newest architectural pillar: continuous, per-agent cryptographic trust scori
 
 #### Compliance Modules (Phase 1, Module Extraction) — _Completed 2026-06-05_
 
-Six billable compliance modules are now available as add-ons to any enterprise support. Prices are locked from the pricing-table decision (2026-06-04) and will not change for existing customers (Q2: enterprise support agreement terms).
+Six compliance modules are now available as add-ons to any deployment.
 
-| Module | Price | Required Tier | Description |
-|---|---|---|---|
+| Module | Required Tier | Description |
+|---|---|---|
 | HIPAA | Enterprise | HIPAA-compliant logging, PHI detection, BAA support |
 | PCI-DSS | Enterprise | Payment card data detection, PCI-scoped audit logs |
 | SOC 2 | Enterprise | SOC 2 control mapping and evidence collection |
@@ -644,13 +644,13 @@ Six billable compliance modules are now available as add-ons to any enterprise s
 | FedRAMP | Enterprise | FedRAMP Moderate/High control mapping, continuous monitoring |
 | FIPS 140-2/140-3 | Enterprise | FIPS-validated cryptography enforcement, HSM integration |
 
-Modules are purchased via enterprise support onboarding and activated instantly on the customer's license via the existing webhook (Q1: instant via activation webhook). All 6 module products are live in the admin dashboard and rendered on the [Pricing page](/pricing/).
+All 6 modules are live in the admin dashboard.
 
-#### Pro Tier Price Change (Phase 2) — _Completed 2026-06-05_
+#### Tier Consolidation (Phase 2) — _Completed 2026-06-05_
 
-enterprise deployments consolidated. All features available under Apache 2.0 (community) or enterprise support agreement.
+Enterprise deployments consolidated. All features available under Apache 2.0 (community) or self-hosted deployment.
 
-The Pro tier also picked up the **Trust Framework** and the **Compliance Scan API** as enterprise features in v3.2.0 — see the [Enterprise page](/pricing/) for details.
+The Pro tier also picked up the **Trust Framework** and the **Compliance Scan API** as enterprise features in v3.2.0 — see the [docs](/docs/) for details.
 
 #### Compliance Scan Engine (Phase 3) — _Completed 2026-06-05_
 
@@ -675,8 +675,8 @@ The marketing site has been updated to reflect the v3.2.0 5-pillar architecture:
 
 - [Homepage](/) — the hero card grid now lists the four protocol pillars plus a highlighted **Trust Framework** card (new in v3.2.0).
 - [Tech page](/tech/) — the "Five Pillars" section is reordered (HTTP API, MCP, A2A, RESPONSE, Trust) and the Trust Framework gets its own detail table (8 components, 2 API endpoints, attestation format, tier gating).
-- [Enterprise page](/pricing/) — 27 compliance frameworks available with enterprise support.
-- [Enterprise page](/pricing/) — Trust Framework and Compliance Scan API details.
+- [Enterprise page](/docs/) — 27 compliance frameworks available in the open-source build.
+- [Enterprise page](/docs/) — Trust Framework and Compliance Scan API details.
 
 #### Upcoming in v3.2.0
 - **Release engineering** — `VERSION` bump, GPG-signed annotated tag `v3.2.0`, GitHub Release with notes, SBOM re-generation, cosign signing, container image push to GHCR. (Phase 6.)
@@ -687,7 +687,7 @@ The marketing site has been updated to reflect the v3.2.0 5-pillar architecture:
 
 _Released 2026-06-05_
 
-This release fixes a critical drift between the website-promised tier limits and the code-enforced tier limits. Customers who paid for Starter, Developer, or Professional were silently receiving 40–70% underdelivery on rate limits and concurrent users/agents.
+This release fixes a critical drift between the website-promised tier limits and the code-enforced tier limits. Deployments using Starter, Developer, or Professional tiers were silently receiving 40–70% underdelivery on rate limits and concurrent users/agents.
 
 #### Tier Rate Limit Corrections
 - **Starter configuration** — removed (consolidated into Community tier)
@@ -696,7 +696,7 @@ This release fixes a critical drift between the website-promised tier limits and
 - **enterprise deployments** — unchanged (-1/-1, unlimited)
 
 #### Webhook Hardening
-- Tier validation in the enterprise support onboarding webhook: unknown values are now rejected with a structured `invalid_tier` error instead of silently generating a license for an arbitrary string
+- Tier validation in the license activation webhook: unknown values are now rejected with a structured `invalid_tier` error instead of silently generating a license for an arbitrary string
 - Tier alias normalization (e.g., `"pro"` → `"professional"`, `"free"` → `"community"`) for consistent downstream behavior
 
 #### Tooling

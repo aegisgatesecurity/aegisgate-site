@@ -634,7 +634,7 @@ This gives you AegisGate's detection capability in the tools you already own, wi
 
 ## Step 4: Deploy Free AegisGate Tools (Option A)
 
-Everything in Levels 1–4 below is **completely free, open source (Apache 2.0), with no feature gating or enterprise support**. Level 5 (Platform) has a free, open-source (Apache 2.0) with enterprise support available.
+Everything in Levels 1–4 below is **completely free, open source (Apache 2.0), with no feature gating**. Level 5 (Platform) is also free and open source (Apache 2.0).
 
 **Not sure where to start? Use this table:**
 
@@ -720,7 +720,7 @@ Self-hosted gateway. Every request and response scanned across 6 protection pill
 
 **Free and open-source:** 303 regex patterns, protocol scanning, 4 compliance frameworks, fail-closed by default, zero external dependencies, air-gapped capable.
 
-**enterprise (paid):** ML anomaly detection, SIEM integration, additional compliance frameworks, HSM/FIPS, Kubernetes clustering.
+**Level 5 (Platform):** ML anomaly detection, SIEM integration, additional compliance frameworks, HSM/FIPS, Kubernetes clustering.
 
 **Performance:** 23,578 RPS with 0% errors. -2.8ms p99 overhead. Blocked requests resolve in 7.2ms p50.
 
@@ -1090,7 +1090,7 @@ What AegisGate DOES do: it gives you visibility into a layer of traffic that you
 
 ## About This Guide
 
-This guide was written by a blue teamer who built AegisGate because they saw the AI agent blind spot coming. Everything in Levels 1–4 is free and open source (Apache 2.0) with no enterprise support, no feature gating, and no "contact sales for the real version." Level 5 (Platform) has a free, open-source version that includes 303 regex patterns and protocol-level scanning — the ML anomaly detection and SIEM integration are included in all deployments, and I've been upfront about that.
+This guide was written by a blue teamer who built AegisGate because they saw the AI agent blind spot coming. Everything in Levels 1–4 is free and open source (Apache 2.0) with no feature gating. Level 5 (Platform) is also free and open source, including 303 regex patterns, protocol-level scanning, ML anomaly detection, and SIEM integration.
 
 There is no upsell here. There is no "schedule a demo." There are repos you can clone and tools you can deploy in minutes — including in air-gapped, regulated, and classified-adjacent environments where SaaS tools can't go.
 
@@ -1099,7 +1099,7 @@ The repos:
 - **Rampart** (local proxy, 302 regex + ML): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
 - **Scanner** (static analysis, 353 regex + ML): [github.com/aegisgatesecurity/aegisgate-scanner](https://github.com/aegisgatesecurity/aegisgate-scanner)
 - **MCP** (secure MCP framework, 79 regex + ML): [github.com/aegisgatesecurity/aegisgate-mcp](https://github.com/aegisgatesecurity/aegisgate-mcp)
-- **Platform** (enterprise gateway, 303 regex Community / +ML enterprise): [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
+- **Platform** (gateway, 303 regex + ML): [github.com/aegisgatesecurity/aegisgate-platform](https://github.com/aegisgatesecurity/aegisgate-platform)
 
 If this helps you, star the repos so other blue teamers find them. If it doesn't help you, the detection patterns are still free — take them and use them in your SIEM. No strings.
 

@@ -175,7 +175,7 @@ sequenceDiagram
 | Scan traffic locally in real-time | Phone home with analytics or telemetry |
 | Encrypt its CA keys with a passphrase | Store plaintext keys on disk |
 | Redact PII/secrets from audit logs | Log your actual prompt text or secrets |
-| Stay free and open source | Require an account or subscription |
+| Stay free and open source | Require proprietary licensing |
 
 Open source (Apache 2.0): [github.com/aegisgatesecurity/aegisgate-rampart](https://github.com/aegisgatesecurity/aegisgate-rampart)
 > **Patent Pending** (8 U.S. provisional applications). Published research on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138).
@@ -287,7 +287,7 @@ Your AI tool (Copilot/Cursor/API) → Rampart proxy (localhost:8443) → AI mode
 | **SIEM/SOAR integration** | — | — | ✅ |
 | **Multi-tenant** | — | — | ✅ |
 | **Air-gapped deployment** | — | — | ✅ |
-| **Price** | Free | Free | Proprietary |
+| **Price** | Free | Free | Free |
 
 ---
 

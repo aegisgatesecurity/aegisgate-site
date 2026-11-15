@@ -85,7 +85,7 @@ curl -X PUT http://localhost:8443/api/v1/tenants/tnt_a1b2c3d4e5f6a7b8 \
 
 | Backend | When | Persistence |
 |---------|------|-------------|
-| **PostgreSQL** | `DATABASE_URL` set + enterprise deployments | Persistent across restarts |
+| **PostgreSQL** | `DATABASE_URL` set + production deployments | Persistent across restarts |
 | **In-memory** | No database or Community/self-hosted deployments | Lost on restart |
 
 The platform automatically selects PostgreSQL when available. If PostgreSQL is not configured, it falls back to in-memory storage with a warning log.

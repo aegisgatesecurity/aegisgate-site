@@ -45,9 +45,9 @@ Yes. AegisGate runs entirely on your infrastructure with **zero external depende
 
 AegisGate adds effectively zero overhead — the proxy is **-2.8ms p99** (faster than direct) due to zero-cost proxy optimization for benign traffic. Blocked requests resolve in 7.2ms p50. The scanning is optimized for speed and scales horizontally to 23,578+ RPS.
 
-### How do I get enterprise support?
+### How do I get help?
 
-All AegisGate products are free and open-source (Apache 2.0). Contact [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io) for enterprise support, compliance modules, and custom integrations.
+All AegisGate products are free and open-source (Apache 2.0). For questions, open a [GitHub Discussion](https://github.com/aegisgatesecurity/aegisgate-platform/discussions) or email [security@aegisgatesecurity.io](mailto:security@aegisgatesecurity.io).
 
 ### Does AegisGate support Kubernetes?
 
@@ -59,7 +59,7 @@ Yes. Deploy via:
 
 ### Can I try AegisGate before buying?
 
-Download and deploy AegisGate — it's free and open-source (Apache 2.0) with no time limits. Contact us for enterprise support, SSO, RBAC, and compliance module integration.
+Download and deploy AegisGate — it's free and open-source (Apache 2.0) with no time limits. All features are available in the open-source build.
 
 ---
 
@@ -130,13 +130,13 @@ This checks port conflicts, TLS certificate paths, log levels, rate limits, SIEM
 
 4 frameworks are included with the open-source Community edition: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF 1.0.
 
-### Which frameworks need a enterprise support?
+### Which frameworks are available?
 
-- **Enterprise support**: HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR (6 frameworks)
-- **Enterprise support (continued)**: ISO 42001, EU AI Act, FIPS, CIS, NIST CSF, CSA STAR, NIST AI 600-1, SOX, GLBA, CJIS, NERC CIP, FERPA, HITECH, FFIEC, TSA SD, ISO 21434 (16 frameworks)
-- **Enterprise** (custom): FedRAMP, CMMC L2, NIST 800-171, HITRUST, TISAX (5 frameworks)
+- **Core (open-source)**: OWASP LLM Top 10, OWASP Web Top 10, MITRE ATLAS, NIST AI RMF 1.0 (4 frameworks)
+- **Advanced**: HIPAA, PCI-DSS, SOC 2, ISO 27001, CCPA/CPRA, GDPR, ISO 42001, EU AI Act, FIPS, CIS, NIST CSF, CSA STAR, NIST AI 600-1, SOX, GLBA, CJIS, NERC CIP, FERPA, HITECH, FFIEC, TSA SD, ISO 21434 (22 frameworks)
+- **Custom**: FedRAMP, CMMC L2, NIST 800-171, HITRUST, TISAX (5 frameworks)
 
-See [Compliance Frameworks](/docs/compliance/) for the full list. Contact sales@aegisgatesecurity.io for enterprise support details.
+See [Compliance Frameworks](/docs/compliance/) for the full list.
 
 ---
 

@@ -147,14 +147,7 @@ This Module is **not for**:
 - **Legal counsel** (we provide technical evidence, not legal advice)
 - **Non-EU companies that don't place AI on the EU market** (you may have no obligations under the Act; verify with counsel)
 
-If you fall into one of the above categories, you may not need this Module. Contact `sales@` for guidance.
-
-## Pricing & Tier
-
-- **Tier gate**: **enterprise** (Professional and enterprise deploymentss)
-- **Pricing**: **Included** with Professional and Enterprise at no extra cost
-- **Add-on**: Not available as a separate module — it's part of the enterprise deployments
-- **Migration**: If you're on a Community or self-hosted deployments, [upgrade to Professional](/pricing/) to enable the EU AI Act Module
+If you fall into one of the above categories, you may not need this Module. See [documentation](/docs/compliance/) for configuration guidance.
 
 ## Documentation
 
@@ -186,7 +179,7 @@ When counsel sign-off is complete (target: v4.2.0), we'll:
 To enable the EU AI Act Compliance Module:
 
 1. **Enable the module** — Included in all deployments
-   - Need help? [Contact us](mailto:sales@aegisgatesecurity.io)
+   - Need help? [GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-platform/discussions)
 2. **Pull the latest image**:
    ```bash
    docker pull ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.1
@@ -207,11 +200,11 @@ To enable the EU AI Act Compliance Module:
 
 ## Questions?
 
-- 📧 **Sales / pre-sales questions**: [sales@aegisgatesecurity.io](mailto:sales@aegisgatesecurity.io)
+- 📧 **General inquiries**: [security@aegisgatesecurity.io](mailto:security@aegisgatesecurity.io)
 - 🔒 **Security disclosures**: [security@aegisgatesecurity.io](mailto:security@aegisgatesecurity.io)
 - 💬 **General questions**: [GitHub Discussions](https://github.com/aegisgatesecurity/aegisgate-platform/discussions)
 - 🐛 **Bug reports**: [GitHub Issues](https://github.com/aegisgatesecurity/aegisgate-platform/issues)
 
 ---
 
-**Related**: [Enterprise](/pricing/) · [Documentation](/docs/) · [Legal](/legal/) · [Changelog](/changelog/) · [GitHub](https://github.com/aegisgatesecurity/aegisgate-platform)
+**Related**: [Documentation](/docs/) · [Changelog](/changelog/) · [GitHub](https://github.com/aegisgatesecurity/aegisgate-platform)

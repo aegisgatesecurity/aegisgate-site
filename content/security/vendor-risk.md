@@ -150,45 +150,6 @@ GitHub serves as AegisGate's primary source code management and CI/CD platform. 
 
 ---
 
-### 3.4 Stripe, Inc.
-
-| Field | Detail |
-|-------|--------|
-| **Service Provided** | Payment processing, subscription billing, invoicing, fraud detection, payment method tokenization |
-| **SOC 2 Type II** | ✅ Certified |
-| **ISO 27001** | ✅ Certified |
-| **PCI-DSS** | ✅ Level 1 Service Provider |
-| **Data Processed** | Payment card data (card numbers, expiration dates, CVC codes via Stripe.js tokenization), billing information, transaction records, customer name and email for receipts |
-| **Data at Rest** | Tokenized card data, transaction history, and billing records stored in Stripe's PCI-compliant infrastructure |
-| **Risk Rating** | **Medium** |
-| **Annual Review** | Q3 each year |
-
-**Security Certifications & Attestations:**
-
-- SOC 2 Type II audit report (available upon request under NDA)
-- ISO/IEC 27001:2022 certification
-- PCI-DSS Level 1 Service Provider certification
-- CSA STAR Level 1 certification
-- SOC 1 Type II audit report
-- Stripe Bug Bounty program
-
-**Risk Assessment:**
-
-Stripe processes payment card data on behalf of AegisGate customers. However, through Stripe.js tokenization, **AegisGate never receives, stores, or has access to full card numbers**. Card data is collected directly by Stripe's client-side JavaScript and tokenized before reaching AegisGate servers. AegisGate stores only Stripe's payment method tokens and transaction identifiers. The Medium risk rating reflects the inherent sensitivity of payment processing, even though AegisGate's direct exposure to cardholder data is effectively nil.
-
-**Mitigation Measures:**
-
-- Stripe.js is used for all payment card collection, ensuring card data never touches AegisGate servers
-- AegisGate is PCI-DSS SAQ A-compliant (outsourced payment processing with no cardholder data storage)
-- Payment method tokens (not card numbers) are the only payment identifiers stored in AegisGate systems
-- All API communication with Stripe occurs over TLS 1.2+
-- Stripe webhook signatures are verified before processing any event
-- Billing portal redirects customers to Stripe-hosted payment pages for card updates
-- Annual review of Stripe's SOC 2 Type II and PCI-DSS Level 1 attestation
-- Stripe's Radar fraud detection is enabled with AegisGate-specific risk rules
-
----
-
 ## 4. Risk Summary
 
 | Vendor | Service | Data Sensitivity | SOC 2 Type II | Risk Rating | Residual Risk |
@@ -196,16 +157,14 @@ Stripe processes payment card data on behalf of AegisGate customers. However, th
 | Cloudflare | CDN, DDoS, DNS | Low (metadata only) | ✅ | **Low** | Minimal |
 | Netlify | Website hosting, CI/CD | Low (no platform data) | ✅ | **Low** | Minimal |
 | GitHub | Source code, CI/CD | Moderate (IP, no customer data) | ✅ | **Medium** | Low |
-| Stripe | Payment processing | Moderate (tokenized card data) | ✅ | **Medium** | Low |
 
 ### 4.1 Aggregate Risk Assessment
 
 AegisGate's overall third-party risk posture is **Low**. This assessment is based on:
 
 - **No vendor has direct access to AegisGate platform customer data** (source code, project configurations, security policies, or account credentials)
-- **All four subprocessors hold SOC 2 Type II certification**, providing independent assurance of their security controls
-- **Three of four vendors hold ISO 27001 certification**, with Netlify's absence offset by the minimal data exposure
-- **Payment card data is fully tokenized** via Stripe.js, eliminating AegisGate's PCI-DSS scope for cardholder data storage
+- **All three subprocessors hold SOC 2 Type II certification**, providing independent assurance of their security controls
+- **Two of three vendors hold ISO 27001 certification**, with Netlify's absence offset by the minimal data exposure
 - **All vendors maintain responsible disclosure programs** and demonstrate ongoing security investment
 
 ## 5. Ongoing Monitoring and Review
@@ -237,7 +196,7 @@ Removal of a subprocessor follows a decommissioning process that includes data d
 
 ## 6. Data Processing Agreements
 
-AegisGate maintains executed Data Processing Agreements (DPAs) with all four subprocessors in compliance with GDPR Article 28 and applicable data protection laws. DPAs are reviewed and updated as part of the annual vendor review cycle.
+AegisGate maintains executed Data Processing Agreements (DPAs) with all three subprocessors in compliance with GDPR Article 28 and applicable data protection laws. DPAs are reviewed and updated as part of the annual vendor review cycle.
 
 ---
 

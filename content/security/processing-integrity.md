@@ -163,7 +163,6 @@ If any step fails, encounters an error, or produces unexpected output, the reque
 | **Cloudflare** | CDN, DDoS protection | SOC 2 Type II, ISO 27001 | DNS queries, edge traffic metadata |
 | **Netlify** | Website hosting, CI/CD | SOC 2 Type II | Static website assets |
 | **GitHub** | Source code hosting, CI/CD | SOC 2 Type II, ISO 27001 | Source code, CI artifacts |
-| **Stripe** | Payment processing | SOC 2 Type II, PCI-DSS Level 1 | Tokenized payment data |
 
 AegisGate's self-hosted architecture ensures subprocessors never process customer Platform data. All customer data remains on customer-controlled infrastructure.
 

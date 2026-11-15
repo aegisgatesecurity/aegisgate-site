@@ -94,7 +94,6 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | Cloudflare | CDN and DDoS protection | SOC 2 Type II Certified |
 | Netlify | Website hosting | SOC 2 Type II Certified |
 | GitHub | Source code repository and CI/CD | SOC 2 Type II Certified |
-| Stripe | Payment processing | SOC 2 Type II Certified |
 
 ---
 
@@ -471,7 +470,7 @@ AegisGate is deployed as a self-hosted Docker container on customer-managed infr
 | Attribute | Detail |
 |---|---|
 | **SOC 2 Reference** | CC9.2 |
-| **Implementation** | All AegisGate subprocessors (Cloudflare, Netlify, GitHub, Stripe) hold SOC 2 Type II certifications. Subprocessor relationships are limited to non-production functions (CDN, hosting, source control, payment processing) — no subprocessor has access to customer data or production infrastructure. Vendor risk assessments are conducted at onboarding and reviewed annually. |
+| **Implementation** | All AegisGate subprocessors (Cloudflare, Netlify, GitHub) hold SOC 2 Type II certifications. Subprocessor relationships are limited to non-production functions (CDN, hosting, source control) — no subprocessor has access to customer data or production infrastructure. Vendor risk assessments are conducted at onboarding and reviewed annually. |
 | **Evidence** | Subprocessor registry, SOC 2 Type II certifications on file, vendor assessment procedures |
 | **Status** | ✅ Ready — Formal vendor risk assessment documented ([/security/vendor-risk/](/security/vendor-risk/)) |
 
