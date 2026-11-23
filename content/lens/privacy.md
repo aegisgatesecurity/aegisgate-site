@@ -5,6 +5,11 @@ type: "docs"
 weight: 1
 ---
 
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
+
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-lens -->
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
@@ -114,7 +119,7 @@ You can audit every line of code that handles your data:
 1. **Source code**: [github.com/aegisgatesecurity/aegisgate-lens](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0)
 2. **Network requests**: open Chrome DevTools → Network tab → look for any outbound request from the Lens extension. By default, there are none.
 3. **Storage**: open Chrome DevTools → Application tab → Storage → Local Storage → look for any Lens entries. By default, there are none (except the opt-in preference).
-4. **ML model**: the model weights are in `models/threat_cnn_bilstm_weights.bin.json` (3.7MB, float16 JSON). You can inspect the forward-pass code in `src/detectors/ml/threat-detector-js.js` (488 lines, pure JavaScript, no obfuscation).
+4. **ML model**: neural ML detection was withdrawn on 2026-11-23. The weights file (`models/threat_cnn_bilstm_weights.bin.json`) is no longer shipped. Lens runs deterministic detection only; the ML code path is hard-disabled. See the [changelog](/changelog) for details.
 5. **Test the policy**: install Lens, type a fake prompt with a fake credit card number, and verify:
    - The banner appears in your browser (not on a server)
    - No network request is made

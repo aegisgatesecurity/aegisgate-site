@@ -13,6 +13,11 @@ tags:
   - proof-not-panic
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 Last Saturday, *The Register* published a piece titled ["Agentic security is the billion-dollar challenge for some clever startup to solve."](https://www.theregister.com/security/2026/09/19/agentic-security-is-the-billion-dollar-challenge-for-some-clever-startup-to-solve/5297546) Two cybersecurity investors — Matt Hartman (Merlin Group, ex-CISA) and Todd Graham (Microsoft's M12 venture fund) — laid out exactly what they're looking for.
 
 We read it and thought: *they're describing our product.*

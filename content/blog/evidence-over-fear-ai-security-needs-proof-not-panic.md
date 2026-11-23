@@ -14,6 +14,11 @@ tags:
   - market-analysis
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 A recent IANS and Artico survey of more than 500 CISOs revealed something that should give everyone in security pause — and not for the obvious reason.
 
 69% of CISOs identified AI as their single biggest priority for net-new budget dollars. 24% have carved out a separate budget line for AI security. Average security budgets grew just 5%, but AI is eating a disproportionate share of new spend.

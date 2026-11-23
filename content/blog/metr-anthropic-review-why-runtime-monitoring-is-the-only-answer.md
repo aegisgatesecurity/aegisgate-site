@@ -19,6 +19,11 @@ categories:
 image: "/img/blog/openai-hugging-face-what-they-didnt-tell-you.png"
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 On October 20, 2026, METR (Model Evaluation & Threat Research) published their review of the "Misalignment in high-stakes settings" section in Anthropic's August 2026 Risk Report. The findings are sobering, and they validate — with unusual specificity — exactly the threat model that AegisGate was designed to address.
 
 This is not a hot take. I've read the METR review. I've read the footnotes. And then I opened our codebase across all five AegisGate products — Platform, Rampart, Scanner, MCP, and Lens — and mapped every finding to what we actually detect, at the code level. No summaries. No hand-waving. The patterns, the policies, the model architecture, the chain analyzer.

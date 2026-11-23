@@ -1,9 +1,14 @@
 ---
 title: "AegisGate Lens — Architecture"
-description: "How AegisGate Lens works: 5-facet detection (4 regex + ML), Ed25519-signed bundle, Apache 2.0. The full technical architecture of v0.6.0."
+description: "How AegisGate Lens works: regex detection (ML withdrawn 2026-11-23), Ed25519-signed bundle, Apache 2.0. The technical architecture of v0.7.1."
 type: "docs"
 weight: 2
 ---
+
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
 
 > **🆕 AegisGate Lens v0.6.0 is LIVE** — CWS approved, AMO approved.
 > This page documents the **v0.6.0** architecture.
@@ -17,10 +22,10 @@ weight: 2
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
-<li><strong>151 regex patterns</strong> across <strong>5 regex facets</strong>: PII (65), secrets (41), XSS (12), compliance (24) + <strong>1 ML facet</strong> (Char CNN-BiLSTM adversarial detection)</li>
-<li><strong>504 automated tests</strong>: 492/492 Node + 12/12 ML perf/stress (5/5 stable runs)</li>
-<li><strong>2.31% FPR</strong> on 6,500 WildChat prompts (5.1x better than v0.1.0-beta baseline)</li>
-<li><strong>Sub-millisecond regex detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts) + async ML enrichment (~5ms)</li>
+<li><strong>223 detection patterns</strong> across <strong>4 regex facets</strong>: PII (65), secrets (41), XSS (12), compliance (24) + OT/ICS (9). <strong>ML facet WITHDRAWN 2026-11-23</strong> (Char CNN-BiLSTM removed)</li>
+<li><strong>492 Node tests</strong> pass; ML perf/stress tests skip (weights withdrawn)</li>
+<li><strong>2.31% regex FPR</strong> on 6,500 WildChat prompts (regex, unaffected). All ML-derived metrics are void.</li>
+<li><strong>Sub-millisecond regex detection</strong> (p50 0.076ms, p95 0.085ms, p99 0.14ms for 500-char prompts). ~~async ML enrichment~~ — withdrawn</li>
 <li><strong>100% on-device</strong>, zero network egress by default</li>
 <li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
 <li><strong>Free, forever</strong></li>
@@ -32,9 +37,9 @@ weight: 2
 
 The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). This page summarizes the architecture of v0.6.0.
 
-## 5-Facet Detection System
+## Detection System (ML withdrawn 2026-11-23)
 
-Lens runs **5 detection facets** — 4 synchronous regex facets and 1 async ML facet — on every prompt you type. v0.3.0 added the **ML adversarial** facet (Char CNN-BiLSTM model, 3.7MB float16 JSON weights, pure JS inference). v0.3.2 added 18 SOC detection patterns (SWIFT/BIC banking codes, CPT/HCPCS medical billing codes, OT/ICS protocols).
+**UPDATE 2026-11-23: the ML adversarial facet is withdrawn.** Lens now runs **4 regex facets** only; the Char CNN-BiLSTM model and its weights were removed after a training-corpus label audit failure. v0.3.2 added 18 SOC detection patterns (SWIFT/BIC banking codes, CPT/HCPCS medical billing codes, OT/ICS protocols).
 
 | Facet | What it catches | Example |
 |-------|----------------|---------|
@@ -42,18 +47,18 @@ Lens runs **5 detection facets** — 4 synchronous regex facets and 1 async ML f
 | **Secrets** | API keys (AWS, GitHub, OpenAI, Stripe, Slack, Anthropic, Cursor, Vercel, Groq, Replicate), OAuth tokens, database credentials, RSA private keys (41 patterns) | `ghp_abc123...`, `AKIA...`, `-----BEGIN RSA PRIVATE KEY-----` |
 | **XSS** | Cross-site scripting payloads (12 patterns) | ``&lt;script&gt;alert(1)&lt;/script&gt;`` |
 | **Compliance** | OWASP LLM Top 10, MITRE ATLAS, EU AI Act, NIST CSF, ISO 27001, CCPA, LGPD, PIPEDA, POPIA (24 patterns) | "patient SSN:", "credit card:" |
-| **ML Adversarial** | Prompt injection, jailbreak attempts, adversarial instructions (Char CNN-BiLSTM, 1.6M params, ~5ms inference) | "ignore previous instructions and..." |
+| **~~ML Adversarial~~** | **WITHDRAWN 2026-11-23.** Prompt-injection/jailbreak coverage is currently regex-only; ML pending corpus remediation and retrain. | — |
 
-The 5 regex facets run **synchronously** (fast, deterministic, on-device). The ML facet runs **asynchronously** as an enrichment layer — the user gets regex results immediately, and ML results arrive ~5ms later if the ML model is enabled.
+The regex facets run **synchronously** (fast, deterministic, on-device). The ML enrichment layer no longer exists (withdrawn 2026-11-23).
 
-## Regex + ML Approach
+## Regex Detection Approach
 
-v0.6.0 combines regex and ML for complementary coverage:
+v0.6.0 documented regex + ML coverage (ML since withdrawn 2026-11-23):
 
-- **Regex (4 facets)**: Fast (<1ms), deterministic, auditable, zero false negatives for known patterns. 151 patterns = ~60KB.
-- **ML (1 facet)**: Char CNN-BiLSTM catches novel/zero-day adversarial prompts that regex misses. 3.7MB float16 JSON weights, pure JS inference (no WASM, no onnxruntime). ~5ms async inference.
-- **Privacy**: Both regex and ML run 100% on-device. No network calls. The ML model is bundled with the extension — no model download.
-- **Determinism**: Regex is deterministic. ML adds probabilistic enrichment but never blocks alone (ML results supplement, never override regex).
+- **Regex (4 facets)**: Fast (<1ms), deterministic, auditable. 223 patterns.
+- **ML (1 facet)**: ~~Char CNN-BiLSTM~~ — WITHDRAWN 2026-11-23 (corpus label audit failure). No model is bundled. Code path removed.
+- **Privacy**: Regex runs 100% on-device. No network calls. No model is bundled with the extension.
+- **Determinism**: Regex is deterministic. There is no probabilistic layer.
 
 ## Architecture Stack
 
@@ -85,7 +90,7 @@ v0.6.0 combines regex and ML for complementary coverage:
 │  │  - ID-label context for ID-shaped patterns    │   │
 │  │  ↓                                            │   │
 │  │  ┌──────────────────────────────────────┐    │   │
-│  │  │  ML Adversarial Detection (async)     │    │   │
+│  │  │  ML Adversarial Detection — WITHDRAWN │    │   │
 │  │  │  Char CNN-BiLSTM (~5ms)               │    │   │
 │  │  │  Enrichment only (never blocks alone) │    │   │
 │  │  └──────────────────────────────────────┘    │   │
@@ -110,25 +115,18 @@ v0.6.0 combines regex and ML for complementary coverage:
 
 ## Detection Latency
 
-| Prompt length | Regex detection | ML enrichment |
-|---------------|-----------------|---------------|
-| Any length (regex) | <1ms (typical: 0.3-0.5ms) | ~5ms (async) |
-| Worst case (10K+ chars) | ~2ms | ~8ms (async) |
+| Prompt length | Regex detection |
+|---------------|-----------------|
+| Any length (regex) | <1ms (typical: 0.3-0.5ms) |
+| Worst case (10K+ chars) | ~2ms |
 
-Regex detection is **synchronous** — the user gets the result before they can send. ML enrichment runs **asynchronously** and supplements the regex results.
+Regex detection is **synchronous** — the user gets the result before they can send. The ML enrichment layer was withdrawn on 2026-11-23 and no longer exists.
 
-## ML Model Bundle (v0.3.0+)
+## ML Model Bundle — WITHDRAWN 2026-11-23
 
-Starting in v0.3.0, Lens includes a Char CNN-BiLSTM adversarial prompt detection model:
+~~Lens includes a Char CNN-BiLSTM adversarial prompt detection model.~~
 
-- **Architecture**: Character-level CNN + BiLSTM, 1.6M parameters
-- **Size**: 3.7MB (float16 JSON weights)
-- **Inference**: Pure JavaScript (no WASM, no onnxruntime — removed in v0.3.0)
-- **Latency**: ~5ms per prompt (async, non-blocking)
-- **Accuracy**: 100/100 evasion resistance, 0% false positive rate on benign traffic
-- **Bundle signing**: Model is bundled with the extension, signed via CWS/AMO package verification
-
-The ML model is an **enrichment layer** — it supplements regex detection but never overrides it. If the ML model is unavailable (e.g., disabled by the user), Lens continues to provide full regex protection.
+The ML model was **withdrawn on 2026-11-23** (training-corpus label audit failure) and removed from the extension. The claimed figures (3.7MB weights, ~5ms latency, "100/100 evasion resistance, 0% false positive rate") are void. Lens provides deterministic regex protection only; there is no ML enrichment layer until a retrained model passes audit. See `docs/ML-WITHDRAWN.md` in the lens repo.
 
 ## Ed25519 Commit Signing
 
@@ -169,7 +167,7 @@ aegisgate-lens/
 │   │   ├── welcome.html
 │   │   ├── welcome.js
 │   │   └── fonts/              # Bundled Inter font (OFL)
-│   ├── detectors/              # 5-facet detection
+│   ├── detectors/              # 4 regex facets (+ withdrawn ML stub)
 │   │   ├── regex/              # Regex pattern files
 │   │   │   ├── pii.js          # Aggregator (loads 4 sub-files)
 │   │   │   ├── pii-us-core.js
@@ -179,9 +177,8 @@ aegisgate-lens/
 │   │   │   ├── secrets.js
 │   │   │   ├── source_xss.js
 │   │   │   └── compliance.js
-│   │   ├── ml/                 # ML adversarial detection
-│   │   │   ├── model.json      # Char CNN-BiLSTM weights (3.7MB)
-│   │   │   └── inference.js    # Pure JS inference engine
+│   │   ├── ml/                 # ML stub (withdrawn 2026-11-23; no weights, no-op module)
+│   │   │   └── threat-detector-js.js  # Returns score 0, isAdversarial false
 │   │   ├── luhn.js             # Credit card Luhn validation
 │   │   └── index.js            # Detector orchestrator
 │   ├── privacy/                # Privacy + schema
@@ -203,7 +200,7 @@ aegisgate-lens/
 │   │   ├── typedefs.js
 │   │   └── logger.js
 │   └── manifest.json           # MV3 manifest
-├── test/                       # 504 automated tests (492 Node + 12 ML perf/stress)
+├── test/                       # 492 Node tests (ML perf/stress skip; weights withdrawn)
 │   ├── unit/                   # Test files
 │   ├── helpers/                # Mock chrome, load-module
 │   ├── headless-smoke/         # Real-browser integration
@@ -222,8 +219,7 @@ aegisgate-lens/
 ## Test Coverage
 
 - **492/492 Node tests** pass (using `node:test` from Node 20+ stdlib)
-- **12/12 ML perf/stress tests** (inference latency, model loading, adversarial prompt detection)
-- **504 total automated tests** (5/5 stable runs)
+- ~~**12/12 ML perf/stress tests**~~ — ML withdrawn 2026-11-23; these tests skip (weights removed)
 - **Zero external dependencies** for tests (no Jest, no Mocha)
 - Real-browser E2E tests against 10 AI provider mocks
 

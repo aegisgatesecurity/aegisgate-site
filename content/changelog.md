@@ -4,7 +4,17 @@ description: "Release history and version notes for AegisGate Security Platform"
 type: "changelog"
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 ## Changelog
+
+
+## Unreleased — 2026-11-23 — ML Detection Withdrawn
+
+**All neural ML detection is withdrawn across Platform, Rampart, Scanner, MCP, and Lens.** The CharCNN-BiLSTM (v22b and all predecessors) and the DeBERTa/RoBERTa detectors were trained on a corpus whose attack-side labels failed an independent audit (~71% of adjudicated attack-labeled items flip to benign). Every detection-rate, catch-rate, FPR, and "ML vs regex" figure published on this site, in the docs, in the READMEs, and in release notes prior to 2026-11-23 is **void**. Deterministic (regex/policy) detection is unaffected but has not been re-baselined. ML will return only after corpus remediation, retraining, and re-publication of metrics. Per-repo notices: `docs/ML-WITHDRAWN.md` in each repository. Audit report: `corpus-certification-2026-11-23` (internal).
 
 
 All notable changes to AegisGate Security Platform are documented here. For the engineering-complete commit log, see the [GitHub CHANGELOG](https://github.com/aegisgatesecurity/aegisgate-platform/blob/main/CHANGELOG.md).

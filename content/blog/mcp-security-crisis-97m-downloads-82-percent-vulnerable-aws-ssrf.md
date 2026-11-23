@@ -16,6 +16,11 @@ tags:
   - open-source
 ---
 
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
+
 The Model Context Protocol has a security problem, and the numbers are now too large to ignore.
 
 97M+ monthly downloads. 82% of MCP servers vulnerable to path traversal. 8.5% using any form of authentication. 38% of 514 public servers exposing tools without auth. And on November 12, AWS's own `mcp-gateway-registry` was hit with CVE-2026-125926 — a server-side request forgery vulnerability in the reference implementation from the company that literally invented cloud security.
