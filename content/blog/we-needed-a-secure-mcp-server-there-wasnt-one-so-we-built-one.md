@@ -14,6 +14,11 @@ tags:
   - release
 ---
 
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
+
 The Model Context Protocol (MCP) is becoming the standard way AI models interact with external tools, data sources, and services. Claude Desktop uses it. Cursor uses it. Windsurf uses it. The protocol is well-designed, actively developed, and gaining adoption.
 
 It also ships with zero security.

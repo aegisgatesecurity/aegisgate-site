@@ -4,6 +4,11 @@ description: "One-page executive overview of AegisGate — what it does, why it 
 weight: 10
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 ## AegisGate Executive Brief
 
 ### The Problem
@@ -30,7 +35,7 @@ AegisGate is the only full-suite, open-source AI security platform that protects
 | Differentiator | AegisGate | Closest Competitor |
 |---------------|-----------|-------------------|
 | **Evasion resistance** | 100/100 verified | Not published |
-| **False positive rate** | 0.0% verified (10K+ test cases) | 1-7% (estimated) |
+| **False positive rate** | WITHDRAWN 2026-11-23 (ML model withdrawn) | 1-7% (estimated) |
 | **Detection latency** | ~4.6ms per scan | Not published |
 | **Scale (verified)** | 5,000 concurrent users, 28,000 RPS, 0% errors | Not published |
 | **Compliance frameworks** | 31 | 1-5 |
@@ -88,7 +93,7 @@ Free and open-source (Apache 2.0). Community support via [GitHub Discussions](ht
 | Error rate at max load | 0.00% |
 | Recovery after crush | Full |
 | Detection latency | ~4.6ms |
-| False positive rate | 0.0% |
+| False positive rate | WITHDRAWN 2026-11-23 |
 | Evasion resistance | 100/100 |
 | Binary size | 19.1 MB |
 | Test count | ~11,000 (Platform) + 538 (Lens) + 1,412 (Rampart) |

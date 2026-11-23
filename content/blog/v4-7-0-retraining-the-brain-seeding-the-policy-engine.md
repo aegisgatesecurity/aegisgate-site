@@ -17,6 +17,11 @@ tags:
   - supply-chain
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 Today we're shipping AegisGate v4.8.0 across all five products — Platform, Scanner, MCP, Rampart, and Lens. This release retrains our shared CharCNN-BiLSTM threat detection model, seeds the Platform's compliance policy engine with 7 built-in Rego policies, restores the correct 256-character input window across all products, drives compliance test coverage to industry-leading levels, ships ARTEX-specific threat intelligence detections across all four detection products, and — critically — transforms the Security Posture Assessment from an aspirational dashboard into a verified, trustworthy signal.
 
 It's also the story of a regression we almost shipped — a 50% reduction in our ML detection window that was caught by our own CI gates and fixed before it reached production.

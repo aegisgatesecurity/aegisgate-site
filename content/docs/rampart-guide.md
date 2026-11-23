@@ -4,6 +4,11 @@ description: "Complete guide for installing, configuring, and operating AegisGat
 weight: 440
 ---
 
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
+
 ## Overview
 
 **AegisGate Rampart** is a free, open-source local proxy that sits between AI coding tools (GitHub Copilot, Cursor, local LLMs) and the AI models they communicate with. It inspects every prompt you send and every response you receive, scanning in real time for leaked secrets, personally identifiable information (PII), prompt-injection attacks, hallucinated code, and toxic content.

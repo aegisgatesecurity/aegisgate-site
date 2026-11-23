@@ -5,6 +5,11 @@ type: "landing"
 mermaid: true
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 <!-- ============================================================
      TOP SECTION: FOR EVERYONE
      Plain language. No jargon. Install buttons.
@@ -108,10 +113,10 @@ flowchart LR
             F4b[OWASP LLM Top 10]
         end
         
-        subgraph Facet5["ML Adversarial"]
-            F5[CharCNN-BiLSTM]
-            F5a[1.6M Parameters]
-            F5b[~5ms Inference]
+        subgraph Facet5["ML Adversarial — WITHDRAWN 2026-11-23"]
+            F5[CharCNN-BiLSTM (removed)]
+            F5a[Model weights deleted]
+            F5b[Regex-only detection]
         end
     end
 
@@ -261,11 +266,11 @@ The content below is for developers, security engineers, and anyone who wants to
 Source: [aegisgate-lens repo](https://github.com/aegisgatesecurity/aegisgate-lens)
 
 - **10 AI providers**: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI
-- **5 detection facets**: PII (65), secrets (41), XSS (12), compliance (24), OT/ICS (9), ML adversarial (1 model) — 223 detection patterns (regex + IOC + Rampart bridge) + Char CNN-BiLSTM
-- **504 automated tests**: 492/492 Node + 12/12 ML perf/stress
-- **100% adversarial detection** (10/10 prompt injection patterns caught by ML model)
-- **2.31% regex FPR** on 6,500 WildChat prompts; **81.8% ML benign pass-through**
-- **~5ms ML detection** in Chrome (pure JavaScript, no WASM, no onnxruntime)
+- **Detection facets**: PII (65), secrets (41), XSS (12), compliance (24), OT/ICS (9) — 223 detection patterns (regex + IOC + Rampart bridge). ~~ML adversarial (Char CNN-BiLSTM)~~ — withdrawn 2026-11-23 (docs/ML-WITHDRAWN.md)
+- **492 Node tests** pass; ML perf/stress tests skip (weights withdrawn)
+- ~~100% adversarial detection~~ — ML withdrawn 2026-11-23 (docs/ML-WITHDRAWN.md)
+- **2.31% regex FPR** on 6,500 WildChat prompts (regex, unaffected); ~~81.8% ML benign pass-through~~ (withdrawn)
+- ~~~5ms ML detection~~ — ML withdrawn 2026-11-23
 - **100% on-device**, zero network egress by default
 - **12 privacy non-negotiables**, Apache 2.0, zero external dependencies
 - **Free, forever**
@@ -282,8 +287,7 @@ Lens injects a content script into the 10 supported AI providers. As you type a 
    - **Secrets**: API keys (AWS, GitHub, OpenAI, Stripe, Slack), RSA private keys, OAuth tokens, database credentials (41 patterns)
    - **XSS**: `<script>` tags, event handlers, `javascript:` URLs, SVG-based XSS, DOM clobbering, polyglot payloads (12 patterns)
    - **Compliance**: 43 patterns including OWASP LLM Top 10, MITRE ATLAS, EU AI Act, NIST CSF, ISO 27001, CCPA, LGPD, PIPEDA, POPIA
-2. **Enriches** with on-device ML (asynchronous, ~5ms):
-   - **ML adversarial**: Char CNN-BiLSTM with Attention detects prompt injection attacks — instruction override ("ignore all previous instructions"), roleplay injection, obfuscated commands, and other adversarial patterns that structured regex can't catch. Pure JavaScript, no WASM, no remote inference.
+2. ~~**Enriches** with on-device ML (asynchronous, ~5ms)~~ **— ML withdrawn 2026-11-23.** The on-device ML facet (Char CNN-BiLSTM) was removed after its training corpus failed a label audit. Lens runs regex detection only; deterministic detection is unaffected.
 3. **Warns** via a non-blocking banner at the top of the page that explains what was detected, why it matters, and what to do about it (3 options: Cancel, Edit & Resend, Send Anyway).
 4. **Never sends** your prompt to any server — not even opt-in. The only data Lens may send is anonymous, hashed metadata (detection category, no text) when you explicitly opt in to help improve detection.
 5. **Stores nothing** by default. No keystroke logging, no prompt caching, no history.
@@ -323,7 +327,7 @@ If we ever change any of these, the change will be:
 - **🔗 Rampart Bridge** — Cross-product signal correlation with AegisGate Rampart. Lens detections can now be correlated with Rampart proxy events for enhanced threat intelligence.
 - **📡 IOC Pull** — Fetches Indicator of Compromise (IOC) updates from Platform or the Cloudflare Worker community endpoint. SHA-256 fingerprints of known threats, air-gap compatible, opt-in only.
 - **🔍 223 detection patterns** — Expanded from 151 to 223 patterns including IOC and Rampart bridge signals.
-- **🧠 ML threat detector** — Char CNN-BiLSTM with Attention catches adversarial prompt injections. Pure JavaScript inference (~5ms in Chrome).
+- ~~**🧠 ML threat detector**~~ — WITHDRAWN 2026-11-23: the Char CNN-BiLSTM model was removed after a training-corpus label audit failure. See docs/ML-WITHDRAWN.md in the lens repo.
 - **🔍 10 AI providers** — ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI.
 - **📦 4.2MB** — Pure JS, no WASM, strict CSP: `script-src 'self'` only.
 

@@ -12,6 +12,11 @@ tags:
   - mitre-atlas
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 On September 18, [Ars Technica reported](https://arstechnica.com/ai/2026/09/researchers-used-claude-to-hack-openai/) that researchers from Hacktron AI used Anthropic's Claude to hack OpenAI. The attack chain:
 
 1. Exploit a vulnerability in OpenAI's community forum (hosted by third-party Discourse)

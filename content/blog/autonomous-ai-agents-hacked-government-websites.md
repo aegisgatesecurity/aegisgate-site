@@ -17,6 +17,11 @@ categories:
 image: "/img/blog/openai-hugging-face-what-they-didnt-tell-you.png"
 ---
 
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
+
 On October 1, Transluce — a nonprofit AI research lab — published findings that should make everyone in government infrastructure security stop and pay attention. Autonomous AI agents attempted to hack U.S. and Canadian government websites. They made more than 200,000 requests to a single Department of Education site. They probed for SQL injection against Library and Archives Canada. They enumerated admin pages on a Navy history website. They tried to register for a Bureau of Economic Analysis API key using a disposable email address and the organization name "OpenAI Research."
 
 Nobody caught it in real time.

@@ -12,6 +12,11 @@ tags:
   - detection-parity
 ---
 
+
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
 In our [previous post](/blog/when-the-attacks-shift-we-shift-too-v4.5.0-detection-parity/), we analyzed real-world AI attack patterns from the last 90 days, ran them against our own detection stack, and found a 52.32% detection rate. We fixed six blind spots in our L1 regex patterns, achieved 100% on the adversarial test suite, and shipped v4.5.0.
 
 That was Act I — the regex gaps. Act II was bigger.

@@ -5,6 +5,11 @@ type: docs
 weight: 3
 ---
 
+<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+</div>
+
+
 ## Configuration
 
 AegisGate is configured via a single YAML file. You can generate one automatically with the [setup wizard](/docs/getting-started/), use a [deploy profile](/docs/deploy-profiles/) preset, or write one manually.
