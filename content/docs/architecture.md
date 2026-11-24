@@ -25,8 +25,8 @@ AegisGate is a six-pillar AI security gateway built in Go with zero external run
 │                    RESPONSE                          │
 │              (Output Safety Layer)                   │
 ├─────────────────────────────────────────────────────┤
-│               ML Detection Engine                    │
-│            (CNN-BiLSTM + Regex Pipeline)             │
+│             Detection Engine                          │
+│        (Regex + ATLAS Pipeline; ML withdrawn)        │
 ├─────────────────────────────────────────────────────┤
 │            Trust & Compliance Engine                  │
 │         (31 Frameworks · 2,043 controls)              │
@@ -39,7 +39,7 @@ AegisGate is a six-pillar AI security gateway built in Go with zero external run
 ### Request Flow
 
 1. **Ingress**: Client request arrives at one of the five protocol pillars
-2. **Screening**: ML engine classifies the request (regex + neural network)
+2. **Screening**: Detection engine classifies the request (regex + ATLAS; the neural ML layer was withdrawn 2026-11-23)
 3. **Policy**: Trust engine applies compliance rules and rate limits
 4. **Forward**: Clean requests are forwarded to the upstream AI service
 5. **Response**: AI response is filtered through the RESPONSE pillar
@@ -50,7 +50,7 @@ AegisGate is a six-pillar AI security gateway built in Go with zero external run
 | Component | Technology |
 |-----------|-----------|
 | Core | Go 1.26+, statically compiled |
-| ML Runtime | ONNX Runtime (optional, graceful degradation) |
+| Detection | Regex + MITRE ATLAS (deterministic); ML withdrawn 2026-11-23 |
 | Container | Docker (19.1MB image) |
 | Orchestration | Kubernetes (Helm chart provided) |
 | Observability | Prometheus metrics, structured JSON logging |

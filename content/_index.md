@@ -37,7 +37,7 @@ mermaid: true
 </div>
 
 <div class="alert alert-success alert-center" style="font-size:0.9rem;">
-<strong>📚 Published Research.</strong> Our whitepaper, <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em>, is now live on SSRN — covering our three-layer detection pipeline, 303 regex patterns, CharCNN-BiLSTM neural model (1.6M params), and federated IOC architecture. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">Read the paper →</a>
+<strong>📚 Published Research.</strong> Our whitepaper, <em>"AegisGate: A Multi-Layered Security Architecture for AI Agent Communication"</em>, was published on SSRN in 2026 and covers the then-current three-layer detection pipeline (303 regex patterns plus the since-withdrawn CharCNN-BiLSTM neural model) and federated IOC architecture. ML detection was withdrawn 2026-11-23; see <a href="/changelog/">changelog</a>. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7652138" target="_blank" rel="noopener noreferrer">Read the paper →</a>
 </div>
 
 <!-- ============================================================
@@ -75,7 +75,7 @@ flowchart LR
     subgraph MLOps["🔬 ML/Ops Teams"]
         F[Static Analysis Scanner]
         F1[AegisGate Scanner]
-        F2[322 Patterns + ML]
+        F2[523 Patterns]
         F3[SARIF / SBOM / CI]
     end
 
@@ -90,7 +90,7 @@ flowchart LR
         D[322+ Patterns]
         D1[PII + Secrets]
         D2[XSS + Compliance]
-        D3[ML Adversarial]
+        D3[Adversarial Patterns]
     end
 
     Individual --> Core
@@ -157,9 +157,9 @@ flowchart LR
 <div class="card" style="border-color:#06b6d4;">
 <h3>🔌 MCP — For MCP Server Developers <span class="badge">FREE</span></h3>
 <p><strong>You build or run MCP servers and need to secure them.</strong></p>
-<p>AegisGate MCP is a standalone MCP server framework that applies 23 security layers to every JSON-RPC request — prompt injection detection, tool poisoning prevention, evasion detection, ML threat detection, and response scanning. Zero external dependencies. Works with any MCP client.</p>
+<p>AegisGate MCP is a standalone MCP server framework that applies 23 security layers to every JSON-RPC request — prompt injection detection, tool poisoning prevention, evasion detection, and response scanning. Zero external dependencies. Works with any MCP client.</p>
 <ul>
-<li>23 security layers: regex, ATLAS compliance, ML neural detection, evasion, tool poisoning, RBAC, rate limiting, audit logging</li>
+<li>23 security layers: regex, ATLAS compliance, evasion, tool poisoning, RBAC, rate limiting, audit logging</li>
 <li>Streamable HTTP, TCP, and stdio transports with SSE streaming and elicitation support</li>
 <li>Zero dependencies — air-gapped deployment, no supply chain CVEs, single Go binary</li>
 <li>Published to MCP Registry: <code>io.github.aegisgatesecurity/aegisgate-mcp</code></li>
@@ -175,13 +175,13 @@ flowchart LR
 <div class="card" style="border-color:#ec4899;">
 <h3>🔬 Scanner — For ML/Ops Teams <span class="badge">FREE</span></h3>
 <p><strong>You build AI pipelines and need to secure training data, RAG docs, and model artifacts.</strong></p>
-<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 523 regex patterns + CharCNN-BiLSTM ML detection. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
+<p>AegisGate Scanner is a static analysis tool that scans AI artifacts — training datasets, RAG documents, model configs, agent skills — for prompt injection, secrets, PII, dangerous code, and compliance violations. 523 regex patterns. SARIF output for CI/CD. GitHub Action. Dual Docker images.</p>
 <ul>
 <li>9 security categories: secrets, PII, prompt injection, compliance, dangerous code, web, OT/ICS, AI/ML, metadata</li>
-<li>523 regex patterns + ML neural detection (CharCNN-BiLSTM, &lt;1ms CPU inference)</li>
+<li>523 regex patterns with deterministic detection</li>
 <li>8 output formats including SARIF for GitHub Code Scanning, SBOM generation</li>
 <li>Zero runtime dependencies — air-gapped capable, no supply chain CVEs</li>
-<li>GitHub Action for one-step CI integration. Docker images (ML + Lite).</li>
+<li>GitHub Action for one-step CI integration. Docker images.</li>
 <li>Patent pending — US Provisional App. No. 64/174,824</li>
 </ul>
 <p class="card-actions">
@@ -232,7 +232,7 @@ flowchart LR
 
 <div class="card">
 <h3>💉 Prompt Injection Attacks</h3>
-<p>Adversarial prompts designed to manipulate AI into ignoring safety rules, leaking system prompts, or executing unauthorized actions. Our ML model catches 100/100 known attack patterns.</p>
+<p>Adversarial prompts designed to manipulate AI into ignoring safety rules, leaking system prompts, or executing unauthorized actions. Deterministic detection (regex + MITRE ATLAS mapping) catches known attack patterns. Neural ML detection was withdrawn 2026-11-23; see <a href="/changelog/">changelog</a>.</p>
 </div>
 
 <div class="card">
@@ -371,10 +371,10 @@ flowchart LR
 </tr>
 <tr>
 <td class="metric-label"><strong>Security layers</strong></td>
-<td>5 facets (PII, secrets, XSS, compliance, ML)</td>
+<td>4 facets (PII, secrets, XSS, compliance)</td>
 <td>Same detection engine</td>
 <td>23 security layers</td>
-<td>523 patterns + ML (12 categories)</td>
+<td>523 patterns (12 categories)</td>
 <td>31 frameworks</td>
 </tr>
 <tr>
@@ -410,8 +410,8 @@ flowchart LR
 </div>
 
 <div class="card">
-<h3>🧠 ML Threat Detection</h3>
-<p>CharCNN-BiLSTM neural network (1.6M params) runs in pure JavaScript in your browser. 100/100 evasion resistance, 0% false positive rate, ~5ms inference. No cloud calls.</p>
+<h3>🎯 Deterministic Detection</h3>
+<p>Regex + MITRE ATLAS-mapped detection runs locally in your browser and on your infrastructure. No cloud calls. (Neural ML detection was withdrawn 2026-11-23 after a training-corpus label audit failure; see <a href="/changelog/">changelog</a>.)</p>
 </div>
 
 <div class="card">
@@ -509,12 +509,12 @@ flowchart LR
 <p>AI chat tools Lens protects</p>
 </div>
 <div class="card text-center">
-<h3 style="font-size:2.5rem; color:#f59e0b;">100/100</h3>
-<p>Adversarial attack patterns caught</p>
+<h3 style="font-size:2.5rem; color:#f59e0b;">820+</h3>
+<p>Deterministic detection patterns</p>
 </div>
 <div class="card text-center">
-<h3 style="font-size:2.5rem; color:#10b981;">0%</h3>
-<p>False positive rate</p>
+<h3 style="font-size:2.5rem; color:#10b981;">0</h3>
+<p>False positives by design — deterministic detection (ML withdrawn 2026-11-23)</p>
 </div>
 <div class="card text-center">
 <h3 style="font-size:2.5rem; color:#38bdf8;">31</h3>
@@ -525,8 +525,8 @@ flowchart LR
 <p>Requests per second sustained</p>
 </div>
 <div class="card text-center">
-<h3 style="font-size:2.5rem; color:#10b981;">~5ms</h3>
-<p>Detection latency</p>
+<h3 style="font-size:2.5rem; color:#10b981;">&lt;1ms</h3>
+<p>Regex detection latency</p>
 </div>
 </div>
 
@@ -604,7 +604,7 @@ flowchart LR
 <li><a href="/lens/">Lens</a> — browser extension for AI chat protection</li>
 <li><a href="/rampart/">Rampart</a> — local proxy + IDE plugin for developers</li>
 <li><a href="/mcp/">MCP</a> — secure MCP server framework with 23 security layers</li>
-<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (523 patterns, ML + regex)</li>
+<li><a href="/scanner/">Scanner</a> — AI artifact static analysis (523 deterministic patterns)</li>
 <li><a href="/platform/">Platform</a> — enterprise gateway with verifiable security</li>
 <li><a href="/docs/comparison/">Competitive comparison</a> — 7 competitors, 31 frameworks</li>
 </ul>

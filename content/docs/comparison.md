@@ -29,13 +29,13 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 
 | Capability | AegisGate | Nightfall | Prompt Security | Cisco | Purview | Lakera | Rebuff |
 |-----------|-----------|-----------|----------------|-------|---------|--------|--------|
-| **Detection Patterns** | 154 regex + ML | ~50 DLP | ~30 | ~40 | ~60 DLP | ~20 | ~10 |
-| **ML Model** | CharCNN-BiLSTM (1.6M params, ONNX) | Proprietary | Proprietary | Rule-based | DLP rules | ML | Regex+ML |
-| **Evasion Resistance** | **100/100** (verified) | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
-| **False Positive Rate** | **0.0%** (verified, 10K+ test cases) | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
-| **Latency** | **~4.6ms** per scan | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
+| **Detection Patterns** | 154 regex (ML withdrawn 2026-11-23) | ~50 DLP | ~30 | ~40 | ~60 DLP | ~20 | ~10 |
+| **ML Model** | Withdrawn 2026-11-23 (corpus label audit failure) | Proprietary | Proprietary | Rule-based | DLP rules | ML | Regex+ML |
+| **Evasion Resistance** | Void (ML withdrawn 2026-11-23) | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
+| **False Positive Rate** | Void (ML withdrawn 2026-11-23) | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
+| **Latency** | <1ms per scan (deterministic) | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
 | **Heuristic Fallback** | ✅ Transposition, vowel deletion, reversal | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Shadow Mode** | ✅ 7-day calibration | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Shadow Mode** | Withdrawn 2026-11-23 (ML-only feature) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 #### Protocols
 
@@ -112,14 +112,14 @@ AegisGate is the only platform that secures every AI interaction surface — bro
 
 1. **Only full-suite AI security** — Browser (Lens) + IDE (Rampart-LSP) + Local proxy (Rampart) + API gateway (Platform). No competitor offers more than one surface.
 2. **Only multi-protocol gateway** — HTTP API + MCP + A2A + ACP + ANP + Response scanning. All competitors are HTTP-only.
-3. **Measured 0% FPR** — Verified against 10,538+ benign examples including 1,869 near-miss cases. Competitors do not publish FPR.
-4. **100/100 evasion resistance** — Verified against adversarial suite (transposition, vowel deletion, word reversal, obfuscation). Competitors do not publish evasion results.
+3. **Deterministic detection** — regex/ATLAS engine with no ML false positives by construction. (ML-based FPR figures withdrawn 2026-11-23.)
+4. **Deterministic evasion-resistant patterns** — transposition, vowel deletion, word reversal, obfuscation. (ML-based 100/100 evasion figure withdrawn 2026-11-23.)
 5. **31 compliance frameworks** — Including EU AI Act (120 controls), NIST AI RMF, ISO 42001, CMMC L2, FERPA, CJIS, NERC CIP. No competitor has more than 5.
 6. **Air-gapped deployment** — Full capability (UI, SOAR, SIEM, evidence) with zero outbound connectivity. No competitor offers this.
 7. **SOAR integration** — PagerDuty, Jira, ServiceNow out of the box. No competitor offers SOAR.
 8. **IDE integration** — VS Code, Cursor, JetBrains, Neovim, Emacs, Helix, Sublime. No competitor offers IDE integration.
 9. **Verified scale** — 5,000 concurrent VUs, 28,000 RPS, 0.00% errors on bare metal. No competitor publishes scale data.
-10. **Open-source** — Apache 2.0, fully self-hosted, no vendor lock-in, full community code auditability. Only Rebuff is also open source (MIT), but with ~10 patterns vs AegisGate's 154+ML.
+10. **Open-source** — Apache 2.0, fully self-hosted, no vendor lock-in, full community code auditability. Only Rebuff is also open source (MIT), but with ~10 patterns vs AegisGate's 154 regex patterns (ML withdrawn 2026-11-23).
 
 ### Where Competitors Still Lead
 

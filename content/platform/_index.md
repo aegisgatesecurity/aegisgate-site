@@ -118,12 +118,12 @@ Platform v5.2.1 protects every AI interaction across seven security pillars:
 </ul>
 </div>
 <div class="card" style="border-color:#22c55e;">
-<h3>🧠 ML Threat Detection <span class="badge">NEW v4.4.0+</span></h3>
+<h3>🎯 Deterministic Detection <span class="badge">ALWAYS-ON</span></h3>
 <ul>
-<li>CharCNN-BiLSTM (1.6M params)</li>
-<li>100/100 evasion resistance</li>
-<li>0% false positive rate</li>
-<li>~5ms inference (pure Go)</li>
+<li>820 regex/ATLAS patterns</li>
+<li>Neural ML detection withdrawn 2026-11-23</li>
+<li>0% false positive rate (deterministic)</li>
+<li>See <a href="/changelog/">changelog</a> for the withdrawal notice</li>
 </ul>
 </div>
 </div>
@@ -145,7 +145,7 @@ flowchart TD
         P3["🤝 A2A — mTLS, HMAC, Rate limiting"]
         P4["🛡️ Response — PII, Secrets, Redaction"]
         P5["🔐 Trust — Scoring, Ed25519 attestation"]
-        P6["🧠 ML — CharCNN-BiLSTM, 100/100 evasion"]
+        P6["🎯 Deterministic — 820 regex/ATLAS patterns"]
     end
 
     subgraph Output["AI Services"]
@@ -217,7 +217,7 @@ sequenceDiagram
     end
 
     Note over Proxy,Trust: Every action cryptographically signed
-    Note over Scanner: 820 patterns + ML model (~5ms)
+    Note over Scanner: 820 regex/ATLAS patterns (deterministic)
 {{< /mermaid >}}
 
 ---
@@ -372,7 +372,6 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | Proxy overhead p99 | 2.8ms |
 | PII detection latency | 94.7 µs |
 | Secret detection latency | 121.3 µs |
-| ML inference latency | ~5ms |
 | Binary size | 19.1 MB |
 | Docker image size | 19.1 MB |
 | Test coverage | 85%+ |
@@ -392,7 +391,7 @@ Platform runs fully offline. No external dependencies. No phone-home. No telemet
 | Response scanning | ✅ | ❌ | ⚠️ | ⚠️ |
 | Trust attestation | ✅ | ❌ | ❌ | ❌ |
 | Agent Registry & dormancy detection | ✅ | ❌ | ❌ | ❌ |
-| ML threat detection | ✅ | ⚠️ | ❌ | ⚠️ |
+| ML threat detection | Withdrawn 2026-11-23 | ⚠️ | ❌ | ⚠️ |
 | 31 compliance frameworks | ✅ | ❌ | ❌ | ⚠️ |
 | 11 SIEM integrations | ✅ | ❌ | ❌ | ⚠️ |
 | 4 SOAR integrations | ✅ | ❌ | ❌ | ❌ |

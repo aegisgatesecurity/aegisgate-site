@@ -135,8 +135,8 @@ trust:
   enabled: true
   require_license: true
 
-ml_threat_detection_enabled: true
-ml_shadow_mode: false  # Set to true for first 7 days
+# ML detection withdrawn 2026-11-23 — leave unset/false
+ml_threat_detection_enabled: false
 ```
 
 **Infrastructure**: Single VM or container, PostgreSQL on same host or managed service.
@@ -186,8 +186,8 @@ siem:
       endpoint: "https://splunk.internal:8088/services/collector"
       token: "${SPLUNK_HEC_TOKEN}"
 
-# No external API calls
-ml_shadow_mode: false
+# No external API calls. ML detection withdrawn 2026-11-23 — do not enable.
+ml_threat_detection_enabled: false
 ```
 
 **Infrastructure**: Fully isolated network, on-prem IdP, on-prem SIEM, no internet egress.
@@ -474,28 +474,13 @@ Each tenant has isolated:
 
 ---
 
-## ML Threat Detection
+## ML Threat Detection — WITHDRAWN 2026-11-23
 
-### Recommended Deployment Sequence
-
-1. **Days 1–7**: Shadow mode (log-only, no blocking)
-   ```yaml
-   ml_threat_detection_enabled: true
-   ml_shadow_mode: true
-   ```
-   Review shadow predictions. Check for false positives in your environment.
-
-2. **Day 8**: Enable active blocking
-   ```yaml
-   ml_threat_detection_enabled: true
-   ml_shadow_mode: false
-   ```
-
-3. **Ongoing**: Monitor via SIEM and SOAR integrations
+The ML threat detector was **withdrawn on 2026-11-23** after its training corpus failed an independent label audit (~71% of attack-labeled items flipped to benign). Do not enable `ml_threat_detection_enabled`; the settings are inert and all ML-derived metrics are void. Deterministic regex + ATLAS detection is always on. See [/changelog/](/changelog/).
 
 ### A/B Testing
 
-Compare ML model variants before promoting to production:
+**Note:** ML model variants were withdrawn 2026-11-23. The A/B testing API remains for non-ML experiments, but all ML model comparisons are void.
 
 ```bash
 # Create an A/B test
@@ -562,7 +547,7 @@ Configure your load balancer with:
 | SSO enabled (no local-only auth) | ☐ | See SSO Configuration Guide |
 | SIEM forwarding enabled | ☐ | Forward all audit events to your SIEM |
 | SOAR alerts configured | ☐ | At minimum, critical severity → PagerDuty |
-| ML threat detection enabled | ☐ | Start with shadow mode for 7 days |
+| ML threat detection disabled/withdrawn | ☐ | Withdrawn 2026-11-23 — leave `ml_threat_detection_enabled` unset/false |
 | Trust Framework enabled | ☐ | Required for production deployments |
 | Multi-tenant RLS enabled | ☐ | If serving multiple tenants |
 | RBAC roles configured | ☐ | Map IdP groups to AegisGate roles |
@@ -585,7 +570,6 @@ AegisGate exposes Prometheus metrics at `/metrics`:
 ```
 aegisgate_requests_total{tier="enterprise",result="blocked"}
 aegisgate_threats_detected_total{category="pii",layer="l1"}
-aegisgate_ml_inference_latency_ms
 aegisgate_trust_score{agent="agent-001"}
 aegisgate_siem_events_forwarded_total{platform="splunk"}
 aegisgate_soar_incidents_sent_total{platform="pagerduty"}
@@ -595,7 +579,7 @@ aegisgate_soar_incidents_sent_total{platform="pagerduty"}
 
 Pre-built Grafana dashboards are available for:
 - Request volume and threat detection rates
-- ML model performance (latency, accuracy, shadow mode comparison)
+- Deterministic detection coverage (ML withdrawn 2026-11-23)
 - Trust Framework scores and agent activity
 - SIEM forwarding health
 - SOAR incident delivery
@@ -617,7 +601,7 @@ AegisGate supports OpenTelemetry distributed tracing. See [Distributed Tracing](
 | Daily | Review blocked threats | SIEM dashboard or `/api/v1/audit` |
 | Daily | Check SIEM/SOAR health | `/api/v1/siem/status` |
 | Weekly | Review trust score trends | Trust Framework dashboard |
-| Weekly | Review ML false positives | A/B test metrics or audit log filter |
+| Weekly | Review blocked-request audit log | `/api/v1/audit` filter |
 | Monthly | Compliance report generation | `/api/v1/compliance?framework=soc2` |
 | Monthly | Review RBAC role assignments | IdP group membership audit |
 | Quarterly | Legal hold review | `/api/v1/legal-holds` |
@@ -645,12 +629,9 @@ See [Day 2 Operations](/docs/day-2-operations/) for the full operations runbook.
 4. Review SIEM platform logs for received events
 5. See [SIEM & SOAR Integration](/docs/siem-soar-integration/) troubleshooting
 
-### ML model not loading
+### ML model "not loading" (expected after 2026-11-23)
 
-1. Verify model file exists: `ls -la pkg/ml/models/threat_cnn_bilstm.onnx`
-2. Check model hash matches expected: compare SHA-256 with `ExpectedModelHash` in config
-3. Review logs: `journalctl -u aegisgate | grep "ml\|onnx\|model"`
-4. Verify ONNX runtime is available
+ML detection was withdrawn on 2026-11-23; the model is not loaded by design. No action is required — deterministic regex + ATLAS detection continues to operate. If ML-related log lines appear, confirm `ml_threat_detection_enabled` is not set to `true`. See [/changelog/](/changelog/).
 
 ### Trust score not updating
 

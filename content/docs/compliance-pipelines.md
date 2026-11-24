@@ -1,6 +1,6 @@
 ---
 title: "Compliance Pipelines (v4.4.0)"
-description: "DSAR, Legal Hold, and A/B Testing — GDPR Articles 15-20, e-discovery, and ML model evaluation"
+description: "DSAR, Legal Hold, and A/B Testing — GDPR Articles 15-20, e-discovery, and experiment evaluation (ML models withdrawn 2026-11-23)"
 weight: 25
 ---
 
@@ -58,7 +58,9 @@ hold, _ := client.LegalHold.CreateHold(ctx, &aegisgate.LegalHoldCreateRequest{
 underHold, _ := client.LegalHold.CheckUnderHold(ctx, "user-123")
 ```
 
-## A/B Testing — ML Model Evaluation
+## A/B Testing — Model Evaluation (ML withdrawn 2026-11-23)
+
+> **Note (2026-11-23):** ML model variants were withdrawn with the neural detector. This API remains for non-ML experiments; ML model comparisons are void. See [/changelog/](/changelog/).
 
 Variant-based A/B testing with FNV hash assignment. Integrated into the proxy pipeline via middleware.
 

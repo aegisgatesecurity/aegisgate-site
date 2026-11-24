@@ -34,9 +34,9 @@ AegisGate is the only full-suite, open-source AI security platform that protects
 
 | Differentiator | AegisGate | Closest Competitor |
 |---------------|-----------|-------------------|
-| **Evasion resistance** | 100/100 verified | Not published |
+| **Evasion resistance** | Void (ML withdrawn 2026-11-23) | Not published |
 | **False positive rate** | WITHDRAWN 2026-11-23 (ML model withdrawn) | 1-7% (estimated) |
-| **Detection latency** | ~4.6ms per scan | Not published |
+| **Detection latency** | <1ms per scan (regex) | Not published |
 | **Scale (verified)** | 5,000 concurrent users, 28,000 RPS, 0% errors | Not published |
 | **Compliance frameworks** | 31 | 1-5 |
 | **AI protocols secured** | 5 (HTTP, MCP, A2A, ACP, ANP) | 1 (HTTP only) |
@@ -92,9 +92,9 @@ Free and open-source (Apache 2.0). Community support via [GitHub Discussions](ht
 | Sustained throughput | 28,000 RPS |
 | Error rate at max load | 0.00% |
 | Recovery after crush | Full |
-| Detection latency | ~4.6ms |
+| Detection latency | <1ms (regex) |
 | False positive rate | WITHDRAWN 2026-11-23 |
-| Evasion resistance | 100/100 |
+| Evasion resistance | Void (ML withdrawn 2026-11-23) |
 | Binary size | 19.1 MB |
 | Test count | ~11,000 (Platform) + 538 (Lens) + 1,412 (Rampart) |
 

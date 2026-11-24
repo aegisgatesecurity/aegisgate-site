@@ -140,7 +140,7 @@ func main() {
 
 	fmt.Printf("Secure MCP server running on %s\n", *addr)
 	fmt.Println("Tools: get_weather, ping, echo")
-	fmt.Println("Security: 23 layers active (regex, ML, RBAC, policy, audit)")
+	fmt.Println("Security: 23 layers active (regex, RBAC, policy, audit)")
 	fmt.Println("Press Ctrl+C to stop")
 
 	// Graceful shutdown
@@ -210,19 +210,17 @@ Client Request
     ↓
 [3] Input Scanning — ATLAS technique mapping
     ↓
-[4] Input Scanning — CharCNN-BiLSTM ML detection
+[4] Tool Poisoning Detection
     ↓
-[5] Tool Poisoning Detection
+[5] RBAC — Is this agent allowed to call this tool?
     ↓
-[6] RBAC — Is this agent allowed to call this tool?
+[6] Policy Engine — Custom rules
     ↓
-[7] Policy Engine — Custom rules
+[7] Tool Handler executes
     ↓
-[8] Tool Handler executes
+[8] Response Scanning — PII/secret redaction
     ↓
-[9] Response Scanning — PII/secret redaction
-    ↓
-[10] Audit Logging — Full request/response recorded
+[9] Audit Logging — Full request/response recorded
     ↓
 Client Response
 ```

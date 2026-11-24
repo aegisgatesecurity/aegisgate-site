@@ -14,7 +14,7 @@ weight: 51
 
 > **License:** Apache-2.0 &nbsp;|&nbsp; **Version:** 1.5.1 &nbsp;|&nbsp; **Go:** 1.26+ &nbsp;|&nbsp; **Dependencies:** Zero external runtime dependencies
 
-AegisGate MCP is a security-first Model Context Protocol (MCP) server designed for secure AI agent tool use across any environment. It provides tool execution, role-based access control (RBAC), policy enforcement, audit logging, and neural threat detection out of the box — all in a single Go binary with zero external module dependencies.
+AegisGate MCP is a security-first Model Context Protocol (MCP) server designed for secure AI agent tool use across any environment. It provides tool execution, role-based access control (RBAC), policy enforcement, audit logging, and deterministic regex/ATLAS threat detection out of the box (ML detection withdrawn 2026-11-23) — all in a single Go binary with zero external module dependencies.
 
 ---
 
@@ -44,17 +44,14 @@ cd aegisgate-mcp
 go build -o mcp-server ./cmd/mcp-server
 ```
 
-> **Note:** The project has zero external module dependencies — all third-party code (ONNX Runtime, Unicode normalization) is vendored. No `go mod download` step is needed.
+> **Note:** The project has zero external module dependencies. No `go mod download` step is needed.
 
 ### Docker
 
 ```bash
-# Full ML-enabled build (~135 MB)
-docker build -t aegisgate-mcp .
-docker run -p 8081:8081 aegisgate-mcp --demo
-
-# Heuristic-only build (~8 MB, no ONNX)
+# Lite build (~8 MB, regex + ATLAS — recommended; ML withdrawn 2026-11-23)
 docker build --build-arg CGO_ENABLED=0 -t aegisgate-mcp:lite .
+docker run -p 8081:8081 aegisgate-mcp:lite --demo
 ```
 
 ### As a Go Module Dependency

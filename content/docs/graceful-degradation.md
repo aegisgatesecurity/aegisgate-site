@@ -1,6 +1,6 @@
 ---
 title: "Graceful Degradation"
-description: "How AegisGate maintains security coverage when ML threat detection is disabled or unavailable"
+description: "How AegisGate maintains security coverage with deterministic rule-based detection; ML detection was withdrawn 2026-11-23"
 type: docs
 ---
 
@@ -11,14 +11,16 @@ type: docs
 
 ## Overview
 
-AegisGate uses a **layered defense architecture** where rule-based detection serves as the always-on foundation, with ML threat detection as an additional layer. When ML is disabled or unavailable, the platform gracefully degrades to **rules-only mode** with zero loss of deterministic protection.
+> **2026-11-23 — ML withdrawn.** The ML threat-detection layer was withdrawn on 2026-11-23 after its training corpus failed an independent label audit (~71% of attack-labeled items flipped to benign). The `ml_threat_detection_enabled` / `ml_shadow_mode` settings are inert, the model is no longer shipped or loaded, and all ML-derived coverage/FPR figures are void. AegisGate now operates in **rules-only mode permanently**: deterministic regex + ATLAS detection is always on. The historical ML degradation behavior is documented below for reference only — do not attempt to enable it.
+
+AegisGate uses a **layered defense architecture** where rule-based detection serves as the always-on foundation. Rule-based detection runs on every request; there is no longer an ML layer to degrade from.
 
 This means:
 
-- **Rule-based detection never shuts down.** It runs on every request regardless of ML status.
-- **ML threat detection is additive.** It provides an extra security layer when enabled.
-- **No false positives from ML in rules-only mode.** The 0% FPR guarantee is always maintained.
-- **Cold starts are safe.** Newly deployed instances start with full rule-based coverage immediately.
+- **Rule-based detection never shuts down.** It runs on every request.
+- **ML threat detection is withdrawn.** The flags below are inert and kept only for backward compatibility with existing config files.
+- **No ML false positives.** All detection is deterministic.
+- **Cold starts are safe.** Newly deployed instances have full rule-based coverage immediately.
 
 ---
 
@@ -32,12 +34,12 @@ This means:
 │       ↓                                   │
 │  ┌─────────────────┐                     │
 │  │ Rule-Based Scan  │ ← Always active     │
-│  │ (88.5/100)       │   0% FPR            │
+│  │ (deterministic)  │   0% FPR            │
 │  └────────┬────────┘                     │
 │           │                               │
 │  ┌────────▼────────┐                     │
-│  │ ML Threat Scan   │ ← Feature-gated     │
-│  │ (if enabled)     │   Shadow/Block      │
+│  │ ML Threat Scan   │ ← WITHDRAWN         │
+│  │ (2026-11-23)     │   2026-11-23        │
 │  └────────┬────────┘                     │
 │           │                               │
 │  ┌────────▼────────┐                     │
@@ -51,93 +53,33 @@ This means:
 └──────────────────────────────────────────┘
 ```
 
-Every incoming request first passes through the **Rule-Based Scan**, which is always active and provides deterministic protection with zero false positives. If ML threat detection is enabled, the request also passes through the **ML Threat Scan** layer. Finally, the **Multi-Turn Check** runs on all requests to detect conversation-level attack patterns.
+Every incoming request passes through the **Rule-Based Scan**, which is always active and provides deterministic protection with zero false positives. (The ML Threat Scan layer was withdrawn 2026-11-23.) The **Multi-Turn Check** runs on all requests to detect conversation-level attack patterns.
 
 ---
 
-## Degradation Modes
+## Historical Modes (pre-2026-11-23, void)
 
-| Mode | ML Enabled | Shadow Mode | Blocking | Coverage | FPR |
-|------|------------|-------------|----------|----------|-----|
-| Full Protection | ✅ | — | ✅ | Highest | ~0% |
-| Shadow Mode | ✅ | ✅ | — | Highest | 0% (logs only) |
-| Rules Only | — | — | — | 88.5/100 (100/100 with ML) | 0% |
-| Cold Start | — | ✅ | — | 88.5/100 (100/100 with ML) | 0% |
+| Mode | ML Enabled | Shadow Mode | Blocking | Status |
+|------|------------|-------------|----------|--------|
+| Full Protection | ✅ | — | ✅ | Withdrawn 2026-11-23 |
+| Shadow Mode | ✅ | ✅ | — | Withdrawn 2026-11-23 |
+| Rules Only | — | — | — | **Current behavior** |
+| Cold Start | — | ✅ | — | Withdrawn 2026-11-23 |
 
-### Mode Descriptions
-
-- **Full Protection**: Both rule-based and ML detection are active. ML predictions can block requests. This provides the highest coverage with near-zero false positive rate.
-- **Shadow Mode**: ML detection runs and logs predictions, but never blocks. This is used for validation before enabling blocking mode. Rules still block as normal.
-- **Rules Only**: ML detection is completely disabled. All protection comes from deterministic rules with a 0% false positive guarantee.
-- **Cold Start**: A newly deployed instance with shadow mode enabled by default. ML predictions are collected for review while rules provide immediate protection.
+All ML-derived coverage and FPR figures formerly listed here are void.
 
 ---
 
-## Feature Flags
+## Feature Flags (inert as of 2026-11-23)
 
 ```yaml
 # aegisgate-platform.yaml
 security:
-  ml_threat_detection_enabled: false  # Default: disabled
-  ml_shadow_mode: true                  # Default: shadow mode
+  ml_threat_detection_enabled: false  # INERT — ML withdrawn 2026-11-23
+  ml_shadow_mode: true                  # INERT — ML withdrawn 2026-11-23
 ```
 
-Environment variable overrides:
-```bash
-export AEGIS_ML_THREAT_DETECTION_ENABLED=true
-export AEGIS_ML_SHADOW_MODE=false
-```
-
-Feature flags can be toggled at runtime without restarting the service. Changes take effect on the next request processed.
-
----
-
-## Deployment Sequence
-
-The recommended deployment sequence ensures safe activation of ML threat detection:
-
-### Step 1: Deploy with ML Disabled (Default)
-
-Deploy v4.4.0+ with ML disabled. All rule-based detection is active and providing full deterministic protection.
-
-```bash
-# Default configuration - ML disabled
-docker run -d \
-  -p 8080:8080 \
-  -p 8081:8081 \
-  -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.1
-```
-
-### Step 2: Enable Shadow Mode for 7 Days
-
-ML predictions are logged but never block. This allows you to review ML behavior in production.
-
-```bash
-export AEGIS_ML_THREAT_DETECTION_ENABLED=true
-export AEGIS_ML_SHADOW_MODE=true
-```
-
-### Step 3: Review Shadow Logs for FPR
-
-Analyze shadow mode predictions for false positive rate. Adjust the detection threshold using the `CalibrationManager` API.
-
-```bash
-# Review shadow logs
-curl http://localhost:8081/v1/shadow-logs?last=7d
-
-# Adjust threshold
-curl -X PATCH http://localhost:8081/v1/calibration \
-  -d '{"threshold": 0.85}'
-```
-
-### Step 4: Enable Blocking Mode
-
-After validation, enable ML blocking mode. ML and rules now work together for maximum coverage.
-
-```bash
-export AEGIS_ML_SHADOW_MODE=false
-```
+These flags are retained only so old config files still parse. Setting them to `true` has no effect.
 
 ---
 
@@ -146,11 +88,8 @@ export AEGIS_ML_SHADOW_MODE=false
 | Component | Latency | CPU | Memory |
 |-----------|---------|-----|--------|
 | Rule-based scan | <1ms | <1% | ~2MB |
-| ML threat scan | ~5ms | ~2% | ~50MB (ONNX model) |
-| Shadow mode logging | <0.1ms | <0.5% | ~5MB |
-| Total (full protection) | <2ms | ~3% | ~55MB |
-
-The ONNX Runtime-based ML inference engine is optimized for minimal latency impact. Even in full protection mode, total request processing adds ~5ms to latency (4.78ms avg inference, measured across 10,538 benign + 100 adversarial samples).
+| ML threat scan | — | — | — (withdrawn 2026-11-23) |
+| Total | <1ms + multi-turn | <1% | ~2MB |
 
 ---
 
@@ -158,17 +97,14 @@ The ONNX Runtime-based ML inference engine is optimized for minimal latency impa
 
 | Failure | Behavior | Recovery |
 |---------|----------|----------|
-| ONNX model fails to load | Falls back to heuristic-only | Auto-retry with backoff |
-| ONNX inference error | Falls back to heuristic-only | Logs error, continues |
-| Memory pressure | ML disabled, rules continue | GC + model reload |
-| Shadow log disk full | Shadow mode disabled | Rotate logs, re-enable |
+| ML layer | Withdrawn 2026-11-23 — not loaded | n/a |
+| Rule-based scan | Fails closed per policy | Restart/inspect logs |
+| Multi-turn check | Degrades to per-message scanning | Automatic |
 
 ### Failure Mode Details
 
-**ONNX model fails to load**: If the ONNX model file is corrupted or missing, the ML threat detection module is disabled. Rule-based detection continues normally. The system auto-retries loading the model with exponential backoff.
+**ML layer**: Withdrawn 2026-11-23. The model file is no longer shipped; the loader is inert. Rule-based detection is unaffected.
 
-**ONNX inference error**: If an individual inference call fails (e.g., malformed input), the request falls back to heuristic-based evaluation. The error is logged and processing continues without interruption.
+**Rule-based scan**: deterministic and always on; a failure indicates a configuration or binary problem — check logs and restart.
 
-**Memory pressure**: When the system detects memory pressure, ML threat detection is disabled to free the ~50MB used by the ONNX model. Rule-based detection continues with its ~2MB footprint. When memory is available again, the model is reloaded.
-
-**Shadow log disk full**: If the disk storing shadow mode logs fills up, shadow mode is automatically disabled. Log rotation cleans up old entries, and shadow mode can be re-enabled once space is available.
+_See also: [Configuration](/docs/configuration/), [Changelog](/changelog/)._

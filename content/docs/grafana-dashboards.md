@@ -55,7 +55,7 @@ grafana:
 | Detection Latency by Framework | `aegisgate_detection_latency_seconds` | Per-framework detection timing |
 | Incident Status Distribution | `aegisgate_incident_status` | Open vs. resolved vs. acknowledged |
 | Scan Pipeline Duration | `aegisgate_scan_duration_seconds` | End-to-end scan pipeline timing |
-| ML Shadow Predictions | `aegisgate_ml_predictions_total` | ML model predictions in shadow mode |
+| ~~ML Shadow Predictions~~ | `aegisgate_ml_predictions_total` | Withdrawn 2026-11-23 — metric no longer emitted |
 
 #### AegisGate MCP/Agents (v4.4.0+)
 
@@ -73,7 +73,7 @@ grafana:
 | A2A Capability Denials | `aegisgate_a2a_capability_denials_total` | Capability enforcement denials |
 | A2A License Failures | `aegisgate_a2a_license_failures_total` | License-tier enforcement failures |
 | Requests by Tier | `aegisgate_requests_by_tier_total` | Request volume by license tier |
-| ML Inference Duration | `aegisgate_ml_inference_seconds` | ML model inference timing |
+| ~~ML Inference Duration~~ | `aegisgate_ml_inference_seconds` | Withdrawn 2026-11-23 — metric no longer emitted |
 | Regex Scan Duration | `aegisgate_regex_scan_seconds` | Regex pattern matching timing |
 
 ### Prometheus Alerts
@@ -90,7 +90,7 @@ The Helm chart also deploys a `PrometheusRule` with 10 pre-configured alerts:
 | A2AFailureSpike | warning | > 10 A2A auth failures in 5 min |
 | RateLimitExceeded | info | Rate limit hits increasing |
 | AuditLogGap | critical | No audit events for 5 min |
-| MLDriftDetected | warning | ML model drift detected |
+| ~~MLDriftDetected~~ | warning | Withdrawn 2026-11-23 — alert no longer applicable |
 | UpstreamUnhealthy | critical | Upstream provider unhealthy |
 
 ### Manual Import

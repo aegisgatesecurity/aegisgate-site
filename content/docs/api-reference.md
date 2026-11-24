@@ -131,7 +131,7 @@ GET /version
 POST /v1/scan
 ```
 
-Scans content for threats, secrets, PII, and injection attacks using the 3-layer detection engine (regex + ATLAS/compliance + ML).
+Scans content for threats, secrets, PII, and injection attacks using the detection engine (regex + ATLAS/compliance; neural ML withdrawn 2026-11-23).
 
 **Request Body:**
 ```json
@@ -159,7 +159,7 @@ Scans content for threats, secrets, PII, and injection attacks using the 3-layer
   ],
   "risk_score": 85,
   "scan_time_ms": 2.1,
-  "layers_triggered": ["l1_regex", "l3_ml"]
+  "layers_triggered": ["l1_regex"]
 }
 ```
 
@@ -230,7 +230,7 @@ GET /api/v1/sla
     {
       "name": "threat_detection_accuracy",
       "target": "> 99.5%",
-      "current": "100.0%"
+      "current": "void (ML detection withdrawn 2026-11-23)"
     }
   ]
 }
@@ -490,9 +490,11 @@ GET /api/v1/legal-holds/check/{entityID}
 
 ---
 
-## A/B Testing — ML Model Evaluation
+## A/B Testing — ML Model Evaluation (ML withdrawn 2026-11-23)
 
-Manages A/B tests for comparing ML model variants using deterministic FNV hashing for variant assignment.
+> **Note (2026-11-23):** ML model variants are withdrawn. The A/B testing API remains available for non-ML experiments; comparing ML model variants is no longer meaningful and all ML metrics are void. See [/changelog/](/changelog/).
+
+Manages A/B tests using deterministic FNV hashing for variant assignment.
 
 ### Create A/B Test
 

@@ -19,7 +19,7 @@ AegisGate generates signed evidence packages for each security detection:
 
 - **Timestamp**: RFC 3339 formatted, UTC
 - **Detection rule**: Rule ID, category, confidence score
-- **ML classification**: Neural network output (when ML detection enabled)
+- **Detection layer**: Deterministic regex/ATLAS rule that fired (ML classification withdrawn 2026-11-23)
 - **ATLAS mapping**: MITRE ATLAS tactic and technique IDs
 - **Framework cross-reference**: SOC 2, ISO 27001, EU AI Act control IDs
 

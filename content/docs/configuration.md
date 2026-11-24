@@ -51,7 +51,7 @@ proxy:          # Proxy server (bind address, upstream URL, rate limits)
 agent:          # MCP/agent server settings
 dashboard:      # Web dashboard
 tls:            # TLS certificates, mTLS, FIPS
-security:       # Security middleware (headers, CSRF, XSS, ML detection)
+security:       # Security middleware (headers, CSRF, XSS; ML withdrawn 2026-11-23)
 logging:        # Log level and format
 a2a:            # Agent-to-Agent guardrails
 acp:            # Agent Communication Protocol
@@ -109,8 +109,8 @@ security:
   allowed_origins: ["https://yourdomain.com"]
   allowed_methods: ["GET", "POST", "PUT", "DELETE"]
   allowed_headers: ["Content-Type", "Authorization"]
-  ml_threat_detection_enabled: false  # Enable after 7-day shadow validation
-  ml_shadow_mode: true                # Log only, don't block
+  ml_threat_detection_enabled: false  # INERT — ML withdrawn 2026-11-23
+  ml_shadow_mode: true                # INERT — ML withdrawn 2026-11-23
 
 logging:
   level: "info"              # debug, info, warn, error
@@ -212,8 +212,8 @@ soar:
 | `enable_xss` | bool | `true` | XSS content scanning |
 | `enable_panic_recovery` | bool | `true` | Recover from panics without crashing |
 | `enable_audit_middleware` | bool | `true` | Log all requests/responses to audit trail |
-| `ml_threat_detection_enabled` | bool | `false` | Enable ML threat detector (shadow mode first!) |
-| `ml_shadow_mode` | bool | `true` | Log ML predictions without blocking |
+| `ml_threat_detection_enabled` | bool | `false` | INERT — ML detection withdrawn 2026-11-23; do not enable |
+| `ml_shadow_mode` | bool | `true` | INERT — ML detection withdrawn 2026-11-23 |
 
 ### Logging
 
@@ -305,7 +305,7 @@ Checks performed:
 - Valid log level and format
 - Positive rate limits
 - SIEM platforms have endpoints
-- ML detection with shadow mode warning
+- ML detection withdrawn 2026-11-23 (settings inert)
 - A2A/ACP config file existence
 - Trust framework license requirement warning
 

@@ -339,7 +339,7 @@ If we ever change any of these, the change will be:
 
 - 📜 **[Privacy Policy](/lens/privacy/)** — the full text of what Lens does and doesn't collect
 - 🏗️ **[Architecture](/lens/architecture/)** — how the 5-facet detection system works
-- 🔒 **[Security Model](/lens/security/)** — content security policy, ML security, vulnerability disclosure
+- 🔒 **[Security Model](/lens/security/)** — content security policy, ML withdrawal notice, vulnerability disclosure
 - 📋 **[Changelog](/lens/changelog/)** — what changed in each version
 - ⚖️ **[Lens vs Platform](/lens/compare/)** — when to use Lens alone, when to add Platform
 

@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Scanner — Antivirus for AI Artifacts"
-description: "Free, open-source static analysis scanner for AI artifacts. 523 regex patterns + CharCNN-BiLSTM ML detection across 12 security categories. Detects prompt injection, secrets, PII, dangerous code, compliance violations, and OT/ICS exposure in RAG docs, training data, model configs, and agent skills."
+description: "Free, open-source static analysis scanner for AI artifacts. 523 regex patterns across 12 security categories. Detects prompt injection, secrets, PII, dangerous code, compliance violations, and OT/ICS exposure in RAG docs, training data, model configs, and agent skills."
 type: "landing"
 mermaid: true
 ---
@@ -14,7 +14,7 @@ mermaid: true
      AEGISGATE SCANNER — AI ARTIFACT STATIC ANALYSIS
      ============================================================ -->
 
-> **🛡️ AegisGate Scanner v0.6.1 is LIVE** — 523 regex patterns, CharCNN-BiLSTM ML detection, 8 output formats, SARIF, SBOM, GitHub Action, dual Docker images. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-scanner) (free, open source, Apache 2.0).
+> **🛡️ AegisGate Scanner v0.6.1 is LIVE** — 523 regex patterns, 8 output formats, SARIF, SBOM, GitHub Action, Docker images. (ML detection withdrawn 2026-11-23.) [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-scanner) (free, open source, Apache 2.0).
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate Scanner</strong> is a <strong>free, open-source static analysis scanner</strong> for AI artifacts. It detects prompt injection, secrets, PII, dangerous code, compliance violations, and OT/ICS exposure — before they reach production.
@@ -42,7 +42,7 @@ Every file you feed into an LLM is a potential attack vector. A training dataset
 
 ## Detection Categories
 
-Scanner uses a three-layer detection pipeline: keyword pre-filter → regex pattern matching → ML neural network.
+Scanner uses a multi-layer detection pipeline: keyword pre-filter → regex pattern matching. (The ML neural network layer was withdrawn 2026-11-23.)
 
 | Category | Patterns | What It Detects |
 |----------|----------|----------------|
@@ -56,11 +56,11 @@ Scanner uses a three-layer detection pipeline: keyword pre-filter → regex patt
 | 🤖 AI/ML Security | 18 | Model poisoning, data exfiltration, membership inference, model inversion, adversarial examples |
 | 📊 Metadata Rules | 21+247 | Explicit + fallback rules for artifact classification (HuggingFace, PyTorch, ONNX, etc.) |
 
-**Total: 523 regex patterns across 12 categories + CharCNN-BiLSTM ML detection**
+**Total: 523 regex patterns across 12 categories** (ML detection withdrawn 2026-11-23)
 
 ---
 
-## Three-Layer Detection Pipeline
+## Detection Pipeline
 
 {{< mermaid >}}
 flowchart TD
@@ -81,10 +81,6 @@ flowchart TD
         L2B[Compiled Regex Engine]
     end
 
-    subgraph Layer3["🧠 Layer 3: ML Detection"]
-        L3A["CharCNN-BiLSTM · 1.6M Params"]
-        L3B["&lt;1ms CPU Inference"]
-    end
 
     subgraph Output["📤 Output — 8 Formats"]
         O1[SARIF · JSON · JSONL]
@@ -93,8 +89,7 @@ flowchart TD
 
     Input --> Layer1
     Layer1 --> Layer2
-    Layer2 --> Layer3
-    Layer3 --> Output
+    Layer2 --> Output
 
     style Input fill:#1a1f2e,stroke:#38bdf8,stroke-width:2px
     style Layer1 fill:#1a1f2e,stroke:#f59e0b,stroke-width:2px
@@ -157,10 +152,7 @@ chmod +x aegisgate-scanner
 ### Docker
 
 ```bash
-# ML-enabled (with CharCNN-BiLSTM)
-docker run --rm -v $(pwd):/data aegisgatesecurity/scanner:ml scan /data/
-
-# Lite (regex-only, smaller image)
+# Regex + ATLAS detection (ML withdrawn 2026-11-23)
 docker run --rm -v $(pwd):/data aegisgatesecurity/scanner:lite scan /data/
 ```
 
@@ -187,11 +179,9 @@ docker run --rm -v $(pwd):/data aegisgatesecurity/scanner:lite scan /data/
 - **Archive bomb protection** — size limits on extracted files
 - **Baseline suppression** — silence known/accepted findings
 
-### ML Detection
-- **CharCNN-BiLSTM v15** — 1.6M parameters
-- **< 1ms inference** on CPU
-- **No GPU required** — runs on any machine
-- **Heuristic fallback** — works without model file
+### Detection Engine
+- **Deterministic regex + ATLAS** — 523 patterns, no model required
+- **ML detection withdrawn 2026-11-23** — see [/changelog/](/changelog/)
 
 ---
 
@@ -208,7 +198,7 @@ docker run --rm -v $(pwd):/data aegisgatesecurity/scanner:lite scan /data/
 
 ---
 
-**Free, forever.** All patterns, ML detection, all output formats, GitHub Action — no tiers, no plans — free and open source.
+**Free, forever.** All patterns, all output formats, GitHub Action — no tiers, no plans — free and open source.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "MCP Deployment Guide"
-description: "Deploy AegisGate MCP in production — Docker, TLS, air-gapped setups, ML detection, and health monitoring"
+description: "Deploy AegisGate MCP in production — Docker, TLS, air-gapped setups, and health monitoring"
 type: docs
 weight: 54
 ---
@@ -18,7 +18,9 @@ weight: 54
 
 ## Docker Deployment
 
-### Full ML-Enabled Image (~135 MB)
+### Full Image (~135 MB) — ML withdrawn 2026-11-23
+
+> The ML layer was withdrawn 2026-11-23; this image builds but the neural detector is inert. Prefer the lite image.
 
 ```bash
 docker build -t aegisgate-mcp .
@@ -27,7 +29,7 @@ docker run -d --name aegisgate-mcp \
   aegisgate-mcp --transport http --token my-secret
 ```
 
-### Heuristic-Only Image (~8 MB)
+### Lite Image — Recommended (~8 MB, regex + ATLAS only)
 
 ```bash
 docker build --build-arg CGO_ENABLED=0 -t aegisgate-mcp:lite .
@@ -160,23 +162,15 @@ readinessProbe:
 
 ---
 
-## ML Detection Setup
+## Detection — ML Withdrawn 2026-11-23
 
-### CGO-Enabled Build (Full ML)
-
-```bash
-CGO_ENABLED=1 go build -o mcp-server ./cmd/mcp-server
-```
-
-Requires the vendored ONNX Runtime libraries in `lib/` and model in `models/`. These are included in the repository.
-
-### Non-CGO Build (Heuristic Only)
+The CharCNN-BiLSTM neural model was **withdrawn on 2026-11-23** after its training corpus failed an independent label audit. The `CGO_ENABLED=1` + ONNX Runtime ML build path no longer provides detection value and the ML layer is inert. Build with `CGO_ENABLED=0`:
 
 ```bash
 CGO_ENABLED=0 go build -o mcp-server ./cmd/mcp-server
 ```
 
-Falls back to regex + ATLAS heuristic detection only. The CharCNN-BiLSTM neural model is not loaded. Suitable for minimal deployments where the ~80MB of ML libraries is not needed.
+Detection is regex + ATLAS heuristic. See [/changelog/](/changelog/).
 
 ---
 

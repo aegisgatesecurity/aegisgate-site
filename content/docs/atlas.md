@@ -17,7 +17,7 @@ AegisGate maps all security detections to the [MITRE ATLAS](https://atlas.mitre.
 | Initial Access | ✅ Full | Prompt injection detection, auth enforcement |
 | Execution | ✅ Full | Response filtering, content classification |
 | Persistence | ⚠️ Partial | Configuration integrity checks |
-| Defense Evasion | ✅ Full | ML-based detection, adversarial training |
+| Defense Evasion | ✅ Full | Deterministic evasion-pattern detection (ML withdrawn 2026-11-23) |
 | Credential Access | ✅ Full | PII redaction, secret detection |
 | Discovery | ✅ Full | Rate anomaly detection, access pattern monitoring |
 | Lateral Movement | ✅ Full | A2A/ACP/ANP protocol enforcement |

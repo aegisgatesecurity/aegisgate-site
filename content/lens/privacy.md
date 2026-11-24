@@ -1,6 +1,6 @@
 ---
 title: "AegisGate Lens — Privacy Policy"
-description: "Full privacy policy for AegisGate Lens. What we collect, what we don't collect, and how to verify it. Includes ML detection disclosure for v0.6.0."
+description: "Full privacy policy for AegisGate Lens. What we collect, what we don't collect, and how to verify it. ML detection was withdrawn 2026-11-23."
 type: "docs"
 weight: 1
 ---
@@ -18,10 +18,10 @@ weight: 1
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
-<li><strong>5 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (43), ML adversarial (1 model)</li>
-<li><strong>504 automated tests</strong>: 492/492 Node + 12/12 ML perf/stress</li>
-<li><strong>100% adversarial detection</strong> (10/10 prompt injection patterns caught by ML model)</li>
-<li><strong>100% on-device</strong>, zero network egress by default, ML inference included</li>
+<li><strong>4 detection facets</strong>: PII (55), secrets (41), XSS (12), compliance (43) — ML adversarial facet withdrawn 2026-11-23</li>
+<li><strong>Automated tests</strong>: Node test suite (ML perf/stress tests removed with the model 2026-11-23)</li>
+<li><strong>ML detection withdrawn 2026-11-23</strong> — deterministic regex/ATLAS detection only</li>
+<li><strong>100% on-device</strong>, zero network egress by default</li>
 <li><strong>12 privacy non-negotiables</strong>, Apache 2.0, zero external dependencies</li>
 <li><strong>Free, forever</strong></li>
 </ul>
@@ -38,7 +38,7 @@ weight: 1
 
 ## TL;DR
 
-AegisGate Lens is a privacy-first browser extension. By default, it sends **nothing** to any server. All detection — including ML inference — happens locally in your browser. The only data Lens may ever send is anonymous, hashed metadata (detection category, no text) when you explicitly opt in to help improve detection by reporting false positives.
+AegisGate Lens is a privacy-first browser extension. By default, it sends **nothing** to any server. All detection happens locally in your browser. The only data Lens may ever send is anonymous, hashed metadata (detection category, no text) when you explicitly opt in to help improve detection by reporting false positives.
 
 The full source code is on [GitHub](https://github.com/aegisgatesecurity/aegisgate-lens) (Apache 2.0). You can audit every line of code that handles your data.
 
@@ -69,17 +69,11 @@ If we ever change any of these, the change will be:
 
 ---
 
-## ML Detection Disclosure (v0.3.0)
+## ML Detection Disclosure — WITHDRAWN 2026-11-23
 
-Starting in v0.3.0, the Lens includes an on-device ML threat detector (Char CNN-BiLSTM with Attention, 1.6M parameters). This section discloses how the ML model handles user data:
+The on-device ML threat detector (v0.3.0+) was **withdrawn on 2026-11-23** after its training corpus failed an independent label audit (~71% of attack-labeled items flipped to benign). The model weights are no longer shipped, the ML code path is hard-disabled, and all ML metrics are void. No ML inference occurs. Lens runs deterministic regex/ATLAS detection only.
 
-- **The ML model runs entirely on-device.** No prompt content, no ML inference scores, and no model outputs are sent to any server.
-- **The model weights are bundled in the extension package** (3.7MB float16 JSON). They are not downloaded at runtime and cannot be updated remotely.
-- **The model processes at most 128 characters** of the prompt (lowercase ASCII, truncated). Non-ASCII characters are mapped to an UNK token. The processing is a fixed forward pass — no learning, no fine-tuning, no gradient computation.
-- **The model outputs a single score between 0 and 1** (threat probability). This score is used locally to determine whether to show the detection banner. The score is never sent to any server unless the user explicitly opts in to threat-intel reporting, in which case only the detection category (not the score, not the prompt text) is included.
-- **The model is lazy-loaded.** The 3.7MB weight file is not fetched until the first `classify()` call. If the user never types a prompt, the model is never loaded.
-- **The model is not a content moderator.** It detects adversarial prompt injection patterns (instruction override, roleplay injection, obfuscated commands). It does not detect political content, controversial topics, or the substance of what the user is asking the AI to do.
-- **The model does not learn from user input.** It is a fixed, pre-trained model. There is no feedback loop, no reinforcement learning, no online training, no data collection for training purposes.
+Historically (v0.3.0–withdrawal), the ML model ran entirely on-device: no prompt content, inference scores, or outputs were ever sent to any server; weights were bundled, not downloaded; and the model did not learn from user input. **No ML data practices remain in effect because the model no longer exists in the product.** See the [changelog](/changelog/).
 
 ---
 
@@ -91,7 +85,7 @@ By default (Tier 0: Detect-only), Lens:
 2. **Warns** via a non-blocking banner that appears at the top of the page when a detection fires.
 3. **Stores nothing** — no detection history, no keystroke log, no prompt cache.
 
-All of this happens in your browser. No network request is made. ML inference runs in JavaScript — no WASM, no onnxruntime, no remote inference.
+All of this happens in your browser. No network request is made. Detection runs locally — no WASM, no onnxruntime, no remote inference.
 
 ---
 
@@ -99,7 +93,7 @@ All of this happens in your browser. No network request is made. ML inference ru
 
 The only opt-in path in v0.3.0 is **false-positive reporting**: when you click "Submit & Dismiss" on a detection banner. If you opt in (a single click, per-banner), Lens may send:
 
-- ✅ Detection category (e.g., "pii_email", "secret_api_key", "ml_adversarial_prompt")
+- ✅ Detection category (e.g., "pii_email", "secret_api_key", "xss_script")
 - ✅ Pattern ID (e.g., "credit_card_visa_v1")
 - ✅ Domain hash (SHA-256 prefix of the AI provider hostname, 16 hex chars, k-anonymous)
 - ❌ No prompt text
@@ -156,7 +150,7 @@ We do not collect:
 - ❌ IndexedDB entries for tracking
 - ❌ Cache entries for tracking
 - ❌ ML inference scores
-- ❌ Model weight downloads (weights are bundled, not fetched at runtime)
+- ❌ Model weight downloads (no model is bundled or fetched — ML withdrawn 2026-11-23)
 
 ---
 

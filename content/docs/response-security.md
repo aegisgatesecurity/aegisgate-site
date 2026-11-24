@@ -23,8 +23,8 @@ AI model responses can contain dangerous content that must be filtered before de
 |-------|-----------|----------------|
 | Content classification | Toxicity, hate speech, CSAM | 83.1% coverage |
 | PII redaction | SSN, credit card, email, phone, medical | 42 pattern types |
-| Hallucination detection | Factual consistency checks | ML-based scoring |
-| Instruction leak prevention | System prompt exposure blocking | Pattern + ML |
+| Hallucination detection | Factual consistency checks | ML-based scoring — withdrawn 2026-11-23 |
+| Instruction leak prevention | System prompt exposure blocking | Pattern-based (ML withdrawn 2026-11-23) |
 
 ### Configuration
 
@@ -39,7 +39,7 @@ response:
     enabled: true
     patterns: [ssn, credit_card, email, phone, medical_record]
   hallucination:
-    enabled: true
+    enabled: true   # ML-based scoring withdrawn 2026-11-23; deterministic checks only
     min_confidence: 0.7
   instruction_leak:
     enabled: true

@@ -18,7 +18,7 @@ AegisGate is an AI security platform that acts as a gateway for your AI infrastr
 - **Bidirectional scanning** of every API request and response
 - **MCP protocol protection** for AI agent tool execution
 - **A2A protocol protection** for agent-to-agent communication
-- **Threat detection** across 820 patterns with ML-based adversarial detection
+- **Threat detection** across 820 deterministic regex/ATLAS patterns
 - **Compliance reporting** for 31 frameworks (SOC 2, HIPAA, EU AI Act, FedRAMP, and more)
 - **Trust Framework** with per-session trust scoring and signed attestations
 
@@ -44,7 +44,7 @@ AegisGate works with any AI API:
 
 ### Is AegisGate self-hosted?
 
-Yes. AegisGate runs entirely on your infrastructure with **zero external dependencies**. No data leaves your environment. The binary is 19.1MB with no runtime dependencies (excluding optional ONNX Runtime for ML detection).
+Yes. AegisGate runs entirely on your infrastructure with **zero external dependencies**. No data leaves your environment. The binary is 19.1MB with no runtime dependencies.
 
 ### What's the performance impact?
 

@@ -1,15 +1,22 @@
 ---
 title: "Model Card"
-description: "AegisGate Char CNN-BiLSTM Threat Detection Model v15 — architecture, training data, evaluation metrics, and deployment guidance."
+description: "WITHDRAWN 2026-11-23 — AegisGate Char CNN-BiLSTM Threat Detection Model v15 model card, retained as a historical record. All ML metrics are void."
 weight: 380
 ---
 
+
+<div style="border:4px solid #b91c1c;background:#fef2f2;padding:1.25rem 1.5rem;border-radius:0.5rem;margin:1rem 0;font-size:1.05em">
+<strong>🚫 WITHDRAWN — 2026-11-23: This model no longer exists in any AegisGate product.</strong><br>
+All AegisGate neural ML detection (CharCNN-BiLSTM v15/v22b and all predecessors, across Platform, Rampart, Scanner, MCP, and Lens) was withdrawn on <strong>2026-11-23</strong> after the training corpus failed an independent label audit (~71% of attack-labeled items flip to benign). <strong>Every detection-rate, catch-rate, evasion-resistance, latency, and false-positive figure on this page is VOID</strong> and must not be cited. The model weights are no longer shipped. Deterministic regex + ATLAS detection is unaffected. This page is retained as a historical record only. See <a href="/changelog/">/changelog/</a> for the withdrawal notice.
+</div>
 
 <div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
 <strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
 </div>
 
-## Model Card — AegisGate Threat Detector v15
+## Model Card — AegisGate Threat Detector v15 (WITHDRAWN 2026-11-23)
+
+> **All metrics below are void as of 2026-11-23.** Retained for historical transparency only.
 
 This model card follows the ML Model Card framework (Mitchell et al., 2019) and provides transparency into the AegisGate threat detection model.
 
@@ -70,7 +77,7 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 
 ---
 
-## Evaluation Metrics
+## Evaluation Metrics — VOID (2026-11-23)
 
 ### Test Set Results (held-out 10%)
 
@@ -95,7 +102,7 @@ This model card follows the ML Model Card framework (Mitchell et al., 2019) and 
 
 ---
 
-## Model Integrity
+## Model Integrity — historical; model no longer shipped
 
 | Format | SHA-256 |
 |--------|---------|
@@ -110,7 +117,7 @@ The platform verifies the model hash at load time. If the hash does not match, t
 
 1. **Character-level model**: Cannot detect semantic-level attacks that don't manifest as character patterns
 2. **Latin-1 vocabulary**: Non-Latin scripts (CJK, Arabic, Cyrillic) map to UNK — handled by the Unicode homoglyph detector, not the model
-3. **Synthetic training data**: Real-world performance may differ; shadow mode is recommended for the first 7 days
+3. **Synthetic training data**: Real-world performance may differ (void 2026-11-23 — model withdrawn)
 4. **Heuristic fallback**: Covers obfuscated/l33tspeak variants the model may miss — the layered architecture (L1 regex + L2 ATLAS/compliance + L3 ML) provides defense in depth
 
 ---
@@ -118,13 +125,15 @@ The platform verifies the model hash at load time. If the hash does not match, t
 ## Ethical Considerations
 
 - **No user profiling**: The model detects attack patterns, not attackers. It should not be used for user profiling or discrimination
-- **False positive management**: 0.49% FPR on test set. CalibrationManager provides zero-FPR threshold tuning. Shadow mode provides a safety net
+- **False positive management**: ~~0.49% FPR on test set~~ — void 2026-11-23 (corpus label audit failure)
 - **No real user data**: Training uses only synthetic and public datasets
 - **Transparency**: This model card, the architecture, training methodology, and evaluation metrics are published openly
 
 ---
 
-## Deployment Configuration
+## Deployment Configuration — VOID (2026-11-23)
+
+**Do not deploy this configuration.** ML detection is withdrawn; `ml_threat_detection_enabled` is inert. Retained for historical reference only.
 
 ```yaml
 # aegisgate-platform.yaml

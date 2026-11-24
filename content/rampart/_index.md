@@ -106,7 +106,7 @@ flowchart TD
             E1[285 Patterns]
             E2[PII + Secrets]
             E3[XSS + Compliance]
-            E4[ML Adversarial]
+            E4[Adversarial Patterns]
         end
     end
 
@@ -315,7 +315,7 @@ Your AI tool (Copilot/Cursor/API) → Rampart proxy (localhost:8443) → AI mode
 ### Privacy & Security (for compliance teams)
 
 1. **Zero data collection** — no telemetry, no analytics, no phone-home
-2. **All detection is local** — patterns and ML model run on your machine
+2. **All detection is local** — patterns run on your machine (deterministic; ML withdrawn 2026-11-23)
 3. **CA keys encrypted at rest** — passphrase-protected, never plaintext
 4. **Audit log redaction** — PII and secrets stripped from logs before writing to disk
 5. **No network egress** — Rampart never sends your data anywhere
@@ -360,7 +360,7 @@ For detailed setup instructions for each editor, see our [IDE Integration Guide]
 ```json
 {
   "rampart.detection.severity": "warning",
-  "rampart.detection.categories": ["pii", "secrets", "xss", "compliance", "ml"]
+  "rampart.detection.categories": ["pii", "secrets", "xss", "compliance"]
 }
 ```
 </details>
@@ -384,7 +384,7 @@ require'lspconfig'.rampart_lsp.setup{
   filetypes = {"*"}, -- scan all file types
   settings = {
     detection = {
-      categories = {"pii", "secrets", "xss", "compliance", "ml"},
+      categories = {"pii", "secrets", "xss", "compliance"},
       severity = "warning"
     }
   }
@@ -423,7 +423,7 @@ graph TB
 <details>
 <summary><strong>Does Rampart slow down my AI tools?</strong></summary>
 
-No. Detection adds ~5ms latency, which is imperceptible compared to the seconds-long response times of AI models. The ML model runs in pure Go — no external process, no network calls.
+No. Detection adds minimal latency, imperceptible compared to the seconds-long response times of AI models. Detection runs locally in pure Go — no external process, no network calls. (The ML model was withdrawn 2026-11-23.)
 </details>
 
 <details>

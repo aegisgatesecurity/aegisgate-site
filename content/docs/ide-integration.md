@@ -64,7 +64,7 @@ cursor --install-extension aegisgate-rampart
 | **Scan on save** | Automatic scan when you save a file |
 | **Scan Selection** | Select text → Command Palette → "Rampart: Scan Selected Text" |
 | **Scan Document** | Command Palette → "Rampart: Scan Active Document" |
-| **Inline diagnostics** | 🔐 PII · 💳 Financial · 🌍 International · 🔑 Secrets · ⚔️ XSS · 📋 Compliance · 🧠 ML |
+| **Inline diagnostics** | 🔐 PII · 💳 Financial · 🌍 International · 🔑 Secrets · ⚔️ XSS · 📋 Compliance |
 | **Status bar** | Detection count + connection status (bottom right) |
 | **Block mode indicator** | Visual indicator when Rampart is in block mode |
 | **Severity filtering** | Only show diagnostics at or above your chosen threshold |
@@ -95,7 +95,7 @@ Open Settings (Ctrl+, / Cmd+,) and search for "aegisgate":
 
 ### Detection Categories
 
-The extension displays 154 regex patterns + ML neural network detections from Rampart:
+The extension displays deterministic regex/ATLAS detections from Rampart (ML detection was withdrawn 2026-11-23):
 
 | Icon | Category | Detects |
 |------|----------|---------|
@@ -106,7 +106,6 @@ The extension displays 154 regex patterns + ML neural network detections from Ra
 | 🔑 | Secrets | AWS keys, GitHub tokens, OAuth, JWT, database URLs |
 | ⚔️ | XSS | Script injection, event handlers, data URIs |
 | 📋 | Compliance | GDPR, HIPAA, PCI-DSS, SOX identifiers |
-| 🧠 | ML Threat | Char CNN-BiLSTM adversarial prompt detection |
 
 ---
 
@@ -270,7 +269,7 @@ IDE plugin (VS Code / JetBrains / LSP)
      ▼ HTTP POST to localhost
 Rampart proxy (running locally as --daemon)
      │
-     ▼ 154 regex patterns + CharCNN-BiLSTM ML model
+     ▼ 154 regex patterns (deterministic)
 Detection results
      │
      ▼ JSON-RPC diagnostics
@@ -279,9 +278,9 @@ Back to IDE as inline warnings
 
 1. You type or paste text in your editor
 2. The plugin sends text to Rampart's `/detect` endpoint on `localhost`
-3. Rampart runs 154 regex patterns + ML neural network detection
+3. Rampart runs 154 regex patterns (deterministic; ML withdrawn 2026-11-23)
 4. Results return as LSP diagnostics (inline warnings with severity + category)
-5. You see 🔐 🔑 ⚔️ 📋 🧠 icons next to detected content
+5. You see 🔐 🔑 ⚔️ 📋 icons next to detected content
 
 **No text ever leaves your machine.** The plugin talks only to `localhost`. Rampart does the detection locally. No cloud, no telemetry, no external API calls.
 

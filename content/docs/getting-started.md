@@ -206,7 +206,7 @@ Check the dashboard audit log to see the blocked request with the threat classif
 
 This reports:
 - TLS configuration status
-- Detection engine state (regex / ML)
+- Detection engine state (regex/ATLAS)
 - Compliance framework coverage
 - Rate limiting settings
 - Audit log retention

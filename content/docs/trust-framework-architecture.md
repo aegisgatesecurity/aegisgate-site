@@ -345,4 +345,4 @@ Included in the open-source platform. The Trust Framework is a platform capabili
 | v3.1.0 – v3.2.0 | Trust packages pre-built but not first-class |
 | v3.3.0 | Trust packages available as opt-in; not yet wired into main |
 | **v3.6.0+** | **Trust Framework promoted to 6th pillar; HTTP API at `/api/v1/trust/*`; enterprise-grade to enterprise** |
-| v4.0+ (planned) | Cross-organization trust federation; PKI integration; ML-based anomaly detection |
+| v4.0+ (planned) | Cross-organization trust federation; PKI integration |

@@ -38,7 +38,7 @@ Requires `compliance:read` permission (compliance_officer or admin role).
 | 7 | SSO/SAML/OIDC | IA-2 | At least one SSO provider is configured |
 | 8 | Maintenance Windows | MA-2 | Maintenance mode is not currently active |
 | 9 | Data Retention | SI-12 | Log level is configured (audit trail retention) |
-| 10 | ML Threat Detection | SI-3 | ML threat detection is enabled |
+| 10 | Deterministic Detection | SI-3 | Deterministic (regex/ATLAS) detection is enabled; ML withdrawn 2026-11-23 |
 
 ### Check Status Values
 
@@ -117,7 +117,7 @@ Each failed or warning check includes a `remediation` field with actionable guid
 | Rate limiting | Set `proxy.rate_limit` to a value > 0 |
 | RBAC | Set `rbac.enabled: true` |
 | SSO | Configure a SAML or OIDC provider in the `sso` config section |
-| ML detection | Set `security.ml_threat_detection_enabled: true` |
+| Detection | Deterministic regex/ATLAS detection is always on; ML withdrawn 2026-11-23 |
 
 ### Use Cases
 

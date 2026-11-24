@@ -1,6 +1,6 @@
 ---
 title: Deployment
-description: AegisGate Platform deployment guide — Docker, Kubernetes, Helm, and bare-metal installation options with production best practices, ML detection setup, and ONNX Runtime configuration.
+description: AegisGate Platform deployment guide — Docker, Kubernetes, Helm, and bare-metal installation options with production best practices and deterministic detection configuration.
 weight: 420
 ---
 
@@ -96,26 +96,18 @@ docker run -d \
 
 See the [5-Minute Quickstart](/docs/quickstart/) for the fastest path to a running instance.
 
-### Docker with ML Detection (Recommended)
+### ML Detection — Withdrawn 2026-11-23
 
-v4.4.0 introduces CNN-BiLSTM neural network detection. To enable it, mount the ONNX Runtime shared library:
+The CNN-BiLSTM neural network detector was **withdrawn on 2026-11-23** after its training corpus failed an independent label audit (~71% of attack-labeled items flipped to benign). All ML-derived metrics are void. AegisGate runs regex + ATLAS deterministic detection; no ONNX Runtime or model mount is required or supported. See [/changelog/](/changelog/) for the notice.
 
 ```bash
-# 1. Download ONNX Runtime
-curl -sL https://github.com/microsoft/onnxruntime/releases/download/v1.21.0/onnxruntime-linux-x64-1.21.0.tgz | tar xz
-
-# 2. Run with ML detection
 docker run -d --name aegisgate \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
   -v $(pwd)/config.yaml:/etc/aegisgate/config.yaml \
-  -v $(pwd)/onnxruntime-linux-x64-1.21.0/lib/libonnxruntime.so:/usr/local/lib/libonnxruntime.so \
-  -e ONNXRUNTIME_SHARED_LIBRARY_PATH=/usr/local/lib/libonnxruntime.so \
   ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.1
 ```
-
-**Without ONNX Runtime**, AegisGate runs in regex-only mode with 83.1% detection coverage. **With ONNX Runtime**, detection reaches 100% on the adversarial test suite with 0% false positives.
 
 ### Kubernetes (Helm)
 
@@ -126,18 +118,7 @@ helm install aegisgate aegisgate/aegisgate-platform \
   --set config.tier=professional
 ```
 
-For ML detection in Kubernetes, add the ONNX Runtime init container:
-
-```yaml
-# values.yaml
-ml:
-  enabled: true
-  onnxRuntime:
-    image: mcr.microsoft.com/onnxruntime:latest
-    libraryPath: /onnxruntime/lib/libonnxruntime.so
-  model:
-    embedded: true  # Uses the embedded threat_cnn_bilstm.onnx
-```
+ML detection was withdrawn 2026-11-23; do not enable `ml` in Helm values. Deterministic regex/ATLAS detection requires no extra components.
 
 ### Bare Metal
 
@@ -146,36 +127,20 @@ ml:
 curl -sL https://github.com/aegisgatesecurity/aegisgate-platform/releases/download/v5.2.1/aegisgate-platform-linux-amd64 -o aegisgate-platform
 chmod +x aegisgate-platform
 
-# 2. (Optional) Install ONNX Runtime
-curl -sL https://github.com/microsoft/onnxruntime/releases/download/v1.21.0/onnxruntime-linux-x64-1.21.0.tgz | tar xz
-export ONNXRUNTIME_SHARED_LIBRARY_PATH=./onnxruntime-linux-x64-1.21.0/lib/libonnxruntime.so
-
-# 3. Run
+# 2. Run (deterministic detection; no ONNX Runtime required)
 ./aegisgate-platform --config config.yaml
 ```
 
-### ML Detection Configuration
+### Detection Configuration
 
-The ONNX model (`threat_cnn_bilstm.onnx`, 6.1MB) is embedded in the binary and loaded automatically when ONNX Runtime is available.
-
-```yaml
-# config.yaml
-ml_detection:
-  enabled: true  # Default: true when ONNX Runtime is available
-  model: embedded  # "embedded" uses the bundled model, "path" for custom
-  # model_path: /path/to/custom-model.onnx  # Optional: custom model
-  fallback_to_regex: true  # Default: degrade gracefully if ONNX unavailable
-```
+ML detection was withdrawn 2026-11-23. The `ml_detection` settings are inert: the neural model is no longer loaded or used, and all ML-derived metrics are void. Deterministic regex + ATLAS detection is always on.
 
 ### Graceful Degradation
 
-| ONNX Runtime | Detection Mode | Coverage | Latency |
-|-------------|---------------|----------|---------|
-| Available | ML + Regex | 100% adversarial, 0% FPR | ~6ms |
-| Unavailable | Regex Only | 83.1% | <1ms |
-| Load Failure | Regex Only | 83.1% | <1ms |
-
-The degradation path is fully automatic — no manual intervention required.
+| Detection Mode | Status |
+|-------------|--------|
+| Regex + ATLAS (deterministic) | Active — always on |
+| ML + Regex | Withdrawn 2026-11-23 (corpus label audit failure) |
 
 ### Production Checklist
 
@@ -183,7 +148,7 @@ The degradation path is fully automatic — no manual intervention required.
 - [ ] API keys generated and stored in secrets manager
 - [ ] Rate limits configured per tier
 - [ ] Audit log destination configured (SIEM, file, or database)
-- [ ] ML detection enabled (mount ONNX Runtime shared library)
+- [ ] Deterministic detection verified (regex + ATLAS active)
 - [ ] Health check endpoint monitored (`GET /health`)
 - [ ] Prometheus metrics endpoint scraped (`GET /metrics`)
 - [ ] Resource limits set (min 128MB RAM, 1 core CPU)
@@ -199,6 +164,6 @@ The degradation path is fully automatic — no manual intervention required.
 | Disk | 100MB | 1GB | 10GB+ |
 | Network | 10Mbps | 100Mbps | 1Gbps+ |
 
-The Docker image is **19.1MB** with zero external runtime dependencies (excluding optional ONNX Runtime).
+The Docker image is **19.1MB** with zero external runtime dependencies.
 
 _See also: [Installation](/docs/installation/), [Configuration](/docs/configuration/), and [Performance](/docs/performance/)._

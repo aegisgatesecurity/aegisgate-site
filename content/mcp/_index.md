@@ -13,7 +13,7 @@ type: "landing"
      MCP STANDALONE SERVER FRAMEWORK
      ============================================================ -->
 
-> **🛡️ AegisGate MCP v1.8.0 is LIVE** — 23 security layers, Streamable HTTP transport with SSE streaming, server-initiated notifications, resource subscriptions, resource templates, tool poisoning detection, ML threat detection, zero dependencies. [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-mcp) (free, open source, Apache 2.0).
+> **🛡️ AegisGate MCP v1.8.0 is LIVE** — 23 security layers, Streamable HTTP transport with SSE streaming, server-initiated notifications, resource subscriptions, resource templates, tool poisoning detection, zero dependencies. (ML threat detection withdrawn 2026-11-23.) [View on GitHub](https://github.com/aegisgatesecurity/aegisgate-mcp) (free, open source, Apache 2.0).
 
 <div class="alert alert-success alert-center">
 <strong>🛡️ AegisGate MCP</strong> is a <strong>free, open-source MCP server framework</strong> built for security-first AI agent deployments.
@@ -41,7 +41,7 @@ AegisGate MCP is a standalone MCP server framework that applies **23 security la
 |---|-------|-------------|
 | 1 | Regex Pattern Matching | 132 patterns detect known injection vectors |
 | 2 | ATLAS Compliance | Maps to ATLAS threat framework |
-| 3 | Neural ML Detection | CharCNN-BiLSTM v15, 1.6M params, <1ms CPU inference |
+| 3 | ~~Neural ML Detection~~ | **Withdrawn 2026-11-23** — corpus label audit failure; deterministic layers remain |
 | 4 | Tool Poisoning Detection | Scans tool descriptions and schemas at registration |
 | 5 | RBAC | Role-based access control per tool |
 | 6 | Policy Engine | Configurable allow/deny rules |
@@ -99,8 +99,8 @@ srv.Start(ctx)
 
 ## Supply Chain Integrity
 
-Every release includes 12 Cosign-signed assets:
-- 4 binaries (Lite+ML × amd64+arm64)
+Every release includes Cosign-signed assets (ML binary variants withdrawn 2026-11-23):
+- Binaries for amd64 and arm64 (ML variants withdrawn 2026-11-23; see the releases page for current assets)
 - 4 SHA256 checksums
 - 4 Cosign bundles (Sigstore/Fulcio/Rekor)
 - SBOM attestation on container images
@@ -111,7 +111,7 @@ Every release includes 12 Cosign-signed assets:
 |---------|--------------|-----------------|---------|------------|
 | Security layers | 23 | 0 | ~5 | ~3 |
 | Tool poisoning detection | ✅ | ❌ | ❌ | ❌ |
-| ML threat detection | ✅ | ❌ | ❌ | ❌ |
+| ML threat detection | Withdrawn 2026-11-23 | ❌ | ❌ | ❌ |
 | SSE streaming | ✅ | ❌ | ❌ | ❌ |
 | External dependencies | 0 | Many | Many | Many |
 | Supply chain signing | ✅ Cosign | ❌ | ❌ | ❌ |
@@ -121,12 +121,12 @@ See [full comparison](https://github.com/aegisgatesecurity/aegisgate-mcp/blob/ma
 
 ## When to Upgrade to Platform
 
-AegisGate MCP is free and standalone. When you need broader coverage (unlimited ML inference, OAuth/SAML/SSO, SIEM integration, 31 compliance frameworks, multi-protocol support), see [AegisGate Platform](/platform).
+AegisGate MCP is free and standalone. When you need broader coverage (OAuth/SAML/SSO, SIEM integration, 31 compliance frameworks, multi-protocol support), see [AegisGate Platform](/platform).
 
 | Need | AegisGate MCP (free) | AegisGate Platform |
 |------|---------------------|-------------------|
 | Secure MCP server | ✅ 23 layers | ✅ Embedded |
-| ML threat detection | ✅ 100 inf/min | ✅ Unlimited |
+| ML threat detection | Withdrawn 2026-11-23 | Withdrawn 2026-11-23 |
 | OAuth/SAML/SSO | ❌ Bearer tokens | ✅ Full SSO |
 | SIEM integration | ❌ File + Prometheus | ✅ 11 platforms |
 | Compliance | ❌ | ✅ 31 frameworks |

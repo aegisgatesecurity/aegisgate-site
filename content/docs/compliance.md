@@ -93,7 +93,7 @@ All detections produce ATLAS-mapped audit evidence with:
 
 - Timestamp, source IP, user identity
 - Detection rule ID and confidence score
-- ML classification (if applicable)
+- Detection layer (deterministic regex/ATLAS; ML classification withdrawn 2026-11-23)
 - ATLAS tactic and technique mapping
 - Compliance framework cross-reference
 

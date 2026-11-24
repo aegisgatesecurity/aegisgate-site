@@ -204,7 +204,7 @@ aegisgate-lens/
 │   ├── unit/                   # Test files
 │   ├── helpers/                # Mock chrome, load-module
 │   ├── headless-smoke/         # Real-browser integration
-│   └── ml/                     # ML performance + stress tests
+│   └── ml/                     # ML perf/stress tests (skip; ML withdrawn 2026-11-23)
 ├── docs/                       # Public documentation
 │   ├── MODEL-CARD.md
 │   ├── API.md

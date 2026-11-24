@@ -11,14 +11,14 @@ type: docs
 
 ## Overall Score
 
-AegisGate v5.2.0 achieves **100.0/100** evasion resistance with ML threat detection enabled (up from 88.5/100 regex-only), validated against the MITRE ATLAS framework with the following metrics:
+**All ML-derived figures formerly shown here are void as of 2026-11-23** (training-corpus label audit failure). Deterministic regex-only detection was last measured at 88.5/100 evasion resistance with 0.0% FPR on 10,538 benign samples; that figure has not been re-baselined since the withdrawal. Treat all numbers on this page as historical and unverified.
 
-| Metric | v3.6.2 (regex-only) | v5.2.0 (regex + ML) |
+| Metric | Regex-only (last measured) | Regex + ML (VOID 2026-11-23) |
 |--------|---------------------|---------------------|
-| **Overall Evasion Resistance** | 88.5 / 100 | **100 / 100** |
-| **False Positive Rate** | 0.0% (10,538 benign) | **0.0%** (10,538 benign) |
-| **True Positive Rate** | 78.8% (41/52 patterns) | **100%** (52/52 patterns) |
-| **ML Inference Latency** | N/A | **4.78ms avg, 5.27ms max** |
+| **Overall Evasion Resistance** | 88.5 / 100 | ~~100 / 100~~ (void) |
+| **False Positive Rate** | 0.0% (10,538 benign) | ~~0.0%~~ (void) |
+| **True Positive Rate** | 78.8% (41/52 patterns) | ~~100%~~ (void) |
+| **ML Inference Latency** | N/A | ~~4.78ms avg~~ (void) |
 
 ---
 
@@ -46,9 +46,9 @@ AegisGate v5.2.0 achieves **100.0/100** evasion resistance with ML threat detect
 
 ---
 
-## Evasion Resistance Methodology
+## Evasion Resistance Methodology (historical — ML-derived figures void 2026-11-23)
 
-The evasion resistance scores are derived from a rigorous adversarial testing methodology:
+The evasion resistance scores below were produced against the ML detector and are **void as of 2026-11-23**. The methodology is retained for reference; deterministic re-baselining has not yet been performed.
 
 - **2,214 adversarial test cases** generated from 52 ATLAS payload seeds × 50 augmentation transforms (including 10 near-duplicate seeds removed for uniqueness)
 - **10,538 benign examples** (including 1,869 near-miss samples) for false positive rate measurement
@@ -65,25 +65,9 @@ This methodology ensures AegisGate's detection is measured not only against cano
 
 ---
 
-## Feature Flag Architecture
+## Detection Mode (2026-11-23)
 
-AegisGate's ML threat detection is designed for safe, gradual deployment:
-
-| Setting | Default | Description |
-|---------|---------|-------------|
-| `MLThreatDetectionEnabled` | `false` | ML-based threat detection is off by default |
-| `MLShadowMode` | `true` | ML runs in shadow mode, logging without blocking |
-| Validation Window | 7 days | Grace period before enabling blocking mode |
-
-### Gradual Rollout Process
-
-1. **Shadow Mode** — ML models observe traffic and log predictions without taking action. This allows operators to validate detection accuracy against production traffic.
-2. **Validation Window** — After 7 days of shadow operation, review detection logs and tune thresholds before transitioning to blocking mode.
-3. **Blocking Mode** — Enable `MLThreatDetectionEnabled: true` to enforce ML-backed blocking decisions.
-
-### Graceful Degradation
-
-If ML services become unavailable, AegisGate automatically falls back to **rules-only mode**, which maintains an **88.5/100** evasion resistance score. With ML enabled, evasion resistance rises to **100/100**. The rule engine provides complete coverage for all 17 ATLAS technique categories without dependency on ML inference.
+ML detection is **withdrawn**. `MLThreatDetectionEnabled` / `MLShadowMode` are inert. AegisGate runs deterministic regex + ATLAS detection only, covering all 17 ATLAS technique categories without ML inference. The 88.5/100 evasion-resistance figure for regex-only detection is historical and has not been re-baselined. See [/changelog/](/changelog/).
 
 ---
 

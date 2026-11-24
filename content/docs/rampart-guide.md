@@ -247,8 +247,8 @@ platform:
 detection:
   enable_l1_regex: true        # 38 L1 regex patterns
   enable_l2_compliance: true   # 35 L2 compliance patterns
-  enable_ml_evasion: true      # 15 ML evasion resistance patterns
-  enable_ml_model: true        # Char CNN-BiLSTM with Attention
+  enable_ml_evasion: true      # 15 evasion-resistance patterns (regex-based; unaffected by 2026-11-23 ML withdrawal)
+  enable_ml_model: false       # WITHDRAWN 2026-11-23 — Char CNN-BiLSTM removed; do not enable
   enable_response_scan: true   # Scan AI responses
   enable_pii_scan: true
   enable_secret_scan: true
@@ -383,7 +383,7 @@ rampart --block
 
 ## Detection Capabilities
 
-Rampart uses a multi-layered detection pipeline combining regex patterns, compliance rule sets, ML evasion resistance, and a deep learning model — all running locally with ~5 ms latency.
+Rampart uses a multi-layered detection pipeline combining regex patterns, compliance rule sets, and evasion-resistance patterns — all running locally. (The neural ML layer was withdrawn 2026-11-23.)
 
 ### Layer 1: Regex Patterns (38 patterns)
 
@@ -410,7 +410,7 @@ Rampart maps detections to major compliance frameworks, making it easy to demons
 | **PIPEDA** | Canadian Personal Information Protection Act |
 | **POPIA** | South African Protection of Personal Information Act |
 
-### Layer 3: ML Evasion Resistance (15 patterns)
+### Layer 3: Evasion-Resistance Patterns (15 patterns)
 
 Detects attempts to bypass regex-based detection using common obfuscation techniques:
 
@@ -421,14 +421,9 @@ Detects attempts to bypass regex-based detection using common obfuscation techni
 | **L33tspeak** | Character substitution: `s3cr3t`, `p@ssw0rd`, `t0k3n` |
 | **Fragmentation** | Splitting secrets across multiple lines or string concatenation |
 
-### Layer 4: ML Model (Char CNN-BiLSTM with Attention)
+### Layer 4: ML Model — WITHDRAWN 2026-11-23
 
-Rampart includes a character-level CNN-BiLSTM neural network with attention mechanism — the same architecture used in AegisGate Platform, reimplemented in pure Go for on-device inference.
-
-- **Architecture:** Char CNN → BiLSTM → Attention → Dense
-- **Inference:** Pure Go, no external ML runtime required
-- **Latency:** Sub-millisecond inference, ~5 ms total pipeline
-- **Purpose:** Catches novel prompt injection and obfuscated secrets that regex misses
+The character-level CNN-BiLSTM neural network with attention was **withdrawn on 2026-11-23** after its training corpus failed an independent label audit (~71% of attack-labeled items flipped to benign). All ML metrics are void. The layer is disabled and the model is no longer shipped; deterministic regex + ATLAS detection (Layers 1–3) remains active. See [/changelog/](/changelog/).
 
 ### Response Scanning
 
@@ -716,7 +711,7 @@ Rampart is built on **12 non-negotiable privacy principles**. These are architec
 | # | Principle | How it works |
 |---|---|---|
 | 1 | **Zero telemetry by default** | Air-gap mode when `--platform-url` is not set. No network egress, no phone-home, no analytics. |
-| 2 | **All detection is local** | Regex, compliance, and ML model all run on-device. No cloud inference. |
+| 2 | **All detection is local** | Regex and compliance detection run on-device. No cloud inference. |
 | 3 | **CA keys encrypted at rest** | The MITM CA private key is encrypted with a passphrase you provide (`--ca-key-passphrase`). |
 | 4 | **Audit log redaction** | PII and secrets are stripped from audit logs before they are written. Logs contain redacted excerpts only. |
 | 5 | **No network egress** | In air-gap mode, Rampart makes zero outbound network connections (except to the AI provider you're proxying to). |
@@ -901,11 +896,7 @@ netstat -ano | findstr :8080  # Windows
    rampart --rate-limit=100
    ```
 
-2. Disable ML model if not needed (falls back to regex + compliance only):
-   ```yaml
-   detection:
-     enable_ml_model: false
-   ```
+2. The ML model is withdrawn (2026-11-23) and disabled by default; detection runs regex + compliance only.
 
 3. Check for pprof data:
    ```bash
@@ -1012,7 +1003,7 @@ Traditional scanners and Rampart are complementary, not competitive.
 
 ### Does Rampart slow down my AI tools?
 
-No. Rampart adds approximately 5 ms of latency per request. At 235 requests per second throughput capacity, this is imperceptible in normal developer workflows. The ML model runs in pure Go with no external runtime, keeping memory and CPU overhead minimal.
+No. Rampart adds minimal latency per request. At 235 requests per second throughput capacity, this is imperceptible in normal developer workflows. Detection runs locally in pure Go with no external runtime.
 
 ### Can I use Rampart in a corporate environment?
 

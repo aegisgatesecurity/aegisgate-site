@@ -181,7 +181,7 @@ if err != nil {
 | SIEM | Enabled (configure your platform) |
 | SOAR | Enabled (configure your platform) |
 | FIPS | Enabled, level 140-2 |
-| ML shadow mode | On (safe deployment) |
+| ML shadow mode | Inert (ML withdrawn 2026-11-23) |
 | Security headers | On |
 
 **Use when:** You're in a regulated industry (healthcare, finance, defense, government) and need maximum security posture. mTLS is required for all connections, FIPS 140-2 cryptographic mode is active, and SIEM/SOAR integrations are enabled.

@@ -190,7 +190,7 @@ ATLAS organizes 66 techniques into 14 tactics. AegisGate provides comprehensive 
 | ATLAS compliance reporting | — | ✅ | ✅ | ✅ |
 | MITRE ATLAS 66 techniques | ✅ | ✅ | ✅ | ✅ |
 | Custom compliance frameworks | — | — | ✅ | ✅ |
-| ML anomaly detection | — | — | ✅ | ✅ |
+| ~~ML anomaly detection~~ — withdrawn 2026-11-23 (corpus label audit failure) | — | — | — | — |
 | FedRAMP mapping | — | — | — | ✅ |
 
 ---

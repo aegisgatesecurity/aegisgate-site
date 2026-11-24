@@ -28,19 +28,14 @@ AegisGate's threat model is structured using the [STRIDE](https://en.wikipedia.o
 | Threat Type | Risk | Mitigation |
 |-------------|------|------------|
 | **S**poofing | Agent identity forgery | Capability tokens, HMAC verification |
-| **T**ampering | Prompt/response manipulation | Integrity checks, ML detection |
+| **T**ampering | Prompt/response manipulation | Integrity checks, deterministic detection (ML withdrawn 2026-11-23) |
 | **R**epudiation | Denial of security events | Immutable audit log, ATLAS mapping |
 | **I**nformation disclosure | PII leakage in responses | DLP patterns, PII redaction |
 | **D**enial of service | Token exhaustion, API flooding | Rate limiting, token budgets |
 | **E**levation of privilege | Agent privilege escalation | RBAC, capability-based access |
 
-### ML-Powered Detection
+### L3 ML Detection — WITHDRAWN 2026-11-23
 
-v4.2.0 introduces a CNN-BiLSTM neural network for prompt classification:
-
-- **100% detection rate** on adversarial test suite (100/100)
-- **0% false positive rate** on benign inputs
-- **~6ms inference latency** (ONNX Runtime)
-- Graceful degradation to regex-only if ONNX unavailable
+v4.2.0 introduced a CNN-BiLSTM neural network for prompt classification. It was **withdrawn on 2026-11-23** after its training corpus failed an independent label audit (~71% of attack-labeled items flipped to benign). All ML detection-rate/FPR figures are **void**. The system uses deterministic regex + ATLAS detection only; degradation is no longer relevant because ML is off by default and inert. See [/changelog/](/changelog/).
 
 _See also: [Security Overview](/docs/security/) and [MITRE ATLAS Coverage](/docs/atlas/)._

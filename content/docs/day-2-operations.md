@@ -69,7 +69,7 @@ Import the AegisGate dashboard template for visualization of:
 - Detection latency percentiles
 - Compliance posture by framework
 - SIEM event forwarding health
-- ML detection coverage
+- Deterministic detection coverage
 
 ### Compliance Reporting
 

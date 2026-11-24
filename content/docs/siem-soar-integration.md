@@ -110,7 +110,7 @@ Each SIEM event contains:
 | `source` | Always `aegisgate` | `aegisgate` |
 | `type` | Event type | `detection`, `block`, `policy` |
 | `severity` | Severity level | `critical`, `high`, `medium`, `low`, `info` |
-| `category` | Detection category | `pii`, `secrets`, `xss`, `compliance`, `ml_threat` |
+| `category` | Detection category | `pii`, `secrets`, `xss`, `compliance` |
 | `user_hash` | SHA-256 hash of user ID | `a1b2c3...` |
 | `domain_hash` | SHA-256 hash of target domain | `d4e5f6...` |
 | `action` | User action taken | `warn`, `redact`, `block`, `allow` |

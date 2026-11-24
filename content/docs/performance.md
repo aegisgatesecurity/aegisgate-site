@@ -10,12 +10,14 @@ AegisGate is engineered for minimal latency impact while providing comprehensive
 
 ### Latency Benchmarks
 
+> ML latency rows were measured with the neural model present. The model was withdrawn 2026-11-23 after a training-corpus label-audit failure; those figures are void. Deterministic regex/ATLAS screening is unaffected. See [changelog](/changelog/).
+
 | Operation | p50 | p95 | p99 |
 |-----------|-----|-----|-----|
 | Prompt screening (regex) | <1ms | 2ms | 5ms |
-| Prompt screening (ML) | 4ms | 8ms | 12ms |
+| ~~Prompt screening (ML)~~ | *void — ML withdrawn 2026-11-23* | — | — |
 | Response filtering | <1ms | 2ms | 5ms |
-| Full pipeline (regex + ML) | 5ms | 10ms | 18ms |
+| ~~Full pipeline (regex + ML)~~ | *void — ML withdrawn 2026-11-23* | — | — |
 | Configuration reload | <1ms | — | — |
 
 ### Throughput

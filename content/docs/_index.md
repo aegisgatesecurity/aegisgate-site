@@ -156,7 +156,7 @@ POST /api/v1/maintenance     # Enable/disable/schedule
 - [Compliance Frameworks](/docs/compliance/) - 31 frameworks, 2,043 controls, 1,457 automated
 - [Enterprise Deployment](/docs/enterprise-deployment/) - Enterprise deployment guides, compliance modules, and custom integrations
 - [Detection Coverage Matrix](/docs/detection-coverage/) - Per-category detection rates and evasion resistance scores
-- [Graceful Degradation](/docs/graceful-degradation/) - How AegisGate maintains security when ML is unavailable
+- [Graceful Degradation](/docs/graceful-degradation/) - How AegisGate maintains security with deterministic detection (ML withdrawn 2026-11-23)
 - [Distributed Tracing](/docs/distributed-tracing/) - OpenTelemetry integration with Jaeger, Tempo, and OTLP collectors
 - [Tenant Management](/docs/tenant-management/) - Multi-tenant CRUD API with PostgreSQL persistence and RLS
 - [Scoped API Tokens](/docs/scoped-tokens/) - Least-privilege tokens with per-token role, tier, and tenant isolation

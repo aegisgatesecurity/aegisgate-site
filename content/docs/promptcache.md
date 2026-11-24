@@ -12,7 +12,7 @@ AegisGate includes an intelligent prompt cache that reduces redundant threat ana
 
 1. **Prompt received**: Incoming request is hashed (SHA-256)
 2. **Cache lookup**: If an identical prompt was recently screened, the cached result is returned
-3. **Cache miss**: Full regex + ML screening pipeline executes
+3. **Cache miss**: Full regex/ATLAS screening pipeline executes
 4. **Result cached**: Screening result is stored with configurable TTL
 
 ### Configuration
@@ -23,14 +23,14 @@ prompt_cache:
   ttl: 300s          # Cache entry lifetime
   max_size: 10000    # Maximum cached entries
   eviction: lru      # Least Recently Used eviction
-  similarity: false  # Enable semantic similarity matching (ML required)
+  similarity: false  # Semantic similarity matching — unavailable (ML withdrawn 2026-11-23)
 ```
 
 ### Performance Impact
 
 | Metric | Without Cache | With Cache |
 |--------|--------------|------------|
-| Repeated prompt latency | ~6ms (ML) | <0.1ms |
+| Repeated prompt latency | ~6ms (historical; ML withdrawn 2026-11-23) | <0.1ms |
 | Throughput improvement | Baseline | 3-5x |
 | Memory overhead | 0 | ~2MB |
 
