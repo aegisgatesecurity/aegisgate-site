@@ -6,13 +6,37 @@ type: "changelog"
 
 
 <div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
-<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
+<strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected.
 </div>
 
 ## Changelog
 
 
-## Unreleased — 2026-11-23 — ML Detection Withdrawn
+## v5.2.2 — 2026-11-23 — ML Withdrawn
+
+> All neural ML detection (CharCNN-BiLSTM, DeBERTa, RoBERTa, meta-classifiers) is hard-disabled and its model files removed. All prior detection-rate claims are void. Deterministic detection layers are unaffected. See `docs/ML-WITHDRAWN.md` in each repository.
+
+---
+
+### v5.2.1 — 2026-11-11 — Gap-Closure Patterns, Performance Optimizations
+
+- **Gap-closure detection patterns**: `gap_instruction_inventory` (instruction inventory probing), `gap_c2_beaconing` (cron-based C2/exfil), `gap_admin_pin_extract` (partial credential extraction); `gap_hypothetical_framing` and `gap_partial_extraction` extended.
+- **Parallel variant scanning** — goroutine per variant, wall time from sum to max; ML LRU cache (10,000 entries, FNV-1a).
+- **Drug/weapons regex** improved for language-switching attacks.
+- Total detection patterns: 278+ regex + 517 detector adapter.
+
+---
+
+### v5.2.0 — 2026-11-10 — Detector Adapter, Red-Team Corpus Expansion
+
+- **Detector adapter (517 new patterns)**: bridges the standalone AegisGate Scanner's detector engine into Platform — secrets, compliance, data exfiltration, PII, prompt injection, dangerous functions, XSS, path traversal, RAG attacks, evasion, malware, social engineering, OT/ICS, agent poisoning and more. Total detection patterns: 303 canonical + 517 = **820**.
+- **Red team corpus expanded 30 → 50 attacks, 15 → 20 benign**: encoding-chain evasion, adversarial suffixes, indirect prompt injection, language switching, markdown injection, payload smuggling, authority spoofing, semantic obfuscation. Detection: 47/50 (94.0%), 0/20 false positives.
+- **Fullwidth Latin normalization**: `Ｉｇｎｏｒｅ ａｌｌ` → `Ignore all` (U+FF01–U+FF5E).
+- **False-positive mitigations** for despaced text and detector adapter.
+
+---
+
+### v5.1.0 - 2026-11-08 - Model v22b, NFKC Normalization, ATLAS L2 Expansion, MaxSeqLen 512
 
 **All neural ML detection is withdrawn across Platform, Rampart, Scanner, MCP, and Lens.** The CharCNN-BiLSTM (v22b and all predecessors) and the DeBERTa/RoBERTa detectors were trained on a corpus whose attack-side labels failed an independent audit (~71% of adjudicated attack-labeled items flip to benign). Every detection-rate, catch-rate, FPR, and "ML vs regex" figure published on this site, in the docs, in the READMEs, and in release notes prior to 2026-11-23 is **void**. Deterministic (regex/policy) detection is unaffected but has not been re-baselined. ML will return only after corpus remediation, retraining, and re-publication of metrics. Per-repo notices: `docs/ML-WITHDRAWN.md` in each repository. Audit report: `corpus-certification-2026-11-23` (internal).
 
