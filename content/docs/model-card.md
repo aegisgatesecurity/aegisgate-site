@@ -5,12 +5,7 @@ weight: 380
 ---
 
 
-<div style="border:4px solid #b91c1c;background:#fef2f2;padding:1.25rem 1.5rem;border-radius:0.5rem;margin:1rem 0;font-size:1.05em">
-<strong>🚫 WITHDRAWN — 2026-11-23: This model no longer exists in any AegisGate product.</strong><br>
-All AegisGate neural ML detection (CharCNN-BiLSTM v15/v22b and all predecessors, across Platform, Rampart, Scanner, MCP, and Lens) was withdrawn on <strong>2026-11-23</strong> after the training corpus failed an independent label audit (~71% of attack-labeled items flip to benign). <strong>Every detection-rate, catch-rate, evasion-resistance, latency, and false-positive figure on this page is VOID</strong> and must not be cited. The model weights are no longer shipped. Deterministic regex + ATLAS detection is unaffected. This page is retained as a historical record only. See <a href="/changelog/">/changelog/</a> for the withdrawal notice.
-</div>
-
-<div style="border:2px solid #b45309;background:#fffbeb;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
+<div style="border:2px solid #b45309;background:#fffbeb;color:#78350f;padding:0.75rem 1rem;border-radius:0.5rem;margin:1rem 0;font-size:0.95em">
 <strong>⚠ Notice — 2026-11-23: ML detection withdrawn.</strong> All detection-rate, catch-rate, and false-positive figures on this page that derive from the neural threat model are void. The model was withdrawn after its training corpus failed an independent label audit. Deterministic (non-ML) detection is unaffected. See <a href="/changelog/">changelog</a>.
 </div>
 
