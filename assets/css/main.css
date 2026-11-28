@@ -172,6 +172,28 @@ strong, b {
     color: var(--text-primary);
     font-weight: 600;
 }
+/* ML-withdrawal notice banner (2026-11-27): red, dark-theme coherent.
+   NOTE: the global `strong` rule above overrides color inheritance, so the
+   banner's <strong> headline MUST be explicitly re-colored here or it
+   renders near-white on the banner background (the original invisible-text
+   bug). */
+.ml-notice {
+    background: #3b1113;
+    border: 2px solid #ef4444;
+    border-left: 5px solid #ef4444;
+    color: #fecaca;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    font-size: 0.95em;
+}
+.ml-notice strong, .ml-notice b {
+    color: #fca5a5;
+}
+.ml-notice a {
+    color: #38bdf8;
+}
+
 
 a {
     color: var(--primary);
