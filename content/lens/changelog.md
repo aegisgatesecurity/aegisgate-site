@@ -14,7 +14,7 @@ weight: 4
 <!-- If you change any number below, update the repo FIRST, then propagate to all surfaces. -->
 
 <div class="alert alert-info">
-<strong>🛡️ AegisGate Lens v0.7.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
+<strong>🛡️ AegisGate Lens v0.8.0</strong> &mdash; <em>canonical facts (source: <a href="https://github.com/aegisgatesecurity/aegisgate-lens">aegisgate-lens repo</a>)</em>
 
 <ul>
 <li><strong>10 AI providers</strong>: ChatGPT, Claude, Gemini, Copilot, DuckDuckGo, Perplexity, Mistral, Grok, DeepSeek, Meta AI</li>
@@ -30,9 +30,17 @@ weight: 4
 
 # AegisGate Lens — Changelog
 
-The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.7.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.7.0/CHANGELOG.md). This page mirrors the recent versions.
+The full source-of-truth changelog is at [github.com/aegisgatesecurity/aegisgate-lens/blob/v0.8.0/CHANGELOG.md](https://github.com/aegisgatesecurity/aegisgate-lens/blob/v0.8.0/CHANGELOG.md). This page mirrors the recent versions.
 
 ---
+
+## [v0.8.0] - 2026-11-27 - Platform Correlation, Business Tier, Audit Export
+
+> **v0.8.0** adds browser-side telemetry correlation with AegisGate Platform v6.0.0, the Lens Business entitlement/policy tier, and the exportable local audit ring. No ML (withdrawn v0.7.1; regex-only detection).
+
+## [v0.7.1] - 2026-11-23 - ML Withdrawn
+
+> ML threat model removed and hard-disabled; all ML detection-rate claims void. Deterministic regex detection unaffected. See docs/ML-WITHDRAWN.md.
 
 ## [v0.6.0] - 2026-10-22 - ARTEX / LiteLLM Compliance Detection Patterns
 

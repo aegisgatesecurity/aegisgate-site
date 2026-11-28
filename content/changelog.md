@@ -12,6 +12,16 @@ type: "changelog"
 ## Changelog
 
 
+## v6.0.0 — 2026-11-27 — Product Consolidation, Behavioral Baseline, Adversarial Hardening
+
+> **v6.0.0 (major)** — the AegisGate product family is consolidated into the Platform as a single air-gap-safe product; the withdrawn neural ML layer is fully quarantined behind the `aegisgate_ml` build tag (**breaking**: `AEGISGATE_ML_*` environment variables and ML config fields are removed); a statistical behavioral baseline joins the stack in monitor-only mode. Kali live-fire: evasion suite 5/5, overall 15/17. Validation: 123 packages ×5 + upstream module 60 ×5 green, race- and fuzz-clean.
+
+### Also in this release wave
+- **AegisGate Lens v0.8.0** — Platform telemetry correlation, Lens Business entitlement/policy tier, local audit ring with export.
+- **AegisGate Rampart v0.11.3** — ONNX Runtime excised from all build paths (dead since the ML withdrawal); CGO-free binaries verified.
+- **AegisGate Scanner v0.6.3** — pattern-name recovery in the merged-pattern fallback; `scanML` nil-detector hardening.
+- **AegisGate MCP v1.8.2** — Go 1.27.4 (GO-2026-6859) and trufflehog 3.100.0 dependency bump.
+
 ## v5.2.2 — 2026-11-23 — ML Withdrawn
 
 > All neural ML detection (CharCNN-BiLSTM, DeBERTa, RoBERTa, meta-classifiers) is hard-disabled and its model files removed. All prior detection-rate claims are void. Deterministic detection layers are unaffected. See `docs/ML-WITHDRAWN.md` in each repository.

@@ -13,8 +13,8 @@ mermaid: true
 <!-- Source of truth: https://github.com/aegisgatesecurity/aegisgate-platform -->
 
 <div class="alert alert-success alert-center">
-<strong>🏢 AegisGate Platform v5.2.1</strong> — free and open source (Apache 2.0). Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v5.2.1 →</a>
+<strong>🏢 AegisGate Platform v6.0.0</strong> — free and open source (Apache 2.0). Self-hosted, air-gapped, zero data collection. <a href="https://demo.aegisgatesecurity.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left:12px">🚀 Try the Live Demo</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v6.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px">Download v6.0.0 →</a>
 </div>
 
 ---
@@ -60,7 +60,7 @@ Your browser does not support the video tag.
 
 ## Seven Pillars of AI Security
 
-Platform v5.2.1 protects every AI interaction across seven security pillars:
+Platform v6.0.0 protects every AI interaction across seven security pillars:
 
 <div class="card-grid card-grid-2x2">
 <div class="card">
@@ -109,7 +109,7 @@ Platform v5.2.1 protects every AI interaction across seven security pillars:
 </ul>
 </div>
 <div class="card" style="border-color:#a855f7;">
-<h3>📋 Agent Registry <span class="badge">NEW v5.2.0</span></h3>
+<h3>📋 Agent Registry <span class="badge">v6.0.0</span></h3>
 <ul>
 <li>6-source agent discovery (RBAC, MCP, A2A, AIBOM, Correlation, Intent Signing)</li>
 <li>5-state lifecycle: provisioned → active → dormant → quarantined → revoked</li>
@@ -124,7 +124,17 @@ Platform v5.2.1 protects every AI interaction across seven security pillars:
 <li>Neural ML detection withdrawn 2026-11-23</li>
 <li>0% false positive rate (deterministic)</li>
 <li>See <a href="/changelog/">changelog</a> for the withdrawal notice</li>
+<div class="card" style="border-color:#22c55e;">
+<h3>📊 Behavioral Baseline <span class="badge">NEW v6.0.0</span></h3>
+<ul>
+<li>Per-agent statistical self-baselining (EWMA + z-score)</li>
+<li>Monitor-only; zero labeled-data dependency</li>
+<li>Confidence-tiered cold start</li>
+<li>Pure Go, deterministic, zero-alloc hot path</li>
 </ul>
+</div>
+</ul>
+<p style="font-size:0.85em;opacity:0.8">Neural ML detection was withdrawn 2026-11-23 (corpus label audit failure); the quarantined code ships only behind the <code>aegisgate_ml</code> build tag.</p>
 </div>
 </div>
 
@@ -138,14 +148,14 @@ flowchart TD
         C[Applications]
     end
 
-    subgraph Platform["AegisGate Platform v5.2.1"]
+    subgraph Platform["AegisGate Platform v6.0.0"]
         direction TB
         P1["🌐 HTTP API — 820 patterns, PII, Secrets"]
         P2["🔗 MCP — Session auth, 8 guardrails"]
         P3["🤝 A2A — mTLS, HMAC, Rate limiting"]
         P4["🛡️ Response — PII, Secrets, Redaction"]
         P5["🔐 Trust — Scoring, Ed25519 attestation"]
-        P6["🎯 Deterministic — 820 regex/ATLAS patterns"]
+        P6["📊 Behavioral — statistical baseline, monitor-only"]
     end
 
     subgraph Output["AI Services"]
@@ -335,7 +345,7 @@ docker run -d \
   -p 8082:8082 \
   -p 8083:8083 \
   -p 8443:8443 \
-  ghcr.io/aegisgatesecurity/aegisgate-platform:v5.2.1
+  ghcr.io/aegisgatesecurity/aegisgate-platform:v6.0.0
 ```
 
 ### Bare Metal
@@ -412,7 +422,7 @@ For the full technical architecture — six-pillar internals, Trust Framework AP
 
 <p>
 <a href="https://github.com/aegisgatesecurity/aegisgate-platform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source code →</a>
-<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v5.2.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
+<a href="https://github.com/aegisgatesecurity/aegisgate-platform/releases/tag/v6.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Release notes →</a>
 <a href="/docs/" class="btn btn-secondary">Documentation →</a>
 <a href="/compliance/" class="btn btn-secondary">Compliance →</a>
 <a href="/tech/" class="btn btn-secondary">Technical architecture →</a>
