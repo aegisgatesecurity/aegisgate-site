@@ -28,7 +28,7 @@
     {{ if .Params.mermaid }}<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>{{ end }}
     
     <!-- CSS -->
-    {{ $styles := resources.Get "css/main.css" | minify }}
+    {{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
     {{ if $styles }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{ end }}
